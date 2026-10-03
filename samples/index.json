@@ -21,5 +21,7 @@
   "secondary-science-electricity.json",
   "secondary-science-cells.json",
   "secondary-science-chem-acids.json",
-  "secondary-science-chem-atomic.json"
+  "secondary-science-chem-atomic.json",
+  "secondary-science-chem-bonding.json",
+  "secondary-science-chem-mole.json"
 ]
