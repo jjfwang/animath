@@ -1,0 +1,474 @@
+{
+  "animath": "0.1",
+  "title": "Pushes, pulls, friction and magnets",
+  "level": "primary",
+  "subject": "science",
+  "topic": "forces-magnets",
+  "kind": "concept",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Push and pull",
+      "narration": "A push moves something away from you. A pull brings it closer. Both are forces — and forces change how things move.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "box",
+            "kind": "rect",
+            "x": 400,
+            "y": 320,
+            "w": 140,
+            "h": 140,
+            "fill": "#d4a574",
+            "stroke": "#8a5a28",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "pushLabel",
+            "kind": "text",
+            "x": 120,
+            "y": 410,
+            "text": "PUSH",
+            "size": 40,
+            "color": "#8a1f1f"
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "pushArrow",
+            "kind": "arrow",
+            "x1": 240,
+            "y1": 390,
+            "x2": 380,
+            "y2": 390,
+            "stroke": "#8a1f1f",
+            "width": 6
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "move",
+          "target": "box",
+          "to": {
+            "x": 540,
+            "y": 320
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 3000,
+          "do": "hide",
+          "target": "pushArrow"
+        },
+        {
+          "at_ms": 3200,
+          "do": "hide",
+          "target": "pushLabel"
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "pullLabel",
+            "kind": "text",
+            "x": 120,
+            "y": 410,
+            "text": "PULL",
+            "size": 40,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "pullArrow",
+            "kind": "arrow",
+            "x1": 240,
+            "y1": 390,
+            "x2": 400,
+            "y2": 390,
+            "stroke": "#1f7a3a",
+            "width": 6
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "hand",
+            "kind": "text",
+            "x": 180,
+            "y": 390,
+            "text": "←",
+            "size": 44,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "caption",
+          "text": "Push away, pull closer — both are forces"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Friction slows things down",
+      "narration": "The block slides down the slope. The rough surface rubs against it — that rubbing force is called friction, and it slows the block down.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "slope",
+            "kind": "line",
+            "x1": 150,
+            "y1": 440,
+            "x2": 750,
+            "y2": 220,
+            "stroke": "#5b6672",
+            "width": 6
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "rough",
+            "kind": "text",
+            "x": 400,
+            "y": 400,
+            "text": "rough surface",
+            "size": 28,
+            "color": "#5b6672"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "block",
+            "kind": "rect",
+            "x": 560,
+            "y": 140,
+            "w": 110,
+            "h": 90,
+            "fill": "#9fc3e8",
+            "stroke": "#2f5d8a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "move",
+          "target": "block",
+          "to": {
+            "x": 300,
+            "y": 240
+          },
+          "dur_ms": 2600
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "fricArrow",
+            "kind": "arrow",
+            "x1": 330,
+            "y1": 300,
+            "x2": 470,
+            "y2": 255,
+            "stroke": "#8a1f1f",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "fricLabel",
+            "kind": "text",
+            "x": 330,
+            "y": 240,
+            "text": "friction pushes back",
+            "size": 28,
+            "color": "#8a1f1f"
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "emphasize",
+          "target": "block",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "Friction is a force that fights sliding"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Opposite poles attract",
+      "narration": "Every magnet has a north pole and a south pole. Opposite poles pull each other — N and S snap together, even without touching.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "magA",
+            "kind": "rect",
+            "x": 150,
+            "y": 300,
+            "w": 160,
+            "h": 90,
+            "fill": "#e05252",
+            "stroke": "#7a1f1f",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "labA",
+            "kind": "text",
+            "x": 220,
+            "y": 358,
+            "text": "N  |  S",
+            "size": 40,
+            "color": "#ffffff",
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "magB",
+            "kind": "rect",
+            "x": 650,
+            "y": 300,
+            "w": 160,
+            "h": 90,
+            "fill": "#5286e0",
+            "stroke": "#1f3a7a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "labB",
+            "kind": "text",
+            "x": 720,
+            "y": 358,
+            "text": "N  |  S",
+            "size": 40,
+            "color": "#ffffff",
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "x": 120,
+            "y": 140,
+            "text": "S and N face each other",
+            "size": 32,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "target": "magB",
+          "to": {
+            "x": 390,
+            "y": 300
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "target": "labB",
+          "to": {
+            "x": 460,
+            "y": 358
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "snap",
+            "kind": "text",
+            "x": 430,
+            "y": 240,
+            "text": "Click!",
+            "size": 40,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "emphasize",
+          "target": "magA",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "N and S pull together — they attract"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Like poles push away",
+      "narration": "Turn the magnet around and N faces N. Now they push each other apart — like poles repel. Magnets also ignore most things: they only pull iron and a few metals.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "magA",
+            "kind": "rect",
+            "x": 150,
+            "y": 300,
+            "w": 160,
+            "h": 90,
+            "fill": "#e05252",
+            "stroke": "#7a1f1f",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "labA",
+            "kind": "text",
+            "x": 220,
+            "y": 358,
+            "text": "N  |  S",
+            "size": 40,
+            "color": "#ffffff",
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "magB",
+            "kind": "rect",
+            "x": 650,
+            "y": 300,
+            "w": 160,
+            "h": 90,
+            "fill": "#5286e0",
+            "stroke": "#1f3a7a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "labB",
+            "kind": "text",
+            "x": 720,
+            "y": 358,
+            "text": "N  |  S",
+            "size": 40,
+            "color": "#ffffff",
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "x": 120,
+            "y": 140,
+            "text": "N faces N this time",
+            "size": 32,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "target": "magB",
+          "to": {
+            "x": 480,
+            "y": 300
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "target": "labB",
+          "to": {
+            "x": 550,
+            "y": 358
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "magB",
+          "to": {
+            "x": 650,
+            "y": 300
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "labB",
+          "to": {
+            "x": 720,
+            "y": 358
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 4800,
+          "do": "caption",
+          "text": "N and N push apart — and magnets ignore most metals"
+        }
+      ]
+    }
+  ]
+}

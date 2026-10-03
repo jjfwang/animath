@@ -1,0 +1,548 @@
+{
+  "animath": "0.1",
+  "title": "The water cycle",
+  "level": "primary",
+  "subject": "science",
+  "topic": "water-cycle",
+  "kind": "concept",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Evaporation: water rises as vapour",
+      "narration": "The sun heats the sea. The water gets warm and rises into the air as an invisible gas called water vapour.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "sun",
+            "kind": "circle",
+            "cx": 810,
+            "cy": 100,
+            "r": 60,
+            "fill": "#ffdd55",
+            "stroke": "#e6b800",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "sea",
+            "kind": "rect",
+            "x": 60,
+            "y": 400,
+            "w": 840,
+            "h": 140,
+            "fill": "#7fb3e8",
+            "stroke": "#3a7bd5",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "seaLabel",
+            "kind": "text",
+            "x": 90,
+            "y": 470,
+            "text": "Sea",
+            "size": 32,
+            "color": "#123c7a"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "arrow1",
+            "kind": "arrow",
+            "x1": 300,
+            "y1": 380,
+            "x2": 300,
+            "y2": 320,
+            "stroke": "#e07b00",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "arrow2",
+            "kind": "arrow",
+            "x1": 480,
+            "y1": 380,
+            "x2": 480,
+            "y2": 320,
+            "stroke": "#e07b00",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "drop1",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 330,
+            "r": 12,
+            "fill": "#5a9bd4"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "drop2",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 12,
+            "fill": "#5a9bd4"
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "move",
+          "target": "drop1",
+          "to": {
+            "cx": 300,
+            "cy": 190
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 1750,
+          "do": "move",
+          "target": "drop2",
+          "to": {
+            "cx": 480,
+            "cy": 190
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "heat",
+            "kind": "text",
+            "x": 120,
+            "y": 120,
+            "text": "Heat rises the water up",
+            "size": 32,
+            "color": "#b35500"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "caption",
+          "text": "The water did not disappear — it became invisible vapour"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Condensation: vapour becomes cloud",
+      "narration": "High up, the air is cold. The water vapour cools down and turns back into tiny drops of water that gather into clouds.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "coldAir",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "Cold air",
+            "size": 30,
+            "color": "#3a7bd5"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "dropA",
+            "kind": "circle",
+            "cx": 380,
+            "cy": 150,
+            "r": 10,
+            "fill": "#5a9bd4"
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "dropB",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 160,
+            "r": 10,
+            "fill": "#5a9bd4"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "dropC",
+            "kind": "circle",
+            "cx": 580,
+            "cy": 150,
+            "r": 10,
+            "fill": "#5a9bd4"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "move",
+          "target": "dropA",
+          "to": {
+            "cx": 430,
+            "cy": 250
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "dropB",
+          "to": {
+            "cx": 480,
+            "cy": 250
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 1600,
+          "do": "move",
+          "target": "dropC",
+          "to": {
+            "cx": 530,
+            "cy": 250
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "circle",
+            "cx": 400,
+            "cy": 260,
+            "r": 55,
+            "fill": "#ffffff",
+            "stroke": "#9aa5b1",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 240,
+            "r": 65,
+            "fill": "#ffffff",
+            "stroke": "#9aa5b1",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "circle",
+            "cx": 560,
+            "cy": 260,
+            "r": 55,
+            "fill": "#ffffff",
+            "stroke": "#9aa5b1",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "emphasize",
+          "target": "c2",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "Tiny drops join together — a cloud is born"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Precipitation: water falls as rain",
+      "narration": "The drops in the cloud get bigger and heavier. When they are too heavy to float, they fall as rain.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "circle",
+            "cx": 400,
+            "cy": 180,
+            "r": 55,
+            "fill": "#8f9aa6",
+            "stroke": "#5b6672",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 200,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 160,
+            "r": 65,
+            "fill": "#8f9aa6",
+            "stroke": "#5b6672",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "circle",
+            "cx": 560,
+            "cy": 180,
+            "r": 55,
+            "fill": "#8f9aa6",
+            "stroke": "#5b6672",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "rain1",
+            "kind": "arrow",
+            "x1": 400,
+            "y1": 250,
+            "x2": 400,
+            "y2": 300,
+            "stroke": "#3a7bd5",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "rain2",
+            "kind": "arrow",
+            "x1": 480,
+            "y1": 240,
+            "x2": 480,
+            "y2": 290,
+            "stroke": "#3a7bd5",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "rain3",
+            "kind": "arrow",
+            "x1": 560,
+            "y1": 250,
+            "x2": 560,
+            "y2": 300,
+            "stroke": "#3a7bd5",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "move",
+          "target": "rain1",
+          "to": {
+            "x1": 400,
+            "y1": 400,
+            "x2": 400,
+            "y2": 450
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 1900,
+          "do": "move",
+          "target": "rain2",
+          "to": {
+            "x1": 480,
+            "y1": 400,
+            "x2": 480,
+            "y2": 450
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "target": "rain3",
+          "to": {
+            "x1": 560,
+            "y1": 400,
+            "x2": 560,
+            "y2": 450
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "rainLabel",
+            "kind": "text",
+            "x": 620,
+            "y": 440,
+            "text": "Rain",
+            "size": 36,
+            "color": "#123c7a"
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "caption",
+          "text": "Heavy drops fall — we call this precipitation"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Collection: rivers return water to the sea",
+      "narration": "Rain falls on the mountains and runs down as rivers. The rivers carry the water back to the sea — and the cycle starts again.",
+      "duration_ms": 6000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "mountain",
+            "kind": "polygon",
+            "points": [
+              [
+                150,
+                420
+              ],
+              [
+                280,
+                160
+              ],
+              [
+                410,
+                420
+              ]
+            ],
+            "fill": "#b8c4ae",
+            "stroke": "#6b7a5e",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "sea",
+            "kind": "rect",
+            "x": 560,
+            "y": 400,
+            "w": 340,
+            "h": 140,
+            "fill": "#7fb3e8",
+            "stroke": "#3a7bd5",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "river",
+            "kind": "arrow",
+            "x1": 300,
+            "y1": 220,
+            "x2": 420,
+            "y2": 380,
+            "stroke": "#3a7bd5",
+            "width": 8
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "riverLabel",
+            "kind": "text",
+            "x": 230,
+            "y": 250,
+            "text": "River",
+            "size": 30,
+            "color": "#123c7a"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "flow",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 220,
+            "r": 10,
+            "fill": "#5a9bd4"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "move",
+          "target": "flow",
+          "to": {
+            "cx": 520,
+            "cy": 430
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 4000,
+          "do": "emphasize",
+          "target": "sea",
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "The cycle never ends — round and round it goes"
+        }
+      ]
+    }
+  ]
+}
