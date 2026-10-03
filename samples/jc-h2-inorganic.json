@@ -1,1 +1,1307 @@
-{"animath":"0.1","canvas":{"height":540,"width":960},"kind":"concept","level":"jc","scenes":[{"caption":"Across period 3, atoms shrink","duration_ms":9000,"id":"s1","narration":"Across period 3 the nuclear charge climbs while electrons join the same shell. The stronger pull shrinks each atom: sodium is the largest, chlorine the smallest.","steps":[{"at_ms":0,"do":"show","shape":{"cx":140,"cy":290,"fill":"#1a56db","id":"naAtom","kind":"circle","r":36}},{"at_ms":600,"do":"show","shape":{"cx":255,"cy":290,"fill":"#1a56db","id":"mgAtom","kind":"circle","r":33}},{"at_ms":1200,"do":"show","shape":{"cx":370,"cy":290,"fill":"#1a56db","id":"alAtom","kind":"circle","r":30}},{"at_ms":1800,"do":"show","shape":{"cx":485,"cy":290,"fill":"#1a56db","id":"siAtom","kind":"circle","r":27}},{"at_ms":2400,"do":"show","shape":{"cx":600,"cy":290,"fill":"#1a56db","id":"pAtom","kind":"circle","r":23}},{"at_ms":3000,"do":"show","shape":{"cx":715,"cy":290,"fill":"#1a56db","id":"sAtom","kind":"circle","r":19}},{"at_ms":3600,"do":"show","shape":{"cx":830,"cy":290,"fill":"#1a56db","id":"clAtom","kind":"circle","r":16}},{"at_ms":4600,"do":"show","shape":{"id":"naLabel","kind":"text","size":24,"text":"Na","x":130,"y":380}},{"at_ms":4800,"do":"show","shape":{"id":"mgLabel","kind":"text","size":24,"text":"Mg","x":245,"y":380}},{"at_ms":5000,"do":"show","shape":{"id":"alLabel","kind":"text","size":24,"text":"Al","x":360,"y":380}},{"at_ms":5200,"do":"show","shape":{"id":"siLabel","kind":"text","size":24,"text":"Si","x":478,"y":380}},{"at_ms":5400,"do":"show","shape":{"id":"pLabel","kind":"text","size":24,"text":"P","x":596,"y":380}},{"at_ms":5600,"do":"show","shape":{"id":"sLabel","kind":"text","size":24,"text":"S","x":711,"y":380}},{"at_ms":5800,"do":"show","shape":{"id":"clLabel","kind":"text","size":24,"text":"Cl","x":826,"y":380}},{"at_ms":6800,"do":"show","shape":{"id":"shrinkNote","kind":"text","size":26,"text":"nuclear charge rises, same shell → smaller atoms","x":120,"y":100}},{"at_ms":7400,"do":"emphasize","dur_ms":1000,"target":"clAtom"},{"at_ms":8200,"do":"caption","text":"Across period 3, atoms shrink as nuclear charge rises"}]},{"caption":"Melting point tells the structure story","duration_ms":9000,"id":"s2","narration":"Melting point across period 3 tells the structure story: the giant metallic lattices melt higher and higher, but silicon — giant covalent — melts highest of all. Then phosphorus, sulfur and chlorine are simple molecules, and their melting points collapse.","steps":[{"at_ms":0,"do":"show","shape":{"fill":"#f59e0b","h":120,"id":"naBar","kind":"rect","w":70,"x":105,"y":340}},{"at_ms":400,"do":"show","shape":{"fill":"#f59e0b","h":220,"id":"mgBar","kind":"rect","w":70,"x":220,"y":240}},{"at_ms":800,"do":"show","shape":{"fill":"#f59e0b","h":280,"id":"alBar","kind":"rect","w":70,"x":335,"y":180}},{"at_ms":1200,"do":"show","shape":{"fill":"#b00020","h":420,"id":"siBar","kind":"rect","w":70,"x":450,"y":40}},{"at_ms":1600,"do":"show","shape":{"fill":"#f59e0b","h":70,"id":"pBar","kind":"rect","w":70,"x":565,"y":390}},{"at_ms":2000,"do":"show","shape":{"fill":"#f59e0b","h":90,"id":"sBar","kind":"rect","w":70,"x":680,"y":370}},{"at_ms":2400,"do":"show","shape":{"fill":"#f59e0b","h":60,"id":"clBar","kind":"rect","w":70,"x":795,"y":400}},{"at_ms":3200,"do":"show","shape":{"id":"naLabel","kind":"text","size":22,"text":"Na","x":127,"y":488}},{"at_ms":3400,"do":"show","shape":{"id":"mgLabel","kind":"text","size":22,"text":"Mg","x":242,"y":488}},{"at_ms":3600,"do":"show","shape":{"id":"alLabel","kind":"text","size":22,"text":"Al","x":357,"y":488}},{"at_ms":3800,"do":"show","shape":{"id":"siLabel","kind":"text","size":22,"text":"Si","x":475,"y":488}},{"at_ms":4000,"do":"show","shape":{"id":"pLabel","kind":"text","size":22,"text":"P","x":593,"y":488}},{"at_ms":4200,"do":"show","shape":{"id":"sLabel","kind":"text","size":22,"text":"S","x":708,"y":488}},{"at_ms":4400,"do":"show","shape":{"id":"clLabel","kind":"text","size":22,"text":"Cl","x":820,"y":488}},{"at_ms":5400,"do":"show","shape":{"color":"#b00020","id":"siNote","kind":"text","size":26,"text":"Si: giant covalent — the highest of all","x":120,"y":110}},{"at_ms":6400,"do":"emphasize","dur_ms":1000,"target":"siBar"},{"at_ms":8200,"do":"caption","text":"Structure decides melting point: giant lattices high, simple molecules low"}]},{"caption":"First ionisation energy: the general rise and its two dips","duration_ms":10000,"id":"s3","narration":"First ionisation energy generally rises across period 3 — more protons, same shell, tighter hold. But there are two famous dips: aluminium dips below magnesium because its outer electron sits in a higher p-orbital, and sulfur dips below phosphorus because of paired-electron repulsion in the p-orbitals.","steps":[{"at_ms":0,"do":"show","shape":{"id":"yaxis","kind":"line","stroke":"#1a1a1a","width":2,"x1":120,"x2":120,"y1":60,"y2":470}},{"at_ms":300,"do":"show","shape":{"id":"xaxis","kind":"line","stroke":"#1a1a1a","width":2,"x1":120,"x2":900,"y1":470,"y2":470}},{"at_ms":600,"do":"show","shape":{"id":"yLabel","kind":"text","size":22,"text":"first IE","x":40,"y":80}},{"at_ms":1000,"do":"show","shape":{"fill":"none","id":"ieCurve","kind":"polygon","points":[[150,420],[260,340],[370,370],[480,300],[590,260],[700,290],[810,230]],"stroke":"#1a56db","strokeWidth":4}},{"at_ms":1600,"do":"show","shape":{"cx":150,"cy":420,"fill":"#1a56db","id":"naDot","kind":"circle","r":6}},{"at_ms":1800,"do":"show","shape":{"cx":260,"cy":340,"fill":"#1a56db","id":"mgDot","kind":"circle","r":6}},{"at_ms":2000,"do":"show","shape":{"cx":370,"cy":370,"fill":"#b00020","id":"alDot","kind":"circle","r":7}},{"at_ms":2200,"do":"show","shape":{"cx":480,"cy":300,"fill":"#1a56db","id":"siDot","kind":"circle","r":6}},{"at_ms":2400,"do":"show","shape":{"cx":590,"cy":260,"fill":"#1a56db","id":"pDot","kind":"circle","r":6}},{"at_ms":2600,"do":"show","shape":{"cx":700,"cy":290,"fill":"#b00020","id":"sDot","kind":"circle","r":7}},{"at_ms":2800,"do":"show","shape":{"cx":810,"cy":230,"fill":"#1a56db","id":"clDot","kind":"circle","r":6}},{"at_ms":3600,"do":"show","shape":{"id":"naLabel","kind":"text","size":20,"text":"Na","x":142,"y":500}},{"at_ms":3750,"do":"show","shape":{"id":"mgLabel","kind":"text","size":20,"text":"Mg","x":252,"y":500}},{"at_ms":3900,"do":"show","shape":{"id":"alLabel","kind":"text","size":20,"text":"Al","x":362,"y":500}},{"at_ms":4050,"do":"show","shape":{"id":"siLabel","kind":"text","size":20,"text":"Si","x":472,"y":500}},{"at_ms":4200,"do":"show","shape":{"id":"pLabel","kind":"text","size":20,"text":"P","x":585,"y":500}},{"at_ms":4350,"do":"show","shape":{"id":"sLabel","kind":"text","size":20,"text":"S","x":695,"y":500}},{"at_ms":4500,"do":"show","shape":{"id":"clLabel","kind":"text","size":20,"text":"Cl","x":802,"y":500}},{"at_ms":5600,"do":"show","shape":{"id":"dipNote","kind":"text","size":24,"text":"dips: Al < Mg (p-orbital); S < P (paired repulsion)","x":120,"y":120}},{"at_ms":6600,"do":"emphasize","dur_ms":900,"target":"alDot"},{"at_ms":7400,"do":"emphasize","dur_ms":900,"target":"sDot"},{"at_ms":9000,"do":"caption","text":"IE rises overall but dips at Al and S — the shape of the p-orbitals"}]},{"caption":"Down group 2: reactivity climbs","duration_ms":9000,"id":"s4","narration":"Down group 2 the atoms get bigger and the outer electrons sit further from the nucleus. Shielding grows, ionisation energy falls, and reactivity climbs: magnesium reacts only slowly with water, while barium reacts vigorously.","steps":[{"at_ms":0,"do":"show","shape":{"fill":"#1a56db","h":120,"id":"mgBar","kind":"rect","w":90,"x":180,"y":340}},{"at_ms":500,"do":"show","shape":{"fill":"#1a56db","h":200,"id":"caBar","kind":"rect","w":90,"x":360,"y":260}},{"at_ms":1000,"do":"show","shape":{"fill":"#1a56db","h":280,"id":"srBar","kind":"rect","w":90,"x":540,"y":180}},{"at_ms":1500,"do":"show","shape":{"fill":"#1a56db","h":360,"id":"baBar","kind":"rect","w":90,"x":720,"y":100}},{"at_ms":2200,"do":"show","shape":{"id":"mgLabel","kind":"text","size":24,"text":"Mg","x":210,"y":490}},{"at_ms":2400,"do":"show","shape":{"id":"caLabel","kind":"text","size":24,"text":"Ca","x":392,"y":490}},{"at_ms":2600,"do":"show","shape":{"id":"srLabel","kind":"text","size":24,"text":"Sr","x":575,"y":490}},{"at_ms":2800,"do":"show","shape":{"id":"baLabel","kind":"text","size":24,"text":"Ba","x":755,"y":490}},{"at_ms":3600,"do":"show","shape":{"id":"mgNote","kind":"text","size":24,"text":"Mg reacts slowly with cold water","x":120,"y":120}},{"at_ms":4400,"do":"show","shape":{"id":"baNote","kind":"text","size":24,"text":"Ba reacts vigorously","x":120,"y":160}},{"at_ms":5200,"do":"show","shape":{"id":"whyNote","kind":"text","size":24,"text":"bigger atoms → easier electron loss → more reactive","x":120,"y":80}},{"at_ms":6000,"do":"emphasize","dur_ms":1000,"target":"baBar"},{"at_ms":8200,"do":"caption","text":"Down group 2: bigger atoms lose electrons more easily — reactivity rises"}]},{"caption":"Down group 17: oxidising power falls","duration_ms":10000,"id":"s5","narration":"Down group 17 the trend reverses: atoms grow, so gaining an extra electron gets harder and oxidising power falls. Chlorine can displace bromine from solution — but bromine cannot displace chlorine.","steps":[{"at_ms":0,"do":"show","shape":{"color":"#1a1a1a","id":"dispEq","kind":"latex","size":34,"tex":"\\text{Cl}_2 + 2\\text{Br}^- \\rightarrow 2\\text{Cl}^- + \\text{Br}_2","x":170,"y":120}},{"at_ms":1500,"do":"show","shape":{"id":"note1","kind":"text","size":25,"text":"chlorine displaces bromine: Cl2 is the stronger oxidiser","x":120,"y":200}},{"at_ms":3000,"do":"show","shape":{"id":"note2","kind":"text","size":25,"text":"the reverse does not happen — Br2 cannot displace Cl2","x":120,"y":260}},{"at_ms":4200,"do":"show","shape":{"id":"trendNote","kind":"text","size":25,"text":"down group 17: oxidising power falls (F > Cl > Br > I)","x":120,"y":340}},{"at_ms":5600,"do":"show","shape":{"id":"whyNote","kind":"text","size":25,"text":"bigger atoms hold the extra electron less tightly","x":120,"y":420}},{"at_ms":7000,"do":"emphasize","dur_ms":1000,"target":"dispEq"},{"at_ms":8800,"do":"caption","text":"Oxidising strength falls down group 17 — chlorine displaces bromine"}]},{"caption":"Coloured ions from partially filled d-orbitals","duration_ms":10000,"id":"s6","narration":"Transition metals glow with colour because their d-orbitals are only partly filled. Electrons jump between split d-orbitals, absorbing one wavelength and leaving the rest for your eye: chromium(III) is green, copper(II) is blue, dichromate(VI) is orange — and the colour changes with the oxidation state.","steps":[{"at_ms":0,"do":"show","shape":{"cx":130,"cy":270,"fill":"#16a34a","id":"crCircle","kind":"circle","r":48}},{"at_ms":700,"do":"show","shape":{"cx":320,"cy":270,"fill":"#2563eb","id":"cuCircle","kind":"circle","r":48}},{"at_ms":1400,"do":"show","shape":{"cx":510,"cy":270,"fill":"#b45309","id":"feCircle","kind":"circle","r":48}},{"at_ms":2100,"do":"show","shape":{"cx":700,"cy":270,"fill":"#7c3aed","id":"mnCircle","kind":"circle","r":48}},{"at_ms":2800,"do":"show","shape":{"cx":880,"cy":270,"fill":"#ea580c","id":"diCircle","kind":"circle","r":44}},{"at_ms":3600,"do":"show","shape":{"color":"#1a1a1a","id":"crLabel","kind":"latex","size":28,"tex":"\\text{Cr}^{3+}","x":100,"y":348}},{"at_ms":4000,"do":"show","shape":{"color":"#1a1a1a","id":"cuLabel","kind":"latex","size":28,"tex":"\\text{Cu}^{2+}","x":290,"y":348}},{"at_ms":4400,"do":"show","shape":{"color":"#1a1a1a","id":"feLabel","kind":"latex","size":28,"tex":"\\text{Fe}^{3+}","x":480,"y":348}},{"at_ms":4800,"do":"show","shape":{"color":"#1a1a1a","id":"mnLabel","kind":"latex","size":28,"tex":"\\text{MnO}_4^-","x":658,"y":348}},{"at_ms":5200,"do":"show","shape":{"color":"#1a1a1a","id":"diLabel","kind":"latex","size":24,"tex":"\\text{Cr}_2\\text{O}_7^{2-}","x":812,"y":348}},{"at_ms":6200,"do":"show","shape":{"id":"colourNote","kind":"text","size":25,"text":"partially filled d-orbitals absorb one wavelength","x":120,"y":140}},{"at_ms":7000,"do":"show","shape":{"id":"stateNote","kind":"text","size":25,"text":"change the oxidation state → change the colour","x":120,"y":190}},{"at_ms":7800,"do":"emphasize","dur_ms":1000,"target":"cuCircle"},{"at_ms":9000,"do":"caption","text":"Colour comes from d-orbital electron jumps — each oxidation state has its own"}]},{"caption":"Complexes with ligands, catalysts that flip oxidation states","duration_ms":10000,"id":"s7","narration":"The same available d-orbitals let transition metals grip ligands: copper(II) wraps six water molecules into a deep-blue complex ion. And because they flip oxidation states so easily, oxides like vanadium(V) oxide shuttle electrons as heterogeneous catalysts — for example in the contact process.","steps":[{"at_ms":0,"do":"show","shape":{"cx":300,"cy":150,"fill":"#2563eb","id":"cuComplex","kind":"circle","r":40}},{"at_ms":800,"do":"show","shape":{"color":"#1a1a1a","id":"complexIon","kind":"latex","size":36,"tex":"\\text{Cu}(\\text{H}_2\\text{O})_6^{2+}","x":370,"y":140}},{"at_ms":1800,"do":"show","shape":{"id":"ligandNote","kind":"text","size":25,"text":"six water ligands grip the copper ion","x":120,"y":250}},{"at_ms":2800,"do":"show","shape":{"id":"flipNote","kind":"text","size":25,"text":"variable oxidation states let them shuttle electrons","x":120,"y":310}},{"at_ms":3800,"do":"show","shape":{"color":"#1a1a1a","id":"v2o5","kind":"latex","size":36,"tex":"\\text{V}_2\\text{O}_5","x":250,"y":420}},{"at_ms":4200,"do":"show","shape":{"id":"contactNote","kind":"text","size":25,"text":"catalyst in the contact process","x":430,"y":452}},{"at_ms":5200,"do":"show","shape":{"id":"howNote","kind":"text","size":25,"text":"adsorbs reactants, offers a lower-Ea route, releases products","x":120,"y":505}},{"at_ms":6800,"do":"emphasize","dur_ms":1000,"target":"v2o5"},{"at_ms":8800,"do":"caption","text":"Complexes with ligands; catalysts that flip oxidation states"}]},{"caption":"Misconception: every d-block metal is a transition metal","duration_ms":9000,"id":"s8","narration":"Not every d-block metal is a transition metal. Zinc sits in the d-block, but zinc(II) has a full d-ten subshell — no partially filled d-orbitals, no colour, no variable oxidation states. By the H2 definition, zinc is not a transition metal.","steps":[{"at_ms":0,"do":"show","shape":{"color":"#b00020","id":"mis","kind":"text","size":36,"text":"Misconception:","x":120,"y":120}},{"at_ms":1200,"do":"show","shape":{"id":"wrongClaim","kind":"text","size":28,"text":"every d-block metal is a transition metal","x":120,"y":180}},{"at_ms":2600,"do":"show","shape":{"cx":480,"cy":300,"fill":"#9ca3af","id":"znAtom","kind":"circle","r":60}},{"at_ms":3200,"do":"show","shape":{"color":"#1a1a1a","id":"znConfig","kind":"latex","size":32,"tex":"\\text{Zn}^{2+} : [\\text{Ar}]\\,3d^{10}","x":388,"y":400}},{"at_ms":4200,"do":"show","shape":{"id":"fullNote","kind":"text","size":26,"text":"full d-subshell: no colour, no variable states","x":120,"y":470}},{"at_ms":5600,"do":"show","shape":{"id":"defNote","kind":"text","size":26,"text":"transition metal: an ion with a partially filled d-subshell","x":120,"y":516}},{"at_ms":7000,"do":"emphasize","dur_ms":1000,"target":"znConfig"},{"at_ms":8200,"do":"caption","text":"Zinc is d-block but not a transition metal — its 3d subshell is full"}]}],"subject":"science","title":"JC H2 chemistry — inorganic: periodicity, groups and transition metals","topic":"h2-inorganic"}
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "Across period 3, atoms shrink",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "Across period 3 the nuclear charge climbs while electrons join the same shell. The stronger pull shrinks each atom: sodium is the largest, chlorine the smallest.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 140,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "naAtom",
+            "kind": "circle",
+            "r": 36
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 255,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "mgAtom",
+            "kind": "circle",
+            "r": 33
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 370,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "alAtom",
+            "kind": "circle",
+            "r": 30
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 485,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "siAtom",
+            "kind": "circle",
+            "r": 27
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "cx": 600,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "pAtom",
+            "kind": "circle",
+            "r": 23
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "cx": 715,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "sAtom",
+            "kind": "circle",
+            "r": 19
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "cx": 830,
+            "cy": 290,
+            "fill": "#1a56db",
+            "id": "clAtom",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "naLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Na",
+            "x": 130,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "mgLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Mg",
+            "x": 245,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "alLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Al",
+            "x": 360,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "siLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Si",
+            "x": 478,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "pLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "P",
+            "x": 596,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "sLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "S",
+            "x": 711,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "clLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Cl",
+            "x": 826,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "shrinkNote",
+            "kind": "text",
+            "size": 26,
+            "text": "nuclear charge rises, same shell → smaller atoms",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "clAtom"
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "Across period 3, atoms shrink as nuclear charge rises"
+        }
+      ]
+    },
+    {
+      "caption": "Melting point tells the structure story",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "Melting point across period 3 tells the structure story: the giant metallic lattices melt higher and higher, but silicon — giant covalent — melts highest of all. Then phosphorus, sulfur and chlorine are simple molecules, and their melting points collapse.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#f59e0b",
+            "h": 120,
+            "id": "naBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 105,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "fill": "#f59e0b",
+            "h": 220,
+            "id": "mgBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 220,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "fill": "#f59e0b",
+            "h": 280,
+            "id": "alBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 335,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "fill": "#b00020",
+            "h": 420,
+            "id": "siBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 450,
+            "y": 40
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "fill": "#f59e0b",
+            "h": 70,
+            "id": "pBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 565,
+            "y": 390
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "fill": "#f59e0b",
+            "h": 90,
+            "id": "sBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 680,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "fill": "#f59e0b",
+            "h": 60,
+            "id": "clBar",
+            "kind": "rect",
+            "w": 70,
+            "x": 795,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "naLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "Na",
+            "x": 127,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "mgLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "Mg",
+            "x": 242,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "alLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "Al",
+            "x": 357,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "siLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "Si",
+            "x": 475,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "pLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "P",
+            "x": 593,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "sLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "S",
+            "x": 708,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "clLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "Cl",
+            "x": 820,
+            "y": 488
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "siNote",
+            "kind": "text",
+            "size": 26,
+            "text": "Si: giant covalent — the highest of all",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "siBar"
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "Structure decides melting point: giant lattices high, simple molecules low"
+        }
+      ]
+    },
+    {
+      "caption": "First ionisation energy: the general rise and its two dips",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "First ionisation energy generally rises across period 3 — more protons, same shell, tighter hold. But there are two famous dips: aluminium dips below magnesium because its outer electron sits in a higher p-orbital, and sulfur dips below phosphorus because of paired-electron repulsion in the p-orbitals.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "yaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "x2": 120,
+            "y1": 60,
+            "y2": 470
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "xaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "x2": 900,
+            "y1": 470,
+            "y2": 470
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "yLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "first IE",
+            "x": 40,
+            "y": 80
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "ieCurve",
+            "kind": "polygon",
+            "points": [
+              [
+                150,
+                420
+              ],
+              [
+                260,
+                340
+              ],
+              [
+                370,
+                370
+              ],
+              [
+                480,
+                300
+              ],
+              [
+                590,
+                260
+              ],
+              [
+                700,
+                290
+              ],
+              [
+                810,
+                230
+              ]
+            ],
+            "stroke": "#1a56db",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 150,
+            "cy": 420,
+            "fill": "#1a56db",
+            "id": "naDot",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 260,
+            "cy": 340,
+            "fill": "#1a56db",
+            "id": "mgDot",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 370,
+            "cy": 370,
+            "fill": "#b00020",
+            "id": "alDot",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 300,
+            "fill": "#1a56db",
+            "id": "siDot",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "cx": 590,
+            "cy": 260,
+            "fill": "#1a56db",
+            "id": "pDot",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 700,
+            "cy": 290,
+            "fill": "#b00020",
+            "id": "sDot",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "cx": 810,
+            "cy": 230,
+            "fill": "#1a56db",
+            "id": "clDot",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "naLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "Na",
+            "x": 142,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 3750,
+          "do": "show",
+          "shape": {
+            "id": "mgLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "Mg",
+            "x": 252,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "alLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "Al",
+            "x": 362,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 4050,
+          "do": "show",
+          "shape": {
+            "id": "siLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "Si",
+            "x": 472,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "pLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "P",
+            "x": 585,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 4350,
+          "do": "show",
+          "shape": {
+            "id": "sLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "S",
+            "x": 695,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "id": "clLabel",
+            "kind": "text",
+            "size": 20,
+            "text": "Cl",
+            "x": 802,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "dipNote",
+            "kind": "text",
+            "size": 24,
+            "text": "dips: Al < Mg (p-orbital); S < P (paired repulsion)",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "alDot"
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "sDot"
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "IE rises overall but dips at Al and S — the shape of the p-orbitals"
+        }
+      ]
+    },
+    {
+      "caption": "Down group 2: reactivity climbs",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "Down group 2 the atoms get bigger and the outer electrons sit further from the nucleus. Shielding grows, ionisation energy falls, and reactivity climbs: magnesium reacts only slowly with water, while barium reacts vigorously.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#1a56db",
+            "h": 120,
+            "id": "mgBar",
+            "kind": "rect",
+            "w": 90,
+            "x": 180,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "fill": "#1a56db",
+            "h": 200,
+            "id": "caBar",
+            "kind": "rect",
+            "w": 90,
+            "x": 360,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "fill": "#1a56db",
+            "h": 280,
+            "id": "srBar",
+            "kind": "rect",
+            "w": 90,
+            "x": 540,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "fill": "#1a56db",
+            "h": 360,
+            "id": "baBar",
+            "kind": "rect",
+            "w": 90,
+            "x": 720,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "mgLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Mg",
+            "x": 210,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "caLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Ca",
+            "x": 392,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "srLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Sr",
+            "x": 575,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "baLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "Ba",
+            "x": 755,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "mgNote",
+            "kind": "text",
+            "size": 24,
+            "text": "Mg reacts slowly with cold water",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "baNote",
+            "kind": "text",
+            "size": 24,
+            "text": "Ba reacts vigorously",
+            "x": 120,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "whyNote",
+            "kind": "text",
+            "size": 24,
+            "text": "bigger atoms → easier electron loss → more reactive",
+            "x": 120,
+            "y": 80
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "baBar"
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "Down group 2: bigger atoms lose electrons more easily — reactivity rises"
+        }
+      ]
+    },
+    {
+      "caption": "Down group 17: oxidising power falls",
+      "duration_ms": 10000,
+      "id": "s5",
+      "narration": "Down group 17 the trend reverses: atoms grow, so gaining an extra electron gets harder and oxidising power falls. Chlorine can displace bromine from solution — but bromine cannot displace chlorine.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "dispEq",
+            "kind": "latex",
+            "size": 34,
+            "tex": "\\text{Cl}_2 + 2\\text{Br}^- \\rightarrow 2\\text{Cl}^- + \\text{Br}_2",
+            "x": 170,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "note1",
+            "kind": "text",
+            "size": 25,
+            "text": "chlorine displaces bromine: Cl2 is the stronger oxidiser",
+            "x": 120,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "note2",
+            "kind": "text",
+            "size": 25,
+            "text": "the reverse does not happen — Br2 cannot displace Cl2",
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "trendNote",
+            "kind": "text",
+            "size": 25,
+            "text": "down group 17: oxidising power falls (F > Cl > Br > I)",
+            "x": 120,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "whyNote",
+            "kind": "text",
+            "size": 25,
+            "text": "bigger atoms hold the extra electron less tightly",
+            "x": 120,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "dispEq"
+        },
+        {
+          "at_ms": 8800,
+          "do": "caption",
+          "text": "Oxidising strength falls down group 17 — chlorine displaces bromine"
+        }
+      ]
+    },
+    {
+      "caption": "Coloured ions from partially filled d-orbitals",
+      "duration_ms": 10000,
+      "id": "s6",
+      "narration": "Transition metals glow with colour because their d-orbitals are only partly filled. Electrons jump between split d-orbitals, absorbing one wavelength and leaving the rest for your eye: chromium(III) is green, copper(II) is blue, dichromate(VI) is orange — and the colour changes with the oxidation state.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 130,
+            "cy": 270,
+            "fill": "#16a34a",
+            "id": "crCircle",
+            "kind": "circle",
+            "r": 48
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "cx": 320,
+            "cy": 270,
+            "fill": "#2563eb",
+            "id": "cuCircle",
+            "kind": "circle",
+            "r": 48
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 510,
+            "cy": 270,
+            "fill": "#b45309",
+            "id": "feCircle",
+            "kind": "circle",
+            "r": 48
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "cx": 700,
+            "cy": 270,
+            "fill": "#7c3aed",
+            "id": "mnCircle",
+            "kind": "circle",
+            "r": 48
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "cx": 880,
+            "cy": 270,
+            "fill": "#ea580c",
+            "id": "diCircle",
+            "kind": "circle",
+            "r": 44
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "crLabel",
+            "kind": "latex",
+            "size": 28,
+            "tex": "\\text{Cr}^{3+}",
+            "x": 100,
+            "y": 348
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "cuLabel",
+            "kind": "latex",
+            "size": 28,
+            "tex": "\\text{Cu}^{2+}",
+            "x": 290,
+            "y": 348
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "feLabel",
+            "kind": "latex",
+            "size": 28,
+            "tex": "\\text{Fe}^{3+}",
+            "x": 480,
+            "y": 348
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "mnLabel",
+            "kind": "latex",
+            "size": 28,
+            "tex": "\\text{MnO}_4^-",
+            "x": 658,
+            "y": 348
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "diLabel",
+            "kind": "latex",
+            "size": 24,
+            "tex": "\\text{Cr}_2\\text{O}_7^{2-}",
+            "x": 812,
+            "y": 348
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "colourNote",
+            "kind": "text",
+            "size": 25,
+            "text": "partially filled d-orbitals absorb one wavelength",
+            "x": 120,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "stateNote",
+            "kind": "text",
+            "size": 25,
+            "text": "change the oxidation state → change the colour",
+            "x": 120,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "cuCircle"
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "Colour comes from d-orbital electron jumps — each oxidation state has its own"
+        }
+      ]
+    },
+    {
+      "caption": "Complexes with ligands, catalysts that flip oxidation states",
+      "duration_ms": 10000,
+      "id": "s7",
+      "narration": "The same available d-orbitals let transition metals grip ligands: copper(II) wraps six water molecules into a deep-blue complex ion. And because they flip oxidation states so easily, oxides like vanadium(V) oxide shuttle electrons as heterogeneous catalysts — for example in the contact process.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 150,
+            "fill": "#2563eb",
+            "id": "cuComplex",
+            "kind": "circle",
+            "r": 40
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "complexIon",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\text{Cu}(\\text{H}_2\\text{O})_6^{2+}",
+            "x": 370,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "ligandNote",
+            "kind": "text",
+            "size": 25,
+            "text": "six water ligands grip the copper ion",
+            "x": 120,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "flipNote",
+            "kind": "text",
+            "size": 25,
+            "text": "variable oxidation states let them shuttle electrons",
+            "x": 120,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "v2o5",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\text{V}_2\\text{O}_5",
+            "x": 250,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "contactNote",
+            "kind": "text",
+            "size": 25,
+            "text": "catalyst in the contact process",
+            "x": 430,
+            "y": 452
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "howNote",
+            "kind": "text",
+            "size": 25,
+            "text": "adsorbs reactants, offers a lower-Ea route, releases products",
+            "x": 120,
+            "y": 505
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "v2o5"
+        },
+        {
+          "at_ms": 8800,
+          "do": "caption",
+          "text": "Complexes with ligands; catalysts that flip oxidation states"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: every d-block metal is a transition metal",
+      "duration_ms": 9000,
+      "id": "s8",
+      "narration": "Not every d-block metal is a transition metal. Zinc sits in the d-block, but zinc(II) has a full d-ten subshell — no partially filled d-orbitals, no colour, no variable oxidation states. By the H2 definition, zinc is not a transition metal.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "wrongClaim",
+            "kind": "text",
+            "size": 28,
+            "text": "every d-block metal is a transition metal",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 300,
+            "fill": "#9ca3af",
+            "id": "znAtom",
+            "kind": "circle",
+            "r": 60
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "znConfig",
+            "kind": "latex",
+            "size": 32,
+            "tex": "\\text{Zn}^{2+} : [\\text{Ar}]\\,3d^{10}",
+            "x": 388,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "fullNote",
+            "kind": "text",
+            "size": 26,
+            "text": "full d-subshell: no colour, no variable states",
+            "x": 120,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "defNote",
+            "kind": "text",
+            "size": 26,
+            "text": "transition metal: an ion with a partially filled d-subshell",
+            "x": 120,
+            "y": 516
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "znConfig"
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "Zinc is d-block but not a transition metal — its 3d subshell is full"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "JC H2 chemistry — inorganic: periodicity, groups and transition metals",
+  "topic": "h2-inorganic"
+}
