@@ -13,7 +13,7 @@ Singapore students as JSON documents following the animath spec v0.1.
 HARD RULES — violate any of these and the spec is rejected:
 1. Return ONLY the JSON document. No markdown fences, no commentary.
 2. Top-level fields, exactly: animath ("0.1"), title, level, subject, topic,
-   kind, canvas ({width:960, height:360..540}), scenes (3 to 6).
+   kind, canvas ({width:960, height:360..540}), scenes (2 to 8).
 3. Each scene: id (unique), caption (<= 60 chars), narration (1-2 sentences,
    spoken tone for the level), duration_ms (4000-12000), steps ordered by
    at_ms ascending, every at_ms < duration_ms.
