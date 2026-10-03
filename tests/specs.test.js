@@ -14,8 +14,45 @@ const { extractJson, generateSpecWithRepair } = require('../generator/llm_client
 const samplesDir = path.join(__dirname, '..', 'samples');
 // index.json is the gallery manifest, not an animation spec — exclude it
 // from the spec-validation glob and test it separately below.
-const sampleFiles = fs.readdirSync(samplesDir).filter((f) => f.endsWith('.json') && f !== 'index.json');
+const sampleFiles = fs.readdirSync(samplesDir)
+  .filter((f) => f.endsWith('.json') && f !== 'index.json')
+  .sort();
 const manifestPath = path.join(samplesDir, 'index.json');
+
+// Validator unit tests below mutate a real sample in memory. Directory order
+// is not a contract — a newly added sample can sort first and change
+// fixtureFile — so pick a deterministic fixture: the first sample (sorted)
+// whose opening step is a text shape that no later step references, with
+// headroom in both opening scenes for an appended move step.
+function pickFixtureFile(files, load) {
+  for (const f of files) {
+    const spec = load(f);
+    if (spec.scenes.length < 2) continue;
+    const s0 = spec.scenes[0], s1 = spec.scenes[1];
+    const first0 = s0.steps[0], first1 = s1.steps[0];
+    if (!first0 || first0.do !== 'show' || first0.shape.kind !== 'text') continue;
+    if (!first1 || first1.do !== 'show') continue;
+    const unreferenced = (sc, id) => sc.steps.slice(1).every((st) => st.target !== id);
+    const headroom = (sc) =>
+      sc.steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1 < sc.duration_ms;
+    if (!unreferenced(s0, first0.shape.id) || !unreferenced(s1, first1.shape.id)) continue;
+    if (!headroom(s0) || !headroom(s1)) continue;
+    return f;
+  }
+  throw new Error('no suitable validator-test fixture sample found in samples/');
+}
+const fixtureFile = pickFixtureFile(sampleFiles,
+  (f) => JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8')));
+
+test('fixture picker skips samples that cannot host validator mutations', () => {
+  const load = (f) => JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8'));
+  assert.ok(sampleFiles.includes(pickFixtureFile(sampleFiles, load)),
+    'picker must return a listed sample');
+  // jc-h2-complex.json opens with a line shape, not a text shape, so it can
+  // never be picked as the validator-mutation fixture
+  assert.throws(() => pickFixtureFile(['jc-h2-complex.json'], load),
+    /no suitable validator-test fixture/, 'picker must throw when nothing qualifies');
+});
 
 test('gallery manifest lists exactly the existing, valid samples', () => {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
@@ -163,21 +200,21 @@ test('samples cover math and science across levels', () => {
 });
 
 test('validator rejects a spec with no title', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   delete spec.title;
   const problems = validateSpec(spec);
   assert.ok(problems.some((p) => p.startsWith('title:')), 'expected a title error');
 });
 
 test('validator rejects LaTeX in text shapes', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape.text = 'x = \\frac{-b}{2a}';
   const problems = validateSpec(spec);
   assert.ok(problems.some((p) => p.includes('LaTeX')), 'expected a LaTeX rejection');
 });
 
 test('validator accepts a valid latex shape', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = {
     id: 'm', kind: 'latex', x: 100, y: 100,
     tex: 'a^2 + b^2 = c^2', size: 32, color: '#1f7a3a'
@@ -186,7 +223,7 @@ test('validator accepts a valid latex shape', () => {
 });
 
 test('validator rejects latex shapes with missing or empty tex', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   const shape = { id: 'm', kind: 'latex', x: 100, y: 100 };
   spec.scenes[0].steps[0].shape = shape;
   assert.ok(validateSpec(spec).some((p) => p.includes('.tex:')),
@@ -201,7 +238,7 @@ test('validator rejects latex shapes with missing or empty tex', () => {
 });
 
 test('latex backslashes are allowed in tex but still rejected in text', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = {
     id: 'm', kind: 'latex', x: 100, y: 100, tex: '\\frac{1}{2} + \\sqrt{x}'
   };
@@ -225,14 +262,14 @@ test('latexFallbackText approximates common LaTeX as unicode', () => {
 });
 
 test('validator rejects a move targeting an unshown shape', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'ghost', to: { x: 10, y: 10 }, dur_ms: 500 });
   const problems = validateSpec(spec);
   assert.ok(problems.some((p) => p.includes('must be shown earlier')), 'expected an ordering error');
 });
 
 test('validator rejects a move targeting a non-moveable shape kind', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[1].steps[0].shape = {
     id: 'tri', kind: 'polygon', points: [[100, 100], [200, 100], [150, 200]]
   };
@@ -244,7 +281,7 @@ test('validator rejects a move targeting a non-moveable shape kind', () => {
 });
 
 test('validator rejects a move whose to fields do not match the circle target kind', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
   spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'dot', to: { x: 10, y: 10 }, dur_ms: 500 });
   const problems = validateSpec(spec);
@@ -253,7 +290,7 @@ test('validator rejects a move whose to fields do not match the circle target ki
 });
 
 test('validator rejects a move with a partial to field set on an arrow target', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = { id: 'a', kind: 'arrow', x1: 10, y1: 10, x2: 50, y2: 50 };
   spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'a', to: { x1: 20, y1: 20 }, dur_ms: 500 });
   const problems = validateSpec(spec);
@@ -262,7 +299,7 @@ test('validator rejects a move with a partial to field set on an arrow target', 
 });
 
 test('validator accepts a move whose to fields exactly match the target kind', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
   spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
   spec.scenes[0].steps.push({
@@ -281,7 +318,7 @@ test('validator accepts a move whose to fields exactly match the target kind', (
 });
 
 test('validator rejects a move without dur_ms, and one with a non-numeric dur_ms', () => {
-  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
   const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
   const at = atMsAfter(spec.scenes[0].steps);
@@ -296,7 +333,7 @@ test('validator rejects a move without dur_ms, and one with a non-numeric dur_ms
     'expected a non-numeric-dur_ms error, got: ' + problems.join('; '));
 });
 
-test('validator rejects out-of-order steps', () => {  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+test('validator rejects out-of-order steps', () => {  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   const steps = spec.scenes[0].steps;
   steps.push({ at_ms: 1, do: 'caption', text: 'too late, too early' });
   const problems = validateSpec(spec);

@@ -1,0 +1,538 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "A complex number is a point on the Argand diagram",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "A complex number is a point on the Argand diagram. The real part goes across the horizontal axis, the imaginary part goes up the vertical axis. The number z equals 3 plus 2i sits 3 across and 2 up from the origin.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "reAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 300,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "imAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 480,
+            "x2": 480,
+            "y1": 80,
+            "y2": 500
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "reLab",
+            "kind": "text",
+            "size": 28,
+            "text": "Re",
+            "x": 855,
+            "y": 335
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "imLab",
+            "kind": "text",
+            "size": 28,
+            "text": "Im",
+            "x": 495,
+            "y": 105
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 200,
+            "fill": "#1f7a3a",
+            "id": "z",
+            "kind": "circle",
+            "r": 8
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "zx",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 480,
+            "x2": 640,
+            "y1": 200,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "zy",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 640,
+            "x2": 640,
+            "y1": 200,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "zLab",
+            "kind": "text",
+            "size": 32,
+            "text": "z = 3 + 2i",
+            "x": 665,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "z"
+        },
+        {
+          "at_ms": 6800,
+          "do": "caption",
+          "text": "A complex number is a point: x across, iy up"
+        }
+      ]
+    },
+    {
+      "caption": "Modulus is the distance from the origin",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "The modulus of z is its distance from the origin. With real part x and imaginary part y, the point, the origin, and the axes form a right-angled triangle - so the modulus is Pythagoras: the square root of x squared plus y squared.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "mod",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 200,
+            "x2": 560,
+            "y1": 420,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 420,
+            "fill": "#1a1a1a",
+            "id": "origin",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 560,
+            "cy": 240,
+            "fill": "#1f7a3a",
+            "id": "zpt",
+            "kind": "circle",
+            "r": 8
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "zLab",
+            "kind": "text",
+            "size": 30,
+            "text": "z = x + iy",
+            "x": 600,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "modEq",
+            "kind": "latex",
+            "size": 44,
+            "tex": "|z| = \\sqrt{x^2 + y^2}",
+            "x": 200,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "triX",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 200,
+            "x2": 560,
+            "y1": 420,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "triY",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 560,
+            "x2": 560,
+            "y1": 420,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "mod"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "Modulus: Pythagoras from the origin"
+        }
+      ]
+    },
+    {
+      "caption": "Argument is the angle; the conjugate mirrors it",
+      "duration_ms": 9000,
+      "id": "s3",
+      "narration": "The argument of z is the angle the arrow makes with the positive real axis. Reflect the point across the real axis and the imaginary part flips sign - that is the complex conjugate: z-bar equals x minus iy.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "reAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 360,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "imAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 480,
+            "x2": 480,
+            "y1": 120,
+            "y2": 520
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "z",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 480,
+            "x2": 680,
+            "y1": 360,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "theta",
+            "kind": "text",
+            "size": 36,
+            "text": "θ",
+            "x": 560,
+            "y": 335
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "argEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\arg z = \\theta",
+            "x": 700,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "zc",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 480,
+            "x2": 680,
+            "y1": 360,
+            "y2": 480
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "conjEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\bar{z} = x - iy",
+            "x": 700,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "zc"
+        },
+        {
+          "at_ms": 7800,
+          "do": "caption",
+          "text": "Conjugate: the same point, flipped across the real axis"
+        }
+      ]
+    },
+    {
+      "caption": "Multiplying rotates and stretches",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "Multiplying by z rotates by its angle and stretches by its modulus. So raising z to the power n rotates by n times the angle and stretches by the modulus to the power n. De Moivre's theorem packages exactly that: z to the n equals r to the n times cos n-theta plus i sin n-theta.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "reAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 300,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "z",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 480,
+            "x2": 640,
+            "y1": 300,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "multLab",
+            "kind": "text",
+            "size": 28,
+            "text": "× z: rotate by θ, scale by r",
+            "x": 120,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "z2",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 480,
+            "x2": 700,
+            "y1": 300,
+            "y2": 120
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "demoivre",
+            "kind": "latex",
+            "size": 40,
+            "tex": "z^n = r^n(\\cos n\\theta + i\\sin n\\theta)",
+            "x": 120,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "dmLab",
+            "kind": "text",
+            "size": 26,
+            "text": "de Moivre: powers turn multiplication into angles",
+            "x": 120,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "z2"
+        },
+        {
+          "at_ms": 8000,
+          "do": "caption",
+          "text": "De Moivre: multiply the lengths, add the angles"
+        }
+      ]
+    },
+    {
+      "caption": "The classic slip: angles wrap around",
+      "duration_ms": 8000,
+      "id": "s5",
+      "narration": "One slip to dodge. Take theta equals 100 degrees: three times theta is 300 degrees, but the principal argument of z cubed is not 300 degrees. Principal values wrap into minus 180 to 180 degrees, so the argument is minus 60 degrees. The toolkit: modulus is Pythagoras from the origin, de Moivre turns powers into multiplied lengths and added angles, and Arg always lands inside minus 180 to 180 degrees.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "setup",
+            "kind": "text",
+            "size": 30,
+            "text": "θ = 100°, n = 3 gives nθ = 300°",
+            "x": 120,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "slip",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\arg(z^3) \\ne 300^\\circ",
+            "x": 140,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "fix",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\mathrm{Arg}(z^3) = -60^\\circ",
+            "x": 140,
+            "y": 375
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "wrapLab",
+            "kind": "text",
+            "size": 28,
+            "text": "principal values wrap into (−180°, 180°]",
+            "x": 120,
+            "y": 460
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "fix"
+        },
+        {
+          "at_ms": 6600,
+          "do": "caption",
+          "text": "Angles wrap around; only the principal value is Arg"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "JC H2 complex numbers: the Argand diagram",
+  "topic": "h2-complex"
+}

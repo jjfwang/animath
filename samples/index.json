@@ -29,5 +29,7 @@
   "secondary-physics-energy.json",
   "secondary-physics-waves.json",
   "jc-h2-differentiation.json",
-  "jc-h2-sequences.json"
+  "jc-h2-sequences.json",
+  "jc-h2-vectors.json",
+  "jc-h2-complex.json"
 ]
