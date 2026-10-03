@@ -1,0 +1,985 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "A plant cell, labelled",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "A plant cell is a walled room. The stiff cell wall sits outside, the cell membrane just inside it, the nucleus holds the instructions, the vacuole stores sap, and the green chloroplasts catch sunlight.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "A plant cell, labelled",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 340,
+            "id": "wall",
+            "kind": "rect",
+            "stroke": "#2a7a2a",
+            "w": 400,
+            "width": 5,
+            "x": 190,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "fill": "#eef7ee",
+            "h": 300,
+            "id": "membrane",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "w": 360,
+            "width": 2,
+            "x": 210,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 400,
+            "cy": 270,
+            "fill": "#f5e6b8",
+            "id": "nucleus",
+            "kind": "circle",
+            "r": 48,
+            "stroke": "#8a6d1f",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "fill": "#dceefb",
+            "h": 80,
+            "id": "vacuole",
+            "kind": "rect",
+            "stroke": "#2a6db0",
+            "strokeWidth": 2,
+            "w": 100,
+            "x": 455,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 280,
+            "cy": 200,
+            "fill": "#3fae5a",
+            "id": "ch1",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 340,
+            "fill": "#3fae5a",
+            "id": "ch2",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 505,
+            "cy": 335,
+            "fill": "#3fae5a",
+            "id": "ch3",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "lWall",
+            "kind": "text",
+            "size": 24,
+            "text": "cell wall",
+            "x": 640,
+            "y": 124
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "aWall",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 632,
+            "x2": 592,
+            "y1": 120,
+            "y2": 118
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "lVac",
+            "kind": "text",
+            "size": 24,
+            "text": "vacuole",
+            "x": 640,
+            "y": 179
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "aVac",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 632,
+            "x2": 558,
+            "y1": 175,
+            "y2": 182
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "lMem",
+            "kind": "text",
+            "size": 24,
+            "text": "cell membrane",
+            "x": 640,
+            "y": 234
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "aMem",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 632,
+            "x2": 572,
+            "y1": 230,
+            "y2": 230
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "lNuc",
+            "kind": "text",
+            "size": 24,
+            "text": "nucleus",
+            "x": 640,
+            "y": 294
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "aNuc",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 632,
+            "x2": 450,
+            "y1": 290,
+            "y2": 278
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "lChl",
+            "kind": "text",
+            "size": 24,
+            "text": "chloroplast",
+            "x": 640,
+            "y": 354
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "aChl",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 632,
+            "x2": 522,
+            "y1": 350,
+            "y2": 336
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "caption",
+          "text": "Wall outside, membrane inside, green chloroplasts"
+        }
+      ]
+    },
+    {
+      "caption": "An animal cell, labelled",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "An animal cell keeps the same basics — membrane, nucleus, mitochondria for energy — but there is no stiff wall and no chloroplasts. Animals get energy from food, not sunlight.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "An animal cell, labelled",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "cx": 380,
+            "cy": 290,
+            "fill": "#fdf6e8",
+            "id": "cell",
+            "kind": "circle",
+            "r": 160,
+            "stroke": "#8a6d1f",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "cx": 340,
+            "cy": 250,
+            "fill": "#f5e6b8",
+            "id": "nuc",
+            "kind": "circle",
+            "r": 52,
+            "stroke": "#8a6d1f",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 215,
+            "fill": "#e8977a",
+            "id": "m1",
+            "kind": "circle",
+            "r": 14
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "cx": 505,
+            "cy": 355,
+            "fill": "#e8977a",
+            "id": "m2",
+            "kind": "circle",
+            "r": 14
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 385,
+            "fill": "#e8977a",
+            "id": "m3",
+            "kind": "circle",
+            "r": 14
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "lMem",
+            "kind": "text",
+            "size": 24,
+            "text": "cell membrane",
+            "x": 60,
+            "y": 154
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "aMem",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 238,
+            "x2": 292,
+            "y1": 150,
+            "y2": 162
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "lNuc",
+            "kind": "text",
+            "size": 24,
+            "text": "nucleus",
+            "x": 60,
+            "y": 254
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "aNuc",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 160,
+            "x2": 286,
+            "y1": 250,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 3500,
+          "do": "show",
+          "shape": {
+            "id": "lMit",
+            "kind": "text",
+            "size": 24,
+            "text": "mitochondrion",
+            "x": 60,
+            "y": 354
+          }
+        },
+        {
+          "at_ms": 3700,
+          "do": "show",
+          "shape": {
+            "id": "aMit",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 208,
+            "x2": 286,
+            "y1": 350,
+            "y2": 372
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "noWall",
+            "kind": "text",
+            "size": 22,
+            "text": "no cell wall — only the membrane",
+            "x": 600,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "caption",
+          "text": "Same basics as a plant cell, minus wall and chloroplasts"
+        }
+      ]
+    },
+    {
+      "caption": "The membrane is the gatekeeper",
+      "duration_ms": 7000,
+      "id": "s3",
+      "narration": "The cell membrane is a gatekeeper. Useful things like food and oxygen are let in; waste is pushed out. Nothing crosses without the membrane's say-so.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "The membrane is the gatekeeper",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "outLab",
+            "kind": "text",
+            "size": 24,
+            "text": "outside the cell",
+            "x": 120,
+            "y": 168
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "inLab",
+            "kind": "text",
+            "size": 24,
+            "text": "inside the cell",
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "fill": "#cfe8cf",
+            "h": 44,
+            "id": "mem",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 3,
+            "w": 720,
+            "x": 120,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 400,
+            "cy": 120,
+            "fill": "#f5c518",
+            "id": "food",
+            "kind": "circle",
+            "r": 12,
+            "stroke": "#8a6d1f",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "foodLab",
+            "kind": "text",
+            "size": 22,
+            "text": "food in",
+            "x": 430,
+            "y": 128
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "food",
+          "to": {
+            "cx": 400,
+            "cy": 280
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "cx": 620,
+            "cy": 300,
+            "fill": "#c96f4a",
+            "id": "waste",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "wasteLab",
+            "kind": "text",
+            "size": 22,
+            "text": "waste out",
+            "x": 650,
+            "y": 308
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "waste",
+          "to": {
+            "cx": 620,
+            "cy": 440
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "mem"
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "In with the useful, out with the waste"
+        }
+      ]
+    },
+    {
+      "caption": "Two specialists: nucleus and chloroplast",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "Two parts do specialist jobs. The nucleus is the control centre — it holds the instructions that run the cell. The chloroplast is the food factory — it traps light energy to make sugar. Only plant cells have chloroplasts.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Two specialists: nucleus and chloroplast",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 260,
+            "cy": 270,
+            "fill": "#f5e6b8",
+            "id": "nuc",
+            "kind": "circle",
+            "r": 70,
+            "stroke": "#8a6d1f",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "nucLab",
+            "kind": "text",
+            "size": 26,
+            "text": "nucleus — the control centre",
+            "x": 140,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 700,
+            "cy": 270,
+            "fill": "#3fae5a",
+            "id": "chl",
+            "kind": "circle",
+            "r": 70,
+            "stroke": "#1f7a3a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "chlLab",
+            "kind": "text",
+            "size": 26,
+            "text": "chloroplast — the food factory",
+            "x": 560,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "nuc"
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "nucJob",
+            "kind": "text",
+            "size": 24,
+            "text": "holds the instructions for the cell",
+            "x": 120,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "chl"
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "chlJob",
+            "kind": "text",
+            "size": 24,
+            "text": "traps light to make food",
+            "x": 560,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "caption",
+          "text": "Instructions here, food made there"
+        }
+      ]
+    },
+    {
+      "caption": "Why plants stand up straight",
+      "duration_ms": 7000,
+      "id": "s5",
+      "narration": "Plant cells have a stiff wall that animal cells lack. Fill those walled boxes with water pressure and you get a stem that stands up on its own — the wall is the plant's skeleton.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Why plants stand up straight",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#f0f7f0",
+            "h": 200,
+            "id": "wall",
+            "kind": "rect",
+            "stroke": "#2a7a2a",
+            "strokeWidth": 6,
+            "w": 300,
+            "x": 150,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "wallLab",
+            "kind": "text",
+            "size": 24,
+            "text": "plant cell: wall holds the shape",
+            "x": 180,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 700,
+            "cy": 270,
+            "fill": "#fdf6e8",
+            "id": "anim",
+            "kind": "circle",
+            "r": 100,
+            "stroke": "#8a6d1f",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "animLab",
+            "kind": "text",
+            "size": 24,
+            "text": "animal cell: flexible, no wall",
+            "x": 600,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "emphasize",
+          "dur_ms": 1500,
+          "target": "wall"
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "take",
+            "kind": "text",
+            "size": 24,
+            "text": "walls + water pressure = a stiff stem",
+            "x": 180,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "caption",
+          "text": "The wall is the plant's skeleton"
+        }
+      ]
+    },
+    {
+      "caption": "Cells team up: the organisation ladder",
+      "duration_ms": 8000,
+      "id": "s6",
+      "narration": "Cells rarely work alone. Similar cells form a tissue, tissues form an organ like a leaf, and organs form a system. Cell, tissue, organ, system — each step up is teamwork.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Cells team up: the organisation ladder",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#eef7ee",
+            "h": 90,
+            "id": "b1",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 80,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "text",
+            "size": 26,
+            "text": "cell",
+            "x": 128,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "fill": "#eef7ee",
+            "h": 90,
+            "id": "b2",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 300,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "text",
+            "size": 26,
+            "text": "tissue",
+            "x": 332,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "fill": "#eef7ee",
+            "h": 90,
+            "id": "b3",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 520,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "text",
+            "size": 26,
+            "text": "organ",
+            "x": 562,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "fill": "#eef7ee",
+            "h": 90,
+            "id": "b4",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 740,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "c4",
+            "kind": "text",
+            "size": 26,
+            "text": "system",
+            "x": 772,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "ar1",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 235,
+            "x2": 295,
+            "y1": 275,
+            "y2": 275
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "ar2",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 455,
+            "x2": 515,
+            "y1": 275,
+            "y2": 275
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "ar3",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 675,
+            "x2": 735,
+            "y1": 275,
+            "y2": 275
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "ex",
+            "kind": "text",
+            "size": 26,
+            "text": "leaf cell → leaf tissue → leaf → shoot system",
+            "x": 80,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "b3"
+        },
+        {
+          "at_ms": 6000,
+          "do": "caption",
+          "text": "Cell → tissue → organ → system"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Cells: structure and organisation",
+  "topic": "bio-cells"
+}
