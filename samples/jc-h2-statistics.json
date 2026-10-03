@@ -1,0 +1,1174 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "kind": "concept",
+  "level": "jc",
+  "subject": "math",
+  "topic": "h2-statistics",
+  "title": "JC H2 statistics: sampling distributions, hypothesis testing, error types",
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "The sampling distribution of the mean shrinks as n grows",
+      "narration": "Take the mean of a sample and repeat: the means cluster around the true mean. As the sample size n grows, the spread of the means shrinks by root n. With n of 25, the spread is a fifth of the population spread.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "y1": 430,
+            "x2": 880,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "bell1",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "#dbeafe",
+            "points": [
+              [
+                -720,
+                430
+              ],
+              [
+                -645,
+                430
+              ],
+              [
+                -570,
+                430
+              ],
+              [
+                -495,
+                429
+              ],
+              [
+                -420,
+                429
+              ],
+              [
+                -345,
+                427
+              ],
+              [
+                -270,
+                425
+              ],
+              [
+                -195,
+                420
+              ],
+              [
+                -120,
+                414
+              ],
+              [
+                -45,
+                404
+              ],
+              [
+                30,
+                391
+              ],
+              [
+                105,
+                375
+              ],
+              [
+                180,
+                357
+              ],
+              [
+                255,
+                339
+              ],
+              [
+                330,
+                324
+              ],
+              [
+                405,
+                314
+              ],
+              [
+                480,
+                310
+              ],
+              [
+                555,
+                314
+              ],
+              [
+                630,
+                324
+              ],
+              [
+                705,
+                339
+              ],
+              [
+                780,
+                357
+              ],
+              [
+                855,
+                375
+              ],
+              [
+                930,
+                391
+              ],
+              [
+                1005,
+                404
+              ],
+              [
+                1080,
+                414
+              ],
+              [
+                1155,
+                420
+              ],
+              [
+                1230,
+                425
+              ],
+              [
+                1305,
+                427
+              ],
+              [
+                1380,
+                429
+              ],
+              [
+                1455,
+                429
+              ],
+              [
+                1530,
+                430
+              ],
+              [
+                1605,
+                430
+              ],
+              [
+                1680,
+                430
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "lab1",
+            "kind": "text",
+            "x": 180,
+            "y": 130,
+            "text": "n = 1 — the population spread",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "hide",
+          "target": "bell1"
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "bell4",
+            "kind": "polygon",
+            "stroke": "#7c3aed",
+            "width": 3,
+            "fill": "#e9e3fb",
+            "points": [
+              [
+                -120,
+                430
+              ],
+              [
+                -82,
+                430
+              ],
+              [
+                -45,
+                430
+              ],
+              [
+                -8,
+                429
+              ],
+              [
+                30,
+                428
+              ],
+              [
+                68,
+                425
+              ],
+              [
+                105,
+                421
+              ],
+              [
+                142,
+                414
+              ],
+              [
+                180,
+                403
+              ],
+              [
+                218,
+                387
+              ],
+              [
+                255,
+                365
+              ],
+              [
+                292,
+                338
+              ],
+              [
+                330,
+                309
+              ],
+              [
+                368,
+                279
+              ],
+              [
+                405,
+                254
+              ],
+              [
+                442,
+                236
+              ],
+              [
+                480,
+                230
+              ],
+              [
+                518,
+                236
+              ],
+              [
+                555,
+                254
+              ],
+              [
+                592,
+                279
+              ],
+              [
+                630,
+                309
+              ],
+              [
+                668,
+                338
+              ],
+              [
+                705,
+                365
+              ],
+              [
+                742,
+                387
+              ],
+              [
+                780,
+                403
+              ],
+              [
+                818,
+                414
+              ],
+              [
+                855,
+                421
+              ],
+              [
+                892,
+                425
+              ],
+              [
+                930,
+                428
+              ],
+              [
+                968,
+                429
+              ],
+              [
+                1005,
+                430
+              ],
+              [
+                1042,
+                430
+              ],
+              [
+                1080,
+                430
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "lab4",
+            "kind": "text",
+            "x": 250,
+            "y": 130,
+            "text": "n = 4 — spread halves",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "lab1",
+          "to": {
+            "x": 180,
+            "y": 90
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5800,
+          "do": "hide",
+          "target": "bell4"
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "bell25",
+            "kind": "polygon",
+            "stroke": "#1f7a3a",
+            "width": 3,
+            "fill": "#cfe8d4",
+            "points": [
+              [
+                240,
+                430
+              ],
+              [
+                255,
+                430
+              ],
+              [
+                270,
+                429
+              ],
+              [
+                285,
+                428
+              ],
+              [
+                300,
+                427
+              ],
+              [
+                315,
+                423
+              ],
+              [
+                330,
+                417
+              ],
+              [
+                345,
+                406
+              ],
+              [
+                360,
+                389
+              ],
+              [
+                375,
+                365
+              ],
+              [
+                390,
+                333
+              ],
+              [
+                405,
+                293
+              ],
+              [
+                420,
+                248
+              ],
+              [
+                435,
+                204
+              ],
+              [
+                450,
+                165
+              ],
+              [
+                465,
+                139
+              ],
+              [
+                480,
+                130
+              ],
+              [
+                495,
+                139
+              ],
+              [
+                510,
+                165
+              ],
+              [
+                525,
+                204
+              ],
+              [
+                540,
+                248
+              ],
+              [
+                555,
+                293
+              ],
+              [
+                570,
+                333
+              ],
+              [
+                585,
+                365
+              ],
+              [
+                600,
+                389
+              ],
+              [
+                615,
+                406
+              ],
+              [
+                630,
+                417
+              ],
+              [
+                645,
+                423
+              ],
+              [
+                660,
+                427
+              ],
+              [
+                675,
+                428
+              ],
+              [
+                690,
+                429
+              ],
+              [
+                705,
+                430
+              ],
+              [
+                720,
+                430
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "lab25",
+            "kind": "text",
+            "x": 300,
+            "y": 70,
+            "text": "n = 25 — spread ÷ 5",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "formula",
+            "kind": "latex",
+            "x": 620,
+            "y": 200,
+            "tex": "\\sigma_{\\bar{X}} = \\frac{\\sigma}{\\sqrt{n}}",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "move",
+          "target": "formula",
+          "to": {
+            "x": 640,
+            "y": 300
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "standard error = σ/√n — bigger samples, tighter estimates"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Hypothesis testing: the p-value decides against α",
+      "narration": "State the null and alternative hypotheses, then ask: if the null were true, how surprising is this data? The p-value measures that surprise. If it is smaller than the significance level alpha, reject the null; otherwise there is not enough evidence.",
+      "duration_ms": 12000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "h0",
+            "kind": "latex",
+            "x": 120,
+            "y": 100,
+            "tex": "H_{0}: \\mu = 60",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "h1",
+            "kind": "latex",
+            "x": 120,
+            "y": 170,
+            "tex": "H_{1}: \\mu > 60",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "y1": 420,
+            "x2": 840,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "nullCurve",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                0,
+                420
+              ],
+              [
+                30,
+                420
+              ],
+              [
+                60,
+                420
+              ],
+              [
+                90,
+                419
+              ],
+              [
+                120,
+                418
+              ],
+              [
+                150,
+                417
+              ],
+              [
+                180,
+                413
+              ],
+              [
+                210,
+                408
+              ],
+              [
+                240,
+                400
+              ],
+              [
+                270,
+                388
+              ],
+              [
+                300,
+                371
+              ],
+              [
+                330,
+                351
+              ],
+              [
+                360,
+                329
+              ],
+              [
+                390,
+                307
+              ],
+              [
+                420,
+                288
+              ],
+              [
+                450,
+                275
+              ],
+              [
+                480,
+                270
+              ],
+              [
+                510,
+                275
+              ],
+              [
+                540,
+                288
+              ],
+              [
+                570,
+                307
+              ],
+              [
+                600,
+                329
+              ],
+              [
+                630,
+                351
+              ],
+              [
+                660,
+                371
+              ],
+              [
+                690,
+                388
+              ],
+              [
+                720,
+                400
+              ],
+              [
+                750,
+                408
+              ],
+              [
+                780,
+                413
+              ],
+              [
+                810,
+                417
+              ],
+              [
+                840,
+                418
+              ],
+              [
+                870,
+                419
+              ],
+              [
+                900,
+                420
+              ],
+              [
+                930,
+                420
+              ],
+              [
+                960,
+                420
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "curveLab",
+            "kind": "text",
+            "x": 420,
+            "y": 180,
+            "text": "what H₀ predicts",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "rejRegion",
+            "kind": "rect",
+            "x": 660,
+            "y": 270,
+            "w": 180,
+            "h": 150,
+            "fill": "#f3c6cc",
+            "stroke": "#b00020",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "alphaLab",
+            "kind": "latex",
+            "x": 690,
+            "y": 470,
+            "tex": "\\alpha = 0.05",
+            "size": 28,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "obsArrow",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 700,
+            "y1": 250,
+            "x2": 700,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "pLab",
+            "kind": "latex",
+            "x": 560,
+            "y": 110,
+            "tex": "p = 0.021 < 0.05",
+            "size": 30,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "move",
+          "target": "obsArrow",
+          "to": {
+            "x1": 620,
+            "y1": 250,
+            "x2": 620,
+            "y2": 420
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 7200,
+          "do": "move",
+          "target": "pLab",
+          "to": {
+            "x": 500,
+            "y": 110
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 8800,
+          "do": "emphasize",
+          "target": "pLab",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 10000,
+          "do": "caption",
+          "text": "p < α → reject H₀: the data is too surprising under the null"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "The p-value trap: it is not P(H₀ is true)",
+      "narration": "A p-value of 0.03 does not mean there is a 3 percent chance the null is true. It means: if the null were true, only 3 percent of experiments would produce data this extreme. The p-value is about the data given the null, not about the null itself.",
+      "duration_ms": 10000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "mis",
+            "kind": "text",
+            "x": 120,
+            "y": 100,
+            "text": "Misconception:",
+            "size": 34,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "wrong",
+            "kind": "text",
+            "x": 120,
+            "y": 200,
+            "text": "p = 0.03 means P(H₀ is true) = 3%",
+            "size": 30,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "emphasize",
+          "target": "wrong",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 4200,
+          "do": "hide",
+          "target": "wrong"
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "right",
+            "kind": "latex",
+            "x": 120,
+            "y": 200,
+            "tex": "p = P\\left(\\text{data this extreme} \\mid H_{0} \\text{ true}\\right)",
+            "size": 30,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "x": 120,
+            "y": 300,
+            "text": "the p-value conditions on the null — it never judges it",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "move",
+          "target": "note",
+          "to": {
+            "x": 120,
+            "y": 360
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "p is about the data given H₀, never P(H₀ is true)"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Type I and Type II errors: the two ways to be wrong",
+      "narration": "A hypothesis test can go wrong in two ways. A Type I error rejects a true null: a false alarm, controlled by alpha. A Type II error keeps a false null: a missed detection. The two trade off: shrinking one usually grows the other.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "grid",
+            "kind": "rect",
+            "x": 180,
+            "y": 90,
+            "w": 600,
+            "h": 300,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "vline",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 480,
+            "y1": 90,
+            "x2": 480,
+            "y2": 390
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "hline",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 180,
+            "y1": 240,
+            "x2": 780,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "colH0",
+            "kind": "text",
+            "x": 250,
+            "y": 135,
+            "text": "H₀ true",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "colH1",
+            "kind": "text",
+            "x": 560,
+            "y": 135,
+            "text": "H₁ true",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "rowRej",
+            "kind": "text",
+            "x": 70,
+            "y": 300,
+            "text": "reject H₀",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "rowAcc",
+            "kind": "text",
+            "x": 70,
+            "y": 180,
+            "text": "keep H₀",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "cellGood",
+            "kind": "rect",
+            "x": 200,
+            "y": 150,
+            "w": 260,
+            "h": 70,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "cellGoodT",
+            "kind": "text",
+            "x": 250,
+            "y": 195,
+            "text": "correct",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "cellType1",
+            "kind": "rect",
+            "x": 200,
+            "y": 255,
+            "w": 260,
+            "h": 120,
+            "fill": "#f3c6cc",
+            "stroke": "#b00020",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "cellType1T",
+            "kind": "latex",
+            "x": 230,
+            "y": 300,
+            "tex": "\\text{Type I: } P = \\alpha",
+            "size": 24,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "cellType1S",
+            "kind": "text",
+            "x": 230,
+            "y": 335,
+            "text": "false alarm",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "cellType2",
+            "kind": "rect",
+            "x": 500,
+            "y": 255,
+            "w": 260,
+            "h": 120,
+            "fill": "#f3c6cc",
+            "stroke": "#b00020",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "cellType2T",
+            "kind": "latex",
+            "x": 530,
+            "y": 300,
+            "tex": "\\text{Type II: } P = \\beta",
+            "size": 24,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "cellType2S",
+            "kind": "text",
+            "x": 530,
+            "y": 335,
+            "text": "missed detection",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "cellPow",
+            "kind": "rect",
+            "x": 500,
+            "y": 150,
+            "w": 260,
+            "h": 70,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "cellPowT",
+            "kind": "text",
+            "x": 570,
+            "y": 195,
+            "text": "power 1 − β",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 8800,
+          "do": "emphasize",
+          "target": "cellType1",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 9600,
+          "do": "caption",
+          "text": "α guards the false alarm; shrinking α grows β — there is no free lunch"
+        }
+      ]
+    }
+  ]
+}
