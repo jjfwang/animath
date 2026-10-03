@@ -23,5 +23,7 @@
   "secondary-science-chem-acids.json",
   "secondary-science-chem-atomic.json",
   "secondary-science-chem-bonding.json",
-  "secondary-science-chem-mole.json"
+  "secondary-science-chem-mole.json",
+  "secondary-physics-kinematics.json",
+  "secondary-physics-forces.json"
 ]
