@@ -27,8 +27,11 @@ No build step, no dependencies.
 4. Watch, scrub, replay. **Copy spec** saves the JSON so the animation can be
    replayed or shared without regenerating.
 
-No API key handy? Open `player/demo.html` to play the hand-authored samples in
-`samples/` — no key needed.
+No API key handy? Play the hand-authored samples in `player/demo.html` — or
+browse them as cards in `web/gallery.html` (same samples, no key needed). Like
+the player demo, the gallery fetches its JSON over HTTP, so serve the repo
+with e.g. `python3 -m http.server` rather than opening the file directly —
+Chrome blocks fetch from `file://` pages.
 
 ## How it works
 

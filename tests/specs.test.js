@@ -12,7 +12,27 @@ const { buildPrompts } = require('../generator/build_prompt.js');
 const { extractJson } = require('../generator/llm_client.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
-const sampleFiles = fs.readdirSync(samplesDir).filter((f) => f.endsWith('.json'));
+// index.json is the gallery manifest, not an animation spec — exclude it
+// from the spec-validation glob and test it separately below.
+const sampleFiles = fs.readdirSync(samplesDir).filter((f) => f.endsWith('.json') && f !== 'index.json');
+const manifestPath = path.join(samplesDir, 'index.json');
+
+test('gallery manifest lists exactly the existing, valid samples', () => {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert.ok(Array.isArray(manifest), 'samples/index.json must be a JSON array of filenames');
+  assert.ok(manifest.length >= 3, 'expected at least 3 samples in the manifest, found ' + manifest.length);
+  for (const f of manifest) {
+    const full = path.join(samplesDir, f);
+    assert.ok(fs.existsSync(full), 'manifest entry ' + f + ' does not exist in samples/');
+    const spec = JSON.parse(fs.readFileSync(full, 'utf8'));
+    const problems = validateSpec(spec);
+    assert.deepEqual(problems, [], 'manifest entry ' + f + ' failed validation: ' + problems.join('; '));
+  }
+  // no sample left unlisted — the gallery renders the manifest, so a stray
+  // file would be playable nowhere
+  const unlisted = sampleFiles.filter((f) => !manifest.includes(f));
+  assert.deepEqual(unlisted, [], 'samples not listed in samples/index.json: ' + unlisted.join(', '));
+});
 
 test('every sample validates clean against SPEC.md', () => {
   assert.ok(sampleFiles.length >= 3, 'expected at least 3 samples, found ' + sampleFiles.length);
