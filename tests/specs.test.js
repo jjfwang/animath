@@ -133,8 +133,44 @@ test('validator rejects a move targeting a non-moveable shape kind', () => {
     'expected a polygon move error, got: ' + problems.join('; '));
 });
 
-test('validator rejects out-of-order steps', () => {
+test('validator rejects a move whose to fields do not match the circle target kind', () => {
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
+  spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'dot', to: { x: 10, y: 10 }, dur_ms: 500 });
+  const problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('"circle"') && p.includes('cx,cy')),
+    'expected an exact-field move error, got: ' + problems.join('; '));
+});
+
+test('validator rejects a move with a partial to field set on an arrow target', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'a', kind: 'arrow', x1: 10, y1: 10, x2: 50, y2: 50 };
+  spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'a', to: { x1: 20, y1: 20 }, dur_ms: 500 });
+  const problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('"arrow"') && p.includes('x1,y1,x2,y2')),
+    'expected an exact-field move error, got: ' + problems.join('; '));
+});
+
+test('validator accepts a move whose to fields exactly match the target kind', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
+  spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
+  spec.scenes[0].steps.push({
+    at_ms: atMsAfter(spec.scenes[0].steps), do: 'move', target: 'dot',
+    to: { cx: 10, cy: 20 }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'circle + {cx,cy} must be accepted');
+  spec.scenes[1].steps[0].shape = { id: 'a', kind: 'arrow', x1: 10, y1: 10, x2: 50, y2: 50 };
+  spec.scenes[1].steps.push({
+    at_ms: atMsAfter(spec.scenes[1].steps), do: 'move', target: 'a',
+    to: { x1: 20, y1: 20, x2: 60, y2: 60 }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'arrow + {x1,y1,x2,y2} must be accepted');
+});
+
+test('validator rejects out-of-order steps', () => {  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
   const steps = spec.scenes[0].steps;
   steps.push({ at_ms: 1, do: 'caption', text: 'too late, too early' });
   const problems = validateSpec(spec);
