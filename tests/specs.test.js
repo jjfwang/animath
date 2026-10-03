@@ -206,6 +206,25 @@ test('prompt builder fills slots and forbids LaTeX', () => {
   assert.ok(user.includes('adding unlike denominators'), 'user prompt must carry the focus');
 });
 
+test('system template documents the hardened move contract', () => {
+  const { system } = buildPrompts({});
+  // (a) all six moveable kinds on one line, latex included, polygon excluded
+  assert.ok(system.includes('text | rect | circle | line | arrow | latex'),
+    'system prompt must list all six moveable kinds including latex');
+  assert.ok(system.includes('(never polygon)'),
+    'system prompt must say polygon is never moveable');
+  // (b) dur_ms required and numeric on move steps
+  assert.ok(system.includes('numeric dur_ms'),
+    'system prompt must require a numeric dur_ms on every move step');
+  // (c) exact position-field sets per target kind
+  assert.ok(system.includes('x/y for text/rect/latex'),
+    'system prompt must give x/y as the position fields for text/rect/latex');
+  assert.ok(system.includes('cx/cy for circle'),
+    'system prompt must give cx/cy as the position fields for circle');
+  assert.ok(system.includes('x1/y1/x2/y2 for line/arrow'),
+    'system prompt must give x1/y1/x2/y2 as the position fields for line/arrow');
+});
+
 test('llm client strips code fences before parsing', () => {
   const spec = extractJson('```json\n{"animath":"0.1"}\n```');
   assert.deepEqual(spec, { animath: '0.1' });
