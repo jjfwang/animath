@@ -182,22 +182,23 @@
 
     genBtn.disabled = true;
     setStatus('Asking the model to author your animation…');
-    AnimathLLM.generateSpec({
+
+    // validator errors render into #err here and on repair failure — same path
+    function showProblems(problems) {
+      errEl.innerHTML = '<div class="ap-error">' +
+        problems.map(function (p) { return String(p).replace(/</g, '&lt;'); }).join('\n') + '</div>';
+    }
+
+    AnimathLLM.generateSpecWithRepair({
       baseUrl: baseUrlEl.value.trim(),
       apiKey: key,
       model: modelEl.value.trim(),
       system: prompts.system,
       user: prompts.user
+    }, AnimathValidate.validateSpec, function (n, max) {
+      setStatus('Repairing attempt ' + n + ' of ' + max + '…');
     }).then(function (spec) {
-      var problems = AnimathValidate.validateSpec(spec);
-      if (problems.length) {
-        lastSpec = spec;
-        specBtns.style.display = 'flex';
-        setStatus('The model returned a spec with ' + problems.length + ' problem(s).', true);
-        errEl.innerHTML = '<div class="ap-error">' +
-          problems.map(function (p) { return p.replace(/</g, '&lt;'); }).join('\n') + '</div>';
-        return;
-      }
+      // generateSpecWithRepair only resolves with a spec that validated clean
       lastSpec = spec;
       specBtns.style.display = 'flex';
       if (player) player.destroy();
@@ -206,7 +207,10 @@
       setStatus('Playing: ' + spec.title);
       stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }).catch(function (e) {
-      setStatus('Generation failed: ' + e.message, true);
+      var problems = e.problems || [e.message];
+      setStatus('Generation failed: the model could not produce a valid spec (' +
+        problems.length + ' problem(s)).', true);
+      showProblems(problems);
     }).then(function () {
       genBtn.disabled = false;
     });

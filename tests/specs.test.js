@@ -9,7 +9,7 @@ const path = require('node:path');
 
 const { validateSpec } = require('../player/validate.js');
 const { buildPrompts } = require('../generator/build_prompt.js');
-const { extractJson } = require('../generator/llm_client.js');
+const { extractJson, generateSpecWithRepair } = require('../generator/llm_client.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
 // index.json is the gallery manifest, not an animation spec — exclude it
@@ -100,6 +100,87 @@ test('llm client strips code fences before parsing', () => {
 
 test('llm client rejects non-JSON', () => {
   assert.throws(() => extractJson('here is your animation, enjoy!'), /not valid JSON/);
+});
+
+// --- generateSpecWithRepair: stub global fetch with a canned
+// chat-completions payload and count the HTTP calls per run.
+function stubFetch(contents) {
+  const bodies = [];
+  let n = 0;
+  global.fetch = async (url, init) => {
+    bodies.push(JSON.parse(init.body));
+    const content = typeof contents === 'function' ? contents(n) : contents[Math.min(n, contents.length - 1)];
+    n++;
+    return { ok: true, json: async () => ({ choices: [{ message: { content } }] }) };
+  };
+  return { bodies, calls: () => n, restore: () => { delete global.fetch; } };
+}
+
+const repairOpts = { baseUrl: 'https://llm.test/v1', apiKey: 'k', model: 'm', system: 's', user: 'u' };
+
+test('generateSpecWithRepair returns a valid spec without repair calls', async () => {
+  const spec = { animath: '0.1', title: 'Fractions' };
+  const stub = stubFetch([JSON.stringify(spec)]);
+  try {
+    const out = await generateSpecWithRepair(repairOpts, () => []);
+    assert.deepEqual(out, spec);
+    assert.equal(stub.calls(), 1, 'expected exactly 1 fetch call, got ' + stub.calls());
+  } finally {
+    stub.restore();
+  }
+});
+
+test('generateSpecWithRepair feeds the invalid spec and errors back on repair', async () => {
+  const bad = { animath: '0.1' };
+  const good = { animath: '0.1', title: 'Fractions' };
+  const errors = ['title: missing'];
+  const stub = stubFetch([JSON.stringify(bad), JSON.stringify(good)]);
+  const validate = (s) => (s.title ? [] : errors);
+  try {
+    const out = await generateSpecWithRepair(repairOpts, validate);
+    assert.deepEqual(out, good);
+    assert.equal(stub.calls(), 2, 'expected exactly 2 fetch calls, got ' + stub.calls());
+    const repairUser = stub.bodies[1].messages[1].content;
+    assert.ok(repairUser.includes(JSON.stringify(bad, null, 2)),
+      'repair turn must include the invalid spec');
+    for (const e of errors) {
+      assert.ok(repairUser.includes(e), 'repair turn must include error: ' + e);
+    }
+  } finally {
+    stub.restore();
+  }
+});
+
+test('generateSpecWithRepair rejects after maxRepairs with the final errors', async () => {
+  const errors = ['title: missing'];
+  const stub = stubFetch(['{"animath":"0.1"}']);
+  try {
+    await assert.rejects(
+      generateSpecWithRepair(repairOpts, () => errors),
+      (e) => e.message.includes('title: missing')
+    );
+    assert.equal(stub.calls(), 3, 'expected exactly 3 fetch calls, got ' + stub.calls());
+  } finally {
+    stub.restore();
+  }
+});
+
+test('generateSpecWithRepair treats a non-JSON repair turn as a failed attempt', async () => {
+  const bad = { animath: '0.1' };
+  const good = { animath: '0.1', title: 'Fractions' };
+  const stub = stubFetch([
+    JSON.stringify(bad),      // initial: invalid spec
+    'here is your animation!', // repair turn 1: not JSON
+    JSON.stringify(good)       // repair turn 2: valid
+  ]);
+  const validate = (s) => (s.title ? [] : ['title: missing']);
+  try {
+    const out = await generateSpecWithRepair(repairOpts, validate);
+    assert.deepEqual(out, good);
+    assert.equal(stub.calls(), 3, 'expected exactly 3 fetch calls, got ' + stub.calls());
+  } finally {
+    stub.restore();
+  }
 });
 
 test('player.js loads without a DOM', () => {
