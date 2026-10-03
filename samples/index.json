@@ -31,5 +31,7 @@
   "jc-h2-differentiation.json",
   "jc-h2-sequences.json",
   "jc-h2-vectors.json",
-  "jc-h2-complex.json"
+  "jc-h2-complex.json",
+  "jc-h2-integration.json",
+  "jc-h2-probability.json"
 ]
