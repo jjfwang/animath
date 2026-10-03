@@ -240,7 +240,7 @@
             "kind": "text",
             "size": 26,
             "text": "heat leaves the system",
-            "x": 120,
+            "x": 560,
             "y": 100
           }
         },
@@ -463,7 +463,7 @@
             "kind": "text",
             "size": 26,
             "text": "heat is absorbed from the surroundings",
-            "x": 120,
+            "x": 160,
             "y": 80
           }
         },
