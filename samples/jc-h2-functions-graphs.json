@@ -1,0 +1,1681 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "kind": "concept",
+  "level": "jc",
+  "subject": "math",
+  "topic": "h2-functions-graphs",
+  "title": "JC H2 functions and graphs: transformations, reciprocal functions, asymptote behaviour",
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "y = a·f(x) + d: stretch the height, then lift the graph",
+      "narration": "Start from y equals f of x. Multiplying by a stretches the graph vertically: every y-coordinate doubles. Adding d at the end lifts the whole graph up by d. The order matters only for what the eye sees: stretch first, then shift.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "y1": 420,
+            "x2": 880,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "yAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 480,
+            "y1": 500,
+            "x2": 480,
+            "y2": 40
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "curveF",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                140,
+                420
+              ],
+              [
+                168,
+                399
+              ],
+              [
+                197,
+                380
+              ],
+              [
+                225,
+                363
+              ],
+              [
+                253,
+                348
+              ],
+              [
+                282,
+                334
+              ],
+              [
+                310,
+                322
+              ],
+              [
+                338,
+                313
+              ],
+              [
+                367,
+                304
+              ],
+              [
+                395,
+                298
+              ],
+              [
+                423,
+                294
+              ],
+              [
+                452,
+                291
+              ],
+              [
+                480,
+                290
+              ],
+              [
+                508,
+                291
+              ],
+              [
+                537,
+                294
+              ],
+              [
+                565,
+                298
+              ],
+              [
+                593,
+                304
+              ],
+              [
+                622,
+                313
+              ],
+              [
+                650,
+                322
+              ],
+              [
+                678,
+                334
+              ],
+              [
+                707,
+                348
+              ],
+              [
+                735,
+                363
+              ],
+              [
+                763,
+                380
+              ],
+              [
+                792,
+                399
+              ],
+              [
+                820,
+                420
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "labF",
+            "kind": "latex",
+            "x": 690,
+            "y": 210,
+            "tex": "y = f(x)",
+            "size": 32
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "curve2F",
+            "kind": "polygon",
+            "stroke": "#7c3aed",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                140,
+                420
+              ],
+              [
+                168,
+                378
+              ],
+              [
+                197,
+                341
+              ],
+              [
+                225,
+                306
+              ],
+              [
+                253,
+                276
+              ],
+              [
+                282,
+                248
+              ],
+              [
+                310,
+                225
+              ],
+              [
+                338,
+                205
+              ],
+              [
+                367,
+                189
+              ],
+              [
+                395,
+                176
+              ],
+              [
+                423,
+                167
+              ],
+              [
+                452,
+                162
+              ],
+              [
+                480,
+                160
+              ],
+              [
+                508,
+                162
+              ],
+              [
+                537,
+                167
+              ],
+              [
+                565,
+                176
+              ],
+              [
+                593,
+                189
+              ],
+              [
+                622,
+                205
+              ],
+              [
+                650,
+                225
+              ],
+              [
+                678,
+                248
+              ],
+              [
+                707,
+                276
+              ],
+              [
+                735,
+                306
+              ],
+              [
+                763,
+                341
+              ],
+              [
+                792,
+                378
+              ],
+              [
+                820,
+                420
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "lab2F",
+            "kind": "latex",
+            "x": 690,
+            "y": 80,
+            "tex": "y = 2f(x)",
+            "size": 32,
+            "color": "#7c3aed"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "target": "labF",
+          "to": {
+            "x": 690,
+            "y": 160
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "curveShift",
+            "kind": "polygon",
+            "stroke": "#1f7a3a",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                140,
+                330
+              ],
+              [
+                168,
+                288
+              ],
+              [
+                197,
+                251
+              ],
+              [
+                225,
+                216
+              ],
+              [
+                253,
+                186
+              ],
+              [
+                282,
+                158
+              ],
+              [
+                310,
+                135
+              ],
+              [
+                338,
+                115
+              ],
+              [
+                367,
+                99
+              ],
+              [
+                395,
+                86
+              ],
+              [
+                423,
+                77
+              ],
+              [
+                452,
+                72
+              ],
+              [
+                480,
+                70
+              ],
+              [
+                508,
+                72
+              ],
+              [
+                537,
+                77
+              ],
+              [
+                565,
+                86
+              ],
+              [
+                593,
+                99
+              ],
+              [
+                622,
+                115
+              ],
+              [
+                650,
+                135
+              ],
+              [
+                678,
+                158
+              ],
+              [
+                707,
+                186
+              ],
+              [
+                735,
+                216
+              ],
+              [
+                763,
+                251
+              ],
+              [
+                792,
+                288
+              ],
+              [
+                820,
+                330
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "labShift",
+            "kind": "latex",
+            "x": 690,
+            "y": 40,
+            "tex": "y = 2f(x) + 1",
+            "size": 32,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "move",
+          "target": "lab2F",
+          "to": {
+            "x": 560,
+            "y": 60
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "target": "curveShift",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "outside f: vertical — stretch heights by a, then shift up by d"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "y = f(bx + c): read it as f(b(x + c/b))",
+      "narration": "Changes inside f work horizontally and feel backwards. Adding c moves the graph left, then multiplying by b squeezes it toward the new centre. Writing f of bx plus c as f of b times x plus c over b makes the two horizontal steps explicit.",
+      "duration_ms": 12000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "y1": 400,
+            "x2": 880,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "curveF",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                200,
+                400
+              ],
+              [
+                223,
+                376
+              ],
+              [
+                247,
+                354
+              ],
+              [
+                270,
+                334
+              ],
+              [
+                293,
+                317
+              ],
+              [
+                317,
+                301
+              ],
+              [
+                340,
+                288
+              ],
+              [
+                363,
+                276
+              ],
+              [
+                387,
+                267
+              ],
+              [
+                410,
+                259
+              ],
+              [
+                433,
+                254
+              ],
+              [
+                457,
+                251
+              ],
+              [
+                480,
+                250
+              ],
+              [
+                503,
+                251
+              ],
+              [
+                527,
+                254
+              ],
+              [
+                550,
+                259
+              ],
+              [
+                573,
+                267
+              ],
+              [
+                597,
+                276
+              ],
+              [
+                620,
+                288
+              ],
+              [
+                643,
+                301
+              ],
+              [
+                667,
+                317
+              ],
+              [
+                690,
+                334
+              ],
+              [
+                713,
+                354
+              ],
+              [
+                737,
+                376
+              ],
+              [
+                760,
+                400
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "labF",
+            "kind": "latex",
+            "x": 620,
+            "y": 190,
+            "tex": "y = f(x)",
+            "size": 32
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "curveLeft",
+            "kind": "polygon",
+            "stroke": "#e07b00",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                80,
+                400
+              ],
+              [
+                103,
+                376
+              ],
+              [
+                127,
+                354
+              ],
+              [
+                150,
+                334
+              ],
+              [
+                173,
+                317
+              ],
+              [
+                197,
+                301
+              ],
+              [
+                220,
+                288
+              ],
+              [
+                243,
+                276
+              ],
+              [
+                267,
+                267
+              ],
+              [
+                290,
+                259
+              ],
+              [
+                313,
+                254
+              ],
+              [
+                337,
+                251
+              ],
+              [
+                360,
+                250
+              ],
+              [
+                383,
+                251
+              ],
+              [
+                407,
+                254
+              ],
+              [
+                430,
+                259
+              ],
+              [
+                453,
+                267
+              ],
+              [
+                477,
+                276
+              ],
+              [
+                500,
+                288
+              ],
+              [
+                523,
+                301
+              ],
+              [
+                547,
+                317
+              ],
+              [
+                570,
+                334
+              ],
+              [
+                593,
+                354
+              ],
+              [
+                617,
+                376
+              ],
+              [
+                640,
+                400
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "labLeft",
+            "kind": "latex",
+            "x": 140,
+            "y": 150,
+            "tex": "y = f(x + 2)",
+            "size": 32,
+            "color": "#e07b00"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "target": "labF",
+          "to": {
+            "x": 620,
+            "y": 250
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5200,
+          "do": "hide",
+          "target": "curveF"
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "curveSq",
+            "kind": "polygon",
+            "stroke": "#b00020",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                200,
+                400
+              ],
+              [
+                212,
+                376
+              ],
+              [
+                225,
+                354
+              ],
+              [
+                238,
+                334
+              ],
+              [
+                250,
+                317
+              ],
+              [
+                262,
+                301
+              ],
+              [
+                275,
+                288
+              ],
+              [
+                288,
+                276
+              ],
+              [
+                300,
+                267
+              ],
+              [
+                312,
+                259
+              ],
+              [
+                325,
+                254
+              ],
+              [
+                338,
+                251
+              ],
+              [
+                350,
+                250
+              ],
+              [
+                362,
+                251
+              ],
+              [
+                375,
+                254
+              ],
+              [
+                388,
+                259
+              ],
+              [
+                400,
+                267
+              ],
+              [
+                412,
+                276
+              ],
+              [
+                425,
+                288
+              ],
+              [
+                438,
+                301
+              ],
+              [
+                450,
+                317
+              ],
+              [
+                462,
+                334
+              ],
+              [
+                475,
+                354
+              ],
+              [
+                488,
+                376
+              ],
+              [
+                500,
+                400
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "labSq",
+            "kind": "latex",
+            "x": 380,
+            "y": 150,
+            "tex": "y = f(2x + 2) = f(2(x + 1))",
+            "size": 30,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "target": "labLeft",
+          "to": {
+            "x": 140,
+            "y": 220
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 8200,
+          "do": "emphasize",
+          "target": "labSq",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 9400,
+          "do": "caption",
+          "text": "inside f: horizontal — factor out b to see the true centre of the squeeze"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Reciprocal functions: the asymptotes run the show",
+      "narration": "One over x has two asymptotes, one vertical and one horizontal. As x grows, the curve flattens onto the x-axis but never touches it. As x approaches zero, the curve shoots up the vertical line x equals zero. Sign flips across the vertical asymptote.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "y1": 280,
+            "x2": 880,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "yAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 480,
+            "y1": 500,
+            "x2": 480,
+            "y2": 40
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "vAsym",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 2,
+            "x1": 480,
+            "y1": 500,
+            "x2": 480,
+            "y2": 40
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "hAsym",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 2,
+            "x1": 80,
+            "y1": 280,
+            "x2": 880,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "branchPos",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                518,
+                80
+              ],
+              [
+                530,
+                126
+              ],
+              [
+                541,
+                154
+              ],
+              [
+                553,
+                174
+              ],
+              [
+                564,
+                188
+              ],
+              [
+                576,
+                199
+              ],
+              [
+                587,
+                208
+              ],
+              [
+                598,
+                215
+              ],
+              [
+                610,
+                221
+              ],
+              [
+                621,
+                225
+              ],
+              [
+                633,
+                230
+              ],
+              [
+                644,
+                233
+              ],
+              [
+                655,
+                236
+              ],
+              [
+                667,
+                239
+              ],
+              [
+                678,
+                241
+              ],
+              [
+                690,
+                243
+              ],
+              [
+                701,
+                245
+              ],
+              [
+                713,
+                247
+              ],
+              [
+                724,
+                248
+              ],
+              [
+                735,
+                250
+              ],
+              [
+                747,
+                251
+              ],
+              [
+                758,
+                252
+              ],
+              [
+                770,
+                253
+              ],
+              [
+                781,
+                254
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "branchNeg",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                442,
+                480
+              ],
+              [
+                430,
+                434
+              ],
+              [
+                419,
+                406
+              ],
+              [
+                407,
+                386
+              ],
+              [
+                396,
+                372
+              ],
+              [
+                384,
+                361
+              ],
+              [
+                373,
+                352
+              ],
+              [
+                362,
+                345
+              ],
+              [
+                350,
+                339
+              ],
+              [
+                339,
+                335
+              ],
+              [
+                327,
+                330
+              ],
+              [
+                316,
+                327
+              ],
+              [
+                305,
+                324
+              ],
+              [
+                293,
+                321
+              ],
+              [
+                282,
+                319
+              ],
+              [
+                270,
+                317
+              ],
+              [
+                259,
+                315
+              ],
+              [
+                247,
+                313
+              ],
+              [
+                236,
+                312
+              ],
+              [
+                225,
+                310
+              ],
+              [
+                213,
+                309
+              ],
+              [
+                202,
+                308
+              ],
+              [
+                190,
+                307
+              ],
+              [
+                179,
+                306
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "labV",
+            "kind": "latex",
+            "x": 500,
+            "y": 90,
+            "tex": "x = 0",
+            "size": 28,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "labH",
+            "kind": "latex",
+            "x": 810,
+            "y": 300,
+            "tex": "y = 0",
+            "size": 28,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "labEq",
+            "kind": "latex",
+            "x": 560,
+            "y": 190,
+            "tex": "y = \\frac{1}{x}",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "labEq",
+          "to": {
+            "x": 640,
+            "y": 150
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 7600,
+          "do": "emphasize",
+          "target": "vAsym",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 8800,
+          "do": "caption",
+          "text": "the curve can hug an asymptote forever — it never crosses the vertical one"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "The +c trap: inside the brackets means shift LEFT",
+      "narration": "A classic slip: f of x plus 3 does not shift the graph right. The shift undoes the change to x, so the graph moves left. Check with the root: f of x plus 3 is zero where x is minus 3, which sits to the left of the original.",
+      "duration_ms": 10000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "y1": 400,
+            "x2": 880,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "yAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 480,
+            "y1": 480,
+            "x2": 480,
+            "y2": 120
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "curveF",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                300,
+                400
+              ],
+              [
+                315,
+                374
+              ],
+              [
+                330,
+                351
+              ],
+              [
+                345,
+                330
+              ],
+              [
+                360,
+                311
+              ],
+              [
+                375,
+                294
+              ],
+              [
+                390,
+                280
+              ],
+              [
+                405,
+                268
+              ],
+              [
+                420,
+                258
+              ],
+              [
+                435,
+                250
+              ],
+              [
+                450,
+                244
+              ],
+              [
+                465,
+                241
+              ],
+              [
+                480,
+                240
+              ],
+              [
+                495,
+                241
+              ],
+              [
+                510,
+                244
+              ],
+              [
+                525,
+                250
+              ],
+              [
+                540,
+                258
+              ],
+              [
+                555,
+                268
+              ],
+              [
+                570,
+                280
+              ],
+              [
+                585,
+                294
+              ],
+              [
+                600,
+                311
+              ],
+              [
+                615,
+                330
+              ],
+              [
+                630,
+                351
+              ],
+              [
+                645,
+                374
+              ],
+              [
+                660,
+                400
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "mis",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "Misconception:",
+            "size": 34,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "wrong",
+            "kind": "polygon",
+            "stroke": "#b00020",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                480,
+                400
+              ],
+              [
+                495,
+                374
+              ],
+              [
+                510,
+                351
+              ],
+              [
+                525,
+                330
+              ],
+              [
+                540,
+                311
+              ],
+              [
+                555,
+                294
+              ],
+              [
+                570,
+                280
+              ],
+              [
+                585,
+                268
+              ],
+              [
+                600,
+                258
+              ],
+              [
+                615,
+                250
+              ],
+              [
+                630,
+                244
+              ],
+              [
+                645,
+                241
+              ],
+              [
+                660,
+                240
+              ],
+              [
+                675,
+                241
+              ],
+              [
+                690,
+                244
+              ],
+              [
+                705,
+                250
+              ],
+              [
+                720,
+                258
+              ],
+              [
+                735,
+                268
+              ],
+              [
+                750,
+                280
+              ],
+              [
+                765,
+                294
+              ],
+              [
+                780,
+                311
+              ],
+              [
+                795,
+                330
+              ],
+              [
+                810,
+                351
+              ],
+              [
+                825,
+                374
+              ],
+              [
+                840,
+                400
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "wrongLab",
+            "kind": "text",
+            "x": 640,
+            "y": 160,
+            "text": "shifted right ✗",
+            "size": 26,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "emphasize",
+          "target": "wrong",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 4800,
+          "do": "hide",
+          "target": "wrong"
+        },
+        {
+          "at_ms": 4800,
+          "do": "hide",
+          "target": "wrongLab"
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "right",
+            "kind": "polygon",
+            "stroke": "#1f7a3a",
+            "width": 3,
+            "fill": "none",
+            "points": [
+              [
+                120,
+                400
+              ],
+              [
+                135,
+                374
+              ],
+              [
+                150,
+                351
+              ],
+              [
+                165,
+                330
+              ],
+              [
+                180,
+                311
+              ],
+              [
+                195,
+                294
+              ],
+              [
+                210,
+                280
+              ],
+              [
+                225,
+                268
+              ],
+              [
+                240,
+                258
+              ],
+              [
+                255,
+                250
+              ],
+              [
+                270,
+                244
+              ],
+              [
+                285,
+                241
+              ],
+              [
+                300,
+                240
+              ],
+              [
+                315,
+                241
+              ],
+              [
+                330,
+                244
+              ],
+              [
+                345,
+                250
+              ],
+              [
+                360,
+                258
+              ],
+              [
+                375,
+                268
+              ],
+              [
+                390,
+                280
+              ],
+              [
+                405,
+                294
+              ],
+              [
+                420,
+                311
+              ],
+              [
+                435,
+                330
+              ],
+              [
+                450,
+                351
+              ],
+              [
+                465,
+                374
+              ],
+              [
+                480,
+                400
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "rightLab",
+            "kind": "latex",
+            "x": 120,
+            "y": 160,
+            "tex": "y = f(x + 3)\\ \\text{shifts left}",
+            "size": 28,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "rootChk",
+            "kind": "text",
+            "x": 120,
+            "y": 480,
+            "text": "root check: f(x+3) = 0 at x = −3, left of the original",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "plus inside → shift LEFT; minus inside → shift RIGHT"
+        }
+      ]
+    }
+  ]
+}
