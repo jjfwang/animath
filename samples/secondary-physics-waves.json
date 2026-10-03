@@ -462,8 +462,6 @@
           "shape": {
             "id": "speaker",
             "kind": "circle",
-            "x": 150,
-            "y": 420,
             "cx": 170,
             "cy": 440,
             "r": 28,
