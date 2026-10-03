@@ -1,0 +1,1113 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "subject": "science",
+  "title": "Atomic structure and the periodic table",
+  "topic": "chem-atomic",
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Inside the atom",
+      "duration_ms": 8000,
+      "narration": "An atom is almost entirely empty space. A tiny dense nucleus holds the protons and neutrons, and electrons sit in shells around it.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Inside the atom"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "sh3",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 180,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "sh2",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 125,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "sh1",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 70,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "nuc",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 30,
+            "fill": "#c0392b",
+            "stroke": "#c0392b",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "nucL",
+            "kind": "text",
+            "x": 455,
+            "y": 342,
+            "size": 20,
+            "text": "nucleus",
+            "color": "#ffffff"
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "e1",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 260,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "e2",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 400,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "e3",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 205,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "e4",
+            "kind": "circle",
+            "cx": 355,
+            "cy": 330,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "e5",
+            "kind": "circle",
+            "cx": 605,
+            "cy": 330,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "eL",
+            "kind": "text",
+            "x": 700,
+            "y": 120,
+            "size": 22,
+            "text": "electrons"
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "id": "eL2",
+            "kind": "text",
+            "x": 700,
+            "y": 150,
+            "size": 22,
+            "text": "live in shells"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "caption",
+          "text": "Almost all the mass sits in the tiny nucleus."
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Counting particles: carbon",
+      "duration_ms": 8000,
+      "narration": "Carbon is element 6: six protons in the nucleus, six electrons around it. Its six electrons fill the shells two, then four.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Counting particles: carbon"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "sh2",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 130,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "sh1",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 70,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "nuc",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 32,
+            "fill": "#c0392b",
+            "stroke": "#c0392b",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "nucL",
+            "kind": "text",
+            "x": 226,
+            "y": 342,
+            "size": 18,
+            "text": "6p 6n",
+            "color": "#ffffff"
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "e1",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 260,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "e2",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 400,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "x": 430,
+            "y": 250,
+            "size": 24,
+            "text": "2 electrons fill shell 1"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "e3",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 200,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "id": "e4",
+            "kind": "circle",
+            "cx": 370,
+            "cy": 330,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "e5",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 460,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "e6",
+            "kind": "circle",
+            "cx": 110,
+            "cy": 330,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "x": 430,
+            "y": 290,
+            "size": 24,
+            "text": "4 more sit in shell 2"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "x": 430,
+            "y": 370,
+            "size": 24,
+            "text": "Protons = 6 → it is carbon."
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "The proton count is the element’s identity."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Counting particles: sodium",
+      "duration_ms": 8000,
+      "narration": "Sodium is element 11: eleven protons, twelve neutrons, eleven electrons. Shells fill two, eight, then the last single electron sits alone in shell three — and that lone electron rules sodium’s chemistry.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Counting particles: sodium"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "sh3",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 180,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "sh2",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 125,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "sh1",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 70,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "nuc",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 330,
+            "r": 34,
+            "fill": "#c0392b",
+            "stroke": "#c0392b",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "nucL",
+            "kind": "text",
+            "x": 218,
+            "y": 342,
+            "size": 18,
+            "text": "11p 12n",
+            "color": "#ffffff"
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "e1",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 260,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "e2",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 400,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "x": 450,
+            "y": 210,
+            "size": 24,
+            "text": "2 in shell 1"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "e3",
+            "kind": "circle",
+            "cx": 365,
+            "cy": 330,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "e4",
+            "kind": "circle",
+            "cx": 115,
+            "cy": 330,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "e5",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 205,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "e6",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 455,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "x": 450,
+            "y": 250,
+            "size": 24,
+            "text": "8 in shell 2"
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "eOuter",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 150,
+            "r": 12,
+            "fill": "#e67e22",
+            "stroke": "#e67e22",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "x": 450,
+            "y": 300,
+            "size": 24,
+            "text": "1 lone electron in shell 3"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "target": "eOuter"
+        },
+        {
+          "at_ms": 6400,
+          "do": "caption",
+          "text": "That lone outer electron is what sodium gives away."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Groups: the table’s columns",
+      "duration_ms": 8000,
+      "narration": "A column of the periodic table is called a group. Elements in one group share the same number of outer electrons, so they react in similar ways.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Groups: the table’s columns"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "g1h",
+            "kind": "rect",
+            "x": 120,
+            "y": 140,
+            "w": 90,
+            "h": 70,
+            "fill": "#fdebd0",
+            "stroke": "#e67e22",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "g1L",
+            "kind": "text",
+            "x": 120,
+            "y": 130,
+            "size": 24,
+            "text": "Group 1"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "li",
+            "kind": "rect",
+            "x": 120,
+            "y": 160,
+            "w": 90,
+            "h": 60,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "liT",
+            "kind": "text",
+            "x": 140,
+            "y": 198,
+            "size": 26,
+            "text": "Li"
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "na",
+            "kind": "rect",
+            "x": 120,
+            "y": 230,
+            "w": 90,
+            "h": 60,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "naT",
+            "kind": "text",
+            "x": 138,
+            "y": 268,
+            "size": 26,
+            "text": "Na"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "k",
+            "kind": "rect",
+            "x": 120,
+            "y": 300,
+            "w": 90,
+            "h": 60,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "kT",
+            "kind": "text",
+            "x": 144,
+            "y": 338,
+            "size": 26,
+            "text": "K"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "liN",
+            "kind": "text",
+            "x": 260,
+            "y": 190,
+            "size": 22,
+            "text": "lithium"
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "naN",
+            "kind": "text",
+            "x": 260,
+            "y": 260,
+            "size": 22,
+            "text": "sodium"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "kN",
+            "kind": "text",
+            "x": 260,
+            "y": 330,
+            "size": 22,
+            "text": "potassium"
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "r1",
+            "kind": "text",
+            "x": 450,
+            "y": 190,
+            "size": 22,
+            "text": "→ all have 1 outer electron"
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "r2",
+            "kind": "text",
+            "x": 450,
+            "y": 260,
+            "size": 22,
+            "text": "→ all react with water the same way"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "r3",
+            "kind": "text",
+            "x": 450,
+            "y": 330,
+            "size": 22,
+            "text": "→ all are soft metals"
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "caption",
+          "text": "Same group, same outer electrons, similar behaviour."
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "caption": "Periods: the table’s rows",
+      "duration_ms": 7000,
+      "narration": "A row of the periodic table is called a period. The period number matches the number of electron shells: period 2 elements have two shells, period 3 elements have three.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Periods: the table’s rows"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "p2L",
+            "kind": "text",
+            "x": 120,
+            "y": 130,
+            "size": 24,
+            "text": "Period 2"
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "pLi",
+            "kind": "rect",
+            "x": 120,
+            "y": 160,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "pLiT",
+            "kind": "text",
+            "x": 142,
+            "y": 196,
+            "size": 24,
+            "text": "Li"
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "pBe",
+            "kind": "rect",
+            "x": 210,
+            "y": 160,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "pBeT",
+            "kind": "text",
+            "x": 232,
+            "y": 196,
+            "size": 24,
+            "text": "Be"
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "pB",
+            "kind": "rect",
+            "x": 300,
+            "y": 160,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "pBT",
+            "kind": "text",
+            "x": 326,
+            "y": 196,
+            "size": 24,
+            "text": "B"
+          }
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "id": "pC",
+            "kind": "rect",
+            "x": 390,
+            "y": 160,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "pCT",
+            "kind": "text",
+            "x": 416,
+            "y": 196,
+            "size": 24,
+            "text": "C"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "rule",
+            "kind": "text",
+            "x": 540,
+            "y": 200,
+            "size": 24,
+            "text": "period 2 → 2 shells"
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "p3L",
+            "kind": "text",
+            "x": 120,
+            "y": 300,
+            "size": 24,
+            "text": "Period 3"
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "pNa",
+            "kind": "rect",
+            "x": 120,
+            "y": 330,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "pNaT",
+            "kind": "text",
+            "x": 140,
+            "y": 366,
+            "size": 24,
+            "text": "Na"
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "id": "rule2",
+            "kind": "text",
+            "x": 540,
+            "y": 370,
+            "size": 24,
+            "text": "period 3 → 3 shells"
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "caption",
+          "text": "Move across a period and properties change step by step."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "caption": "Misconception: atoms are solid balls",
+      "duration_ms": 6000,
+      "narration": "Atoms are mostly empty space — the nucleus is a speck in the middle. And electrons do not circle like planets; they sit in fixed shells. Use the shell model, not the planet model.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Check the thinking"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "myth1",
+            "kind": "text",
+            "x": 80,
+            "y": 170,
+            "size": 28,
+            "text": "❌ “An atom is a solid ball.”"
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "fix1",
+            "kind": "text",
+            "x": 80,
+            "y": 220,
+            "size": 24,
+            "text": "It is mostly empty space — the nucleus is tiny."
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "myth2",
+            "kind": "text",
+            "x": 80,
+            "y": 310,
+            "size": 28,
+            "text": "❌ “Electrons orbit like planets.”"
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "fix2",
+            "kind": "text",
+            "x": 80,
+            "y": 360,
+            "size": 24,
+            "text": "They sit in shells, not orbits."
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "caption",
+          "text": "Think shells, not planets."
+        }
+      ]
+    }
+  ]
+}

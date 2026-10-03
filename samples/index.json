@@ -19,5 +19,7 @@
   "secondary-e-mensuration.json",
   "secondary-e-probability.json",
   "secondary-science-electricity.json",
-  "secondary-science-cells.json"
+  "secondary-science-cells.json",
+  "secondary-science-chem-acids.json",
+  "secondary-science-chem-atomic.json"
 ]
