@@ -1,0 +1,1078 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "A simple circuit",
+      "duration_ms": 7000,
+      "id": "s1",
+      "narration": "A circuit is one unbroken loop. The battery pushes charge around the loop, the bulb turns electrical energy into light, and the ammeter measures the flow.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "One loop: a simple circuit",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "wTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 150,
+            "x2": 810,
+            "y1": 170,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "wRight",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 810,
+            "x2": 810,
+            "y1": 170,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "wBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 810,
+            "x2": 150,
+            "y1": 430,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "wLeft",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 150,
+            "x2": 150,
+            "y1": 430,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "fill": "#1a1a1a",
+            "h": 100,
+            "id": "battLong",
+            "kind": "rect",
+            "w": 20,
+            "x": 140,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "fill": "#1a1a1a",
+            "h": 30,
+            "id": "battShort",
+            "kind": "rect",
+            "w": 44,
+            "x": 128,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "plus",
+            "kind": "text",
+            "size": 24,
+            "text": "+",
+            "x": 172,
+            "y": 282
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "battLab",
+            "kind": "text",
+            "size": 22,
+            "text": "battery (the cell)",
+            "x": 200,
+            "y": 268
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "cx": 810,
+            "cy": 300,
+            "fill": "#fff7d6",
+            "id": "bulb",
+            "kind": "circle",
+            "r": 45,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "bulbLab",
+            "kind": "text",
+            "size": 24,
+            "text": "bulb",
+            "x": 862,
+            "y": 308
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "fill": "#ffffff",
+            "h": 50,
+            "id": "ammeter",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 60,
+            "x": 450,
+            "y": 405
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "id": "aLab",
+            "kind": "text",
+            "size": 30,
+            "text": "A",
+            "x": 466,
+            "y": 443
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "ammLab",
+            "kind": "text",
+            "size": 22,
+            "text": "ammeter",
+            "x": 522,
+            "y": 442
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "caption",
+          "text": "One unbroken loop — that is a circuit"
+        }
+      ]
+    },
+    {
+      "caption": "Conventional current flows + to −",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "Conventional current flows out of the battery's positive terminal, around the loop, and back into the negative terminal. The arrows crawl along the wires to show the direction.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Which way does current flow?",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "wTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 150,
+            "x2": 810,
+            "y1": 170,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "wRight",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 810,
+            "x2": 810,
+            "y1": 170,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "wBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 810,
+            "x2": 150,
+            "y1": 430,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "wLeft",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 150,
+            "x2": 150,
+            "y1": 430,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "fill": "#1a1a1a",
+            "h": 100,
+            "id": "battLong",
+            "kind": "rect",
+            "w": 20,
+            "x": 140,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "fill": "#1a1a1a",
+            "h": 30,
+            "id": "battShort",
+            "kind": "rect",
+            "w": 44,
+            "x": 128,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 810,
+            "cy": 300,
+            "fill": "#fff7d6",
+            "id": "bulb",
+            "kind": "circle",
+            "r": 45,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "cur1",
+            "kind": "arrow",
+            "stroke": "#d33f2f",
+            "width": 5,
+            "x1": 300,
+            "x2": 420,
+            "y1": 170,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "cur2",
+            "kind": "arrow",
+            "stroke": "#d33f2f",
+            "width": 5,
+            "x1": 810,
+            "x2": 810,
+            "y1": 250,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "cur3",
+            "kind": "arrow",
+            "stroke": "#d33f2f",
+            "width": 5,
+            "x1": 600,
+            "x2": 480,
+            "y1": 430,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "cur1",
+          "to": {
+            "x1": 480,
+            "x2": 600,
+            "y1": 170,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "cur2",
+          "to": {
+            "x1": 810,
+            "x2": 810,
+            "y1": 330,
+            "y2": 410
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "cur3",
+          "to": {
+            "x1": 420,
+            "x2": 300,
+            "y1": 430,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "caption",
+          "text": "Conventional current: + terminal to − terminal"
+        }
+      ]
+    },
+    {
+      "caption": "Series or parallel?",
+      "duration_ms": 8000,
+      "id": "s3",
+      "narration": "In a series circuit there is only one path, so one broken bulb kills the whole loop. In a parallel circuit each bulb sits on its own branch — one can fail and the other stays lit.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Series or parallel?",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "sLab",
+            "kind": "text",
+            "size": 26,
+            "text": "series",
+            "x": 190,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "pLab",
+            "kind": "text",
+            "size": 26,
+            "text": "parallel",
+            "x": 660,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "sTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 80,
+            "x2": 400,
+            "y1": 180,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "sRight",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 400,
+            "x2": 400,
+            "y1": 180,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "sBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 400,
+            "x2": 80,
+            "y1": 440,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "sLeft",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 80,
+            "x2": 80,
+            "y1": 440,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "fill": "#1a1a1a",
+            "h": 80,
+            "id": "sBatt",
+            "kind": "rect",
+            "w": 16,
+            "x": 72,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 400,
+            "cy": 260,
+            "fill": "#fff7d6",
+            "id": "sBulb1",
+            "kind": "circle",
+            "r": 30,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "cx": 400,
+            "cy": 370,
+            "fill": "#fff7d6",
+            "id": "sBulb2",
+            "kind": "circle",
+            "r": 30,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "pTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 560,
+            "x2": 880,
+            "y1": 180,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "pBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 560,
+            "x2": 880,
+            "y1": 440,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "pLeft",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 560,
+            "x2": 560,
+            "y1": 440,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "pMid",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 720,
+            "x2": 720,
+            "y1": 180,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "pRight",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 880,
+            "x2": 880,
+            "y1": 180,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "fill": "#1a1a1a",
+            "h": 80,
+            "id": "pBatt",
+            "kind": "rect",
+            "w": 16,
+            "x": 552,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "cx": 720,
+            "cy": 260,
+            "fill": "#fff7d6",
+            "id": "pBulb1",
+            "kind": "circle",
+            "r": 30,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "cx": 880,
+            "cy": 370,
+            "fill": "#fff7d6",
+            "id": "pBulb2",
+            "kind": "circle",
+            "r": 30,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "sNote",
+            "kind": "text",
+            "size": 20,
+            "text": "one path",
+            "x": 180,
+            "y": 478
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "pNote",
+            "kind": "text",
+            "size": 20,
+            "text": "each bulb its own path",
+            "x": 660,
+            "y": 478
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "Series: one path. Parallel: each bulb gets its own."
+        }
+      ]
+    },
+    {
+      "caption": "Ohm's law: V = IR",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "Ohm's law says voltage equals current times resistance. A 12-volt battery across a 4-ohm resistor pushes a current of 12 divided by 4 — that is 3 amps.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Ohm's law: V = IR",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "law",
+            "kind": "latex",
+            "size": 56,
+            "tex": "V = I R",
+            "x": 120,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "eg",
+            "kind": "text",
+            "size": 28,
+            "text": "Worked example: a 12 V battery across 4 Ω",
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "givenV",
+            "kind": "latex",
+            "size": 44,
+            "tex": "V = 12\\,\\text{V}",
+            "x": 120,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "givenR",
+            "kind": "latex",
+            "size": 44,
+            "tex": "R = 4\\,\\Omega",
+            "x": 430,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "sub",
+            "kind": "latex",
+            "size": 44,
+            "tex": "I = \\frac{V}{R} = \\frac{12\\,\\text{V}}{4\\,\\Omega}",
+            "x": 120,
+            "y": 460
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "ans",
+            "kind": "latex",
+            "size": 60,
+            "tex": "I = 3\\,\\text{A}",
+            "x": 620,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "ans"
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "12 ÷ 4 = 3 — the current is 3 A"
+        }
+      ]
+    },
+    {
+      "caption": "Current is not \"used up\"",
+      "duration_ms": 8000,
+      "id": "s5",
+      "narration": "A common misconception: the bulb does not use up current. Put an ammeter anywhere in a series loop — before the bulb, after it — and every meter reads the same 0.5 amps.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Current is not 'used up'",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "wTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 150,
+            "x2": 810,
+            "y1": 170,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "wRight",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 810,
+            "x2": 810,
+            "y1": 170,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "wBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 810,
+            "x2": 150,
+            "y1": 430,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "wLeft",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 150,
+            "x2": 150,
+            "y1": 430,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 810,
+            "cy": 300,
+            "fill": "#fff7d6",
+            "id": "bulb",
+            "kind": "circle",
+            "r": 45,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "fill": "#ffffff",
+            "h": 44,
+            "id": "a1",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 64,
+            "x": 288,
+            "y": 148
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "a1t",
+            "kind": "text",
+            "size": 26,
+            "text": "A",
+            "x": 306,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "fill": "#ffffff",
+            "h": 44,
+            "id": "a2",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 64,
+            "x": 778,
+            "y": 278
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "a2t",
+            "kind": "text",
+            "size": 26,
+            "text": "A",
+            "x": 796,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "fill": "#ffffff",
+            "h": 44,
+            "id": "a3",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 64,
+            "x": 548,
+            "y": 408
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "a3t",
+            "kind": "text",
+            "size": 26,
+            "text": "A",
+            "x": 566,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "read1",
+            "kind": "latex",
+            "size": 32,
+            "tex": "I_1 = 0.5\\,\\text{A}",
+            "x": 190,
+            "y": 118
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "read2",
+            "kind": "latex",
+            "size": 32,
+            "tex": "I_2 = 0.5\\,\\text{A}",
+            "x": 560,
+            "y": 118
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "read3",
+            "kind": "latex",
+            "size": 32,
+            "tex": "I_3 = 0.5\\,\\text{A}",
+            "x": 400,
+            "y": 498
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "caption",
+          "text": "Same reading everywhere — current is conserved"
+        }
+      ]
+    },
+    {
+      "caption": "Electricity in one minute",
+      "duration_ms": 7000,
+      "id": "s6",
+      "narration": "Three things to carry away: current flows from positive to negative around a single loop; series means one path and parallel means many; and in a series loop the current is identical everywhere, tied together by V equals I R.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Electricity in one minute",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 28,
+            "text": "• Current flows from + to − around one loop",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 28,
+            "text": "• Series: one path. Parallel: many paths.",
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "size": 28,
+            "text": "• In series, the current is the same everywhere",
+            "x": 120,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "law2",
+            "kind": "latex",
+            "size": 52,
+            "tex": "V = I R",
+            "x": 120,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "caption",
+          "text": "One loop, one law: V = IR"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Electricity: circuits, current and Ohm's law",
+  "topic": "phys-electricity"
+}
