@@ -41,5 +41,6 @@
   "jc-h2-thermal.json",
   "jc-h2-quantum.json",
   "jc-h2-physical.json",
-  "jc-h2-inorganic.json"
+  "jc-h2-inorganic.json",
+  "jc-h2-organic.json"
 ]

@@ -1,0 +1,1403 @@
+{
+  "animath": "0.1",
+  "title": "JC H2 chemistry — organic: mechanisms, synthesis and the arrow language",
+  "level": "jc",
+  "subject": "science",
+  "topic": "h2-organic",
+  "kind": "concept",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Alkanes: one CH₂ group apart",
+      "narration": "Organic chemistry starts with carbon chains. Methane, ethane, propane and butane form a homologous series: each member adds one CH₂ group, so the whole family shares one general formula.",
+      "duration_ms": 10000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "Organic starts with carbon chains",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "m1",
+            "kind": "text",
+            "x": 100,
+            "y": 160,
+            "text": "CH₄ — methane",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "m2",
+            "kind": "text",
+            "x": 100,
+            "y": 220,
+            "text": "CH₃CH₃ — ethane",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "m3",
+            "kind": "text",
+            "x": 100,
+            "y": 280,
+            "text": "CH₃CH₂CH₃ — propane",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "m4",
+            "kind": "text",
+            "x": 100,
+            "y": 340,
+            "text": "CH₃CH₂CH₂CH₃ — butane",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "genForm",
+            "kind": "latex",
+            "x": 640,
+            "y": 150,
+            "tex": "\\text{C}_n\\text{H}_{2n+2}",
+            "size": 42,
+            "color": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "fgUnit",
+            "kind": "text",
+            "x": 640,
+            "y": 215,
+            "text": "the added unit: CH₂",
+            "size": 26,
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "target": "fgUnit",
+          "to": {
+            "x": 640,
+            "y": 275
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "fgUnit",
+          "to": {
+            "x": 640,
+            "y": 335
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "checkEq",
+            "kind": "latex",
+            "x": 560,
+            "y": 430,
+            "tex": "\\text{CH}_4 + \\text{CH}_2 \\rightarrow \\text{C}_2\\text{H}_6",
+            "size": 30,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "target": "genForm"
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "A homologous series: same family, same general formula, one CH₂ apart."
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Functional groups change the family",
+      "narration": "The same three-carbon skeleton can belong to totally different families. Swap in a new functional group and you get a new homologous series with new reactions.",
+      "duration_ms": 10500,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "Functional groups change the chemistry",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 250,
+            "r": 30,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "circle",
+            "cx": 430,
+            "cy": 250,
+            "r": 30,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "circle",
+            "cx": 560,
+            "cy": 250,
+            "r": 30,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "b12",
+            "kind": "line",
+            "x1": 330,
+            "y1": 250,
+            "x2": 400,
+            "y2": 250,
+            "stroke": "#2c3e50",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "b23",
+            "kind": "line",
+            "x1": 460,
+            "y1": 250,
+            "x2": 530,
+            "y2": 250,
+            "stroke": "#2c3e50",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "skL",
+            "kind": "text",
+            "x": 300,
+            "y": 330,
+            "text": "a 3-carbon skeleton",
+            "size": 22,
+            "color": "#5d6d7e"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "fgOh",
+            "kind": "text",
+            "x": 120,
+            "y": 120,
+            "text": "–OH  alcohol",
+            "size": 26,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "fgCooh",
+            "kind": "text",
+            "x": 120,
+            "y": 180,
+            "text": "–COOH  carboxylic acid",
+            "size": 26,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "fgCO",
+            "kind": "text",
+            "x": 120,
+            "y": 240,
+            "text": "C=O  carbonyl",
+            "size": 26,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "fgNh2",
+            "kind": "text",
+            "x": 120,
+            "y": 300,
+            "text": "–NH₂  amine",
+            "size": 26,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "move",
+          "target": "fgOh",
+          "to": {
+            "x": 270,
+            "y": 170
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "target": "fgCooh",
+          "to": {
+            "x": 530,
+            "y": 170
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 5600,
+          "do": "hide",
+          "target": "skL"
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "name1",
+            "kind": "text",
+            "x": 240,
+            "y": 340,
+            "text": "propan-1-ol",
+            "size": 24,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "name2",
+            "kind": "text",
+            "x": 500,
+            "y": 340,
+            "text": "propanoic acid",
+            "size": 24,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "ethL",
+            "kind": "latex",
+            "x": 640,
+            "y": 420,
+            "tex": "\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{OH}",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "emphasize",
+          "target": "fgOh"
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Same skeleton, new functional group — new family, new reactions."
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Electrophilic addition to alkenes",
+      "narration": "Ethene's pi bond is electron-rich, so it attacks the slightly positive hydrogen of H–Br. The curly arrows trace where each electron pair goes: first the pi pair to H, then the H–Br pair onto bromine.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "Electrophilic addition to alkenes",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "addEq",
+            "kind": "latex",
+            "x": 80,
+            "y": 130,
+            "tex": "\\text{CH}_2 = \\text{CH}_2 + \\text{HBr} \\rightarrow \\text{CH}_3\\text{CH}_2\\text{Br}",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "ec1",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 300,
+            "r": 28,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "ec2",
+            "kind": "circle",
+            "cx": 460,
+            "cy": 300,
+            "r": 28,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "db1",
+            "kind": "line",
+            "x1": 328,
+            "y1": 290,
+            "x2": 432,
+            "y2": 290,
+            "stroke": "#2c3e50",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "db2",
+            "kind": "line",
+            "x1": 328,
+            "y1": 310,
+            "x2": 432,
+            "y2": 310,
+            "stroke": "#2c3e50",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "piL",
+            "kind": "text",
+            "x": 300,
+            "y": 420,
+            "text": "π bond — electron-rich",
+            "size": 24,
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "hbr",
+            "kind": "text",
+            "x": 700,
+            "y": 300,
+            "text": "H–Br",
+            "size": 30,
+            "color": "#7b5e3a"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "dpL",
+            "kind": "text",
+            "x": 700,
+            "y": 350,
+            "text": "δ+ H",
+            "size": 22,
+            "color": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "curl1",
+            "kind": "arrow",
+            "x1": 380,
+            "y1": 265,
+            "x2": 600,
+            "y2": 280,
+            "stroke": "#c0392b",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "c1L",
+            "kind": "text",
+            "x": 420,
+            "y": 235,
+            "text": "1: π pair → H",
+            "size": 22,
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "curl2",
+            "kind": "arrow",
+            "x1": 740,
+            "y1": 290,
+            "x2": 800,
+            "y2": 300,
+            "stroke": "#c0392b",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "c2L",
+            "kind": "text",
+            "x": 700,
+            "y": 250,
+            "text": "2: H–Br pair → Br",
+            "size": 22,
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "target": "curl1"
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "target": "curl2"
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "prodL",
+            "kind": "latex",
+            "x": 80,
+            "y": 480,
+            "tex": "\\text{CH}_3\\text{CH}_2\\text{Br}",
+            "size": 34,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "emphasize",
+          "target": "prodL"
+        },
+        {
+          "at_ms": 9200,
+          "do": "caption",
+          "text": "Curly arrows show electron-pair movement — not atom movement."
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "SN1: the slow step comes first",
+      "narration": "Tertiary halogenoalkanes substitute in two steps. First the C–Br bond breaks on its own — slowly — leaving a planar carbocation. Only then does hydroxide attack, fast. The slow step is the bottleneck: the rate depends on the halogenoalkane alone.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "SN1: slow step first",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "sn1Eq",
+            "kind": "latex",
+            "x": 80,
+            "y": 130,
+            "tex": "(\\text{CH}_3)_3\\text{CBr} + \\text{OH}^- \\rightarrow (\\text{CH}_3)_3\\text{COH} + \\text{Br}^-",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "tc",
+            "kind": "circle",
+            "cx": 360,
+            "cy": 300,
+            "r": 30,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "tL",
+            "kind": "text",
+            "x": 300,
+            "y": 200,
+            "text": "(CH₃)₃C–",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "bond1",
+            "kind": "line",
+            "x1": 390,
+            "y1": 300,
+            "x2": 454,
+            "y2": 300,
+            "stroke": "#2c3e50",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "brA",
+            "kind": "circle",
+            "cx": 490,
+            "cy": 300,
+            "r": 26,
+            "fill": "#7b5e3a",
+            "stroke": "#5e3d22",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "brL",
+            "kind": "text",
+            "x": 474,
+            "y": 310,
+            "text": "Br",
+            "size": 22,
+            "color": "#ffffff"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "step1L",
+            "kind": "text",
+            "x": 80,
+            "y": 420,
+            "text": "Step 1 — slow: the C–Br bond breaks",
+            "size": 24,
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "cur1a",
+            "kind": "arrow",
+            "x1": 420,
+            "y1": 285,
+            "x2": 500,
+            "y2": 285,
+            "stroke": "#c0392b",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "hide",
+          "target": "bond1"
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "brIon",
+            "kind": "text",
+            "x": 580,
+            "y": 300,
+            "text": "Br⁻",
+            "size": 28,
+            "color": "#7b5e3a"
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "plusSign",
+            "kind": "text",
+            "x": 452,
+            "y": 208,
+            "text": "+",
+            "size": 44,
+            "color": "#8e44ad"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "catL",
+            "kind": "text",
+            "x": 250,
+            "y": 370,
+            "text": "planar carbocation",
+            "size": 22,
+            "color": "#8e44ad"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "emphasize",
+          "target": "plusSign"
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "step2L",
+            "kind": "text",
+            "x": 80,
+            "y": 460,
+            "text": "Step 2 — fast: OH⁻ attacks",
+            "size": 24,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "ohIon",
+            "kind": "text",
+            "x": 120,
+            "y": 300,
+            "text": "OH⁻",
+            "size": 28,
+            "color": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "move",
+          "target": "ohIon",
+          "to": {
+            "x": 250,
+            "y": 300
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 8200,
+          "do": "show",
+          "shape": {
+            "id": "rate1",
+            "kind": "latex",
+            "x": 80,
+            "y": 510,
+            "tex": "\\text{rate} = k[(\\text{CH}_3)_3\\text{CBr}]",
+            "size": 28,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 9000,
+          "do": "emphasize",
+          "target": "rate1"
+        },
+        {
+          "at_ms": 9600,
+          "do": "caption",
+          "text": "SN1: rate depends only on the halogenoalkane — step 1 is the bottleneck."
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "caption": "SN2: one step, backside attack",
+      "narration": "Primary halogenoalkanes substitute in a single concerted step. Hydroxide attacks from the back, opposite the C–Br bond, while bromide leaves — all at once through one transition state. Both reactants appear in the rate equation.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "SN2: one step, backside attack",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "sn2Eq",
+            "kind": "latex",
+            "x": 80,
+            "y": 130,
+            "tex": "\\text{CH}_3\\text{Br} + \\text{OH}^- \\rightarrow \\text{CH}_3\\text{OH} + \\text{Br}^-",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "pc",
+            "kind": "circle",
+            "cx": 420,
+            "cy": 300,
+            "r": 30,
+            "fill": "#2c3e50",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "pL",
+            "kind": "text",
+            "x": 370,
+            "y": 200,
+            "text": "CH₃–",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "pbond",
+            "kind": "line",
+            "x1": 450,
+            "y1": 300,
+            "x2": 514,
+            "y2": 300,
+            "stroke": "#2c3e50",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "brC",
+            "kind": "circle",
+            "cx": 550,
+            "cy": 300,
+            "r": 26,
+            "fill": "#7b5e3a",
+            "stroke": "#5e3d22",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "ohA",
+            "kind": "text",
+            "x": 150,
+            "y": 300,
+            "text": "OH⁻",
+            "size": 28,
+            "color": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "backL",
+            "kind": "text",
+            "x": 120,
+            "y": 380,
+            "text": "attacks from the back",
+            "size": 22,
+            "color": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "move",
+          "target": "ohA",
+          "to": {
+            "x": 280,
+            "y": 300
+          },
+          "dur_ms": 1500
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "tsF",
+            "kind": "line",
+            "x1": 320,
+            "y1": 300,
+            "x2": 385,
+            "y2": 300,
+            "stroke": "#e67e22",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "tsB",
+            "kind": "line",
+            "x1": 455,
+            "y1": 300,
+            "x2": 520,
+            "y2": 300,
+            "stroke": "#e67e22",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "show",
+          "shape": {
+            "id": "tsL",
+            "kind": "text",
+            "x": 300,
+            "y": 242,
+            "text": "transition state — partial bonds",
+            "size": 22,
+            "color": "#e67e22"
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "emphasize",
+          "target": "tsL"
+        },
+        {
+          "at_ms": 6400,
+          "do": "move",
+          "target": "brC",
+          "to": {
+            "cx": 700,
+            "cy": 300
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "leaveL",
+            "kind": "text",
+            "x": 650,
+            "y": 360,
+            "text": "Br⁻ leaves",
+            "size": 24,
+            "color": "#7b5e3a"
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "move",
+          "target": "ohA",
+          "to": {
+            "x": 380,
+            "y": 300
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 8400,
+          "do": "show",
+          "shape": {
+            "id": "rate2",
+            "kind": "latex",
+            "x": 80,
+            "y": 510,
+            "tex": "\\text{rate} = k[\\text{CH}_3\\text{Br}][\\text{OH}^-]",
+            "size": 28,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 9200,
+          "do": "emphasize",
+          "target": "rate2"
+        },
+        {
+          "at_ms": 9800,
+          "do": "caption",
+          "text": "SN2 is concerted — both reactants set the rate."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "caption": "One route, three steps",
+      "narration": "Real synthesis chains reactions you already know. Ethene becomes bromoethane by electrophilic addition, then ethanol by nucleophilic substitution, then ethanal by partial oxidation. Each arrow names its reagents — and you can plan the whole route backwards from the target.",
+      "duration_ms": 11000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "One route, three steps",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "eqA",
+            "kind": "latex",
+            "x": 80,
+            "y": 170,
+            "tex": "\\text{CH}_2 = \\text{CH}_2 \\xrightarrow{\\text{HBr}} \\text{CH}_3\\text{CH}_2\\text{Br}",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "stepAL",
+            "kind": "text",
+            "x": 80,
+            "y": 220,
+            "text": "electrophilic addition",
+            "size": 20,
+            "color": "#5d6d7e"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "eqB",
+            "kind": "latex",
+            "x": 80,
+            "y": 290,
+            "tex": "\\text{CH}_3\\text{CH}_2\\text{Br} \\xrightarrow{\\text{NaOH(aq), heat}} \\text{CH}_3\\text{CH}_2\\text{OH}",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "stepBL",
+            "kind": "text",
+            "x": 80,
+            "y": 340,
+            "text": "nucleophilic substitution",
+            "size": 20,
+            "color": "#5d6d7e"
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "eqC",
+            "kind": "latex",
+            "x": 80,
+            "y": 410,
+            "tex": "\\text{CH}_3\\text{CH}_2\\text{OH} \\xrightarrow[\\text{heat}]{\\text{K}_2\\text{Cr}_2\\text{O}_7 / \\text{H}^+} \\text{CH}_3\\text{CHO}",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "stepCL",
+            "kind": "text",
+            "x": 80,
+            "y": 460,
+            "text": "partial oxidation",
+            "size": 20,
+            "color": "#5d6d7e"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "emphasize",
+          "target": "eqA"
+        },
+        {
+          "at_ms": 4600,
+          "do": "emphasize",
+          "target": "eqB"
+        },
+        {
+          "at_ms": 5200,
+          "do": "emphasize",
+          "target": "eqC"
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "retroL",
+            "kind": "text",
+            "x": 80,
+            "y": 505,
+            "text": "retrosynthesis: start from the target, work backwards",
+            "size": 22,
+            "color": "#8e44ad"
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "caption",
+          "text": "Plan the route backwards — each arrow is a reaction you know."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "caption": "Check the thinking",
+      "narration": "The most common arrow mistake: reading the curly arrow as an atom sliding along it. The arrow never moves atoms. It tracks one pair of electrons from where the pair starts to where the pair ends up.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "Check the thinking",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "myth",
+            "kind": "text",
+            "x": 80,
+            "y": 170,
+            "text": "❌ “The curly arrow means the Br atom moves along it.”",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "curW",
+            "kind": "arrow",
+            "x1": 300,
+            "y1": 280,
+            "x2": 520,
+            "y2": 280,
+            "stroke": "#c0392b",
+            "width": 5
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "atomA",
+            "kind": "text",
+            "x": 300,
+            "y": 330,
+            "text": "Br",
+            "size": 26,
+            "color": "#7b5e3a"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "atomB",
+            "kind": "text",
+            "x": 520,
+            "y": 330,
+            "text": "Br",
+            "size": 26,
+            "color": "#7b5e3a"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "mythL",
+            "kind": "text",
+            "x": 560,
+            "y": 280,
+            "text": "atoms stay put",
+            "size": 22,
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "fix",
+            "kind": "text",
+            "x": 80,
+            "y": 380,
+            "text": "✅ The arrow tracks one electron PAIR: bond → Br gives Br⁻.",
+            "size": 26,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "emphasize",
+          "target": "curW"
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "pairL",
+            "kind": "text",
+            "x": 300,
+            "y": 430,
+            "text": "pair starts at the bond, ends on Br",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "emphasize",
+          "target": "fix"
+        },
+        {
+          "at_ms": 6000,
+          "do": "caption",
+          "text": "Curly arrows show electron-pair movement — never atom movement."
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "caption": "Organic mechanisms in one page",
+      "narration": "Three ideas carry the whole topic: addition is pi electrons attacking an electrophile; substitution splits into SN1's slow carbocation step and SN2's single concerted step; and synthesis is just chaining those reactions — planned backwards from the target.",
+      "duration_ms": 9500,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "text": "Organic mechanisms in one page",
+            "size": 34,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "r1",
+            "kind": "text",
+            "x": 80,
+            "y": 160,
+            "text": "✓ addition: π electrons attack the electrophile",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "r2",
+            "kind": "text",
+            "x": 80,
+            "y": 220,
+            "text": "✓ SN1: two steps, rate = k[RX]",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "r3",
+            "kind": "text",
+            "x": 80,
+            "y": 280,
+            "text": "✓ SN2: one step, rate = k[RX][Nu⁻]",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "r4",
+            "kind": "text",
+            "x": 80,
+            "y": 340,
+            "text": "✓ synthesis: chain known reactions, plan backwards",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "cross",
+            "kind": "latex",
+            "x": 80,
+            "y": 430,
+            "tex": "\\text{CH}_2 = \\text{CH}_2 \\xrightarrow{\\text{HBr}} \\text{CH}_3\\text{CH}_2\\text{Br} \\xrightarrow{\\text{NaOH(aq)}} \\text{CH}_3\\text{CH}_2\\text{OH}",
+            "size": 24,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "emphasize",
+          "target": "cross"
+        },
+        {
+          "at_ms": 4800,
+          "do": "caption",
+          "text": "Mechanisms are stories about electron pairs — learn the arrow language."
+        }
+      ]
+    }
+  ]
+}
