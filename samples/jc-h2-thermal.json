@@ -1,0 +1,706 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "A gas is a crowd of tiny, fast molecules",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "The kinetic model of a gas starts from a crowd of tiny molecules, far apart and constantly moving. Each molecule flies in a straight line until it collides with the wall or another molecule. A snapshot looks chaotic, but the chaos is the gas.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "box",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "w": 720,
+            "width": 3,
+            "x": 120,
+            "y": 90,
+            "h": 340
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 220,
+            "cy": 180,
+            "fill": "#1a56db",
+            "id": "m1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "cx": 360,
+            "cy": 150,
+            "fill": "#1a56db",
+            "id": "m2",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 520,
+            "cy": 200,
+            "fill": "#1a56db",
+            "id": "m3",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "cx": 680,
+            "cy": 160,
+            "fill": "#1a56db",
+            "id": "m4",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 440,
+            "cy": 330,
+            "fill": "#1a56db",
+            "id": "m5",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "cx": 600,
+            "cy": 350,
+            "fill": "#1a56db",
+            "id": "m6",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "m1",
+          "to": {
+            "cx": 330,
+            "cy": 300
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "m2",
+          "to": {
+            "cx": 240,
+            "cy": 360
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "m3",
+          "to": {
+            "cx": 640,
+            "cy": 320
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "m4",
+          "to": {
+            "cx": 740,
+            "cy": 260
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "m5",
+          "to": {
+            "cx": 330,
+            "cy": 180
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "m6",
+          "to": {
+            "cx": 500,
+            "cy": 140
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "motionNote",
+            "kind": "text",
+            "size": 26,
+            "text": "straight-line flight between collisions",
+            "x": 130,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "caption",
+          "text": "Billions of molecules move at random — that motion is the gas"
+        }
+      ]
+    },
+    {
+      "caption": "Collisions with the wall make pressure",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "Every time a molecule hits the wall it bounces off, changing its momentum. The wall pushes back, and the sum of all those tiny pushes is pressure. More molecules, or faster ones, mean more hits and more pressure.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "box",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "w": 600,
+            "width": 3,
+            "x": 150,
+            "y": 120,
+            "h": 320
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "wall",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 6,
+            "x1": 750,
+            "x2": 750,
+            "y1": 120,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 220,
+            "fill": "#1a56db",
+            "id": "mA",
+            "kind": "circle",
+            "r": 14
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "mA",
+          "to": {
+            "cx": 716,
+            "cy": 220
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "mA",
+          "to": {
+            "cx": 560,
+            "cy": 220
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "recoil",
+            "kind": "arrow",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 700,
+            "x2": 590,
+            "y1": 220,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "cx": 400,
+            "cy": 360,
+            "fill": "#1a56db",
+            "id": "mB",
+            "kind": "circle",
+            "r": 14
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "mB",
+          "to": {
+            "cx": 716,
+            "cy": 360
+          }
+        },
+        {
+          "at_ms": 6700,
+          "do": "move",
+          "dur_ms": 800,
+          "target": "mB",
+          "to": {
+            "cx": 590,
+            "cy": 360
+          }
+        },
+        {
+          "at_ms": 7700,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "pEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "p = \\frac{F}{A}",
+            "x": 160,
+            "y": 80
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "wall"
+        },
+        {
+          "at_ms": 9200,
+          "do": "caption",
+          "text": "Pressure is the push of countless molecular collisions"
+        }
+      ]
+    },
+    {
+      "caption": "Kinetic theory links pressure to molecule motion",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "Kinetic theory turns those collisions into an equation: pressure times volume equals one third of N times the molecular mass times the mean-square speed. Faster molecules, or more of them in the box, give a higher pressure.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "box",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "w": 440,
+            "width": 3,
+            "x": 100,
+            "y": 170,
+            "h": 260
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "k1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "cx": 430,
+            "cy": 360,
+            "fill": "#1a56db",
+            "id": "k2",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "k1",
+          "to": {
+            "cx": 500,
+            "cy": 280
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "k2",
+          "to": {
+            "cx": 130,
+            "cy": 360
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "k1",
+          "to": {
+            "cx": 200,
+            "cy": 280
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "k2",
+          "to": {
+            "cx": 430,
+            "cy": 360
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "pvEq",
+            "kind": "latex",
+            "size": 40,
+            "tex": "pV = \\frac{1}{3}Nmc^2",
+            "x": 600,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "cNote",
+            "kind": "text",
+            "size": 26,
+            "text": "c is the mean-square speed of the molecules",
+            "x": 600,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "pvEq"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Faster or more numerous molecules mean higher pressure"
+        }
+      ]
+    },
+    {
+      "caption": "Squeeze the gas at constant temperature",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "Push the piston in without changing the temperature and each molecule keeps the same average kinetic energy, three-halves k T. But the smaller volume means more wall collisions per second, so the pressure rises.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "cyl",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "w": 520,
+            "width": 3,
+            "x": 140,
+            "y": 130,
+            "h": 320
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "fill": "#9aa0a6",
+            "h": 320,
+            "id": "piston",
+            "kind": "rect",
+            "w": 60,
+            "x": 600,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 260,
+            "cy": 240,
+            "fill": "#1a56db",
+            "id": "c1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 330,
+            "fill": "#1a56db",
+            "id": "c2",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 340,
+            "cy": 390,
+            "fill": "#1a56db",
+            "id": "c3",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 1600,
+          "target": "piston",
+          "to": {
+            "x": 440,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "c1",
+          "to": {
+            "cx": 220,
+            "cy": 240
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "c2",
+          "to": {
+            "cx": 340,
+            "cy": 330
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "c3",
+          "to": {
+            "cx": 280,
+            "cy": 390
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "ekEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "E_k = \\frac{3}{2}kT",
+            "x": 700,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "isoNote",
+            "kind": "text",
+            "size": 24,
+            "text": "same temperature → same average energy, more collisions",
+            "x": 140,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "piston"
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "Halve the volume at constant temperature and the pressure doubles"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: hotter gas means every molecule is faster",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "Heating the gas shifts the whole spread of speeds upwards: the average rises. But the spread stays wide — even in a hot gas, some molecules crawl. Hotter means a higher average, not every molecule faster.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "wrongClaim",
+            "kind": "text",
+            "size": 28,
+            "text": "hotter gas means every molecule is faster",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 330,
+            "fill": "#9aa0a6",
+            "id": "slow1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "cx": 340,
+            "cy": 330,
+            "fill": "#9aa0a6",
+            "id": "slow2",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "cx": 620,
+            "cy": 330,
+            "fill": "#b00020",
+            "id": "fast1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 3500,
+          "do": "show",
+          "shape": {
+            "cx": 720,
+            "cy": 330,
+            "fill": "#b00020",
+            "id": "fast2",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "distNote",
+            "kind": "text",
+            "size": 26,
+            "text": "heat shifts the whole spread up — slow molecules remain",
+            "x": 120,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "slow1"
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "fast2"
+        },
+        {
+          "at_ms": 8000,
+          "do": "caption",
+          "text": "Hotter gas: a higher average speed, not every molecule faster"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "JC H2 physics — thermal: kinetic theory, gas laws and temperature",
+  "topic": "h2-thermal"
+}

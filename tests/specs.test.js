@@ -190,6 +190,30 @@ test('jc-h2-sequences covers AP terms and GP sums with checked arithmetic', () =
   assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
 });
 
+test('jc-h2-thermal and jc-h2-quantum cover kinetic theory and the photoelectric effect', () => {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  for (const [name, topic, expectation] of [
+    ['jc-h2-thermal.json', 'h2-thermal', 'kinetic-theory, pressure and misconception scenes'],
+    ['jc-h2-quantum.json', 'h2-quantum', 'photon, threshold-frequency and misconception scenes']
+  ]) {
+    const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+    assert.deepEqual(validateSpec(spec), [], name + ' must validate with zero errors');
+    assert.equal(spec.level, 'jc', name + ' must be a jc sample');
+    assert.equal(spec.subject, 'science', name + ' must be a science sample');
+    assert.equal(spec.topic, topic, name + ' must carry the ' + topic + ' topic');
+    assert.equal(spec.animath, '0.1', name + ' must declare the v0.1 spec version');
+    assert.equal(spec.canvas.width, 960, 'canvas width must be 960');
+    assert.equal(spec.canvas.height, 540, 'canvas height must be 540');
+    assert.ok(spec.scenes.length >= 4, 'expected ' + expectation);
+    assert.ok(spec.scenes.some((s) => /misconception/i.test(s.caption)),
+      name + ' must include a misconception scene');
+    const hasLatex = spec.scenes.some((s) => s.steps.some(
+      (st) => st.do === 'show' && st.shape && st.shape.kind === 'latex' && st.shape.tex));
+    assert.ok(hasLatex, name + ' must render at least one formula via a latex shape');
+    assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
+  }
+});
+
 test('samples cover math and science across levels', () => {
   const specs = sampleFiles.map((f) =>
     JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8')));

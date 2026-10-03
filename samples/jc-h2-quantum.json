@@ -1,0 +1,696 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "Light arrives as a stream of photons",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "Shining light on a metal is like raining tiny packets of energy onto its surface. Each photon carries energy h f, fixed by the light's frequency. When a photon strikes, one electron may absorb the whole packet.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#6b7280",
+            "h": 40,
+            "id": "metal",
+            "kind": "rect",
+            "w": 660,
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 280,
+            "cy": 100,
+            "fill": "#f59e0b",
+            "id": "ph1",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 60,
+            "fill": "#f59e0b",
+            "id": "ph2",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 560,
+            "cy": 100,
+            "fill": "#f59e0b",
+            "id": "ph3",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "cx": 700,
+            "cy": 60,
+            "fill": "#f59e0b",
+            "id": "ph4",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "ph1",
+          "to": {
+            "cx": 280,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "ph2",
+          "to": {
+            "cx": 420,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "ph3",
+          "to": {
+            "cx": 560,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "ph4",
+          "to": {
+            "cx": 700,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "hfNote",
+            "kind": "text",
+            "size": 26,
+            "text": "each photon carries energy hf",
+            "x": 150,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "metal"
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "A beam of light is a stream of photons, each with energy hf"
+        }
+      ]
+    },
+    {
+      "caption": "Below the threshold frequency, nothing happens",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "An electron needs a minimum kick to escape the metal, the work function. Low-frequency photons, however many arrive, each carry too little energy and nothing escapes. Only when the frequency passes the threshold do electrons start to fly.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#6b7280",
+            "h": 40,
+            "id": "metal",
+            "kind": "rect",
+            "w": 660,
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 320,
+            "cy": 120,
+            "fill": "#b00020",
+            "id": "red1",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 80,
+            "fill": "#b00020",
+            "id": "red2",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "red1",
+          "to": {
+            "cx": 320,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "red2",
+          "to": {
+            "cx": 480,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "noEject",
+            "kind": "text",
+            "size": 26,
+            "text": "low frequency: no electrons escape, however many photons",
+            "x": 150,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "cx": 320,
+            "cy": 120,
+            "fill": "#7c3aed",
+            "id": "vio1",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 5300,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 80,
+            "fill": "#7c3aed",
+            "id": "vio2",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "vio1",
+          "to": {
+            "cx": 320,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 6300,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "vio2",
+          "to": {
+            "cx": 480,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "e1",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 320,
+            "x2": 320,
+            "y1": 380,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 7900,
+          "do": "show",
+          "shape": {
+            "id": "e2",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 480,
+            "x2": 480,
+            "y1": 380,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 8800,
+          "do": "caption",
+          "text": "No electrons escape unless f exceeds f-zero — brightness cannot compensate"
+        }
+      ]
+    },
+    {
+      "caption": "Einstein's photoelectric equation",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "Einstein's equation balances the energy books. The photon's energy h f first pays the work function W to free the electron, and whatever remains becomes the electron's kinetic energy. That is why brighter light cannot speed electrons up — each electron gets just one photon.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#6b7280",
+            "h": 40,
+            "id": "metal",
+            "kind": "rect",
+            "w": 660,
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 80,
+            "fill": "#7c3aed",
+            "id": "ph",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "ph",
+          "to": {
+            "cx": 480,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "eOut",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 480,
+            "x2": 480,
+            "y1": 380,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "peEq",
+            "kind": "latex",
+            "size": 44,
+            "tex": "hf = W + \\frac{1}{2}mv_{max}^2",
+            "x": 150,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "booksNote",
+            "kind": "text",
+            "size": 26,
+            "text": "photon energy = work function + electron's max kinetic energy",
+            "x": 150,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "peEq"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Each photon gives all its energy to one electron"
+        }
+      ]
+    },
+    {
+      "caption": "Brighter light: more photons, more electrons",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "Double the intensity at the same frequency and twice as many photons arrive per second. Each still carries the same energy h f, so twice as many electrons escape — but each with exactly the same speed as before. Same-length arrows, twice as many.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#6b7280",
+            "h": 40,
+            "id": "metal",
+            "kind": "rect",
+            "w": 660,
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 120,
+            "fill": "#f59e0b",
+            "id": "dimPh",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "move",
+          "dur_ms": 1100,
+          "target": "dimPh",
+          "to": {
+            "cx": 300,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "dimE",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 300,
+            "x2": 300,
+            "y1": 380,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "cx": 540,
+            "cy": 120,
+            "fill": "#f59e0b",
+            "id": "brPh1",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 80,
+            "fill": "#f59e0b",
+            "id": "brPh2",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "move",
+          "dur_ms": 1100,
+          "target": "brPh1",
+          "to": {
+            "cx": 540,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 5300,
+          "do": "move",
+          "dur_ms": 1100,
+          "target": "brPh2",
+          "to": {
+            "cx": 640,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "brE1",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 540,
+            "x2": 540,
+            "y1": 380,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 6900,
+          "do": "show",
+          "shape": {
+            "id": "brE2",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 640,
+            "x2": 640,
+            "y1": 380,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "show",
+          "shape": {
+            "id": "rateNote",
+            "kind": "text",
+            "size": 26,
+            "text": "double the intensity → double the electrons, same speed each",
+            "x": 150,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Intensity sets the rate of electrons, not their speed"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: brighter light makes electrons faster",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "Brightness means more photons, not stronger ones. The escaping electron's speed comes from the frequency f: a bright red beam still ejects nothing, while a dim violet beam ejects fast electrons. For faster electrons, raise the frequency.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "wrongClaim",
+            "kind": "text",
+            "size": 28,
+            "text": "brighter light makes electrons faster",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "fill": "#6b7280",
+            "h": 40,
+            "id": "metal",
+            "kind": "rect",
+            "w": 660,
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 120,
+            "fill": "#b00020",
+            "id": "brightRed1",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "cx": 380,
+            "cy": 80,
+            "fill": "#b00020",
+            "id": "brightRed2",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "brightRed1",
+          "to": {
+            "cx": 300,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "brightRed2",
+          "to": {
+            "cx": 380,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "slowE",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 340,
+            "x2": 340,
+            "y1": 380,
+            "y2": 310
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 120,
+            "fill": "#7c3aed",
+            "id": "vioPh",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "vioPh",
+          "to": {
+            "cx": 640,
+            "cy": 388
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "fastE",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 640,
+            "x2": 640,
+            "y1": 380,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 8100,
+          "do": "show",
+          "shape": {
+            "id": "fastNote",
+            "kind": "text",
+            "size": 26,
+            "text": "speed comes from frequency — brightness only adds photons",
+            "x": 120,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Faster electrons need higher frequency, not brighter light"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "JC H2 physics — quantum: photons and the photoelectric effect",
+  "topic": "h2-quantum"
+}
