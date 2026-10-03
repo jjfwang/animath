@@ -29,8 +29,7 @@ HARD RULES — violate any of these and the spec is rejected:
    must be shown earlier in the SAME scene.
 7. Math notation: prefer the `latex` shape kind where unicode math breaks
    down (fractions, stacked notation, algebra); `text` shapes stay UNICODE
-   ONLY — NEVER LaTeX backslash commands inside text: no \frac, \sqrt, \times.
-   (½ ¼ ¾ × ÷ − → √ π θ ° ² ³ ≤ ≥ ≠ ± ≈ ∠ △ are the allowed glyphs.)
+   ONLY — NEVER LaTeX backslash commands inside text, like \frac, \sqrt, \times.
 8. Keep scenes visually uncluttered: max ~8 shapes visible at once. Prefer
    building a diagram step by step over dumping it whole.
 
@@ -41,8 +40,8 @@ PEDAGOGY:
   step by step, each step appearing as it is explained -> box the answer.
 - Address exactly one common misconception for the topic, visually
   (e.g. show why 1/2 + 1/4 is NOT 2/6).
-- Narration reads aloud naturally to a {{LEVEL_LABEL}} student. No jargon
-  above the level. Short sentences.
+- Narration reads aloud naturally to a {{LEVEL_LABEL}} student. Tone: {{TONE}}.
+  No jargon above the level. Short sentences.
 ```
 
 ## User prompt
@@ -68,6 +67,8 @@ Where `KIND_GUIDANCE` is:
 | `primary` | Primary school (PSLE) | warm, concrete, everyday examples (cakes, MRT trips) |
 | `secondary` | Secondary school (O/N-level) | direct, precise, exam-aware |
 | `jc` | Junior college (H2) | rigorous, defines terms, shows derivations |
+
+The system prompt fills `{{TONE}}` with the level's tone from this table.
 
 ## Notes
 
