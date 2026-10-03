@@ -158,7 +158,7 @@
                 }
               }
             }
-            if (step.dur_ms !== undefined && !isNum(step.dur_ms)) errors.push(s + '.dur_ms: must be a number');
+            if (!isNum(step.dur_ms)) errors.push(s + '.dur_ms: required number');
           }
         }
       });
