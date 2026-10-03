@@ -1,1 +1,831 @@
-{"animath":"0.1","canvas":{"height":540,"width":960},"kind":"concept","level":"primary","scenes":[{"caption":"A seed wakes up and sprouts","duration_ms":8000,"id":"s1","narration":"A seed is the start of a plant's life. With water, warmth and light, the seed wakes up and grows its first root and shoot.","steps":[{"at_ms":0,"do":"show","shape":{"fill":"#a5774b","h":120,"id":"soil","kind":"rect","stroke":"#6d4c41","strokeWidth":3,"w":840,"x":60,"y":420}},{"at_ms":400,"do":"show","shape":{"cx":200,"cy":470,"fill":"#7a4a22","id":"seed","kind":"circle","r":18,"stroke":"#4e2c10","strokeWidth":3}},{"at_ms":600,"do":"show","shape":{"color":"#3a2410","id":"seedLabel","kind":"text","size":30,"text":"Seed","x":168,"y":435}},{"at_ms":700,"do":"show","shape":{"cx":810,"cy":100,"fill":"#ffdd55","id":"sun","kind":"circle","r":55,"stroke":"#e6b800","strokeWidth":3}},{"at_ms":900,"do":"show","shape":{"cx":350,"cy":120,"fill":"#5a9bd4","id":"drop1","kind":"circle","r":12}},{"at_ms":1050,"do":"show","shape":{"cx":620,"cy":120,"fill":"#5a9bd4","id":"drop2","kind":"circle","r":12}},{"at_ms":1100,"do":"move","dur_ms":1200,"target":"drop1","to":{"cx":350,"cy":400}},{"at_ms":1250,"do":"move","dur_ms":1200,"target":"drop2","to":{"cx":620,"cy":400}},{"at_ms":2600,"do":"show","shape":{"id":"stem","kind":"line","stroke":"#2e7d32","width":8,"x1":200,"x2":200,"y1":452,"y2":340}},{"at_ms":3000,"do":"show","shape":{"cx":168,"cy":360,"fill":"#43a047","id":"leafL","kind":"circle","r":20}},{"at_ms":3200,"do":"show","shape":{"cx":232,"cy":360,"fill":"#43a047","id":"leafR","kind":"circle","r":20}},{"at_ms":3600,"do":"show","shape":{"color":"#1b5e20","id":"seedlingLabel","kind":"text","size":30,"text":"Seedling","x":120,"y":300}},{"at_ms":4600,"do":"emphasize","dur_ms":900,"target":"stem"},{"at_ms":5600,"do":"caption","text":"Water wakes the seed — it sprouts roots and green leaves"}]},{"caption":"The flower grows the next seeds","duration_ms":8000,"id":"s2","narration":"The seedling grows into an adult plant with flowers. Many people think the flower is the end — but inside the flower, new seeds are forming.","steps":[{"at_ms":0,"do":"show","shape":{"id":"stem","kind":"line","stroke":"#2e7d32","width":8,"x1":480,"x2":480,"y1":470,"y2":250}},{"at_ms":400,"do":"show","shape":{"cx":440,"cy":330,"fill":"#43a047","id":"leafL","kind":"circle","r":26}},{"at_ms":600,"do":"show","shape":{"cx":520,"cy":330,"fill":"#43a047","id":"leafR","kind":"circle","r":26}},{"at_ms":1200,"do":"show","shape":{"cx":480,"cy":220,"fill":"#c62828","id":"bud","kind":"circle","r":24}},{"at_ms":1600,"do":"show","shape":{"cx":480,"cy":155,"fill":"#ef5350","id":"petal1","kind":"circle","r":20}},{"at_ms":1800,"do":"show","shape":{"cx":528,"cy":195,"fill":"#ef5350","id":"petal2","kind":"circle","r":20}},{"at_ms":2000,"do":"show","shape":{"cx":510,"cy":262,"fill":"#ef5350","id":"petal3","kind":"circle","r":20}},{"at_ms":2200,"do":"show","shape":{"cx":450,"cy":262,"fill":"#ef5350","id":"petal4","kind":"circle","r":20}},{"at_ms":2400,"do":"show","shape":{"cx":432,"cy":195,"fill":"#ef5350","id":"petal5","kind":"circle","r":20}},{"at_ms":2800,"do":"show","shape":{"color":"#b71c1c","id":"flowerLabel","kind":"text","size":30,"text":"Flower","x":560,"y":215}},{"at_ms":3200,"do":"show","shape":{"id":"pollenArrow","kind":"arrow","stroke":"#8d6e63","width":5,"x1":700,"x2":520,"y1":215,"y2":215}},{"at_ms":4200,"do":"show","shape":{"cx":430,"cy":215,"fill":"#7a4a22","id":"seedA","kind":"circle","r":10}},{"at_ms":4300,"do":"show","shape":{"cx":480,"cy":215,"fill":"#7a4a22","id":"seedB","kind":"circle","r":10}},{"at_ms":4400,"do":"show","shape":{"cx":530,"cy":215,"fill":"#7a4a22","id":"seedC","kind":"circle","r":10}},{"at_ms":5400,"do":"move","dur_ms":1500,"target":"seedA","to":{"cx":430,"cy":460}},{"at_ms":5450,"do":"move","dur_ms":1500,"target":"seedB","to":{"cx":480,"cy":470}},{"at_ms":5500,"do":"move","dur_ms":1500,"target":"seedC","to":{"cx":530,"cy":460}},{"at_ms":7000,"do":"emphasize","dur_ms":900,"target":"seedB"},{"at_ms":7200,"do":"caption","text":"The flower is not the end — its seeds start new plants"}]},{"caption":"An egg hatches into a caterpillar","duration_ms":8000,"id":"s3","narration":"Butterflies start life as tiny eggs on a leaf. When an egg hatches, out comes a caterpillar — the butterfly's growing-up stage.","steps":[{"at_ms":0,"do":"show","shape":{"fill":"#66bb6a","id":"leaf","kind":"polygon","points":[[120,420],[480,360],[480,460],[120,500]],"stroke":"#2e7d32","strokeWidth":3}},{"at_ms":600,"do":"show","shape":{"cx":200,"cy":400,"fill":"#fff9c4","id":"egg1","kind":"circle","r":8,"stroke":"#9c8a00","strokeWidth":2}},{"at_ms":800,"do":"show","shape":{"cx":230,"cy":395,"fill":"#fff9c4","id":"egg2","kind":"circle","r":8,"stroke":"#9c8a00","strokeWidth":2}},{"at_ms":1000,"do":"show","shape":{"cx":260,"cy":400,"fill":"#fff9c4","id":"egg3","kind":"circle","r":8,"stroke":"#9c8a00","strokeWidth":2}},{"at_ms":1200,"do":"show","shape":{"color":"#5d4e00","id":"eggLabel","kind":"text","size":28,"text":"Eggs","x":300,"y":390}},{"at_ms":1950,"do":"show","shape":{"cx":355,"cy":335,"fill":"#558b2f","id":"head","kind":"circle","r":18}},{"at_ms":2000,"do":"show","shape":{"cx":380,"cy":330,"fill":"#7cb342","id":"c1","kind":"circle","r":16}},{"at_ms":2100,"do":"show","shape":{"cx":415,"cy":325,"fill":"#7cb342","id":"c2","kind":"circle","r":16}},{"at_ms":2200,"do":"show","shape":{"cx":450,"cy":330,"fill":"#7cb342","id":"c3","kind":"circle","r":16}},{"at_ms":2300,"do":"show","shape":{"cx":485,"cy":325,"fill":"#7cb342","id":"c4","kind":"circle","r":16}},{"at_ms":2600,"do":"show","shape":{"color":"#33691e","id":"catLabel","kind":"text","size":30,"text":"Caterpillar","x":330,"y":290}},{"at_ms":3000,"do":"move","dur_ms":1200,"target":"head","to":{"cx":380,"cy":332}},{"at_ms":3100,"do":"move","dur_ms":1200,"target":"c1","to":{"cx":405,"cy":328}},{"at_ms":4400,"do":"emphasize","dur_ms":900,"target":"c2"},{"at_ms":5600,"do":"caption","text":"The tiny caterpillar eats leaves and grows bigger"}]},{"caption":"The butterfly emerges and the cycle repeats","duration_ms":8000,"id":"s4","narration":"The caterpillar rests inside a pupa while its body changes. Then an adult butterfly comes out — ready to lay eggs and start the cycle again.","steps":[{"at_ms":0,"do":"show","shape":{"id":"branch","kind":"line","stroke":"#6d4c41","width":10,"x1":100,"x2":400,"y1":120,"y2":120}},{"at_ms":500,"do":"show","shape":{"fill":"#a2b56b","h":110,"id":"pupa","kind":"rect","rx":25,"stroke":"#6b7a3e","strokeWidth":3,"w":50,"x":230,"y":120}},{"at_ms":900,"do":"show","shape":{"color":"#4c5b26","id":"pupaLabel","kind":"text","size":30,"text":"Pupa","x":300,"y":180}},{"at_ms":2000,"do":"show","shape":{"id":"timeArrow","kind":"arrow","stroke":"#5c6bc0","width":5,"x1":480,"x2":640,"y1":175,"y2":175}},{"at_ms":2200,"do":"show","shape":{"color":"#3949ab","id":"timeLabel","kind":"text","size":26,"text":"Time passes","x":480,"y":140}},{"at_ms":3000,"do":"show","shape":{"id":"body","kind":"line","stroke":"#4e342e","width":8,"x1":720,"x2":720,"y1":250,"y2":330}},{"at_ms":3200,"do":"show","shape":{"cx":680,"cy":260,"fill":"#ab47bc","id":"wingUL","kind":"circle","r":30,"stroke":"#6a1b9a","strokeWidth":3}},{"at_ms":3300,"do":"show","shape":{"cx":760,"cy":260,"fill":"#ab47bc","id":"wingUR","kind":"circle","r":30,"stroke":"#6a1b9a","strokeWidth":3}},{"at_ms":3400,"do":"show","shape":{"cx":680,"cy":320,"fill":"#ce93d8","id":"wingLL","kind":"circle","r":24,"stroke":"#6a1b9a","strokeWidth":3}},{"at_ms":3500,"do":"show","shape":{"cx":760,"cy":320,"fill":"#ce93d8","id":"wingLR","kind":"circle","r":24,"stroke":"#6a1b9a","strokeWidth":3}},{"at_ms":3800,"do":"show","shape":{"color":"#4a148c","id":"adultLabel","kind":"text","size":28,"text":"Adult butterfly","x":660,"y":370}},{"at_ms":4200,"do":"hide","target":"pupa"},{"at_ms":4400,"do":"move","dur_ms":1500,"target":"body","to":{"x1":680,"x2":680,"y1":130,"y2":210}},{"at_ms":4500,"do":"move","dur_ms":1500,"target":"wingUL","to":{"cx":640,"cy":140}},{"at_ms":4600,"do":"move","dur_ms":1500,"target":"wingUR","to":{"cx":720,"cy":140}},{"at_ms":4700,"do":"move","dur_ms":1500,"target":"wingLL","to":{"cx":640,"cy":200}},{"at_ms":4800,"do":"move","dur_ms":1500,"target":"wingLR","to":{"cx":720,"cy":200}},{"at_ms":6400,"do":"emphasize","dur_ms":900,"target":"wingUR"},{"at_ms":7000,"do":"caption","text":"Egg to butterfly — and the cycle starts all over again"}]}],"subject":"science","title":"Life cycles: plants and animals","topic":"life-cycles"}
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "primary",
+  "scenes": [
+    {
+      "caption": "A seed wakes up and sprouts",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "A seed is the start of a plant's life. With water, warmth and light, the seed wakes up and grows its first root and shoot.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#a5774b",
+            "h": 120,
+            "id": "soil",
+            "kind": "rect",
+            "stroke": "#6d4c41",
+            "strokeWidth": 3,
+            "w": 840,
+            "x": 60,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 470,
+            "fill": "#7a4a22",
+            "id": "seed",
+            "kind": "circle",
+            "r": 18,
+            "stroke": "#4e2c10",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#3a2410",
+            "id": "seedLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Seed",
+            "x": 168,
+            "y": 435
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "cx": 810,
+            "cy": 100,
+            "fill": "#ffdd55",
+            "id": "sun",
+            "kind": "circle",
+            "r": 55,
+            "stroke": "#e6b800",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "cx": 350,
+            "cy": 120,
+            "fill": "#5a9bd4",
+            "id": "drop1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1050,
+          "do": "show",
+          "shape": {
+            "cx": 620,
+            "cy": 120,
+            "fill": "#5a9bd4",
+            "id": "drop2",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "drop1",
+          "to": {
+            "cx": 350,
+            "cy": 400
+          }
+        },
+        {
+          "at_ms": 1250,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "drop2",
+          "to": {
+            "cx": 620,
+            "cy": 400
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "stem",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 8,
+            "x1": 200,
+            "x2": 200,
+            "y1": 452,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "cx": 168,
+            "cy": 360,
+            "fill": "#43a047",
+            "id": "leafL",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "cx": 232,
+            "cy": 360,
+            "fill": "#43a047",
+            "id": "leafR",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "color": "#1b5e20",
+            "id": "seedlingLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Seedling",
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "stem"
+        },
+        {
+          "at_ms": 5600,
+          "do": "caption",
+          "text": "Water wakes the seed — it sprouts roots and green leaves"
+        }
+      ]
+    },
+    {
+      "caption": "The flower grows the next seeds",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "The seedling grows into an adult plant with flowers. Many people think the flower is the end — but inside the flower, new seeds are forming.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "stem",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 8,
+            "x1": 480,
+            "x2": 480,
+            "y1": 470,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "cx": 440,
+            "cy": 330,
+            "fill": "#43a047",
+            "id": "leafL",
+            "kind": "circle",
+            "r": 26
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 520,
+            "cy": 330,
+            "fill": "#43a047",
+            "id": "leafR",
+            "kind": "circle",
+            "r": 26
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 220,
+            "fill": "#c62828",
+            "id": "bud",
+            "kind": "circle",
+            "r": 24
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 155,
+            "fill": "#ef5350",
+            "id": "petal1",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 528,
+            "cy": 195,
+            "fill": "#ef5350",
+            "id": "petal2",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 510,
+            "cy": 262,
+            "fill": "#ef5350",
+            "id": "petal3",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 450,
+            "cy": 262,
+            "fill": "#ef5350",
+            "id": "petal4",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "cx": 432,
+            "cy": 195,
+            "fill": "#ef5350",
+            "id": "petal5",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "color": "#b71c1c",
+            "id": "flowerLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Flower",
+            "x": 560,
+            "y": 215
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "pollenArrow",
+            "kind": "arrow",
+            "stroke": "#8d6e63",
+            "width": 5,
+            "x1": 800,
+            "x2": 690,
+            "y1": 215,
+            "y2": 215
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "cx": 430,
+            "cy": 215,
+            "fill": "#7a4a22",
+            "id": "seedA",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 215,
+            "fill": "#7a4a22",
+            "id": "seedB",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "cx": 530,
+            "cy": 215,
+            "fill": "#7a4a22",
+            "id": "seedC",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "seedA",
+          "to": {
+            "cx": 430,
+            "cy": 460
+          }
+        },
+        {
+          "at_ms": 5450,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "seedB",
+          "to": {
+            "cx": 480,
+            "cy": 470
+          }
+        },
+        {
+          "at_ms": 5500,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "seedC",
+          "to": {
+            "cx": 530,
+            "cy": 460
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "seedB"
+        },
+        {
+          "at_ms": 7200,
+          "do": "caption",
+          "text": "The flower is not the end — its seeds start new plants"
+        }
+      ]
+    },
+    {
+      "caption": "An egg hatches into a caterpillar",
+      "duration_ms": 8000,
+      "id": "s3",
+      "narration": "Butterflies start life as tiny eggs on a leaf. When an egg hatches, out comes a caterpillar — the butterfly's growing-up stage.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#66bb6a",
+            "id": "leaf",
+            "kind": "polygon",
+            "points": [
+              [
+                120,
+                420
+              ],
+              [
+                480,
+                360
+              ],
+              [
+                480,
+                460
+              ],
+              [
+                120,
+                500
+              ]
+            ],
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 400,
+            "fill": "#fff9c4",
+            "id": "egg1",
+            "kind": "circle",
+            "r": 8,
+            "stroke": "#9c8a00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "cx": 230,
+            "cy": 395,
+            "fill": "#fff9c4",
+            "id": "egg2",
+            "kind": "circle",
+            "r": 8,
+            "stroke": "#9c8a00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "cx": 260,
+            "cy": 400,
+            "fill": "#fff9c4",
+            "id": "egg3",
+            "kind": "circle",
+            "r": 8,
+            "stroke": "#9c8a00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "color": "#5d4e00",
+            "id": "eggLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "Eggs",
+            "x": 300,
+            "y": 390
+          }
+        },
+        {
+          "at_ms": 1950,
+          "do": "show",
+          "shape": {
+            "cx": 355,
+            "cy": 335,
+            "fill": "#558b2f",
+            "id": "head",
+            "kind": "circle",
+            "r": 18
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 380,
+            "cy": 330,
+            "fill": "#7cb342",
+            "id": "c1",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "cx": 415,
+            "cy": 325,
+            "fill": "#7cb342",
+            "id": "c2",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 450,
+            "cy": 330,
+            "fill": "#7cb342",
+            "id": "c3",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "cx": 485,
+            "cy": 325,
+            "fill": "#7cb342",
+            "id": "c4",
+            "kind": "circle",
+            "r": 16
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "color": "#33691e",
+            "id": "catLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Caterpillar",
+            "x": 330,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "head",
+          "to": {
+            "cx": 380,
+            "cy": 332
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "c1",
+          "to": {
+            "cx": 405,
+            "cy": 328
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "c2"
+        },
+        {
+          "at_ms": 5600,
+          "do": "caption",
+          "text": "The tiny caterpillar eats leaves and grows bigger"
+        }
+      ]
+    },
+    {
+      "caption": "The butterfly emerges and the cycle repeats",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "The caterpillar rests inside a pupa while its body changes. Then an adult butterfly comes out — ready to lay eggs and start the cycle again.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "branch",
+            "kind": "line",
+            "stroke": "#6d4c41",
+            "width": 10,
+            "x1": 100,
+            "x2": 400,
+            "y1": 120,
+            "y2": 120
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "fill": "#a2b56b",
+            "h": 110,
+            "id": "pupa",
+            "kind": "rect",
+            "rx": 25,
+            "stroke": "#6b7a3e",
+            "strokeWidth": 3,
+            "w": 50,
+            "x": 230,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "color": "#4c5b26",
+            "id": "pupaLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Pupa",
+            "x": 300,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "timeArrow",
+            "kind": "arrow",
+            "stroke": "#5c6bc0",
+            "width": 5,
+            "x1": 480,
+            "x2": 640,
+            "y1": 175,
+            "y2": 175
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "color": "#3949ab",
+            "id": "timeLabel",
+            "kind": "text",
+            "size": 26,
+            "text": "Time passes",
+            "x": 480,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "body",
+            "kind": "line",
+            "stroke": "#4e342e",
+            "width": 8,
+            "x1": 720,
+            "x2": 720,
+            "y1": 250,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "cx": 680,
+            "cy": 260,
+            "fill": "#ab47bc",
+            "id": "wingUL",
+            "kind": "circle",
+            "r": 30,
+            "stroke": "#6a1b9a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "cx": 760,
+            "cy": 260,
+            "fill": "#ab47bc",
+            "id": "wingUR",
+            "kind": "circle",
+            "r": 30,
+            "stroke": "#6a1b9a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "cx": 680,
+            "cy": 320,
+            "fill": "#ce93d8",
+            "id": "wingLL",
+            "kind": "circle",
+            "r": 24,
+            "stroke": "#6a1b9a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3500,
+          "do": "show",
+          "shape": {
+            "cx": 760,
+            "cy": 320,
+            "fill": "#ce93d8",
+            "id": "wingLR",
+            "kind": "circle",
+            "r": 24,
+            "stroke": "#6a1b9a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#4a148c",
+            "id": "adultLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "Adult butterfly",
+            "x": 660,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "hide",
+          "target": "pupa"
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "body",
+          "to": {
+            "x1": 680,
+            "x2": 680,
+            "y1": 130,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "wingUL",
+          "to": {
+            "cx": 640,
+            "cy": 140
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "wingUR",
+          "to": {
+            "cx": 720,
+            "cy": 140
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "wingLL",
+          "to": {
+            "cx": 640,
+            "cy": 200
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "wingLR",
+          "to": {
+            "cx": 720,
+            "cy": 200
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "wingUR"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "Egg to butterfly — and the cycle starts all over again"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Life cycles: plants and animals",
+  "topic": "life-cycles"
+}
