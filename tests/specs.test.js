@@ -123,6 +123,36 @@ test('secondary-science-chem-atomic covers atoms and the periodic table', () => 
   assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
 });
 
+test('jc-h2-differentiation covers connected rates with checked arithmetic', () => {
+  const name = 'jc-h2-differentiation.json';
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+  assert.deepEqual(validateSpec(spec), [], name + ' must validate with zero errors');
+  assert.equal(spec.level, 'jc', name + ' must be a jc sample');
+  assert.equal(spec.subject, 'math', name + ' must be a math sample');
+  assert.equal(spec.topic, 'h2-differentiation', name + ' must carry the h2-differentiation topic');
+  assert.equal(spec.animath, '0.1', name + ' must declare the v0.1 spec version');
+  assert.equal(spec.canvas.width, 960, 'canvas width must be 960');
+  assert.equal(spec.canvas.height, 540, 'canvas height must be 540');
+  assert.ok(spec.scenes.length >= 4, 'expected expanding-circle, ladder and misconception scenes');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
+});
+
+test('jc-h2-sequences covers AP terms and GP sums with checked arithmetic', () => {
+  const name = 'jc-h2-sequences.json';
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+  assert.deepEqual(validateSpec(spec), [], name + ' must validate with zero errors');
+  assert.equal(spec.level, 'jc', name + ' must be a jc sample');
+  assert.equal(spec.subject, 'math', name + ' must be a math sample');
+  assert.equal(spec.topic, 'h2-sequences', name + ' must carry the h2-sequences topic');
+  assert.equal(spec.animath, '0.1', name + ' must declare the v0.1 spec version');
+  assert.equal(spec.canvas.width, 960, 'canvas width must be 960');
+  assert.equal(spec.canvas.height, 540, 'canvas height must be 540');
+  assert.ok(spec.scenes.length >= 4, 'expected AP, GP-sum and misconception scenes');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
+});
+
 test('samples cover math and science across levels', () => {
   const specs = sampleFiles.map((f) =>
     JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8')));
