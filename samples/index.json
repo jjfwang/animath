@@ -1,1 +1,12 @@
-["primary-math-fractions-addition.json","secondary-math-pythagoras.json","secondary-science-photosynthesis.json","primary-math-decimals-place-value.json","primary-math-percentage-of-quantity.json","primary-math-ratio-sharing.json","primary-math-area-perimeter.json","primary-math-rate-speed.json"]
+[
+  "primary-math-fractions-addition.json",
+  "secondary-math-pythagoras.json",
+  "secondary-science-photosynthesis.json",
+  "primary-math-decimals-place-value.json",
+  "primary-math-percentage-of-quantity.json",
+  "primary-math-ratio-sharing.json",
+  "primary-math-area-perimeter.json",
+  "primary-math-rate-speed.json",
+  "primary-science-water-cycle.json",
+  "primary-science-forces-magnets.json"
+]
