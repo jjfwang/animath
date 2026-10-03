@@ -1,0 +1,606 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "A vector has size and direction",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "A vector is an arrow with a size and a direction. This arrow moves 2 units right and 3 units up, and its column vector records exactly that: 2 over 3. The length of the arrow is the magnitude of the vector.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 450,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "yAxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "x2": 120,
+            "y1": 80,
+            "y2": 490
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "vec",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 120,
+            "x2": 480,
+            "y1": 450,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "vecLab",
+            "kind": "text",
+            "size": 40,
+            "text": "a",
+            "x": 500,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "colVec",
+            "kind": "latex",
+            "size": 44,
+            "tex": "a = \\begin{pmatrix} 2 \\\\ 3 \\end{pmatrix}",
+            "x": 640,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "compLab",
+            "kind": "text",
+            "size": 28,
+            "text": "2 right, 3 up",
+            "x": 640,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "colVec",
+          "to": {
+            "x": 660,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "colVec"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "Magnitude and direction - a vector is never just a number"
+        }
+      ]
+    },
+    {
+      "caption": "Adding vectors: tail to head",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "To add vectors, put the tail of the second at the head of the first. Vector a goes right and up; vector b continues from where a ends. The sum runs from the very first tail to the very last head.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "a",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 150,
+            "x2": 350,
+            "y1": 400,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "b",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 350,
+            "x2": 550,
+            "y1": 250,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "aLab",
+            "kind": "text",
+            "size": 36,
+            "text": "a",
+            "x": 230,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "bLab",
+            "kind": "text",
+            "size": 36,
+            "text": "b",
+            "x": 460,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "sum",
+            "kind": "arrow",
+            "stroke": "#b00020",
+            "width": 5,
+            "x1": 150,
+            "x2": 550,
+            "y1": 400,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "sumEq",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\vec{a} + \\vec{b}",
+            "x": 620,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "sum"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "a + b joins the first tail to the last head"
+        }
+      ]
+    },
+    {
+      "caption": "The dot product measures the shadow",
+      "duration_ms": 9000,
+      "id": "s3",
+      "narration": "The dot product asks how much of one vector points along another. Drop a perpendicular from the tip of b onto a: the shadow it casts is the projection. The dot product equals the two lengths times the cosine of the angle between them.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "a",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 120,
+            "x2": 600,
+            "y1": 420,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "b",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 120,
+            "x2": 480,
+            "y1": 420,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "theta",
+            "kind": "text",
+            "size": 40,
+            "text": "θ",
+            "x": 230,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "proj",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 480,
+            "x2": 480,
+            "y1": 180,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "dotEq",
+            "kind": "latex",
+            "size": 44,
+            "tex": "a \\cdot b = |a||b|\\cos\\theta",
+            "x": 120,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "projLab",
+            "kind": "text",
+            "size": 26,
+            "text": "the shadow of b on a",
+            "x": 510,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "dotEq"
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "cos θ picks out how much of b points along a"
+        }
+      ]
+    },
+    {
+      "caption": "Lines and planes from a point and directions",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "One point plus one direction vector draws a whole line: r equals a plus lambda b, with lambda sweeping every real number. A plane needs two directions, and its normal vector stands perpendicular to the whole surface.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "lineL",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 100,
+            "x2": 860,
+            "y1": 420,
+            "y2": 120
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 341,
+            "fill": "#1f7a3a",
+            "id": "ptA",
+            "kind": "circle",
+            "r": 8
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "dirB",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 300,
+            "x2": 477,
+            "y1": 341,
+            "y2": 271
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "dirLab",
+            "kind": "text",
+            "size": 32,
+            "text": "b",
+            "x": 500,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "lineEq",
+            "kind": "latex",
+            "size": 44,
+            "tex": "r = a + \\lambda b",
+            "x": 620,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "pl1",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 560,
+            "x2": 880,
+            "y1": 380,
+            "y2": 380
+          }
+        },
+        {
+          "at_ms": 5300,
+          "do": "show",
+          "shape": {
+            "id": "pl2",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 880,
+            "x2": 760,
+            "y1": 380,
+            "y2": 500
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "pl3",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 760,
+            "x2": 440,
+            "y1": 500,
+            "y2": 500
+          }
+        },
+        {
+          "at_ms": 5500,
+          "do": "show",
+          "shape": {
+            "id": "pl4",
+            "kind": "line",
+            "stroke": "#999999",
+            "width": 2,
+            "x1": 440,
+            "x2": 560,
+            "y1": 500,
+            "y2": 380
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "normal",
+            "kind": "arrow",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 660,
+            "x2": 660,
+            "y1": 440,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "nLab",
+            "kind": "text",
+            "size": 28,
+            "text": "normal n",
+            "x": 680,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "dirB"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "One point plus a direction pins down a whole line"
+        }
+      ]
+    },
+    {
+      "caption": "Two classic slips",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "Two slips to dodge. A position vector is pinned to the origin - move its start and it becomes a different vector. A direction vector is free: the same arrow drawn anywhere is the same vector, as long as its direction and length do not change. The toolkit: the dot product is the two lengths times cos theta, and a line is r equals a plus lambda b.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 300,
+            "fill": "#1a1a1a",
+            "id": "origin",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "pos",
+            "kind": "arrow",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 200,
+            "x2": 400,
+            "y1": 300,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "posLab",
+            "kind": "text",
+            "size": 26,
+            "text": "position vector: pinned to its start",
+            "x": 430,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "dir",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 520,
+            "x2": 720,
+            "y1": 360,
+            "y2": 260
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "dirLab",
+            "kind": "text",
+            "size": 26,
+            "text": "direction vector: the same arrow, drawn anywhere",
+            "x": 120,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "f1",
+            "kind": "latex",
+            "size": 32,
+            "tex": "a \\cdot b = |a||b|\\cos\\theta",
+            "x": 520,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "f2",
+            "kind": "latex",
+            "size": 32,
+            "tex": "r = a + \\lambda b",
+            "x": 520,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "dir"
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "Free vectors slide; position vectors are pinned"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "JC H2 vectors: direction, dot products, lines and planes",
+  "topic": "h2-vectors"
+}
