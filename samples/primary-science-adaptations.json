@@ -1,0 +1,753 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "primary",
+  "scenes": [
+    {
+      "caption": "Desert plants store water",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "A cactus lives in the hot, dry desert. Its thick stem stores water like a bottle, and its sharp thorns stop thirsty animals from biting it. These features did not appear overnight — they developed over many, many generations.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 800,
+            "cy": 100,
+            "fill": "#ffdd55",
+            "id": "sun",
+            "kind": "circle",
+            "r": 60,
+            "stroke": "#e6b800",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "fill": "#e8c96a",
+            "h": 110,
+            "id": "sand",
+            "kind": "rect",
+            "stroke": "#c9a227",
+            "strokeWidth": 3,
+            "w": 840,
+            "x": 60,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "fill": "#43a047",
+            "h": 230,
+            "id": "stem",
+            "kind": "rect",
+            "rx": 20,
+            "stroke": "#2e7d32",
+            "strokeWidth": 3,
+            "w": 90,
+            "x": 300,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "fill": "#43a047",
+            "h": 110,
+            "id": "arm",
+            "kind": "rect",
+            "rx": 15,
+            "stroke": "#2e7d32",
+            "strokeWidth": 3,
+            "w": 55,
+            "x": 225,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "thorn1",
+            "kind": "line",
+            "stroke": "#8d6e63",
+            "width": 3,
+            "x1": 300,
+            "x2": 280,
+            "y1": 250,
+            "y2": 235
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "thorn2",
+            "kind": "line",
+            "stroke": "#8d6e63",
+            "width": 3,
+            "x1": 390,
+            "x2": 410,
+            "y1": 250,
+            "y2": 235
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "thorn3",
+            "kind": "line",
+            "stroke": "#8d6e63",
+            "width": 3,
+            "x1": 300,
+            "x2": 280,
+            "y1": 350,
+            "y2": 335
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "thorn4",
+            "kind": "line",
+            "stroke": "#8d6e63",
+            "width": 3,
+            "x1": 390,
+            "x2": 410,
+            "y1": 350,
+            "y2": 335
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "color": "#1b5e20",
+            "id": "storeLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "Thick stem stores water",
+            "x": 430,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "cx": 345,
+            "cy": 340,
+            "fill": "#90caf9",
+            "id": "waterInside",
+            "kind": "circle",
+            "r": 20
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "color": "#1b5e20",
+            "id": "thornLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "Thorns stop animals eating it",
+            "x": 430,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "rootArrow",
+            "kind": "arrow",
+            "stroke": "#6d4c41",
+            "width": 6,
+            "x1": 345,
+            "x2": 345,
+            "y1": 430,
+            "y2": 510
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#4e342e",
+            "id": "rootLabel",
+            "kind": "text",
+            "size": 26,
+            "text": "Deep roots find water",
+            "x": 380,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "stem"
+        },
+        {
+          "at_ms": 5800,
+          "do": "caption",
+          "text": "In dry deserts, thick stems and thorns help the plant survive"
+        }
+      ]
+    },
+    {
+      "caption": "Blending in keeps animals safe",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "This moth's wings are the same colour as the tree bark. Hungry birds fly right past without seeing it. Matching its home is called camouflage.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#a1887f",
+            "h": 380,
+            "id": "bark",
+            "kind": "rect",
+            "stroke": "#5d4037",
+            "strokeWidth": 3,
+            "w": 560,
+            "x": 200,
+            "y": 80
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "cx": 450,
+            "cy": 220,
+            "fill": "#8d6e63",
+            "id": "wingL",
+            "kind": "circle",
+            "r": 40
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "cx": 530,
+            "cy": 220,
+            "fill": "#8d6e63",
+            "id": "wingR",
+            "kind": "circle",
+            "r": 40
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "body",
+            "kind": "line",
+            "stroke": "#4e342e",
+            "width": 8,
+            "x1": 490,
+            "x2": 490,
+            "y1": 180,
+            "y2": 260
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#212121",
+            "id": "spotLabel",
+            "kind": "text",
+            "size": 32,
+            "text": "Can you see the moth?",
+            "x": 280,
+            "y": 505
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "pointArrow",
+            "kind": "arrow",
+            "stroke": "#d32f2f",
+            "width": 5,
+            "x1": 640,
+            "x2": 520,
+            "y1": 300,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "body"
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#3e2723",
+            "id": "camLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "Camouflage keeps it safe",
+            "x": 230,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "cx": 120,
+            "cy": 140,
+            "fill": "#546e7a",
+            "id": "bird",
+            "kind": "circle",
+            "r": 25
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#37474f",
+            "id": "birdLabel",
+            "kind": "text",
+            "size": 26,
+            "text": "Hungry bird",
+            "x": 40,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "bird",
+          "to": {
+            "cx": 240,
+            "cy": 160
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "bird",
+          "to": {
+            "cx": 100,
+            "cy": 140
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "caption",
+          "text": "Matching its home keeps the moth hidden — and safe"
+        }
+      ]
+    },
+    {
+      "caption": "Birds travel far to survive",
+      "duration_ms": 8000,
+      "id": "s3",
+      "narration": "When winter comes, food becomes hard to find. Some birds fly thousands of kilometres to warmer places — and return when spring brings food back.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#a5d6a7",
+            "h": 120,
+            "id": "ground",
+            "kind": "rect",
+            "stroke": "#66bb6a",
+            "strokeWidth": 3,
+            "w": 840,
+            "x": 60,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "cx": 800,
+            "cy": 100,
+            "fill": "#ffdd55",
+            "id": "sun",
+            "kind": "circle",
+            "r": 50,
+            "stroke": "#e6b800",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#3a7bd5",
+            "id": "winterLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Winter is coming",
+            "x": 100,
+            "y": 80
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 300,
+            "fill": "#546e7a",
+            "id": "b1",
+            "kind": "circle",
+            "r": 18
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 280,
+            "fill": "#546e7a",
+            "id": "b2",
+            "kind": "circle",
+            "r": 18
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 300,
+            "fill": "#546e7a",
+            "id": "b3",
+            "kind": "circle",
+            "r": 18
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "route",
+            "kind": "arrow",
+            "stroke": "#5c6bc0",
+            "width": 5,
+            "x1": 180,
+            "x2": 780,
+            "y1": 240,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "color": "#3949ab",
+            "id": "routeLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "Fly south for winter",
+            "x": 400,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 2200,
+          "target": "b1",
+          "to": {
+            "cx": 700,
+            "cy": 190
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 2200,
+          "target": "b2",
+          "to": {
+            "cx": 750,
+            "cy": 175
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "move",
+          "dur_ms": 2200,
+          "target": "b3",
+          "to": {
+            "cx": 800,
+            "cy": 200
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "route"
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "Migration is a yearly habit — the birds return when it is warm"
+        }
+      ]
+    },
+    {
+      "caption": "People change animal homes",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "Sometimes people clear forests to build farms and roads. When the trees go, the animals that lived there lose their food and shelter.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#2e7d32",
+            "id": "tree1",
+            "kind": "polygon",
+            "points": [
+              [
+                150,
+                430
+              ],
+              [
+                230,
+                250
+              ],
+              [
+                310,
+                430
+              ]
+            ],
+            "stroke": "#1b5e20",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "fill": "#2e7d32",
+            "id": "tree2",
+            "kind": "polygon",
+            "points": [
+              [
+                400,
+                430
+              ],
+              [
+                480,
+                250
+              ],
+              [
+                560,
+                430
+              ]
+            ],
+            "stroke": "#1b5e20",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "fill": "#2e7d32",
+            "id": "tree3",
+            "kind": "polygon",
+            "points": [
+              [
+                650,
+                430
+              ],
+              [
+                730,
+                250
+              ],
+              [
+                810,
+                430
+              ]
+            ],
+            "stroke": "#1b5e20",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "fill": "#6d4c41",
+            "h": 70,
+            "id": "trunk1",
+            "kind": "rect",
+            "w": 24,
+            "x": 218,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "fill": "#6d4c41",
+            "h": 70,
+            "id": "trunk2",
+            "kind": "rect",
+            "w": 24,
+            "x": 468,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "fill": "#6d4c41",
+            "h": 70,
+            "id": "trunk3",
+            "kind": "rect",
+            "w": 24,
+            "x": 718,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "color": "#1b5e20",
+            "id": "forestLabel",
+            "kind": "text",
+            "size": 32,
+            "text": "Forest home",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 230,
+            "cy": 200,
+            "fill": "#8d6e63",
+            "id": "monkey",
+            "kind": "circle",
+            "r": 22
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "color": "#4e342e",
+            "id": "monkeyLabel",
+            "kind": "text",
+            "size": 26,
+            "text": "Monkey",
+            "x": 270,
+            "y": 205
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "hide",
+          "target": "tree2"
+        },
+        {
+          "at_ms": 3200,
+          "do": "hide",
+          "target": "tree3"
+        },
+        {
+          "at_ms": 3400,
+          "do": "hide",
+          "target": "trunk2"
+        },
+        {
+          "at_ms": 3600,
+          "do": "hide",
+          "target": "trunk3"
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "fill": "#a1887f",
+            "h": 30,
+            "id": "stump1",
+            "kind": "rect",
+            "w": 60,
+            "x": 460,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "fill": "#a1887f",
+            "h": 30,
+            "id": "stump2",
+            "kind": "rect",
+            "w": 60,
+            "x": 710,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "monkey",
+          "to": {
+            "cx": 120,
+            "cy": 320
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "tree1"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "When people clear land, animals lose their homes"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Adaptations: built to survive",
+  "topic": "adaptations"
+}
