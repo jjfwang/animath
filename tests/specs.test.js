@@ -43,6 +43,26 @@ test('every sample validates clean against SPEC.md', () => {
   }
 });
 
+test('secondary-e-probability covers single and combined events', () => {
+  const name = 'secondary-e-probability.json';
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+  assert.deepEqual(validateSpec(spec), [], name + ' must validate with zero errors');
+  assert.equal(spec.level, 'secondary', name + ' must be a secondary sample');
+  assert.equal(spec.subject, 'math', name + ' must be a math sample');
+  assert.equal(spec.topic, 'e-probability', name + ' must carry the e-probability topic');
+  assert.equal(spec.animath, '0.1', name + ' must declare the v0.1 spec version');
+  assert.equal(spec.canvas.width, 960, 'canvas width must be 960');
+  assert.equal(spec.canvas.height, 540, 'canvas height must be 540');
+  assert.ok(spec.scenes.length >= 4, 'expected single-event and combined-event scenes');
+  // every sample in the manifest validates — the new file included
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
+  for (const f of manifest) {
+    const entry = JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8'));
+    assert.deepEqual(validateSpec(entry), [], 'manifest entry ' + f + ' failed validation');
+  }
+});
+
 test('samples cover math and science across levels', () => {
   const specs = sampleFiles.map((f) =>
     JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8')));
