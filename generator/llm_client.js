@@ -61,8 +61,9 @@
   }
 
   // opts: {baseUrl, apiKey, model, system, user} -> Promise<spec object>
-  function generateSpec(opts) {
-    if (!opts.apiKey) return Promise.reject(new Error('API key is required'));
+  // One chat-completions round trip with the 400->plain retry (shared by
+  // generateSpec and generateSpecWithRepair). Resolves with the raw text.
+  function attemptOnce(opts) {
     return postChat(opts.baseUrl, opts.apiKey, opts.model, opts.system, opts.user, true)
       .catch(function (e) {
         // Some OpenAI-compatible endpoints reject response_format; retry plain.
@@ -70,9 +71,95 @@
           return postChat(opts.baseUrl, opts.apiKey, opts.model, opts.system, opts.user, false);
         }
         throw e;
-      })
-      .then(extractJson);
+      });
   }
 
-  return { generateSpec: generateSpec, extractJson: extractJson };
+  function generateSpec(opts) {
+    if (!opts.apiKey) return Promise.reject(new Error('API key is required'));
+    return attemptOnce(opts).then(extractJson);
+  }
+
+  // opts: same as generateSpec, plus optional maxRepairs (default 2).
+  // validate: function (spec) -> array of error strings (injected so the
+  // client stays testable in Node without the browser global).
+  // onProgress: optional function (attemptNumber, maxRepairs) called before
+  // each repair turn, e.g. to update a status line.
+  // Resolves with the first spec that validates clean; after the final failed
+  // attempt rejects with an Error whose message carries the last error list.
+  function generateSpecWithRepair(opts, validate, onProgress) {
+    if (!opts.apiKey) return Promise.reject(new Error('API key is required'));
+    if (typeof validate !== 'function') {
+      return Promise.reject(new Error('a validator function is required'));
+    }
+    var maxRepairs = (opts.maxRepairs != null) ? opts.maxRepairs : 2;
+
+    // Parse one LLM response and run the validator. A response that is not
+    // valid JSON counts as a failed attempt (not an early blow-up): the next
+    // repair turn asks for JSON again.
+    function parseAndValidate(text) {
+      var spec;
+      try {
+        spec = extractJson(text);
+      } catch (e) {
+        return Promise.resolve({
+          spec: null, raw: text,
+          problems: ['The response was not valid JSON. Return ONLY the corrected animation spec as JSON.']
+        });
+      }
+      return Promise.resolve(validate(spec)).then(function (problems) {
+        return { spec: spec, raw: null, problems: problems };
+      });
+    }
+
+    function buildRepairUser(prev) {
+      var lines = ['Your previous response did not produce a valid animath spec. It had these problems:'];
+      prev.problems.forEach(function (p) { lines.push('- ' + p); });
+      lines.push('');
+      if (prev.spec) {
+        lines.push('The invalid spec you returned:');
+        lines.push(JSON.stringify(prev.spec, null, 2));
+      } else {
+        lines.push('Your raw response (it was not valid JSON):');
+        lines.push(String(prev.raw).slice(0, 2000));
+      }
+      lines.push('');
+      lines.push('Return ONLY the corrected animation spec as a single JSON object. No prose, no code fences.');
+      return lines.join('\n');
+    }
+
+    function rejectWithErrors(problems) {
+      var err = new Error(
+        'Animation spec still invalid after ' + maxRepairs + ' repair attempt(s): ' +
+        problems.join(' | '));
+      err.problems = problems;
+      throw err;
+    }
+
+    function repairRound(prev, repairsUsed) {
+      if (typeof onProgress === 'function') onProgress(repairsUsed + 1, maxRepairs);
+      return attemptOnce({
+        baseUrl: opts.baseUrl,
+        apiKey: opts.apiKey,
+        model: opts.model,
+        system: opts.system,
+        user: buildRepairUser(prev)
+      }).then(function (text) {
+        return parseAndValidate(text).then(function (result) {
+          if (!result.problems.length) return result.spec;
+          if (repairsUsed + 1 < maxRepairs) return repairRound(result, repairsUsed + 1);
+          return rejectWithErrors(result.problems);
+        });
+      });
+    }
+
+    return attemptOnce(opts).then(function (text) {
+      return parseAndValidate(text).then(function (result) {
+        if (!result.problems.length) return result.spec;
+        if (maxRepairs <= 0) return rejectWithErrors(result.problems);
+        return repairRound(result, 0);
+      });
+    });
+  }
+
+  return { generateSpec: generateSpec, generateSpecWithRepair: generateSpecWithRepair, extractJson: extractJson };
 });
