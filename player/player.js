@@ -24,18 +24,69 @@
     return n;
   }
 
+  function textNode(x, y, content, opts) {
+    var n = el('text', {
+      x: x, y: y,
+      'font-size': opts.size || 28,
+      fill: opts.color || '#1a1a1a',
+      'text-anchor': opts.align || 'start',
+      'font-family': 'system-ui, -apple-system, sans-serif'
+    });
+    n.textContent = content;
+    return n;
+  }
+
+  // Pure (no-DOM) helpers, exported so Node tests can exercise them.
+
+  // True when a KaTeX API object is available for rendering. Takes the
+  // candidate object as a parameter instead of reading the global directly.
+  function katexAvailable(katex) {
+    return !!(katex && typeof katex.renderToString === 'function');
+  }
+
+  // Best-effort unicode approximation of a LaTeX string, for the fallback
+  // path when KaTeX is unavailable (CDN failed, offline, file://).
+  function latexFallbackText(tex) {
+    return String(tex)
+      .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2')
+      .replace(/\\sqrt\{([^{}]*)\}/g, '\u221A($1)')
+      .replace(/\^2/g, '\u00B2')
+      .replace(/\^3/g, '\u00B3')
+      .replace(/\\times/g, '\u00D7')
+      .replace(/\\div/g, '\u00F7')
+      .replace(/\\pm/g, '\u00B1')
+      .replace(/\\cdot/g, '\u00B7')
+      .replace(/\\leq/g, '\u2264')
+      .replace(/\\geq/g, '\u2265')
+      .replace(/\\neq/g, '\u2260')
+      .replace(/\\approx/g, '\u2248')
+      .replace(/\\pi/g, '\u03C0')
+      .replace(/\\theta/g, '\u03B8')
+      .replace(/[{}]/g, '')
+      .replace(/\\([a-zA-Z]+)/g, '$1');
+  }
+
   function drawShape(shape) {
     var n;
     switch (shape.kind) {
       case 'text': {
-        n = el('text', {
-          x: shape.x, y: shape.y,
-          'font-size': shape.size || 28,
-          fill: shape.color || '#1a1a1a',
-          'text-anchor': shape.align || 'start',
-          'font-family': 'system-ui, -apple-system, sans-serif'
-        });
-        n.textContent = shape.text;
+        n = textNode(shape.x, shape.y, shape.text, shape);
+        break;
+      }
+      case 'latex': {
+        if (katexAvailable(global.katex)) {
+          var html = global.katex.renderToString(shape.tex, { throwOnError: false });
+          n = el('foreignObject', { x: shape.x, y: shape.y, width: 480, height: 240 });
+          var div = document.createElement('div');
+          div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+          div.style.fontSize = (shape.size || 28) + 'px';
+          div.style.color = shape.color || '#1a1a1a';
+          div.style.fontFamily = 'system-ui, -apple-system, sans-serif';
+          div.innerHTML = html;
+          n.appendChild(div);
+        } else {
+          n = textNode(shape.x, shape.y, latexFallbackText(shape.tex), shape);
+        }
         break;
       }
       case 'rect':
@@ -105,6 +156,7 @@
   // Position fields per shape kind, for move interpolation.
   var POS_FIELDS = {
     text: ['x', 'y'],
+    latex: ['x', 'y'],
     rect: ['x', 'y'],
     circle: ['cx', 'cy'],
     line: ['x1', 'y1', 'x2', 'y2'],
@@ -423,7 +475,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1' };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

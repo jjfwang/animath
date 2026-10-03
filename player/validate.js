@@ -13,8 +13,8 @@
   var SUBJECTS = ['math', 'science'];
   var KINDS = ['concept', 'problem'];
   var VERBS = ['show', 'hide', 'move', 'emphasize', 'caption'];
-  var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon'];
-  var MOVEABLE = ['text', 'rect', 'circle', 'line', 'arrow'];
+  var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon', 'latex'];
+  var MOVEABLE = ['text', 'rect', 'circle', 'line', 'arrow', 'latex'];
   var HEX = /^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/;
 
   function isNum(x) { return typeof x === 'number' && isFinite(x); }
@@ -35,11 +35,16 @@
         num('x'); num('y');
         if (typeof shape.text !== 'string') errors.push(p + '.text: required string');
         if (shape.text && /\\[a-zA-Z]+/.test(shape.text)) {
-          errors.push(p + '.text: LaTeX commands are not supported in v0 — use unicode math');
+          errors.push(p + '.text: LaTeX commands are not supported in text shapes — use unicode math or a latex shape');
         }
         if (shape.align !== undefined && ['start', 'middle', 'end'].indexOf(shape.align) === -1) {
           errors.push(p + '.align: must be start|middle|end');
         }
+        if (shape.size !== undefined && !isNum(shape.size)) errors.push(p + '.size: must be a number');
+        break;
+      case 'latex':
+        num('x'); num('y');
+        if (typeof shape.tex !== 'string' || !shape.tex) errors.push(p + '.tex: required non-empty string');
         if (shape.size !== undefined && !isNum(shape.size)) errors.push(p + '.size: must be a number');
         break;
       case 'rect': num('x'); num('y'); num('w'); num('h'); break;

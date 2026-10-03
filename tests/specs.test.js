@@ -66,6 +66,54 @@ test('validator rejects LaTeX in text shapes', () => {
   assert.ok(problems.some((p) => p.includes('LaTeX')), 'expected a LaTeX rejection');
 });
 
+test('validator accepts a valid latex shape', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  spec.scenes[0].steps[0].shape = {
+    id: 'm', kind: 'latex', x: 100, y: 100,
+    tex: 'a^2 + b^2 = c^2', size: 32, color: '#1f7a3a'
+  };
+  assert.deepEqual(validateSpec(spec), []);
+});
+
+test('validator rejects latex shapes with missing or empty tex', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  const shape = { id: 'm', kind: 'latex', x: 100, y: 100 };
+  spec.scenes[0].steps[0].shape = shape;
+  assert.ok(validateSpec(spec).some((p) => p.includes('.tex:')),
+    'expected a tex error for a missing tex field');
+  shape.tex = '';
+  assert.ok(validateSpec(spec).some((p) => p.includes('.tex:')),
+    'expected a tex error for an empty tex string');
+  shape.tex = 'x^2';
+  delete shape.x;
+  assert.ok(validateSpec(spec).some((p) => p.includes('.x:')),
+    'expected a position error for a missing x');
+});
+
+test('latex backslashes are allowed in tex but still rejected in text', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  spec.scenes[0].steps[0].shape = {
+    id: 'm', kind: 'latex', x: 100, y: 100, tex: '\\frac{1}{2} + \\sqrt{x}'
+  };
+  assert.deepEqual(validateSpec(spec), [],
+    'backslashes are legitimate inside latex tex and must not be rejected');
+});
+
+test('katexAvailable detects a KaTeX API object', () => {
+  const player = require('../player/player.js');
+  assert.equal(player.katexAvailable(undefined), false, 'absent katex');
+  assert.equal(player.katexAvailable(null), false, 'null katex');
+  assert.equal(player.katexAvailable({}), false, 'katex without renderToString');
+  assert.equal(player.katexAvailable({ renderToString: () => '' }), true, 'katex with renderToString');
+});
+
+test('latexFallbackText approximates common LaTeX as unicode', () => {
+  const player = require('../player/player.js');
+  assert.equal(player.latexFallbackText('a^2 + b^2 = c^2'), 'a² + b² = c²');
+  assert.equal(player.latexFallbackText('\\frac{1}{2} + \\sqrt{x}'), '1/2 + √(x)');
+  assert.equal(player.latexFallbackText('\\pi \\times \\theta \\approx 2'), 'π × θ ≈ 2');
+});
+
 test('validator rejects a move targeting an unshown shape', () => {
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
   spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'ghost', to: { x: 10, y: 10 }, dur_ms: 500 });
@@ -88,7 +136,8 @@ test('prompt builder fills slots and forbids LaTeX', () => {
   });
   assert.ok(!system.includes('{{'), 'unfilled slot in system prompt');
   assert.ok(!user.includes('{{'), 'unfilled slot in user prompt');
-  assert.ok(system.includes('NEVER LaTeX'), 'system prompt must forbid LaTeX');
+  assert.ok(system.includes('NEVER LaTeX'), 'system prompt must forbid LaTeX inside text shapes');
+  assert.ok(system.includes('latex'), 'system prompt must document the latex shape kind');
   assert.ok(user.includes('fractions'), 'user prompt must name the topic');
   assert.ok(user.includes('adding unlike denominators'), 'user prompt must carry the focus');
 });
