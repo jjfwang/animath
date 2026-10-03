@@ -50,7 +50,8 @@ Every step has `at_ms` (0 ≤ at_ms < scene `duration_ms`) and a `do` verb.
 - `move`: `{at_ms, do:"move", target, to, dur_ms}` — interpolates the shape's
   position from its current spot to `to` over `dur_ms` ms. `to` carries the
   same position fields the shape kind uses (`x`/`y`, `cx`/`cy`,
-  `x1`/`y1`/`x2`/`y2`). Not supported for `polygon` in v0.
+  `x1`/`y1`/`x2`/`y2`). Moveable kinds in v0: `text`, `rect`, `circle`,
+  `line`, `arrow`, `latex` — never `polygon`.
 - `emphasize`: `{at_ms, do:"emphasize", target, dur_ms?}` — pulse-highlight the
   shape (scale pulse). Default `dur_ms` 900.
 - `caption`: `{at_ms, do:"caption", text}` — replaces the scene caption bar
@@ -62,6 +63,9 @@ Every shape has a unique `id` within its scene.
 
 - `text`: `{id, kind:"text", x, y, text, size?, color?, align?}` —
   `align`: `"start"` (default) | `"middle"` | `"end"`. `size` in px, default 28.
+- `latex`: `{id, kind:"latex", x, y, tex, size?, color?}` — math rendered
+  with KaTeX (see "Math notation"). `tex` is required plain LaTeX;
+  `size` in px, default 28.
 - `rect`: `{id, kind:"rect", x, y, w, h, fill?, stroke?, strokeWidth?, rx?}`
 - `circle`: `{id, kind:"circle", cx, cy, r, fill?, stroke?, strokeWidth?}`
 - `line`: `{id, kind:"line", x1, y1, x2, y2, stroke?, width?}`
@@ -71,12 +75,18 @@ Every shape has a unique `id` within its scene.
 Coordinates are canvas pixels, origin top-left. Colors are CSS hex strings
 (`"#1a1a1a"`). Sensible defaults: 2px `#1a1a1a` strokes, transparent fills.
 
-## Math notation (v0)
+## Math notation (v0.1)
 
-The player has no math renderer in v0, so specs must use **unicode math**, never
-LaTeX commands: `½ ¼ ¾ × ÷ − → √ π θ ° ² ³ ≤ ≥ ≠ ± ≈ ∠ △`. The validator
-rejects backslash sequences like `\frac`. (KaTeX rendering is ROADMAP item
-R-3; the spec will gain a `latex` shape kind then, keeping `text` working.)
+Two kinds of on-screen math:
+
+- `latex` shapes — rendered with KaTeX when the player page loads it
+  (`player/demo.html` pins a CDN copy), with a plain-text fallback
+  otherwise. Use `latex` where unicode breaks down: fractions, stacked
+  notation, algebra (`tex: "a^2 + b^2 = c^2"`). `size` in px (default 28);
+  `color` a CSS hex string.
+- `text` shapes stay **unicode-only**: `½ ¼ ¾ × ÷ − → √ π θ ° ² ³ ≤ ≥ ≠ ± ≈ ∠ △`.
+  The validator still rejects backslash sequences like `\frac` inside
+  `text` — those belong in `tex`, never in `text`.
 
 ## Validation
 
