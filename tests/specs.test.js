@@ -121,6 +121,18 @@ test('validator rejects a move targeting an unshown shape', () => {
   assert.ok(problems.some((p) => p.includes('must be shown earlier')), 'expected an ordering error');
 });
 
+test('validator rejects a move targeting a non-moveable shape kind', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  spec.scenes[1].steps[0].shape = {
+    id: 'tri', kind: 'polygon', points: [[100, 100], [200, 100], [150, 200]]
+  };
+  spec.scenes[1].steps.push({ at_ms: 100, do: 'move', target: 'tri', to: { x: 10, y: 10 }, dur_ms: 500 });
+  const problems = validateSpec(spec);
+  assert.ok(problems.length > 0, 'expected at least one error');
+  assert.ok(problems.some((p) => p.includes('"polygon"') && p.includes('not moveable')),
+    'expected a polygon move error, got: ' + problems.join('; '));
+});
+
 test('validator rejects out-of-order steps', () => {
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
   const steps = spec.scenes[0].steps;

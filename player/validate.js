@@ -98,7 +98,7 @@
         errors.push(w + '.steps: required non-empty array');
         return;
       }
-      var shown = {};   // shape id -> true, in at_ms order
+      var shown = {};   // shape id -> shape kind, in at_ms order
       var shapeIds = {};
       var lastAt = -1;
       scene.steps.forEach(function (step, j) {
@@ -118,7 +118,7 @@
           if (step.shape && typeof step.shape.id === 'string') {
             if (shapeIds[step.shape.id]) errors.push(s + '.shape.id: duplicate shape id "' + step.shape.id + '" in scene');
             shapeIds[step.shape.id] = true;
-            shown[step.shape.id] = true;
+            shown[step.shape.id] = step.shape.kind;
           }
         } else if (step.do === 'caption') {
           if (typeof step.text !== 'string' || !step.text.trim()) errors.push(s + '.text: required non-empty string');
@@ -129,6 +129,14 @@
             errors.push(s + '.target: "' + step.target + '" must be shown earlier in the same scene');
           }
           if (step.do === 'move') {
+            // SPEC.md v0.1: moveable kinds are text, rect, circle, line,
+            // arrow, latex — never polygon.
+            if (typeof step.target === 'string' && step.target && shown[step.target]) {
+              var kind = shown[step.target];
+              if (MOVEABLE.indexOf(kind) === -1) {
+                errors.push(s + '.target: kind "' + kind + '" is not moveable in v0');
+              }
+            }
             if (!step.to || typeof step.to !== 'object') {
               errors.push(s + '.to: required position object');
             } else {
