@@ -1,0 +1,701 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "The probability scale",
+      "duration_ms": 7000,
+      "id": "s1",
+      "narration": "Every probability sits on a scale from zero to one. Zero means impossible, one means certain, and one half is an even chance.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "scale",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 4,
+            "x1": 120,
+            "x2": 840,
+            "y1": 330,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "tick0",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 120,
+            "x2": 120,
+            "y1": 318,
+            "y2": 342
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "lab0",
+            "kind": "text",
+            "size": 30,
+            "text": "0 — impossible",
+            "x": 105,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "tickHalf",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 480,
+            "x2": 480,
+            "y1": 318,
+            "y2": 342
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "labHalf",
+            "kind": "text",
+            "size": 30,
+            "text": "1/2 — even chance",
+            "x": 420,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "tick1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 840,
+            "x2": 840,
+            "y1": 318,
+            "y2": 342
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "lab1",
+            "kind": "text",
+            "size": 30,
+            "text": "1 — certain",
+            "x": 795,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "cx": 120,
+            "cy": 330,
+            "fill": "#f5c518",
+            "id": "marker",
+            "kind": "circle",
+            "r": 14,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "marker",
+          "to": {
+            "cx": 480,
+            "cy": 330
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "An even chance sits halfway: 1/2"
+        }
+      ]
+    },
+    {
+      "caption": "One value, three forms",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "The same probability can wear three outfits: the fraction one half, the decimal zero point five, and fifty percent. A fair coin landing heads is all three at once.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "formsTitle",
+            "kind": "text",
+            "size": 34,
+            "text": "One value, three forms",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "eq",
+            "kind": "latex",
+            "size": 48,
+            "tex": "\\frac{1}{2} = 0.5 = 50\\%",
+            "x": 180,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "eq",
+          "to": {
+            "x": 200,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "labFrac",
+            "kind": "text",
+            "size": 26,
+            "text": "fraction",
+            "x": 200,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "labDec",
+            "kind": "text",
+            "size": 26,
+            "text": "decimal",
+            "x": 420,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "labPct",
+            "kind": "text",
+            "size": 26,
+            "text": "percentage",
+            "x": 620,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "cx": 780,
+            "cy": 220,
+            "fill": "none",
+            "id": "coin",
+            "kind": "circle",
+            "r": 70,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "coinFace",
+            "kind": "text",
+            "size": 40,
+            "text": "H / T",
+            "x": 745,
+            "y": 236
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "coinLine",
+            "kind": "text",
+            "size": 28,
+            "text": "a fair coin: P(heads) = 1/2 = 0.5 = 50%",
+            "x": 120,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "eq"
+        }
+      ]
+    },
+    {
+      "caption": "P(event) = favourable ÷ total",
+      "duration_ms": 7000,
+      "id": "s3",
+      "narration": "For a single event, the probability is the number of favourable outcomes divided by the total number of possible outcomes. Heads on a fair coin: one favourable, two possible.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "formula",
+            "kind": "latex",
+            "size": 44,
+            "tex": "P(A) = \\frac{\\text{favourable}}{\\text{total}}",
+            "x": 160,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "plainWords",
+            "kind": "text",
+            "size": 28,
+            "text": "count what you want, count everything possible",
+            "x": 160,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "coinEg",
+            "kind": "latex",
+            "size": 44,
+            "tex": "P(\\text{heads}) = \\frac{1}{2}",
+            "x": 160,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "coinEgWords",
+            "kind": "text",
+            "size": 28,
+            "text": "1 favourable outcome, 2 possible outcomes",
+            "x": 160,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "dur_ms": 800,
+          "target": "formula"
+        }
+      ]
+    },
+    {
+      "caption": "Two tosses, one table",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "For combined events, list every possibility in a two-way table. Toss a coin twice: the first toss runs down the side, the second toss runs across the top.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 240,
+            "id": "grid",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4,
+            "w": 360,
+            "x": 330,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "div1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 450,
+            "x2": 450,
+            "y1": 150,
+            "y2": 390
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "div2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 570,
+            "x2": 570,
+            "y1": 150,
+            "y2": 390
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "div3",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 330,
+            "x2": 690,
+            "y1": 210,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "colHead",
+            "kind": "text",
+            "size": 26,
+            "text": "2nd toss",
+            "x": 470,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "chH",
+            "kind": "text",
+            "size": 28,
+            "text": "H",
+            "x": 500,
+            "y": 195
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "chT",
+            "kind": "text",
+            "size": 28,
+            "text": "T",
+            "x": 620,
+            "y": 195
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "rowHead",
+            "kind": "text",
+            "size": 26,
+            "text": "1st toss",
+            "x": 170,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "rhH",
+            "kind": "text",
+            "size": 28,
+            "text": "H",
+            "x": 390,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "rhT",
+            "kind": "text",
+            "size": 28,
+            "text": "T",
+            "x": 390,
+            "y": 375
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "caption",
+          "text": "Four cells, four possible outcomes"
+        }
+      ]
+    },
+    {
+      "caption": "Fill the table, multiply the branches",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "Four outcomes: heads-heads, heads-tails, tails-heads, tails-tails. Each is equally likely, so heads-then-heads has probability one half times one half, which is one quarter.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 240,
+            "id": "grid",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4,
+            "w": 360,
+            "x": 330,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 200,
+          "do": "show",
+          "shape": {
+            "id": "div1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 450,
+            "x2": 450,
+            "y1": 150,
+            "y2": 390
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "div2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 570,
+            "x2": 570,
+            "y1": 150,
+            "y2": 390
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "div3",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 330,
+            "x2": 690,
+            "y1": 210,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "rowHead",
+            "kind": "text",
+            "size": 26,
+            "text": "1st toss: H / T",
+            "x": 170,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "colHead",
+            "kind": "text",
+            "size": 26,
+            "text": "2nd toss: H / T",
+            "x": 440,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "cellHH",
+            "kind": "text",
+            "size": 32,
+            "text": "HH",
+            "x": 495,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "cellHT",
+            "kind": "text",
+            "size": 32,
+            "text": "HT",
+            "x": 615,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "cellTH",
+            "kind": "text",
+            "size": 32,
+            "text": "TH",
+            "x": 495,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "cellTT",
+            "kind": "text",
+            "size": 32,
+            "text": "TT",
+            "x": 615,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "cellHH"
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "multEq",
+            "kind": "latex",
+            "size": 40,
+            "tex": "P(\\text{heads then heads}) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4}",
+            "x": 120,
+            "y": 478
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "Multiply along the branches: 1/4 = 25%"
+        }
+      ]
+    },
+    {
+      "caption": "The gambler's slip: coins have no memory",
+      "duration_ms": 7000,
+      "id": "s6",
+      "narration": "Three heads in a row feels like tails is due, but the coin remembers nothing. The next toss is still an even chance: heads with probability one half.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "streak",
+            "kind": "text",
+            "size": 40,
+            "text": "Three tosses: H, H, H",
+            "x": 200,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "slip",
+            "kind": "text",
+            "size": 32,
+            "text": "Feels like tails is “due”…",
+            "x": 200,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "truth",
+            "kind": "text",
+            "size": 32,
+            "text": "but each toss starts fresh",
+            "x": 200,
+            "y": 355
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "fallEq",
+            "kind": "latex",
+            "size": 40,
+            "tex": "P(\\text{next toss is heads}) = \\frac{1}{2}",
+            "x": 200,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "fallEq"
+        },
+        {
+          "at_ms": 6400,
+          "do": "caption",
+          "text": "The coin has no memory"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "E-Math probability: single and combined events",
+  "topic": "e-probability"
+}
