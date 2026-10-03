@@ -130,12 +130,17 @@
           }
           if (step.do === 'move') {
             // SPEC.md v0.1: moveable kinds are text, rect, circle, line,
-            // arrow, latex — never polygon.
-            if (typeof step.target === 'string' && step.target && shown[step.target]) {
-              var kind = shown[step.target];
-              if (MOVEABLE.indexOf(kind) === -1) {
-                errors.push(s + '.target: kind "' + kind + '" is not moveable in v0');
-              }
+            // arrow, latex — never polygon. `to` must carry exactly the
+            // position fields the target kind uses.
+            var POS_FIELDS = {
+              text: ['x', 'y'], latex: ['x', 'y'], rect: ['x', 'y'],
+              circle: ['cx', 'cy'],
+              line: ['x1', 'y1', 'x2', 'y2'], arrow: ['x1', 'y1', 'x2', 'y2']
+            };
+            var targetKind = (typeof step.target === 'string' && step.target && shown[step.target])
+              ? shown[step.target] : null;
+            if (targetKind && MOVEABLE.indexOf(targetKind) === -1) {
+              errors.push(s + '.target: kind "' + targetKind + '" is not moveable in v0');
             }
             if (!step.to || typeof step.to !== 'object') {
               errors.push(s + '.to: required position object');
@@ -143,6 +148,14 @@
               var keys = Object.keys(step.to);
               if (keys.length === 0 || !keys.every(function (k) { return isNum(step.to[k]); })) {
                 errors.push(s + '.to: must carry at least one numeric position field');
+              } else if (targetKind && POS_FIELDS[targetKind]) {
+                var want = POS_FIELDS[targetKind];
+                var exact = keys.length === want.length &&
+                  want.every(function (f) { return Object.prototype.hasOwnProperty.call(step.to, f); });
+                if (!exact) {
+                  errors.push(s + '.to: must carry exactly the position fields of kind "' +
+                    targetKind + '": ' + want.join(','));
+                }
               }
             }
             if (step.dur_ms !== undefined && !isNum(step.dur_ms)) errors.push(s + '.dur_ms: must be a number');
