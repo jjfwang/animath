@@ -1,1 +1,547 @@
-{"animath":"0.1","canvas":{"height":540,"width":960},"kind":"concept","level":"primary","scenes":[{"caption":"The digestive system: food takes a long trip","duration_ms":6000,"id":"s1","narration":"Food goes on a long trip through your body. First the mouth, then down a tube to the stomach, then through the long intestines. The body takes the good parts out of the food.","steps":[{"at_ms":0,"do":"show","shape":{"cx":250,"cy":120,"fill":"#f5b5a5","id":"mouth","kind":"circle","r":40,"stroke":"#c96a54","strokeWidth":3}},{"at_ms":300,"do":"show","shape":{"color":"#7a2e1d","id":"mouthLabel","kind":"text","size":30,"text":"Mouth","x":200,"y":80}},{"at_ms":600,"do":"show","shape":{"cx":480,"cy":260,"fill":"#f2c6b8","id":"stomach","kind":"circle","r":70,"stroke":"#c96a54","strokeWidth":3}},{"at_ms":900,"do":"show","shape":{"color":"#7a2e1d","id":"stomachLabel","kind":"text","size":30,"text":"Stomach","x":420,"y":260}},{"at_ms":1200,"do":"show","shape":{"fill":"#f7d9cc","h":120,"id":"intestines","kind":"rect","stroke":"#c96a54","strokeWidth":3,"w":200,"x":620,"y":300}},{"at_ms":1500,"do":"show","shape":{"color":"#7a2e1d","id":"gutLabel","kind":"text","size":30,"text":"Intestines","x":630,"y":360}},{"at_ms":1800,"do":"show","shape":{"cx":250,"cy":120,"fill":"#e8963f","id":"bite","kind":"circle","r":14}},{"at_ms":2200,"do":"move","dur_ms":1200,"target":"bite","to":{"cx":480,"cy":260}},{"at_ms":3700,"do":"move","dur_ms":1200,"target":"bite","to":{"cx":720,"cy":360}},{"at_ms":5100,"do":"caption","text":"Food travels mouth to stomach to intestines"}]},{"caption":"The respiratory system: breathing moves air","duration_ms":6000,"id":"s2","narration":"Every breath pulls air in through your nose and down into your lungs. Your chest gets bigger as the lungs fill with air — that is why your chest moves when you breathe.","steps":[{"at_ms":0,"do":"show","shape":{"cx":480,"cy":100,"fill":"#f5b5a5","id":"nose","kind":"circle","r":28,"stroke":"#c96a54","strokeWidth":3}},{"at_ms":300,"do":"show","shape":{"color":"#7a2e1d","id":"noseLabel","kind":"text","size":30,"text":"Nose","x":440,"y":60}},{"at_ms":600,"do":"show","shape":{"cx":380,"cy":300,"fill":"#f0a8b8","id":"lungL","kind":"circle","r":70,"stroke":"#c0526b","strokeWidth":3}},{"at_ms":800,"do":"show","shape":{"cx":580,"cy":300,"fill":"#f0a8b8","id":"lungR","kind":"circle","r":70,"stroke":"#c0526b","strokeWidth":3}},{"at_ms":1100,"do":"show","shape":{"color":"#7a2e1d","id":"lungLabel","kind":"text","size":30,"text":"Lungs","x":430,"y":420}},{"at_ms":1400,"do":"show","shape":{"id":"windpipe","kind":"arrow","stroke":"#8a6d5c","width":8,"x1":480,"x2":480,"y1":130,"y2":220}},{"at_ms":1800,"do":"show","shape":{"cx":480,"cy":110,"fill":"#9fd6e8","id":"breath","kind":"circle","r":12}},{"at_ms":2200,"do":"move","dur_ms":1400,"target":"breath","to":{"cx":480,"cy":300}},{"at_ms":4000,"do":"emphasize","dur_ms":900,"target":"lungL"},{"at_ms":4900,"do":"caption","text":"Your chest moves because the lungs fill with air"}]},{"caption":"The circulatory system: blood goes round and round","duration_ms":6000,"id":"s3","narration":"The heart is a pump. It pushes blood all around the body, carrying the good things from food and air. The blood is never used up — it keeps going round in a loop.","steps":[{"at_ms":0,"do":"show","shape":{"cx":480,"cy":260,"fill":"#e35d6a","id":"heart","kind":"circle","r":65,"stroke":"#a02c3a","strokeWidth":3}},{"at_ms":300,"do":"show","shape":{"color":"#ffffff","id":"heartLabel","kind":"text","size":32,"text":"Heart","x":445,"y":270}},{"at_ms":600,"do":"show","shape":{"id":"vesselUp","kind":"arrow","stroke":"#c0392b","width":10,"x1":545,"x2":700,"y1":260,"y2":260}},{"at_ms":900,"do":"show","shape":{"id":"vesselDown","kind":"arrow","stroke":"#c0392b","width":10,"x1":260,"x2":415,"y1":260,"y2":260}},{"at_ms":1200,"do":"show","shape":{"color":"#a02c3a","id":"bodyLabel","kind":"text","size":28,"text":"To the body","x":660,"y":220}},{"at_ms":1600,"do":"show","shape":{"cx":480,"cy":260,"fill":"#e0352b","id":"drop1","kind":"circle","r":12}},{"at_ms":2000,"do":"move","dur_ms":1400,"target":"drop1","to":{"cx":680,"cy":260}},{"at_ms":3600,"do":"move","dur_ms":1400,"target":"drop1","to":{"cx":300,"cy":260}},{"at_ms":5000,"do":"caption","text":"Blood is never used up — it keeps going round"}]},{"caption":"Recap: three systems, one team","duration_ms":6000,"id":"s4","narration":"Three systems work as one team. The digestive system takes the good parts out of food. The respiratory system brings in air. The circulatory system carries it all around your body.","steps":[{"at_ms":0,"do":"show","shape":{"fill":"#f7d9cc","h":180,"id":"digBox","kind":"rect","stroke":"#c96a54","strokeWidth":3,"w":240,"x":80,"y":180}},{"at_ms":200,"do":"show","shape":{"color":"#7a2e1d","id":"digText","kind":"text","size":32,"text":"Digestive","x":105,"y":260}},{"at_ms":400,"do":"show","shape":{"color":"#7a2e1d","id":"digJob","kind":"text","size":26,"text":"takes food in","x":105,"y":300}},{"at_ms":600,"do":"show","shape":{"fill":"#f0c3cf","h":180,"id":"respBox","kind":"rect","stroke":"#c0526b","strokeWidth":3,"w":240,"x":360,"y":180}},{"at_ms":800,"do":"show","shape":{"color":"#7a2e1d","id":"respText","kind":"text","size":32,"text":"Respiratory","x":370,"y":260}},{"at_ms":1000,"do":"show","shape":{"color":"#7a2e1d","id":"respJob","kind":"text","size":26,"text":"brings air in","x":385,"y":300}},{"at_ms":1200,"do":"show","shape":{"fill":"#f3c1c1","h":180,"id":"circBox","kind":"rect","stroke":"#a02c3a","strokeWidth":3,"w":240,"x":640,"y":180}},{"at_ms":1400,"do":"show","shape":{"color":"#7a2e1d","id":"circText","kind":"text","size":32,"text":"Circulatory","x":650,"y":260}},{"at_ms":1600,"do":"show","shape":{"color":"#7a2e1d","id":"circJob","kind":"text","size":26,"text":"carries it all","x":655,"y":300}},{"at_ms":2400,"do":"show","shape":{"id":"teamArrow1","kind":"arrow","stroke":"#5a7a3a","width":6,"x1":320,"x2":360,"y1":270,"y2":270}},{"at_ms":2800,"do":"show","shape":{"id":"teamArrow2","kind":"arrow","stroke":"#5a7a3a","width":6,"x1":600,"x2":640,"y1":270,"y2":270}},{"at_ms":3600,"do":"emphasize","dur_ms":900,"target":"circBox"},{"at_ms":4800,"do":"caption","text":"Eat, breathe, carry — one team"}]}],"subject":"science","title":"Human body systems","topic":"human-body-systems"}
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "primary",
+  "scenes": [
+    {
+      "caption": "The digestive system: food takes a long trip",
+      "duration_ms": 6000,
+      "id": "s1",
+      "narration": "Food goes on a long trip through your body. First the mouth, then down a tube to the stomach, then through the long intestines. The body takes the good parts out of the food.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 120,
+            "fill": "#f5b5a5",
+            "id": "mouth",
+            "kind": "circle",
+            "r": 40,
+            "stroke": "#c96a54",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "mouthLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Mouth",
+            "x": 200,
+            "y": 80
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 260,
+            "fill": "#f2c6b8",
+            "id": "stomach",
+            "kind": "circle",
+            "r": 70,
+            "stroke": "#c96a54",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "stomachLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Stomach",
+            "x": 420,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "fill": "#f7d9cc",
+            "h": 120,
+            "id": "intestines",
+            "kind": "rect",
+            "stroke": "#c96a54",
+            "strokeWidth": 3,
+            "w": 200,
+            "x": 620,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "gutLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Intestines",
+            "x": 630,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 120,
+            "fill": "#e8963f",
+            "id": "bite",
+            "kind": "circle",
+            "r": 14
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "bite",
+          "to": {
+            "cx": 480,
+            "cy": 260
+          }
+        },
+        {
+          "at_ms": 3700,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "bite",
+          "to": {
+            "cx": 720,
+            "cy": 360
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "caption",
+          "text": "Food travels mouth to stomach to intestines"
+        }
+      ]
+    },
+    {
+      "caption": "The respiratory system: breathing moves air",
+      "duration_ms": 6000,
+      "id": "s2",
+      "narration": "Every breath pulls air in through your nose and down into your lungs. Your chest gets bigger as the lungs fill with air \u2014 that is why your chest moves when you breathe.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 100,
+            "fill": "#f5b5a5",
+            "id": "nose",
+            "kind": "circle",
+            "r": 28,
+            "stroke": "#c96a54",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "noseLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Nose",
+            "x": 440,
+            "y": 60
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 380,
+            "cy": 300,
+            "fill": "#f0a8b8",
+            "id": "lungL",
+            "kind": "circle",
+            "r": 70,
+            "stroke": "#c0526b",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "cx": 580,
+            "cy": 300,
+            "fill": "#f0a8b8",
+            "id": "lungR",
+            "kind": "circle",
+            "r": 70,
+            "stroke": "#c0526b",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "lungLabel",
+            "kind": "text",
+            "size": 30,
+            "text": "Lungs",
+            "x": 430,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "windpipe",
+            "kind": "arrow",
+            "stroke": "#8a6d5c",
+            "width": 8,
+            "x1": 480,
+            "x2": 480,
+            "y1": 130,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 110,
+            "fill": "#9fd6e8",
+            "id": "breath",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "breath",
+          "to": {
+            "cx": 480,
+            "cy": 300
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "lungL"
+        },
+        {
+          "at_ms": 4900,
+          "do": "caption",
+          "text": "Your chest moves because the lungs fill with air"
+        }
+      ]
+    },
+    {
+      "caption": "The circulatory system: blood goes round and round",
+      "duration_ms": 6000,
+      "id": "s3",
+      "narration": "The heart is a pump. It pushes blood all around the body, carrying the good things from food and air. The blood is never used up \u2014 it keeps going round in a loop.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 260,
+            "fill": "#e35d6a",
+            "id": "heart",
+            "kind": "circle",
+            "r": 65,
+            "stroke": "#a02c3a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "color": "#ffffff",
+            "id": "heartLabel",
+            "kind": "text",
+            "size": 32,
+            "text": "Heart",
+            "x": 445,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "vesselUp",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 10,
+            "x1": 545,
+            "x2": 700,
+            "y1": 260,
+            "y2": 260
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "vesselDown",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 10,
+            "x1": 260,
+            "x2": 415,
+            "y1": 260,
+            "y2": 260
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "color": "#a02c3a",
+            "id": "bodyLabel",
+            "kind": "text",
+            "size": 28,
+            "text": "To the body",
+            "x": 660,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 260,
+            "fill": "#e0352b",
+            "id": "drop1",
+            "kind": "circle",
+            "r": 12
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "drop1",
+          "to": {
+            "cx": 680,
+            "cy": 260
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "drop1",
+          "to": {
+            "cx": 300,
+            "cy": 260
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "Blood is never used up \u2014 it keeps going round"
+        }
+      ]
+    },
+    {
+      "caption": "Recap: three systems, one team",
+      "duration_ms": 6000,
+      "id": "s4",
+      "narration": "Three systems work as one team. The digestive system takes the good parts out of food. The respiratory system brings in air. The circulatory system carries it all around your body.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "#f7d9cc",
+            "h": 180,
+            "id": "digBox",
+            "kind": "rect",
+            "stroke": "#c96a54",
+            "strokeWidth": 3,
+            "w": 240,
+            "x": 80,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 200,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "digText",
+            "kind": "text",
+            "size": 32,
+            "text": "Digestive",
+            "x": 105,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "digJob",
+            "kind": "text",
+            "size": 26,
+            "text": "takes food in",
+            "x": 105,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#f0c3cf",
+            "h": 180,
+            "id": "respBox",
+            "kind": "rect",
+            "stroke": "#c0526b",
+            "strokeWidth": 3,
+            "w": 240,
+            "x": 360,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "respText",
+            "kind": "text",
+            "size": 32,
+            "text": "Respiratory",
+            "x": 370,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "respJob",
+            "kind": "text",
+            "size": 26,
+            "text": "brings air in",
+            "x": 385,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "fill": "#f3c1c1",
+            "h": 180,
+            "id": "circBox",
+            "kind": "rect",
+            "stroke": "#a02c3a",
+            "strokeWidth": 3,
+            "w": 240,
+            "x": 640,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "circText",
+            "kind": "text",
+            "size": 32,
+            "text": "Circulatory",
+            "x": 650,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "color": "#7a2e1d",
+            "id": "circJob",
+            "kind": "text",
+            "size": 26,
+            "text": "carries it all",
+            "x": 655,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "teamArrow1",
+            "kind": "arrow",
+            "stroke": "#5a7a3a",
+            "width": 6,
+            "x1": 320,
+            "x2": 360,
+            "y1": 270,
+            "y2": 270
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "teamArrow2",
+            "kind": "arrow",
+            "stroke": "#5a7a3a",
+            "width": 6,
+            "x1": 600,
+            "x2": 640,
+            "y1": 270,
+            "y2": 270
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "circBox"
+        },
+        {
+          "at_ms": 4800,
+          "do": "caption",
+          "text": "Eat, breathe, carry \u2014 one team"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Human body systems",
+  "topic": "human-body-systems"
+}
