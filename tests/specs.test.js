@@ -170,6 +170,22 @@ test('validator accepts a move whose to fields exactly match the target kind', (
     'arrow + {x1,y1,x2,y2} must be accepted');
 });
 
+test('validator rejects a move without dur_ms, and one with a non-numeric dur_ms', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
+  const at = atMsAfter(spec.scenes[0].steps);
+  spec.scenes[0].steps.push({ at_ms: at, do: 'move', target: 'dot', to: { cx: 10, cy: 20 } });
+  let problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.dur_ms:') && p.includes('required')),
+    'expected a missing-dur_ms error, got: ' + problems.join('; '));
+  spec.scenes[0].steps.pop();
+  spec.scenes[0].steps.push({ at_ms: at, do: 'move', target: 'dot', to: { cx: 10, cy: 20 }, dur_ms: 'fast' });
+  problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.dur_ms:') && p.includes('required')),
+    'expected a non-numeric-dur_ms error, got: ' + problems.join('; '));
+});
+
 test('validator rejects out-of-order steps', () => {  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, sampleFiles[0]), 'utf8'));
   const steps = spec.scenes[0].steps;
   steps.push({ at_ms: 1, do: 'caption', text: 'too late, too early' });
