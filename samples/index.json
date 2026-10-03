@@ -37,5 +37,7 @@
   "jc-h2-functions-graphs.json",
   "jc-h2-statistics.json",
   "jc-h2-mechanics.json",
-  "jc-h2-em.json"
+  "jc-h2-em.json",
+  "jc-h2-thermal.json",
+  "jc-h2-quantum.json"
 ]
