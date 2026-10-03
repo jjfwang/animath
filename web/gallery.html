@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animath — sample gallery</title>
+<link rel="stylesheet" href="../player/player.css">
+<style>
+  body { margin: 0; padding: 20px; background: #f6f3ec; color: #1a1a1a;
+         font-family: system-ui, -apple-system, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 4px 0; }
+  .tag { color: #6b6455; margin: 0 0 20px; font-size: 15px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 16px; }
+  .card { background: #fff; border: 1px solid #e2ddd2; border-radius: 12px;
+          padding: 16px; }
+  .card h2 { font-size: 16px; margin: 0 0 8px; }
+  .meta { font-size: 13px; color: #6b6455; margin: 0 0 12px; }
+  .card .btns { display: flex; gap: 8px; }
+  .card button { font-size: 14px; font-weight: 700; padding: 8px 18px; border: none;
+    border-radius: 8px; background: #2b5cb8; color: #fff; cursor: pointer; }
+  .card a { font-size: 14px; color: #2b5cb8; align-self: center; }
+  .card .stage { margin-top: 12px; }
+  .back { font-size: 14px; color: #6b6455; margin-top: 24px; }
+  .back a { color: #2b5cb8; }
+  #err { margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sample gallery</h1>
+  <p class="tag">Hand-authored animations — no API key needed. Press Play on any card.</p>
+  <div id="err"></div>
+  <div class="grid" id="grid"></div>
+  <p class="back"><a href="index.html">&larr; back to the generator</a> · Adding a sample is manifest + JSON only:
+    drop a spec into <code>samples/</code> and add its filename to <code>samples/index.json</code>.</p>
+</div>
+<script src="../player/validate.js"></script>
+<script src="../player/player.js"></script>
+<script>
+(function () {
+  var grid = document.getElementById('grid');
+  var errBox = document.getElementById('err');
+  var activePlayer = null;
+  var activeStage = null;
+
+  function showError(msg) {
+    errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
+  }
+
+  function esc(s) { return String(s).replace(/</g, '&lt;'); }
+
+  fetch('../samples/index.json').then(function (r) {
+    if (!r.ok) throw new Error('HTTP ' + r.status + ' loading samples/index.json');
+    return r.json();
+  }).then(function (files) {
+    if (!Array.isArray(files)) throw new Error('samples/index.json must be a JSON array of filenames');
+    files.forEach(function (file) { renderCard(String(file)); });
+  }).catch(showError);
+
+  function renderCard(file) {
+    var card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = '<h2>' + esc(file) + '</h2><p class="meta">loading…</p>';
+    grid.appendChild(card);
+
+    var stage = document.createElement('div');
+    stage.className = 'stage';
+    var err = document.createElement('div');
+
+    fetch('../samples/' + file).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + file);
+      return r.json();
+    }).then(function (spec) {
+      var problems = AnimathValidate.validateSpec(spec);
+      var meta = card.querySelector('.meta');
+      if (problems.length) {
+        meta.textContent = 'invalid spec — cannot play';
+        card.appendChild(err);
+        err.innerHTML = '<div class="ap-error">' + problems.map(esc).join('\n') + '</div>';
+        return;
+      }
+      meta.textContent = [spec.level, spec.subject, spec.topic].filter(Boolean).join(' · ');
+      card.querySelector('h2').textContent = spec.title || file;
+      var btns = document.createElement('div');
+      btns.className = 'btns';
+      var play = document.createElement('button');
+      play.textContent = 'Play';
+      play.addEventListener('click', function () {
+        // one active player at a time
+        if (activePlayer) { activePlayer.destroy(); }
+        activePlayer = null;
+        if (activeStage) { activeStage.innerHTML = ''; activeStage = null; }
+        activePlayer = AnimathPlayer.mount(stage, spec);
+        activeStage = stage;
+        activePlayer.play();
+      });
+      var raw = document.createElement('a');
+      raw.href = '../samples/' + file;
+      raw.textContent = 'raw JSON';
+      raw.target = '_blank';
+      btns.appendChild(play);
+      btns.appendChild(raw);
+      card.appendChild(btns);
+      card.appendChild(stage);
+    }).catch(function (e) {
+      card.querySelector('.meta').textContent = 'failed to load';
+      card.appendChild(err);
+      err.innerHTML = '<div class="ap-error">' + esc(e.message || e) + '</div>';
+    });
+  }
+})();
+</script>
+</body>
+</html>
