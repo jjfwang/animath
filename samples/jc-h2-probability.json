@@ -1,0 +1,482 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "kind": "concept",
+  "level": "jc",
+  "subject": "math",
+  "topic": "h2-probability",
+  "title": "JC H2 probability: distributions, binomial, normal, independence",
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "A probability table must add to 1",
+      "narration": "A discrete random variable lists every possible outcome with its probability. Here X can be 0, 1, or 2 with probabilities 0.2, 0.5, and 0.3. Those three probabilities must sum to exactly 1, because something has to happen.",
+      "duration_ms": 8000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "frame",
+            "kind": "rect",
+            "x": 120,
+            "y": 140,
+            "w": 720,
+            "h": 200,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "div1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 1,
+            "x1": 120,
+            "y1": 240,
+            "x2": 840,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "xRow",
+            "kind": "text",
+            "x": 150,
+            "y": 220,
+            "text": "x:            0           1           2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "pRow",
+            "kind": "text",
+            "x": 150,
+            "y": 320,
+            "text": "P(X = x):   0.2        0.5        0.3",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "sumEq",
+            "kind": "latex",
+            "x": 150,
+            "y": 430,
+            "tex": "\\sum P(X = x) = 1",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "emphasize",
+          "target": "sumEq",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 6000,
+          "do": "caption",
+          "text": "probabilities must sum to 1 — check every table first"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Expectation: the balance point",
+      "narration": "The expectation of X is the weighted average of its values, which is where the whole distribution would balance on a pivot. Zero times 0.2 plus 1 times 0.5 plus 2 times 0.3 gives 1.1, so the fulcrum sits at 1.1.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "axis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "y1": 440,
+            "x2": 840,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "b0",
+            "kind": "rect",
+            "x": 200,
+            "y": 380,
+            "w": 80,
+            "h": 60,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "b1",
+            "kind": "rect",
+            "x": 440,
+            "y": 290,
+            "w": 80,
+            "h": 150,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "b2",
+            "kind": "rect",
+            "x": 680,
+            "y": 350,
+            "w": 80,
+            "h": 90,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "fulcrum",
+            "kind": "polygon",
+            "stroke": "#b00020",
+            "width": 2,
+            "fill": "#f3c6cc",
+            "points": [
+              [
+                484,
+                440
+              ],
+              [
+                524,
+                440
+              ],
+              [
+                504,
+                476
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "expEq",
+            "kind": "latex",
+            "x": 120,
+            "y": 110,
+            "tex": "E(X) = 0(0.2) + 1(0.5) + 2(0.3) = 1.1",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "target": "fulcrum",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "E(X) = 1.1 — the whole distribution balances there"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Binomial: n = 10, p = 0.3",
+      "narration": "For a binomial variable with 10 trials and success probability 0.3, the chance of exactly 3 successes is 10 choose 3 times 0.3 cubed times 0.7 to the 7. There are 120 ways to pick which 3 trials succeed, giving about 0.267.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "probEq",
+            "kind": "latex",
+            "x": 120,
+            "y": 150,
+            "tex": "P(X = 3) = \\binom{10}{3} (0.3)^{3} (0.7)^{7}",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "cVal",
+            "kind": "text",
+            "x": 120,
+            "y": 250,
+            "text": "C(10, 3) = 120 ways to choose the 3 successes",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "val",
+            "kind": "text",
+            "x": 120,
+            "y": 340,
+            "text": "≈ 120 × 0.027 × 0.0823 ≈ 0.267",
+            "size": 34
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "x": 120,
+            "y": 430,
+            "text": "each success path has the same probability — multiply, don't add",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "target": "val",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "≈ 0.267 — about a 1-in-4 chance of exactly 3"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "The 68–95–99.7 rule",
+      "narration": "A normal distribution is fully described by its mean and standard deviation. About 68 percent of the area lies within one standard deviation of the mean, 95 within two, and 99.7 within three.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "bell",
+            "kind": "polygon",
+            "stroke": "#1a56db",
+            "width": 3,
+            "fill": "#dbeafe",
+            "points": [
+              [
+                180,
+                450
+              ],
+              [
+                260,
+                436
+              ],
+              [
+                340,
+                340
+              ],
+              [
+                410,
+                210
+              ],
+              [
+                480,
+                150
+              ],
+              [
+                550,
+                210
+              ],
+              [
+                620,
+                340
+              ],
+              [
+                700,
+                436
+              ],
+              [
+                780,
+                450
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "meanL",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 2,
+            "x1": 480,
+            "y1": 150,
+            "x2": 480,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "band",
+            "kind": "rect",
+            "x": 390,
+            "y": 180,
+            "w": 180,
+            "h": 270,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "rule",
+            "kind": "text",
+            "x": 150,
+            "y": 90,
+            "text": "μ ± σ: 68%     μ ± 2σ: 95%     μ ± 3σ: 99.7%",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "densEq",
+            "kind": "latex",
+            "x": 140,
+            "y": 505,
+            "tex": "f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-(x-\\mu)^{2}/2\\sigma^{2}}",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "target": "rule",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "shade one σ: about two-thirds of the area"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "caption": "Misconception: the coin has no memory",
+      "narration": "After five heads in a row, it feels like tails is due. It is not. Each toss is independent, so the probability of heads on the next toss is still one half. The six-heads run itself has probability 1 over 64, which is small — but the coin never remembers.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "mis",
+            "kind": "text",
+            "x": 120,
+            "y": 110,
+            "text": "Misconception:",
+            "size": 36,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "tosses",
+            "kind": "text",
+            "x": 120,
+            "y": 200,
+            "text": "H H H H H — heads five times running",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "fallacy",
+            "kind": "text",
+            "x": 120,
+            "y": 290,
+            "text": "\"tails is due!\"",
+            "size": 32,
+            "color": "#b00020"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "truth",
+            "kind": "text",
+            "x": 120,
+            "y": 380,
+            "text": "no — P(H) = ½ on the next toss, every toss",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "sixEq",
+            "kind": "latex",
+            "x": 120,
+            "y": 470,
+            "tex": "P(HHHHHH) = \\left(\\frac{1}{2}\\right)^{6} = \\frac{1}{64}",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "target": "truth",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "independence: the coin never remembers"
+        }
+      ]
+    }
+  ]
+}
