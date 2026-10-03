@@ -1,0 +1,862 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "subject": "science",
+  "title": "Acids, bases and salts",
+  "topic": "chem-acids",
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Acids and alkalis around you",
+      "duration_ms": 6000,
+      "narration": "Lemon juice and vinegar are acids. Soap and baking soda are alkalis. Chemists sort them on one number line: the pH scale.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Acids and alkalis around you"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "acidH",
+            "kind": "text",
+            "x": 80,
+            "y": 160,
+            "size": 30,
+            "text": "Acids",
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "acidEx",
+            "kind": "text",
+            "x": 80,
+            "y": 200,
+            "size": 24,
+            "text": "lemon juice  ·  vinegar  ·  stomach acid"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "alkH",
+            "kind": "text",
+            "x": 80,
+            "y": 280,
+            "size": 30,
+            "text": "Alkalis",
+            "color": "#2471a3"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "alkEx",
+            "kind": "text",
+            "x": 80,
+            "y": 320,
+            "size": 24,
+            "text": "soap  ·  baking soda  ·  toothpaste"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "caption",
+          "text": "Acids and alkalis are part of everyday life."
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "x": 80,
+            "y": 410,
+            "size": 24,
+            "text": "How strong? Chemists read one number: the pH."
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "The pH scale ladder",
+      "duration_ms": 8000,
+      "narration": "The pH scale runs from 0 to 14. Seven is neutral: pure water. Below 7 is acidic, above 7 is alkaline. The further from 7, the stronger.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "The pH scale"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "r1",
+            "kind": "rect",
+            "x": 140,
+            "y": 120,
+            "w": 40,
+            "h": 120,
+            "fill": "#c0392b",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "r2",
+            "kind": "rect",
+            "x": 140,
+            "y": 240,
+            "w": 40,
+            "h": 80,
+            "fill": "#e67e22",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "r3",
+            "kind": "rect",
+            "x": 140,
+            "y": 320,
+            "w": 40,
+            "h": 40,
+            "fill": "#27ae60",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "r4",
+            "kind": "rect",
+            "x": 140,
+            "y": 360,
+            "w": 40,
+            "h": 120,
+            "fill": "#7d3c98",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "ladder",
+            "kind": "arrow",
+            "x1": 210,
+            "y1": 470,
+            "x2": 210,
+            "y2": 110,
+            "stroke": "#1a1a1a",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "t0",
+            "kind": "text",
+            "x": 230,
+            "y": 480,
+            "size": 22,
+            "text": "pH 0 — strongly acidic"
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "x": 230,
+            "y": 400,
+            "size": 22,
+            "text": "pH 1–6 — acidic"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "t7",
+            "kind": "text",
+            "x": 230,
+            "y": 340,
+            "size": 22,
+            "text": "pH 7 — neutral"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "t8",
+            "kind": "text",
+            "x": 230,
+            "y": 180,
+            "size": 22,
+            "text": "pH 8–13 — alkaline"
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "t14",
+            "kind": "text",
+            "x": 230,
+            "y": 130,
+            "size": 22,
+            "text": "pH 14 — strongly alkaline"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "emphasize",
+          "target": "t7"
+        },
+        {
+          "at_ms": 4800,
+          "do": "caption",
+          "text": "pH 7 is neutral; lower is acidic, higher is alkaline."
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "jump",
+            "kind": "text",
+            "x": 80,
+            "y": 500,
+            "size": 22,
+            "text": "Each step is ten times stronger — a big jump."
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "What pH is really about: ions",
+      "duration_ms": 9000,
+      "narration": "Acids release hydrogen ions, H+, when they dissolve in water. Alkalis release hydroxide ions, OH−. Whichever ion is in excess decides the pH.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "It is about ions: H⁺ and OH⁻"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "hp",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 200,
+            "r": 30,
+            "fill": "#2980b9",
+            "stroke": "#2980b9",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "hpL",
+            "kind": "text",
+            "x": 168,
+            "y": 212,
+            "size": 26,
+            "text": "H⁺",
+            "color": "#ffffff"
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "acidIon",
+            "kind": "text",
+            "x": 80,
+            "y": 280,
+            "size": 24,
+            "text": "Acids release H⁺ ions in water."
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "oh",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 200,
+            "r": 40,
+            "fill": "#c0392b",
+            "stroke": "#c0392b",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "ohL",
+            "kind": "text",
+            "x": 462,
+            "y": 214,
+            "size": 24,
+            "text": "OH⁻",
+            "color": "#ffffff"
+          }
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "id": "alkIon",
+            "kind": "text",
+            "x": 380,
+            "y": 280,
+            "size": 24,
+            "text": "Alkalis release OH⁻ ions in water."
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "acidRule",
+            "kind": "text",
+            "x": 150,
+            "y": 380,
+            "size": 26,
+            "text": "More H⁺ than OH⁻  →  acidic"
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "alkRule",
+            "kind": "text",
+            "x": 150,
+            "y": 430,
+            "size": 26,
+            "text": "More OH⁻ than H⁺  →  alkaline"
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "caption",
+          "text": "The winning ion decides the pH."
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "neuRule",
+            "kind": "text",
+            "x": 150,
+            "y": 490,
+            "size": 26,
+            "text": "Equal numbers  →  neutral."
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Neutralisation: a worked example",
+      "duration_ms": 9000,
+      "narration": "Mix an acid with an alkali and they cancel out: H+ pairs with OH− to make water, and the leftover ions form a salt. Acid plus alkali gives salt plus water — always.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 30,
+            "text": "Neutralisation: acid + alkali → salt + water"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "latex",
+            "x": 120,
+            "y": 220,
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "\\mathrm{HCl + NaOH \\rightarrow NaCl + H_2O}"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "l1",
+            "kind": "text",
+            "x": 120,
+            "y": 300,
+            "size": 24,
+            "text": "hydrochloric acid + sodium hydroxide →"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "l2",
+            "kind": "text",
+            "x": 120,
+            "y": 340,
+            "size": 24,
+            "text": "sodium chloride (table salt) + water"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "emphasize",
+          "target": "eq"
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "water",
+            "kind": "text",
+            "x": 120,
+            "y": 420,
+            "size": 24,
+            "text": "The H⁺ and OH⁻ ions pair up to make water."
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "salt",
+            "kind": "text",
+            "x": 120,
+            "y": 460,
+            "size": 24,
+            "text": "The Na⁺ and Cl⁻ ions left over make the salt."
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "Neutralisation always makes salt and water."
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "bal",
+            "kind": "text",
+            "x": 120,
+            "y": 500,
+            "size": 22,
+            "text": "A balanced equation — same atoms on both sides."
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "caption": "The litmus test",
+      "duration_ms": 8000,
+      "narration": "Litmus paper is a quick dye test. Blue litmus turns red in an acid. Red litmus turns blue in an alkali. No change means neutral.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "The litmus test"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "redLit",
+            "kind": "rect",
+            "x": 150,
+            "y": 170,
+            "w": 260,
+            "h": 40,
+            "fill": "#c0392b",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "redL",
+            "kind": "text",
+            "x": 150,
+            "y": 250,
+            "size": 22,
+            "text": "red litmus"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "blueLit",
+            "kind": "rect",
+            "x": 550,
+            "y": 170,
+            "w": 260,
+            "h": 40,
+            "fill": "#2471a3",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "blueL",
+            "kind": "text",
+            "x": 550,
+            "y": 250,
+            "size": 22,
+            "text": "blue litmus"
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "acidLabel",
+            "kind": "text",
+            "x": 150,
+            "y": 340,
+            "size": 26,
+            "text": "In an ACID:",
+            "color": "#c0392b"
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "hide",
+          "target": "blueLit"
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "blueLit2",
+            "kind": "rect",
+            "x": 550,
+            "y": 170,
+            "w": 260,
+            "h": 40,
+            "fill": "#c0392b",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "acidRes",
+            "kind": "text",
+            "x": 150,
+            "y": 380,
+            "size": 24,
+            "text": "blue litmus turns RED"
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "alkLabel",
+            "kind": "text",
+            "x": 150,
+            "y": 450,
+            "size": 26,
+            "text": "In an ALKALI:",
+            "color": "#2471a3"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "hide",
+          "target": "redLit"
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "redLit2",
+            "kind": "rect",
+            "x": 150,
+            "y": 170,
+            "w": 260,
+            "h": 40,
+            "fill": "#2471a3",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "alkRes",
+            "kind": "text",
+            "x": 150,
+            "y": 490,
+            "size": 24,
+            "text": "red litmus turns BLUE"
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "caption",
+          "text": "Blue goes red in acid; red goes blue in alkali."
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "caption": "Naming the salt",
+      "duration_ms": 7000,
+      "narration": "The salt takes its name from the acid. Hydrochloric acid gives a chloride; nitric acid gives a nitrate; sulfuric acid gives a sulfate.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Naming the salt"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "e1a",
+            "kind": "text",
+            "x": 120,
+            "y": 180,
+            "size": 24,
+            "text": "hydrochloric acid + sodium hydroxide"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "e1b",
+            "kind": "text",
+            "x": 120,
+            "y": 215,
+            "size": 24,
+            "text": "→ sodium CHLORIDE + water"
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "e2a",
+            "kind": "text",
+            "x": 120,
+            "y": 300,
+            "size": 24,
+            "text": "nitric acid + potassium hydroxide"
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "e2b",
+            "kind": "text",
+            "x": 120,
+            "y": 335,
+            "size": 24,
+            "text": "→ potassium NITRATE + water"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "e3a",
+            "kind": "text",
+            "x": 120,
+            "y": 420,
+            "size": 24,
+            "text": "sulfuric acid + magnesium oxide"
+          }
+        },
+        {
+          "at_ms": 3500,
+          "do": "show",
+          "shape": {
+            "id": "e3b",
+            "kind": "text",
+            "x": 120,
+            "y": 455,
+            "size": 24,
+            "text": "→ magnesium SULFATE + water"
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "caption",
+          "text": "The acid names the salt: −ic becomes −ate."
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "caption": "Misconception: all acids are strong",
+      "duration_ms": 6000,
+      "narration": "Not every acid is fierce. Weak acids like vinegar only partly release their H+ ions. And pH measures the solution — how concentrated the ions are — not just which acid you started with.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 80,
+            "y": 70,
+            "size": 34,
+            "text": "Check the thinking"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "myth",
+            "kind": "text",
+            "x": 80,
+            "y": 170,
+            "size": 28,
+            "text": "❌ “All acids are strong.”"
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "weak",
+            "kind": "text",
+            "x": 80,
+            "y": 240,
+            "size": 24,
+            "text": "Weak acids like vinegar only partly release their H⁺ ions."
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "gentle",
+            "kind": "text",
+            "x": 80,
+            "y": 290,
+            "size": 24,
+            "text": "A weak acid can have a gentler pH than a strong acid."
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "id": "sol1",
+            "kind": "text",
+            "x": 80,
+            "y": 380,
+            "size": 24,
+            "text": "pH measures the SOLUTION — its ion concentration —"
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "sol2",
+            "kind": "text",
+            "x": 80,
+            "y": 420,
+            "size": 24,
+            "text": "not just which acid you started with."
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "caption",
+          "text": "Judge the solution by its ions, not its name."
+        }
+      ]
+    }
+  ]
+}
