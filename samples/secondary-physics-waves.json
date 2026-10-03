@@ -1,0 +1,625 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Light and sound are different kinds of waves",
+      "duration_ms": 11000,
+      "id": "s1",
+      "narration": "Light and sound are both waves, but they behave very differently. Light is a transverse wave with an extremely short wavelength; sound is a longitudinal wave with a much longer wavelength. And light travels far, far faster than sound.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Two kinds of wave: light and sound",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1a",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 80,
+            "x2": 120,
+            "y1": 250,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1b",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 120,
+            "x2": 160,
+            "y1": 210,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1c",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 160,
+            "x2": 200,
+            "y1": 250,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1d",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 200,
+            "x2": 240,
+            "y1": 210,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1e",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 240,
+            "x2": 280,
+            "y1": 250,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1f",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 280,
+            "x2": 320,
+            "y1": 210,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1g",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 320,
+            "x2": 360,
+            "y1": 250,
+            "y2": 210
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1h",
+            "kind": "line",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 360,
+            "x2": 400,
+            "y1": 210,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "w1arr",
+            "kind": "arrow",
+            "stroke": "#f1c40f",
+            "width": 4,
+            "x1": 400,
+            "x2": 460,
+            "y1": 250,
+            "y2": 250
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "lightlabel",
+            "kind": "text",
+            "size": 24,
+            "text": "light — transverse wave, very short λ",
+            "x": 500,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "w2a",
+            "kind": "line",
+            "stroke": "#2471a3",
+            "width": 4,
+            "x1": 80,
+            "x2": 200,
+            "y1": 400,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "w2b",
+            "kind": "line",
+            "stroke": "#2471a3",
+            "width": 4,
+            "x1": 200,
+            "x2": 320,
+            "y1": 340,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "w2c",
+            "kind": "line",
+            "stroke": "#2471a3",
+            "width": 4,
+            "x1": 320,
+            "x2": 440,
+            "y1": 400,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "w2d",
+            "kind": "line",
+            "stroke": "#2471a3",
+            "width": 4,
+            "x1": 440,
+            "x2": 560,
+            "y1": 340,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "w2arr",
+            "kind": "arrow",
+            "stroke": "#2471a3",
+            "width": 4,
+            "x1": 560,
+            "x2": 640,
+            "y1": 400,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "soundlabel",
+            "kind": "text",
+            "size": 24,
+            "text": "sound — longitudinal wave, longer λ",
+            "x": 660,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "note1",
+            "kind": "text",
+            "size": 22,
+            "text": "Light needs no medium — it travels through empty space.",
+            "x": 80,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "note2",
+            "kind": "text",
+            "size": 22,
+            "text": "Sound needs particles to vibrate — no air, no sound.",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "speednote",
+            "kind": "text",
+            "size": 24,
+            "text": "And light is enormously faster — see the next-but-one scene.",
+            "x": 80,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Same word “wave”, very different waves: light is transverse, sound is longitudinal."
+        }
+      ]
+    },
+    {
+      "caption": "Wave speed equals frequency times wavelength",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "For any wave, speed equals frequency times wavelength. Take this sound wave: it travels at 340 metres per second and vibrates 170 times per second. Its wavelength is 340 divided by 170 — 2 metres. Every number here ties together.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "The wave equation: v = f × λ",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "color": "#2471a3",
+            "id": "formula",
+            "kind": "latex",
+            "size": 40,
+            "tex": "v = f \\times \\lambda",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "given",
+            "kind": "text",
+            "size": 24,
+            "text": "Sound in air: v = 340 m/s,   f = 170 Hz",
+            "x": 80,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "step1",
+            "kind": "text",
+            "size": 24,
+            "text": "Rearrange: λ = v ÷ f",
+            "x": 80,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "work",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\lambda = \\frac{340\\ \\text{m/s}}{170\\ \\text{Hz}} = 2\\ \\text{m}",
+            "x": 80,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "check",
+            "kind": "text",
+            "size": 24,
+            "text": "Check: 170 Hz × 2 m = 340 m/s ✓  — it all agrees.",
+            "x": 80,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "tip",
+            "kind": "text",
+            "size": 22,
+            "text": "Higher frequency at the same speed → shorter wavelength.",
+            "x": 480,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "v = f × λ. Change one, the others must balance."
+        }
+      ]
+    },
+    {
+      "caption": "We see lightning before we hear thunder",
+      "duration_ms": 11000,
+      "id": "s3",
+      "narration": "Some people think sound travels faster than light. Watch a storm: the lightning flash arrives almost instantly, and the thunder rumbles in seconds later. Light races at 300 million metres per second; sound crawls at 340. Light is almost a million times faster — that is why flash comes first.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Misconception: sound is faster than light?",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "myth",
+            "kind": "text",
+            "size": 28,
+            "text": "❌ “Sound travels faster than light.”",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "fill": "#7d3c98",
+            "h": 70,
+            "id": "flash",
+            "kind": "rect",
+            "stroke": "#4a235a",
+            "w": 70,
+            "width": 2,
+            "x": 150,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "flashlabel",
+            "kind": "text",
+            "size": 24,
+            "text": "lightning flash",
+            "x": 110,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "arrive1",
+            "kind": "text",
+            "size": 24,
+            "text": "arrives almost instantly",
+            "x": 400,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "speaker",
+            "kind": "circle",
+            "x": 150,
+            "y": 420,
+            "cx": 170,
+            "cy": 440,
+            "r": 28,
+            "fill": "#ffffff",
+            "stroke": "#2471a3",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "id": "thunderlabel",
+            "kind": "text",
+            "size": 24,
+            "text": "thunder",
+            "x": 210,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 5300,
+          "do": "show",
+          "shape": {
+            "id": "arrive2",
+            "kind": "text",
+            "size": 24,
+            "text": "arrives seconds later",
+            "x": 400,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "vlight",
+            "kind": "text",
+            "size": 24,
+            "text": "light: 3 × 10⁸ m/s",
+            "x": 560,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "vsound",
+            "kind": "text",
+            "size": 24,
+            "text": "sound: 340 m/s",
+            "x": 560,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 8400,
+          "do": "show",
+          "shape": {
+            "id": "ratio",
+            "kind": "text",
+            "size": 24,
+            "text": "light is about 880,000× faster — flash first, always.",
+            "x": 80,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 9800,
+          "do": "caption",
+          "text": "Lightning’s flash beats its thunder by a huge margin."
+        }
+      ]
+    },
+    {
+      "caption": "What the wave examples have in common",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "Three things to carry away. Waves carry energy from place to place — the particles themselves just vibrate where they are. Speed, frequency and wavelength always obey v equals f times lambda. And light leaves sound far behind in any race.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Check the thinking",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 26,
+            "text": "1. Waves carry energy — particles only vibrate in place.",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 26,
+            "text": "2. v = f × λ ties every worked example together.",
+            "x": 80,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "t2b",
+            "kind": "latex",
+            "size": 32,
+            "tex": "170\\ \\text{Hz} \\times 2\\ \\text{m} = 340\\ \\text{m/s}",
+            "x": 80,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "size": 26,
+            "text": "3. Light ≈ 880,000× faster than sound: flash before thunder.",
+            "x": 80,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "target": "t2b"
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "Energy travels, particles vibrate, and v = f × λ always holds."
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Waves: light, sound and the wave equation",
+  "topic": "phys-waves"
+}
