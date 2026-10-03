@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animath — animated math & science for the Singapore syllabus</title>
+<link rel="stylesheet" href="../player/player.css">
+<style>
+  body { margin: 0; padding: 20px; background: #f6f3ec; color: #1a1a1a;
+         font-family: system-ui, -apple-system, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 26px; margin: 4px 0; }
+  .tag { color: #6b6455; margin: 0 0 20px; font-size: 15px; }
+  .card { background: #fff; border: 1px solid #e2ddd2; border-radius: 12px;
+          padding: 16px; margin-bottom: 16px; }
+  .card h2 { font-size: 16px; margin: 0 0 12px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .field { display: flex; flex-direction: column; gap: 4px; min-width: 160px; flex: 1; }
+  .field label { font-size: 13px; color: #6b6455; font-weight: 600; }
+  .field select, .field input, .field textarea {
+    font-size: 15px; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid #d8d2c4; background: #fff; font-family: inherit; }
+  .field textarea { min-height: 64px; resize: vertical; }
+  .kindrow { display: flex; gap: 16px; font-size: 15px; margin-bottom: 12px; }
+  .privacy { font-size: 13px; color: #6b6455; margin-top: 8px; }
+  #genbtn { font-size: 17px; font-weight: 700; padding: 12px 28px; border: none;
+            border-radius: 10px; background: #2b5cb8; color: #fff; cursor: pointer; }
+  #genbtn:disabled { background: #9db4dd; cursor: wait; }
+  #status { margin: 12px 0; font-size: 15px; min-height: 22px; }
+  #status.err { color: #8a1f1f; }
+  .specbtns { display: flex; gap: 8px; margin: 12px 0; }
+  .specbtns button { font-size: 14px; padding: 7px 14px; border-radius: 8px;
+    border: 1px solid #d8d2c4; background: #fff; cursor: pointer; }
+  .demo-link { font-size: 14px; margin-top: 24px; color: #6b6455; }
+  .demo-link a { color: #2b5cb8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>animath</h1>
+  <p class="tag">Animated math &amp; science for the Singapore syllabus — generated on demand.</p>
+
+  <div class="card">
+    <h2>1 · What do you need?</h2>
+    <div class="row">
+      <div class="field"><label for="level">Level</label><select id="level"></select></div>
+      <div class="field"><label for="track">Subject</label><select id="track"></select></div>
+      <div class="field"><label for="topic">Topic</label><select id="topic"></select></div>
+    </div>
+    <div class="kindrow">
+      <label><input type="radio" name="kind" value="concept" checked> Explain a concept</label>
+      <label><input type="radio" name="kind" value="problem"> Solve a problem</label>
+    </div>
+    <div class="field">
+      <label for="focus">Describe what you need (optional)</label>
+      <textarea id="focus" placeholder="e.g. I keep getting 1/2 + 1/4 wrong — show me why"></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>2 · Your LLM</h2>
+    <div class="row">
+      <div class="field"><label for="baseurl">Base URL (OpenAI-compatible)</label>
+        <input id="baseurl" value="https://api.openai.com/v1"></div>
+      <div class="field"><label for="model">Model</label>
+        <input id="model" value="gpt-4o-mini"></div>
+      <div class="field"><label for="apikey">API key</label>
+        <input id="apikey" type="password" placeholder="sk-…" autocomplete="off"></div>
+    </div>
+    <p class="privacy">Your key is stored only in this browser's localStorage and sent
+      only to the base URL above — never to animath or anywhere else.</p>
+  </div>
+
+  <button id="genbtn">Generate animation</button>
+  <div id="status"></div>
+
+  <div class="specbtns" id="specbtns" style="display:none">
+    <button id="copybtn">Copy spec JSON</button>
+    <button id="dlbtn">Download spec JSON</button>
+  </div>
+  <div id="stage"></div>
+  <div id="err"></div>
+
+  <p class="demo-link">No API key? Play the hand-authored samples in the
+    <a href="../player/demo.html">player demo</a> — no key needed.</p>
+</div>
+
+<script src="syllabus.js"></script>
+<script src="../generator/build_prompt.js"></script>
+<script src="../generator/llm_client.js"></script>
+<script src="../player/validate.js"></script>
+<script src="../player/player.js"></script>
+<script>
+(function () {
+  var S = window.ANIMATH_SYLLABUS;
+  var levelSel = document.getElementById('level');
+  var trackSel = document.getElementById('track');
+  var topicSel = document.getElementById('topic');
+  var baseUrlEl = document.getElementById('baseurl');
+  var modelEl = document.getElementById('model');
+  var keyEl = document.getElementById('apikey');
+  var focusEl = document.getElementById('focus');
+  var genBtn = document.getElementById('genbtn');
+  var statusEl = document.getElementById('status');
+  var stageEl = document.getElementById('stage');
+  var errEl = document.getElementById('err');
+  var specBtns = document.getElementById('specbtns');
+
+  // restore saved LLM settings
+  try {
+    if (localStorage.getItem('animath.baseUrl')) baseUrlEl.value = localStorage.getItem('animath.baseUrl');
+    if (localStorage.getItem('animath.model')) modelEl.value = localStorage.getItem('animath.model');
+    if (localStorage.getItem('animath.key')) keyEl.value = localStorage.getItem('animath.key');
+  } catch (e) { /* private mode */ }
+
+  function fillLevels() {
+    levelSel.innerHTML = '';
+    S.levels.forEach(function (lv) {
+      var o = document.createElement('option');
+      o.value = lv.id; o.textContent = lv.label;
+      levelSel.appendChild(o);
+    });
+  }
+  function fillTracks() {
+    var lv = S.levels.filter(function (l) { return l.id === levelSel.value; })[0];
+    trackSel.innerHTML = '';
+    lv.tracks.forEach(function (t) {
+      var o = document.createElement('option');
+      o.value = t.id; o.textContent = t.label;
+      trackSel.appendChild(o);
+    });
+    fillTopics();
+  }
+  function currentTrack() {
+    var lv = S.levels.filter(function (l) { return l.id === levelSel.value; })[0];
+    return lv.tracks.filter(function (t) { return t.id === trackSel.value; })[0];
+  }
+  function fillTopics() {
+    var tr = currentTrack();
+    topicSel.innerHTML = '';
+    tr.topics.forEach(function (t) {
+      var o = document.createElement('option');
+      o.value = t.slug; o.textContent = t.label;
+      topicSel.appendChild(o);
+    });
+  }
+  levelSel.addEventListener('change', fillTracks);
+  trackSel.addEventListener('change', fillTopics);
+  fillLevels(); fillTracks();
+
+  var player = null;
+  var lastSpec = null;
+
+  function setStatus(msg, isErr) {
+    statusEl.textContent = msg;
+    statusEl.className = isErr ? 'err' : '';
+  }
+
+  genBtn.addEventListener('click', function () {
+    errEl.innerHTML = '';
+    specBtns.style.display = 'none';
+    var key = keyEl.value.trim();
+    if (!key) { setStatus('Paste your API key first.', true); return; }
+    try {
+      localStorage.setItem('animath.baseUrl', baseUrlEl.value.trim());
+      localStorage.setItem('animath.model', modelEl.value.trim());
+      localStorage.setItem('animath.key', key);
+    } catch (e) { /* private mode */ }
+
+    var tr = currentTrack();
+    var topicOpt = topicSel.options[topicSel.selectedIndex];
+    var kind = document.querySelector('input[name="kind"]:checked').value;
+    var prompts = AnimathPrompt.buildPrompts({
+      level: levelSel.value,
+      subject: tr.subject,
+      topic: topicSel.value,
+      topicLabel: topicOpt.textContent,
+      kind: kind,
+      focus: focusEl.value.trim()
+    });
+
+    genBtn.disabled = true;
+    setStatus('Asking the model to author your animation…');
+    AnimathLLM.generateSpec({
+      baseUrl: baseUrlEl.value.trim(),
+      apiKey: key,
+      model: modelEl.value.trim(),
+      system: prompts.system,
+      user: prompts.user
+    }).then(function (spec) {
+      var problems = AnimathValidate.validateSpec(spec);
+      if (problems.length) {
+        lastSpec = spec;
+        specBtns.style.display = 'flex';
+        setStatus('The model returned a spec with ' + problems.length + ' problem(s).', true);
+        errEl.innerHTML = '<div class="ap-error">' +
+          problems.map(function (p) { return p.replace(/</g, '&lt;'); }).join('\n') + '</div>';
+        return;
+      }
+      lastSpec = spec;
+      specBtns.style.display = 'flex';
+      if (player) player.destroy();
+      player = AnimathPlayer.mount(stageEl, spec);
+      player.play();
+      setStatus('Playing: ' + spec.title);
+      stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }).catch(function (e) {
+      setStatus('Generation failed: ' + e.message, true);
+    }).then(function () {
+      genBtn.disabled = false;
+    });
+  });
+
+  document.getElementById('copybtn').addEventListener('click', function () {
+    if (!lastSpec) return;
+    navigator.clipboard.writeText(JSON.stringify(lastSpec, null, 2)).then(
+      function () { setStatus('Spec JSON copied to clipboard.'); },
+      function () { setStatus('Copy failed — your browser blocked it.', true); });
+  });
+  document.getElementById('dlbtn').addEventListener('click', function () {
+    if (!lastSpec) return;
+    var blob = new Blob([JSON.stringify(lastSpec, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'animath-spec.json';
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

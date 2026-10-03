@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animath player demo</title>
+<link rel="stylesheet" href="player.css">
+<style>
+  body { margin: 0; padding: 16px; background: #f6f3ec; }
+  .demo-bar { max-width: 980px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; }
+  .demo-bar select { font-size: 15px; padding: 6px 10px; border-radius: 8px; border: 1px solid #d8d2c4; }
+  .demo-bar .hint { font-size: 13px; color: #6b6455; }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <label for="specsel">Sample:</label>
+  <select id="specsel">
+    <option value="../samples/primary-math-fractions-addition.json">Primary math — adding fractions</option>
+    <option value="../samples/secondary-math-pythagoras.json">Secondary math — Pythagoras</option>
+    <option value="../samples/secondary-science-photosynthesis.json">Secondary science — photosynthesis</option>
+  </select>
+  <span class="hint">Hand-authored specs, no API key needed. Add ?spec=path/to.json to load your own.</span>
+</div>
+<div id="stage"></div>
+<div id="err"></div>
+<script src="validate.js"></script>
+<script src="player.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var sel = document.getElementById('specsel');
+  var stage = document.getElementById('stage');
+  var errBox = document.getElementById('err');
+  var player = null;
+
+  function load(url) {
+    errBox.innerHTML = '';
+    fetch(url).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + url);
+      return r.json();
+    }).then(function (spec) {
+      var problems = AnimathValidate.validateSpec(spec);
+      if (problems.length) {
+        errBox.innerHTML = '<div class="ap-error">Spec failed validation:\n' +
+          problems.map(function (p) { return p.replace(/</g, '&lt;'); }).join('\n') + '</div>';
+        return;
+      }
+      if (player) player.destroy();
+      player = AnimathPlayer.mount(stage, spec);
+      player.play();
+    }).catch(function (e) {
+      errBox.innerHTML = '<div class="ap-error">' + String(e).replace(/</g, '&lt;') + '</div>';
+    });
+  }
+
+  sel.addEventListener('change', function () { load(sel.value); });
+  var initial = params.get('spec') || sel.value;
+  // keep the dropdown in sync when a custom spec is passed
+  var opt = Array.prototype.slice.call(sel.options).filter(function (o) { return o.value === initial; });
+  if (!opt.length) {
+    var o = document.createElement('option');
+    o.value = initial; o.textContent = initial;
+    sel.appendChild(o);
+  }
+  sel.value = initial;
+  load(initial);
+})();
+</script>
+</body>
+</html>

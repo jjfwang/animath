@@ -1,0 +1,80 @@
+/* animath player chrome */
+.animath-player {
+  max-width: 980px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+}
+.ap-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 12px 4px;
+}
+.ap-stage {
+  position: relative;
+  background: #fdfcf8;
+  border: 1px solid #e2ddd2;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.ap-stage svg {
+  display: block;
+  background:
+    linear-gradient(#fdfcf8, #fdfcf8);
+}
+.ap-caption {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #3a352c;
+  pointer-events: none;
+}
+.ap-narration {
+  margin: 10px 4px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #4a4438;
+  min-height: 44px;
+}
+.ap-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px;
+}
+.ap-controls button {
+  border: 1px solid #d8d2c4;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.ap-controls button:hover { background: #f4f0e6; }
+.ap-controls input[type="range"] { flex: 1; }
+.ap-controls span[data-a="tlabel"] {
+  font-size: 13px;
+  color: #6b6455;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.ap-controls select {
+  border: 1px solid #d8d2c4;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 14px;
+  background: #fff;
+}
+.ap-error {
+  margin: 12px 4px;
+  padding: 12px;
+  border: 1px solid #d99;
+  border-radius: 8px;
+  background: #fff5f5;
+  color: #8a1f1f;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
