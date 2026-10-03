@@ -1,0 +1,602 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Work is done when a force moves something",
+      "duration_ms": 10000,
+      "id": "s1",
+      "narration": "Work in physics is not just effort — a force must move something. Here a force of 50 newtons pushes this crate 4 metres. The work done is force times distance: 50 times 4, which is 200 joules. No movement, no work done.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Work: pushing a crate",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "floor",
+            "kind": "line",
+            "stroke": "#5d6d7e",
+            "width": 4,
+            "x1": 80,
+            "x2": 880,
+            "y1": 400,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "fill": "#e8b45a",
+            "h": 80,
+            "id": "crate",
+            "kind": "rect",
+            "stroke": "#8e5a2b",
+            "w": 80,
+            "width": 2,
+            "x": 150,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "farrow",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 5,
+            "x1": 60,
+            "x2": 145,
+            "y1": 360,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "flabel",
+            "kind": "text",
+            "size": 22,
+            "text": "F = 50 N",
+            "x": 40,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "dur_ms": 2000,
+          "target": "crate",
+          "to": {
+            "x": 550,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "dur_ms": 2000,
+          "target": "farrow",
+          "to": {
+            "x1": 460,
+            "x2": 545,
+            "y1": 360,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "dur_ms": 2000,
+          "target": "flabel",
+          "to": {
+            "x": 440,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "dlabel",
+            "kind": "text",
+            "size": 22,
+            "text": "d = 4 m",
+            "x": 330,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "color": "#2471a3",
+            "id": "formula",
+            "kind": "latex",
+            "size": 40,
+            "tex": "W = F \\times d",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "work",
+            "kind": "latex",
+            "size": 36,
+            "tex": "W = 50 \\times 4 = 200\\ \\text{J}",
+            "x": 80,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "show",
+          "shape": {
+            "id": "point",
+            "kind": "text",
+            "size": 24,
+            "text": "Joules (J) are the units of work — a force moved something.",
+            "x": 80,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 9200,
+          "do": "caption",
+          "text": "Work = force × distance. No movement, no work."
+        }
+      ]
+    },
+    {
+      "caption": "Power is the rate at which work gets done",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "Now suppose the same 200 joules of work is done in 10 seconds. The power is work over time: 200 divided by 10, which is 20 watts. Do the same work in 2 seconds instead and the power is 100 watts. Same work, more power — power is about rate, not amount.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Power: how fast is the work done?",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "color": "#2471a3",
+            "id": "formula",
+            "kind": "latex",
+            "size": 40,
+            "tex": "P = \\frac{W}{t}",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "setup",
+            "kind": "text",
+            "size": 24,
+            "text": "Same crate, same push: W = 200 J (from the last scene)",
+            "x": 80,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "case1",
+            "kind": "text",
+            "size": 24,
+            "text": "Done in 10 s — steady, unhurried push",
+            "x": 80,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "p1",
+            "kind": "latex",
+            "size": 36,
+            "tex": "P = \\frac{200\\ \\text{J}}{10\\ \\text{s}} = 20\\ \\text{W}",
+            "x": 80,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "case2",
+            "kind": "text",
+            "size": 24,
+            "text": "Done in 2 s — same work, much faster",
+            "x": 480,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "color": "#c0392b",
+            "id": "p2",
+            "kind": "latex",
+            "size": 36,
+            "tex": "P = \\frac{200\\ \\text{J}}{2\\ \\text{s}} = 100\\ \\text{W}",
+            "x": 480,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "emphasize",
+          "target": "p2"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Same work, less time = more power. Watts are joules per second."
+        }
+      ]
+    },
+    {
+      "caption": "Energy changes form but is never destroyed",
+      "duration_ms": 12000,
+      "id": "s3",
+      "narration": "Hold a 2 kilogram ball 5 metres above the ground. With g equal to 9.8 metres per second squared, its gravitational potential energy is 2 times 9.8 times 5 — 98 joules. Let it fall. Just before it hits the ground, all 98 joules are kinetic energy. Nothing was lost; it changed form.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Energy is conserved: GPE becomes KE",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "gset",
+            "kind": "text",
+            "size": 22,
+            "text": "taking g = 9.8 m/s² throughout this scene",
+            "x": 80,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "ground",
+            "kind": "line",
+            "stroke": "#5d6d7e",
+            "width": 4,
+            "x1": 80,
+            "x2": 880,
+            "y1": 470,
+            "y2": 470
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "fill": "#a9cce3",
+            "h": 15,
+            "id": "shelf",
+            "kind": "rect",
+            "stroke": "#2471a3",
+            "w": 160,
+            "width": 2,
+            "x": 400,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 130,
+            "fill": "#f5cba7",
+            "id": "ball",
+            "kind": "circle",
+            "r": 20,
+            "stroke": "#8e5a2b",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "hlabel",
+            "kind": "text",
+            "size": 22,
+            "text": "h = 5 m   m = 2 kg",
+            "x": 600,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "color": "#2471a3",
+            "id": "gpe",
+            "kind": "latex",
+            "size": 36,
+            "tex": "GPE = mgh = 2 \\times 9.8 \\times 5 = 98\\ \\text{J}",
+            "x": 80,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "hide",
+          "target": "hlabel"
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "drop",
+            "kind": "text",
+            "size": 24,
+            "text": "Let it fall —",
+            "x": 600,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "ball",
+          "to": {
+            "cx": 480,
+            "cy": 450
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "atground",
+            "kind": "text",
+            "size": 24,
+            "text": "at the ground: GPE = 0 J,",
+            "x": 560,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ke",
+            "kind": "latex",
+            "size": 36,
+            "tex": "KE = 98\\ \\text{J}",
+            "x": 560,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 9200,
+          "do": "emphasize",
+          "target": "ke"
+        },
+        {
+          "at_ms": 10600,
+          "do": "caption",
+          "text": "98 J of GPE became 98 J of KE. Same total, different form."
+        }
+      ]
+    },
+    {
+      "caption": "Energy is transformed, never used up",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "A common idea says energy is used up when work is done. Not true. A car's engine turns chemical energy from petrol into movement and heat. Add it all up and the total is the same as before. Energy is transformed, never used up or destroyed.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Misconception: energy gets used up?",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "myth",
+            "kind": "text",
+            "size": 28,
+            "text": "❌ “Energy is used up when work is done.”",
+            "x": 80,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "fill": "#aed6f1",
+            "h": 60,
+            "id": "car",
+            "kind": "rect",
+            "stroke": "#2471a3",
+            "w": 160,
+            "width": 2,
+            "x": 80,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "carlabel",
+            "kind": "text",
+            "size": 22,
+            "text": "car engine",
+            "x": 100,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "in",
+            "kind": "arrow",
+            "stroke": "#7d3c98",
+            "width": 5,
+            "x1": 280,
+            "x2": 240,
+            "y1": 310,
+            "y2": 310
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "inlabel",
+            "kind": "text",
+            "size": 22,
+            "text": "chemical energy (petrol)",
+            "x": 290,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "out1",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 5,
+            "x1": 480,
+            "x2": 700,
+            "y1": 310,
+            "y2": 310
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "id": "out1label",
+            "kind": "text",
+            "size": 22,
+            "text": "movement (kinetic)",
+            "x": 710,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "out2",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 5,
+            "x1": 480,
+            "x2": 700,
+            "y1": 355,
+            "y2": 355
+          }
+        },
+        {
+          "at_ms": 5500,
+          "do": "show",
+          "shape": {
+            "id": "out2label",
+            "kind": "text",
+            "size": 22,
+            "text": "heat (wasted, but not lost)",
+            "x": 710,
+            "y": 345
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "truth",
+            "kind": "text",
+            "size": 26,
+            "text": "✓  Add it up: the total energy is unchanged.",
+            "x": 80,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "emphasize",
+          "target": "truth"
+        },
+        {
+          "at_ms": 8800,
+          "do": "caption",
+          "text": "Energy is transformed, not used up — conservation holds."
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Energy: work, power and conservation",
+  "topic": "phys-energy"
+}
