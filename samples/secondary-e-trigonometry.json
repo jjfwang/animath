@@ -1,0 +1,440 @@
+{
+  "animath": "0.1",
+  "title": "E-Math trigonometry: ratios and the sine rule",
+  "level": "secondary",
+  "subject": "math",
+  "topic": "e-trigonometry",
+  "kind": "concept",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Meet the 3-4-5 triangle",
+      "narration": "A right-angled triangle with short sides 3 and 4. The sine of angle theta is opposite over hypotenuse: 3 over 5, or 0.6.",
+      "duration_ms": 7000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "legOpp",
+            "kind": "line",
+            "x1": 300,
+            "y1": 220,
+            "x2": 300,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "legAdj",
+            "kind": "line",
+            "x1": 300,
+            "y1": 340,
+            "x2": 460,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "hyp",
+            "kind": "line",
+            "x1": 300,
+            "y1": 220,
+            "x2": 460,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "ra",
+            "kind": "rect",
+            "x": 300,
+            "y": 316,
+            "w": 24,
+            "h": 24,
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "angTheta",
+            "kind": "text",
+            "x": 408,
+            "y": 322,
+            "size": 30,
+            "text": "θ"
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "labOpp",
+            "kind": "text",
+            "x": 250,
+            "y": 290,
+            "size": 26,
+            "text": "opposite = 3"
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "labAdj",
+            "kind": "text",
+            "x": 355,
+            "y": 382,
+            "size": 26,
+            "text": "adjacent = 4"
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "labHyp",
+            "kind": "text",
+            "x": 418,
+            "y": 264,
+            "size": 26,
+            "text": "hyp = 5"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "sinEq",
+            "kind": "latex",
+            "x": 620,
+            "y": 180,
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "\\sin\\theta = \\frac{3}{5} = 0.6"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Cosine and tangent join the card",
+      "narration": "Cosine of theta is adjacent over hypotenuse: 4 over 5. Tangent is opposite over adjacent: 3 over 4. Read the card as SOH CAH TOA.",
+      "duration_ms": 8000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "legOpp",
+            "kind": "line",
+            "x1": 300,
+            "y1": 220,
+            "x2": 300,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 100,
+          "do": "show",
+          "shape": {
+            "id": "legAdj",
+            "kind": "line",
+            "x1": 300,
+            "y1": 340,
+            "x2": 460,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 200,
+          "do": "show",
+          "shape": {
+            "id": "hyp",
+            "kind": "line",
+            "x1": 300,
+            "y1": 220,
+            "x2": 460,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "cosEq",
+            "kind": "latex",
+            "x": 600,
+            "y": 150,
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "\\cos\\theta = \\frac{4}{5} = 0.8"
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "tanEq",
+            "kind": "latex",
+            "x": 600,
+            "y": 260,
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "\\tan\\theta = \\frac{3}{4} = 0.75"
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "soh",
+            "kind": "text",
+            "x": 600,
+            "y": 360,
+            "size": 26,
+            "text": "SOH: sin = opp/hyp"
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "cah",
+            "kind": "text",
+            "x": 600,
+            "y": 400,
+            "size": 26,
+            "text": "CAH: cos = adj/hyp"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "toa",
+            "kind": "text",
+            "x": 600,
+            "y": 440,
+            "size": 26,
+            "text": "TOA: tan = opp/adj"
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "target": "tanEq",
+          "dur_ms": 800
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "The sine rule for any triangle",
+      "narration": "Not every triangle has a right angle. The sine rule links each side with the sine of its opposite angle: a over sin A equals b over sin B. With a is 4, A is 30 degrees and B is 60 degrees, b works out to 4 root 3, about 6.93.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "tri",
+            "kind": "polygon",
+            "points": [
+              [
+                250,
+                380
+              ],
+              [
+                550,
+                380
+              ],
+              [
+                430,
+                180
+              ]
+            ],
+            "fill": "none",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "labA",
+            "kind": "text",
+            "x": 268,
+            "y": 348,
+            "size": 28,
+            "text": "A = 30°"
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "labB",
+            "kind": "text",
+            "x": 494,
+            "y": 348,
+            "size": 28,
+            "text": "B = 60°"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "labSideA",
+            "kind": "text",
+            "x": 502,
+            "y": 272,
+            "size": 28,
+            "text": "a = 4"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "labSideB",
+            "kind": "text",
+            "x": 296,
+            "y": 272,
+            "size": 28,
+            "text": "b = ?"
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "sineRule",
+            "kind": "latex",
+            "x": 640,
+            "y": 180,
+            "size": 44,
+            "color": "#1f7a3a",
+            "tex": "\\frac{a}{\\sin A} = \\frac{b}{\\sin B}"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "subEq",
+            "kind": "latex",
+            "x": 640,
+            "y": 290,
+            "size": 40,
+            "tex": "\\frac{4}{\\sin 30^\\circ} = \\frac{b}{\\sin 60^\\circ}"
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "solveEq",
+            "kind": "latex",
+            "x": 640,
+            "y": 400,
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "b = \\frac{4 \\times 0.8660}{0.5} \\approx 6.93"
+          }
+        },
+        {
+          "at_ms": 8200,
+          "do": "emphasize",
+          "target": "sineRule",
+          "dur_ms": 600
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Slip check: do not flip tangent",
+      "narration": "A tempting slip: writing tangent as adjacent over opposite. On our triangle that gives 4 over 3, but the real ratio is 3 over 4. Always read TOA: opposite over adjacent.",
+      "duration_ms": 7000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "wrongEq",
+            "kind": "latex",
+            "x": 300,
+            "y": 200,
+            "size": 44,
+            "color": "#b00020",
+            "tex": "\\tan\\theta = \\frac{4}{3}"
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "caption",
+          "text": "A tempting flip — check the numbers"
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "whyWrong",
+            "kind": "text",
+            "x": 300,
+            "y": 300,
+            "size": 32,
+            "text": "3/4 ≠ 4/3: 0.75 is not 1.33"
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "id": "rightEq",
+            "kind": "latex",
+            "x": 300,
+            "y": 400,
+            "size": 44,
+            "color": "#1f7a3a",
+            "tex": "\\tan\\theta = \\frac{\\text{opp}}{\\text{adj}} = \\frac{3}{4}"
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "target": "rightEq",
+          "dur_ms": 800
+        }
+      ]
+    }
+  ]
+}
