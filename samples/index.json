@@ -35,5 +35,7 @@
   "jc-h2-integration.json",
   "jc-h2-probability.json",
   "jc-h2-functions-graphs.json",
-  "jc-h2-statistics.json"
+  "jc-h2-statistics.json",
+  "jc-h2-mechanics.json",
+  "jc-h2-em.json"
 ]
