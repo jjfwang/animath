@@ -1,0 +1,458 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "Rates that pull each other along",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "In connected rates of change, one quantity drags another with it. As the radius of a circle grows, its area must grow too — the rate dA/dt is linked to the rate dr/dt.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 38,
+            "text": "Connected rates of change",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "sub",
+            "kind": "text",
+            "size": 28,
+            "text": "one rate of change drags another with it",
+            "x": 120,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "areaEq",
+            "kind": "latex",
+            "size": 48,
+            "tex": "A = \\pi r^2",
+            "x": 220,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "areaEq",
+          "to": {
+            "x": 240,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "link",
+            "kind": "text",
+            "size": 28,
+            "text": "as the radius grows, the area grows with it",
+            "x": 120,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "areaEq"
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "A chain of rates: dA/dt follows dr/dt"
+        }
+      ]
+    },
+    {
+      "caption": "The expanding circle",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "A circle expands: the radius is 2 and grows at half a unit per second. Differentiating area equals pi r squared with respect to time gives dA/dt equals 2 pi r dr/dt. Substituting the values: 2 pi times 2 times 0.5 equals 2 pi, about 6.28 square units per second.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 210,
+            "fill": "none",
+            "id": "pool",
+            "kind": "circle",
+            "r": 60,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "given",
+            "kind": "text",
+            "size": 30,
+            "text": "r = 2,  dr/dt = 0.5",
+            "x": 540,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "dEq",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\frac{dA}{dt} = 2\\pi r\\,\\frac{dr}{dt}",
+            "x": 100,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "dEq",
+          "to": {
+            "x": 120,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ansEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\frac{dA}{dt} = 2\\pi(2)(0.5) = 2\\pi \\approx 6.283",
+            "x": 100,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "unit",
+            "kind": "text",
+            "size": 28,
+            "text": "square units per second",
+            "x": 100,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "ansEq"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "About 6.28 square units per second"
+        }
+      ]
+    },
+    {
+      "caption": "The sliding ladder",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "A 5-unit ladder slides down a wall. Its foot is 3 units from the wall, so by the 3-4-5 triangle the top is 4 units up. The relation x squared plus y squared equals 25 differentiates to 2x dx/dt plus 2y dy/dt equals zero. The foot slides out at 1 unit per second, so dy/dt equals negative 3 over 4 — the top drops at 0.75 units per second.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "wall",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 4,
+            "x1": 120,
+            "x2": 120,
+            "y1": 120,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "floor",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 4,
+            "x1": 120,
+            "x2": 580,
+            "y1": 430,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "ladder",
+            "kind": "line",
+            "stroke": "#8a5a00",
+            "width": 6,
+            "x1": 320,
+            "x2": 120,
+            "y1": 430,
+            "y2": 190
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "pyEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "x^2 + y^2 = 5^2",
+            "x": 400,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "val",
+            "kind": "text",
+            "size": 28,
+            "text": "x = 3, so y = 4  (3-4-5 triangle)",
+            "x": 380,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "diffEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "2x\\,\\frac{dx}{dt} + 2y\\,\\frac{dy}{dt} = 0",
+            "x": 380,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "dyEq",
+            "kind": "latex",
+            "size": 34,
+            "tex": "\\frac{dx}{dt} = 1 \\Rightarrow \\frac{dy}{dt} = -\\frac{3}{4} = -0.75",
+            "x": 380,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "ladder",
+          "to": {
+            "x1": 380,
+            "x2": 120,
+            "y1": 430,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "dyEq"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "The top slides down at 0.75 units per second"
+        }
+      ]
+    },
+    {
+      "caption": "dy/dx is not a fraction",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "Careful: dy/dx is not a fraction whose d's can cancel. It is a single symbol for a limit — the ratio of small changes as delta x shrinks to zero. Cancel the d's and the mathematics breaks.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "fracEq",
+            "kind": "latex",
+            "size": 52,
+            "tex": "\\frac{dy}{dx}",
+            "x": 200,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "noCancel",
+            "kind": "text",
+            "size": 30,
+            "text": "is NOT a fraction — the d's do not cancel",
+            "x": 120,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "limitEq",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\frac{dy}{dx} = \\lim_{\\delta x \\to 0} \\frac{\\delta y}{\\delta x}",
+            "x": 120,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "fracEq",
+          "to": {
+            "x": 220,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 5900,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "limitEq"
+        },
+        {
+          "at_ms": 6800,
+          "do": "caption",
+          "text": "Treat dy/dx as one symbol: a rate of change"
+        }
+      ]
+    },
+    {
+      "caption": "The connected-rates toolkit",
+      "duration_ms": 7000,
+      "id": "s5",
+      "narration": "The toolkit is always the same: write the relation between the quantities, differentiate each one with respect to time, then substitute the known values. The circle grew its area at 2 pi, and the ladder top fell at 0.75 units per second.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "f1",
+            "kind": "latex",
+            "size": 36,
+            "tex": "A = \\pi r^2 \\;\\Rightarrow\\; \\frac{dA}{dt} = 2\\pi r\\frac{dr}{dt}",
+            "x": 100,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "f2",
+            "kind": "latex",
+            "size": 36,
+            "tex": "x^2 + y^2 = L^2 \\;\\Rightarrow\\; x\\frac{dx}{dt} + y\\frac{dy}{dt} = 0",
+            "x": 100,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "recipe",
+            "kind": "text",
+            "size": 28,
+            "text": "differentiate each relation with respect to time",
+            "x": 100,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "nums",
+            "kind": "text",
+            "size": 28,
+            "text": "circle: 2pi ≈ 6.28;   ladder top falls at 0.75",
+            "x": 100,
+            "y": 445
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "emphasize",
+          "dur_ms": 800,
+          "target": "f1"
+        },
+        {
+          "at_ms": 5800,
+          "do": "caption",
+          "text": "Differentiate the relation, substitute, solve"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "JC H2 differentiation: connected rates of change",
+  "topic": "h2-differentiation"
+}

@@ -1,0 +1,404 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "kind": "concept",
+  "level": "jc",
+  "subject": "math",
+  "topic": "h2-sequences",
+  "title": "JC H2 sequences: arithmetic and geometric progressions",
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Arithmetic progressions: add d each step",
+      "duration_ms": 8000,
+      "narration": "An arithmetic progression adds the same common difference d every step. Starting from 5 with a difference of 3, the terms are 5, 8, 11, 14. The nth term is u_n equals a plus (n minus 1) times d.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "terms",
+            "kind": "text",
+            "size": 44,
+            "text": "5,  8,  11,  14,  ...",
+            "x": 180,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "dLab",
+            "kind": "text",
+            "size": 30,
+            "text": "each step adds 3",
+            "x": 180,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "apEq",
+            "kind": "latex",
+            "size": 44,
+            "color": "#1f7a3a",
+            "tex": "u_n = a + (n - 1)d",
+            "x": 180,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "apEq",
+          "to": {
+            "x": 200,
+            "y": 350
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "apEg",
+            "kind": "latex",
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "u_{10} = 5 + 9(3) = 32",
+            "x": 180,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "target": "apEq",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 6800,
+          "do": "caption",
+          "text": "The 10th term is 32 - nine steps from the first"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Geometric progressions: multiply by r each step",
+      "duration_ms": 9000,
+      "narration": "A geometric progression multiplies by the common ratio r every step. Starting from 3 with ratio 2, the terms are 3, 6, 12, 24. The sum of the first n terms is S_n equals a times (r to the n minus 1) over (r minus 1).",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "terms",
+            "kind": "text",
+            "size": 44,
+            "text": "3,  6,  12,  24,  ...",
+            "x": 180,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "rLab",
+            "kind": "text",
+            "size": 30,
+            "text": "each step multiplies by 2",
+            "x": 180,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "gpEq",
+            "kind": "latex",
+            "size": 44,
+            "color": "#1f7a3a",
+            "tex": "S_n = a\\frac{r^n - 1}{r - 1}",
+            "x": 180,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "gpEq",
+          "to": {
+            "x": 200,
+            "y": 350
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "gpEg",
+            "kind": "latex",
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "S_4 = 3\\frac{2^4 - 1}{2 - 1} = 45",
+            "x": 180,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "target": "gpEg",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 7200,
+          "do": "caption",
+          "text": "Four terms summed: 3 + 6 + 12 + 24 = 45"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Seeing the sum build up",
+      "duration_ms": 8000,
+      "narration": "Watch the geometric sum accumulate term by term. Each new term is double the last: 3, then 9, then 21, then 45. The sum formula compresses all of this adding into one multiplication.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 40,
+            "text": "3",
+            "x": 160,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 40,
+            "text": "+ 6 = 9",
+            "x": 300,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "size": 40,
+            "text": "+ 12 = 21",
+            "x": 470,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "t4",
+            "kind": "text",
+            "size": 40,
+            "text": "+ 24 = 45",
+            "x": 660,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "sumEq",
+            "kind": "latex",
+            "size": 44,
+            "color": "#1f7a3a",
+            "tex": "S_4 = 45",
+            "x": 160,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "target": "t4",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 6800,
+          "do": "caption",
+          "text": "45 - the formula agrees with term-by-term adding"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Two classic slips",
+      "duration_ms": 9000,
+      "narration": "Two slips to dodge. First: the sum of a geometric series is not the last term times n - 24 times 4 would give 96, but the sum is only 45. Second: the exponent is n minus 1, not n - u_10 needs nine jumps of d, not ten.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "color": "#b00020",
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "slip1",
+            "kind": "text",
+            "size": 30,
+            "text": "the sum is NOT the last term times n",
+            "x": 120,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "slip1Eq",
+            "kind": "latex",
+            "size": 36,
+            "color": "#b00020",
+            "tex": "S_4 \\ne 24 \\times 4 = 96",
+            "x": 140,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "fix1",
+            "kind": "latex",
+            "size": 36,
+            "color": "#1f7a3a",
+            "tex": "S_4 = 3 + 6 + 12 + 24 = 45",
+            "x": 140,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "slip2",
+            "kind": "text",
+            "size": 30,
+            "text": "the exponent is n - 1, not n",
+            "x": 120,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "fix2",
+            "kind": "latex",
+            "size": 36,
+            "color": "#1f7a3a",
+            "tex": "u_{10} = 5 + 9(3) = 32 \\quad \\text{(nine jumps)}",
+            "x": 140,
+            "y": 510
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "target": "fix2",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 8000,
+          "do": "caption",
+          "text": "Sums count every term; exponents count the jumps"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "caption": "The sequences toolkit",
+      "duration_ms": 7000,
+      "narration": "The toolkit: the nth term of an AP is a plus (n minus 1) d - ten terms means nine jumps. The sum of the first n terms of a GP is a times (r to the n minus 1) over (r minus 1). With 3 and ratio 2, four terms sum to 45.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "f1",
+            "kind": "latex",
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "u_n = a + (n - 1)d",
+            "x": 120,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "f2",
+            "kind": "latex",
+            "size": 40,
+            "color": "#1f7a3a",
+            "tex": "S_n = a\\frac{r^n - 1}{r - 1}",
+            "x": 120,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "nums",
+            "kind": "text",
+            "size": 28,
+            "text": "AP: u10 = 32.   GP: S4 = 45.",
+            "x": 120,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "emphasize",
+          "target": "f2",
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 5000,
+          "do": "caption",
+          "text": "AP terms by jumps of d; GP sums by ratio r"
+        }
+      ]
+    }
+  ]
+}
