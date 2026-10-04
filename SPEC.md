@@ -57,6 +57,19 @@ Every step has `at_ms` (0 ≤ at_ms < scene `duration_ms`) and a `do` verb.
 - `caption`: `{at_ms, do:"caption", text}` — replaces the scene caption bar
   mid-scene.
 
+## Mechanism-first authoring
+
+Contract validity (see "Validation") is the floor, not the bar. Every scene
+shows a *mechanism*: at least one state change — a process, transformation, or
+cause->effect — carried by the visuals. The state change rides on `move`, or
+on staged `show`/`hide` steps that build or transform a diagram over time
+(bars growing one after another, an electron travelling along a wire, a shape
+morphing across consecutive beats). `emphasize` may mark a turning point but
+never carries the mechanism alone. On-screen text (captions, labels,
+narration) supports the visual; it never carries the explanation by itself —
+a scene of text fading in line by line is contract-valid but not yet good
+enough. No text-only scenes.
+
 ## Shapes
 
 Every shape has a unique `id` within its scene.
