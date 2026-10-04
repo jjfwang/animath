@@ -1,0 +1,1017 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Food chain: built beat by beat",
+      "duration_ms": 12000,
+      "id": "s1",
+      "narration": "A food chain shows who eats whom. The arrow always points in the direction of energy flow: from the food to the eater. Real chains interweave into food webs.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Food chain: built beat by beat",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#c8e6c9",
+            "h": 90,
+            "id": "grass",
+            "kind": "rect",
+            "stroke": "#2e7d32",
+            "w": 120,
+            "width": 3,
+            "x": 90,
+            "y": 245
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "grassL",
+            "kind": "text",
+            "size": 24,
+            "text": "grass",
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "producerL",
+            "kind": "text",
+            "size": 18,
+            "text": "producer",
+            "x": 112,
+            "y": 365
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "arrow1",
+            "kind": "arrow",
+            "stroke": "#5d4037",
+            "width": 4,
+            "x1": 225,
+            "x2": 315,
+            "y1": 290,
+            "y2": 290
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 380,
+            "cy": 290,
+            "fill": "#fff3e0",
+            "id": "rabbit",
+            "kind": "circle",
+            "r": 55,
+            "stroke": "#ef6c00",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "rabbitL",
+            "kind": "text",
+            "size": 24,
+            "text": "rabbit",
+            "x": 348,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "primaryL",
+            "kind": "text",
+            "size": 18,
+            "text": "primary consumer",
+            "x": 305,
+            "y": 365
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "arrow2",
+            "kind": "arrow",
+            "stroke": "#5d4037",
+            "width": 4,
+            "x1": 445,
+            "x2": 565,
+            "y1": 290,
+            "y2": 290
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "cx": 630,
+            "cy": 290,
+            "fill": "#ffe0b2",
+            "id": "fox",
+            "kind": "circle",
+            "r": 55,
+            "stroke": "#e65100",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "foxL",
+            "kind": "text",
+            "size": 24,
+            "text": "fox",
+            "x": 610,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "secondaryL",
+            "kind": "text",
+            "size": 18,
+            "text": "secondary consumer",
+            "x": 545,
+            "y": 365
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "arrow3",
+            "kind": "arrow",
+            "stroke": "#5d4037",
+            "width": 4,
+            "x1": 695,
+            "x2": 785,
+            "y1": 290,
+            "y2": 290
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "cx": 850,
+            "cy": 290,
+            "fill": "#e3f2fd",
+            "id": "hawk",
+            "kind": "circle",
+            "r": 55,
+            "stroke": "#1565c0",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "hawkL",
+            "kind": "text",
+            "size": 24,
+            "text": "hawk",
+            "x": 822,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "tertiaryL",
+            "kind": "text",
+            "size": 18,
+            "text": "tertiary consumer",
+            "x": 775,
+            "y": 365
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 24,
+            "text": "arrows follow the energy flow: food → eater",
+            "x": 80,
+            "y": 135
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "hide",
+          "target": "t1"
+        },
+        {
+          "at_ms": 8000,
+          "do": "show",
+          "shape": {
+            "cx": 380,
+            "cy": 478,
+            "fill": "#f3e5f5",
+            "id": "mouse",
+            "kind": "circle",
+            "r": 42,
+            "stroke": "#6a1b9a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 8400,
+          "do": "show",
+          "shape": {
+            "id": "mouseL",
+            "kind": "text",
+            "size": 22,
+            "text": "mouse",
+            "x": 350,
+            "y": 486
+          }
+        },
+        {
+          "at_ms": 8800,
+          "do": "show",
+          "shape": {
+            "id": "arrow4",
+            "kind": "arrow",
+            "stroke": "#5d4037",
+            "width": 4,
+            "x1": 150,
+            "x2": 330,
+            "y1": 340,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 9200,
+          "do": "show",
+          "shape": {
+            "id": "arrow5",
+            "kind": "arrow",
+            "stroke": "#5d4037",
+            "width": 4,
+            "x1": 428,
+            "x2": 800,
+            "y1": 450,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 9600,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 26,
+            "text": "interwoven chains: a food web",
+            "x": 80,
+            "y": 135
+          }
+        },
+        {
+          "at_ms": 10800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "t2"
+        },
+        {
+          "at_ms": 11200,
+          "do": "caption",
+          "text": "In a food web, energy has many routes to the top."
+        }
+      ]
+    },
+    {
+      "caption": "Energy pyramid: only about 10% passes up",
+      "duration_ms": 12000,
+      "id": "s2",
+      "narration": "At every feeding level, most energy is lost as heat from respiration, movement, and waste. Only about one tenth moves up to the next level — which is why pyramids are narrow at the top.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Energy pyramid: only about 10% passes up",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#c8e6c9",
+            "h": 80,
+            "id": "L1",
+            "kind": "rect",
+            "stroke": "#2e7d32",
+            "w": 560,
+            "width": 3,
+            "x": 200,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "L1L",
+            "kind": "text",
+            "size": 24,
+            "text": "producers",
+            "x": 430,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "fill": "#fff3e0",
+            "h": 80,
+            "id": "L2",
+            "kind": "rect",
+            "stroke": "#ef6c00",
+            "w": 400,
+            "width": 3,
+            "x": 280,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "L2L",
+            "kind": "text",
+            "size": 24,
+            "text": "primary consumers",
+            "x": 390,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "#ffe0b2",
+            "h": 80,
+            "id": "L3",
+            "kind": "rect",
+            "stroke": "#e65100",
+            "w": 260,
+            "width": 3,
+            "x": 350,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "L3L",
+            "kind": "text",
+            "size": 24,
+            "text": "secondary consumers",
+            "x": 372,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "fill": "#e3f2fd",
+            "h": 80,
+            "id": "L4",
+            "kind": "rect",
+            "stroke": "#1565c0",
+            "w": 140,
+            "width": 3,
+            "x": 410,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "L4L",
+            "kind": "text",
+            "size": 20,
+            "text": "top carnivores",
+            "x": 404,
+            "y": 206
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "p1",
+            "kind": "latex",
+            "size": 26,
+            "tex": "\\approx 10\\,\\%",
+            "x": 790,
+            "y": 390
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "p2",
+            "kind": "latex",
+            "size": 26,
+            "tex": "\\approx 10\\,\\%",
+            "x": 710,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "p3",
+            "kind": "latex",
+            "size": 26,
+            "tex": "\\approx 10\\,\\%",
+            "x": 645,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 26,
+            "text": "only about 10% of the energy passes up",
+            "x": 80,
+            "y": 135
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "show",
+          "shape": {
+            "id": "heatL",
+            "kind": "text",
+            "size": 20,
+            "text": "the rest, about 90%, is lost as heat",
+            "x": 80,
+            "y": 510
+          }
+        },
+        {
+          "at_ms": 8800,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "p1"
+        },
+        {
+          "at_ms": 10400,
+          "do": "caption",
+          "text": "Each feeding level holds only a tenth of the energy below it."
+        }
+      ]
+    },
+    {
+      "caption": "Carbon cycle: nature's closed loop",
+      "duration_ms": 12000,
+      "id": "s3",
+      "narration": "Carbon is recycled. Photosynthesis pulls carbon dioxide from the air into plants; respiration returns it. Eating moves it up the chain, and decomposition returns it to the soil.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Carbon cycle: nature's closed loop",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "airT",
+            "kind": "text",
+            "size": 26,
+            "text": "CO₂ — carbon dioxide in the air",
+            "x": 300,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 200,
+            "cy": 400,
+            "fill": "#c8e6c9",
+            "id": "plants",
+            "kind": "circle",
+            "r": 65,
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "plantsL",
+            "kind": "text",
+            "size": 24,
+            "text": "plants",
+            "x": 170,
+            "y": 408
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 760,
+            "cy": 400,
+            "fill": "#fff3e0",
+            "id": "animals",
+            "kind": "circle",
+            "r": 65,
+            "stroke": "#ef6c00",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "animalsL",
+            "kind": "text",
+            "size": 24,
+            "text": "animals",
+            "x": 722,
+            "y": 408
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "fill": "#d7ccc8",
+            "h": 70,
+            "id": "soil",
+            "kind": "rect",
+            "stroke": "#5d4037",
+            "w": 200,
+            "width": 3,
+            "x": 400,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "soilL",
+            "kind": "text",
+            "size": 18,
+            "text": "soil + fossil fuels",
+            "x": 410,
+            "y": 462
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "photo",
+            "kind": "arrow",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 320,
+            "x2": 215,
+            "y1": 160,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "photoL",
+            "kind": "text",
+            "size": 20,
+            "text": "photosynthesis",
+            "x": 55,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "respP",
+            "kind": "arrow",
+            "stroke": "#c62828",
+            "width": 4,
+            "x1": 275,
+            "x2": 390,
+            "y1": 330,
+            "y2": 165
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "respL",
+            "kind": "text",
+            "size": 20,
+            "text": "respiration",
+            "x": 405,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "feed",
+            "kind": "arrow",
+            "stroke": "#5d4037",
+            "width": 4,
+            "x1": 275,
+            "x2": 685,
+            "y1": 395,
+            "y2": 395
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "feedL",
+            "kind": "text",
+            "size": 20,
+            "text": "eating",
+            "x": 450,
+            "y": 378
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "respA",
+            "kind": "arrow",
+            "stroke": "#c62828",
+            "width": 4,
+            "x1": 730,
+            "x2": 565,
+            "y1": 330,
+            "y2": 165
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "show",
+          "shape": {
+            "id": "respAL",
+            "kind": "text",
+            "size": 20,
+            "text": "respiration",
+            "x": 640,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "show",
+          "shape": {
+            "id": "decomp",
+            "kind": "arrow",
+            "stroke": "#6d4c41",
+            "width": 4,
+            "x1": 700,
+            "x2": 545,
+            "y1": 455,
+            "y2": 455
+          }
+        },
+        {
+          "at_ms": 9200,
+          "do": "show",
+          "shape": {
+            "id": "decompL",
+            "kind": "text",
+            "size": 20,
+            "text": "decomposition",
+            "x": 600,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 10000,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "photo"
+        },
+        {
+          "at_ms": 11200,
+          "do": "caption",
+          "text": "Carbon cycles: air to leaf to animal to soil and back."
+        }
+      ]
+    },
+    {
+      "caption": "Humans tip the balance",
+      "duration_ms": 11000,
+      "id": "s4",
+      "narration": "Forests store carbon. Clearing them releases that stored carbon and removes a sink for carbon dioxide, so CO2 builds up and the planet warms. Replanting and protecting habitats pushes back.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Humans tip the balance",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#c8e6c9",
+            "h": 220,
+            "id": "forest",
+            "kind": "rect",
+            "stroke": "#2e7d32",
+            "w": 300,
+            "width": 3,
+            "x": 80,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "forestL",
+            "kind": "text",
+            "size": 22,
+            "text": "forest stores carbon",
+            "x": 95,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "cutT",
+            "kind": "text",
+            "size": 26,
+            "text": "deforestation clears it",
+            "x": 430,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "forest"
+        },
+        {
+          "at_ms": 2700,
+          "do": "hide",
+          "target": "forestL"
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "stumpsT",
+            "kind": "text",
+            "size": 22,
+            "text": "stored carbon escapes to the air",
+            "x": 95,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "co2",
+            "kind": "text",
+            "size": 26,
+            "text": "CO₂ piles up in the air",
+            "x": 95,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "co2",
+          "to": {
+            "x": 95,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "warmT",
+            "kind": "text",
+            "size": 22,
+            "text": "a warmer planet follows",
+            "x": 430,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 430,
+            "fill": "#c8e6c9",
+            "id": "sap",
+            "kind": "circle",
+            "r": 40,
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "show",
+          "shape": {
+            "id": "sapL",
+            "kind": "text",
+            "size": 22,
+            "text": "replanting",
+            "x": 605,
+            "y": 438
+          }
+        },
+        {
+          "at_ms": 8200,
+          "do": "show",
+          "shape": {
+            "id": "protectT",
+            "kind": "text",
+            "size": 22,
+            "text": "replanting and reserves push back",
+            "x": 95,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 9200,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "sap"
+        },
+        {
+          "at_ms": 10000,
+          "do": "caption",
+          "text": "We shape the carbon cycle; conservation shapes it back."
+        }
+      ]
+    },
+    {
+      "caption": "Myth: energy is recycled like nutrients",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "Nutrients cycle in closed loops, but energy does not. Energy enters as sunlight and flows one way through food chains, with most of it lost as heat at each step.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 30,
+            "text": "Myth: energy is recycled like nutrients",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 26,
+            "text": "Nutrients loop: carbon returns to air, soil, and leaves.",
+            "x": 80,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 26,
+            "text": "Energy does NOT loop.",
+            "x": 80,
+            "y": 262
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "size": 26,
+            "text": "Sunlight flows one way: producers, consumers, decomposers.",
+            "x": 80,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "t4",
+            "kind": "text",
+            "size": 26,
+            "text": "About 90% is lost as heat at every step.",
+            "x": 80,
+            "y": 402
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "t2"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "Nutrients cycle; energy flows through — and out."
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Ecology: food webs, energy flow, the carbon cycle",
+  "topic": "bio-ecology"
+}
