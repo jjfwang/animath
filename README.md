@@ -87,6 +87,26 @@ Primary (PSLE) · Secondary (O/N-level, E-Math & A-Math, Physics / Chemistry /
 Biology) · JC (H2 Math / Physics / Chemistry / Biology). Full topic list with
 slugs in `SYLLABUS.md`.
 
+## Teacher rubric
+
+`generator/rubric.js` scores a generated spec 0-100 across five dimensions
+(20 points each): contract validity (`player/validate.js` clean), pacing
+(scene durations in the measured 6000-12000ms band, step gaps at most
+3700ms), captions (every scene non-empty, at most 80 chars), pedagogy
+(worked-solution answer beat for kind `problem`; a wrong-turn marker beat
+when the topic resolves in the misconception library — both documented
+heuristics, skipped when inapplicable), and canvas bounds (every shape
+inside the 960x540 canvas, text within its per-size char budget).
+
+```js
+const { scoreSpec } = require('./generator/rubric.js');
+const { score, maxScore, dimensions } = scoreSpec(spec); // e.g. 92/100
+```
+
+Invalid (non-object) input scores 0 with a reason and never throws. Works
+in the browser too — load `player/validate.js` and
+`generator/build_prompt.js` before it.
+
 ## Tests
 
 Zero-dependency, Node built-in:
