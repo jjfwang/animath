@@ -25,6 +25,48 @@
     problem: 'Pose a typical exam-style problem first, then solve it with full animated working.'
   };
 
+  // Per-topic misconception library (generator/misconceptions.js). In Node we
+  // require it; in the browser web/index.html loads it before this file so
+  // globalThis.AnimathMisconceptions is set. Missing either way degrades to
+  // the generic misconception line instead of failing.
+  var MISCONCEPTIONS = (function () {
+    if (typeof module !== 'undefined' && module.exports && typeof require !== 'undefined') {
+      try { return require('./misconceptions.js').MISCONCEPTIONS || {}; } catch (e) { return {}; }
+    }
+    var g = (typeof window !== 'undefined' ? window : globalThis);
+    return (g.AnimathMisconceptions && g.AnimathMisconceptions.MISCONCEPTIONS) || {};
+  })();
+
+  var GENERIC_MISCONCEPTION_LINE =
+    '- Address exactly one common misconception for the topic, visually\n' +
+    '  (e.g. show why 1/2 + 1/4 is NOT 2/6).';
+
+  // Pure lookup: exact short-slug match first, then the longest key that is a
+  // dash-boundary prefix of the slug (e.g. "fractions-addition" -> "fractions").
+  // Returns the entry or null.
+  function misconceptionFor(topicSlug) {
+    if (!topicSlug || typeof topicSlug !== 'string') return null;
+    if (MISCONCEPTIONS[topicSlug]) return MISCONCEPTIONS[topicSlug];
+    var best = null;
+    var keys = Object.keys(MISCONCEPTIONS);
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      if (topicSlug.indexOf(k + '-') === 0 && (best === null || k.length > best.length)) {
+        best = k;
+      }
+    }
+    return best === null ? null : MISCONCEPTIONS[best];
+  }
+
+  function misconceptionLine(topicSlug) {
+    var m = misconceptionFor(topicSlug);
+    if (!m) return GENERIC_MISCONCEPTION_LINE;
+    return '- Address exactly one common misconception for the topic, visually:\n' +
+      '  Common wrong turn: ' + m.wrongTurn + '\n' +
+      '  Why students slip: ' + m.why + '\n' +
+      '  Show the correct turn: ' + m.correctTurn;
+  }
+
   var SYSTEM_TEMPLATE = [
     'You are animath\'s animation author. You write short animated explainers for',
     'Singapore students as JSON documents following the animath spec v0.1.',
@@ -57,8 +99,7 @@
     '  one worked micro-example -> recap the takeaway.',
     '- kind "problem": state the problem -> plan (what we need) -> solve it',
     '  step by step, each step appearing as it is explained -> box the answer.',
-    '- Address exactly one common misconception for the topic, visually',
-    '  (e.g. show why 1/2 + 1/4 is NOT 2/6).',
+    '{{MISCONCEPTION_LINE}}',
     '- Narration reads aloud naturally to a {{LEVEL_LABEL}} student. Tone: {{TONE}}.',
     '  No jargon above the level. Short sentences.'
   ].join('\n');
@@ -74,7 +115,8 @@
     var level = opts.level || 'primary';
     var system = fill(SYSTEM_TEMPLATE, {
       LEVEL_LABEL: LEVEL_LABELS[level] || level,
-      TONE: LEVEL_TONE[level] || LEVEL_TONE.secondary
+      TONE: LEVEL_TONE[level] || LEVEL_TONE.secondary,
+      MISCONCEPTION_LINE: misconceptionLine(opts.topic)
     });
     var user = [
       'Level: ' + level + ' (' + (LEVEL_LABELS[level] || level) + ')',
@@ -90,6 +132,7 @@
 
   return {
     buildPrompts: buildPrompts,
+    misconceptionFor: misconceptionFor,
     LEVEL_LABELS: LEVEL_LABELS
   };
 });
