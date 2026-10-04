@@ -8,6 +8,18 @@
  * Slice 3 (issue #105): the 14 Secondary Math topics, grounded in the
  * matching misconception scenes in samples/secondary-e-*.json and
  * samples/secondary-a-*.json.
+ * Slice 4 (issue #107): the 14 Secondary Science topics (bio-cells,
+ * bio-ecology, bio-nutrition, bio-reproduction, bio-transport, chem-acids,
+ * chem-atomic, chem-bonding, chem-mole, phys-electricity, phys-energy,
+ * phys-forces, phys-kinematics, phys-waves), grounded in the matching
+ * misconception/myth scenes in samples/secondary-science-*.json,
+ * samples/secondary-physics-*.json and
+ * samples/secondary-science-electricity.json.
+ *
+ * Prefix note (slices 3-4): no key in the map is a prefix of another key,
+ * so the longest-prefix ordering inside misconceptionFor() cannot be
+ * shadowed — e.g. 'phys-energy' and 'energy-forms' coexist safely, and no
+ * slice-4 key prefixes any slice 1-3 key.
  *
  * Slug naming note: the map is keyed on the short topic slugs that
  * buildPrompts receives (the issue's slugs), which match the samples' topic
@@ -202,6 +214,76 @@
       wrongTurn: 'A straight s-t graph means constant acceleration.',
       why: 'Straight-line growth reads as speeding up.',
       correctTurn: 'The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration.'
+    },
+    'bio-cells': {
+      wrongTurn: 'The cell membrane is a solid wall that blocks everything from entering or leaving.',
+      why: 'A wall feels like protection, so the membrane is read as a barrier that stops everything.',
+      correctTurn: 'The membrane is selectively permeable: it lets some things through and keeps others out.'
+    },
+    'bio-ecology': {
+      wrongTurn: 'Energy is recycled around the food chain like nutrients are.',
+      why: 'The "cycle of life" language makes energy sound like something that loops round forever.',
+      correctTurn: 'Energy is not recycled: only about a tenth passes to the next level, the rest is lost as heat.'
+    },
+    'bio-nutrition': {
+      wrongTurn: 'Digestion finishes in the stomach.',
+      why: 'The stomach gets all the attention, so it feels like the last stop.',
+      correctTurn: 'Digestion does not end in the stomach: it continues in the small intestine, where most absorption happens.'
+    },
+    'bio-reproduction': {
+      wrongTurn: 'Pollination is fertilisation.',
+      why: 'The two words appear together in every story about flowers, so they merge into one event.',
+      correctTurn: 'Pollination is delivery: the male gamete must still fuse with the ovule for fertilisation.'
+    },
+    'bio-transport': {
+      wrongTurn: 'Arteries always carry oxygenated blood.',
+      why: 'Arteries are drawn in red and carry blood away from the heart, so they feel like the oxygen pipe.',
+      correctTurn: 'The pulmonary artery is the exception: it carries deoxygenated blood from the heart to the lungs.'
+    },
+    'chem-acids': {
+      wrongTurn: 'All acids are strong acids.',
+      why: 'Acid sounds dangerous, so every acid is treated like it fully burns through everything.',
+      correctTurn: 'Weak acids only partly release their hydrogen ions: vinegar is still acidic, just not strong.'
+    },
+    'chem-atomic': {
+      wrongTurn: 'Atoms are solid balls.',
+      why: 'The ball-and-stick model is everywhere, so atoms look like tiny solid marbles.',
+      correctTurn: 'Atoms are mostly empty space: the electrons sit far from a tiny dense nucleus.'
+    },
+    'chem-bonding': {
+      wrongTurn: 'Table salt is made of NaCl molecules.',
+      why: 'The formula NaCl looks like one joined unit, like the formulas of real molecules.',
+      correctTurn: 'Salt is a giant ionic lattice: NaCl just gives the ratio, there are no separate NaCl molecules.'
+    },
+    'chem-mole': {
+      wrongTurn: 'One mole of anything weighs the same.',
+      why: 'A mole feels like a fixed bag of the same size, so every mole feels equally heavy.',
+      correctTurn: 'Mass = moles x molar mass: one mole of hydrogen is 1 g but one mole of oxygen is 16 g.'
+    },
+    'phys-electricity': {
+      wrongTurn: 'The bulb uses up the current.',
+      why: 'The bulb glows and gets hot, so it looks like it consumes the electricity flowing through it.',
+      correctTurn: 'Current is not used up: an ammeter reads the same 0.5 amps on both sides of the bulb.'
+    },
+    'phys-energy': {
+      wrongTurn: 'Energy gets used up when work is done.',
+      why: 'The car runs out of petrol and stops, so the energy feels destroyed.',
+      correctTurn: 'Energy is never used up: it changes form, like chemical energy becoming kinetic energy plus heat.'
+    },
+    'phys-forces': {
+      wrongTurn: 'The same push gives the same pressure whether you stand flat or on tiptoes.',
+      why: 'The push feels the same, so the effect on the ground feels like it should be the same.',
+      correctTurn: 'Pressure is force over area: tiptoes spread the same force over a smaller area, so the pressure is higher.'
+    },
+    'phys-kinematics': {
+      wrongTurn: 'A flat line on a velocity-time graph means the object has stopped.',
+      why: 'Flat reads as "nothing is happening", so the line feels like zero movement.',
+      correctTurn: 'A flat v-t line means constant velocity: the object keeps moving at the same speed.'
+    },
+    'phys-waves': {
+      wrongTurn: 'Sound travels faster than light.',
+      why: 'A thunderclap feels so powerful that it seems to arrive before the flash.',
+      correctTurn: 'Light is far faster: the lightning flash arrives first and the thunder follows.'
     }
   };
 
