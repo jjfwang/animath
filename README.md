@@ -13,6 +13,11 @@ video files, no render farm: the animation is data, generated fresh per need.
 completions endpoint. Your API key stays in your browser's `localStorage` and
 is sent only to the endpoint you configure — nowhere else.
 
+**Presets:** the provider select fills the base URL and model for OpenAI,
+local Ollama (no key needed), and Anthropic via an OpenAI-compatible proxy
+(see `generator/llm_client.js`). Note the client speaks OpenAI-compatible chat
+completions only — the Anthropic option requires a proxy that translates.
+
 **Long-term direction:** a generation service that Aceceed live teaching can
 call to produce animated explainers inside real lessons.
 

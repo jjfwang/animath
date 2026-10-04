@@ -161,5 +161,30 @@
     });
   }
 
-  return { generateSpec: generateSpec, generateSpecWithRepair: generateSpecWithRepair, extractJson: extractJson };
+  // Model presets for the web UI's provider select. Pure data only — the
+  // request builder (postChat) never reads these; the UI copies baseUrl and
+  // model into its own fields. Keep every field a plain string.
+  var PRESETS = {
+    openai: {
+      label: 'OpenAI',
+      baseUrl: 'https://api.openai.com/v1',
+      model: 'gpt-4o-mini',
+      keyHint: 'Your OpenAI API key (sk-…)'
+    },
+    ollama: {
+      label: 'Local Ollama',
+      baseUrl: 'http://localhost:11434/v1',
+      model: 'llama3.1:8b',
+      keyHint: 'No key needed — runs on localhost'
+    },
+    'anthropic-proxy': {
+      label: 'Anthropic (via OpenAI-compatible proxy)',
+      baseUrl: '',
+      model: 'claude-sonnet-4-5',
+      keyHint: 'Your proxy API key — the proxy must speak OpenAI-compatible chat completions'
+    }
+  };
+  var DEFAULT_PRESET = 'openai';
+
+  return { generateSpec: generateSpec, generateSpecWithRepair: generateSpecWithRepair, extractJson: extractJson, PRESETS: PRESETS, DEFAULT_PRESET: DEFAULT_PRESET };
 });

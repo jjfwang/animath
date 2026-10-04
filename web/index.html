@@ -60,6 +60,10 @@
   <div class="card">
     <h2>2 · Your LLM</h2>
     <div class="row">
+      <div class="field"><label for="preset">Provider preset</label>
+        <select id="preset"><option value="custom">Custom…</option></select></div>
+    </div>
+    <div class="row">
       <div class="field"><label for="baseurl">Base URL (OpenAI-compatible)</label>
         <input id="baseurl" value="https://api.openai.com/v1"></div>
       <div class="field"><label for="model">Model</label>
@@ -113,6 +117,59 @@
     if (localStorage.getItem('animath.model')) modelEl.value = localStorage.getItem('animath.model');
     if (localStorage.getItem('animath.key')) keyEl.value = localStorage.getItem('animath.key');
   } catch (e) { /* private mode */ }
+
+  // Provider presets (generator/llm_client.js). The select is populated from
+  // PRESETS so its labels can never drift from the preset data. Saved values
+  // are restored first (above); the select only reflects them here — a preset
+  // is applied only on explicit change, never on load.
+  var presetSel = document.getElementById('preset');
+  var PRESETS = (window.AnimathLLM && window.AnimathLLM.PRESETS) || {};
+  var DEFAULT_PRESET = (window.AnimathLLM && window.AnimathLLM.DEFAULT_PRESET) || 'openai';
+  [DEFAULT_PRESET].concat(Object.keys(PRESETS).filter(function (k) { return k !== DEFAULT_PRESET; }))
+    .forEach(function (key) {
+      var o = document.createElement('option');
+      o.value = key;
+      o.textContent = PRESETS[key].label;
+      presetSel.appendChild(o);
+    });
+
+  function presetMatching(baseUrl, model) {
+    var keys = Object.keys(PRESETS);
+    for (var i = 0; i < keys.length; i++) {
+      if (PRESETS[keys[i]].baseUrl === baseUrl && PRESETS[keys[i]].model === model) return keys[i];
+    }
+    return 'custom';
+  }
+
+  function applyKeyHint(presetKey) {
+    if (PRESETS[presetKey] && PRESETS[presetKey].keyHint) keyEl.placeholder = PRESETS[presetKey].keyHint;
+  }
+
+  presetSel.value = presetMatching(baseUrlEl.value.trim(), modelEl.value.trim());
+  applyKeyHint(presetSel.value);
+
+  presetSel.addEventListener('change', function () {
+    var p = PRESETS[presetSel.value];
+    if (!p) return; // "Custom…": leave the fields exactly as the user left them
+    baseUrlEl.value = p.baseUrl;
+    modelEl.value = p.model;
+    applyKeyHint(presetSel.value);
+    if (presetSel.value === 'ollama') {
+      keyEl.value = '';
+      try { localStorage.removeItem('animath.key'); } catch (e) { /* private mode */ }
+    }
+    try {
+      localStorage.setItem('animath.baseUrl', baseUrlEl.value.trim());
+      localStorage.setItem('animath.model', modelEl.value.trim());
+    } catch (e) { /* private mode */ }
+    if (presetSel.value === 'ollama') {
+      setStatus('Ollama preset: no key needed, it runs on your machine. Generate still asks for a key field — any text works; it never leaves localhost.');
+    } else if (!p.baseUrl) {
+      setStatus('Anthropic preset: paste your proxy base URL below — the proxy must speak OpenAI-compatible chat completions.');
+    } else {
+      setStatus('');
+    }
+  });
 
   function fillLevels() {
     levelSel.innerHTML = '';
