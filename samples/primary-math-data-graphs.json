@@ -1,0 +1,545 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "primary",
+  "scenes": [
+    {
+      "caption": "Reading a pie chart: who likes what?",
+      "duration_ms": 10000,
+      "id": "s1",
+      "narration": "The class votes for favourite fruit. The pie chart is split into half, one quarter, and one quarter. Wedges show fractions of the whole class.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 40,
+            "text": "Favourite fruit: 1/2 apples, 1/4 bananas, 1/4 grapes",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#e8604c",
+            "id": "wApples",
+            "kind": "polygon",
+            "points": [
+              [
+                300,
+                330
+              ],
+              [
+                450,
+                330
+              ],
+              [
+                150,
+                330
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "fill": "#8fd694",
+            "id": "wBananas",
+            "kind": "polygon",
+            "points": [
+              [
+                300,
+                330
+              ],
+              [
+                150,
+                330
+              ],
+              [
+                300,
+                180
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "#7fb3e8",
+            "id": "wGrapes",
+            "kind": "polygon",
+            "points": [
+              [
+                300,
+                330
+              ],
+              [
+                300,
+                180
+              ],
+              [
+                450,
+                330
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "labA",
+            "kind": "text",
+            "size": 28,
+            "text": "apples: 1/2",
+            "x": 330,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "labB",
+            "kind": "text",
+            "size": 28,
+            "text": "bananas: 1/4",
+            "x": 210,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "labG",
+            "kind": "text",
+            "size": 28,
+            "text": "grapes: 1/4",
+            "x": 390,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "read",
+            "kind": "text",
+            "size": 32,
+            "text": "biggest wedge = apples: half the class",
+            "x": 120,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "wApples"
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Wedges show fractions of the whole"
+        }
+      ]
+    },
+    {
+      "caption": "Reading a line graph: a rising trend",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "The line graph tracks plants sold each month. The line climbs, meaning sales are rising. A steeper climb would mean a faster rise — but only if the scales match.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 40,
+            "text": "Plants sold: Jan 20, Feb 35, Mar 30, Apr 50",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "seg1",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 140,
+            "x2": 260,
+            "y1": 420,
+            "y2": 350
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "seg2",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 260,
+            "x2": 380,
+            "y1": 350,
+            "y2": 375
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "seg3",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 380,
+            "x2": 500,
+            "y1": 375,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "dip",
+            "kind": "text",
+            "size": 28,
+            "text": "small dip in March",
+            "x": 560,
+            "y": 395
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "cx": 500,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "last",
+            "kind": "circle",
+            "r": 8,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "last",
+          "to": {
+            "cx": 500,
+            "cy": 220
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "seg3",
+          "to": {
+            "x1": 380,
+            "x2": 500,
+            "y1": 375,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "trend",
+            "kind": "text",
+            "size": 32,
+            "text": "the line climbs overall: sales are rising",
+            "x": 120,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "trend"
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Follow the line: up means more, down means fewer"
+        }
+      ]
+    },
+    {
+      "caption": "Worked example: comparing two bars of data",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "Twenty-four children answered a survey. The bar chart shows favourite sport. First read the tallest bar, then subtract to find the difference.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 36,
+            "text": "24 children voted. How many more chose soccer than badminton?",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "fill": "#7fb3e8",
+            "h": 130,
+            "id": "soccer",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 70,
+            "x": 140,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "fill": "#8fd694",
+            "h": 80,
+            "id": "minton",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 70,
+            "x": 260,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "fill": "#e8b47f",
+            "h": 60,
+            "id": "swim",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 70,
+            "x": 380,
+            "y": 350
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "labS",
+            "kind": "text",
+            "size": 28,
+            "text": "soccer: 13",
+            "x": 140,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "labM",
+            "kind": "text",
+            "size": 28,
+            "text": "badminton: 8",
+            "x": 260,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "labW",
+            "kind": "text",
+            "size": 28,
+            "text": "swimming: 3",
+            "x": 380,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "diff",
+            "kind": "text",
+            "size": 34,
+            "text": "13 − 8 = 5 more children chose soccer",
+            "x": 140,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "diff"
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Read the heights, then subtract"
+        }
+      ]
+    },
+    {
+      "caption": "Watch out: a steeper line is not always bigger",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "A tricky mistake: saying a steeper line means a bigger increase. Slope depends on the scale of the axis. Two graphs can have the same rise but look different.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 38,
+            "text": "Which sale rose faster?",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "g1",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 140,
+            "x2": 340,
+            "y1": 380,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "lab1",
+            "kind": "text",
+            "size": 26,
+            "text": "shop A: 20 to 40 (steep)",
+            "x": 140,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "g2",
+            "kind": "line",
+            "stroke": "#e8604c",
+            "width": 4,
+            "x1": 560,
+            "x2": 760,
+            "y1": 380,
+            "y2": 320
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "lab2",
+            "kind": "text",
+            "size": 26,
+            "text": "shop B: 20 to 40 (flat-looking)",
+            "x": 560,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "axisA",
+            "kind": "text",
+            "size": 24,
+            "text": "A axis: 0 to 50",
+            "x": 140,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "axisB",
+            "kind": "text",
+            "size": 24,
+            "text": "B axis: 0 to 200",
+            "x": 560,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "color": "#8a1f1f",
+            "id": "warn",
+            "kind": "text",
+            "size": 30,
+            "text": "same rise: +20 each — B only looks flatter",
+            "x": 120,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "warn"
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Check the axis scale before comparing slopes"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "Data graphs: pie charts and line graphs",
+  "topic": "data-graphs"
+}

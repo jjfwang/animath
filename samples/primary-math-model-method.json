@@ -1,0 +1,516 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "primary",
+  "scenes": [
+    {
+      "caption": "Unit bars: every unit is the same length",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "In the model method, a bar is drawn for each amount. Every unit box must be exactly the same length — that is the one rule.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 40,
+            "text": "Mia has 2 units, Ben has 3 units",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#7fb3e8",
+            "h": 56,
+            "id": "barM",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 220,
+            "x": 120,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "cutM",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 230,
+            "x2": 230,
+            "y1": 160,
+            "y2": 216
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "fill": "#8fd694",
+            "h": 56,
+            "id": "barB",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 330,
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "cutB1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 230,
+            "x2": 230,
+            "y1": 260,
+            "y2": 316
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "cutB2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 340,
+            "x2": 340,
+            "y1": 260,
+            "y2": 316
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "labM",
+            "kind": "text",
+            "size": 30,
+            "text": "Mia: 2 units",
+            "x": 500,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "labB",
+            "kind": "text",
+            "size": 30,
+            "text": "Ben: 3 units",
+            "x": 500,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "rule",
+            "kind": "text",
+            "size": 34,
+            "text": "each unit box is the same length",
+            "x": 120,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "rule"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "One rule: all unit boxes are equal"
+        }
+      ]
+    },
+    {
+      "caption": "Before-and-after: the model shows what changed",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "Mia gives away one unit to her sister. The before bar and the after bar sit side by side, and an arrow shows the unit moving away.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 40,
+            "text": "Mia has 2 units, then gives away 1 unit",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#7fb3e8",
+            "h": 56,
+            "id": "before",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 220,
+            "x": 120,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "beforeLab",
+            "kind": "text",
+            "size": 30,
+            "text": "before: 2 units",
+            "x": 380,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "#7fb3e8",
+            "h": 56,
+            "id": "after",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 110,
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "afterLab",
+            "kind": "text",
+            "size": 30,
+            "text": "after: 1 unit",
+            "x": 280,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "fill": "#e8b47f",
+            "h": 56,
+            "id": "gone",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 110,
+            "x": 230,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "gone",
+          "to": {
+            "x": 600,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "ans",
+            "kind": "text",
+            "size": 34,
+            "text": "2 − 1 = 1 unit left",
+            "x": 600,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "ans"
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "The model makes the change visible"
+        }
+      ]
+    },
+    {
+      "caption": "Worked example: part-whole and difference",
+      "duration_ms": 11000,
+      "id": "s3",
+      "narration": "A class has thirty-six pupils. Three-sevenths are boys. First draw the whole: seven units. Then find the difference between boys and girls.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 36,
+            "text": "36 pupils; 3/7 are boys. How many more girls than boys?",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "fill": "#ffffff",
+            "h": 60,
+            "id": "whole",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 560,
+            "x": 120,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "fill": "#7fb3e8",
+            "h": 60,
+            "id": "boys",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 240,
+            "x": 120,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "fill": "#f2a3c4",
+            "h": 60,
+            "id": "girls",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 320,
+            "x": 360,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "wholeVal",
+            "kind": "text",
+            "size": 32,
+            "text": "7 units = 36 pupils",
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "labB",
+            "kind": "text",
+            "size": 30,
+            "text": "boys: 3 units",
+            "x": 120,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "labG",
+            "kind": "text",
+            "size": 30,
+            "text": "girls: 7 − 3 = 4 units",
+            "x": 120,
+            "y": 415
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "diff",
+            "kind": "text",
+            "size": 34,
+            "text": "difference: 4 − 3 = 1 unit",
+            "x": 480,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "diff"
+        },
+        {
+          "at_ms": 9200,
+          "do": "caption",
+          "text": "Draw the whole first, then compare parts"
+        }
+      ]
+    },
+    {
+      "caption": "Watch out: bars must be to scale",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "A common mistake: drawing unit boxes that are not the same length. Two units must be exactly twice one unit — never guess the lengths.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "size": 38,
+            "text": "Which model is correct for 1 unit and 2 units?",
+            "x": 120,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "fill": "#f0f0f0",
+            "h": 52,
+            "id": "badOne",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 120,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "fill": "#f0f0f0",
+            "h": 52,
+            "id": "badTwo",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 210,
+            "x": 120,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "color": "#8a1f1f",
+            "id": "badLab",
+            "kind": "text",
+            "size": 30,
+            "text": "wrong: 2 units is not twice 1 unit here",
+            "x": 360,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "fill": "#8fd694",
+            "h": 52,
+            "id": "goodOne",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 130,
+            "x": 120,
+            "y": 350
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "fill": "#8fd694",
+            "h": 52,
+            "id": "goodTwo",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "w": 260,
+            "x": 120,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "goodLab",
+            "kind": "text",
+            "size": 30,
+            "text": "right: same unit length, 2 units is twice as long",
+            "x": 420,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "goodTwo"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "Same unit, same length — always"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "The model method: bar models for word problems",
+  "topic": "model-method"
+}
