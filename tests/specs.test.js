@@ -130,6 +130,46 @@ test('secondary-e-probability covers single and combined events', () => {
   }
 });
 
+test('secondary-a-binomial covers Pascal rows, term-by-term expansion and a worked (2x-3)^4', () => {
+  const name = 'secondary-a-binomial.json';
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+  assert.deepEqual(validateSpec(spec), [], name + ' must validate with zero errors');
+  assert.equal(spec.level, 'secondary', name + ' must be a secondary sample');
+  assert.equal(spec.subject, 'math', name + ' must be a math sample');
+  assert.equal(spec.topic, 'a-binomial', name + ' must carry the a-binomial topic');
+  assert.equal(spec.animath, '0.1', name + ' must declare the v0.1 spec version');
+  assert.equal(spec.canvas.width, 960, 'canvas width must be 960');
+  assert.equal(spec.canvas.height, 540, 'canvas height must be 540');
+  assert.ok(spec.scenes.length >= 4, 'expected Pascal-row, term-by-term, worked and misconception scenes');
+  assert.ok(spec.scenes.some((s) => /misconception/i.test(s.caption)),
+    name + ' must include a misconception scene');
+  const hasLatex = spec.scenes.some((s) => s.steps.some(
+    (st) => st.do === 'show' && st.shape && st.shape.kind === 'latex' && st.shape.tex));
+  assert.ok(hasLatex, name + ' must render formulas via latex shapes');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
+});
+
+test('secondary-a-trigonometry covers identities, compound angles, the R-formula and a misconception', () => {
+  const name = 'secondary-a-trigonometry.json';
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+  assert.deepEqual(validateSpec(spec), [], name + ' must validate with zero errors');
+  assert.equal(spec.level, 'secondary', name + ' must be a secondary sample');
+  assert.equal(spec.subject, 'math', name + ' must be a math sample');
+  assert.equal(spec.topic, 'a-trigonometry', name + ' must carry the a-trigonometry topic');
+  assert.equal(spec.animath, '0.1', name + ' must declare the v0.1 spec version');
+  assert.equal(spec.canvas.width, 960, 'canvas width must be 960');
+  assert.equal(spec.canvas.height, 540, 'canvas height must be 540');
+  assert.ok(spec.scenes.length >= 4, 'expected identity, compound-angle, R-formula and misconception scenes');
+  assert.ok(spec.scenes.some((s) => /misconception/i.test(s.caption)),
+    name + ' must include a misconception scene');
+  const hasLatex = spec.scenes.some((s) => s.steps.some(
+    (st) => st.do === 'show' && st.shape && st.shape.kind === 'latex' && st.shape.tex));
+  assert.ok(hasLatex, name + ' must render formulas via latex shapes');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  assert.ok(manifest.includes(name), name + ' must be registered in samples/index.json');
+});
+
 test('secondary-science-electricity covers circuits, current and Ohm\'s law', () => {
   const name = 'secondary-science-electricity.json';
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
