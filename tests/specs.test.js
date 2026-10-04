@@ -561,3 +561,50 @@ test('player.js loads without a DOM', () => {
   assert.equal(typeof player.mount, 'function');
   assert.equal(player.version, '0.1');
 });
+
+test('keyAction maps Space to toggle, including the legacy Spacebar key', () => {
+  const player = require('../player/player.js');
+  const div = { tagName: 'DIV' };
+  assert.equal(player.keyAction({ key: ' ', target: div }), 'toggle');
+  assert.equal(player.keyAction({ key: 'Spacebar', target: div }), 'toggle');
+  // no target at all (unit-fake event) still maps
+  assert.equal(player.keyAction({ key: ' ' }), 'toggle');
+});
+
+test('keyAction maps arrow keys to prev/next', () => {
+  const player = require('../player/player.js');
+  const div = { tagName: 'DIV' };
+  assert.equal(player.keyAction({ key: 'ArrowLeft', target: div }), 'prev');
+  assert.equal(player.keyAction({ key: 'ArrowRight', target: div }), 'next');
+});
+
+test('keyAction ignores unmapped keys and typing contexts', () => {
+  const player = require('../player/player.js');
+  const div = { tagName: 'DIV' };
+  assert.equal(player.keyAction({ key: 'Enter', target: div }), null);
+  assert.equal(player.keyAction({ key: 'a', target: div }), null);
+  assert.equal(player.keyAction({ key: undefined, target: div }), null);
+  // input-focus ignore: Space on a typing target is null even though
+  // Space maps to toggle elsewhere (tagName compared case-insensitively)
+  for (const tag of ['INPUT', 'TEXTAREA', 'SELECT']) {
+    assert.equal(player.keyAction({ key: ' ', target: { tagName: tag } }), null,
+      tag + ' target must ignore Space');
+    assert.equal(player.keyAction({ key: ' ', target: { tagName: tag.toLowerCase() } }), null,
+      tag.toLowerCase() + ' target must ignore Space');
+  }
+  // arrow keys on typing targets are also ignored
+  assert.equal(player.keyAction({ key: 'ArrowLeft', target: { tagName: 'INPUT' } }), null);
+});
+
+test('prefersReducedMotion honors an injected matcher', () => {
+  const player = require('../player/player.js');
+  const on = (q) => { assert.equal(q, '(prefers-reduced-motion: reduce)'); return { matches: true }; };
+  const off = () => ({ matches: false });
+  assert.equal(player.prefersReducedMotion(on), true, 'matches:true chooses the instant path');
+  assert.equal(player.prefersReducedMotion(off), false, 'matches:false keeps animation');
+  // degenerate environments never throw and never trigger the instant path
+  assert.equal(player.prefersReducedMotion(null), false);
+  assert.equal(player.prefersReducedMotion(undefined), false);
+  assert.equal(player.prefersReducedMotion('not-a-function'), false);
+  assert.equal(player.prefersReducedMotion(() => { throw new Error('odd env'); }), false);
+});
