@@ -129,12 +129,13 @@
             errors.push(s + '.target: "' + step.target + '" must be shown earlier in the same scene');
           }
           if (step.do === 'move') {
-            // SPEC.md v0.1: moveable kinds are text, rect, circle, line,
-            // arrow, latex — never polygon. `to` must carry exactly the
-            // position fields the target kind uses.
-            var POS_FIELDS = {
-              text: ['x', 'y'], latex: ['x', 'y'], rect: ['x', 'y'],
-              circle: ['cx', 'cy'],
+            // SPEC.md: moveable kinds are text, rect, circle, line,
+            // arrow, latex — never polygon. `to` must carry at least one
+            // numeric field, and every field must be valid for the target
+            // kind: position fields plus w/h for rect, r for circle.
+            var MOVE_FIELDS = {
+              text: ['x', 'y'], latex: ['x', 'y'],
+              rect: ['x', 'y', 'w', 'h'], circle: ['cx', 'cy', 'r'],
               line: ['x1', 'y1', 'x2', 'y2'], arrow: ['x1', 'y1', 'x2', 'y2']
             };
             var targetKind = (typeof step.target === 'string' && step.target && shown[step.target])
@@ -147,14 +148,13 @@
             } else {
               var keys = Object.keys(step.to);
               if (keys.length === 0 || !keys.every(function (k) { return isNum(step.to[k]); })) {
-                errors.push(s + '.to: must carry at least one numeric position field');
-              } else if (targetKind && POS_FIELDS[targetKind]) {
-                var want = POS_FIELDS[targetKind];
-                var exact = keys.length === want.length &&
-                  want.every(function (f) { return Object.prototype.hasOwnProperty.call(step.to, f); });
-                if (!exact) {
-                  errors.push(s + '.to: must carry exactly the position fields of kind "' +
-                    targetKind + '": ' + want.join(','));
+                errors.push(s + '.to: must carry at least one numeric field');
+              } else if (targetKind && MOVE_FIELDS[targetKind]) {
+                var want = MOVE_FIELDS[targetKind];
+                var bad = keys.filter(function (k) { return want.indexOf(k) === -1; });
+                if (bad.length) {
+                  errors.push(s + '.to: invalid field(s) for kind "' + targetKind + '": ' +
+                    bad.join(',') + ' — valid fields: ' + want.join(','));
                 }
               }
             }

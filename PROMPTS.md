@@ -24,9 +24,9 @@ HARD RULES — violate any of these and the spec is rejected:
    write plain LaTeX in its "tex" field, e.g. "a^2 + b^2 = c^2".)
 6. move supports text | rect | circle | line | arrow | latex (never polygon).
    Every move step needs a numeric dur_ms (milliseconds). to must carry
-   exactly the target shape kind's position fields: x/y for text/rect/latex,
-   cx/cy for circle, x1/y1/x2/y2 for line/arrow. hide/move/emphasize targets
-   must be shown earlier in the SAME scene.
+   at least one numeric field valid for the target kind: x/y for text/rect/latex,
+   cx/cy for circle, x1/y1/x2/y2 for line/arrow — plus w/h for rect, r for
+   circle. hide/move/emphasize targets must be shown earlier in the SAME scene.
 7. Math notation: prefer the `latex` shape kind where unicode math breaks
    down (fractions, stacked notation, algebra); `text` shapes stay UNICODE
    ONLY — NEVER LaTeX backslash commands inside text, like \frac, \sqrt, \times.

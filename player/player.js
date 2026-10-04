@@ -194,21 +194,39 @@
     return n;
   }
 
-  // Position fields per shape kind, for move interpolation.
+  // Position and size fields per shape kind, for move interpolation.
   var POS_FIELDS = {
     text: ['x', 'y'],
     latex: ['x', 'y'],
-    rect: ['x', 'y'],
-    circle: ['cx', 'cy'],
+    rect: ['x', 'y', 'w', 'h'],
+    circle: ['cx', 'cy', 'r'],
     line: ['x1', 'y1', 'x2', 'y2'],
     arrow: ['x1', 'y1', 'x2', 'y2']
   };
+
+  // Pure per-field interpolation of a move tween: pos[f] = from[f] +
+  // (to[f] - from[f]) * p for every field present in `to` that also has a
+  // starting value in `from`. Factored out of the tween loop so it can be
+  // tested without a DOM; the tween loop calls it on every frame.
+  function interpFields(from, to, p) {
+    var pos = {};
+    for (var f in to) {
+      if (from[f] !== undefined) pos[f] = from[f] + (to[f] - from[f]) * p;
+    }
+    return pos;
+  }
+
+  // SVG attribute names differ from spec field names for rect size:
+  // drawShape maps shape.w/shape.h to width/height, so applyPos must too —
+  // setting raw 'w'/'h' attributes is a rendering no-op. Other fields name
+  // their attribute directly (circle r is unaffected).
+  var FIELD_ATTR = { w: 'width', h: 'height' };
 
   function applyPos(node, shape, pos) {
     var fields = POS_FIELDS[shape.kind];
     if (!fields) return;
     fields.forEach(function (f) {
-      if (pos[f] !== undefined) node.setAttribute(f, pos[f]);
+      if (pos[f] !== undefined) node.setAttribute(FIELD_ATTR[f] || f, pos[f]);
     });
     if (shape.kind === 'arrow') {
       // Rebuild the arrowhead at the new tip.
@@ -448,10 +466,7 @@
           tw.rec.shape = Object.assign({}, tw.rec.shape, tw.to);
           return false;
         }
-        var pos = {};
-        for (var f in tw.to) {
-          if (tw.from[f] !== undefined) pos[f] = tw.from[f] + (tw.to[f] - tw.from[f]) * p;
-        }
+        var pos = interpFields(tw.from, tw.to, p);
         applyPos(tw.rec.node, tw.rec.shape, pos);
         return true;
       });
@@ -562,7 +577,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
