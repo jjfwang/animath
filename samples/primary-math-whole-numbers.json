@@ -280,7 +280,7 @@
             "id": "n1",
             "kind": "text",
             "x": 120,
-            "y": 215,
+            "y": 435,
             "text": "ones: 7 + 5 = 12 -> write 2, carry 1",
             "size": 24
           }
@@ -292,7 +292,7 @@
             "id": "n2",
             "kind": "text",
             "x": 120,
-            "y": 285,
+            "y": 480,
             "text": "tens: 4 + 8 + 1 = 13 -> write 3, carry 1",
             "size": 24
           }
@@ -304,7 +304,7 @@
             "id": "n3",
             "kind": "text",
             "x": 120,
-            "y": 405,
+            "y": 525,
             "text": "hundreds: 2 + 3 + 1 = 6",
             "size": 24
           }
@@ -392,7 +392,7 @@
             "id": "n1",
             "kind": "text",
             "x": 120,
-            "y": 215,
+            "y": 435,
             "text": "ones: borrow 1 ten -> 12 - 7 = 5",
             "size": 24
           }
@@ -404,7 +404,7 @@
             "id": "n2",
             "kind": "text",
             "x": 120,
-            "y": 285,
+            "y": 480,
             "text": "tens: borrow 1 hundred -> 12 - 4 = 8",
             "size": 24
           }
@@ -416,7 +416,7 @@
             "id": "n3",
             "kind": "text",
             "x": 120,
-            "y": 405,
+            "y": 525,
             "text": "hundreds: 5 - 2 = 3",
             "size": 24
           }

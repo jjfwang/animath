@@ -47,7 +47,7 @@
             "id": "boxlab",
             "kind": "text",
             "x": 320,
-            "y": 245,
+            "y": 130,
             "text": "= a mystery box holding a number",
             "size": 28
           }
