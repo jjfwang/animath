@@ -1,0 +1,599 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "subject": "science",
+  "title": "Transport: blood and the double circulation",
+  "topic": "bio-transport",
+  "scenes": [
+    {
+      "caption": "The heart is a double pump",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "The heart has a left side and a right side, working as two pumps in one organ. The left side pushes oxygen-rich blood to the body; the right side pushes oxygen-poor blood to the lungs.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "The heart is a double pump",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 350,
+            "cy": 300,
+            "fill": "#f7d9d9",
+            "id": "leftPump",
+            "kind": "circle",
+            "r": 90,
+            "stroke": "#c0392b",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "leftL",
+            "kind": "text",
+            "size": 30,
+            "text": "left side",
+            "x": 290,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "leftD",
+            "kind": "text",
+            "size": 24,
+            "text": "pumps oxygen-rich blood to the body",
+            "x": 168,
+            "y": 462
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 650,
+            "cy": 300,
+            "fill": "#d9e5f7",
+            "id": "rightPump",
+            "kind": "circle",
+            "r": 90,
+            "stroke": "#2a6db0",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "rightL",
+            "kind": "text",
+            "size": 30,
+            "text": "right side",
+            "x": 585,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "rightD",
+            "kind": "text",
+            "size": 24,
+            "text": "pumps oxygen-poor blood to the lungs",
+            "x": 472,
+            "y": 495
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "leftPump"
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "rightPump"
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "Two sides, one organ — oxygen-rich and oxygen-poor blood never mix."
+        }
+      ]
+    },
+    {
+      "caption": "Two loops: heart to lungs, heart to body",
+      "duration_ms": 12000,
+      "id": "s2",
+      "narration": "Blood travels in two loops. The pulmonary loop runs between heart and lungs; the systemic loop runs between heart and body. Oxygen-rich blood is red, oxygen-poor blood is blue.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Two loops, one pump",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 190,
+            "fill": "#dbe9f6",
+            "id": "lungs",
+            "kind": "circle",
+            "r": 60,
+            "stroke": "#3f88c5",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "lungsL",
+            "kind": "text",
+            "size": 26,
+            "text": "lungs",
+            "x": 222,
+            "y": 197
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 400,
+            "fill": "#d9efdc",
+            "id": "body",
+            "kind": "circle",
+            "r": 60,
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "bodyL",
+            "kind": "text",
+            "size": 26,
+            "text": "body",
+            "x": 228,
+            "y": 407
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "#f7d9d9",
+            "h": 110,
+            "id": "heart",
+            "kind": "rect",
+            "stroke": "#c0392b",
+            "w": 110,
+            "width": 4,
+            "x": 640,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "heartL",
+            "kind": "text",
+            "size": 26,
+            "text": "heart",
+            "x": 662,
+            "y": 388
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "pa",
+            "kind": "arrow",
+            "stroke": "#2a6db0",
+            "width": 5,
+            "x1": 645,
+            "x2": 318,
+            "y1": 255,
+            "y2": 185
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "paL",
+            "kind": "text",
+            "size": 24,
+            "text": "heart → lungs: deoxygenated blood",
+            "x": 400,
+            "y": 158
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "pv",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 5,
+            "x1": 318,
+            "x2": 638,
+            "y1": 215,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "pvL",
+            "kind": "text",
+            "size": 24,
+            "text": "lungs → heart flow",
+            "x": 400,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "sa",
+            "kind": "arrow",
+            "stroke": "#c0392b",
+            "width": 5,
+            "x1": 635,
+            "x2": 318,
+            "y1": 355,
+            "y2": 395
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "saL",
+            "kind": "text",
+            "size": 24,
+            "text": "heart → body flow",
+            "x": 395,
+            "y": 332
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "sv",
+            "kind": "arrow",
+            "stroke": "#2a6db0",
+            "width": 5,
+            "x1": 320,
+            "x2": 632,
+            "y1": 430,
+            "y2": 368
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "show",
+          "shape": {
+            "id": "svL",
+            "kind": "text",
+            "size": 24,
+            "text": "body → heart: deoxygenated blood",
+            "x": 395,
+            "y": 458
+          }
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "Pulmonary loop: heart ↔ lungs. Systemic loop: heart ↔ body."
+        }
+      ]
+    },
+    {
+      "caption": "Xylem lifts water; phloem shares food",
+      "duration_ms": 11000,
+      "id": "s3",
+      "narration": "Plants transport without a heart. Xylem vessels carry water and minerals upward from the soil. Phloem tubes move food made in the leaves to wherever it is needed.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 34,
+            "text": "Xylem and phloem",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#efe6d5",
+            "h": 340,
+            "id": "stem",
+            "kind": "rect",
+            "stroke": "#7a5c3e",
+            "w": 100,
+            "width": 3,
+            "x": 430,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "fill": "#cfe4f5",
+            "h": 310,
+            "id": "xylem",
+            "kind": "rect",
+            "stroke": "#2a6db0",
+            "w": 28,
+            "width": 2,
+            "x": 445,
+            "y": 135
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "fill": "#d9efc9",
+            "h": 310,
+            "id": "phloem",
+            "kind": "rect",
+            "stroke": "#3f9e4d",
+            "w": 28,
+            "width": 2,
+            "x": 487,
+            "y": 135
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "xUp",
+            "kind": "arrow",
+            "stroke": "#2a6db0",
+            "width": 4,
+            "x1": 459,
+            "x2": 459,
+            "y1": 400,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "xylemL",
+            "kind": "text",
+            "size": 24,
+            "text": "xylem: water and minerals up",
+            "x": 80,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "pDown",
+            "kind": "arrow",
+            "stroke": "#3f9e4d",
+            "width": 4,
+            "x1": 501,
+            "x2": 501,
+            "y1": 170,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "phloemL",
+            "kind": "text",
+            "size": 24,
+            "text": "phloem: food moves both ways",
+            "x": 560,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "h2o",
+            "kind": "latex",
+            "size": 28,
+            "tex": "H_2O",
+            "x": 350,
+            "y": 352
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "sugar",
+            "kind": "latex",
+            "size": 28,
+            "tex": "C_6H_{12}O_6",
+            "x": 560,
+            "y": 352
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "fill": "#b08968",
+            "h": 40,
+            "id": "soil",
+            "kind": "rect",
+            "w": 360,
+            "x": 300,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "soilL",
+            "kind": "text",
+            "size": 22,
+            "text": "soil",
+            "x": 668,
+            "y": 496
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 84,
+            "fill": "#bfe6b0",
+            "id": "leaf",
+            "kind": "circle",
+            "r": 26,
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 8400,
+          "do": "caption",
+          "text": "Xylem lifts water up; phloem shares food everywhere — every day, all day."
+        }
+      ]
+    },
+    {
+      "caption": "Myth: arteries always carry oxygen",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "Arteries are not defined by what they carry. They are defined by direction: blood flowing away from the heart. The pulmonary artery carries oxygen-poor blood to the lungs.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 32,
+            "text": "Myth: arteries always carry oxygen",
+            "x": 80,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 28,
+            "text": "Arteries are defined by direction —",
+            "x": 80,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 28,
+            "text": "blood flowing AWAY from the heart.",
+            "x": 80,
+            "y": 262
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "size": 28,
+            "text": "The pulmonary artery carries oxygen-poor",
+            "x": 80,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "t4",
+            "kind": "text",
+            "size": 28,
+            "text": "blood to the lungs — the big exception.",
+            "x": 80,
+            "y": 402
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "t3"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "Arteries: away from the heart. Oxygen is a separate question."
+        }
+      ]
+    }
+  ]
+}
