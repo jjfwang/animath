@@ -1,7 +1,7 @@
 /* animath misconception library tests — zero dependencies, Node built-in test runner.
  * Run: node --test "tests/*.test.js"
  *
- * Guards generator/misconceptions.js (issue #101) and the misconceptionFor /
+ * Guards generator/misconceptions.js (issues #101, #103, #105) and the misconceptionFor /
  * injection wiring in generator/build_prompt.js: every library entry keeps its
  * three string fields, lookup resolves short slugs and longer file-style slugs,
  * unknown slugs fall back to the generic PEDAGOGY line, and buildPrompts
@@ -25,9 +25,16 @@ const PRIMARY_SCIENCE_SLUGS = [
   'energy-forms', 'photosynthesis', 'forces-magnets', 'adaptations'
 ];
 
-const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS);
+const SECONDARY_MATH_SLUGS = [
+  'e-numbers', 'e-algebra', 'e-functions-graphs', 'e-geometry',
+  'e-trigonometry', 'e-mensuration', 'e-statistics', 'e-probability',
+  'a-quadratic-functions', 'a-binomial', 'a-trigonometry',
+  'a-differentiation', 'a-integration', 'a-kinematics'
+];
 
-test('MISCONCEPTIONS holds exactly the 20 seeded topic slugs (12 Primary Math + 8 Primary Science)', () => {
+const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS, SECONDARY_MATH_SLUGS);
+
+test('MISCONCEPTIONS holds exactly the 34 seeded topic slugs (12 Primary Math + 8 Primary Science + 14 Secondary Math)', () => {
   assert.deepStrictEqual(Object.keys(MISCONCEPTIONS).sort(), SEEDED_SLUGS.slice().sort());
 });
 
@@ -55,6 +62,20 @@ test('misconceptionFor resolves longer file-style slugs via longest prefix', () 
   assert.strictEqual(Prompt.misconceptionFor('ratio-sharing'), MISCONCEPTIONS['ratio']);
   assert.strictEqual(Prompt.misconceptionFor('photosynthesis-intro'), MISCONCEPTIONS['photosynthesis']);
   assert.strictEqual(Prompt.misconceptionFor('water-cycle'), MISCONCEPTIONS['water-cycle']);
+});
+
+test('misconceptionFor resolves the slice-3 secondary math slugs exactly', () => {
+  for (const slug of SECONDARY_MATH_SLUGS) {
+    assert.strictEqual(Prompt.misconceptionFor(slug), MISCONCEPTIONS[slug],
+      'exact lookup for ' + slug + ' must resolve to its entry');
+  }
+});
+
+test('misconceptionFor resolves slice-3 key-prefix file-style slugs', () => {
+  assert.strictEqual(Prompt.misconceptionFor('e-statistics-outlier-drag'), MISCONCEPTIONS['e-statistics']);
+  assert.strictEqual(Prompt.misconceptionFor('a-integration-indefinite'), MISCONCEPTIONS['a-integration']);
+  assert.strictEqual(Prompt.misconceptionFor('e-functions-graphs-gradient-vs-intercept'), MISCONCEPTIONS['e-functions-graphs']);
+  assert.strictEqual(Prompt.misconceptionFor('a-quadratic-functions-discriminant'), MISCONCEPTIONS['a-quadratic-functions']);
 });
 
 test('misconceptionFor returns null for unknown or missing slugs', () => {
