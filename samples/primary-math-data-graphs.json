@@ -20,9 +20,21 @@
             "id": "q",
             "kind": "text",
             "size": 40,
-            "text": "Favourite fruit: 1/2 apples, 1/4 bananas, 1/4 grapes",
+            "text": "Favourite fruit:",
             "x": 120,
             "y": 90
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "q2",
+            "kind": "text",
+            "size": 40,
+            "text": "1/2 apples, 1/4 bananas, 1/4 grapes",
+            "x": 120,
+            "y": 140
           }
         },
         {
@@ -132,7 +144,7 @@
             "kind": "text",
             "size": 28,
             "text": "grapes: 1/4",
-            "x": 390,
+            "x": 400,
             "y": 240
           }
         },
@@ -307,9 +319,33 @@
             "id": "q",
             "kind": "text",
             "size": 36,
-            "text": "24 children voted. How many more chose soccer than badminton?",
+            "text": "24 children voted.",
             "x": 120,
             "y": 90
+          }
+        },
+        {
+          "at_ms": 350,
+          "do": "show",
+          "shape": {
+            "id": "q2",
+            "kind": "text",
+            "size": 36,
+            "text": "How many more chose soccer",
+            "x": 120,
+            "y": 134
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "q3",
+            "kind": "text",
+            "size": 36,
+            "text": "than badminton?",
+            "x": 120,
+            "y": 178
           }
         },
         {
@@ -390,7 +426,7 @@
             "size": 28,
             "text": "swimming: 3",
             "x": 380,
-            "y": 320
+            "y": 336
           }
         },
         {

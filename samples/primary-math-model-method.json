@@ -281,9 +281,21 @@
             "id": "q",
             "kind": "text",
             "size": 36,
-            "text": "36 pupils; 3/7 are boys. How many more girls than boys?",
+            "text": "36 pupils; 3/7 are boys.",
             "x": 120,
             "y": 90
+          }
+        },
+        {
+          "at_ms": 350,
+          "do": "show",
+          "shape": {
+            "id": "q2",
+            "kind": "text",
+            "size": 36,
+            "text": "How many more girls than boys?",
+            "x": 120,
+            "y": 134
           }
         },
         {
