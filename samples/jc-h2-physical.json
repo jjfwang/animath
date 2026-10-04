@@ -1,17 +1,20 @@
 {
   "animath": "0.1",
   "canvas": {
-    "height": 540,
-    "width": 960
+    "width": 960,
+    "height": 540
   },
   "kind": "concept",
   "level": "jc",
+  "subject": "science",
+  "title": "JC H2 chemistry — physical: energetics, kinetics and equilibria",
+  "topic": "h2-physical",
   "scenes": [
     {
+      "id": "s1",
       "caption": "Exothermic: products lie below reactants",
       "duration_ms": 10000,
-      "id": "s1",
-      "narration":"For an exothermic reaction the products end up at a lower enthalpy than the reactants. Draw the reactants level, climb the activation-energy hump, then fall to the products: the enthalpy change is negative.",
+      "narration": "For an exothermic reaction the products end up at a lower enthalpy than the reactants. Draw the reactants level, climb the activation-energy hump, then fall to the products: the enthalpy change is negative.",
       "steps": [
         {
           "at_ms": 0,
@@ -22,8 +25,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 120,
             "y1": 60,
+            "x2": 120,
             "y2": 470
           }
         },
@@ -36,8 +39,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 900,
             "y1": 470,
+            "x2": 900,
             "y2": 470
           }
         },
@@ -74,8 +77,8 @@
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 160,
-            "x2": 300,
             "y1": 220,
+            "x2": 300,
             "y2": 220
           }
         },
@@ -92,12 +95,14 @@
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
-            "fill": "none",
             "id": "profile",
             "kind": "polygon",
+            "fill": "none",
+            "stroke": "#b00020",
+            "strokeWidth": 4,
             "points": [
               [
                 160,
@@ -135,13 +140,87 @@
                 830,
                 384
               ]
-            ],
-            "stroke": "#b00020",
-            "strokeWidth": 4
+            ]
           }
         },
         {
-          "at_ms": 2900,
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "energyDot",
+            "kind": "circle",
+            "cx": 160,
+            "cy": 220,
+            "r": 10,
+            "fill": "#b00020"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 230,
+            "cy": 165
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 300,
+            "cy": 142
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 370,
+            "cy": 152
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 430,
+            "cy": 205
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "dhArrow",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 350,
+            "y1": 228,
+            "x2": 350,
+            "y2": 244
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 500,
+            "cy": 300
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4800,
           "do": "show",
           "shape": {
             "id": "pLevel",
@@ -149,13 +228,22 @@
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 700,
-            "x2": 840,
             "y1": 384,
+            "x2": 840,
             "y2": 384
           }
         },
         {
-          "at_ms": 3200,
+          "at_ms": 5000,
+          "do": "move",
+          "target": "dhArrow",
+          "to": {
+            "y2": 300
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 5100,
           "do": "show",
           "shape": {
             "id": "pText",
@@ -167,26 +255,60 @@
           }
         },
         {
-          "at_ms": 3900,
-          "do": "show",
-          "shape": {
-            "id": "dhArrow",
-            "kind": "arrow",
-            "stroke": "#1a56db",
-            "width": 3,
-            "x1": 350,
-            "x2": 350,
-            "y1": 228,
-            "y2": 376
-          }
+          "at_ms": 5400,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 600,
+            "cy": 362
+          },
+          "dur_ms": 500
         },
         {
-          "at_ms": 4300,
+          "at_ms": 5600,
+          "do": "move",
+          "target": "dhArrow",
+          "to": {
+            "y2": 344
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 720,
+            "cy": 384
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "dhArrow",
+          "to": {
+            "y2": 376
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 6600,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 830,
+            "cy": 384
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6800,
           "do": "show",
           "shape": {
-            "color": "#1a56db",
             "id": "dhLabel",
             "kind": "latex",
+            "color": "#1a56db",
             "size": 36,
             "tex": "\\Delta H < 0",
             "x": 372,
@@ -194,7 +316,7 @@
           }
         },
         {
-          "at_ms": 4900,
+          "at_ms": 7200,
           "do": "show",
           "shape": {
             "id": "eaArrow",
@@ -202,13 +324,13 @@
             "stroke": "#6b7280",
             "width": 2,
             "x1": 300,
-            "x2": 300,
             "y1": 214,
+            "x2": 300,
             "y2": 152
           }
         },
         {
-          "at_ms": 5300,
+          "at_ms": 7600,
           "do": "show",
           "shape": {
             "id": "tsLabel",
@@ -220,12 +342,12 @@
           }
         },
         {
-          "at_ms": 5700,
+          "at_ms": 8000,
           "do": "show",
           "shape": {
-            "color": "#6b7280",
             "id": "eaLabel",
             "kind": "latex",
+            "color": "#6b7280",
             "size": 30,
             "tex": "E_a",
             "x": 196,
@@ -233,7 +355,7 @@
           }
         },
         {
-          "at_ms": 6300,
+          "at_ms": 8400,
           "do": "show",
           "shape": {
             "id": "heatNote",
@@ -245,23 +367,17 @@
           }
         },
         {
-          "at_ms": 7000,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "dhArrow"
-        },
-        {
-          "at_ms": 8500,
+          "at_ms": 9000,
           "do": "caption",
-          "text": "Exothermic: products lie lower in enthalpy — ΔH is negative"
+          "text": "Exothermic: products lie lower in enthalpy — ΔH negative"
         }
       ]
     },
     {
+      "id": "s2",
       "caption": "Endothermic: products lie above reactants",
       "duration_ms": 10000,
-      "id": "s2",
-      "narration":"An endothermic reaction climbs to products at a higher enthalpy than the reactants. It still clears the activation-energy barrier, and the gap from reactants to products is positive: the reaction absorbs heat.",
+      "narration": "An endothermic reaction climbs to products at a higher enthalpy than the reactants. It still clears the activation-energy barrier, and the gap from reactants to products is positive: the reaction absorbs heat.",
       "steps": [
         {
           "at_ms": 0,
@@ -272,8 +388,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 120,
             "y1": 60,
+            "x2": 120,
             "y2": 470
           }
         },
@@ -286,8 +402,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 900,
             "y1": 470,
+            "x2": 900,
             "y2": 470
           }
         },
@@ -324,8 +440,8 @@
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 160,
-            "x2": 300,
             "y1": 384,
+            "x2": 300,
             "y2": 384
           }
         },
@@ -342,12 +458,14 @@
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
-            "fill": "none",
             "id": "profile",
             "kind": "polygon",
+            "fill": "none",
+            "stroke": "#b00020",
+            "strokeWidth": 4,
             "points": [
               [
                 160,
@@ -385,13 +503,87 @@
                 830,
                 228
               ]
-            ],
-            "stroke": "#b00020",
-            "strokeWidth": 4
+            ]
           }
         },
         {
-          "at_ms": 2900,
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "energyDot",
+            "kind": "circle",
+            "cx": 160,
+            "cy": 384,
+            "r": 10,
+            "fill": "#b00020"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 240,
+            "cy": 300
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 310,
+            "cy": 190
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 370,
+            "cy": 150
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 440,
+            "cy": 165
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "dhArrow",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 350,
+            "y1": 376,
+            "x2": 350,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 520,
+            "cy": 200
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4800,
           "do": "show",
           "shape": {
             "id": "pLevel",
@@ -399,13 +591,22 @@
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 700,
-            "x2": 840,
             "y1": 228,
+            "x2": 840,
             "y2": 228
           }
         },
         {
-          "at_ms": 3200,
+          "at_ms": 5000,
+          "do": "move",
+          "target": "dhArrow",
+          "to": {
+            "y2": 320
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 5100,
           "do": "show",
           "shape": {
             "id": "pText",
@@ -417,26 +618,60 @@
           }
         },
         {
-          "at_ms": 3900,
-          "do": "show",
-          "shape": {
-            "id": "dhArrow",
-            "kind": "arrow",
-            "stroke": "#1a56db",
-            "width": 3,
-            "x1": 350,
-            "x2": 350,
-            "y1": 376,
-            "y2": 236
-          }
+          "at_ms": 5400,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 620,
+            "cy": 222
+          },
+          "dur_ms": 500
         },
         {
-          "at_ms": 4300,
+          "at_ms": 5600,
+          "do": "move",
+          "target": "dhArrow",
+          "to": {
+            "y2": 280
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 720,
+            "cy": 228
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "dhArrow",
+          "to": {
+            "y2": 236
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 6600,
+          "do": "move",
+          "target": "energyDot",
+          "to": {
+            "cx": 830,
+            "cy": 228
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6800,
           "do": "show",
           "shape": {
-            "color": "#1a56db",
             "id": "dhLabel",
             "kind": "latex",
+            "color": "#1a56db",
             "size": 36,
             "tex": "\\Delta H > 0",
             "x": 372,
@@ -444,7 +679,7 @@
           }
         },
         {
-          "at_ms": 4900,
+          "at_ms": 7200,
           "do": "show",
           "shape": {
             "id": "tsLabel",
@@ -456,7 +691,7 @@
           }
         },
         {
-          "at_ms": 5300,
+          "at_ms": 8000,
           "do": "show",
           "shape": {
             "id": "heatNote",
@@ -468,22 +703,16 @@
           }
         },
         {
-          "at_ms": 6200,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "dhArrow"
-        },
-        {
-          "at_ms": 8500,
+          "at_ms": 9000,
           "do": "caption",
-          "text": "Endothermic: products lie higher in enthalpy — ΔH is positive"
+          "text": "Endothermic: products lie higher in enthalpy — ΔH positive"
         }
       ]
     },
     {
+      "id": "s3",
       "caption": "Rate curves: steeper means faster",
       "duration_ms": 10000,
-      "id": "s3",
       "narration": "Rate is how fast reactant concentration falls. A steeper curve means a faster reaction: raise the temperature, or add a catalyst, and the same curve gets steeper — more collisions clear the activation energy each second.",
       "steps": [
         {
@@ -495,8 +724,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 120,
             "y1": 60,
+            "x2": 120,
             "y2": 470
           }
         },
@@ -509,8 +738,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 900,
             "y1": 470,
+            "x2": 900,
             "y2": 470
           }
         },
@@ -542,46 +771,79 @@
           "at_ms": 1200,
           "do": "show",
           "shape": {
-            "fill": "none",
-            "id": "coolCurve",
-            "kind": "polygon",
-            "points": [
-              [
-                150,
-                160
-              ],
-              [
-                300,
-                210
-              ],
-              [
-                450,
-                275
-              ],
-              [
-                600,
-                330
-              ],
-              [
-                750,
-                370
-              ],
-              [
-                860,
-                395
-              ]
-            ],
+            "id": "c1",
+            "kind": "line",
             "stroke": "#1a56db",
-            "strokeWidth": 4
+            "width": 4,
+            "x1": 150,
+            "y1": 160,
+            "x2": 300,
+            "y2": 210
           }
         },
         {
-          "at_ms": 1600,
+          "at_ms": 1700,
           "do": "show",
           "shape": {
-            "color": "#1a56db",
+            "id": "c2",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 300,
+            "y1": 210,
+            "x2": 450,
+            "y2": 275
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 450,
+            "y1": 275,
+            "x2": 600,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "c4",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 600,
+            "y1": 330,
+            "x2": 750,
+            "y2": 370
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "c5",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 750,
+            "y1": 370,
+            "x2": 860,
+            "y2": 395
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
             "id": "coolLabel",
             "kind": "latex",
+            "color": "#1a56db",
             "size": 28,
             "tex": "T",
             "x": 614,
@@ -589,49 +851,82 @@
           }
         },
         {
-          "at_ms": 2400,
+          "at_ms": 4200,
           "do": "show",
           "shape": {
-            "fill": "none",
-            "id": "hotCurve",
-            "kind": "polygon",
-            "points": [
-              [
-                150,
-                160
-              ],
-              [
-                260,
-                230
-              ],
-              [
-                380,
-                310
-              ],
-              [
-                500,
-                365
-              ],
-              [
-                620,
-                400
-              ],
-              [
-                700,
-                415
-              ]
-            ],
+            "id": "h1",
+            "kind": "line",
             "stroke": "#b00020",
-            "strokeWidth": 4
+            "width": 4,
+            "x1": 150,
+            "y1": 160,
+            "x2": 260,
+            "y2": 230
           }
         },
         {
-          "at_ms": 2800,
+          "at_ms": 4700,
           "do": "show",
           "shape": {
-            "color": "#b00020",
+            "id": "h2",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 260,
+            "y1": 230,
+            "x2": 380,
+            "y2": 310
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "h3",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 380,
+            "y1": 310,
+            "x2": 500,
+            "y2": 365
+          }
+        },
+        {
+          "at_ms": 5700,
+          "do": "show",
+          "shape": {
+            "id": "h4",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 500,
+            "y1": 365,
+            "x2": 620,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "h5",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 620,
+            "y1": 400,
+            "x2": 700,
+            "y2": 415
+          }
+        },
+        {
+          "at_ms": 6500,
+          "do": "show",
+          "shape": {
             "id": "legendHot",
             "kind": "text",
+            "color": "#b00020",
             "size": 24,
             "text": "higher T (or catalyst) — steeper",
             "x": 470,
@@ -639,12 +934,12 @@
           }
         },
         {
-          "at_ms": 3100,
+          "at_ms": 6800,
           "do": "show",
           "shape": {
-            "color": "#1a56db",
             "id": "legendCool",
             "kind": "text",
+            "color": "#1a56db",
             "size": 24,
             "text": "lower T — gentler",
             "x": 470,
@@ -652,7 +947,7 @@
           }
         },
         {
-          "at_ms": 3800,
+          "at_ms": 7400,
           "do": "show",
           "shape": {
             "id": "rateEq",
@@ -664,22 +959,22 @@
           }
         },
         {
-          "at_ms": 4800,
+          "at_ms": 8500,
           "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "hotCurve"
+          "target": "h5",
+          "dur_ms": 1000
         },
         {
-          "at_ms": 8500,
+          "at_ms": 9200,
           "do": "caption",
-          "text": "Higher temperature or a catalyst steepens the concentration–time curve"
+          "text": "Steeper curve = faster reaction: higher T or a catalyst"
         }
       ]
     },
     {
+      "id": "s4",
       "caption": "Maxwell–Boltzmann: more molecules past Ea at higher T",
       "duration_ms": 10000,
-      "id": "s4",
       "narration": "Most molecules sit near the average energy; only the fast tail can react. Raise the temperature and the whole distribution flattens and shifts right — a bigger fraction of molecules now sits past the activation energy.",
       "steps": [
         {
@@ -691,8 +986,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 120,
             "y1": 60,
+            "x2": 120,
             "y2": 470
           }
         },
@@ -705,8 +1000,8 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 120,
-            "x2": 900,
             "y1": 470,
+            "x2": 900,
             "y2": 470
           }
         },
@@ -738,9 +1033,11 @@
           "at_ms": 1400,
           "do": "show",
           "shape": {
-            "fill": "none",
-            "id": "mbCool",
+            "id": "mbLow",
             "kind": "polygon",
+            "fill": "none",
+            "stroke": "#1a56db",
+            "strokeWidth": 4,
             "points": [
               [
                 150,
@@ -778,18 +1075,16 @@
                 750,
                 445
               ]
-            ],
-            "stroke": "#1a56db",
-            "strokeWidth": 4
+            ]
           }
         },
         {
           "at_ms": 1900,
           "do": "show",
           "shape": {
-            "color": "#1a56db",
             "id": "tLabel",
             "kind": "latex",
+            "color": "#1a56db",
             "size": 28,
             "tex": "T",
             "x": 344,
@@ -797,12 +1092,94 @@
           }
         },
         {
-          "at_ms": 2700,
+          "at_ms": 2600,
           "do": "show",
           "shape": {
-            "fill": "none",
-            "id": "mbHot",
+            "id": "mbMorph",
             "kind": "polygon",
+            "fill": "#fca5a5",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "points": [
+              [
+                150,
+                440
+              ],
+              [
+                220,
+                360
+              ],
+              [
+                290,
+                280
+              ],
+              [
+                360,
+                250
+              ],
+              [
+                430,
+                290
+              ],
+              [
+                510,
+                360
+              ],
+              [
+                590,
+                410
+              ],
+              [
+                660,
+                435
+              ],
+              [
+                750,
+                445
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "eaArea",
+            "kind": "polygon",
+            "fill": "#fecaca",
+            "points": [
+              [
+                680,
+                470
+              ],
+              [
+                720,
+                470
+              ],
+              [
+                800,
+                470
+              ],
+              [
+                860,
+                470
+              ],
+              [
+                860,
+                470
+              ],
+              [
+                680,
+                470
+              ]
+            ]
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "mbMorph",
+          "to": {
             "points": [
               [
                 150,
@@ -840,18 +1217,51 @@
                 860,
                 440
               ]
-            ],
-            "stroke": "#b00020",
-            "strokeWidth": 4
-          }
+            ]
+          },
+          "dur_ms": 1800
         },
         {
-          "at_ms": 3100,
+          "at_ms": 3600,
+          "do": "move",
+          "target": "eaArea",
+          "to": {
+            "points": [
+              [
+                680,
+                396
+              ],
+              [
+                720,
+                410
+              ],
+              [
+                800,
+                430
+              ],
+              [
+                860,
+                440
+              ],
+              [
+                860,
+                470
+              ],
+              [
+                680,
+                470
+              ]
+            ]
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 5600,
           "do": "show",
           "shape": {
-            "color": "#b00020",
             "id": "hotLabel",
             "kind": "text",
+            "color": "#b00020",
             "size": 24,
             "text": "higher T",
             "x": 430,
@@ -859,7 +1269,7 @@
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 6000,
           "do": "show",
           "shape": {
             "id": "eaLine",
@@ -867,16 +1277,15 @@
             "stroke": "#1a1a1a",
             "width": 2,
             "x1": 680,
-            "x2": 680,
             "y1": 150,
+            "x2": 680,
             "y2": 440
           }
         },
         {
-          "at_ms": 4400,
+          "at_ms": 6400,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "eaLabel",
             "kind": "latex",
             "size": 30,
@@ -886,7 +1295,7 @@
           }
         },
         {
-          "at_ms": 5200,
+          "at_ms": 7000,
           "do": "show",
           "shape": {
             "id": "tailNote",
@@ -898,29 +1307,28 @@
           }
         },
         {
-          "at_ms": 6600,
+          "at_ms": 8000,
           "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "eaLine"
+          "target": "eaLine",
+          "dur_ms": 1000
         },
         {
-          "at_ms": 8500,
+          "at_ms": 9000,
           "do": "caption",
-          "text": "At higher T, a larger fraction of molecules clears the activation barrier"
+          "text": "At higher T more molecules clear the activation barrier"
         }
       ]
     },
     {
+      "id": "s5",
       "caption": "Le Chatelier: the system opposes the change",
       "duration_ms": 11000,
-      "id": "s5",
-      "narration":"An equilibrium opposes any disturbance: add nitrogen and it makes more ammonia; raise the pressure and it shifts toward fewer gas moles; cool it and it releases more heat. Only temperature moves the equilibrium constant.",
+      "narration": "An equilibrium opposes any disturbance: add nitrogen and it makes more ammonia; raise the pressure and it shifts toward fewer gas moles. Watch the composition bars shift to oppose each change.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "haberEq",
             "kind": "latex",
             "size": 36,
@@ -933,7 +1341,6 @@
           "at_ms": 900,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "kcEq",
             "kind": "latex",
             "size": 32,
@@ -946,88 +1353,236 @@
           "at_ms": 1800,
           "do": "show",
           "shape": {
-            "id": "rule",
-            "kind": "text",
-            "size": 26,
-            "text": "disturbance → shift → opposes the change",
-            "x": 120,
-            "y": 268
+            "id": "rail",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 120,
+            "y1": 470,
+            "x2": 660,
+            "y2": 470
           }
         },
         {
-          "at_ms": 2600,
+          "at_ms": 2000,
           "do": "show",
           "shape": {
-            "id": "concShift",
-            "kind": "text",
-            "size": 26,
-            "text": "add N₂ → shifts right, makes more NH₃",
-            "x": 120,
-            "y": 328
+            "id": "n2Bar",
+            "kind": "rect",
+            "x": 170,
+            "y": 410,
+            "w": 110,
+            "h": 60,
+            "fill": "#1a56db"
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 2000,
           "do": "show",
           "shape": {
-            "id": "pressShift",
-            "kind": "text",
-            "size": 26,
-            "text": "raise pressure → shifts to fewer gas moles: right",
-            "x": 120,
-            "y": 388
+            "id": "h2Bar",
+            "kind": "rect",
+            "x": 330,
+            "y": 390,
+            "w": 110,
+            "h": 80,
+            "fill": "#6b7280"
           }
         },
         {
-          "at_ms": 4600,
+          "at_ms": 2000,
           "do": "show",
           "shape": {
-            "id": "tempShift",
-            "kind": "text",
-            "size": 26,
-            "text": "lower T (exothermic) → shifts right, more heat out",
-            "x": 120,
-            "y": 448
+            "id": "nh3Bar",
+            "kind": "rect",
+            "x": 490,
+            "y": 430,
+            "w": 110,
+            "h": 40,
+            "fill": "#b00020"
           }
         },
         {
-          "at_ms": 5800,
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "n2L",
+            "kind": "text",
+            "size": 24,
+            "text": "N₂",
+            "x": 180,
+            "y": 505
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "h2L",
+            "kind": "text",
+            "size": 24,
+            "text": "H₂",
+            "x": 340,
+            "y": 505
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "nh3L",
+            "kind": "text",
+            "size": 24,
+            "text": "NH₃",
+            "x": 500,
+            "y": 505
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "dist1",
+            "kind": "text",
+            "size": 26,
+            "text": "add N₂ to the mixture",
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "n2Bar",
+          "to": {
+            "y": 400,
+            "h": 70
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "h2Bar",
+          "to": {
+            "y": 425,
+            "h": 45
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "nh3Bar",
+          "to": {
+            "y": 375,
+            "h": 95
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "shift1",
+            "kind": "text",
+            "size": 24,
+            "text": "opposes it: shifts right, more NH₃ made",
+            "x": 120,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "dist2",
+            "kind": "text",
+            "size": 26,
+            "text": "now raise the pressure (compress)",
+            "x": 120,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "n2Bar",
+          "to": {
+            "y": 420,
+            "h": 50
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "h2Bar",
+          "to": {
+            "y": 440,
+            "h": 30
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "nh3Bar",
+          "to": {
+            "y": 350,
+            "h": 120
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 7400,
+          "do": "hide",
+          "target": "shift1"
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "shift2",
+            "kind": "text",
+            "size": 24,
+            "text": "opposes it: shifts to fewer gas moles → right",
+            "x": 120,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 8400,
           "do": "show",
           "shape": {
             "id": "kcNote",
             "kind": "text",
-            "size": 26,
+            "size": 22,
             "text": "Kc itself only changes with temperature",
             "x": 120,
-            "y": 508
+            "y": 140
           }
-        },
-        {
-          "at_ms": 7000,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "kcEq"
         },
         {
           "at_ms": 9500,
           "do": "caption",
-          "text": "Shift opposes the change; Kc stays put unless T changes"
+          "text": "Shift opposes the change; Kc moves only with T"
         }
       ]
     },
     {
+      "id": "s6",
       "caption": "Misconception: a catalyst shifts equilibrium",
       "duration_ms": 9000,
-      "id": "s6",
-      "narration":"A catalyst is not a shortcut to more product. It lowers the activation energy equally for forward and reverse reactions, so both speed up by the same factor — the position of equilibrium is unchanged.",
+      "narration": "A catalyst is not a shortcut to more product. It lowers the activation energy equally for forward and reverse reactions, so both rates speed up by the same factor — the equilibrium bars never move.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "color": "#b00020",
             "id": "mis",
             "kind": "text",
+            "color": "#b00020",
             "size": 36,
             "text": "Misconception:",
             "x": 120,
@@ -1047,68 +1602,181 @@
           }
         },
         {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "rail",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 120,
+            "y1": 430,
+            "x2": 560,
+            "y2": 430
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "rBar",
+            "kind": "rect",
+            "x": 180,
+            "y": 370,
+            "w": 100,
+            "h": 60,
+            "fill": "#6b7280"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "pBar",
+            "kind": "rect",
+            "x": 360,
+            "y": 370,
+            "w": 100,
+            "h": 60,
+            "fill": "#b00020"
+          }
+        },
+        {
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "fwd",
+            "id": "rL",
             "kind": "text",
-            "size": 28,
-            "text": "forward rate speeds up ×k",
-            "x": 120,
-            "y": 280
+            "size": 24,
+            "text": "reactants",
+            "x": 180,
+            "y": 458
           }
         },
         {
-          "at_ms": 3400,
+          "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "rev",
+            "id": "pL",
             "kind": "text",
-            "size": 28,
-            "text": "reverse rate speeds up ×k too",
-            "x": 120,
-            "y": 330
+            "size": 24,
+            "text": "products",
+            "x": 360,
+            "y": 458
           }
         },
         {
-          "at_ms": 4200,
+          "at_ms": 2800,
           "do": "show",
           "shape": {
-            "id": "pos",
-            "kind": "text",
-            "size": 28,
-            "text": "equilibrium position: unchanged",
-            "x": 120,
-            "y": 380
+            "id": "fwdArrow",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 4,
+            "x1": 200,
+            "y1": 300,
+            "x2": 350,
+            "y2": 300
           }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "revArrow",
+            "kind": "arrow",
+            "stroke": "#b00020",
+            "width": 4,
+            "x1": 760,
+            "y1": 300,
+            "x2": 610,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "fwdL",
+            "kind": "text",
+            "size": 22,
+            "text": "forward rate",
+            "x": 200,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "revL",
+            "kind": "text",
+            "size": 22,
+            "text": "reverse rate",
+            "x": 610,
+            "y": 285
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "target": "fwdArrow",
+          "to": {
+            "x2": 470
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "target": "revArrow",
+          "to": {
+            "x2": 490
+          },
+          "dur_ms": 800
         },
         {
           "at_ms": 5000,
           "do": "show",
           "shape": {
-            "id": "kcUnchanged",
+            "id": "sameK",
             "kind": "text",
-            "size": 28,
-            "text": "Kc: unchanged",
+            "size": 26,
+            "text": "both rates ×k — the SAME factor",
             "x": 120,
-            "y": 430
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "posNote",
+            "kind": "text",
+            "size": 26,
+            "text": "equilibrium position: unchanged",
+            "x": 120,
+            "y": 500
           }
         },
         {
           "at_ms": 6200,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "pos"
+          "do": "show",
+          "shape": {
+            "id": "kcUn",
+            "kind": "text",
+            "size": 26,
+            "text": "Kc: unchanged",
+            "x": 620,
+            "y": 500
+          }
         },
         {
-          "at_ms": 8000,
+          "at_ms": 7600,
           "do": "caption",
-          "text": "A catalyst speeds forward and reverse equally — no shift in equilibrium"
+          "text": "A catalyst speeds both rates equally — no equilibrium shift"
         }
       ]
     }
-  ],
-  "subject": "science",
-  "title": "JC H2 chemistry — physical: energetics, kinetics and equilibria",
-  "topic": "h2-physical"
+  ]
 }
