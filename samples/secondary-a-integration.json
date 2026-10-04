@@ -1,0 +1,544 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "The antiderivative is accumulated area",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "Integration undoes differentiation: the antiderivative of f is the function whose derivative is f. Geometrically it is the area that has built up under the curve from some starting point to x.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xax",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 440,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "yax",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "x2": 120,
+            "y1": 60,
+            "y2": 480
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "cur1",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 160,
+            "x2": 300,
+            "y1": 404,
+            "y2": 348
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "cur2",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 300,
+            "x2": 440,
+            "y1": 348,
+            "y2": 272
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "cur3",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 440,
+            "x2": 580,
+            "y1": 272,
+            "y2": 176
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "cur4",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 580,
+            "x2": 720,
+            "y1": 176,
+            "y2": 64
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 44,
+            "id": "r1",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 60,
+            "x": 180,
+            "y": 396
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 76,
+            "id": "r2",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 60,
+            "x": 260,
+            "y": 364
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 120,
+            "id": "r3",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 60,
+            "x": 340,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 156,
+            "id": "r4",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 60,
+            "x": 420,
+            "y": 284
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "acc",
+            "kind": "latex",
+            "size": 40,
+            "tex": "A(x) = \\int_a^x f(t)\\,dt",
+            "x": 560,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "run",
+            "kind": "text",
+            "size": 24,
+            "text": "the running total of area, as x sweeps right",
+            "x": 120,
+            "y": 516
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "The antiderivative is the running total of area"
+        }
+      ]
+    },
+    {
+      "caption": "The definite integral: thin rectangles build the exact area",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "Chop the region into thin rectangles, each of width delta x. Add them up, and as the strips get thinner the total closes in on the exact area under the curve — the definite integral.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "xax",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 440,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "yax",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "x2": 120,
+            "y1": 60,
+            "y2": 480
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "cur1",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 160,
+            "x2": 400,
+            "y1": 404,
+            "y2": 290
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "cur2",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 400,
+            "x2": 640,
+            "y1": 290,
+            "y2": 130
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 44,
+            "id": "r1",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 52,
+            "x": 180,
+            "y": 396
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 72,
+            "id": "r2",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 52,
+            "x": 252,
+            "y": 368
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 112,
+            "id": "r3",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 52,
+            "x": 324,
+            "y": 328
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 148,
+            "id": "r4",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 52,
+            "x": 396,
+            "y": 292
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 188,
+            "id": "r5",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 52,
+            "x": 468,
+            "y": 252
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 240,
+            "id": "r6",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 52,
+            "x": 540,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 5900,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "def",
+            "kind": "latex",
+            "size": 34,
+            "tex": "\\int_a^b f(x)\\,dx \\approx \\sum_i f(x_i)\\,\\Delta x",
+            "x": 130,
+            "y": 510
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "thin",
+            "kind": "text",
+            "size": 24,
+            "text": "thinner strips → the sum approaches the true area",
+            "x": 130,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 7700,
+          "do": "caption",
+          "text": "The definite integral is the limit of the rectangles"
+        }
+      ]
+    },
+    {
+      "caption": "Worked: evaluating a definite integral",
+      "duration_ms": 7500,
+      "id": "s3",
+      "narration": "Integrate 2x from 1 to 2. Antidifferentiate to get x squared, evaluate it at each bound, and subtract: 4 minus 1 is 3. The area is exactly 3 square units.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "q",
+            "kind": "latex",
+            "size": 48,
+            "tex": "\\int_1^2 2x\\,dx",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "anti",
+            "kind": "latex",
+            "size": 44,
+            "tex": "= \\left[x^2\\right]_1^2",
+            "x": 140,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "eval",
+            "kind": "latex",
+            "size": 44,
+            "tex": "= 2^2 - 1^2 = 4 - 1",
+            "x": 140,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ans",
+            "kind": "latex",
+            "size": 56,
+            "tex": "= 3",
+            "x": 140,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "rule",
+            "kind": "text",
+            "size": 26,
+            "text": "antidifferentiate, evaluate at each bound, subtract",
+            "x": 140,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 6500,
+          "do": "caption",
+          "text": "Evaluate at the bounds — then subtract"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: never drop the +C",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "Integrating 2x and writing only x squared is wrong. Differentiate x squared plus 5 and you still get 2x; differentiate x squared plus 7 and you still get 2x. Every constant is a candidate, so the indefinite integral keeps plus C.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "q",
+            "kind": "latex",
+            "size": 48,
+            "tex": "\\int 2x\\,dx = \\;?",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "trap",
+            "kind": "text",
+            "size": 30,
+            "text": "Trap: writing down just x^2 and stopping",
+            "x": 140,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "wrong",
+            "kind": "latex",
+            "size": 42,
+            "tex": "x^2 \\qquad \\text{(missing } +C\\text{)}",
+            "x": 140,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "ce",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\frac{d}{dx}(x^2 + 5) = 2x, \\quad \\frac{d}{dx}(x^2 + 7) = 2x",
+            "x": 120,
+            "y": 390
+          }
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "fix",
+            "kind": "latex",
+            "size": 48,
+            "tex": "\\int 2x\\,dx = x^2 + C",
+            "x": 140,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "wrong"
+        },
+        {
+          "at_ms": 6900,
+          "do": "caption",
+          "text": "Any constant survives differentiation — the integral keeps +C"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math integration: area, accumulation and the +C trap",
+  "topic": "a-integration"
+}

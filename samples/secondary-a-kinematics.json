@@ -1,0 +1,501 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Two graphs, one motion",
+      "duration_ms": 8000,
+      "id": "s1",
+      "narration": "A displacement-time graph and a velocity-time graph can describe the same journey. Here the s-t line is straight, so the motion is uniform; the v-t line sits flat, because the speed never changes.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "sxa",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 60,
+            "x2": 420,
+            "y1": 420,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "sya",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 90,
+            "x2": 90,
+            "y1": 100,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "stline",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 120,
+            "x2": 390,
+            "y1": 390,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "vxa",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 520,
+            "x2": 880,
+            "y1": 420,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "vya",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 550,
+            "x2": 550,
+            "y1": 100,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "vtline",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 4,
+            "x1": 580,
+            "x2": 850,
+            "y1": 280,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "lab1",
+            "kind": "text",
+            "size": 24,
+            "text": "s–t: straight line ⇒ uniform motion",
+            "x": 90,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "lab2",
+            "kind": "text",
+            "size": 24,
+            "text": "v–t: flat line ⇒ constant speed",
+            "x": 550,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "caption",
+          "text": "Two graphs, one journey — read each on its own terms"
+        }
+      ]
+    },
+    {
+      "caption": "Gradient of the s–t graph is the velocity",
+      "duration_ms": 7000,
+      "id": "s2",
+      "narration": "Pick two points on the s-t graph and form the gradient triangle: rise in displacement over run in time. That slope is the velocity — rise over run, metres over seconds.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "sxa",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 60,
+            "x2": 420,
+            "y1": 420,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "sya",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 90,
+            "x2": 90,
+            "y1": 100,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "stline",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 120,
+            "x2": 390,
+            "y1": 390,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "run",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 3,
+            "x1": 150,
+            "x2": 330,
+            "y1": 367,
+            "y2": 367
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "rise",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 3,
+            "x1": 330,
+            "x2": 330,
+            "y1": 227,
+            "y2": 367
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "vel",
+            "kind": "latex",
+            "size": 40,
+            "tex": "v = \\frac{\\Delta s}{\\Delta t} = \\text{gradient}",
+            "x": 480,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "num",
+            "kind": "latex",
+            "size": 38,
+            "tex": "= \\frac{40 - 10}{6 - 0} = 5\\ \\text{m/s}",
+            "x": 480,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "caption",
+          "text": "Velocity is the slope of the s–t graph"
+        }
+      ]
+    },
+    {
+      "caption": "Area under the v–t graph is the displacement",
+      "duration_ms": 8000,
+      "id": "s3",
+      "narration": "Under the velocity-time curve, each thin rectangle is speed times a small time step — a small distance. Stack them up and the total area is the displacement: displacement is the integral of velocity.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "vxa",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 80,
+            "x2": 880,
+            "y1": 420,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 300,
+          "do": "show",
+          "shape": {
+            "id": "vya",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "x2": 120,
+            "y1": 80,
+            "y2": 470
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "vc1",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 160,
+            "x2": 340,
+            "y1": 380,
+            "y2": 320
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "vc2",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 340,
+            "x2": 520,
+            "y1": 320,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "vc3",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 520,
+            "x2": 700,
+            "y1": 240,
+            "y2": 140
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 45,
+            "id": "r1",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 80,
+            "x": 170,
+            "y": 375
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 75,
+            "id": "r2",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 80,
+            "x": 280,
+            "y": 345
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 124,
+            "id": "r3",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 80,
+            "x": 390,
+            "y": 296
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 172,
+            "id": "r4",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 80,
+            "x": 500,
+            "y": 248
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "fill": "#d5e8d9",
+            "h": 228,
+            "id": "r5",
+            "kind": "rect",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 1,
+            "w": 80,
+            "x": 610,
+            "y": 192
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "rel",
+            "kind": "latex",
+            "size": 36,
+            "tex": "s = \\text{area under } v\\text{-}t = \\int v\\,dt",
+            "x": 140,
+            "y": 70
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "Displacement is the area stacked under the v–t graph"
+        }
+      ]
+    },
+    {
+      "caption": "The SUVAT pair — and the gradient trap",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "With constant acceleration a, velocity grows as v equals u plus a t, and displacement accumulates as u t plus half a t squared. But watch the trap: a straight s-t graph has constant gradient — and the gradient of s-t is velocity, so the velocity is constant and the acceleration is zero.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "v",
+            "kind": "latex",
+            "size": 50,
+            "tex": "v = u + at",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "s",
+            "kind": "latex",
+            "size": 50,
+            "tex": "s = ut + \\frac{1}{2}at^2",
+            "x": 120,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "setup",
+            "kind": "text",
+            "size": 28,
+            "text": "A straight s–t graph has constant gradient…",
+            "x": 120,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "trap",
+            "kind": "text",
+            "size": 40,
+            "text": "…so the acceleration is constant?",
+            "x": 140,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "fix",
+            "kind": "text",
+            "size": 26,
+            "text": "No: constant gradient of s–t means constant velocity — a = 0",
+            "x": 120,
+            "y": 460
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "trap"
+        },
+        {
+          "at_ms": 6700,
+          "do": "caption",
+          "text": "Read the gradient for the graph in front of you"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math kinematics: reading motion from s–t and v–t graphs",
+  "topic": "a-kinematics"
+}
