@@ -383,13 +383,16 @@ test('validator rejects a move whose to fields do not match the circle target ki
     'expected an exact-field move error, got: ' + problems.join('; '));
 });
 
-test('validator rejects a move with a partial to field set on an arrow target', () => {
+test('validator accepts a move with a partial to field set on an arrow target', () => {
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = { id: 'a', kind: 'arrow', x1: 10, y1: 10, x2: 50, y2: 50 };
-  spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'a', to: { x1: 20, y1: 20 }, dur_ms: 500 });
-  const problems = validateSpec(spec);
-  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('"arrow"') && p.includes('x1,y1,x2,y2')),
-    'expected an exact-field move error, got: ' + problems.join('; '));
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
+  spec.scenes[0].steps.push({
+    at_ms: atMsAfter(spec.scenes[0].steps), do: 'move', target: 'a',
+    to: { x1: 20, y1: 20 }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'partial valid field sets are accepted by the size-field move contract');
 });
 
 test('validator accepts a move whose to fields exactly match the target kind', () => {
@@ -409,6 +412,62 @@ test('validator accepts a move whose to fields exactly match the target kind', (
   });
   assert.deepEqual(validateSpec(spec), [],
     'arrow + {x1,y1,x2,y2} must be accepted');
+});
+
+test('validator accepts a move that resizes a rect via size fields only', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'bar', kind: 'rect', x: 20, y: 40, w: 40, h: 30 };
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
+  spec.scenes[0].steps.push({
+    at_ms: atMsAfter(spec.scenes[0].steps), do: 'move', target: 'bar',
+    to: { w: 80 }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'rect + {w} must be accepted (growing bar chart staple)');
+});
+
+test('validator accepts a move that grows a circle via its r field', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
+  spec.scenes[0].steps.push({
+    at_ms: atMsAfter(spec.scenes[0].steps), do: 'move', target: 'dot',
+    to: { r: 40 }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'circle + {r} must be accepted');
+});
+
+test('validator accepts a move mixing position and size fields on a rect', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'bar', kind: 'rect', x: 20, y: 40, w: 40, h: 30 };
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
+  spec.scenes[0].steps.push({
+    at_ms: atMsAfter(spec.scenes[0].steps), do: 'move', target: 'bar',
+    to: { x: 30, y: 50, w: 60, h: 40 }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'rect + {x,y,w,h} must be accepted');
+});
+
+test('validator rejects an empty move to and kind-invalid size fields', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape = { id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 20 };
+  spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'dot', to: {}, dur_ms: 500 });
+  let problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('at least one numeric field')),
+    'expected an empty-to error, got: ' + problems.join('; '));
+  spec.scenes[0].steps.pop();
+  spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'dot', to: { w: 60 }, dur_ms: 500 });
+  problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('"circle"') && p.includes('invalid')),
+    'expected a w-on-circle error, got: ' + problems.join('; '));
+  spec.scenes[0].steps[0].shape = { id: 'bar', kind: 'rect', x: 20, y: 40, w: 40, h: 30 };
+  spec.scenes[0].steps.pop();
+  spec.scenes[0].steps.push({ at_ms: 100, do: 'move', target: 'bar', to: { r: 20 }, dur_ms: 500 });
+  problems = validateSpec(spec);
+  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('"rect"') && p.includes('invalid')),
+    'expected an r-on-rect error, got: ' + problems.join('; '));
 });
 
 test('validator rejects a move without dur_ms, and one with a non-numeric dur_ms', () => {
@@ -464,6 +523,31 @@ test('system template documents the hardened move contract', () => {
     'system prompt must give cx/cy as the position fields for circle');
   assert.ok(system.includes('x1/y1/x2/y2 for line/arrow'),
     'system prompt must give x1/y1/x2/y2 as the position fields for line/arrow');
+  // (d) size fields added to the contract: w/h for rect, r for circle
+  assert.ok(system.includes('w/h for rect'),
+    'system prompt must document w/h as the rect size fields');
+  assert.ok(system.includes('r for circle'),
+    'system prompt must document r as the circle size field');
+});
+
+test('player exports a pure per-field tween interpolator', () => {
+  const player = require('../player/player.js');
+  assert.equal(typeof player.interpFields, 'function', 'interpFields must be exported');
+  // Mid-tween linearity on size fields.
+  assert.equal(player.interpFields({ w: 40 }, { w: 80 }, 0.5).w, 60,
+    'rect w 40->80 at p=0.5 must be 60');
+  assert.equal(player.interpFields({ r: 10 }, { r: 20 }, 0.5).r, 15,
+    'circle r 10->20 at p=0.5 must be 15');
+  // Position-only from/to behaves as before.
+  assert.deepEqual(player.interpFields({ x: 0, y: 0 }, { x: 100, y: 50 }, 0.5),
+    { x: 50, y: 25 });
+  // A to-field with no starting value in from is skipped (no NaN tween).
+  assert.deepEqual(player.interpFields({}, { w: 80 }, 0.5), {});
+  // Endpoints hold: p=0 returns from, p=1 returns to for shared fields.
+  assert.deepEqual(player.interpFields({ w: 40, x: 0 }, { w: 80, x: 100 }, 0),
+    { w: 40, x: 0 });
+  assert.deepEqual(player.interpFields({ w: 40, x: 0 }, { w: 80, x: 100 }, 1),
+    { w: 80, x: 100 });
 });
 
 test('system template requires mechanism-first animation', () => {
