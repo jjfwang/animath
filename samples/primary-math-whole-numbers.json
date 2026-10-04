@@ -1,0 +1,910 @@
+{
+  "animath": "0.1",
+  "title": "Whole numbers: place value, adding, subtracting, multiplying",
+  "level": "primary",
+  "subject": "math",
+  "topic": "whole-numbers",
+  "kind": "concept",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Thousands, hundreds, tens, ones",
+      "narration": "Write 3 452 and name each place. Three thousands, four hundreds, five tens, two ones.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "q",
+            "kind": "text",
+            "x": 120,
+            "y": 90,
+            "text": "3 452 — read the places",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "col0",
+            "kind": "rect",
+            "x": 120,
+            "y": 160,
+            "w": 150,
+            "h": 140,
+            "fill": "#f2e2c9",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "dig0",
+            "kind": "text",
+            "x": 195,
+            "y": 250,
+            "text": "3",
+            "size": 56,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "lab0",
+            "kind": "text",
+            "x": 195,
+            "y": 345,
+            "text": "Thousands",
+            "size": 26,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "col1",
+            "kind": "rect",
+            "x": 290,
+            "y": 160,
+            "w": 150,
+            "h": 140,
+            "fill": "#d9e8f5",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "dig1",
+            "kind": "text",
+            "x": 365,
+            "y": 250,
+            "text": "4",
+            "size": 56,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "lab1",
+            "kind": "text",
+            "x": 365,
+            "y": 345,
+            "text": "Hundreds",
+            "size": 26,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "col2",
+            "kind": "rect",
+            "x": 460,
+            "y": 160,
+            "w": 150,
+            "h": 140,
+            "fill": "#d9f2d9",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "dig2",
+            "kind": "text",
+            "x": 535,
+            "y": 250,
+            "text": "5",
+            "size": 56,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "lab2",
+            "kind": "text",
+            "x": 535,
+            "y": 345,
+            "text": "Tens",
+            "size": 26,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "col3",
+            "kind": "rect",
+            "x": 630,
+            "y": 160,
+            "w": 150,
+            "h": 140,
+            "fill": "#f5d9d9",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "dig3",
+            "kind": "text",
+            "x": 705,
+            "y": 250,
+            "text": "2",
+            "size": 56,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "lab3",
+            "kind": "text",
+            "x": 705,
+            "y": 345,
+            "text": "Ones",
+            "size": 26,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "caption",
+          "text": "3 452 = 3 thousands + 4 hundreds + 5 tens + 2 ones"
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "target": "dig3"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "Addition with regrouping: 247 + 385",
+      "narration": "Add column by column, starting from the ones. Regroup ten of one place into one of the next.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "247 + 385 — add column by column",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "r1",
+            "kind": "text",
+            "x": 330,
+            "y": 180,
+            "text": "247",
+            "size": 48
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "r2",
+            "kind": "text",
+            "x": 330,
+            "y": 250,
+            "text": "+ 385",
+            "size": 48
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "ln",
+            "kind": "line",
+            "x1": 280,
+            "y1": 300,
+            "x2": 480,
+            "y2": 300,
+            "stroke": "#1a1a1a",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "text",
+            "x": 430,
+            "y": 140,
+            "text": "1",
+            "size": 32,
+            "color": "#b33"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "n1",
+            "kind": "text",
+            "x": 120,
+            "y": 215,
+            "text": "ones: 7 + 5 = 12 -> write 2, carry 1",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "n2",
+            "kind": "text",
+            "x": 120,
+            "y": 285,
+            "text": "tens: 4 + 8 + 1 = 13 -> write 3, carry 1",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "n3",
+            "kind": "text",
+            "x": 120,
+            "y": 405,
+            "text": "hundreds: 2 + 3 + 1 = 6",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "r3",
+            "kind": "text",
+            "x": 330,
+            "y": 370,
+            "text": "632",
+            "size": 48,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "target": "r3"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Subtraction with regrouping: 632 − 247",
+      "narration": "Subtract column by column too. When the top digit is smaller, borrow one from the next place.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "632 − 247 — borrow when needed",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "r1",
+            "kind": "text",
+            "x": 330,
+            "y": 180,
+            "text": "632",
+            "size": 48
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "r2",
+            "kind": "text",
+            "x": 330,
+            "y": 250,
+            "text": "− 247",
+            "size": 48
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "ln",
+            "kind": "line",
+            "x1": 280,
+            "y1": 300,
+            "x2": 480,
+            "y2": 300,
+            "stroke": "#1a1a1a",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "n1",
+            "kind": "text",
+            "x": 120,
+            "y": 215,
+            "text": "ones: borrow 1 ten -> 12 - 7 = 5",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "n2",
+            "kind": "text",
+            "x": 120,
+            "y": 285,
+            "text": "tens: borrow 1 hundred -> 12 - 4 = 8",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "n3",
+            "kind": "text",
+            "x": 120,
+            "y": 405,
+            "text": "hundreds: 5 - 2 = 3",
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "r3",
+            "kind": "text",
+            "x": 330,
+            "y": 370,
+            "text": "385",
+            "size": 48,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "emphasize",
+          "target": "r3"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Multiplication is repeated addition",
+      "narration": "Four groups of three dots. Count them all: twelve. That is what 4 times 3 means.",
+      "duration_ms": 8000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "4 × 3 — four groups of three",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "g00",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 180,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 850,
+          "do": "show",
+          "shape": {
+            "id": "g01",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 180,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "g02",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 180,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "gl0",
+            "kind": "text",
+            "x": 420,
+            "y": 190,
+            "text": "3",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "g10",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 250,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1550,
+          "do": "show",
+          "shape": {
+            "id": "g11",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 250,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "g12",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 250,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "gl1",
+            "kind": "text",
+            "x": 420,
+            "y": 260,
+            "text": "3",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "g20",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 320,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2250,
+          "do": "show",
+          "shape": {
+            "id": "g21",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 320,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "g22",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 320,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "gl2",
+            "kind": "text",
+            "x": 420,
+            "y": 330,
+            "text": "3",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "g30",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 390,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2950,
+          "do": "show",
+          "shape": {
+            "id": "g31",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 390,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "g32",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 390,
+            "r": 14,
+            "fill": "#f2c14e",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "gl3",
+            "kind": "text",
+            "x": 420,
+            "y": 400,
+            "text": "3",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "caption",
+          "text": "3 + 3 + 3 + 3 = 12, so 4 × 3 = 12"
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "text",
+            "x": 560,
+            "y": 300,
+            "text": "4 × 3 = 12",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "target": "eq"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "caption": "One worked example: 45 + 25 − 30",
+      "narration": "45 stickers, 25 more arrive, then 30 are given away. Work left to right: add first, then subtract.",
+      "duration_ms": 8000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "45 + 25 − 30 — work left to right",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "ctx",
+            "kind": "text",
+            "x": 120,
+            "y": 150,
+            "text": "45 stickers, 25 more arrive, 30 given away",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "st1",
+            "kind": "text",
+            "x": 120,
+            "y": 240,
+            "text": "45 + 25 = 70",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "mv70",
+            "kind": "text",
+            "x": 120,
+            "y": 330,
+            "text": "70",
+            "size": 44,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "mv70",
+          "to": {
+            "x": 120,
+            "y": 410
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "st2",
+            "kind": "text",
+            "x": 260,
+            "y": 410,
+            "text": "− 30 = 40",
+            "size": 44,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "caption",
+          "text": "Left to right: + and − have equal rank"
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "target": "st2"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "caption": "Misconception: the zero in 5 0 6 7 holds its place",
+      "narration": "Some children read 5 0 6 7 as 567, skipping the zero. But the zero holds the hundreds place.",
+      "duration_ms": 8000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "d5",
+            "kind": "text",
+            "x": 120,
+            "y": 230,
+            "text": "5",
+            "size": 64
+          }
+        },
+        {
+          "at_ms": 200,
+          "do": "show",
+          "shape": {
+            "id": "d0",
+            "kind": "text",
+            "x": 230,
+            "y": 230,
+            "text": "0",
+            "size": 64,
+            "color": "#b33"
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "d6",
+            "kind": "text",
+            "x": 340,
+            "y": 230,
+            "text": "6",
+            "size": 64
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "d7",
+            "kind": "text",
+            "x": 450,
+            "y": 230,
+            "text": "7",
+            "size": 64
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "read",
+            "kind": "text",
+            "x": 120,
+            "y": 330,
+            "text": "five thousand sixty-seven = 5 067",
+            "size": 34
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "warn",
+            "kind": "text",
+            "x": 120,
+            "y": 420,
+            "text": "Skip the zero and you get 567 — wrong!",
+            "size": 34,
+            "color": "#b33"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "hide",
+          "target": "d0"
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "d6",
+          "to": {
+            "x": 230,
+            "y": 230
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "d7",
+          "to": {
+            "x": 340,
+            "y": 230
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5200,
+          "do": "caption",
+          "text": "A zero never disappears: it holds its place"
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "target": "read"
+        }
+      ]
+    }
+  ]
+}
