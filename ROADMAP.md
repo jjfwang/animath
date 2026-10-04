@@ -16,38 +16,37 @@ issue; items become GitHub issues (the umbrella is #1).
 
 ## R-1 — Sample packs (loop priority: coverage across the syllabus)
 
-One issue per pack; each pack is 4–6 hand-checked specs that validate clean
-and play correctly in the demo page.
+All five packs shipped: 69 hand-authored samples, 67/67 syllabus slugs covered.
 
-- [ ] Primary math pack: decimals, percentage, ratio, area, speed
-- [ ] Primary science pack: water cycle, human body systems, forces
-- [ ] Secondary E-Math pack: trigonometry, mensuration, probability
-- [ ] Secondary science pack: electricity, acids/bases, cells
-- [ ] JC pack: differentiation intro, vectors, electromagnetism
+- [x] Primary math pack: decimals, percentage, ratio, area, speed
+- [x] Primary science pack: water cycle, human body systems, forces
+- [x] Secondary E-Math pack: trigonometry, mensuration, probability
+- [x] Secondary science pack: electricity, acids/bases, cells
+- [x] JC pack: differentiation intro, vectors, electromagnetism
 
 ## R-2 — Player capabilities
 
-- [ ] KaTeX rendering (`latex` shape kind; unicode `text` keeps working)
-- [ ] Scene thumbnails / filmstrip navigation
-- [ ] Export: record a scene sequence to WebM via canvas capture
-- [ ] Keyboard shortcuts and reduced-motion support
+- [x] KaTeX rendering (`latex` shape kind; unicode `text` keeps working) — issue #3
+- [x] Filmstrip navigation (one labeled button per scene) — issue #95
+- [ ] Export: record a scene sequence to WebM via canvas capture (deferred — too big for one slice)
+- [x] Keyboard shortcuts and reduced-motion support — issue #93
 
 ## R-3 — Generator capabilities
 
-- [ ] Problem mode: question in → animated worked solution out (prompt + UI)
+- [x] Problem mode: question in → animated worked solution out (prompt + UI, shipped in the initial web UI + PROMPTS.md rule 7)
 - [x] Misconception library: per-topic "wrong turn" beats the LLM must animate (67 seed entries across all bands, issues #101 #103 #105 #107 #109)
-- [ ] Spec repair pass: validator errors fed back to the LLM automatically
-- [ ] Multi-model presets (OpenAI, Anthropic-via-proxy, local Ollama)
+- [x] Spec repair pass: validator errors fed back to the LLM automatically — issue #27
+- [x] Multi-model presets (OpenAI, Anthropic-via-proxy, local Ollama) — issue #99
 
 ## R-4 — Teaching integration
 
-- [ ] Embed API: `animath.embed(spec|topic)` for iframe use in lessons
+- [x] Embed API: `AnimathEmbed.mount(container, specOrSlug, opts)` for iframe use in lessons — issue #97
 - [ ] Aceceed live-teaching pilot: generate an explainer mid-lesson from the
-      tutor's whiteboard context
-- [ ] Teacher rubric: 5-dimension quality check teachers run on generations
+      tutor's whiteboard context (owner activity — real learners needed)
+- [x] Teacher rubric: 5-dimension quality check teachers run on generations — issue #111
 
 ## R-5 — Quality & docs
 
 - [ ] Headless render check in the loop (screenshot each sample per run)
 - [ ] CONTRIBUTING.md and issue templates
-- [ ] Gallery page: all samples playable without an API key
+- [x] Gallery page: all samples playable without an API key — issue #5

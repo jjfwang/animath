@@ -58,6 +58,8 @@ student need ──► prompt builder ──► LLM (your key) ──► animati
 - Keyboard shortcuts in the player: Space for play/pause, left/right arrows
   for prev/next scene; reduced-motion honored (no animation when the OS
   prefers-reduced-motion setting is on).
+- Scene filmstrip: one labeled button per scene jumps straight to it; the
+  active scene is highlighted as you play.
 - `generator/` builds the prompt and calls the LLM (OpenAI-compatible).
 - `web/` is the student-facing single page app.
 - `samples/` are hand-authored specs that prove the player works with no LLM.
