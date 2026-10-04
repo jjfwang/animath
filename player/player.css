@@ -68,6 +68,29 @@
   font-size: 14px;
   background: #fff;
 }
+.ap-filmstrip {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  margin: 4px;
+  padding: 4px 2px;
+}
+.ap-filmstrip button {
+  border: 1px solid #d8d2c4;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+.ap-filmstrip button:hover { background: #f4f0e6; }
+.ap-filmstrip button[aria-current="true"] {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #fff;
+}
 .ap-error {
   margin: 12px 4px;
   padding: 12px;

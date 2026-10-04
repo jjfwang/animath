@@ -66,6 +66,17 @@
       .replace(/\\([a-zA-Z]+)/g, '$1');
   }
 
+  // One filmstrip label per scene: 1-based index plus the scene id,
+  // e.g. "1 · s1". DOM-free; mount() builds the per-scene nav buttons
+  // from this. A missing/empty id falls back to the 0-based index.
+  function stripLabels(scenes) {
+    return (scenes || []).map(function (scene, i) {
+      var id = (scene && scene.id !== undefined && scene.id !== null &&
+        String(scene.id) !== '') ? String(scene.id) : String(i);
+      return (i + 1) + ' · ' + id;
+    });
+  }
+
   // Map a keyboard event to a player action. DOM-free: takes an event-like
   // {key, target} so Node tests can call it directly. Returns one of
   // 'toggle' | 'prev' | 'next', or null for unmapped keys and for keys
@@ -271,6 +282,21 @@
     var tlabel = controls.querySelector('[data-a="tlabel"]');
     var speedSel = controls.querySelector('[data-a="speed"]');
 
+    // Filmstrip nav: one button per scene. Each button jumps through the
+    // same goScene closure the prev/next controls use.
+    var strip = document.createElement('div');
+    strip.className = 'ap-filmstrip';
+    var stripBtns = stripLabels(spec.scenes).map(function (label, i) {
+      var b = document.createElement('button');
+      b.setAttribute('data-scene', String(i));
+      b.setAttribute('aria-label', 'Go to scene ' + (i + 1));
+      b.textContent = label;
+      b.addEventListener('click', function () { goScene(i, 0); });
+      strip.appendChild(b);
+      return b;
+    });
+    container.appendChild(strip);
+
     var state = {
       sceneIdx: 0,
       sceneTime: 0,       // ms into current scene
@@ -381,11 +407,22 @@
       updateChrome();
     }
 
+    // Mark only the current scene's filmstrip button as active. Called
+    // from updateChrome() so play, pause, scrub, goScene, and keyboard
+    // all keep the highlight in sync.
+    function updateStrip() {
+      stripBtns.forEach(function (b, i) {
+        if (i === state.sceneIdx) b.setAttribute('aria-current', 'true');
+        else b.removeAttribute('aria-current');
+      });
+    }
+
     function updateChrome() {
       var scene = spec.scenes[state.sceneIdx];
       scrub.value = String(Math.round((state.sceneTime / scene.duration_ms) * 1000));
       tlabel.textContent = fmt(state.sceneTime) + ' / ' + fmt(scene.duration_ms);
       btnPlay.innerHTML = state.playing ? '&#10074;&#10074;' : '&#9654;';
+      updateStrip();
     }
 
     function tick(now) {
@@ -525,7 +562,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
