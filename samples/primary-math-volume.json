@@ -1,20 +1,17 @@
 {
   "animath": "0.1",
-  "title": "Volume: cubes, cuboids, litres",
-  "level": "primary",
-  "subject": "math",
-  "topic": "volume",
-  "kind": "concept",
   "canvas": {
-    "width": 960,
-    "height": 540
+    "height": 540,
+    "width": 960
   },
+  "kind": "concept",
+  "level": "primary",
   "scenes": [
     {
-      "id": "s1",
       "caption": "Volume as unit-cube counting",
-      "narration": "Volume is how much space a shape takes up. Count it in unit cubes: one, two, three, four, five, six.",
       "duration_ms": 10000,
+      "id": "s1",
+      "narration": "Volume is how much space a shape takes up. Count it in unit cubes: one, two, three, four, five, six.",
       "steps": [
         {
           "at_ms": 0,
@@ -22,196 +19,256 @@
           "shape": {
             "id": "q",
             "kind": "text",
+            "size": 40,
             "text": "Volume: how much space it takes",
             "x": 120,
-            "y": 90,
-            "size": 40
+            "y": 90
           }
         },
         {
           "at_ms": 700,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 46,
             "id": "c0",
             "kind": "rect",
-            "x": 120,
-            "y": 260,
-            "w": 46,
-            "h": 46,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 46,
+            "x": 600,
+            "y": 283
           }
         },
         {
-          "at_ms": 1100,
+          "at_ms": 800,
+          "do": "move",
+          "dur_ms": 700,
+          "target": "c0",
+          "to": {
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1550,
           "do": "show",
           "shape": {
             "id": "n0",
             "kind": "text",
+            "size": 24,
             "text": "1",
             "x": 137,
-            "y": 294,
-            "size": 24
+            "y": 294
           }
         },
         {
           "at_ms": 1600,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 46,
             "id": "c1",
             "kind": "rect",
-            "x": 166,
-            "y": 260,
-            "w": 46,
-            "h": 46,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 46,
+            "x": 600,
+            "y": 283
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 1700,
+          "do": "move",
+          "dur_ms": 700,
+          "target": "c1",
+          "to": {
+            "x": 166,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 2450,
           "do": "show",
           "shape": {
             "id": "n1",
             "kind": "text",
+            "size": 24,
             "text": "2",
             "x": 183,
-            "y": 294,
-            "size": 24
+            "y": 294
           }
         },
         {
           "at_ms": 2500,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 46,
             "id": "c2",
             "kind": "rect",
-            "x": 212,
-            "y": 260,
-            "w": 46,
-            "h": 46,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 46,
+            "x": 600,
+            "y": 283
           }
         },
         {
-          "at_ms": 2900,
+          "at_ms": 2600,
+          "do": "move",
+          "dur_ms": 700,
+          "target": "c2",
+          "to": {
+            "x": 212,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 3350,
           "do": "show",
           "shape": {
             "id": "n2",
             "kind": "text",
+            "size": 24,
             "text": "3",
             "x": 229,
-            "y": 294,
-            "size": 24
+            "y": 294
           }
         },
         {
           "at_ms": 3400,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 46,
             "id": "c3",
             "kind": "rect",
-            "x": 120,
-            "y": 306,
-            "w": 46,
-            "h": 46,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 46,
+            "x": 600,
+            "y": 283
           }
         },
         {
-          "at_ms": 3800,
+          "at_ms": 3500,
+          "do": "move",
+          "dur_ms": 700,
+          "target": "c3",
+          "to": {
+            "x": 120,
+            "y": 306
+          }
+        },
+        {
+          "at_ms": 4250,
           "do": "show",
           "shape": {
             "id": "n3",
             "kind": "text",
+            "size": 24,
             "text": "4",
             "x": 137,
-            "y": 340,
-            "size": 24
+            "y": 340
           }
         },
         {
           "at_ms": 4300,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 46,
             "id": "c4",
             "kind": "rect",
-            "x": 166,
-            "y": 306,
-            "w": 46,
-            "h": 46,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 46,
+            "x": 600,
+            "y": 283
           }
         },
         {
-          "at_ms": 4700,
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 700,
+          "target": "c4",
+          "to": {
+            "x": 166,
+            "y": 306
+          }
+        },
+        {
+          "at_ms": 5150,
           "do": "show",
           "shape": {
             "id": "n4",
             "kind": "text",
+            "size": 24,
             "text": "5",
             "x": 183,
-            "y": 340,
-            "size": 24
+            "y": 340
           }
         },
         {
           "at_ms": 5200,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 46,
             "id": "c5",
             "kind": "rect",
-            "x": 212,
-            "y": 306,
-            "w": 46,
-            "h": 46,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 46,
+            "x": 600,
+            "y": 283
           }
         },
         {
-          "at_ms": 5600,
+          "at_ms": 5300,
+          "do": "move",
+          "dur_ms": 700,
+          "target": "c5",
+          "to": {
+            "x": 212,
+            "y": 306
+          }
+        },
+        {
+          "at_ms": 6050,
           "do": "show",
           "shape": {
             "id": "n5",
             "kind": "text",
+            "size": 24,
             "text": "6",
             "x": 229,
-            "y": 340,
-            "size": 24
+            "y": 340
           }
         },
         {
-          "at_ms": 6200,
+          "at_ms": 6600,
           "do": "show",
           "shape": {
             "id": "vlab",
             "kind": "text",
+            "size": 34,
             "text": "volume = 6 unit cubes",
             "x": 420,
-            "y": 300,
-            "size": 34
+            "y": 300
           }
         },
         {
-          "at_ms": 7000,
+          "at_ms": 7400,
           "do": "show",
           "shape": {
             "id": "vdef",
             "kind": "text",
+            "size": 28,
             "text": "volume counts the unit cubes that fill a shape",
             "x": 120,
-            "y": 480,
-            "size": 28
+            "y": 480
           }
         },
         {
@@ -222,10 +279,10 @@
       ]
     },
     {
-      "id": "s2",
       "caption": "Cuboid volume = length × width × height",
-      "narration": "Count one layer: four by three is twelve cubes. Two layers stacked gives twelve times two: twenty-four unit cubes.",
       "duration_ms": 9000,
+      "id": "s2",
+      "narration": "Count one layer: four by three is twelve cubes. Two layers stacked gives twelve times two: twenty-four unit cubes.",
       "steps": [
         {
           "at_ms": 0,
@@ -233,10 +290,10 @@
           "shape": {
             "id": "q",
             "kind": "text",
+            "size": 40,
             "text": "Volume of a cuboid",
             "x": 120,
-            "y": 90,
-            "size": 40
+            "y": 90
           }
         },
         {
@@ -245,439 +302,559 @@
           "shape": {
             "id": "hint",
             "kind": "text",
+            "size": 24,
             "text": "one layer = length × width; stack the layers for height",
             "x": 120,
-            "y": 130,
-            "size": 24
+            "y": 130
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b00",
             "kind": "rect",
-            "x": 120,
-            "y": 230,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 120,
+            "y": 230
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b01",
             "kind": "rect",
-            "x": 160,
-            "y": 230,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 160,
+            "y": 230
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b02",
             "kind": "rect",
-            "x": 200,
-            "y": 230,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 200,
+            "y": 230
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b03",
             "kind": "rect",
-            "x": 240,
-            "y": 230,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 240,
+            "y": 230
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1300,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b10",
             "kind": "rect",
-            "x": 120,
-            "y": 270,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 120,
+            "y": 270
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1300,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b11",
             "kind": "rect",
-            "x": 160,
-            "y": 270,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 160,
+            "y": 270
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1300,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b12",
             "kind": "rect",
-            "x": 200,
-            "y": 270,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 200,
+            "y": 270
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1300,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b13",
             "kind": "rect",
-            "x": 240,
-            "y": 270,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 240,
+            "y": 270
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b20",
             "kind": "rect",
-            "x": 120,
-            "y": 310,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 120,
+            "y": 310
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b21",
             "kind": "rect",
-            "x": 160,
-            "y": 310,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 160,
+            "y": 310
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b22",
             "kind": "rect",
-            "x": 200,
-            "y": 310,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 200,
+            "y": 310
           }
         },
         {
-          "at_ms": 800,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
+            "fill": "#dbeafe",
+            "h": 40,
             "id": "b23",
             "kind": "rect",
-            "x": 240,
-            "y": 310,
-            "w": 40,
-            "h": 40,
-            "fill": "#dbeafe",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 240,
+            "y": 310
           }
         },
         {
-          "at_ms": 1200,
+          "at_ms": 2200,
           "do": "show",
           "shape": {
             "id": "lay",
             "kind": "text",
+            "size": 28,
             "text": "bottom layer: 4 × 3 = 12 cubes",
             "x": 480,
-            "y": 260,
-            "size": 28
+            "y": 260
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t00",
             "kind": "rect",
-            "x": 172,
-            "y": 178,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 172,
+            "y": 8
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t01",
             "kind": "rect",
-            "x": 212,
-            "y": 178,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 212,
+            "y": 8
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t02",
             "kind": "rect",
-            "x": 252,
-            "y": 178,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 252,
+            "y": 8
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t03",
             "kind": "rect",
-            "x": 292,
-            "y": 178,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 292,
+            "y": 8
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t10",
             "kind": "rect",
-            "x": 172,
-            "y": 218,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 172,
+            "y": 48
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t11",
             "kind": "rect",
-            "x": 212,
-            "y": 218,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 212,
+            "y": 48
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t12",
             "kind": "rect",
-            "x": 252,
-            "y": 218,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 252,
+            "y": 48
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t13",
             "kind": "rect",
-            "x": 292,
-            "y": 218,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 292,
+            "y": 48
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t20",
             "kind": "rect",
-            "x": 172,
-            "y": 258,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 172,
+            "y": 88
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t21",
             "kind": "rect",
-            "x": 212,
-            "y": 258,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 212,
+            "y": 88
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t22",
             "kind": "rect",
-            "x": 252,
-            "y": 258,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 252,
+            "y": 88
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "fill": "#bae6fd",
+            "h": 40,
             "id": "t23",
             "kind": "rect",
-            "x": 292,
-            "y": 258,
-            "w": 40,
-            "h": 40,
-            "fill": "#bae6fd",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 40,
+            "x": 292,
+            "y": 88
           }
         },
         {
-          "at_ms": 3400,
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t00",
+          "to": {
+            "x": 172,
+            "y": 178
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t01",
+          "to": {
+            "x": 212,
+            "y": 178
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t02",
+          "to": {
+            "x": 252,
+            "y": 178
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t03",
+          "to": {
+            "x": 292,
+            "y": 178
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t10",
+          "to": {
+            "x": 172,
+            "y": 218
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t11",
+          "to": {
+            "x": 212,
+            "y": 218
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t12",
+          "to": {
+            "x": 252,
+            "y": 218
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t13",
+          "to": {
+            "x": 292,
+            "y": 218
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t20",
+          "to": {
+            "x": 172,
+            "y": 258
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t21",
+          "to": {
+            "x": 212,
+            "y": 258
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t22",
+          "to": {
+            "x": 252,
+            "y": 258
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "move",
+          "dur_ms": 1700,
+          "target": "t23",
+          "to": {
+            "x": 292,
+            "y": 258
+          }
+        },
+        {
+          "at_ms": 4700,
           "do": "show",
           "shape": {
             "id": "lay2",
             "kind": "text",
+            "size": 28,
             "text": "two layers stacked: 12 × 2",
             "x": 480,
-            "y": 305,
-            "size": 28
+            "y": 305
           }
         },
         {
-          "at_ms": 4400,
+          "at_ms": 5300,
           "do": "show",
           "shape": {
+            "color": "#1f7a3a",
             "id": "ans",
             "kind": "text",
+            "size": 34,
             "text": "volume = 4 × 3 × 2 = 24",
             "x": 480,
-            "y": 370,
-            "size": 34,
-            "color": "#1f7a3a"
+            "y": 370
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 5900,
           "do": "show",
           "shape": {
             "id": "rule",
             "kind": "text",
+            "size": 30,
             "text": "cuboid volume = length × width × height",
             "x": 120,
-            "y": 480,
-            "size": 30
+            "y": 480
           }
         },
         {
-          "at_ms": 6400,
+          "at_ms": 6600,
           "do": "emphasize",
-          "target": "ans",
-          "dur_ms": 900
+          "dur_ms": 900,
+          "target": "ans"
         },
         {
-          "at_ms": 7400,
+          "at_ms": 7500,
           "do": "caption",
           "text": "Count one layer, then multiply by the layers"
         }
       ]
     },
     {
-      "id": "s3",
       "caption": "Liquid volume: millilitres and litres",
-      "narration": "Liquids are measured in millilitres and litres. One litre is one thousand millilitres: small drinks in mL, big jugs in L.",
       "duration_ms": 8000,
+      "id": "s3",
+      "narration": "Liquids are measured in millilitres and litres. One litre is one thousand millilitres: small drinks in mL, big jugs in L.",
       "steps": [
         {
           "at_ms": 0,
@@ -685,139 +862,159 @@
           "shape": {
             "id": "q",
             "kind": "text",
+            "size": 40,
             "text": "Measuring liquid: mL and L",
             "x": 120,
-            "y": 90,
-            "size": 40
+            "y": 90
           }
         },
         {
           "at_ms": 700,
           "do": "show",
           "shape": {
+            "fill": "none",
+            "h": 230,
             "id": "cup1",
             "kind": "rect",
-            "x": 150,
-            "y": 200,
-            "w": 150,
-            "h": 230,
-            "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 150,
+            "y": 200
           }
         },
         {
           "at_ms": 1100,
           "do": "show",
           "shape": {
+            "fill": "#7fb3e8",
+            "h": 5,
             "id": "fill1",
             "kind": "rect",
-            "x": 155,
-            "y": 320,
-            "w": 140,
-            "h": 105,
-            "fill": "#7fb3e8",
             "stroke": "none",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 140,
+            "x": 155,
+            "y": 425
           }
         },
         {
-          "at_ms": 1500,
+          "at_ms": 1200,
+          "do": "move",
+          "dur_ms": 1400,
+          "target": "fill1",
+          "to": {
+            "h": 105,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 2700,
           "do": "show",
           "shape": {
             "id": "lab1",
             "kind": "text",
+            "size": 30,
             "text": "500 mL",
             "x": 165,
-            "y": 470,
-            "size": 30
+            "y": 470
           }
         },
         {
-          "at_ms": 2100,
+          "at_ms": 3000,
           "do": "show",
           "shape": {
+            "fill": "none",
+            "h": 230,
             "id": "cup2",
             "kind": "rect",
-            "x": 480,
-            "y": 200,
-            "w": 150,
-            "h": 230,
-            "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 150,
+            "x": 480,
+            "y": 200
           }
         },
         {
-          "at_ms": 2500,
+          "at_ms": 3300,
           "do": "show",
           "shape": {
+            "fill": "#7fb3e8",
+            "h": 5,
             "id": "fill2",
             "kind": "rect",
-            "x": 485,
-            "y": 205,
-            "w": 140,
-            "h": 220,
-            "fill": "#7fb3e8",
             "stroke": "none",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 140,
+            "x": 485,
+            "y": 425
           }
         },
         {
-          "at_ms": 2900,
+          "at_ms": 3400,
+          "do": "move",
+          "dur_ms": 1600,
+          "target": "fill2",
+          "to": {
+            "h": 220,
+            "y": 205
+          }
+        },
+        {
+          "at_ms": 5100,
           "do": "show",
           "shape": {
             "id": "lab2",
             "kind": "text",
+            "size": 30,
             "text": "1 L",
             "x": 520,
-            "y": 470,
-            "size": 30
+            "y": 470
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 5600,
           "do": "show",
           "shape": {
+            "color": "#1f7a3a",
             "id": "conv",
             "kind": "text",
+            "size": 36,
             "text": "1 L = 1000 mL",
             "x": 680,
-            "y": 300,
-            "size": 36,
-            "color": "#1f7a3a"
+            "y": 300
           }
         },
         {
-          "at_ms": 4400,
+          "at_ms": 6400,
           "do": "show",
           "shape": {
             "id": "tip",
             "kind": "text",
+            "size": 26,
             "text": "mL for small, L for big",
             "x": 640,
-            "y": 355,
-            "size": 26
+            "y": 355
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 7000,
           "do": "emphasize",
-          "target": "conv",
-          "dur_ms": 900
+          "dur_ms": 900,
+          "target": "conv"
         },
         {
-          "at_ms": 6400,
+          "at_ms": 7500,
           "do": "caption",
           "text": "A thousand millilitres make one litre"
         }
       ]
     },
     {
-      "id": "s4",
       "caption": "Misconception: taller container, same volume",
-      "narration": "The tall stack looks bigger, but both use exactly six cubes. Same count, same volume: shape never changes the amount.",
       "duration_ms": 8000,
+      "id": "s4",
+      "narration": "The tall stack looks bigger, but both use exactly six cubes. Same count, same volume: shape never changes the amount.",
       "steps": [
         {
           "at_ms": 0,
@@ -825,100 +1022,100 @@
           "shape": {
             "id": "q",
             "kind": "text",
+            "size": 40,
             "text": "Watch out: taller ≠ more volume",
             "x": 120,
-            "y": 90,
-            "size": 40
+            "y": 90
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#fde68a",
+            "h": 52,
             "id": "a00",
             "kind": "rect",
-            "x": 180,
-            "y": 200,
-            "w": 52,
-            "h": 52,
-            "fill": "#fde68a",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 52,
+            "x": 180,
+            "y": 200
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#fde68a",
+            "h": 52,
             "id": "a01",
             "kind": "rect",
-            "x": 232,
-            "y": 200,
-            "w": 52,
-            "h": 52,
-            "fill": "#fde68a",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 52,
+            "x": 232,
+            "y": 200
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#fde68a",
+            "h": 52,
             "id": "a10",
             "kind": "rect",
-            "x": 180,
-            "y": 252,
-            "w": 52,
-            "h": 52,
-            "fill": "#fde68a",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 52,
+            "x": 180,
+            "y": 252
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#fde68a",
+            "h": 52,
             "id": "a11",
             "kind": "rect",
-            "x": 232,
-            "y": 252,
-            "w": 52,
-            "h": 52,
-            "fill": "#fde68a",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 52,
+            "x": 232,
+            "y": 252
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#fde68a",
+            "h": 52,
             "id": "a20",
             "kind": "rect",
-            "x": 180,
-            "y": 304,
-            "w": 52,
-            "h": 52,
-            "fill": "#fde68a",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 52,
+            "x": 180,
+            "y": 304
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "fill": "#fde68a",
+            "h": 52,
             "id": "a21",
             "kind": "rect",
-            "x": 232,
-            "y": 304,
-            "w": 52,
-            "h": 52,
-            "fill": "#fde68a",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "w": 52,
+            "x": 232,
+            "y": 304
           }
         },
         {
@@ -927,156 +1124,129 @@
           "shape": {
             "id": "talllab",
             "kind": "text",
+            "size": 28,
             "text": "6 cubes",
             "x": 186,
-            "y": 391,
-            "size": 28
+            "y": 391
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "b00",
-            "kind": "rect",
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1800,
+          "target": "a00",
+          "to": {
             "x": 520,
-            "y": 200,
-            "w": 52,
-            "h": 52,
-            "fill": "#bbf7d0",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "y": 260
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "b01",
-            "kind": "rect",
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1800,
+          "target": "a01",
+          "to": {
             "x": 572,
-            "y": 200,
-            "w": 52,
-            "h": 52,
-            "fill": "#bbf7d0",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "y": 260
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "b02",
-            "kind": "rect",
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1800,
+          "target": "a10",
+          "to": {
             "x": 624,
-            "y": 200,
-            "w": 52,
-            "h": 52,
-            "fill": "#bbf7d0",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "y": 260
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "b10",
-            "kind": "rect",
-            "x": 520,
-            "y": 252,
-            "w": 52,
-            "h": 52,
-            "fill": "#bbf7d0",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1800,
+          "target": "a11",
+          "to": {
+            "x": 676,
+            "y": 260
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "b11",
-            "kind": "rect",
-            "x": 572,
-            "y": 252,
-            "w": 52,
-            "h": 52,
-            "fill": "#bbf7d0",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1800,
+          "target": "a20",
+          "to": {
+            "x": 728,
+            "y": 260
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "b12",
-            "kind": "rect",
-            "x": 624,
-            "y": 252,
-            "w": 52,
-            "h": 52,
-            "fill": "#bbf7d0",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
+          "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1800,
+          "target": "a21",
+          "to": {
+            "x": 780,
+            "y": 260
           }
         },
         {
-          "at_ms": 3800,
+          "at_ms": 5000,
           "do": "show",
           "shape": {
             "id": "widelab",
             "kind": "text",
+            "size": 28,
             "text": "6 cubes",
-            "x": 572,
-            "y": 339,
-            "size": 28
-          }
-        },
-        {
-          "at_ms": 4600,
-          "do": "show",
-          "shape": {
-            "id": "verdict",
-            "kind": "text",
-            "text": "same 6 cubes — same volume",
-            "x": 120,
-            "y": 445,
-            "size": 32
+            "x": 621,
+            "y": 347
           }
         },
         {
           "at_ms": 5400,
           "do": "show",
           "shape": {
-            "id": "rule",
+            "id": "verdict",
             "kind": "text",
-            "text": "shape does not change volume, the count does",
+            "size": 32,
+            "text": "same 6 cubes — same volume",
             "x": 120,
-            "y": 495,
-            "size": 26
+            "y": 445
           }
         },
         {
           "at_ms": 6000,
-          "do": "emphasize",
-          "target": "talllab",
-          "dur_ms": 900
+          "do": "show",
+          "shape": {
+            "id": "rule",
+            "kind": "text",
+            "size": 26,
+            "text": "shape does not change volume, the count does",
+            "x": 120,
+            "y": 495
+          }
         },
         {
           "at_ms": 6500,
           "do": "emphasize",
-          "target": "widelab",
-          "dur_ms": 900
+          "dur_ms": 900,
+          "target": "talllab"
         },
         {
           "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "widelab"
+        },
+        {
+          "at_ms": 7500,
           "do": "caption",
           "text": "Rearranging cubes never changes the volume"
         }
       ]
     }
-  ]
+  ],
+  "subject": "math",
+  "title": "Volume: cubes, cuboids, litres",
+  "topic": "volume"
 }
