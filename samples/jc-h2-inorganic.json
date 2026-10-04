@@ -210,7 +210,7 @@
       "caption": "Melting point tells the structure story",
       "duration_ms": 9000,
       "id": "s2",
-      "narration": "Melting point across period 3 tells the structure story: the giant metallic lattices melt higher and higher, but silicon — giant covalent — melts highest of all. Then phosphorus, sulfur and chlorine are simple molecules, and their melting points collapse.",
+      "narration":"Melting point across period 3 tells the structure story. Giant metallic lattices melt ever higher, but giant-covalent silicon melts highest of all — then simple molecules, and melting points collapse.",
       "steps": [
         {
           "at_ms": 0,
@@ -417,7 +417,7 @@
       "caption": "First ionisation energy: the general rise and its two dips",
       "duration_ms": 10000,
       "id": "s3",
-      "narration": "First ionisation energy generally rises across period 3 — more protons, same shell, tighter hold. But there are two famous dips: aluminium dips below magnesium because its outer electron sits in a higher p-orbital, and sulfur dips below phosphorus because of paired-electron repulsion in the p-orbitals.",
+      "narration":"First ionisation energy generally rises across period 3 — more protons, same shell, tighter hold. But two famous dips: aluminium below magnesium, and sulfur below phosphorus from paired-electron repulsion.",
       "steps": [
         {
           "at_ms": 0,
@@ -703,7 +703,7 @@
       "caption": "Down group 2: reactivity climbs",
       "duration_ms": 9000,
       "id": "s4",
-      "narration": "Down group 2 the atoms get bigger and the outer electrons sit further from the nucleus. Shielding grows, ionisation energy falls, and reactivity climbs: magnesium reacts only slowly with water, while barium reacts vigorously.",
+      "narration":"Down group 2 the atoms get bigger and outer electrons sit further from the nucleus. Shielding grows, ionisation energy falls, reactivity climbs: magnesium reacts slowly with water, barium reacts vigorously.",
       "steps": [
         {
           "at_ms": 0,
@@ -938,7 +938,7 @@
       "caption": "Coloured ions from partially filled d-orbitals",
       "duration_ms": 10000,
       "id": "s6",
-      "narration": "Transition metals glow with colour because their d-orbitals are only partly filled. Electrons jump between split d-orbitals, absorbing one wavelength and leaving the rest for your eye: chromium(III) is green, copper(II) is blue, dichromate(VI) is orange — and the colour changes with the oxidation state.",
+      "narration":"Transition metals glow with colour because their d-orbitals are only partly filled. Electrons jump between split d-orbitals, absorbing one wavelength and leaving the rest for your eye.",
       "steps": [
         {
           "at_ms": 0,
@@ -1106,7 +1106,7 @@
       "caption": "Complexes with ligands, catalysts that flip oxidation states",
       "duration_ms": 10000,
       "id": "s7",
-      "narration": "The same available d-orbitals let transition metals grip ligands: copper(II) wraps six water molecules into a deep-blue complex ion. And because they flip oxidation states so easily, oxides like vanadium(V) oxide shuttle electrons as heterogeneous catalysts — for example in the contact process.",
+      "narration":"Those d-orbitals let transition metals grip ligands: copper(II) wraps six water molecules into a deep-blue complex ion. And since they flip oxidation states easily, they make great catalysts.",
       "steps": [
         {
           "at_ms": 0,
@@ -1211,7 +1211,7 @@
       "caption": "Misconception: every d-block metal is a transition metal",
       "duration_ms": 9000,
       "id": "s8",
-      "narration": "Not every d-block metal is a transition metal. Zinc sits in the d-block, but zinc(II) has a full d-ten subshell — no partially filled d-orbitals, no colour, no variable oxidation states. By the H2 definition, zinc is not a transition metal.",
+      "narration":"Not every d-block metal is a transition metal. Zinc sits in the d-block, but zinc(II) has a full d-ten subshell — no partially filled d-orbitals, no colour, no variable oxidation states — so zinc is not one.",
       "steps": [
         {
           "at_ms": 0,

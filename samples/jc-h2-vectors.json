@@ -217,7 +217,7 @@
       "caption": "The dot product measures the shadow",
       "duration_ms": 9000,
       "id": "s3",
-      "narration": "The dot product asks how much of one vector points along another. Drop a perpendicular from the tip of b onto a: the shadow it casts is the projection. The dot product equals the two lengths times the cosine of the angle between them.",
+      "narration":"The dot product asks how much of one vector points along another: drop a perpendicular from the tip of b onto a, and the shadow it casts is the projection. It equals the two lengths times cos theta.",
       "steps": [
         {
           "at_ms": 0,
@@ -481,7 +481,7 @@
       "caption": "Two classic slips",
       "duration_ms": 9000,
       "id": "s5",
-      "narration": "Two slips to dodge. A position vector is pinned to the origin - move its start and it becomes a different vector. A direction vector is free: the same arrow drawn anywhere is the same vector, as long as its direction and length do not change. The toolkit: the dot product is the two lengths times cos theta, and a line is r equals a plus lambda b.",
+      "narration":"Two slips to dodge: a position vector is pinned to the origin; a direction vector is free, the same arrow anywhere. Dot product is the two lengths times cos theta; a line is r equals a plus lambda b.",
       "steps": [
         {
           "at_ms": 0,

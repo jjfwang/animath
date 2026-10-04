@@ -173,7 +173,7 @@
       "caption": "Power is the rate at which work gets done",
       "duration_ms": 10000,
       "id": "s2",
-      "narration": "Now suppose the same 200 joules of work is done in 10 seconds. The power is work over time: 200 divided by 10, which is 20 watts. Do the same work in 2 seconds instead and the power is 100 watts. Same work, more power — power is about rate, not amount.",
+      "narration":"Now suppose the same 200 joules of work is done in 10 seconds: power is work over time — 200 divided by 10, which is 20 watts. Do it in 2 seconds and the power is 100 watts: same work, more power — power is about rate.",
       "steps": [
         {
           "at_ms": 0,
@@ -278,7 +278,7 @@
       "caption": "Energy changes form but is never destroyed",
       "duration_ms": 12000,
       "id": "s3",
-      "narration": "Hold a 2 kilogram ball 5 metres above the ground. With g equal to 9.8 metres per second squared, its gravitational potential energy is 2 times 9.8 times 5 — 98 joules. Let it fall. Just before it hits the ground, all 98 joules are kinetic energy. Nothing was lost; it changed form.",
+      "narration":"Hold a 2 kilogram ball 5 metres up: with g equal to 9.8, its gravitational potential energy is 2 times 9.8 times 5 — 98 joules. Let it fall: just before impact, all 98 joules are kinetic — nothing lost; it changed form.",
       "steps": [
         {
           "at_ms": 0,
@@ -440,7 +440,7 @@
       "caption": "Energy is transformed, never used up",
       "duration_ms": 10000,
       "id": "s4",
-      "narration": "A common idea says energy is used up when work is done. Not true. A car's engine turns chemical energy from petrol into movement and heat. Add it all up and the total is the same as before. Energy is transformed, never used up or destroyed.",
+      "narration":"A common idea says energy is used up when work is done. Not true: a car's engine turns chemical energy from petrol into movement and heat, and the total stays the same — energy is transformed, never destroyed.",
       "steps": [
         {
           "at_ms": 0,

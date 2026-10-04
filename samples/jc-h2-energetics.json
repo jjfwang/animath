@@ -164,7 +164,7 @@
       "caption": "Aerobic respiration: word and symbol equation",
       "duration_ms": 11000,
       "id": "s2",
-      "narration": "Aerobic respiration releases energy from glucose using oxygen. The word equation: glucose plus oxygen gives carbon dioxide plus water. The symbol equation shows the same thing atom by atom — about 32 ATP per glucose molecule, the full payoff of complete breakdown.",
+      "narration":"Aerobic respiration releases energy from glucose using oxygen: glucose plus oxygen gives carbon dioxide plus water. The symbol equation shows it atom by atom — about 32 ATP per glucose, the full payoff.",
       "steps": [
         {
           "at_ms": 0,
@@ -244,7 +244,7 @@
       "caption": "ATP: the energy currency",
       "duration_ms": 10000,
       "id": "s3",
-      "narration": "Cells never spend glucose directly — they spend ATP. Removing the terminal phosphate from ATP releases a packet of energy the cell can use immediately, then the ADP is rebuilt by respiration. ATP is the energy currency: earned by respiration, spent everywhere.",
+      "narration":"Cells never spend glucose directly — they spend ATP. Removing the terminal phosphate releases a packet of energy the cell can use immediately, and ADP is rebuilt by respiration. ATP is the energy currency.",
       "steps": [
         {
           "at_ms": 0,
@@ -324,7 +324,7 @@
       "caption": "Anaerobic respiration: yeast vs muscle",
       "duration_ms": 11000,
       "id": "s4",
-      "narration": "Without enough oxygen, glucose is only partly broken down. Yeast ferments glucose to ethanol and carbon dioxide — the basis of bread and brewing. Your muscles make lactic acid instead, and the oxygen debt is repaid later. Both yield far less ATP than aerobic respiration.",
+      "narration":"Without enough oxygen, glucose is only partly broken down. Yeast ferments it to ethanol and carbon dioxide — the basis of bread and brewing — while your muscles make lactic acid instead.",
       "steps": [
         {
           "at_ms": 0,
@@ -429,7 +429,7 @@
       "caption": "Photosynthesis: photolysis and the Calvin cycle",
       "duration_ms": 11000,
       "id": "s5",
-      "narration": "In the light-dependent stage, water is split — photolysis — releasing oxygen and the hydrogen needed for the next stage. Then the Calvin cycle, needing no light directly, fixes carbon dioxide into carbohydrate in the stroma.",
+      "narration":"In the light-dependent stage, water is split — photolysis — releasing oxygen and the hydrogen the next stage needs. Then the Calvin cycle, needing no light directly, fixes carbon dioxide into carbohydrate in the stroma.",
       "steps": [
         {
           "at_ms": 0,
@@ -578,7 +578,7 @@
       "caption": "Limiting factors — and a misconception",
       "duration_ms": 10000,
       "id": "s6",
-      "narration": "The rate of photosynthesis is capped by whichever factor is in shortest supply — light intensity, carbon dioxide concentration, or temperature. And one correction: plants do not only respire at night. They respire around the clock; at night there is simply no photosynthesis to hide it.",
+      "narration":"Photosynthesis is capped by whichever factor is in shortest supply — light, carbon dioxide, or temperature. And one correction: plants respire around the clock, not only at night.",
       "steps": [
         {
           "at_ms": 0,

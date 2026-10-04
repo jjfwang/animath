@@ -134,7 +134,7 @@
       "caption": "Modulus is the distance from the origin",
       "duration_ms": 8000,
       "id": "s2",
-      "narration": "The modulus of z is its distance from the origin. With real part x and imaginary part y, the point, the origin, and the axes form a right-angled triangle - so the modulus is Pythagoras: the square root of x squared plus y squared.",
+      "narration":"The modulus of z is its distance from the origin. With real part x and imaginary part y, the point, the origin and the axes form a right-angled triangle — so the modulus is Pythagoras: root of x squared plus y squared.",
       "steps": [
         {
           "at_ms": 0,
@@ -355,7 +355,7 @@
       "caption": "Multiplying rotates and stretches",
       "duration_ms": 10000,
       "id": "s4",
-      "narration": "Multiplying by z rotates by its angle and stretches by its modulus. So raising z to the power n rotates by n times the angle and stretches by the modulus to the power n. De Moivre's theorem packages exactly that: z to the n equals r to the n times cos n-theta plus i sin n-theta.",
+      "narration":"Multiplying by z rotates by its angle and stretches by its modulus. So z to the power n rotates by n times the angle and stretches by the modulus to the power n — De Moivre packages exactly that.",
       "steps": [
         {
           "at_ms": 0,
@@ -453,7 +453,7 @@
       "caption": "The classic slip: angles wrap around",
       "duration_ms": 8000,
       "id": "s5",
-      "narration": "One slip to dodge. Take theta equals 100 degrees: three times theta is 300 degrees, but the principal argument of z cubed is not 300 degrees. Principal values wrap into minus 180 to 180 degrees, so the argument is minus 60 degrees. The toolkit: modulus is Pythagoras from the origin, de Moivre turns powers into multiplied lengths and added angles, and Arg always lands inside minus 180 to 180 degrees.",
+      "narration":"One slip to dodge: with theta equals 100 degrees, three times theta is 300 degrees — but principal values wrap into minus 180 to 180, so the principal argument of z cubed is minus 60 degrees.",
       "steps": [
         {
           "at_ms": 0,

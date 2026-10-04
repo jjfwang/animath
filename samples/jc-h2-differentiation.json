@@ -89,7 +89,7 @@
       "caption": "The expanding circle",
       "duration_ms": 9000,
       "id": "s2",
-      "narration": "A circle expands: the radius is 2 and grows at half a unit per second. Differentiating area equals pi r squared with respect to time gives dA/dt equals 2 pi r dr/dt. Substituting the values: 2 pi times 2 times 0.5 equals 2 pi, about 6.28 square units per second.",
+      "narration":"A circle expands: the radius is 2 and grows at half a unit per second. Differentiating area equals pi r squared gives dA/dt equals 2 pi r dr/dt — substituting gives 2 pi, about 6.28 square units per second.",
       "steps": [
         {
           "at_ms": 0,
@@ -182,7 +182,7 @@
       "caption": "The sliding ladder",
       "duration_ms": 10000,
       "id": "s3",
-      "narration": "A 5-unit ladder slides down a wall. Its foot is 3 units from the wall, so by the 3-4-5 triangle the top is 4 units up. The relation x squared plus y squared equals 25 differentiates to 2x dx/dt plus 2y dy/dt equals zero. The foot slides out at 1 unit per second, so dy/dt equals negative 3 over 4 — the top drops at 0.75 units per second.",
+      "narration":"A 5-unit ladder slides down a wall, foot 3 units out and top 4 units up. Differentiating x squared plus y squared equals 25, the foot moving out at 1 unit per second means the top drops at 0.75 units per second.",
       "steps": [
         {
           "at_ms": 0,
@@ -386,7 +386,7 @@
       "caption": "The connected-rates toolkit",
       "duration_ms": 7000,
       "id": "s5",
-      "narration": "The toolkit is always the same: write the relation between the quantities, differentiate each one with respect to time, then substitute the known values. The circle grew its area at 2 pi, and the ladder top fell at 0.75 units per second.",
+      "narration":"The toolkit is always the same: write the relation, differentiate with respect to time, then substitute the known values. The circle grew its area at 2 pi, and the ladder top fell at 0.75 units per second.",
       "steps": [
         {
           "at_ms": 0,

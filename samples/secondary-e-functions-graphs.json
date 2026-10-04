@@ -185,7 +185,7 @@
       "caption": "Read the gradient and the intercept off a graph",
       "duration_ms": 9000,
       "id": "s2",
-      "narration": "Read a line off its graph. Where it crosses the y-axis is the intercept: here it is two. Take two points on the line: from zero-two to four-eight the line rises six while it runs four. Gradient is rise over run \u2014 six over four, which is three halves.",
+      "narration":"Read a line off its graph: where it crosses the y-axis is the intercept \u2014 here it is two. Take the points zero-two and four-eight: the line rises six while it runs four, so the gradient is six over four, three halves.",
       "steps": [
         {
           "at_ms": 0,
@@ -365,7 +365,7 @@
       "caption": "Parallel lines share a gradient",
       "duration_ms": 9000,
       "id": "s3",
-      "narration": "y equals three x plus one and y equals three x minus four. Both have gradient three, so they climb at exactly the same rate. Different intercepts mean they start at different heights \u2014 same slope, never crossing: parallel.",
+      "narration":"y equals three x plus one and y equals three x minus four both have gradient three, so they climb at exactly the same rate. Different intercepts mean different starting heights \u2014 same slope, never crossing: parallel.",
       "steps": [
         {
           "at_ms": 0,
@@ -468,7 +468,7 @@
       "caption": "Roots and the turning point of y = x\u00b2 \u2212 4",
       "duration_ms": 10000,
       "id": "s4",
-      "narration": "Sketch y equals x squared minus four. Where the curve crosses the x-axis, y is zero: x squared minus four equals zero gives x equals plus or minus two \u2014 the roots. The lowest point of the curve is the turning point at zero, minus four \u2014 the minimum.",
+      "narration":"Sketch y equals x squared minus four: where the curve crosses the x-axis, y is zero, so x squared minus four equals zero gives x equals plus or minus two \u2014 the roots. The turning point at zero, minus four is the minimum.",
       "steps": [
         {
           "at_ms": 0,
@@ -688,7 +688,7 @@
       "caption": "Misconception: a bigger intercept does not mean steeper",
       "duration_ms": 9000,
       "id": "s5",
-      "narration": "Which is steeper: A, y equals four x minus six, or B, y equals x plus three? The plus three looks bigger \u2014 but steepness is the gradient, not the intercept. A has gradient four against B's one, so A climbs fastest, even though B crosses the y-axis higher at three. Compare the m, never the c.",
+      "narration":"Which is steeper: A, y equals four x minus six, or B, y equals x plus three? Steepness is the gradient, not the intercept: A has gradient four against B's one, so A climbs fastest \u2014 compare the m, never the c.",
       "steps": [
         {
           "at_ms": 0,
