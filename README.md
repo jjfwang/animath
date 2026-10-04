@@ -109,6 +109,22 @@ Invalid (non-object) input scores 0 with a reason and never throws. Works
 in the browser too — load `player/validate.js` and
 `generator/build_prompt.js` before it.
 
+## Geometry audit
+
+`generator/geometry.js` statically audits text geometry across a spec:
+every `show`-step text shape is boxed (width ≈ 0.6 × size × length,
+resolved against `align`/`start`|`middle`|`end`, and baseline-anchored
+vertically — top = y − size, since SVG text y is the alphabetic baseline)
+and checked for canvas overflow, every pair of text boxes is checked for overlap beyond a 1%
+tolerance, and latex anchors are checked against the canvas (no width
+estimate — KaTeX width is not statically computable). Shapes moved by
+later `move` steps are audited at their show-time position (documented
+limitation). `auditAllSamples('samples')` runs the audit over all
+69 samples in `samples/index.json` and returns finding records
+`{file, scene, kind, detail}`. Run the check (with coverage) via
+`node --test --experimental-test-coverage "tests/*.test.js"` — every line
+of the module is covered by `tests/geometry.test.js`.
+
 ## Tests
 
 Zero-dependency, Node built-in:
