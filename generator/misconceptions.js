@@ -17,7 +17,7 @@
  */
 (function (global, factory) {
   var api = factory();
-  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; /* node:coverage ignore next */
   else global.AnimathMisconceptions = api;
 })(typeof window !== 'undefined' ? window : globalThis, function () {
   'use strict';
