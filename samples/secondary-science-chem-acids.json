@@ -192,7 +192,7 @@
             "id": "t0",
             "kind": "text",
             "x": 230,
-            "y": 480,
+            "y": 450,
             "size": 22,
             "text": "pH 0 — strongly acidic"
           }
@@ -322,7 +322,7 @@
             "kind": "text",
             "x": 80,
             "y": 280,
-            "size": 24,
+            "size": 20,
             "text": "Acids release H⁺ ions in water."
           }
         },
@@ -359,9 +359,9 @@
           "shape": {
             "id": "alkIon",
             "kind": "text",
-            "x": 380,
+            "x": 454,
             "y": 280,
-            "size": 24,
+            "size": 20,
             "text": "Alkalis release OH⁻ ions in water."
           }
         },

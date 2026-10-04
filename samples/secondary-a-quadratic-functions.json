@@ -272,7 +272,7 @@
           "shape": {
             "id": "lab2",
             "kind": "text",
-            "size": 26,
+            "size": 20,
             "text": "D > 0: 2 real roots",
             "x": 175,
             "y": 500
@@ -347,7 +347,7 @@
           "shape": {
             "id": "lab1",
             "kind": "text",
-            "size": 26,
+            "size": 20,
             "text": "D = 0: 1 repeated root",
             "x": 445,
             "y": 500
@@ -408,9 +408,9 @@
           "shape": {
             "id": "lab0",
             "kind": "text",
-            "size": 26,
+            "size": 20,
             "text": "D < 0: no real roots",
-            "x": 690,
+            "x": 710,
             "y": 500
           }
         },

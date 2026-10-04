@@ -218,7 +218,7 @@
           "shape": {
             "id": "case1",
             "kind": "text",
-            "size": 24,
+            "size": 20,
             "text": "Done in 10 s — steady, unhurried push",
             "x": 80,
             "y": 320
@@ -243,9 +243,9 @@
           "shape": {
             "id": "case2",
             "kind": "text",
-            "size": 24,
+            "size": 20,
             "text": "Done in 2 s — same work, much faster",
-            "x": 480,
+            "x": 526,
             "y": 320
           }
         },
@@ -567,7 +567,7 @@
             "kind": "text",
             "size": 22,
             "text": "heat (wasted, but not lost)",
-            "x": 710,
+            "x": 600,
             "y": 345
           }
         },

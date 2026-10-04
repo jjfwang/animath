@@ -132,8 +132,8 @@
           "shape": {
             "id": "plab",
             "kind": "text",
-            "text": "adjacent = cos \u03b8",
-            "x": 790,
+            "text": "adjacent = cos θ",
+            "x": 728,
             "y": 365,
             "size": 24,
             "color": "#1a1a1a"
@@ -145,8 +145,8 @@
           "shape": {
             "id": "qlab",
             "kind": "text",
-            "text": "opposite = sin \u03b8",
-            "x": 800,
+            "text": "opposite = sin θ",
+            "x": 728,
             "y": 300,
             "size": 24,
             "color": "#1a1a1a"
@@ -174,7 +174,7 @@
     },
     {
       "id": "s2",
-      "caption": "Compound angles: computing sin 75\u00b0",
+      "caption": "Compound angles: computing sin 75°",
       "narration": "Sin of a sum expands into products: sin A cos B plus cos A sin B. So sin 75 degrees is sin(45+30): plug in the familiar exact values and simplify to (root 6 plus root 2) over 4.",
       "duration_ms": 9000,
       "steps": [
@@ -266,7 +266,7 @@
     {
       "id": "s3",
       "caption": "The R-formula: one wobble, not two",
-      "narration": "a cos x plus b sin x is really one wave: R cos(x minus alpha), where R is root(a squared plus b squared). For 3 cos x + 4 sin x that is 5 cos(x - 53 degrees) \u2014 and the max and min are suddenly obvious: 5 and minus 5.",
+      "narration": "a cos x plus b sin x is really one wave: R cos(x minus alpha), where R is root(a squared plus b squared). For 3 cos x + 4 sin x that is 5 cos(x - 53 degrees) — and the max and min are suddenly obvious: 5 and minus 5.",
       "duration_ms": 8500,
       "steps": [
         {
@@ -340,7 +340,7 @@
           "shape": {
             "id": "max",
             "kind": "text",
-            "text": "max value 5, min value \u22125 \u2014 one glance",
+            "text": "max value 5, min value −5 — one glance",
             "x": 120,
             "y": 510,
             "size": 26,
@@ -379,7 +379,7 @@
           "shape": {
             "id": "trap",
             "kind": "text",
-            "text": "Same trap as (a+b)^n \u2014 the angle does not split.",
+            "text": "Same trap as (a+b)^n — the angle does not split.",
             "x": 120,
             "y": 220,
             "size": 28,

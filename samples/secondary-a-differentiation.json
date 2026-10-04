@@ -250,7 +250,7 @@
             "kind": "text",
             "size": 26,
             "text": "multiply by the power, drop the power by one",
-            "x": 480,
+            "x": 272,
             "y": 120
           }
         },
@@ -416,7 +416,7 @@
             "size": 28,
             "text": "max: dy/dx = 0",
             "x": 460,
-            "y": 290
+            "y": 312
           }
         },
         {
@@ -551,7 +551,7 @@
             "kind": "text",
             "size": 28,
             "text": "inflexion: dy/dx = 0, but neither max nor min",
-            "x": 560,
+            "x": 202,
             "y": 480
           }
         },
@@ -612,7 +612,7 @@
           "shape": {
             "id": "verdict",
             "kind": "text",
-            "size": 30,
+            "size": 22,
             "text": "stationary, yet neither max nor min — a point of inflexion",
             "x": 140,
             "y": 450
