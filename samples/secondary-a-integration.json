@@ -179,7 +179,7 @@
             "kind": "text",
             "size": 24,
             "text": "the running total of area, as x sweeps right",
-            "x": 560,
+            "x": 120,
             "y": 516
           }
         },
@@ -364,7 +364,7 @@
             "kind": "text",
             "size": 24,
             "text": "thinner strips → the sum approaches the true area",
-            "x": 620,
+            "x": 130,
             "y": 90
           }
         },
