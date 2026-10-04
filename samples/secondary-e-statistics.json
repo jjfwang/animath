@@ -503,7 +503,7 @@
           "shape": {
             "id": "medholds",
             "kind": "latex",
-            "x": 120,
+            "x": 500,
             "y": 310,
             "tex": "\\mathrm{median} = 9\\ \\text{(unchanged)}",
             "size": 28
@@ -1302,8 +1302,8 @@
           "shape": {
             "id": "medl",
             "kind": "latex",
-            "x": 452,
-            "y": 250,
+            "x": 270,
+            "y": 225,
             "tex": "\\mathrm{median} \\approx 25",
             "size": 26
           }
@@ -1354,8 +1354,8 @@
           "shape": {
             "id": "q1l",
             "kind": "latex",
-            "x": 339,
-            "y": 325,
+            "x": 180,
+            "y": 300,
             "tex": "Q_1 \\approx 16.7",
             "size": 24
           }
@@ -1395,7 +1395,7 @@
             "id": "q3l",
             "kind": "latex",
             "x": 565,
-            "y": 175,
+            "y": 210,
             "tex": "Q_3 \\approx 33.3",
             "size": 24
           }
@@ -1660,9 +1660,9 @@
             "id": "fulc",
             "kind": "arrow",
             "x1": 443,
-            "y1": 486,
+            "y1": 505,
             "x2": 443,
-            "y2": 432,
+            "y2": 456,
             "stroke": "#d62728",
             "strokeWidth": 3
           }
