@@ -57,6 +57,25 @@ student need ──► prompt builder ──► LLM (your key) ──► animati
 - `web/` is the student-facing single page app.
 - `samples/` are hand-authored specs that prove the player works with no LLM.
 
+## Embedding
+
+No API key is needed to play a sample — `web/embed.js` mounts any sample by
+topic slug in a host page with one call:
+
+```html
+<link rel="stylesheet" href="player/player.css">
+<script src="player/player.js"></script>
+<script src="web/embed.js"></script>
+<script>AnimathEmbed.mount(document.getElementById('stage'), 'primary-math-fractions-addition')
+  .then(function (player) { player.play(); });</script>
+```
+
+Copy the snippet into your page, adjusting the script paths so they point at
+your animath checkout, and optionally pass `{ baseUrl: '/samples', autoplay: true }`.
+Like the gallery, embedding fetches the sample JSON over HTTP — serve your
+site with e.g. `python3 -m http.server` rather than `file://`, which Chrome
+blocks for fetch.
+
 ## Singapore syllabus coverage
 
 Primary (PSLE) · Secondary (O/N-level, E-Math & A-Math, Physics / Chemistry /
