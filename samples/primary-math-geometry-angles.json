@@ -217,7 +217,7 @@
             "id": "alab",
             "kind": "text",
             "text": "45° — acute",
-            "x": 410,
+            "x": 430,
             "y": 445,
             "size": 30
           }
@@ -902,7 +902,7 @@
             "id": "t180",
             "kind": "text",
             "text": "180°",
-            "x": 2,
+            "x": 30,
             "y": 400,
             "size": 22,
             "align": "middle"
@@ -2019,6 +2019,11 @@
           "at_ms": 4800,
           "do": "hide",
           "target": "tcon"
+        },
+        {
+          "at_ms": 4800,
+          "do": "hide",
+          "target": "q"
         },
         {
           "at_ms": 5000,
