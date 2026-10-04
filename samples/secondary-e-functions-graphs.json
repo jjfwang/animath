@@ -1,0 +1,800 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Sketch y = 2x \u2212 3 from gradient and intercept",
+      "duration_ms": 10000,
+      "id": "s1",
+      "narration": "Sketch y equals two x minus three. The intercept is at zero, minus three. A gradient of two means rise two for every run of one. Plot the intercept, step out the rise and run, then join them \u2014 the line is done.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Sketch y = 2x \u2212 3",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "latex",
+            "size": 48,
+            "tex": "y = 2x - 3",
+            "x": 150,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "xaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "x1": 140,
+            "x2": 580,
+            "y1": 390,
+            "y2": 390
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "yaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "x1": 360,
+            "x2": 360,
+            "y1": 120,
+            "y2": 500
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "cx": 360,
+            "cy": 480,
+            "fill": "#b00020",
+            "id": "icept",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "iceptlab",
+            "kind": "latex",
+            "size": 32,
+            "tex": "(0, -3)",
+            "x": 378,
+            "y": 494
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "run",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 3,
+            "x1": 360,
+            "x2": 390,
+            "y1": 480,
+            "y2": 480
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "runlab",
+            "kind": "latex",
+            "size": 28,
+            "tex": "\\text{run } 1",
+            "x": 352,
+            "y": 466
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "rise",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "strokeWidth": 3,
+            "x1": 390,
+            "x2": 390,
+            "y1": 480,
+            "y2": 420
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "riselab",
+            "kind": "latex",
+            "size": 28,
+            "tex": "\\text{rise } 2",
+            "x": 398,
+            "y": 456
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "line",
+            "kind": "arrow",
+            "strokeWidth": 4,
+            "x1": 330,
+            "x2": 480,
+            "y1": 540,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "linelab",
+            "kind": "latex",
+            "size": 32,
+            "tex": "y = 2x - 3",
+            "x": 492,
+            "y": 232
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "line"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Gradient is rise over run \u2014 the intercept is where x = 0"
+        }
+      ]
+    },
+    {
+      "caption": "Read the gradient and the intercept off a graph",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "Read a line off its graph. Where it crosses the y-axis is the intercept: here it is two. Take two points on the line: from zero-two to four-eight the line rises six while it runs four. Gradient is rise over run \u2014 six over four, which is three halves.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Read the gradient and the intercept",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "xaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "x1": 140,
+            "x2": 580,
+            "y1": 400,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "yaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "x1": 300,
+            "x2": 300,
+            "y1": 120,
+            "y2": 500
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "line",
+            "kind": "arrow",
+            "strokeWidth": 4,
+            "x1": 280,
+            "x2": 480,
+            "y1": 370,
+            "y2": 70
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 340,
+            "fill": "#b00020",
+            "id": "icept",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "iceptlab",
+            "kind": "latex",
+            "size": 32,
+            "tex": "(0, 2)",
+            "x": 316,
+            "y": 352
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 160,
+            "fill": "#b00020",
+            "id": "pt",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "ptlab",
+            "kind": "latex",
+            "size": 32,
+            "tex": "(4, 8)",
+            "x": 432,
+            "y": 172
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "run",
+            "kind": "line",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "x1": 300,
+            "x2": 420,
+            "y1": 340,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "runlab",
+            "kind": "latex",
+            "size": 28,
+            "tex": "4",
+            "x": 356,
+            "y": 328
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "rise",
+            "kind": "line",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "x1": 420,
+            "x2": 420,
+            "y1": 340,
+            "y2": 160
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "riselab",
+            "kind": "latex",
+            "size": 28,
+            "tex": "6",
+            "x": 430,
+            "y": 252
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "grad",
+            "kind": "latex",
+            "size": 40,
+            "tex": "m = \\frac{6}{4} = \\frac{3}{2}",
+            "x": 620,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "caption",
+          "text": "Gradient = rise \u00f7 run; the intercept is the value at x = 0"
+        }
+      ]
+    },
+    {
+      "caption": "Parallel lines share a gradient",
+      "duration_ms": 9000,
+      "id": "s3",
+      "narration": "y equals three x plus one and y equals three x minus four. Both have gradient three, so they climb at exactly the same rate. Different intercepts mean they start at different heights \u2014 same slope, never crossing: parallel.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Parallel lines share a gradient",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "eqa",
+            "kind": "latex",
+            "size": 44,
+            "tex": "y = 3x + 1",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "eqb",
+            "kind": "latex",
+            "size": 44,
+            "tex": "y = 3x - 4",
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "linea",
+            "kind": "arrow",
+            "strokeWidth": 4,
+            "x1": 275,
+            "x2": 350,
+            "y1": 430,
+            "y2": 205
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "lineb",
+            "kind": "arrow",
+            "strokeWidth": 4,
+            "x1": 350,
+            "x2": 425,
+            "y1": 330,
+            "y2": 105
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "m3",
+            "kind": "latex",
+            "size": 40,
+            "tex": "m = 3 \\text{ for both}",
+            "x": 470,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "linea"
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "lineb"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "Same gradient, different intercepts \u2014 parallel lines never meet"
+        }
+      ]
+    },
+    {
+      "caption": "Roots and the turning point of y = x\u00b2 \u2212 4",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "Sketch y equals x squared minus four. Where the curve crosses the x-axis, y is zero: x squared minus four equals zero gives x equals plus or minus two \u2014 the roots. The lowest point of the curve is the turning point at zero, minus four \u2014 the minimum.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Roots and the turning point of y = x\u00b2 \u2212 4",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "latex",
+            "size": 48,
+            "tex": "y = x^2 - 4",
+            "x": 150,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "xaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "x1": 120,
+            "x2": 560,
+            "y1": 360,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "yaxis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2,
+            "x1": 340,
+            "x2": 340,
+            "y1": 120,
+            "y2": 500
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "curve",
+            "kind": "polygon",
+            "points": [
+              [
+                220,
+                160
+              ],
+              [
+                240,
+                270
+              ],
+              [
+                260,
+                360
+              ],
+              [
+                280,
+                430
+              ],
+              [
+                300,
+                480
+              ],
+              [
+                320,
+                510
+              ],
+              [
+                340,
+                520
+              ],
+              [
+                360,
+                510
+              ],
+              [
+                380,
+                480
+              ],
+              [
+                400,
+                430
+              ],
+              [
+                420,
+                360
+              ],
+              [
+                440,
+                270
+              ],
+              [
+                460,
+                160
+              ]
+            ],
+            "stroke": "#1f7a3a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "cx": 260,
+            "cy": 360,
+            "fill": "#b00020",
+            "id": "root1",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "root1lab",
+            "kind": "latex",
+            "size": 32,
+            "tex": "x = -2",
+            "x": 186,
+            "y": 392
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 360,
+            "fill": "#b00020",
+            "id": "root2",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "root2lab",
+            "kind": "latex",
+            "size": 32,
+            "tex": "x = 2",
+            "x": 428,
+            "y": 392
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "rootsum",
+            "kind": "latex",
+            "size": 36,
+            "tex": "x^2 - 4 = 0 \\;\\Rightarrow\\; x = \\pm 2",
+            "x": 600,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "cx": 340,
+            "cy": 520,
+            "fill": "#1a56db",
+            "id": "turn",
+            "kind": "circle",
+            "r": 7
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "id": "turnlab",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\text{turning point } (0, -4)",
+            "x": 600,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "curve"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Roots cross the x-axis; the turning point is the minimum (0, \u22124)"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: a bigger intercept does not mean steeper",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "Which is steeper: A, y equals four x minus six, or B, y equals x plus three? The plus three looks bigger \u2014 but steepness is the gradient, not the intercept. A has gradient four against B's one, so A climbs fastest, even though B crosses the y-axis higher at three. Compare the m, never the c.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception: bigger intercept, steeper line?",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "eqa",
+            "kind": "latex",
+            "size": 40,
+            "tex": "A:\\; y = 4x - 6",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "eqb",
+            "kind": "latex",
+            "size": 40,
+            "tex": "B:\\; y = x + 3",
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "linea",
+            "kind": "arrow",
+            "strokeWidth": 4,
+            "x1": 300,
+            "x2": 360,
+            "y1": 480,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "lineb",
+            "kind": "arrow",
+            "strokeWidth": 4,
+            "x1": 300,
+            "x2": 400,
+            "y1": 300,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "grad",
+            "kind": "latex",
+            "size": 40,
+            "tex": "m_A = 4 > 1 = m_B",
+            "x": 560,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "icept",
+            "kind": "latex",
+            "size": 40,
+            "tex": "c_A = -6 < 3 = c_B",
+            "x": 560,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "linea"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "Gradient measures steepness \u2014 the intercept only sets the height"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "E-Math functions and graphs: straight lines and quadratics",
+  "topic": "e-functions-graphs"
+}
