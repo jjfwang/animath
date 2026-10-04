@@ -672,9 +672,9 @@
             "color": "#1a56db",
             "id": "fix",
             "kind": "text",
-            "size": 26,
+            "size": 22,
             "text": "plants respire all the time — photosynthesis just masks it by day",
-            "x": 120,
+            "x": 100,
             "y": 490
           }
         },

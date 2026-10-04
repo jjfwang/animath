@@ -367,7 +367,7 @@
           "shape": {
             "id": "booksNote",
             "kind": "text",
-            "size": 26,
+            "size": 22,
             "text": "photon energy = work function + electron's max kinetic energy",
             "x": 150,
             "y": 500
@@ -519,7 +519,7 @@
           "shape": {
             "id": "rateNote",
             "kind": "text",
-            "size": 26,
+            "size": 22,
             "text": "double the intensity → double the electrons, same speed each",
             "x": 150,
             "y": 480

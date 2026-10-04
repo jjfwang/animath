@@ -363,7 +363,7 @@
             "kind": "text",
             "size": 22,
             "text": "nuclear envelope: double membrane",
-            "x": 600,
+            "x": 520,
             "y": 130
           }
         },
@@ -1009,7 +1009,7 @@
             "kind": "text",
             "size": 22,
             "text": "vesicle ships protein out",
-            "x": 700,
+            "x": 628,
             "y": 340
           }
         },

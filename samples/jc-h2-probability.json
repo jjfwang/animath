@@ -257,10 +257,10 @@
           "shape": {
             "id": "note",
             "kind": "text",
-            "x": 120,
+            "x": 100,
             "y": 430,
             "text": "each success path has the same probability — multiply, don't add",
-            "size": 26
+            "size": 22
           }
         },
         {
