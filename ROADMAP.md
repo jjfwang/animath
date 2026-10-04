@@ -50,3 +50,4 @@ All five packs shipped: 69 hand-authored samples, 67/67 syllabus slugs covered.
 - [ ] Headless render check in the loop (screenshot each sample per run)
 - [ ] CONTRIBUTING.md and issue templates
 - [x] Gallery page: all samples playable without an API key — issue #5
+- [x] Static geometry audit: text overflow + label overlap check (generator/geometry.js) — issue #117

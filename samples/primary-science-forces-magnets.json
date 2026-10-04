@@ -111,7 +111,7 @@
           "shape": {
             "id": "hand",
             "kind": "text",
-            "x": 180,
+            "x": 240,
             "y": 390,
             "text": "←",
             "size": 44,
