@@ -14,13 +14,20 @@ const assert = require('node:assert/strict');
 const { MISCONCEPTIONS } = require('../generator/misconceptions.js');
 const Prompt = require('../generator/build_prompt.js');
 
-const SEEDED_SLUGS = [
+const PRIMARY_MATH_SLUGS = [
   'whole-numbers', 'fractions', 'decimals', 'percentage', 'ratio', 'rate-speed',
   'algebra-intro', 'geometry-angles', 'area-perimeter', 'volume',
   'data-graphs', 'model-method'
 ];
 
-test('MISCONCEPTIONS holds exactly the 12 Primary Math topic slugs', () => {
+const PRIMARY_SCIENCE_SLUGS = [
+  'human-body-systems', 'plant-systems', 'life-cycles', 'water-cycle',
+  'energy-forms', 'photosynthesis', 'forces-magnets', 'adaptations'
+];
+
+const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS);
+
+test('MISCONCEPTIONS holds exactly the 20 seeded topic slugs (12 Primary Math + 8 Primary Science)', () => {
   assert.deepStrictEqual(Object.keys(MISCONCEPTIONS).sort(), SEEDED_SLUGS.slice().sort());
 });
 
@@ -46,6 +53,8 @@ test('misconceptionFor resolves longer file-style slugs via longest prefix', () 
   assert.strictEqual(Prompt.misconceptionFor('percentage-of-quantity'), MISCONCEPTIONS['percentage']);
   assert.strictEqual(Prompt.misconceptionFor('decimals-place-value'), MISCONCEPTIONS['decimals']);
   assert.strictEqual(Prompt.misconceptionFor('ratio-sharing'), MISCONCEPTIONS['ratio']);
+  assert.strictEqual(Prompt.misconceptionFor('photosynthesis-intro'), MISCONCEPTIONS['photosynthesis']);
+  assert.strictEqual(Prompt.misconceptionFor('water-cycle'), MISCONCEPTIONS['water-cycle']);
 });
 
 test('misconceptionFor returns null for unknown or missing slugs', () => {

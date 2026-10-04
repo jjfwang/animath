@@ -1,6 +1,10 @@
 /* animath misconception library — per-topic wrong-turn beats for the generator.
  * Slice 1 (issue #101): the 12 Primary Math topics. Each entry is grounded in
  * the matching sample's misconception scene (samples/primary-math-*.json).
+ * Slice 2 (issue #103): the 8 Primary Science topics (human-body-systems,
+ * plant-systems, life-cycles, water-cycle, energy-forms, photosynthesis,
+ * forces-magnets, adaptations), grounded in the matching misconception scenes
+ * in samples/primary-science-*.json.
  *
  * Slug naming note: the map is keyed on the short topic slugs that
  * buildPrompts receives (the issue's slugs), which match the samples' topic
@@ -9,6 +13,7 @@
  *   fractions-addition.json   -> topic "fractions" (key: fractions)
  *   percentage-of-quantity.json -> topic "percentage" (key: percentage)
  *   ratio-sharing.json        -> topic "ratio"     (key: ratio)
+ *   photosynthesis-intro.json -> topic "photosynthesis" (key: photosynthesis)
  * Callers sometimes pass the longer file-style slug (e.g. "fractions-addition"
  * or "percentage-of-quantity"); misconceptionFor() in build_prompt.js also
  * tries the longest matching key prefix so those still resolve.
@@ -84,6 +89,46 @@
       wrongTurn: 'Drawing unit boxes in any lengths, guessing the sizes.',
       why: 'The bar is treated as a rough sketch rather than a scale model.',
       correctTurn: 'Every unit box must be exactly the same length: two units is exactly twice one unit.'
+    },
+    'human-body-systems': {
+      wrongTurn: 'The heart uses up the blood it pumps, so the body must keep making fresh blood.',
+      why: 'A pump feels like it burns fuel, so the blood seems to disappear as it travels.',
+      correctTurn: 'Blood is never used up: it keeps going round in a loop, coming back to the heart to be pushed around again.'
+    },
+    'plant-systems': {
+      wrongTurn: 'Plants take food from the soil through their roots, like we eat food.',
+      why: 'We eat through our mouths, so the roots look like a mouth for the plant.',
+      correctTurn: 'Roots drink water and minerals; the leaves make the food with sunlight. The plant does not eat food like we do.'
+    },
+    'life-cycles': {
+      wrongTurn: 'The flower is the end of the life of the plant.',
+      why: 'The flower is the biggest, showiest and last part to appear, so it looks like the finish.',
+      correctTurn: 'The flower is not the end: inside the flower new seeds are forming, and the cycle starts again.'
+    },
+    'water-cycle': {
+      wrongTurn: 'Water disappears for good once it evaporates.',
+      why: 'The water turns invisible as vapour, so it looks like it has gone away.',
+      correctTurn: 'It is still there as invisible vapour; cooled into clouds it falls back as rain and returns to the sea.'
+    },
+    'energy-forms': {
+      wrongTurn: 'Energy is used up, like fuel disappearing from a tank.',
+      why: 'A lamp or a toy runs out, so the energy feels consumed.',
+      correctTurn: 'Energy is never used up: it changes form and moves somewhere else.'
+    },
+    'photosynthesis': {
+      wrongTurn: 'Only animals breathe; plants do not.',
+      why: 'Plants have no nose and no moving chest, so breathing is never seen.',
+      correctTurn: 'Plants take in and give out gases too: they respire all the time, day and night, just like us.'
+    },
+    'forces-magnets': {
+      wrongTurn: 'A magnet attracts every kind of metal.',
+      why: 'Magnets grab some metals so strongly that they feel like they grab all of them.',
+      correctTurn: 'Magnets ignore most things: they only pull iron and a few metals.'
+    },
+    'adaptations': {
+      wrongTurn: 'An animal can decide to grow a new feature when it needs one.',
+      why: 'The feature fits the animal so well that it looks chosen on purpose.',
+      correctTurn: 'These features did not appear overnight: they developed over many, many generations, not by choice.'
     }
   };
 
