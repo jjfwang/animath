@@ -44,5 +44,7 @@
   "jc-h2-inorganic.json",
   "jc-h2-organic.json",
   "jc-h2-cell-bio.json",
-  "jc-h2-genetics.json"
+  "jc-h2-genetics.json",
+  "jc-h2-energetics.json",
+  "jc-h2-ecology.json"
 ]

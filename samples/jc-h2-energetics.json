@@ -1,0 +1,698 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "Mitochondria: folded cristae, huge surface area",
+      "duration_ms": 10000,
+      "id": "s1",
+      "narration": "The mitochondrion is the site of aerobic respiration. Its inner membrane folds into shelves called cristae. The folding packs an enormous surface area into a tiny space — room for the machinery that makes ATP.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 220,
+            "id": "outerMem",
+            "kind": "rect",
+            "rx": 110,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 560,
+            "x": 200,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "cris1",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 320,
+            "x2": 320,
+            "y1": 190,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "cris2",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 390,
+            "x2": 390,
+            "y1": 190,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "cris3",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 460,
+            "x2": 460,
+            "y1": 190,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "cris4",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 530,
+            "x2": 530,
+            "y1": 190,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "cris5",
+            "kind": "line",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 600,
+            "x2": 600,
+            "y1": 190,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "crisLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "cristae — folded inner membrane",
+            "x": 200,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "matrixLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "matrix",
+            "x": 640,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "surfNote",
+            "kind": "text",
+            "size": 28,
+            "text": "folding → huge surface area → more ATP made",
+            "x": 200,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "aerobicSite",
+            "kind": "text",
+            "size": 24,
+            "text": "site of aerobic respiration",
+            "x": 560,
+            "y": 60
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "cris3"
+        },
+        {
+          "at_ms": 8500,
+          "do": "caption",
+          "text": "Cristae folds give mitochondria a huge surface area for ATP production"
+        }
+      ]
+    },
+    {
+      "caption": "Aerobic respiration: word and symbol equation",
+      "duration_ms": 11000,
+      "id": "s2",
+      "narration": "Aerobic respiration releases energy from glucose using oxygen. The word equation: glucose plus oxygen gives carbon dioxide plus water. The symbol equation shows the same thing atom by atom — about 32 ATP per glucose molecule, the full payoff of complete breakdown.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "wordEq",
+            "kind": "text",
+            "size": 28,
+            "text": "glucose + oxygen → carbon dioxide + water",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "symEq",
+            "kind": "latex",
+            "size": 34,
+            "tex": "\\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2 \\rightarrow 6\\text{CO}_2 + 6\\text{H}_2\\text{O} + \\text{energy}",
+            "x": 60,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "o2note",
+            "kind": "text",
+            "size": 24,
+            "text": "needs oxygen — takes place in mitochondria",
+            "x": 120,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "payoff",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\approx 32 \\text{ ATP per glucose}",
+            "x": 120,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "completeNote",
+            "kind": "text",
+            "size": 24,
+            "text": "complete breakdown of glucose — the maximum energy yield",
+            "x": 120,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "symEq"
+        },
+        {
+          "at_ms": 9500,
+          "do": "caption",
+          "text": "Aerobic respiration: glucose + oxygen → carbon dioxide + water + energy"
+        }
+      ]
+    },
+    {
+      "caption": "ATP: the energy currency",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "Cells never spend glucose directly — they spend ATP. Removing the terminal phosphate from ATP releases a packet of energy the cell can use immediately, then the ADP is rebuilt by respiration. ATP is the energy currency: earned by respiration, spent everywhere.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "hydroEq",
+            "kind": "latex",
+            "size": 38,
+            "tex": "\\text{ATP} \\rightarrow \\text{ADP} + \\text{P}_i + \\text{energy}",
+            "x": 120,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "hydroLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "hydrolysis of ATP releases usable energy",
+            "x": 120,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "rebuild",
+            "kind": "text",
+            "size": 24,
+            "text": "respiration rebuilds ATP from ADP + phosphate",
+            "x": 120,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "currency",
+            "kind": "text",
+            "size": 32,
+            "text": "ATP is the energy currency of the cell",
+            "x": 120,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "spend1",
+            "kind": "text",
+            "size": 24,
+            "text": "spent on: muscle contraction · active transport · biosynthesis",
+            "x": 120,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "hydroEq"
+        },
+        {
+          "at_ms": 8500,
+          "do": "caption",
+          "text": "ATP hydrolysis releases energy; respiration rebuilds ATP"
+        }
+      ]
+    },
+    {
+      "caption": "Anaerobic respiration: yeast vs muscle",
+      "duration_ms": 11000,
+      "id": "s4",
+      "narration": "Without enough oxygen, glucose is only partly broken down. Yeast ferments glucose to ethanol and carbon dioxide — the basis of bread and brewing. Your muscles make lactic acid instead, and the oxygen debt is repaid later. Both yield far less ATP than aerobic respiration.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "yeastHead",
+            "kind": "text",
+            "size": 28,
+            "text": "yeast (no oxygen)",
+            "x": 60,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "yeastEq",
+            "kind": "latex",
+            "size": 30,
+            "tex": "\\text{glucose} \\rightarrow 2\\text{C}_2\\text{H}_5\\text{OH} + 2\\text{CO}_2 + \\text{energy}",
+            "x": 60,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "yeastUse",
+            "kind": "text",
+            "size": 24,
+            "text": "ethanol + carbon dioxide — bread and brewing",
+            "x": 60,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "muscleHead",
+            "kind": "text",
+            "size": 28,
+            "text": "muscle (oxygen shortage)",
+            "x": 60,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "muscleEq",
+            "kind": "latex",
+            "size": 30,
+            "tex": "\\text{glucose} \\rightarrow 2\\text{C}_3\\text{H}_6\\text{O}_3 + \\text{energy}",
+            "x": 60,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "muscleUse",
+            "kind": "text",
+            "size": 24,
+            "text": "lactic acid — oxygen debt is repaid afterwards",
+            "x": 60,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "yieldNote",
+            "kind": "text",
+            "size": 26,
+            "text": "partial breakdown → far less ATP than aerobic",
+            "x": 60,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "yieldNote"
+        },
+        {
+          "at_ms": 9500,
+          "do": "caption",
+          "text": "Anaerobic: yeast makes ethanol + CO₂; muscles make lactic acid"
+        }
+      ]
+    },
+    {
+      "caption": "Photosynthesis: photolysis and the Calvin cycle",
+      "duration_ms": 11000,
+      "id": "s5",
+      "narration": "In the light-dependent stage, water is split — photolysis — releasing oxygen and the hydrogen needed for the next stage. Then the Calvin cycle, needing no light directly, fixes carbon dioxide into carbohydrate in the stroma.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "photEq",
+            "kind": "latex",
+            "size": 32,
+            "tex": "2\\text{H}_2\\text{O} \\rightarrow 4\\text{H}^+ + 4e^- + \\text{O}_2",
+            "x": 60,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "photLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "photolysis of water — the light-dependent stage",
+            "x": 60,
+            "y": 165
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 200,
+            "id": "chloro",
+            "kind": "rect",
+            "rx": 60,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 340,
+            "x": 580,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "grana1",
+            "kind": "line",
+            "stroke": "#1a7f37",
+            "width": 4,
+            "x1": 650,
+            "x2": 730,
+            "y1": 150,
+            "y2": 150
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "grana2",
+            "kind": "line",
+            "stroke": "#1a7f37",
+            "width": 4,
+            "x1": 650,
+            "x2": 730,
+            "y1": 175,
+            "y2": 175
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "grana3",
+            "kind": "line",
+            "stroke": "#1a7f37",
+            "width": 4,
+            "x1": 650,
+            "x2": 730,
+            "y1": 200,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "thylLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "thylakoids (grana) - photolysis",
+            "x": 560,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "stromaLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "stroma - Calvin cycle site",
+            "x": 580,
+            "y": 375
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "id": "calvin",
+            "kind": "text",
+            "size": 26,
+            "text": "Calvin cycle: CO₂ fixed into carbohydrate",
+            "x": 60,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "noLight",
+            "kind": "text",
+            "size": 24,
+            "text": "light-independent — but runs on light-stage products",
+            "x": 60,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "photEq"
+        },
+        {
+          "at_ms": 10000,
+          "do": "caption",
+          "text": "Photolysis splits water; the Calvin cycle fixes CO₂"
+        }
+      ]
+    },
+    {
+      "caption": "Limiting factors — and a misconception",
+      "duration_ms": 10000,
+      "id": "s6",
+      "narration": "The rate of photosynthesis is capped by whichever factor is in shortest supply — light intensity, carbon dioxide concentration, or temperature. And one correction: plants do not only respire at night. They respire around the clock; at night there is simply no photosynthesis to hide it.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "limitHead",
+            "kind": "text",
+            "size": 28,
+            "text": "limiting factors for photosynthesis",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "f1",
+            "kind": "text",
+            "size": 26,
+            "text": "light intensity",
+            "x": 120,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "f2",
+            "kind": "text",
+            "size": 26,
+            "text": "carbon dioxide concentration",
+            "x": 120,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "f3",
+            "kind": "text",
+            "size": 26,
+            "text": "temperature",
+            "x": 120,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "shortSupply",
+            "kind": "text",
+            "size": 24,
+            "text": "rate is capped by whichever is in shortest supply",
+            "x": 120,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 32,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "wrongClaim",
+            "kind": "text",
+            "size": 26,
+            "text": "plants only respire at night",
+            "x": 120,
+            "y": 445
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "fix",
+            "kind": "text",
+            "size": 26,
+            "text": "plants respire all the time — photosynthesis just masks it by day",
+            "x": 120,
+            "y": 490
+          }
+        },
+        {
+          "at_ms": 8400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "fix"
+        },
+        {
+          "at_ms": 9200,
+          "do": "caption",
+          "text": "Photosynthesis is limited by the factor in shortest supply"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "JC H2 biology — energetics: respiration and photosynthesis",
+  "topic": "h2-energetics"
+}
