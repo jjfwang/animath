@@ -65,5 +65,7 @@
   "secondary-science-bio-ecology.json",
   "secondary-science-bio-nutrition.json",
   "primary-math-whole-numbers.json",
-  "primary-math-algebra-intro.json"
+  "primary-math-algebra-intro.json",
+  "primary-math-geometry-angles.json",
+  "primary-math-volume.json"
 ]
