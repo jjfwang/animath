@@ -42,5 +42,7 @@
   "jc-h2-quantum.json",
   "jc-h2-physical.json",
   "jc-h2-inorganic.json",
-  "jc-h2-organic.json"
+  "jc-h2-organic.json",
+  "jc-h2-cell-bio.json",
+  "jc-h2-genetics.json"
 ]
