@@ -145,3 +145,8 @@ automated iteration loop (one issue → one PR → review → merge, every
 ## License
 
 MIT — see `LICENSE`.
+
+## Contributing
+
+New here? Start with [CONTRIBUTING.md](CONTRIBUTING.md) — the zero-dependency
+policy, the test gate, sample conventions, and branch/PR rules.
