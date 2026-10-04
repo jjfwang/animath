@@ -1,0 +1,633 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Secant lines close in on the tangent",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "Pick two points on a curve and join them: a secant. Slide the second point toward the first — the secant settles onto the tangent, whose gradient is the derivative.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "curve",
+            "kind": "polygon",
+            "points": [
+              [
+                140,
+                450
+              ],
+              [
+                200,
+                400
+              ],
+              [
+                270,
+                350
+              ],
+              [
+                350,
+                312
+              ],
+              [
+                430,
+                280
+              ],
+              [
+                520,
+                258
+              ],
+              [
+                620,
+                242
+              ],
+              [
+                720,
+                232
+              ],
+              [
+                820,
+                226
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "cx": 430,
+            "cy": 280,
+            "fill": "#1f7a3a",
+            "id": "ptP",
+            "kind": "circle",
+            "r": 10,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "labP",
+            "kind": "text",
+            "size": 28,
+            "text": "P",
+            "x": 404,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 720,
+            "cy": 232,
+            "fill": "#b00020",
+            "id": "ptQ",
+            "kind": "circle",
+            "r": 10,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "sec1",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 3,
+            "x1": 430,
+            "x2": 720,
+            "y1": 280,
+            "y2": 232
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "labSec",
+            "kind": "text",
+            "size": 26,
+            "text": "secant PQ",
+            "x": 560,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "ptQ",
+          "to": {
+            "cx": 560,
+            "cy": 252
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "move",
+          "dur_ms": 1500,
+          "target": "sec1",
+          "to": {
+            "x1": 430,
+            "x2": 560,
+            "y1": 280,
+            "y2": 252
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "tangent",
+            "kind": "line",
+            "stroke": "#1f7a3a",
+            "width": 4,
+            "x1": 310,
+            "x2": 560,
+            "y1": 318,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "labTan",
+            "kind": "text",
+            "size": 28,
+            "text": "tangent at P: gradient = dy/dx",
+            "x": 300,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "emphasize",
+          "dur_ms": 800,
+          "target": "tangent"
+        }
+      ]
+    },
+    {
+      "caption": "The power rule",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "Differentiation has a workhorse: if y is x to the n, the derivative is n times x to the n minus one. Three examples show the pattern doing all the work.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "rule",
+            "kind": "latex",
+            "size": 44,
+            "tex": "y = x^n \\;\\Longrightarrow\\; \\frac{dy}{dx} = nx^{n-1}",
+            "x": 150,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ex1",
+            "kind": "latex",
+            "size": 40,
+            "tex": "y = x^3 \\Rightarrow \\frac{dy}{dx} = 3x^2",
+            "x": 150,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ex2",
+            "kind": "latex",
+            "size": 40,
+            "tex": "y = 5x^4 \\Rightarrow \\frac{dy}{dx} = 20x^3",
+            "x": 150,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ex3",
+            "kind": "latex",
+            "size": 40,
+            "tex": "y = \\frac{1}{x} = x^{-1} \\Rightarrow \\frac{dy}{dx} = -x^{-2}",
+            "x": 150,
+            "y": 460
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "tip",
+            "kind": "text",
+            "size": 26,
+            "text": "multiply by the power, drop the power by one",
+            "x": 480,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "rule"
+        }
+      ]
+    },
+    {
+      "caption": "dy/dx from first principles",
+      "duration_ms": 9000,
+      "id": "s3",
+      "narration": "The derivative is a limit: the change in y over the change in x, as the change in x shrinks to zero. The power rule is just the shortcut this limit proves.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1a1a1a",
+            "id": "fp",
+            "kind": "latex",
+            "size": 44,
+            "tex": "\\frac{dy}{dx} = \\lim_{\\Delta x \\to 0} \\frac{\\Delta y}{\\Delta x}",
+            "x": 170,
+            "y": 140
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "step1",
+            "kind": "text",
+            "size": 28,
+            "text": "1. gradient of a chord: Δy ÷ Δx",
+            "x": 170,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "step2",
+            "kind": "text",
+            "size": 28,
+            "text": "2. shrink Δx — the chord becomes the tangent",
+            "x": 170,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "fpEg",
+            "kind": "latex",
+            "size": 40,
+            "tex": "y = x^2 \\;\\Rightarrow\\; \\frac{dy}{dx} = 2x",
+            "x": 170,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "fpNote",
+            "kind": "text",
+            "size": 26,
+            "text": "the limit proves the shortcut, the shortcut is what you use",
+            "x": 170,
+            "y": 500
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "fp"
+        }
+      ]
+    },
+    {
+      "caption": "Stationary points: max, min, inflexion",
+      "duration_ms": 9000,
+      "id": "s4",
+      "narration": "Where the gradient is zero, the curve levels off. It can crest at a maximum, dip at a minimum — or flatten briefly and carry on, a point of inflexion.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "cubic",
+            "kind": "polygon",
+            "points": [
+              [
+                140,
+                420
+              ],
+              [
+                220,
+                420
+              ],
+              [
+                300,
+                380
+              ],
+              [
+                380,
+                300
+              ],
+              [
+                430,
+                280
+              ],
+              [
+                480,
+                300
+              ],
+              [
+                560,
+                380
+              ],
+              [
+                640,
+                420
+              ],
+              [
+                720,
+                420
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 430,
+            "cy": 280,
+            "fill": "#1f7a3a",
+            "id": "maxPt",
+            "kind": "circle",
+            "r": 10,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "maxLab",
+            "kind": "text",
+            "size": 28,
+            "text": "max: dy/dx = 0",
+            "x": 460,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "valley",
+            "kind": "polygon",
+            "points": [
+              [
+                140,
+                120
+              ],
+              [
+                220,
+                120
+              ],
+              [
+                300,
+                170
+              ],
+              [
+                370,
+                240
+              ],
+              [
+                430,
+                260
+              ],
+              [
+                490,
+                240
+              ],
+              [
+                560,
+                170
+              ],
+              [
+                640,
+                120
+              ],
+              [
+                720,
+                120
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "cx": 430,
+            "cy": 260,
+            "fill": "#b8860b",
+            "id": "minPt",
+            "kind": "circle",
+            "r": 10,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "minLab",
+            "kind": "text",
+            "size": 28,
+            "text": "min: dy/dx = 0",
+            "x": 460,
+            "y": 268
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "inflect",
+            "kind": "polygon",
+            "points": [
+              [
+                770,
+                480
+              ],
+              [
+                790,
+                420
+              ],
+              [
+                810,
+                375
+              ],
+              [
+                825,
+                352
+              ],
+              [
+                840,
+                340
+              ],
+              [
+                855,
+                328
+              ],
+              [
+                870,
+                305
+              ],
+              [
+                890,
+                260
+              ],
+              [
+                910,
+                200
+              ]
+            ],
+            "stroke": "#b00020",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "show",
+          "shape": {
+            "id": "infLab",
+            "kind": "text",
+            "size": 28,
+            "text": "inflexion: dy/dx = 0, but neither max nor min",
+            "x": 560,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 8200,
+          "do": "caption",
+          "text": "Zero gradient marks all three — nature differs"
+        }
+      ]
+    },
+    {
+      "caption": "Stationary is not always max or min",
+      "duration_ms": 7000,
+      "id": "s5",
+      "narration": "The classic slip: seeing dy over dx equal zero and calling it a maximum or minimum without checking. Y equals x cubed at x equals zero is stationary — and still climbing.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "slip",
+            "kind": "text",
+            "size": 32,
+            "text": "dy/dx = 0 … so it must be max or min?",
+            "x": 140,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "slip2",
+            "kind": "text",
+            "size": 30,
+            "text": "not so fast — check the shape around the point",
+            "x": 140,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "truth",
+            "kind": "latex",
+            "size": 40,
+            "tex": "y = x^3, \\quad \\frac{dy}{dx} = 3x^2 = 0 \\;\\text{at}\\; x = 0",
+            "x": 140,
+            "y": 360
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "verdict",
+            "kind": "text",
+            "size": 30,
+            "text": "stationary, yet neither max nor min — a point of inflexion",
+            "x": 140,
+            "y": 450
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "slip"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math differentiation: gradients, the power rule and stationary points",
+  "topic": "a-differentiation"
+}
