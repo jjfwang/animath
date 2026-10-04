@@ -79,7 +79,7 @@
           "shape": {
             "id": "angTheta",
             "kind": "text",
-            "x": 408,
+            "x": 432,
             "y": 322,
             "size": 30,
             "text": "θ"

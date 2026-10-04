@@ -241,7 +241,7 @@
             "kind": "text",
             "size": 24,
             "text": "sound — longitudinal wave, longer λ",
-            "x": 660,
+            "x": 454,
             "y": 400
           }
         },
@@ -374,10 +374,10 @@
           "shape": {
             "id": "tip",
             "kind": "text",
-            "size": 22,
+            "size": 18,
             "text": "Higher frequency at the same speed → shorter wavelength.",
-            "x": 480,
-            "y": 250
+            "x": 354,
+            "y": 292
           }
         },
         {
@@ -503,7 +503,7 @@
             "size": 24,
             "text": "light: 3 × 10⁸ m/s",
             "x": 560,
-            "y": 280
+            "y": 384
           }
         },
         {
