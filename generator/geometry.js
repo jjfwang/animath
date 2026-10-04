@@ -22,11 +22,17 @@
  * height ≈ size × 1.2. Size defaults to 24 when missing or non-numeric,
  * mirroring generator/rubric.js textBudget (SPEC.md/player.js render
  * default is 28; the audit uses 24 to stay consistent with the rubric's
- * existing text-tier convention). The box's top edge is the shape's y and
- * its horizontal origin is resolved from align: 'start' (default, per
- * SPEC.md line 64 and player/player.js `'text-anchor': opts.align ||
- * 'start'`) anchors the left edge at x; 'middle' centers the box on x;
- * 'end' puts the right edge at x.
+ * existing text-tier convention). The box is BASELINE-ANCHORED vertically:
+ * player/player.js renders <text x y> directly, and SVG y is the alphabetic
+ * baseline, not the box top — so top = y - size (conservative ascent),
+ * bottom = y + 0.2 × size (descender budget), keeping the ≈ 1.2 × size
+ * height. The old top-at-y model produced false-positive bottom overflows
+ * (15 of 119 audit findings in the review round) and was blind to baselines
+ * in [0, 0.8 × size) whose real glyph top is off-canvas. Horizontally the
+ * box origin is resolved from align: 'start' (default, per SPEC.md line 64
+ * and player/player.js `'text-anchor': opts.align || 'start'`) anchors the
+ * left edge at x; 'middle' centers the box on x; 'end' puts the right edge
+ * at x.
  *
  * OVERLAP TOLERANCE: a pair is flagged only when the intersection area
  * exceeds 1% of the smaller box's area, so grazing adjacency (touching
@@ -51,7 +57,9 @@
   var DEFAULT_H = 540;
   var DEFAULT_SIZE = 24;      // mirrors rubric.js textBudget's missing-size tier
   var ADVANCE = 0.6;          // average glyph advance as a fraction of size
-  var LINE_HEIGHT = 1.2;      // box height as a multiple of size
+  var ASCENT = 1.0;           // conservative ascent above the baseline, as a multiple of size
+  var DESCENDER = 0.2;        // descender budget below the baseline, as a multiple of size
+                              // (ASCENT + DESCENDER = 1.2 keeps the old box height)
   var OVERLAP_TOLERANCE = 0.01; // intersection > 1% of smaller box => flag
 
   function isObj(v) { return v !== null && typeof v === 'object'; }
@@ -79,12 +87,16 @@
     if (typeof t !== 'string' || t.length === 0) return null;
     var size = num(shape.size, DEFAULT_SIZE);
     var w = ADVANCE * size * t.length;
-    var h = LINE_HEIGHT * size;
     var x = num(shape.x, 0);
     var y = num(shape.y, 0);
     var a = alignOf(shape);
     var left = a === 'middle' ? x - w / 2 : (a === 'end' ? x - w : x);
-    return { id: shape.id || '?', left: left, top: y, right: left + w, bottom: y + h };
+    // SVG text y is the alphabetic baseline: glyphs rise ~1.0*size above it
+    // (conservative ascent) and descend ~0.2*size below it.
+    return {
+      id: shape.id || '?', left: left, top: y - ASCENT * size,
+      right: left + w, bottom: y + DESCENDER * size
+    };
   }
 
   function checkOverflow(box, scene, file, canvas, out) {

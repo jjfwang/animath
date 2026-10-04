@@ -58,9 +58,25 @@ test('overflow: top and bottom edges', () => {
   const top = auditGeometry(specOf([show(textShape({ y: -5 }))]));
   assert.equal(top.length, 1);
   assert.equal(top[0].kind, 'overflow');
-  const bottom = auditGeometry(specOf([show(textShape({ y: 530 }))]));
-  assert.equal(bottom.length, 1);
-  assert.equal(bottom[0].kind, 'overflow');
+});
+
+test('baseline-anchored box: bottom is now y + 0.2*size (y=530/size=24 clean)', () => {
+  // new bottom = 530 + 0.2*24 = 534.8 <= 540 -> no finding
+  assert.deepEqual(auditGeometry(specOf([show(textShape({ y: 530 }))])), []);
+});
+
+test('baseline-anchored box: bottom-clean case mirroring sample ans (y=505/size=40)', () => {
+  // new bottom = 505 + 0.2*40 = 513 <= 540 -> no finding
+  assert.deepEqual(
+    auditGeometry(specOf([show(textShape({ y: 505, size: 40 }))])), []
+  );
+});
+
+test('baseline-anchored box: top overflow flags baselines in [0, 0.8*size) (y=10/size=40)', () => {
+  // new top = 10 - 40 = -30 < 0 -> flagged (the old model was blind here)
+  const f = auditGeometry(specOf([show(textShape({ y: 10, size: 40 }))]));
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'overflow');
 });
 
 test('align middle centers the box (x=0 overflows left)', () => {

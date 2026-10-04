@@ -113,8 +113,9 @@ in the browser too — load `player/validate.js` and
 
 `generator/geometry.js` statically audits text geometry across a spec:
 every `show`-step text shape is boxed (width ≈ 0.6 × size × length,
-resolved against `align`/`start`|`middle`|`end`) and checked for canvas
-overflow, every pair of text boxes is checked for overlap beyond a 1%
+resolved against `align`/`start`|`middle`|`end`, and baseline-anchored
+vertically — top = y − size, since SVG text y is the alphabetic baseline)
+and checked for canvas overflow, every pair of text boxes is checked for overlap beyond a 1%
 tolerance, and latex anchors are checked against the canvas (no width
 estimate — KaTeX width is not statically computable). Shapes moved by
 later `move` steps are audited at their show-time position (documented
