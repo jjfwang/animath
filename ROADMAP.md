@@ -35,7 +35,7 @@ and play correctly in the demo page.
 ## R-3 — Generator capabilities
 
 - [ ] Problem mode: question in → animated worked solution out (prompt + UI)
-- [ ] Misconception library: per-topic "wrong turn" beats the LLM must animate
+- [x] Misconception library: per-topic "wrong turn" beats the LLM must animate (67 seed entries across all bands, issues #101 #103 #105 #107 #109)
 - [ ] Spec repair pass: validator errors fed back to the LLM automatically
 - [ ] Multi-model presets (OpenAI, Anthropic-via-proxy, local Ollama)
 

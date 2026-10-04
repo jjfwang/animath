@@ -1,7 +1,7 @@
 /* animath misconception library tests — zero dependencies, Node built-in test runner.
  * Run: node --test "tests/*.test.js"
  *
- * Guards generator/misconceptions.js (issues #101, #103, #105, #107) and the misconceptionFor /
+ * Guards generator/misconceptions.js (issues #101, #103, #105, #107, #109) and the misconceptionFor /
  * injection wiring in generator/build_prompt.js: every library entry keeps its
  * three string fields, lookup resolves short slugs and longer file-style slugs,
  * unknown slugs fall back to the generic PEDAGOGY line, and buildPrompts
@@ -39,9 +39,17 @@ const SECONDARY_SCIENCE_SLUGS = [
   'phys-waves'
 ];
 
-const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS, SECONDARY_MATH_SLUGS, SECONDARY_SCIENCE_SLUGS);
+const H2_SLUGS = [
+  'h2-functions-graphs', 'h2-sequences', 'h2-vectors', 'h2-complex',
+  'h2-differentiation', 'h2-integration', 'h2-probability', 'h2-statistics',
+  'h2-mechanics', 'h2-em', 'h2-thermal', 'h2-quantum', 'h2-physical',
+  'h2-inorganic', 'h2-organic', 'h2-cell-bio', 'h2-genetics', 'h2-energetics',
+  'h2-ecology'
+];
 
-test('MISCONCEPTIONS holds exactly the 48 seeded topic slugs (12 Primary Math + 8 Primary Science + 14 Secondary Math + 14 Secondary Science)', () => {
+const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS, SECONDARY_MATH_SLUGS, SECONDARY_SCIENCE_SLUGS, H2_SLUGS);
+
+test('MISCONCEPTIONS holds exactly the 67 seeded topic slugs (12 Primary Math + 8 Primary Science + 14 Secondary Math + 14 Secondary Science + 19 H2)', () => {
   assert.deepStrictEqual(Object.keys(MISCONCEPTIONS).sort(), SEEDED_SLUGS.slice().sort());
 });
 
@@ -85,6 +93,13 @@ test('misconceptionFor resolves the slice-4 secondary science slugs exactly', ()
   }
 });
 
+test('misconceptionFor resolves the slice-5 H2 slugs exactly', () => {
+  for (const slug of H2_SLUGS) {
+    assert.strictEqual(Prompt.misconceptionFor(slug), MISCONCEPTIONS[slug],
+      'exact lookup for ' + slug + ' must resolve to its entry');
+  }
+});
+
 test('misconceptionFor resolves slice-4 file-style slugs via longest prefix', () => {
   assert.strictEqual(Prompt.misconceptionFor('bio-ecology-pyramid'), MISCONCEPTIONS['bio-ecology']);
   assert.strictEqual(Prompt.misconceptionFor('chem-mole-mass-to-moles'), MISCONCEPTIONS['chem-mole']);
@@ -92,18 +107,18 @@ test('misconceptionFor resolves slice-4 file-style slugs via longest prefix', ()
   assert.strictEqual(Prompt.misconceptionFor('phys-forces-pressure-tiptoes'), MISCONCEPTIONS['phys-forces']);
 });
 
-test('no slice-4 slug is shadowed by another key prefix', () => {
+test('no seeded slug is shadowed by another key prefix', () => {
   // every file-style slug used above must land on the same entry a
   // longer file path prefix would hit, i.e. no key prefixes another key
-  for (const slug of SECONDARY_SCIENCE_SLUGS) {
+  for (const slug of SEEDED_SLUGS) {
     assert.strictEqual(Prompt.misconceptionFor(slug + '-x'), MISCONCEPTIONS[slug],
       'prefix extension of ' + slug + ' must still resolve to its entry');
   }
 });
 
-test('slice-4 entries stay plain ASCII like the earlier slices', () => {
+test('all entries stay plain ASCII like the earlier slices', () => {
   const ascii = /^[\x00-\x7F]*$/;
-  for (const slug of SECONDARY_SCIENCE_SLUGS) {
+  for (const slug of SEEDED_SLUGS) {
     const e = MISCONCEPTIONS[slug];
     for (const f of ['wrongTurn', 'why', 'correctTurn']) {
       assert.ok(ascii.test(e[f]), 'entry ' + slug + ' field ' + f + ' must be ASCII');

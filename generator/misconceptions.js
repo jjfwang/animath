@@ -15,11 +15,21 @@
  * misconception/myth scenes in samples/secondary-science-*.json,
  * samples/secondary-physics-*.json and
  * samples/secondary-science-electricity.json.
+ * Slice 5 (issue #109): the 19 H2 (JC) topics (h2-functions-graphs,
+ * h2-sequences, h2-vectors, h2-complex, h2-differentiation, h2-integration,
+ * h2-probability, h2-statistics, h2-mechanics, h2-em, h2-thermal,
+ * h2-quantum, h2-physical, h2-inorganic, h2-organic, h2-cell-bio,
+ * h2-genetics, h2-energetics, h2-ecology), grounded in the matching
+ * misconception scenes in samples/jc-h2-*.json. jc-h2-organic.json carries
+ * no misconception beat, so its entry uses the canonical H2 organic
+ * misconception (curly arrows drawn against the electron flow),
+ * cross-checked against the sample's mechanism scenes.
  *
- * Prefix note (slices 3-4): no key in the map is a prefix of another key,
+ * Prefix note (slices 3-5): no key in the map is a prefix of another key,
  * so the longest-prefix ordering inside misconceptionFor() cannot be
- * shadowed — e.g. 'phys-energy' and 'energy-forms' coexist safely, and no
- * slice-4 key prefixes any slice 1-3 key.
+ * shadowed — e.g. 'phys-energy' and 'energy-forms' coexist safely, no
+ * slice-4 key prefixes any slice 1-3 key, and no h2- key prefixes any
+ * other h2- key ('h2-em' and 'h2-energetics' are distinct keys).
  *
  * Slug naming note: the map is keyed on the short topic slugs that
  * buildPrompts receives (the issue's slugs), which match the samples' topic
@@ -29,9 +39,15 @@
  *   percentage-of-quantity.json -> topic "percentage" (key: percentage)
  *   ratio-sharing.json        -> topic "ratio"     (key: ratio)
  *   photosynthesis-intro.json -> topic "photosynthesis" (key: photosynthesis)
+ *   jc-h2-em.json             -> topic "h2-em"    (key: h2-em)
  * Callers sometimes pass the longer file-style slug (e.g. "fractions-addition"
  * or "percentage-of-quantity"); misconceptionFor() in build_prompt.js also
  * tries the longest matching key prefix so those still resolve.
+ * Run-105-class trap (documented, not a code change): the file-style JC
+ * slugs "jc-h2-*" (with the "jc-" file prefix) do NOT resolve — the lookup
+ * is key-prefix only, so a caller passing "jc-h2-em" falls to the generic
+ * line. Callers pass the topic field, which matches the short "h2-*" slugs,
+ * so this is expected.
  *
  * Works in browser and Node.
  */
@@ -284,6 +300,101 @@
       wrongTurn: 'Sound travels faster than light.',
       why: 'A thunderclap feels so powerful that it seems to arrive before the flash.',
       correctTurn: 'Light is far faster: the lightning flash arrives first and the thunder follows.'
+    },
+    'h2-functions-graphs': {
+      wrongTurn: 'f(x + 3) shifts the graph 3 units to the right.',
+      why: 'Plus looks like a move to the right, but the shift undoes the change to x.',
+      correctTurn: 'Inside the brackets means shift LEFT: f(x + 3) is zero where x = -3, to the left of the original.'
+    },
+    'h2-sequences': {
+      wrongTurn: 'u_10 needs ten jumps of d, so u_n = u_1 + n*d.',
+      why: 'The n feels like the number of jumps, but the first jump lands on u_2, not u_1.',
+      correctTurn: 'Exponents count the jumps, not the terms: u_10 = u_1 + 9d, and a geometric sum counts every term, not the last term times n.'
+    },
+    'h2-vectors': {
+      wrongTurn: 'Moving a vector to a new start point changes it.',
+      why: 'Position vectors are pinned to the origin, so every vector feels pinned.',
+      correctTurn: 'Free vectors slide: the same arrow drawn anywhere is the same vector. Only position vectors are pinned to the origin.'
+    },
+    'h2-complex': {
+      wrongTurn: 'If arg(z) = 100 degrees then arg(z^3) = 300 degrees.',
+      why: 'Multiplying the angle can overshoot 180 degrees, which breaks the principal range.',
+      correctTurn: 'Angles wrap around: the principal Arg must land in -180 to 180 degrees, so arg(z^3) = -60 degrees.'
+    },
+    'h2-differentiation': {
+      wrongTurn: 'Cancelling the d symbols in dy/dx.',
+      why: 'dy/dx looks like a fraction, so the d symbols look like they can cancel.',
+      correctTurn: 'dy/dx is one symbol for a limit, not a fraction: cancelling the d symbols breaks the mathematics.'
+    },
+    'h2-integration': {
+      wrongTurn: 'A definite integral still needs the +C in the answer.',
+      why: 'The habit of writing +C carries over from indefinite integrals.',
+      correctTurn: 'Only indefinite integrals need +C: it cancels at the two limits, so from 1 to 2 the answer is simply 7/3.'
+    },
+    'h2-probability': {
+      wrongTurn: 'After five heads in a row, tails is due.',
+      why: 'A long run feels like it must balance out.',
+      correctTurn: 'The coin never remembers: after five heads the next toss is still 1/2.'
+    },
+    'h2-statistics': {
+      wrongTurn: 'A p-value of 0.03 means there is a 3% chance the null hypothesis is true.',
+      why: 'The p-value is read as a probability about the hypothesis itself.',
+      correctTurn: 'The p-value is about the data given the null: if H0 were true, 3% of experiments would give data this extreme.'
+    },
+    'h2-mechanics': {
+      wrongTurn: 'A centrifugal force flings you outward in a sharp turn.',
+      why: 'Being thrown sideways feels like an outward push.',
+      correctTurn: 'No outward fling exists: your body wants to keep going straight while the seat pushes you inward - the inward push is the real force.'
+    },
+    'h2-em': {
+      wrongTurn: 'An emf flows as long as the magnet sits inside the coil.',
+      why: 'The flux looks large inside the coil, so voltage feels like it should be there.',
+      correctTurn: 'No change in flux, no emf: the magnet sitting still gives zero - only motion makes the meter kick.'
+    },
+    'h2-thermal': {
+      wrongTurn: 'In a hotter gas every molecule moves faster.',
+      why: 'Hotter means faster, so every molecule feels faster.',
+      correctTurn: 'Hotter means a higher average: the whole spread of speeds shifts up, but some molecules still crawl.'
+    },
+    'h2-quantum': {
+      wrongTurn: 'Brighter light ejects faster electrons.',
+      why: 'Brightness feels like strength, so more light looks like harder hits.',
+      correctTurn: 'Brightness means more photons, not stronger ones: a dim violet beam ejects faster electrons than a bright red one.'
+    },
+    'h2-physical': {
+      wrongTurn: 'A catalyst pushes the equilibrium toward the products.',
+      why: 'A faster forward reaction looks like the products are winning.',
+      correctTurn: 'A catalyst speeds the forward and reverse reactions equally: the position of equilibrium is unchanged.'
+    },
+    'h2-inorganic': {
+      wrongTurn: 'Zinc is a transition metal because it sits in the d-block.',
+      why: 'The d-block label reads as the definition of a transition metal.',
+      correctTurn: 'Zinc(II) has a full 3d subshell: no partially filled d orbitals, so zinc is not a transition metal.'
+    },
+    'h2-organic': {
+      wrongTurn: 'Curly arrows point from the electron-poor atom toward the electron-rich one.',
+      why: 'The arrow is read like a direction pointer instead of tracking the electrons themselves.',
+      correctTurn: 'Curly arrows follow the electrons: they start at an electron-rich region (a lone pair or pi bond) and point to where the electrons go.'
+    },
+    'h2-cell-bio': {
+      wrongTurn: 'Plant cells have no mitochondria.',
+      why: 'Mitochondria feel like animal-cell equipment, and the chloroplast looks like the plant replacement.',
+      correctTurn: 'Plant cells respire too, day and night: they have mitochondria as well - only the chloroplast is plant-only.'
+    },
+    'h2-genetics': {
+      wrongTurn: 'Every mutation harms the organism.',
+      why: 'Mutation sounds like damage.',
+      correctTurn: 'Most mutations are neutral: only some are harmful, and a rare few are the raw material of evolution.'
+    },
+    'h2-energetics': {
+      wrongTurn: 'Plants only respire at night.',
+      why: 'During the day photosynthesis dominates, so respiration looks switched off.',
+      correctTurn: 'Plants respire around the clock: at night there is simply no photosynthesis to hide it.'
+    },
+    'h2-ecology': {
+      wrongTurn: 'Energy is recycled through the ecosystem.',
+      why: 'The "cycle of life" language makes energy sound like it loops round forever.',
+      correctTurn: 'Energy flows one way - sunlight in, heat out: what is recycled is matter - carbon, nitrogen and water.'
     }
   };
 
