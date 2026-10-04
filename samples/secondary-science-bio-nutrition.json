@@ -154,7 +154,7 @@
           "shape": {
             "id": "o1",
             "kind": "text",
-            "size": 30,
+            "size": 24,
             "text": "mouth",
             "x": 70,
             "y": 270
@@ -166,9 +166,9 @@
           "shape": {
             "id": "o2",
             "kind": "text",
-            "size": 30,
+            "size": 24,
             "text": "oesophagus",
-            "x": 230,
+            "x": 175,
             "y": 270
           }
         },
@@ -178,9 +178,9 @@
           "shape": {
             "id": "o3",
             "kind": "text",
-            "size": 30,
+            "size": 24,
             "text": "stomach",
-            "x": 440,
+            "x": 347,
             "y": 270
           }
         },
@@ -190,9 +190,9 @@
           "shape": {
             "id": "o4",
             "kind": "text",
-            "size": 30,
+            "size": 24,
             "text": "small intestine",
-            "x": 600,
+            "x": 478,
             "y": 270
           }
         },
@@ -202,9 +202,9 @@
           "shape": {
             "id": "o5",
             "kind": "text",
-            "size": 30,
+            "size": 24,
             "text": "large intestine",
-            "x": 810,
+            "x": 682,
             "y": 270
           }
         },
@@ -459,9 +459,21 @@
             "id": "fix",
             "kind": "text",
             "size": 30,
-            "text": "Most digestion and absorption continue in the small intestine",
+            "text": "Most digestion and absorption continue",
             "x": 130,
             "y": 480
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "fix2",
+            "kind": "text",
+            "size": 30,
+            "text": "in the small intestine",
+            "x": 130,
+            "y": 520
           }
         },
         {
