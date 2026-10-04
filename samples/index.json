@@ -59,5 +59,6 @@
   "secondary-e-geometry.json",
   "secondary-e-statistics.json",
   "secondary-science-bio-transport.json",
-  "secondary-science-bio-reproduction.json"
+  "secondary-science-bio-reproduction.json",
+  "secondary-science-bio-ecology.json"
 ]
