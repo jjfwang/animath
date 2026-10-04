@@ -520,7 +520,7 @@
       "id": "s4",
       "caption": "Grouped data: the cumulative frequency table",
       "duration_ms": 11000,
-      "narration": "For larger data we group it. Twenty-four students, marks grouped in tens. Add the frequencies: 24 students. Multiply each midpoint by its frequency and add: 600. The estimated mean is 600 over 24, which is 25 — an estimate, because every value in a group stands in for the group midpoint.",
+      "narration":"For grouped data, every value stands in for its group's midpoint: multiply each midpoint by its frequency and add, which gives 600. The estimated mean is 600 over 24, which is 25 — an estimate.",
       "steps": [
         {
           "at_ms": 0,
@@ -1151,7 +1151,7 @@
       "id": "s6",
       "caption": "Read-off: median ≈ 25, IQR ≈ 16.7",
       "duration_ms": 10000,
-      "narration": "Half of 24 is 12: read across from 12 and down, the median is about 25. A quarter of 24 is 6: the lower quartile is about 16.7. Three quarters is 18: the upper quartile is about 33.3. The interquartile range is 33.3 minus 16.7, about 16.7.",
+      "narration":"Half of 24 is 12: read across from 12 and down — the median is about 25. A quarter of 24 is 6: the lower quartile is about 16.7; three quarters is 18: the upper about 33.3, giving an interquartile range of about 16.7.",
       "steps": [
         {
           "at_ms": 0,
@@ -1423,7 +1423,7 @@
       "id": "s7",
       "caption": "The mean is the balance point, not the tallest bar",
       "duration_ms": 8000,
-      "narration": "Look at the tallest bar — the score 8, the mode. But the mean is 10, over here, where the fulcrum balances. The deviations below add to minus 13 and above to plus 13: they cancel to zero. The mean is the balance point, not the tallest bar.",
+      "narration":"Look at the tallest bar — the score 8, the mode. But the mean is 10, over here, where the fulcrum balances: the mean is the balance point, not the tallest bar.",
       "steps": [
         {
           "at_ms": 0,

@@ -11,7 +11,7 @@
       "caption": "Light and sound are different kinds of waves",
       "duration_ms": 11000,
       "id": "s1",
-      "narration": "Light and sound are both waves, but they behave very differently. Light is a transverse wave with an extremely short wavelength; sound is a longitudinal wave with a much longer wavelength. And light travels far, far faster than sound.",
+      "narration":"Light and sound are both waves, but they behave very differently. Light is transverse with an extremely short wavelength; sound is longitudinal with a much longer one — and light travels far, far faster.",
       "steps": [
         {
           "at_ms": 0,
@@ -292,7 +292,7 @@
       "caption": "Wave speed equals frequency times wavelength",
       "duration_ms": 10000,
       "id": "s2",
-      "narration": "For any wave, speed equals frequency times wavelength. Take this sound wave: it travels at 340 metres per second and vibrates 170 times per second. Its wavelength is 340 divided by 170 — 2 metres. Every number here ties together.",
+      "narration":"For any wave, speed equals frequency times wavelength. Take this sound wave: it travels at 340 metres per second and vibrates 170 times per second, so its wavelength is 340 divided by 170 — 2 metres.",
       "steps": [
         {
           "at_ms": 0,
@@ -391,7 +391,7 @@
       "caption": "We see lightning before we hear thunder",
       "duration_ms": 11000,
       "id": "s3",
-      "narration": "Some people think sound travels faster than light. Watch a storm: the lightning flash arrives almost instantly, and the thunder rumbles in seconds later. Light races at 300 million metres per second; sound crawls at 340. Light is almost a million times faster — that is why flash comes first.",
+      "narration":"Some people think sound travels faster than light. Watch a storm: the lightning flash arrives almost instantly, and the thunder rumbles in seconds later — light races while sound crawls.",
       "steps": [
         {
           "at_ms": 0,
@@ -541,7 +541,7 @@
       "caption": "What the wave examples have in common",
       "duration_ms": 9000,
       "id": "s4",
-      "narration": "Three things to carry away. Waves carry energy from place to place — the particles themselves just vibrate where they are. Speed, frequency and wavelength always obey v equals f times lambda. And light leaves sound far behind in any race.",
+      "narration":"Three things to carry away: waves carry energy while the particles just vibrate where they are, and speed, frequency and wavelength always obey v equals f times lambda. And light leaves sound far behind.",
       "steps": [
         {
           "at_ms": 0,

@@ -11,7 +11,7 @@
       "caption": "Exothermic: products lie below reactants",
       "duration_ms": 10000,
       "id": "s1",
-      "narration": "For an exothermic reaction the products end up at a lower enthalpy than the reactants. Draw the reactants level, climb the activation-energy hump — the extra energy molecules need to reach the transition state — then fall to the products. The enthalpy change is negative: heat leaves the system.",
+      "narration":"For an exothermic reaction the products end up at a lower enthalpy than the reactants. Draw the reactants level, climb the activation-energy hump, then fall to the products: the enthalpy change is negative.",
       "steps": [
         {
           "at_ms": 0,
@@ -261,7 +261,7 @@
       "caption": "Endothermic: products lie above reactants",
       "duration_ms": 10000,
       "id": "s2",
-      "narration": "An endothermic reaction climbs to products at a higher enthalpy than the reactants. It must still clear the activation-energy barrier, and the gap from reactants to products is positive: the reaction absorbs heat from the surroundings.",
+      "narration":"An endothermic reaction climbs to products at a higher enthalpy than the reactants. It still clears the activation-energy barrier, and the gap from reactants to products is positive: the reaction absorbs heat.",
       "steps": [
         {
           "at_ms": 0,
@@ -914,7 +914,7 @@
       "caption": "Le Chatelier: the system opposes the change",
       "duration_ms": 11000,
       "id": "s5",
-      "narration": "An equilibrium opposes any disturbance. Add nitrogen to the Haber mixture and it consumes some to make ammonia; raise the pressure and it shifts toward fewer gas moles; cool this exothermic reaction and it shifts to release more heat. The equilibrium constant itself only moves with temperature.",
+      "narration":"An equilibrium opposes any disturbance: add nitrogen and it makes more ammonia; raise the pressure and it shifts toward fewer gas moles; cool it and it releases more heat. Only temperature moves the equilibrium constant.",
       "steps": [
         {
           "at_ms": 0,
@@ -1019,7 +1019,7 @@
       "caption": "Misconception: a catalyst shifts equilibrium",
       "duration_ms": 9000,
       "id": "s6",
-      "narration": "A catalyst is not a shortcut to more product. It lowers the activation energy equally for the forward and reverse reactions, so both speed up by the same factor — the position of equilibrium is unchanged, and Kc is untouched.",
+      "narration":"A catalyst is not a shortcut to more product. It lowers the activation energy equally for forward and reverse reactions, so both speed up by the same factor — the position of equilibrium is unchanged.",
       "steps": [
         {
           "at_ms": 0,

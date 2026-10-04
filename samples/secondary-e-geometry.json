@@ -171,7 +171,7 @@
       "caption": "ASA: two angles and the side between",
       "duration_ms": 10000,
       "id": "s2",
-      "narration": "Two triangles share two angles \u2014 fifty and seventy degrees \u2014 and the side of length six between them. That is the ASA test: two angles and the included side leave no freedom, so the triangles are congruent. SAS works the same with two sides and the angle between them; RHS needs a right angle, the hypotenuse and one more side.",
+      "narration":"Two triangles share two angles \u2014 fifty and seventy degrees \u2014 and the side between them: that is ASA. SAS needs two sides and the included angle; RHS needs a right angle, hypotenuse and one more side.",
       "steps": [
         {
           "at_ms": 0,
@@ -343,7 +343,7 @@
       "caption": "Similarity: lengths, areas and volumes",
       "duration_ms": 10000,
       "id": "s3",
-      "narration": "Two similar rectangles \u2014 every length on the big one is twice the small one, so k equals two. Areas scale by k squared: four times. Volumes would scale by k cubed: eight times. Check which ratio you need before you multiply.",
+      "narration":"Two similar rectangles: every length on the big one is twice the small one, so k equals two. Areas scale by k squared \u2014 four times \u2014 volumes by k cubed \u2014 eight times. Check which ratio you need before you multiply.",
       "steps": [
         {
           "at_ms": 0,
@@ -452,7 +452,7 @@
       "caption": "Angle in a semicircle is a right angle",
       "duration_ms": 10000,
       "id": "s4",
-      "narration": "Draw any diameter, then join its ends to any point on the circle. The angle at the circle is always a right angle \u2014 ninety degrees \u2014 no matter where on the circle the point sits. That is the angle-in-a-semicircle theorem.",
+      "narration":"Draw any diameter, then join its ends to any point on the circle: the angle at the circle is always a right angle \u2014 ninety degrees. That is the angle-in-a-semicircle theorem.",
       "steps": [
         {
           "at_ms": 0,
@@ -601,7 +601,7 @@
       "caption": "Centre angle = 2 × circumference angle",
       "duration_ms": 10000,
       "id": "s5",
-      "narration": "The angle at the centre stands on the same arc as the angle at the circumference \u2014 so it is twice as big: sixty degrees at the centre, thirty at the circle. And where a tangent touches the circle, it meets the radius at exactly ninety degrees.",
+      "narration":"The angle at the centre stands on the same arc as the angle at the circumference, so it is twice as big: sixty at the centre, thirty at the circle. A tangent meets the radius at exactly ninety degrees.",
       "steps": [
         {
           "at_ms": 0,

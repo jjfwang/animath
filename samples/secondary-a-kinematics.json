@@ -414,7 +414,7 @@
       "caption": "The SUVAT pair — and the gradient trap",
       "duration_ms": 8000,
       "id": "s4",
-      "narration": "With constant acceleration a, velocity grows as v equals u plus a t, and displacement accumulates as u t plus half a t squared. But watch the trap: a straight s-t graph has constant gradient — and the gradient of s-t is velocity, so the velocity is constant and the acceleration is zero.",
+      "narration":"Under acceleration a, velocity is v equals u plus a t, and displacement is u t plus half a t squared. Watch the trap: a straight s-t graph has constant gradient, and s-t gradient is velocity — so acceleration is zero.",
       "steps": [
         {
           "at_ms": 0,
