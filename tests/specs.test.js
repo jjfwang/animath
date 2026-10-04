@@ -466,6 +466,18 @@ test('system template documents the hardened move contract', () => {
     'system prompt must give x1/y1/x2/y2 as the position fields for line/arrow');
 });
 
+test('system template requires mechanism-first animation', () => {
+  const { system } = buildPrompts({});
+  assert.ok(system.includes('MECHANISM-FIRST'),
+    'system prompt must include the MECHANISM-FIRST block');
+  assert.ok(system.includes('state transition'),
+    'system prompt must require a state transition in each scene');
+  assert.ok(system.includes('supporting role'),
+    'system prompt must keep on-screen text in a supporting role');
+  assert.ok(system.includes('move vs'),
+    'system prompt must give when-to-use guidance for move vs. staged show/hide');
+});
+
 test('llm client strips code fences before parsing', () => {
   const spec = extractJson('```json\n{"animath":"0.1"}\n```');
   assert.deepEqual(spec, { animath: '0.1' });
