@@ -78,19 +78,33 @@
             "kind": "circle",
             "cx": 480,
             "cy": 330,
-            "r": 30,
+            "r": 14,
             "fill": "#c0392b",
             "stroke": "#c0392b",
             "width": 2
           }
         },
         {
-          "at_ms": 1600,
+          "at_ms": 1700,
+          "do": "move",
+          "target": "nuc",
+          "to": {
+            "r": 30
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 2700,
+          "do": "emphasize",
+          "target": "nuc"
+        },
+        {
+          "at_ms": 2900,
           "do": "show",
           "shape": {
             "id": "nucL",
             "kind": "text",
-            "x": 455,
+            "x": 456,
             "y": 342,
             "size": 20,
             "text": "nucleus",
@@ -98,12 +112,60 @@
           }
         },
         {
-          "at_ms": 2200,
+          "at_ms": 3100,
           "do": "show",
           "shape": {
             "id": "e1",
             "kind": "circle",
+            "cx": 840,
+            "cy": 140,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "move",
+          "target": "e1",
+          "to": {
             "cx": 480,
+            "cy": 260
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3500,
+          "do": "show",
+          "shape": {
+            "id": "e2",
+            "kind": "circle",
+            "cx": 870,
+            "cy": 200,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3700,
+          "do": "move",
+          "target": "e2",
+          "to": {
+            "cx": 480,
+            "cy": 400
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "e3",
+            "kind": "circle",
+            "cx": 850,
             "cy": 260,
             "r": 10,
             "fill": "#2471a3",
@@ -112,41 +174,23 @@
           }
         },
         {
-          "at_ms": 2500,
-          "do": "show",
-          "shape": {
-            "id": "e2",
-            "kind": "circle",
+          "at_ms": 4100,
+          "do": "move",
+          "target": "e3",
+          "to": {
             "cx": 480,
-            "cy": 400,
-            "r": 10,
-            "fill": "#2471a3",
-            "stroke": "#2471a3",
-            "width": 2
-          }
+            "cy": 205
+          },
+          "dur_ms": 800
         },
         {
-          "at_ms": 2800,
-          "do": "show",
-          "shape": {
-            "id": "e3",
-            "kind": "circle",
-            "cx": 480,
-            "cy": 205,
-            "r": 10,
-            "fill": "#2471a3",
-            "stroke": "#2471a3",
-            "width": 2
-          }
-        },
-        {
-          "at_ms": 3100,
+          "at_ms": 4300,
           "do": "show",
           "shape": {
             "id": "e4",
             "kind": "circle",
-            "cx": 355,
-            "cy": 330,
+            "cx": 880,
+            "cy": 320,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -154,13 +198,23 @@
           }
         },
         {
-          "at_ms": 3400,
+          "at_ms": 4500,
+          "do": "move",
+          "target": "e4",
+          "to": {
+            "cx": 355,
+            "cy": 330
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4700,
           "do": "show",
           "shape": {
             "id": "e5",
             "kind": "circle",
-            "cx": 605,
-            "cy": 330,
+            "cx": 850,
+            "cy": 380,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -168,7 +222,17 @@
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 4900,
+          "do": "move",
+          "target": "e5",
+          "to": {
+            "cx": 605,
+            "cy": 330
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5900,
           "do": "show",
           "shape": {
             "id": "eL",
@@ -180,7 +244,7 @@
           }
         },
         {
-          "at_ms": 4300,
+          "at_ms": 6100,
           "do": "show",
           "shape": {
             "id": "eL2",
@@ -192,7 +256,7 @@
           }
         },
         {
-          "at_ms": 5200,
+          "at_ms": 6300,
           "do": "caption",
           "text": "Almost all the mass sits in the tiny nucleus."
         }
@@ -259,12 +323,12 @@
           }
         },
         {
-          "at_ms": 1200,
+          "at_ms": 1300,
           "do": "show",
           "shape": {
             "id": "nucL",
             "kind": "text",
-            "x": 226,
+            "x": 420,
             "y": 342,
             "size": 18,
             "text": "6p 6n",
@@ -272,13 +336,23 @@
           }
         },
         {
-          "at_ms": 1700,
+          "at_ms": 1500,
+          "do": "move",
+          "target": "nucL",
+          "to": {
+            "x": 226,
+            "y": 342
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 2400,
           "do": "show",
           "shape": {
             "id": "e1",
             "kind": "circle",
-            "cx": 240,
-            "cy": 260,
+            "cx": 860,
+            "cy": 140,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -286,13 +360,23 @@
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 2600,
+          "do": "move",
+          "target": "e1",
+          "to": {
+            "cx": 240,
+            "cy": 260
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 2800,
           "do": "show",
           "shape": {
             "id": "e2",
             "kind": "circle",
-            "cx": 240,
-            "cy": 400,
+            "cx": 880,
+            "cy": 200,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -300,7 +384,17 @@
           }
         },
         {
-          "at_ms": 2500,
+          "at_ms": 3000,
+          "do": "move",
+          "target": "e2",
+          "to": {
+            "cx": 240,
+            "cy": 400
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3400,
           "do": "show",
           "shape": {
             "id": "t1",
@@ -312,41 +406,13 @@
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 3700,
           "do": "show",
           "shape": {
             "id": "e3",
             "kind": "circle",
-            "cx": 240,
-            "cy": 200,
-            "r": 10,
-            "fill": "#2471a3",
-            "stroke": "#2471a3",
-            "width": 2
-          }
-        },
-        {
-          "at_ms": 3300,
-          "do": "show",
-          "shape": {
-            "id": "e4",
-            "kind": "circle",
-            "cx": 370,
-            "cy": 330,
-            "r": 10,
-            "fill": "#2471a3",
-            "stroke": "#2471a3",
-            "width": 2
-          }
-        },
-        {
-          "at_ms": 3600,
-          "do": "show",
-          "shape": {
-            "id": "e5",
-            "kind": "circle",
-            "cx": 240,
-            "cy": 460,
+            "cx": 860,
+            "cy": 260,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -355,12 +421,22 @@
         },
         {
           "at_ms": 3900,
+          "do": "move",
+          "target": "e3",
+          "to": {
+            "cx": 240,
+            "cy": 200
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4100,
           "do": "show",
           "shape": {
-            "id": "e6",
+            "id": "e4",
             "kind": "circle",
-            "cx": 110,
-            "cy": 330,
+            "cx": 880,
+            "cy": 320,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -368,7 +444,65 @@
           }
         },
         {
-          "at_ms": 4400,
+          "at_ms": 4300,
+          "do": "move",
+          "target": "e4",
+          "to": {
+            "cx": 370,
+            "cy": 330
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "id": "e5",
+            "kind": "circle",
+            "cx": 860,
+            "cy": 380,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "move",
+          "target": "e5",
+          "to": {
+            "cx": 240,
+            "cy": 460
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "e6",
+            "kind": "circle",
+            "cx": 880,
+            "cy": 440,
+            "r": 10,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "move",
+          "target": "e6",
+          "to": {
+            "cx": 110,
+            "cy": 330
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5600,
           "do": "show",
           "shape": {
             "id": "t2",
@@ -380,7 +514,7 @@
           }
         },
         {
-          "at_ms": 5200,
+          "at_ms": 5900,
           "do": "show",
           "shape": {
             "id": "t3",
@@ -392,7 +526,7 @@
           }
         },
         {
-          "at_ms": 6200,
+          "at_ms": 6600,
           "do": "caption",
           "text": "The proton count is the element’s identity."
         }
@@ -486,18 +620,28 @@
           }
         },
         {
-          "at_ms": 2200,
+          "at_ms": 2000,
           "do": "show",
           "shape": {
             "id": "e1",
             "kind": "circle",
-            "cx": 240,
-            "cy": 260,
+            "cx": 860,
+            "cy": 140,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
             "width": 2
           }
+        },
+        {
+          "at_ms": 2200,
+          "do": "move",
+          "target": "e1",
+          "to": {
+            "cx": 240,
+            "cy": 260
+          },
+          "dur_ms": 800
         },
         {
           "at_ms": 2400,
@@ -505,8 +649,8 @@
           "shape": {
             "id": "e2",
             "kind": "circle",
-            "cx": 240,
-            "cy": 400,
+            "cx": 880,
+            "cy": 200,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -514,7 +658,17 @@
           }
         },
         {
-          "at_ms": 2800,
+          "at_ms": 2600,
+          "do": "move",
+          "target": "e2",
+          "to": {
+            "cx": 240,
+            "cy": 400
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 2900,
           "do": "show",
           "shape": {
             "id": "t1",
@@ -526,13 +680,13 @@
           }
         },
         {
-          "at_ms": 3200,
+          "at_ms": 3100,
           "do": "show",
           "shape": {
             "id": "e3",
             "kind": "circle",
-            "cx": 365,
-            "cy": 330,
+            "cx": 860,
+            "cy": 260,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -540,13 +694,23 @@
           }
         },
         {
-          "at_ms": 3400,
+          "at_ms": 3300,
+          "do": "move",
+          "target": "e3",
+          "to": {
+            "cx": 365,
+            "cy": 330
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3500,
           "do": "show",
           "shape": {
             "id": "e4",
             "kind": "circle",
-            "cx": 115,
-            "cy": 330,
+            "cx": 880,
+            "cy": 320,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -554,13 +718,23 @@
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 3700,
+          "do": "move",
+          "target": "e4",
+          "to": {
+            "cx": 115,
+            "cy": 330
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3900,
           "do": "show",
           "shape": {
             "id": "e5",
             "kind": "circle",
-            "cx": 240,
-            "cy": 205,
+            "cx": 860,
+            "cy": 380,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -568,13 +742,23 @@
           }
         },
         {
-          "at_ms": 3800,
+          "at_ms": 4100,
+          "do": "move",
+          "target": "e5",
+          "to": {
+            "cx": 328,
+            "cy": 242
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4300,
           "do": "show",
           "shape": {
             "id": "e6",
             "kind": "circle",
-            "cx": 240,
-            "cy": 455,
+            "cx": 880,
+            "cy": 440,
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
@@ -582,7 +766,17 @@
           }
         },
         {
-          "at_ms": 4200,
+          "at_ms": 4500,
+          "do": "move",
+          "target": "e6",
+          "to": {
+            "cx": 240,
+            "cy": 455
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4900,
           "do": "show",
           "shape": {
             "id": "t2",
@@ -594,13 +788,13 @@
           }
         },
         {
-          "at_ms": 4700,
+          "at_ms": 5200,
           "do": "show",
           "shape": {
             "id": "eOuter",
             "kind": "circle",
             "cx": 240,
-            "cy": 150,
+            "cy": 205,
             "r": 12,
             "fill": "#e67e22",
             "stroke": "#e67e22",
@@ -608,7 +802,7 @@
           }
         },
         {
-          "at_ms": 5100,
+          "at_ms": 5600,
           "do": "show",
           "shape": {
             "id": "t3",
@@ -620,12 +814,22 @@
           }
         },
         {
-          "at_ms": 5600,
+          "at_ms": 5900,
+          "do": "move",
+          "target": "eOuter",
+          "to": {
+            "cx": 240,
+            "cy": 150
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 6700,
           "do": "emphasize",
           "target": "eOuter"
         },
         {
-          "at_ms": 6400,
+          "at_ms": 7100,
           "do": "caption",
           "text": "That lone outer electron is what sodium gives away."
         }
@@ -653,27 +857,27 @@
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "id": "g1h",
-            "kind": "rect",
-            "x": 120,
-            "y": 140,
-            "w": 90,
-            "h": 70,
-            "fill": "#fdebd0",
-            "stroke": "#e67e22",
-            "width": 2
+            "id": "g1L",
+            "kind": "text",
+            "x": 105,
+            "y": 120,
+            "size": 24,
+            "text": "Group 1"
           }
         },
         {
-          "at_ms": 500,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "g1L",
-            "kind": "text",
-            "x": 120,
+            "id": "g1h",
+            "kind": "rect",
+            "x": 105,
             "y": 130,
-            "size": 24,
-            "text": "Group 1"
+            "w": 120,
+            "h": 270,
+            "fill": "none",
+            "stroke": "#e67e22",
+            "width": 2
           }
         },
         {
@@ -682,80 +886,143 @@
           "shape": {
             "id": "li",
             "kind": "rect",
-            "x": 120,
+            "x": 420,
             "y": 160,
             "w": 90,
             "h": 60,
             "fill": "#ffffff",
-            "stroke": "#1a1a1a"
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
-          "at_ms": 1000,
+          "at_ms": 900,
           "do": "show",
           "shape": {
             "id": "liT",
             "kind": "text",
-            "x": 140,
+            "x": 440,
             "y": 198,
             "size": 26,
             "text": "Li"
           }
         },
         {
-          "at_ms": 1300,
+          "at_ms": 1100,
+          "do": "move",
+          "target": "li",
+          "to": {
+            "x": 120,
+            "y": 160
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 1100,
+          "do": "move",
+          "target": "liT",
+          "to": {
+            "x": 140,
+            "y": 198
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 1800,
           "do": "show",
           "shape": {
             "id": "na",
             "kind": "rect",
-            "x": 120,
+            "x": 420,
             "y": 230,
             "w": 90,
             "h": 60,
             "fill": "#ffffff",
-            "stroke": "#1a1a1a"
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
-          "at_ms": 1500,
+          "at_ms": 1900,
           "do": "show",
           "shape": {
             "id": "naT",
             "kind": "text",
-            "x": 138,
+            "x": 438,
             "y": 268,
             "size": 26,
             "text": "Na"
           }
         },
         {
-          "at_ms": 1800,
+          "at_ms": 2100,
+          "do": "move",
+          "target": "na",
+          "to": {
+            "x": 120,
+            "y": 230
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 2100,
+          "do": "move",
+          "target": "naT",
+          "to": {
+            "x": 138,
+            "y": 268
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 2800,
           "do": "show",
           "shape": {
             "id": "k",
             "kind": "rect",
-            "x": 120,
+            "x": 420,
             "y": 300,
             "w": 90,
             "h": 60,
             "fill": "#ffffff",
-            "stroke": "#1a1a1a"
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 2900,
           "do": "show",
           "shape": {
             "id": "kT",
             "kind": "text",
-            "x": 144,
+            "x": 444,
             "y": 338,
             "size": 26,
             "text": "K"
           }
         },
         {
-          "at_ms": 2400,
+          "at_ms": 3100,
+          "do": "move",
+          "target": "k",
+          "to": {
+            "x": 120,
+            "y": 300
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 3100,
+          "do": "move",
+          "target": "kT",
+          "to": {
+            "x": 144,
+            "y": 338
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4000,
           "do": "show",
           "shape": {
             "id": "liN",
@@ -767,7 +1034,7 @@
           }
         },
         {
-          "at_ms": 2700,
+          "at_ms": 4300,
           "do": "show",
           "shape": {
             "id": "naN",
@@ -779,7 +1046,7 @@
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 4600,
           "do": "show",
           "shape": {
             "id": "kN",
@@ -791,7 +1058,49 @@
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "a1",
+            "kind": "arrow",
+            "x1": 362,
+            "y1": 190,
+            "x2": 435,
+            "y2": 190,
+            "stroke": "#e67e22",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "a2",
+            "kind": "arrow",
+            "x1": 348,
+            "y1": 260,
+            "x2": 435,
+            "y2": 260,
+            "stroke": "#e67e22",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "show",
+          "shape": {
+            "id": "a3",
+            "kind": "arrow",
+            "x1": 386,
+            "y1": 330,
+            "x2": 435,
+            "y2": 330,
+            "stroke": "#e67e22",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 5200,
           "do": "show",
           "shape": {
             "id": "r1",
@@ -803,7 +1112,7 @@
           }
         },
         {
-          "at_ms": 4100,
+          "at_ms": 5400,
           "do": "show",
           "shape": {
             "id": "r2",
@@ -815,7 +1124,7 @@
           }
         },
         {
-          "at_ms": 4600,
+          "at_ms": 5600,
           "do": "show",
           "shape": {
             "id": "r3",
@@ -827,7 +1136,7 @@
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 6400,
           "do": "caption",
           "text": "Same group, same outer electrons, similar behaviour."
         }
@@ -870,117 +1179,211 @@
             "id": "pLi",
             "kind": "rect",
             "x": 120,
-            "y": 160,
+            "y": 420,
             "w": 80,
             "h": 55,
             "fill": "#ffffff",
-            "stroke": "#1a1a1a"
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
-          "at_ms": 900,
+          "at_ms": 800,
           "do": "show",
           "shape": {
             "id": "pLiT",
             "kind": "text",
             "x": 142,
-            "y": 196,
+            "y": 456,
             "size": 24,
             "text": "Li"
           }
         },
         {
           "at_ms": 1100,
-          "do": "show",
-          "shape": {
-            "id": "pBe",
-            "kind": "rect",
-            "x": 210,
-            "y": 160,
-            "w": 80,
-            "h": 55,
-            "fill": "#ffffff",
-            "stroke": "#1a1a1a"
-          }
+          "do": "move",
+          "target": "pLi",
+          "to": {
+            "x": 120,
+            "y": 160
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 1100,
+          "do": "move",
+          "target": "pLiT",
+          "to": {
+            "x": 142,
+            "y": 196
+          },
+          "dur_ms": 700
         },
         {
           "at_ms": 1300,
           "do": "show",
           "shape": {
+            "id": "pBe",
+            "kind": "rect",
+            "x": 210,
+            "y": 420,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
             "id": "pBeT",
             "kind": "text",
             "x": 232,
-            "y": 196,
+            "y": 456,
             "size": 24,
             "text": "Be"
           }
         },
         {
           "at_ms": 1700,
-          "do": "show",
-          "shape": {
-            "id": "pB",
-            "kind": "rect",
-            "x": 300,
-            "y": 160,
-            "w": 80,
-            "h": 55,
-            "fill": "#ffffff",
-            "stroke": "#1a1a1a"
-          }
+          "do": "move",
+          "target": "pBe",
+          "to": {
+            "x": 210,
+            "y": 160
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 1700,
+          "do": "move",
+          "target": "pBeT",
+          "to": {
+            "x": 232,
+            "y": 196
+          },
+          "dur_ms": 700
         },
         {
           "at_ms": 1900,
           "do": "show",
           "shape": {
+            "id": "pB",
+            "kind": "rect",
+            "x": 300,
+            "y": 420,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
             "id": "pBT",
             "kind": "text",
             "x": 326,
-            "y": 196,
+            "y": 456,
             "size": 24,
             "text": "B"
           }
         },
         {
           "at_ms": 2300,
-          "do": "show",
-          "shape": {
-            "id": "pC",
-            "kind": "rect",
-            "x": 390,
-            "y": 160,
-            "w": 80,
-            "h": 55,
-            "fill": "#ffffff",
-            "stroke": "#1a1a1a"
-          }
+          "do": "move",
+          "target": "pB",
+          "to": {
+            "x": 300,
+            "y": 160
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 2300,
+          "do": "move",
+          "target": "pBT",
+          "to": {
+            "x": 326,
+            "y": 196
+          },
+          "dur_ms": 700
         },
         {
           "at_ms": 2500,
           "do": "show",
           "shape": {
+            "id": "pC",
+            "kind": "rect",
+            "x": 390,
+            "y": 420,
+            "w": 80,
+            "h": 55,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
             "id": "pCT",
             "kind": "text",
             "x": 416,
-            "y": 196,
+            "y": 456,
             "size": 24,
             "text": "C"
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 2900,
+          "do": "move",
+          "target": "pC",
+          "to": {
+            "x": 390,
+            "y": 160
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 2900,
+          "do": "move",
+          "target": "pCT",
+          "to": {
+            "x": 416,
+            "y": 196
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 3600,
           "do": "show",
           "shape": {
             "id": "rule",
             "kind": "text",
-            "x": 540,
-            "y": 200,
+            "x": 120,
+            "y": 240,
             "size": 24,
             "text": "period 2 → 2 shells"
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 3900,
+          "do": "move",
+          "target": "rule",
+          "to": {
+            "x": 540,
+            "y": 200
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4300,
           "do": "show",
           "shape": {
             "id": "p3L",
@@ -992,45 +1395,76 @@
           }
         },
         {
-          "at_ms": 3900,
+          "at_ms": 4500,
           "do": "show",
           "shape": {
             "id": "pNa",
             "kind": "rect",
             "x": 120,
-            "y": 330,
+            "y": 460,
             "w": 80,
             "h": 55,
             "fill": "#ffffff",
-            "stroke": "#1a1a1a"
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
-          "at_ms": 4100,
+          "at_ms": 4600,
           "do": "show",
           "shape": {
             "id": "pNaT",
             "kind": "text",
             "x": 140,
-            "y": 366,
+            "y": 496,
             "size": 24,
             "text": "Na"
           }
         },
         {
-          "at_ms": 4500,
+          "at_ms": 4800,
+          "do": "move",
+          "target": "pNa",
+          "to": {
+            "x": 120,
+            "y": 330
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "pNaT",
+          "to": {
+            "x": 140,
+            "y": 366
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5300,
           "do": "show",
           "shape": {
             "id": "rule2",
             "kind": "text",
-            "x": 540,
+            "x": 250,
             "y": 370,
             "size": 24,
             "text": "period 3 → 3 shells"
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 5600,
+          "do": "move",
+          "target": "rule2",
+          "to": {
+            "x": 540,
+            "y": 370
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 6300,
           "do": "caption",
           "text": "Move across a period and properties change step by step."
         }
@@ -1058,52 +1492,232 @@
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "id": "myth1",
+            "id": "orb1",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 150,
+            "fill": "none",
+            "stroke": "#7f8c8d",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "p1",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 180,
+            "r": 9,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "p2",
+            "kind": "circle",
+            "cx": 630,
+            "cy": 330,
+            "r": 9,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "orb2",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 90,
+            "fill": "none",
+            "stroke": "#7f8c8d",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "p3",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 240,
+            "r": 9,
+            "fill": "#2471a3",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "mythT",
             "kind": "text",
             "x": 80,
-            "y": 170,
-            "size": 28,
-            "text": "❌ “An atom is a solid ball.”"
+            "y": 180,
+            "size": 26,
+            "text": "Planet-style orbits are wrong."
           }
+        },
+        {
+          "at_ms": 1200,
+          "do": "hide",
+          "target": "p1"
         },
         {
           "at_ms": 1300,
+          "do": "hide",
+          "target": "p2"
+        },
+        {
+          "at_ms": 1400,
+          "do": "hide",
+          "target": "p3"
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "orb1",
+          "to": {
+            "r": 210
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 1600,
+          "do": "move",
+          "target": "orb2",
+          "to": {
+            "r": 170
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 2300,
+          "do": "hide",
+          "target": "orb1"
+        },
+        {
+          "at_ms": 2400,
+          "do": "hide",
+          "target": "orb2"
+        },
+        {
+          "at_ms": 2500,
+          "do": "hide",
+          "target": "mythT"
+        },
+        {
+          "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "fix1",
+            "id": "shA",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 215,
+            "fill": "none",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "move",
+          "target": "shA",
+          "to": {
+            "r": 130
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "id": "shB",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 215,
+            "fill": "none",
+            "stroke": "#2471a3",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "shB",
+          "to": {
+            "r": 180
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "nucDot",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 330,
+            "r": 6,
+            "fill": "#c0392b",
+            "stroke": "#c0392b",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "move",
+          "target": "nucDot",
+          "to": {
+            "r": 26
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "emptyT",
             "kind": "text",
-            "x": 80,
-            "y": 220,
+            "x": 640,
+            "y": 480,
             "size": 24,
-            "text": "It is mostly empty space — the nucleus is tiny."
+            "text": "mostly empty space"
           }
         },
         {
-          "at_ms": 2100,
+          "at_ms": 4600,
           "do": "show",
           "shape": {
-            "id": "myth2",
+            "id": "fixT",
             "kind": "text",
             "x": 80,
-            "y": 310,
-            "size": 28,
-            "text": "❌ “Electrons orbit like planets.”"
-          }
-        },
-        {
-          "at_ms": 2800,
-          "do": "show",
-          "shape": {
-            "id": "fix2",
-            "kind": "text",
-            "x": 80,
-            "y": 360,
+            "y": 470,
             "size": 24,
-            "text": "They sit in shells, not orbits."
+            "text": "Electrons sit in shells."
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 5000,
+          "do": "emphasize",
+          "target": "nucDot"
+        },
+        {
+          "at_ms": 5300,
           "do": "caption",
           "text": "Think shells, not planets."
         }
