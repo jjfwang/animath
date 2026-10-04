@@ -216,11 +216,17 @@
     return pos;
   }
 
+  // SVG attribute names differ from spec field names for rect size:
+  // drawShape maps shape.w/shape.h to width/height, so applyPos must too —
+  // setting raw 'w'/'h' attributes is a rendering no-op. Other fields name
+  // their attribute directly (circle r is unaffected).
+  var FIELD_ATTR = { w: 'width', h: 'height' };
+
   function applyPos(node, shape, pos) {
     var fields = POS_FIELDS[shape.kind];
     if (!fields) return;
     fields.forEach(function (f) {
-      if (pos[f] !== undefined) node.setAttribute(f, pos[f]);
+      if (pos[f] !== undefined) node.setAttribute(FIELD_ATTR[f] || f, pos[f]);
     });
     if (shape.kind === 'arrow') {
       // Rebuild the arrowhead at the new tip.
@@ -571,7 +577,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
