@@ -52,8 +52,10 @@ Every step has `at_ms` (0 ≤ at_ms < scene `duration_ms`) and a `do` verb.
   position fields, size fields, or both: `w`/`h` for `rect`, `r` for `circle`,
   and only fields valid for the target kind (`x`/`y` for `text`/`latex`,
   `cx`/`cy` for `circle`, `x1`/`y1`/`x2`/`y2` for `line`/`arrow`). At least
-  one numeric field is required. Moveable kinds in v0: `text`, `rect`,
-  `circle`, `line`, `arrow`, `latex` — never `polygon`.
+  one numeric field is required. A `polygon` moves by its vertices: `to`
+  carries only `points`, an array of `[x,y]` pairs with the same length as
+  the shape's `points`, interpolated pointwise. Moveable kinds in v0:
+  `text`, `rect`, `circle`, `line`, `arrow`, `latex`, `polygon`.
 - `emphasize`: `{at_ms, do:"emphasize", target, dur_ms?}` — pulse-highlight the
   shape (scale pulse). Default `dur_ms` 900.
 - `caption`: `{at_ms, do:"caption", text}` — replaces the scene caption bar
