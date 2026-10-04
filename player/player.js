@@ -201,8 +201,27 @@
     rect: ['x', 'y', 'w', 'h'],
     circle: ['cx', 'cy', 'r'],
     line: ['x1', 'y1', 'x2', 'y2'],
-    arrow: ['x1', 'y1', 'x2', 'y2']
+    arrow: ['x1', 'y1', 'x2', 'y2'],
+    polygon: ['points']
   };
+
+  function isNum(x) { return typeof x === 'number' && isFinite(x); }
+
+  // Polygon move: `points` is not a scalar field — interpolate each [x,y]
+  // pair pointwise. Guarded on equal, well-formed arrays; the validator
+  // enforces this first, so on malformed input this returns undefined and
+  // interpFields simply skips the field instead of throwing.
+  function interpPoints(fromPts, toPts, p) {
+    if (!Array.isArray(fromPts) || !Array.isArray(toPts) || fromPts.length !== toPts.length) return undefined;
+    var out = [];
+    for (var i = 0; i < toPts.length; i++) {
+      var a = fromPts[i], b = toPts[i];
+      if (!Array.isArray(a) || !Array.isArray(b) || a.length !== 2 || b.length !== 2 ||
+          !isNum(a[0]) || !isNum(a[1]) || !isNum(b[0]) || !isNum(b[1])) return undefined;
+      out.push([a[0] + (b[0] - a[0]) * p, a[1] + (b[1] - a[1]) * p]);
+    }
+    return out;
+  }
 
   // Pure per-field interpolation of a move tween: pos[f] = from[f] +
   // (to[f] - from[f]) * p for every field present in `to` that also has a
@@ -211,7 +230,12 @@
   function interpFields(from, to, p) {
     var pos = {};
     for (var f in to) {
-      if (from[f] !== undefined) pos[f] = from[f] + (to[f] - from[f]) * p;
+      if (f === 'points') {
+        var pts = interpPoints(from.points, to.points, p);
+        if (pts !== undefined) pos.points = pts;
+      } else if (from[f] !== undefined) {
+        pos[f] = from[f] + (to[f] - from[f]) * p;
+      }
     }
     return pos;
   }
@@ -226,7 +250,17 @@
     var fields = POS_FIELDS[shape.kind];
     if (!fields) return;
     fields.forEach(function (f) {
-      if (pos[f] !== undefined) node.setAttribute(FIELD_ATTR[f] || f, pos[f]);
+      if (pos[f] === undefined) return;
+      if (f === 'points') {
+        // polygon: serialize the [x,y] pairs to the SVG points attribute,
+        // mirroring drawShape's polygon case. Guarded so a malformed
+        // pos.points is a no-op rather than a throw.
+        if (Array.isArray(pos.points)) {
+          node.setAttribute('points', pos.points.map(function (p) { return p[0] + ',' + p[1]; }).join(' '));
+        }
+        return;
+      }
+      node.setAttribute(FIELD_ATTR[f] || f, pos[f]);
     });
     if (shape.kind === 'arrow') {
       // Rebuild the arrowhead at the new tip.

@@ -14,7 +14,7 @@
   var KINDS = ['concept', 'problem'];
   var VERBS = ['show', 'hide', 'move', 'emphasize', 'caption'];
   var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon', 'latex'];
-  var MOVEABLE = ['text', 'rect', 'circle', 'line', 'arrow', 'latex'];
+  var MOVEABLE = ['text', 'rect', 'circle', 'line', 'arrow', 'latex', 'polygon'];
   var HEX = /^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/;
 
   function isNum(x) { return typeof x === 'number' && isFinite(x); }
@@ -99,6 +99,7 @@
         return;
       }
       var shown = {};   // shape id -> shape kind, in at_ms order
+      var pointCount = {};   // shape id -> polygon vertex count at show time
       var shapeIds = {};
       var lastAt = -1;
       scene.steps.forEach(function (step, j) {
@@ -119,6 +120,9 @@
             if (shapeIds[step.shape.id]) errors.push(s + '.shape.id: duplicate shape id "' + step.shape.id + '" in scene');
             shapeIds[step.shape.id] = true;
             shown[step.shape.id] = step.shape.kind;
+            if (step.shape.kind === 'polygon' && Array.isArray(step.shape.points)) {
+              pointCount[step.shape.id] = step.shape.points.length;
+            }
           }
         } else if (step.do === 'caption') {
           if (typeof step.text !== 'string' || !step.text.trim()) errors.push(s + '.text: required non-empty string');
@@ -129,14 +133,17 @@
             errors.push(s + '.target: "' + step.target + '" must be shown earlier in the same scene');
           }
           if (step.do === 'move') {
-            // SPEC.md: moveable kinds are text, rect, circle, line,
-            // arrow, latex — never polygon. `to` must carry at least one
-            // numeric field, and every field must be valid for the target
-            // kind: position fields plus w/h for rect, r for circle.
+            // SPEC.md: moveable kinds are text, rect, circle, line, arrow,
+            // latex, polygon. `to` must carry at least one field and every
+            // field must be valid for the target kind: position fields plus
+            // w/h for rect, r for circle. Polygon `to` carries only
+            // `points`, an array of [x,y] pairs matching the shown shape's
+            // vertex count, interpolated pointwise.
             var MOVE_FIELDS = {
               text: ['x', 'y'], latex: ['x', 'y'],
               rect: ['x', 'y', 'w', 'h'], circle: ['cx', 'cy', 'r'],
-              line: ['x1', 'y1', 'x2', 'y2'], arrow: ['x1', 'y1', 'x2', 'y2']
+              line: ['x1', 'y1', 'x2', 'y2'], arrow: ['x1', 'y1', 'x2', 'y2'],
+              polygon: ['points']
             };
             var targetKind = (typeof step.target === 'string' && step.target && shown[step.target])
               ? shown[step.target] : null;
@@ -147,14 +154,26 @@
               errors.push(s + '.to: required position object');
             } else {
               var keys = Object.keys(step.to);
-              if (keys.length === 0 || !keys.every(function (k) { return isNum(step.to[k]); })) {
-                errors.push(s + '.to: must carry at least one numeric field');
+              var isPoly = targetKind === 'polygon' && keys.length === 1 && keys[0] === 'points';
+              var fieldsOk = isPoly
+                ? Array.isArray(step.to.points) && step.to.points.length > 0 &&
+                  step.to.points.every(function (pt) {
+                    return Array.isArray(pt) && pt.length === 2 && isNum(pt[0]) && isNum(pt[1]);
+                  })
+                : keys.length > 0 && keys.every(function (k) { return isNum(step.to[k]); });
+              if (!fieldsOk) {
+                errors.push(s + '.to: must carry at least one numeric field' +
+                  (isPoly ? ' — points must be an array of numeric [x,y] pairs' : ''));
               } else if (targetKind && MOVE_FIELDS[targetKind]) {
                 var want = MOVE_FIELDS[targetKind];
                 var bad = keys.filter(function (k) { return want.indexOf(k) === -1; });
                 if (bad.length) {
                   errors.push(s + '.to: invalid field(s) for kind "' + targetKind + '": ' +
                     bad.join(',') + ' — valid fields: ' + want.join(','));
+                } else if (targetKind === 'polygon' && isNum(pointCount[step.target]) &&
+                    step.to.points.length !== pointCount[step.target]) {
+                  errors.push(s + '.to.points: point count (' + step.to.points.length +
+                    ') must match the shown shape\'s points (' + pointCount[step.target] + ')');
                 }
               }
             }

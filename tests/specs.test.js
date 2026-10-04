@@ -362,16 +362,26 @@ test('validator rejects a move targeting an unshown shape', () => {
   assert.ok(problems.some((p) => p.includes('must be shown earlier')), 'expected an ordering error');
 });
 
-test('validator rejects a move targeting a non-moveable shape kind', () => {
+test('validator accepts a polygon move with matching points, rejects kind-invalid fields', () => {
+  const atMsAfter = (steps) => steps.reduce((m, st) => Math.max(m, st.at_ms), 0) + 1;
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[1].steps[0].shape = {
     id: 'tri', kind: 'polygon', points: [[100, 100], [200, 100], [150, 200]]
   };
-  spec.scenes[1].steps.push({ at_ms: 100, do: 'move', target: 'tri', to: { x: 10, y: 10 }, dur_ms: 500 });
+  spec.scenes[1].steps.push({
+    at_ms: atMsAfter(spec.scenes[1].steps), do: 'move', target: 'tri',
+    to: { points: [[120, 100], [220, 100], [170, 220]] }, dur_ms: 500
+  });
+  assert.deepEqual(validateSpec(spec), [],
+    'polygon + {points} with matching point count must be accepted');
+  spec.scenes[1].steps.pop();
+  spec.scenes[1].steps.push({
+    at_ms: atMsAfter(spec.scenes[1].steps), do: 'move', target: 'tri',
+    to: { x: 10, y: 10 }, dur_ms: 500
+  });
   const problems = validateSpec(spec);
-  assert.ok(problems.length > 0, 'expected at least one error');
-  assert.ok(problems.some((p) => p.includes('"polygon"') && p.includes('not moveable')),
-    'expected a polygon move error, got: ' + problems.join('; '));
+  assert.ok(problems.some((p) => p.includes('.to:') && p.includes('"polygon"') && p.includes('invalid')),
+    'expected a polygon invalid-field error, got: ' + problems.join('; '));
 });
 
 test('validator rejects a move whose to fields do not match the circle target kind', () => {
@@ -508,11 +518,13 @@ test('prompt builder fills slots and forbids LaTeX', () => {
 
 test('system template documents the hardened move contract', () => {
   const { system } = buildPrompts({});
-  // (a) all six moveable kinds on one line, latex included, polygon excluded
-  assert.ok(system.includes('text | rect | circle | line | arrow | latex'),
-    'system prompt must list all six moveable kinds including latex');
-  assert.ok(system.includes('(never polygon)'),
-    'system prompt must say polygon is never moveable');
+  // (a) all seven moveable kinds on one line, latex included, polygon moveable
+  assert.ok(system.includes('text | rect | circle | line | arrow | latex | polygon'),
+    'system prompt must list all seven moveable kinds including latex and polygon');
+  assert.ok(!system.includes('(never polygon)'),
+    'system prompt must no longer say polygon is never moveable');
+  assert.ok(system.includes('points for polygon'),
+    'system prompt must document points as the polygon move field');
   // (b) dur_ms required and numeric on move steps
   assert.ok(system.includes('numeric dur_ms'),
     'system prompt must require a numeric dur_ms on every move step');
