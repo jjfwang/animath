@@ -185,7 +185,7 @@
           "shape": {
             "id": "q",
             "kind": "text",
-            "size": 40,
+            "size": 32,
             "text": "Plants sold: Jan 20, Feb 35, Mar 30, Apr 50",
             "x": 120,
             "y": 90

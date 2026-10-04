@@ -416,7 +416,7 @@
           "shape": {
             "id": "q",
             "kind": "text",
-            "size": 38,
+            "size": 29,
             "text": "Which model is correct for 1 unit and 2 units?",
             "x": 120,
             "y": 90
@@ -502,10 +502,10 @@
             "color": "#1f7a3a",
             "id": "goodLab",
             "kind": "text",
-            "size": 30,
+            "size": 28,
             "text": "right: same unit length, 2 units is twice as long",
-            "x": 420,
-            "y": 440
+            "x": 120,
+            "y": 510
           }
         },
         {
