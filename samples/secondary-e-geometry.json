@@ -579,7 +579,7 @@
             "id": "stmt",
             "kind": "latex",
             "size": 36,
-            "tex": "\\text{angle in a semicircle} = 90^\\circ",
+            "tex": "\\text{angle in semicircle} = 90^\\circ",
             "x": 470,
             "y": 200
           }
@@ -598,7 +598,7 @@
       ]
     },
     {
-      "caption": "The centre angle is twice the circumference angle",
+      "caption": "Centre angle = 2 × circumference angle",
       "duration_ms": 10000,
       "id": "s5",
       "narration": "The angle at the centre stands on the same arc as the angle at the circumference \u2014 so it is twice as big: sixty degrees at the centre, thirty at the circle. And where a tangent touches the circle, it meets the radius at exactly ninety degrees.",
@@ -610,7 +610,7 @@
             "id": "title",
             "kind": "text",
             "size": 36,
-            "text": "The centre angle is twice the circumference angle",
+            "text": "Centre angle = 2 × circumference angle",
             "x": 120,
             "y": 100
           }
@@ -952,9 +952,21 @@
             "id": "stmt",
             "kind": "latex",
             "size": 32,
-            "tex": "\\text{tangent--chord angle} = \\text{angle in alternate segment}",
+            "tex": "\\text{tangent-chord angle}",
             "x": 470,
-            "y": 200
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "stmt2",
+            "kind": "latex",
+            "size": 32,
+            "tex": "= \\text{alternate-segment angle}",
+            "x": 470,
+            "y": 250
           }
         },
         {
