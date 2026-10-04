@@ -17,190 +17,256 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "cx": 140,
-            "cy": 290,
-            "fill": "#1a56db",
             "id": "naAtom",
             "kind": "circle",
-            "r": 36
+            "cx": 140,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
           }
         },
         {
-          "at_ms": 600,
+          "at_ms": 400,
           "do": "show",
           "shape": {
-            "cx": 255,
-            "cy": 290,
-            "fill": "#1a56db",
             "id": "mgAtom",
             "kind": "circle",
-            "r": 33
+            "cx": 255,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "alAtom",
+            "kind": "circle",
+            "cx": 370,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
           }
         },
         {
           "at_ms": 1200,
           "do": "show",
           "shape": {
-            "cx": 370,
-            "cy": 290,
-            "fill": "#1a56db",
-            "id": "alAtom",
+            "id": "siAtom",
             "kind": "circle",
-            "r": 30
+            "cx": 485,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
           }
         },
         {
-          "at_ms": 1800,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "cx": 485,
-            "cy": 290,
-            "fill": "#1a56db",
-            "id": "siAtom",
+            "id": "pAtom",
             "kind": "circle",
-            "r": 27
+            "cx": 600,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "sAtom",
+            "kind": "circle",
+            "cx": 715,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
           }
         },
         {
           "at_ms": 2400,
           "do": "show",
           "shape": {
-            "cx": 600,
-            "cy": 290,
-            "fill": "#1a56db",
-            "id": "pAtom",
-            "kind": "circle",
-            "r": 23
-          }
-        },
-        {
-          "at_ms": 3000,
-          "do": "show",
-          "shape": {
-            "cx": 715,
-            "cy": 290,
-            "fill": "#1a56db",
-            "id": "sAtom",
-            "kind": "circle",
-            "r": 19
-          }
-        },
-        {
-          "at_ms": 3600,
-          "do": "show",
-          "shape": {
-            "cx": 830,
-            "cy": 290,
-            "fill": "#1a56db",
             "id": "clAtom",
             "kind": "circle",
-            "r": 16
+            "cx": 830,
+            "cy": 290,
+            "r": 36,
+            "fill": "#1a56db"
           }
         },
         {
-          "at_ms": 4600,
+          "at_ms": 3400,
+          "do": "move",
+          "target": "mgAtom",
+          "to": {
+            "cx": 255,
+            "cy": 290,
+            "r": 33
+          },
+          "dur_ms": 450
+        },
+        {
+          "at_ms": 3900,
+          "do": "move",
+          "target": "alAtom",
+          "to": {
+            "cx": 370,
+            "cy": 290,
+            "r": 30
+          },
+          "dur_ms": 450
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "target": "siAtom",
+          "to": {
+            "cx": 485,
+            "cy": 290,
+            "r": 27
+          },
+          "dur_ms": 450
+        },
+        {
+          "at_ms": 4900,
+          "do": "move",
+          "target": "pAtom",
+          "to": {
+            "cx": 600,
+            "cy": 290,
+            "r": 23
+          },
+          "dur_ms": 450
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "sAtom",
+          "to": {
+            "cx": 715,
+            "cy": 290,
+            "r": 19
+          },
+          "dur_ms": 450
+        },
+        {
+          "at_ms": 5900,
+          "do": "move",
+          "target": "clAtom",
+          "to": {
+            "cx": 830,
+            "cy": 290,
+            "r": 16
+          },
+          "dur_ms": 450
+        },
+        {
+          "at_ms": 6000,
           "do": "show",
           "shape": {
             "id": "naLabel",
             "kind": "text",
-            "size": 24,
             "text": "Na",
             "x": 130,
-            "y": 380
+            "y": 380,
+            "size": 24
           }
         },
         {
-          "at_ms": 4800,
+          "at_ms": 6200,
           "do": "show",
           "shape": {
             "id": "mgLabel",
             "kind": "text",
-            "size": 24,
             "text": "Mg",
             "x": 245,
-            "y": 380
+            "y": 380,
+            "size": 24
           }
         },
         {
-          "at_ms": 5000,
+          "at_ms": 6400,
           "do": "show",
           "shape": {
             "id": "alLabel",
             "kind": "text",
-            "size": 24,
             "text": "Al",
             "x": 360,
-            "y": 380
+            "y": 380,
+            "size": 24
           }
         },
         {
-          "at_ms": 5200,
+          "at_ms": 6600,
           "do": "show",
           "shape": {
             "id": "siLabel",
             "kind": "text",
-            "size": 24,
             "text": "Si",
             "x": 478,
-            "y": 380
-          }
-        },
-        {
-          "at_ms": 5400,
-          "do": "show",
-          "shape": {
-            "id": "pLabel",
-            "kind": "text",
-            "size": 24,
-            "text": "P",
-            "x": 596,
-            "y": 380
-          }
-        },
-        {
-          "at_ms": 5600,
-          "do": "show",
-          "shape": {
-            "id": "sLabel",
-            "kind": "text",
-            "size": 24,
-            "text": "S",
-            "x": 711,
-            "y": 380
-          }
-        },
-        {
-          "at_ms": 5800,
-          "do": "show",
-          "shape": {
-            "id": "clLabel",
-            "kind": "text",
-            "size": 24,
-            "text": "Cl",
-            "x": 826,
-            "y": 380
+            "y": 380,
+            "size": 24
           }
         },
         {
           "at_ms": 6800,
           "do": "show",
           "shape": {
-            "id": "shrinkNote",
+            "id": "pLabel",
             "kind": "text",
-            "size": 26,
-            "text": "nuclear charge rises, same shell → smaller atoms",
-            "x": 120,
-            "y": 100
+            "text": "P",
+            "x": 596,
+            "y": 380,
+            "size": 24
           }
         },
         {
-          "at_ms": 7400,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "clAtom"
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "sLabel",
+            "kind": "text",
+            "text": "S",
+            "x": 711,
+            "y": 380,
+            "size": 24
+          }
         },
         {
-          "at_ms": 8200,
+          "at_ms": 7200,
+          "do": "show",
+          "shape": {
+            "id": "clLabel",
+            "kind": "text",
+            "text": "Cl",
+            "x": 826,
+            "y": 380,
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "shrinkNote",
+            "kind": "text",
+            "text": "nuclear charge rises, same shell → smaller atoms",
+            "x": 120,
+            "y": 100,
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 8100,
+          "do": "emphasize",
+          "target": "clAtom",
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 8600,
           "do": "caption",
           "text": "Across period 3, atoms shrink as nuclear charge rises"
         }
@@ -210,204 +276,288 @@
       "caption": "Melting point tells the structure story",
       "duration_ms": 9000,
       "id": "s2",
-      "narration":"Melting point across period 3 tells the structure story. Giant metallic lattices melt ever higher, but giant-covalent silicon melts highest of all — then simple molecules, and melting points collapse.",
+      "narration": "Melting point across period 3 tells the structure story. Giant metallic lattices melt ever higher, but giant-covalent silicon melts highest of all — then simple molecules, and melting points collapse.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "fill": "#f59e0b",
-            "h": 120,
             "id": "naBar",
             "kind": "rect",
-            "w": 70,
             "x": 105,
-            "y": 340
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#f59e0b"
           }
         },
         {
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "fill": "#f59e0b",
-            "h": 220,
             "id": "mgBar",
             "kind": "rect",
-            "w": 70,
             "x": 220,
-            "y": 240
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#f59e0b"
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
-            "fill": "#f59e0b",
-            "h": 280,
             "id": "alBar",
             "kind": "rect",
-            "w": 70,
             "x": 335,
-            "y": 180
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#f59e0b"
           }
         },
         {
           "at_ms": 1200,
           "do": "show",
           "shape": {
-            "fill": "#b00020",
-            "h": 420,
             "id": "siBar",
             "kind": "rect",
-            "w": 70,
             "x": 450,
-            "y": 40
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#b00020"
           }
         },
         {
           "at_ms": 1600,
           "do": "show",
           "shape": {
-            "fill": "#f59e0b",
-            "h": 70,
             "id": "pBar",
             "kind": "rect",
-            "w": 70,
             "x": 565,
-            "y": 390
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#f59e0b"
           }
         },
         {
           "at_ms": 2000,
           "do": "show",
           "shape": {
-            "fill": "#f59e0b",
-            "h": 90,
             "id": "sBar",
             "kind": "rect",
-            "w": 70,
             "x": 680,
-            "y": 370
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#f59e0b"
           }
         },
         {
           "at_ms": 2400,
           "do": "show",
           "shape": {
-            "fill": "#f59e0b",
-            "h": 60,
             "id": "clBar",
             "kind": "rect",
-            "w": 70,
             "x": 795,
-            "y": 400
+            "y": 450,
+            "w": 70,
+            "h": 10,
+            "fill": "#f59e0b"
           }
         },
         {
-          "at_ms": 3200,
+          "at_ms": 2900,
+          "do": "move",
+          "target": "naBar",
+          "to": {
+            "x": 105,
+            "y": 340,
+            "w": 70,
+            "h": 120
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "mgBar",
+          "to": {
+            "x": 220,
+            "y": 240,
+            "w": 70,
+            "h": 220
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 3900,
+          "do": "move",
+          "target": "alBar",
+          "to": {
+            "x": 335,
+            "y": 180,
+            "w": 70,
+            "h": 280
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "target": "siBar",
+          "to": {
+            "x": 450,
+            "y": 40,
+            "w": 70,
+            "h": 420
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 4900,
+          "do": "move",
+          "target": "pBar",
+          "to": {
+            "x": 565,
+            "y": 390,
+            "w": 70,
+            "h": 70
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "sBar",
+          "to": {
+            "x": 680,
+            "y": 370,
+            "w": 70,
+            "h": 90
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 5900,
+          "do": "move",
+          "target": "clBar",
+          "to": {
+            "x": 795,
+            "y": 400,
+            "w": 70,
+            "h": 60
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 6800,
           "do": "show",
           "shape": {
             "id": "naLabel",
             "kind": "text",
-            "size": 22,
             "text": "Na",
             "x": 127,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 3400,
+          "at_ms": 6950,
           "do": "show",
           "shape": {
             "id": "mgLabel",
             "kind": "text",
-            "size": 22,
             "text": "Mg",
             "x": 242,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 7100,
           "do": "show",
           "shape": {
             "id": "alLabel",
             "kind": "text",
-            "size": 22,
             "text": "Al",
             "x": 357,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 3800,
+          "at_ms": 7250,
           "do": "show",
           "shape": {
             "id": "siLabel",
             "kind": "text",
-            "size": 22,
             "text": "Si",
             "x": 475,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 7400,
           "do": "show",
           "shape": {
             "id": "pLabel",
             "kind": "text",
-            "size": 22,
             "text": "P",
             "x": 593,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 4200,
+          "at_ms": 7550,
           "do": "show",
           "shape": {
             "id": "sLabel",
             "kind": "text",
-            "size": 22,
             "text": "S",
             "x": 708,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 4400,
+          "at_ms": 7700,
           "do": "show",
           "shape": {
             "id": "clLabel",
             "kind": "text",
-            "size": 22,
             "text": "Cl",
             "x": 820,
-            "y": 488
+            "y": 488,
+            "size": 22
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 7800,
           "do": "show",
           "shape": {
-            "color": "#b00020",
             "id": "siNote",
             "kind": "text",
-            "size": 26,
             "text": "Si: giant covalent — the highest of all",
             "x": 120,
-            "y": 110
+            "y": 110,
+            "size": 26,
+            "color": "#b00020"
           }
-        },
-        {
-          "at_ms": 6400,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "siBar"
         },
         {
           "at_ms": 8200,
+          "do": "emphasize",
+          "target": "siBar",
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 8600,
           "do": "caption",
           "text": "Structure decides melting point: giant lattices high, simple molecules low"
         }
@@ -417,7 +567,7 @@
       "caption": "First ionisation energy: the general rise and its two dips",
       "duration_ms": 10000,
       "id": "s3",
-      "narration":"First ionisation energy generally rises across period 3 — more protons, same shell, tighter hold. But two famous dips: aluminium below magnesium, and sulfur below phosphorus from paired-electron repulsion.",
+      "narration": "First ionisation energy generally rises across period 3 — more protons, same shell, tighter hold. But two famous dips: aluminium below magnesium, and sulfur below phosphorus from paired-electron repulsion.",
       "steps": [
         {
           "at_ms": 0,
@@ -425,12 +575,12 @@
           "shape": {
             "id": "yaxis",
             "kind": "line",
-            "stroke": "#1a1a1a",
-            "width": 2,
             "x1": 120,
-            "x2": 120,
             "y1": 60,
-            "y2": 470
+            "x2": 120,
+            "y2": 470,
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
@@ -439,12 +589,12 @@
           "shape": {
             "id": "xaxis",
             "kind": "line",
-            "stroke": "#1a1a1a",
-            "width": 2,
             "x1": 120,
-            "x2": 900,
             "y1": 470,
-            "y2": 470
+            "x2": 900,
+            "y2": 470,
+            "stroke": "#1a1a1a",
+            "width": 2
           }
         },
         {
@@ -453,19 +603,189 @@
           "shape": {
             "id": "yLabel",
             "kind": "text",
-            "size": 22,
             "text": "first IE",
             "x": 40,
-            "y": 80
+            "y": 80,
+            "size": 22
           }
         },
         {
-          "at_ms": 1000,
+          "at_ms": 900,
           "do": "show",
           "shape": {
-            "fill": "none",
+            "id": "naDot",
+            "kind": "circle",
+            "cx": 150,
+            "cy": 420,
+            "r": 6,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "mgDot",
+            "kind": "circle",
+            "cx": 260,
+            "cy": 340,
+            "r": 6,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "alDot",
+            "kind": "circle",
+            "cx": 370,
+            "cy": 370,
+            "r": 7,
+            "fill": "#b00020"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "siDot",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 300,
+            "r": 6,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "pDot",
+            "kind": "circle",
+            "cx": 590,
+            "cy": 260,
+            "r": 6,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "sDot",
+            "kind": "circle",
+            "cx": 700,
+            "cy": 290,
+            "r": 7,
+            "fill": "#b00020"
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "clDot",
+            "kind": "circle",
+            "cx": 810,
+            "cy": 230,
+            "r": 6,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "naLabel",
+            "kind": "text",
+            "text": "Na",
+            "x": 142,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 3150,
+          "do": "show",
+          "shape": {
+            "id": "mgLabel",
+            "kind": "text",
+            "text": "Mg",
+            "x": 252,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "id": "alLabel",
+            "kind": "text",
+            "text": "Al",
+            "x": 362,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 3450,
+          "do": "show",
+          "shape": {
+            "id": "siLabel",
+            "kind": "text",
+            "text": "Si",
+            "x": 472,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "pLabel",
+            "kind": "text",
+            "text": "P",
+            "x": 585,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 3750,
+          "do": "show",
+          "shape": {
+            "id": "sLabel",
+            "kind": "text",
+            "text": "S",
+            "x": 695,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "clLabel",
+            "kind": "text",
+            "text": "Cl",
+            "x": 802,
+            "y": 500,
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
             "id": "ieCurve",
             "kind": "polygon",
+            "fill": "none",
+            "stroke": "#1a56db",
+            "strokeWidth": 4,
             "points": [
               [
                 150,
@@ -495,205 +815,107 @@
                 810,
                 230
               ]
-            ],
-            "stroke": "#1a56db",
-            "strokeWidth": 4
+            ]
           }
         },
         {
-          "at_ms": 1600,
-          "do": "show",
-          "shape": {
-            "cx": 150,
-            "cy": 420,
-            "fill": "#1a56db",
-            "id": "naDot",
-            "kind": "circle",
-            "r": 6
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "cx": 260,
-            "cy": 340,
-            "fill": "#1a56db",
-            "id": "mgDot",
-            "kind": "circle",
-            "r": 6
-          }
-        },
-        {
-          "at_ms": 2000,
-          "do": "show",
-          "shape": {
-            "cx": 370,
-            "cy": 370,
-            "fill": "#b00020",
-            "id": "alDot",
-            "kind": "circle",
-            "r": 7
-          }
-        },
-        {
-          "at_ms": 2200,
-          "do": "show",
-          "shape": {
-            "cx": 480,
-            "cy": 300,
-            "fill": "#1a56db",
-            "id": "siDot",
-            "kind": "circle",
-            "r": 6
-          }
-        },
-        {
-          "at_ms": 2400,
-          "do": "show",
-          "shape": {
-            "cx": 590,
-            "cy": 260,
-            "fill": "#1a56db",
-            "id": "pDot",
-            "kind": "circle",
-            "r": 6
-          }
-        },
-        {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "cx": 700,
-            "cy": 290,
-            "fill": "#b00020",
-            "id": "sDot",
-            "kind": "circle",
-            "r": 7
-          }
-        },
-        {
-          "at_ms": 2800,
-          "do": "show",
-          "shape": {
-            "cx": 810,
-            "cy": 230,
-            "fill": "#1a56db",
-            "id": "clDot",
-            "kind": "circle",
-            "r": 6
-          }
-        },
-        {
-          "at_ms": 3600,
-          "do": "show",
-          "shape": {
-            "id": "naLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "Na",
-            "x": 142,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 3750,
-          "do": "show",
-          "shape": {
-            "id": "mgLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "Mg",
-            "x": 252,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 3900,
-          "do": "show",
-          "shape": {
-            "id": "alLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "Al",
-            "x": 362,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 4050,
-          "do": "show",
-          "shape": {
-            "id": "siLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "Si",
-            "x": 472,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 4200,
-          "do": "show",
-          "shape": {
-            "id": "pLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "P",
-            "x": 585,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 4350,
-          "do": "show",
-          "shape": {
-            "id": "sLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "S",
-            "x": 695,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 4500,
-          "do": "show",
-          "shape": {
-            "id": "clLabel",
-            "kind": "text",
-            "size": 20,
-            "text": "Cl",
-            "x": 802,
-            "y": 500
-          }
-        },
-        {
-          "at_ms": 5600,
+          "at_ms": 4400,
           "do": "show",
           "shape": {
             "id": "dipNote",
             "kind": "text",
-            "size": 24,
             "text": "dips: Al < Mg (p-orbital); S < P (paired repulsion)",
             "x": 120,
-            "y": 120
+            "y": 120,
+            "size": 24
           }
         },
         {
-          "at_ms": 6600,
-          "do": "emphasize",
-          "dur_ms": 900,
-          "target": "alDot"
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "travelDot",
+            "kind": "circle",
+            "cx": 150,
+            "cy": 420,
+            "r": 8,
+            "fill": "#b00020"
+          }
         },
         {
-          "at_ms": 7400,
-          "do": "emphasize",
-          "dur_ms": 900,
-          "target": "sDot"
+          "at_ms": 5000,
+          "do": "move",
+          "target": "travelDot",
+          "to": {
+            "cx": 260,
+            "cy": 340
+          },
+          "dur_ms": 500
         },
         {
-          "at_ms": 9000,
+          "at_ms": 5600,
+          "do": "move",
+          "target": "travelDot",
+          "to": {
+            "cx": 370,
+            "cy": 370
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6300,
+          "do": "emphasize",
+          "target": "alDot",
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 7000,
+          "do": "move",
+          "target": "travelDot",
+          "to": {
+            "cx": 480,
+            "cy": 300
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 7600,
+          "do": "move",
+          "target": "travelDot",
+          "to": {
+            "cx": 590,
+            "cy": 260
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 8200,
+          "do": "move",
+          "target": "travelDot",
+          "to": {
+            "cx": 700,
+            "cy": 290
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 8900,
+          "do": "emphasize",
+          "target": "sDot",
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 9300,
+          "do": "move",
+          "target": "travelDot",
+          "to": {
+            "cx": 810,
+            "cy": 230
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 9600,
           "do": "caption",
           "text": "IE rises overall but dips at Al and S — the shape of the p-orbitals"
         }
@@ -703,149 +925,197 @@
       "caption": "Down group 2: reactivity climbs",
       "duration_ms": 9000,
       "id": "s4",
-      "narration":"Down group 2 the atoms get bigger and outer electrons sit further from the nucleus. Shielding grows, ionisation energy falls, reactivity climbs: magnesium reacts slowly with water, barium reacts vigorously.",
+      "narration": "Down group 2 the atoms get bigger and outer electrons sit further from the nucleus. Shielding grows, ionisation energy falls, reactivity climbs: magnesium reacts slowly with water, barium reacts vigorously.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "fill": "#1a56db",
-            "h": 120,
             "id": "mgBar",
             "kind": "rect",
-            "w": 90,
             "x": 180,
-            "y": 340
+            "y": 450,
+            "w": 90,
+            "h": 10,
+            "fill": "#1a56db"
           }
         },
         {
-          "at_ms": 500,
+          "at_ms": 400,
+          "do": "move",
+          "target": "mgBar",
+          "to": {
+            "x": 180,
+            "y": 340,
+            "w": 90,
+            "h": 120
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 900,
           "do": "show",
           "shape": {
-            "fill": "#1a56db",
-            "h": 200,
             "id": "caBar",
             "kind": "rect",
-            "w": 90,
             "x": 360,
-            "y": 260
+            "y": 450,
+            "w": 90,
+            "h": 10,
+            "fill": "#1a56db"
           }
         },
         {
-          "at_ms": 1000,
+          "at_ms": 1300,
+          "do": "move",
+          "target": "caBar",
+          "to": {
+            "x": 360,
+            "y": 260,
+            "w": 90,
+            "h": 200
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 1800,
           "do": "show",
           "shape": {
-            "fill": "#1a56db",
-            "h": 280,
             "id": "srBar",
             "kind": "rect",
-            "w": 90,
             "x": 540,
-            "y": 180
-          }
-        },
-        {
-          "at_ms": 1500,
-          "do": "show",
-          "shape": {
-            "fill": "#1a56db",
-            "h": 360,
-            "id": "baBar",
-            "kind": "rect",
+            "y": 450,
             "w": 90,
-            "x": 720,
-            "y": 100
+            "h": 10,
+            "fill": "#1a56db"
           }
         },
         {
           "at_ms": 2200,
+          "do": "move",
+          "target": "srBar",
+          "to": {
+            "x": 540,
+            "y": 180,
+            "w": 90,
+            "h": 280
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "baBar",
+            "kind": "rect",
+            "x": 720,
+            "y": 450,
+            "w": 90,
+            "h": 10,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "move",
+          "target": "baBar",
+          "to": {
+            "x": 720,
+            "y": 100,
+            "w": 90,
+            "h": 360
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "whyNote",
+            "kind": "text",
+            "text": "bigger atoms → easier electron loss → more reactive",
+            "x": 120,
+            "y": 80,
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 4200,
           "do": "show",
           "shape": {
             "id": "mgLabel",
             "kind": "text",
-            "size": 24,
             "text": "Mg",
             "x": 210,
-            "y": 490
-          }
-        },
-        {
-          "at_ms": 2400,
-          "do": "show",
-          "shape": {
-            "id": "caLabel",
-            "kind": "text",
-            "size": 24,
-            "text": "Ca",
-            "x": 392,
-            "y": 490
-          }
-        },
-        {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "srLabel",
-            "kind": "text",
-            "size": 24,
-            "text": "Sr",
-            "x": 575,
-            "y": 490
-          }
-        },
-        {
-          "at_ms": 2800,
-          "do": "show",
-          "shape": {
-            "id": "baLabel",
-            "kind": "text",
-            "size": 24,
-            "text": "Ba",
-            "x": 755,
-            "y": 490
-          }
-        },
-        {
-          "at_ms": 3600,
-          "do": "show",
-          "shape": {
-            "id": "mgNote",
-            "kind": "text",
-            "size": 24,
-            "text": "Mg reacts slowly with cold water",
-            "x": 120,
-            "y": 120
+            "y": 490,
+            "size": 24
           }
         },
         {
           "at_ms": 4400,
           "do": "show",
           "shape": {
-            "id": "baNote",
+            "id": "caLabel",
             "kind": "text",
-            "size": 24,
-            "text": "Ba reacts vigorously",
-            "x": 120,
-            "y": 160
+            "text": "Ca",
+            "x": 392,
+            "y": 490,
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "srLabel",
+            "kind": "text",
+            "text": "Sr",
+            "x": 575,
+            "y": 490,
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "baLabel",
+            "kind": "text",
+            "text": "Ba",
+            "x": 755,
+            "y": 490,
+            "size": 24
           }
         },
         {
           "at_ms": 5200,
           "do": "show",
           "shape": {
-            "id": "whyNote",
+            "id": "mgNote",
             "kind": "text",
-            "size": 24,
-            "text": "bigger atoms → easier electron loss → more reactive",
+            "text": "Mg reacts slowly with cold water",
             "x": 120,
-            "y": 80
+            "y": 120,
+            "size": 24
           }
         },
         {
-          "at_ms": 6000,
+          "at_ms": 5900,
+          "do": "show",
+          "shape": {
+            "id": "baNote",
+            "kind": "text",
+            "text": "Ba reacts vigorously",
+            "x": 120,
+            "y": 160,
+            "size": 24
+          }
+        },
+        {
+          "at_ms": 6600,
           "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "baBar"
+          "target": "baBar",
+          "dur_ms": 1000
         },
         {
           "at_ms": 8200,
@@ -864,13 +1134,13 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "dispEq",
             "kind": "latex",
-            "size": 34,
             "tex": "\\text{Cl}_2 + 2\\text{Br}^- \\rightarrow 2\\text{Cl}^- + \\text{Br}_2",
             "x": 170,
-            "y": 120
+            "y": 120,
+            "size": 34,
+            "color": "#1a1a1a"
           }
         },
         {
@@ -879,10 +1149,10 @@
           "shape": {
             "id": "note1",
             "kind": "text",
-            "size": 25,
             "text": "chlorine displaces bromine: Cl2 is the stronger oxidiser",
             "x": 120,
-            "y": 200
+            "y": 200,
+            "size": 25
           }
         },
         {
@@ -891,10 +1161,10 @@
           "shape": {
             "id": "note2",
             "kind": "text",
-            "size": 25,
             "text": "the reverse does not happen — Br2 cannot displace Cl2",
             "x": 120,
-            "y": 260
+            "y": 260,
+            "size": 25
           }
         },
         {
@@ -903,10 +1173,10 @@
           "shape": {
             "id": "trendNote",
             "kind": "text",
-            "size": 25,
             "text": "down group 17: oxidising power falls (F > Cl > Br > I)",
             "x": 120,
-            "y": 340
+            "y": 340,
+            "size": 25
           }
         },
         {
@@ -915,22 +1185,56 @@
           "shape": {
             "id": "whyNote",
             "kind": "text",
-            "size": 25,
             "text": "bigger atoms hold the extra electron less tightly",
             "x": 120,
-            "y": 420
+            "y": 420,
+            "size": 25
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "clAtom",
+            "kind": "circle",
+            "cx": 800,
+            "cy": 480,
+            "r": 45,
+            "fill": "#1a56db"
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "eDot",
+            "kind": "circle",
+            "cx": 930,
+            "cy": 480,
+            "r": 8,
+            "fill": "#b00020"
           }
         },
         {
           "at_ms": 7000,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "dispEq"
+          "do": "move",
+          "target": "eDot",
+          "to": {
+            "cx": 855,
+            "cy": 480
+          },
+          "dur_ms": 1200
         },
         {
-          "at_ms": 8800,
+          "at_ms": 8600,
+          "do": "emphasize",
+          "target": "dispEq",
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 9300,
           "do": "caption",
-          "text": "Oxidising strength falls down group 17 — chlorine displaces bromine"
+          "text": "Oxidising power falls down group 17 — Cl2 displaces Br2"
         }
       ]
     },
@@ -938,162 +1242,134 @@
       "caption": "Coloured ions from partially filled d-orbitals",
       "duration_ms": 10000,
       "id": "s6",
-      "narration":"Transition metals glow with colour because their d-orbitals are only partly filled. Electrons jump between split d-orbitals, absorbing one wavelength and leaving the rest for your eye.",
+      "narration": "Transition metals glow with colour because their d-orbitals are only partly filled. Electrons jump between split d-orbitals, absorbing one wavelength and leaving the rest for your eye.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "cx": 130,
-            "cy": 270,
-            "fill": "#16a34a",
-            "id": "crCircle",
+            "id": "paleIon",
             "kind": "circle",
-            "r": 48
+            "cx": 480,
+            "cy": 250,
+            "r": 48,
+            "fill": "#d1d5db"
           }
         },
         {
-          "at_ms": 700,
+          "at_ms": 500,
           "do": "show",
           "shape": {
-            "cx": 320,
-            "cy": 270,
-            "fill": "#2563eb",
-            "id": "cuCircle",
-            "kind": "circle",
-            "r": 48
+            "id": "lowerLevel",
+            "kind": "line",
+            "x1": 700,
+            "y1": 350,
+            "x2": 920,
+            "y2": 350,
+            "stroke": "#1a1a1a",
+            "width": 3
           }
         },
         {
-          "at_ms": 1400,
+          "at_ms": 900,
           "do": "show",
           "shape": {
-            "cx": 510,
-            "cy": 270,
-            "fill": "#b45309",
-            "id": "feCircle",
-            "kind": "circle",
-            "r": 48
+            "id": "upperLevel",
+            "kind": "line",
+            "x1": 700,
+            "y1": 210,
+            "x2": 920,
+            "y2": 210,
+            "stroke": "#1a1a1a",
+            "width": 3
           }
         },
         {
-          "at_ms": 2100,
+          "at_ms": 1300,
           "do": "show",
           "shape": {
-            "cx": 700,
-            "cy": 270,
-            "fill": "#7c3aed",
-            "id": "mnCircle",
+            "id": "eDot",
             "kind": "circle",
-            "r": 48
+            "cx": 730,
+            "cy": 336,
+            "r": 10,
+            "fill": "#b00020"
           }
         },
         {
-          "at_ms": 2800,
-          "do": "show",
-          "shape": {
-            "cx": 880,
-            "cy": 270,
-            "fill": "#ea580c",
-            "id": "diCircle",
-            "kind": "circle",
-            "r": 44
-          }
+          "at_ms": 1800,
+          "do": "move",
+          "target": "eDot",
+          "to": {
+            "cx": 870,
+            "cy": 196
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 3000,
+          "do": "hide",
+          "target": "eDot"
+        },
+        {
+          "at_ms": 3300,
+          "do": "hide",
+          "target": "paleIon"
         },
         {
           "at_ms": 3600,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
-            "id": "crLabel",
-            "kind": "latex",
-            "size": 28,
-            "tex": "\\text{Cr}^{3+}",
-            "x": 100,
-            "y": 348
+            "id": "colourIon",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 250,
+            "r": 48,
+            "fill": "#2563eb"
           }
         },
         {
           "at_ms": 4000,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "cuLabel",
             "kind": "latex",
-            "size": 28,
             "tex": "\\text{Cu}^{2+}",
-            "x": 290,
-            "y": 348
-          }
-        },
-        {
-          "at_ms": 4400,
-          "do": "show",
-          "shape": {
-            "color": "#1a1a1a",
-            "id": "feLabel",
-            "kind": "latex",
+            "x": 450,
+            "y": 330,
             "size": 28,
-            "tex": "\\text{Fe}^{3+}",
-            "x": 480,
-            "y": 348
+            "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 4800,
+          "at_ms": 4600,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
-            "id": "mnLabel",
-            "kind": "latex",
-            "size": 28,
-            "tex": "\\text{MnO}_4^-",
-            "x": 658,
-            "y": 348
+            "id": "jumpNote",
+            "kind": "text",
+            "text": "electron jumps between split d-levels",
+            "x": 120,
+            "y": 120,
+            "size": 25
           }
         },
         {
-          "at_ms": 5200,
-          "do": "show",
-          "shape": {
-            "color": "#1a1a1a",
-            "id": "diLabel",
-            "kind": "latex",
-            "size": 24,
-            "tex": "\\text{Cr}_2\\text{O}_7^{2-}",
-            "x": 812,
-            "y": 348
-          }
-        },
-        {
-          "at_ms": 6200,
+          "at_ms": 5400,
           "do": "show",
           "shape": {
             "id": "colourNote",
             "kind": "text",
-            "size": 25,
-            "text": "partially filled d-orbitals absorb one wavelength",
+            "text": "the jump absorbs one wavelength — we see the rest",
             "x": 120,
-            "y": 140
+            "y": 170,
+            "size": 25
           }
         },
         {
-          "at_ms": 7000,
-          "do": "show",
-          "shape": {
-            "id": "stateNote",
-            "kind": "text",
-            "size": 25,
-            "text": "change the oxidation state → change the colour",
-            "x": 120,
-            "y": 190
-          }
-        },
-        {
-          "at_ms": 7800,
+          "at_ms": 6400,
           "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "cuCircle"
+          "target": "colourIon",
+          "dur_ms": 900
         },
         {
           "at_ms": 9000,
@@ -1106,102 +1382,251 @@
       "caption": "Complexes with ligands, catalysts that flip oxidation states",
       "duration_ms": 10000,
       "id": "s7",
-      "narration":"Those d-orbitals let transition metals grip ligands: copper(II) wraps six water molecules into a deep-blue complex ion. And since they flip oxidation states easily, they make great catalysts.",
+      "narration": "Those d-orbitals let transition metals grip ligands: copper(II) wraps six water molecules into a deep-blue complex ion. And since they flip oxidation states easily, they make great catalysts.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "cx": 300,
-            "cy": 150,
-            "fill": "#2563eb",
-            "id": "cuComplex",
+            "id": "cuIon",
             "kind": "circle",
-            "r": 40
+            "cx": 380,
+            "cy": 270,
+            "r": 40,
+            "fill": "#7dd3fc"
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "lig1",
+            "kind": "circle",
+            "cx": 150,
+            "cy": 100,
+            "r": 12,
+            "fill": "#38bdf8"
           }
         },
         {
           "at_ms": 800,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
-            "id": "complexIon",
-            "kind": "latex",
-            "size": 36,
-            "tex": "\\text{Cu}(\\text{H}_2\\text{O})_6^{2+}",
-            "x": 370,
-            "y": 140
+            "id": "lig2",
+            "kind": "circle",
+            "cx": 810,
+            "cy": 120,
+            "r": 12,
+            "fill": "#38bdf8"
           }
         },
         {
-          "at_ms": 1800,
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "lig3",
+            "kind": "circle",
+            "cx": 120,
+            "cy": 450,
+            "r": 12,
+            "fill": "#38bdf8"
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "lig4",
+            "kind": "circle",
+            "cx": 850,
+            "cy": 440,
+            "r": 12,
+            "fill": "#38bdf8"
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "id": "lig5",
+            "kind": "circle",
+            "cx": 300,
+            "cy": 60,
+            "r": 12,
+            "fill": "#38bdf8"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "lig6",
+            "kind": "circle",
+            "cx": 700,
+            "cy": 500,
+            "r": 12,
+            "fill": "#38bdf8"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "target": "lig1",
+          "to": {
+            "cx": 380,
+            "cy": 150
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "target": "lig2",
+          "to": {
+            "cx": 380,
+            "cy": 390
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 2400,
+          "do": "move",
+          "target": "lig3",
+          "to": {
+            "cx": 260,
+            "cy": 270
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "lig4",
+          "to": {
+            "cx": 500,
+            "cy": 270
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "lig5",
+          "to": {
+            "cx": 295,
+            "cy": 185
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "lig6",
+          "to": {
+            "cx": 465,
+            "cy": 355
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4400,
+          "do": "hide",
+          "target": "cuIon"
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "id": "cuComplex",
+            "kind": "circle",
+            "cx": 380,
+            "cy": 270,
+            "r": 40,
+            "fill": "#1d4ed8"
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "complexIon",
+            "kind": "latex",
+            "tex": "\\text{Cu}(\\text{H}_2\\text{O})_6^{2+}",
+            "x": 560,
+            "y": 280,
+            "size": 36,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 5600,
           "do": "show",
           "shape": {
             "id": "ligandNote",
             "kind": "text",
-            "size": 25,
             "text": "six water ligands grip the copper ion",
             "x": 120,
-            "y": 250
+            "y": 100,
+            "size": 25
           }
         },
         {
-          "at_ms": 2800,
+          "at_ms": 6400,
           "do": "show",
           "shape": {
             "id": "flipNote",
             "kind": "text",
-            "size": 25,
             "text": "variable oxidation states let them shuttle electrons",
             "x": 120,
-            "y": 310
+            "y": 150,
+            "size": 25
           }
         },
         {
-          "at_ms": 3800,
+          "at_ms": 7200,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "v2o5",
             "kind": "latex",
-            "size": 36,
             "tex": "\\text{V}_2\\text{O}_5",
-            "x": 250,
-            "y": 420
+            "x": 180,
+            "y": 430,
+            "size": 36,
+            "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 4200,
+          "at_ms": 7600,
           "do": "show",
           "shape": {
             "id": "contactNote",
             "kind": "text",
-            "size": 25,
             "text": "catalyst in the contact process",
-            "x": 430,
-            "y": 452
+            "x": 370,
+            "y": 452,
+            "size": 25
           }
         },
         {
-          "at_ms": 5200,
+          "at_ms": 8000,
           "do": "show",
           "shape": {
             "id": "howNote",
             "kind": "text",
-            "size": 25,
             "text": "adsorbs reactants, offers a lower-Ea route, releases products",
             "x": 120,
-            "y": 505
+            "y": 505,
+            "size": 25
           }
         },
         {
-          "at_ms": 6800,
+          "at_ms": 8600,
           "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "v2o5"
+          "target": "v2o5",
+          "dur_ms": 800
         },
         {
-          "at_ms": 8800,
+          "at_ms": 9300,
           "do": "caption",
           "text": "Complexes with ligands; catalysts that flip oxidation states"
         }
@@ -1211,19 +1636,19 @@
       "caption": "Misconception: every d-block metal is a transition metal",
       "duration_ms": 9000,
       "id": "s8",
-      "narration":"Not every d-block metal is a transition metal. Zinc sits in the d-block, but zinc(II) has a full d-ten subshell — no partially filled d-orbitals, no colour, no variable oxidation states — so zinc is not one.",
+      "narration": "Not every d-block metal is a transition metal. Zinc sits in the d-block, but zinc(II) has a full d-ten subshell — no partially filled d-orbitals, no colour, no variable oxidation states — so zinc is not one.",
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "color": "#b00020",
             "id": "mis",
             "kind": "text",
-            "size": 36,
             "text": "Misconception:",
             "x": 120,
-            "y": 120
+            "y": 120,
+            "size": 36,
+            "color": "#b00020"
           }
         },
         {
@@ -1232,66 +1657,114 @@
           "shape": {
             "id": "wrongClaim",
             "kind": "text",
-            "size": 28,
             "text": "every d-block metal is a transition metal",
             "x": 120,
-            "y": 180
+            "y": 180,
+            "size": 28
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "cx": 480,
-            "cy": 300,
-            "fill": "#9ca3af",
             "id": "znAtom",
             "kind": "circle",
-            "r": 60
+            "cx": 480,
+            "cy": 300,
+            "r": 60,
+            "fill": "#9ca3af"
           }
         },
         {
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "color": "#1a1a1a",
             "id": "znConfig",
             "kind": "latex",
-            "size": 32,
             "tex": "\\text{Zn}^{2+} : [\\text{Ar}]\\,3d^{10}",
             "x": 388,
-            "y": 400
+            "y": 400,
+            "size": 32,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "strike",
+            "kind": "line",
+            "x1": 120,
+            "y1": 168,
+            "x2": 120,
+            "y2": 168,
+            "stroke": "#b00020",
+            "width": 6
           }
         },
         {
           "at_ms": 4200,
+          "do": "move",
+          "target": "strike",
+          "to": {
+            "x1": 120,
+            "y1": 168,
+            "x2": 695,
+            "y2": 168
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5200,
+          "do": "hide",
+          "target": "wrongClaim"
+        },
+        {
+          "at_ms": 5300,
+          "do": "hide",
+          "target": "strike"
+        },
+        {
+          "at_ms": 5500,
+          "do": "show",
+          "shape": {
+            "id": "correctedClaim",
+            "kind": "text",
+            "text": "zinc is d-block — but not a transition metal",
+            "x": 120,
+            "y": 180,
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 6200,
           "do": "show",
           "shape": {
             "id": "fullNote",
             "kind": "text",
-            "size": 26,
             "text": "full d-subshell: no colour, no variable states",
             "x": 120,
-            "y": 470
-          }
-        },
-        {
-          "at_ms": 5600,
-          "do": "show",
-          "shape": {
-            "id": "defNote",
-            "kind": "text",
-            "size": 26,
-            "text": "transition metal: an ion with a partially filled d-subshell",
-            "x": 120,
-            "y": 516
+            "y": 470,
+            "size": 26
           }
         },
         {
           "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "defNote",
+            "kind": "text",
+            "text": "transition metal: an ion with a partially filled d-subshell",
+            "x": 120,
+            "y": 516,
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 7800,
           "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "znConfig"
+          "target": "znConfig",
+          "dur_ms": 800
         },
         {
           "at_ms": 8200,
