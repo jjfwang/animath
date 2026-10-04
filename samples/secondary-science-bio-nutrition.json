@@ -1,0 +1,491 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "A balanced diet covers all seven food groups",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "A balanced diet contains carbohydrate, protein, fat, vitamins, minerals, fibre and water — in the right proportions.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 270,
+            "fill": "#f7f3e8",
+            "id": "plate",
+            "kind": "circle",
+            "r": 150,
+            "stroke": "#8a6d3b",
+            "strokeWidth": 5
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "g1",
+            "kind": "text",
+            "size": 28,
+            "text": "starchy foods",
+            "x": 400,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "g2",
+            "kind": "text",
+            "size": 28,
+            "text": "protein",
+            "x": 430,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "g3",
+            "kind": "text",
+            "size": 28,
+            "text": "fruit & veg",
+            "x": 410,
+            "y": 370
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "g4",
+            "kind": "text",
+            "size": 28,
+            "text": "+ fats, vitamins, minerals, fibre, water",
+            "x": 330,
+            "y": 460
+          }
+        }
+      ]
+    },
+    {
+      "caption": "Food is fuel: energy content per gram",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "Carbohydrate and protein each release 17 kilojoules per gram. Fat releases far more — 37 kilojoules per gram.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "e1",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\text{carbohydrate}\\;\\; 17\\;\\text{kJ/g}",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "e2",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\text{protein}\\;\\; 17\\;\\text{kJ/g}",
+            "x": 120,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "color": "#a83232",
+            "id": "e3",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\text{fat}\\;\\; 37\\;\\text{kJ/g}",
+            "x": 120,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "e3"
+        },
+        {
+          "at_ms": 7000,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "size": 26,
+            "text": "Fat carries more than twice the energy per gram",
+            "x": 120,
+            "y": 470
+          }
+        }
+      ]
+    },
+    {
+      "caption": "The digestion pipeline: mouth to large intestine",
+      "duration_ms": 11000,
+      "id": "s3",
+      "narration": "Food travels mouth, oesophagus, stomach, small intestine, then large intestine. Digestion is a long pipeline — not one chamber.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "o1",
+            "kind": "text",
+            "size": 24,
+            "text": "mouth",
+            "x": 70,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "o2",
+            "kind": "text",
+            "size": 24,
+            "text": "oesophagus",
+            "x": 175,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "o3",
+            "kind": "text",
+            "size": 24,
+            "text": "stomach",
+            "x": 347,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "o4",
+            "kind": "text",
+            "size": 24,
+            "text": "small intestine",
+            "x": 478,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "o5",
+            "kind": "text",
+            "size": 24,
+            "text": "large intestine",
+            "x": 682,
+            "y": 270
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "cx": 90,
+            "cy": 340,
+            "fill": "#c98a3d",
+            "id": "food",
+            "kind": "circle",
+            "r": 18,
+            "stroke": "#7a521a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "food",
+          "to": {
+            "cx": 450,
+            "cy": 340
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "food",
+          "to": {
+            "cx": 700,
+            "cy": 340
+          }
+        },
+        {
+          "at_ms": 9000,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "food",
+          "to": {
+            "cx": 830,
+            "cy": 340
+          }
+        }
+      ]
+    },
+    {
+      "caption": "Enzymes: each one breaks down one nutrient",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "Digestive enzymes are specific. Amylase breaks down starch, protease breaks down protein, and lipase breaks down fat.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "z1",
+            "kind": "text",
+            "size": 30,
+            "text": "amylase → starch to maltose",
+            "x": 180,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "z2",
+            "kind": "text",
+            "size": 30,
+            "text": "protease → protein to amino acids",
+            "x": 180,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "z3",
+            "kind": "text",
+            "size": 30,
+            "text": "lipase → fat to fatty acids + glycerol",
+            "x": 180,
+            "y": 390
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "z1"
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "z2"
+        },
+        {
+          "at_ms": 8000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "z3"
+        }
+      ]
+    },
+    {
+      "caption": "Villi in the small intestine absorb the nutrients",
+      "duration_ms": 9000,
+      "id": "s5",
+      "narration": "The small intestine is lined with tiny finger-like villi. They give a huge surface area so digested nutrients absorb into the blood.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "wall",
+            "kind": "line",
+            "stroke": "#5b7fa6",
+            "width": 5,
+            "x1": 120,
+            "x2": 840,
+            "y1": 400,
+            "y2": 400
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "v1",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 5,
+            "x1": 300,
+            "x2": 300,
+            "y1": 400,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "v2",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 5,
+            "x1": 480,
+            "x2": 480,
+            "y1": 400,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "v3",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 5,
+            "x1": 660,
+            "x2": 660,
+            "y1": 400,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "abs",
+            "kind": "arrow",
+            "stroke": "#a83232",
+            "width": 4,
+            "x1": 480,
+            "x2": 480,
+            "y1": 280,
+            "y2": 170
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "abst",
+            "kind": "text",
+            "size": 28,
+            "text": "nutrients into the blood",
+            "x": 520,
+            "y": 200
+          }
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: digestion does NOT end in the stomach",
+      "duration_ms": 9000,
+      "id": "s6",
+      "narration": "Digestion does not end in the stomach. Most digestion and nearly all absorption happen later, in the small intestine.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 480,
+            "cy": 280,
+            "fill": "#e8c9a8",
+            "id": "stom",
+            "kind": "circle",
+            "r": 100,
+            "stroke": "#7a521a",
+            "strokeWidth": 4
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "stomt",
+            "kind": "text",
+            "size": 32,
+            "text": "stomach",
+            "x": 410,
+            "y": 292
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "cross",
+            "kind": "line",
+            "stroke": "#a83232",
+            "width": 6,
+            "x1": 400,
+            "x2": 560,
+            "y1": 360,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "fix",
+            "kind": "text",
+            "size": 30,
+            "text": "Most digestion and absorption continue",
+            "x": 130,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "fix2",
+            "kind": "text",
+            "size": 30,
+            "text": "in the small intestine",
+            "x": 130,
+            "y": 520
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "emphasize",
+          "dur_ms": 1200,
+          "target": "fix"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "Nutrition: balanced diet and digestion",
+  "topic": "bio-nutrition"
+}
