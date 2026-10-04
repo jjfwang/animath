@@ -5,6 +5,9 @@
  * plant-systems, life-cycles, water-cycle, energy-forms, photosynthesis,
  * forces-magnets, adaptations), grounded in the matching misconception scenes
  * in samples/primary-science-*.json.
+ * Slice 3 (issue #105): the 14 Secondary Math topics, grounded in the
+ * matching misconception scenes in samples/secondary-e-*.json and
+ * samples/secondary-a-*.json.
  *
  * Slug naming note: the map is keyed on the short topic slugs that
  * buildPrompts receives (the issue's slugs), which match the samples' topic
@@ -129,6 +132,76 @@
       wrongTurn: 'An animal can decide to grow a new feature when it needs one.',
       why: 'The feature fits the animal so well that it looks chosen on purpose.',
       correctTurn: 'These features did not appear overnight: they developed over many, many generations, not by choice.'
+    },
+    'e-numbers': {
+      wrongTurn: 'Adding powers: 2^3 + 2^4 = 2^7.',
+      why: 'The same-base index rule is for multiplying, but it gets misapplied to addition.',
+      correctTurn: 'The index rule is for multiplying, never adding: 8 + 16 = 24, not 128.'
+    },
+    'e-algebra': {
+      wrongTurn: '(a + b)^2 = a^2 + b^2.',
+      why: 'The power looks like it lands on each term of the sum.',
+      correctTurn: 'The full expansion has three terms: check a = 2, b = 3, and 25 is not 13.'
+    },
+    'e-functions-graphs': {
+      wrongTurn: 'The line with the bigger intercept is steeper.',
+      why: 'The intercept is the visible height, so it feels like the climb.',
+      correctTurn: 'Steepness is the gradient, not the intercept: compare m, never c.'
+    },
+    'e-geometry': {
+      wrongTurn: 'Two shapes with the same area are congruent.',
+      why: 'Equal measure feels like equal shape.',
+      correctTurn: 'Equal area says nothing about shape: congruence needs every matching side and angle.'
+    },
+    'e-trigonometry': {
+      wrongTurn: 'tan = adjacent / opposite.',
+      why: 'Opposite and adjacent swap places under pressure.',
+      correctTurn: 'Always read TOA: tan is opposite over adjacent.'
+    },
+    'e-mensuration': {
+      wrongTurn: 'Doubling the radius doubles the area of a circle.',
+      why: 'Doubling a length doubles lengths, so area feels like it doubles too.',
+      correctTurn: 'Area scales with the square of the radius: double the radius and the area quadruples.'
+    },
+    'e-statistics': {
+      wrongTurn: 'The mean always describes the typical score.',
+      why: 'One extreme score drags the mean away from the bulk of the data.',
+      correctTurn: 'The mean follows the outlier, the median resists it: report both when an outlier is present.'
+    },
+    'e-probability': {
+      wrongTurn: 'After three heads, tails is due.',
+      why: 'A streak feels like it must balance out.',
+      correctTurn: 'The coin has no memory: the next toss is still 1/2.'
+    },
+    'a-quadratic-functions': {
+      wrongTurn: 'A negative discriminant means the equation has no solution.',
+      why: 'No real roots is read as no solutions at all.',
+      correctTurn: 'No real roots is not no solution: the equation still has two complex roots.'
+    },
+    'a-binomial': {
+      wrongTurn: '(a + b)^2 = a^2 + b^2.',
+      why: 'The power is distributed over the sum and the middle term is dropped.',
+      correctTurn: 'The missing middle term 2ab is the whole trap: (1 + 2)^2 is 9, not 5.'
+    },
+    'a-trigonometry': {
+      wrongTurn: 'cos(A + B) = cos A + cos B.',
+      why: 'Cosine looks like it splits across the sum.',
+      correctTurn: 'Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73.'
+    },
+    'a-differentiation': {
+      wrongTurn: 'dy/dx = 0 means a maximum or minimum.',
+      why: 'Zero gradient is always tied to turning points.',
+      correctTurn: 'Stationary is not always max or min: check the sign change. y = x^3 at x = 0 is stationary and still climbing.'
+    },
+    'a-integration': {
+      wrongTurn: 'The integral of 2x is x^2.',
+      why: 'The constant term is forgotten.',
+      correctTurn: 'Never drop the +C: differentiating x^2 + 5 and x^2 + 7 both give 2x.'
+    },
+    'a-kinematics': {
+      wrongTurn: 'A straight s-t graph means constant acceleration.',
+      why: 'Straight-line growth reads as speeding up.',
+      correctTurn: 'The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration.'
     }
   };
 
