@@ -1,0 +1,622 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Primes under the sieve",
+      "duration_ms": 9040,
+      "id": "s1",
+      "narration": "To find the primes, sieve the numbers: cross out the multiples of two, three and five, but keep each sieving number itself. What survives \u2014 two, three, five, seven, eleven, thirteen, seventeen and nineteen \u2014 is divisible only by one and itself.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Primes under the sieve",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "n1",
+            "kind": "text",
+            "size": 34,
+            "text": "1",
+            "x": 150,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 490,
+          "do": "show",
+          "shape": {
+            "id": "n2",
+            "kind": "text",
+            "size": 34,
+            "text": "2",
+            "x": 280,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 580,
+          "do": "show",
+          "shape": {
+            "id": "n3",
+            "kind": "text",
+            "size": 34,
+            "text": "3",
+            "x": 410,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 670,
+          "do": "show",
+          "shape": {
+            "id": "n4",
+            "kind": "text",
+            "size": 34,
+            "text": "4",
+            "x": 540,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 760,
+          "do": "show",
+          "shape": {
+            "id": "n5",
+            "kind": "text",
+            "size": 34,
+            "text": "5",
+            "x": 670,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 850,
+          "do": "show",
+          "shape": {
+            "id": "n6",
+            "kind": "text",
+            "size": 34,
+            "text": "6",
+            "x": 150,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 940,
+          "do": "show",
+          "shape": {
+            "id": "n7",
+            "kind": "text",
+            "size": 34,
+            "text": "7",
+            "x": 280,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1030,
+          "do": "show",
+          "shape": {
+            "id": "n8",
+            "kind": "text",
+            "size": 34,
+            "text": "8",
+            "x": 410,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1120,
+          "do": "show",
+          "shape": {
+            "id": "n9",
+            "kind": "text",
+            "size": 34,
+            "text": "9",
+            "x": 540,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1210,
+          "do": "show",
+          "shape": {
+            "id": "n10",
+            "kind": "text",
+            "size": 34,
+            "text": "10",
+            "x": 670,
+            "y": 260
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "n11",
+            "kind": "text",
+            "size": 34,
+            "text": "11",
+            "x": 150,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 1390,
+          "do": "show",
+          "shape": {
+            "id": "n12",
+            "kind": "text",
+            "size": 34,
+            "text": "12",
+            "x": 280,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 1480,
+          "do": "show",
+          "shape": {
+            "id": "n13",
+            "kind": "text",
+            "size": 34,
+            "text": "13",
+            "x": 410,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 1570,
+          "do": "show",
+          "shape": {
+            "id": "n14",
+            "kind": "text",
+            "size": 34,
+            "text": "14",
+            "x": 540,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 1660,
+          "do": "show",
+          "shape": {
+            "id": "n15",
+            "kind": "text",
+            "size": 34,
+            "text": "15",
+            "x": 670,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 1750,
+          "do": "show",
+          "shape": {
+            "id": "n16",
+            "kind": "text",
+            "size": 34,
+            "text": "16",
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 1840,
+          "do": "show",
+          "shape": {
+            "id": "n17",
+            "kind": "text",
+            "size": 34,
+            "text": "17",
+            "x": 280,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 1930,
+          "do": "show",
+          "shape": {
+            "id": "n18",
+            "kind": "text",
+            "size": 34,
+            "text": "18",
+            "x": 410,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 2020,
+          "do": "show",
+          "shape": {
+            "id": "n19",
+            "kind": "text",
+            "size": 34,
+            "text": "19",
+            "x": 540,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 2110,
+          "do": "show",
+          "shape": {
+            "id": "n20",
+            "kind": "text",
+            "size": 34,
+            "text": "20",
+            "x": 670,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n4"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n6"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n8"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n10"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n12"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n14"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n16"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n18"
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "n20"
+        },
+        {
+          "at_ms": 2900,
+          "do": "caption",
+          "text": "Cross out the multiples of 2 (keep 2 itself)"
+        },
+        {
+          "at_ms": 3800,
+          "do": "hide",
+          "target": "n3"
+        },
+        {
+          "at_ms": 3800,
+          "do": "hide",
+          "target": "n9"
+        },
+        {
+          "at_ms": 3800,
+          "do": "hide",
+          "target": "n15"
+        },
+        {
+          "at_ms": 4100,
+          "do": "caption",
+          "text": "Cross out the multiples of 3 (keep 3 itself)"
+        },
+        {
+          "at_ms": 5000,
+          "do": "hide",
+          "target": "n5"
+        },
+        {
+          "at_ms": 5300,
+          "do": "caption",
+          "text": "Cross out the multiples of 5 (keep 5 itself)"
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n2"
+        },
+        {
+          "at_ms": 6380,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n3"
+        },
+        {
+          "at_ms": 6560,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n5"
+        },
+        {
+          "at_ms": 6740,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n7"
+        },
+        {
+          "at_ms": 6920,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n11"
+        },
+        {
+          "at_ms": 7100,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n13"
+        },
+        {
+          "at_ms": 7280,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n17"
+        },
+        {
+          "at_ms": 7460,
+          "do": "emphasize",
+          "dur_ms": 700,
+          "target": "n19"
+        },
+        {
+          "at_ms": 7840,
+          "do": "caption",
+          "text": "Left standing: the primes \u2014 divisible only by 1 and themselves"
+        }
+      ]
+    },
+    {
+      "caption": "Same base? Add the powers",
+      "duration_ms": 8000,
+      "id": "s2",
+      "narration": "Two to the three times two to the four: write out every factor and count the twos. Three twos plus four twos make seven twos \u2014 two to the seven, which is one hundred and twenty-eight. Same base, add the powers.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Same base? Add the powers",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "rule",
+            "kind": "latex",
+            "size": 52,
+            "tex": "a^m \\times a^n = a^{m+n}",
+            "x": 150,
+            "y": 220
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "work",
+            "kind": "latex",
+            "size": 36,
+            "tex": "2^3 \\times 2^4 = (2 \\times 2 \\times 2) \\times (2 \\times 2 \\times 2 \\times 2)",
+            "x": 150,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "work2",
+            "kind": "latex",
+            "size": 44,
+            "tex": "= 2^{7} = 128",
+            "x": 150,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "rule"
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "8 x 16 = 128: the powers add when the base is the same"
+        }
+      ]
+    },
+    {
+      "caption": "Standard form: big numbers, small package",
+      "duration_ms": 8000,
+      "id": "s3",
+      "narration": "Three hundred and sixty thousand is a mouthful, so write it as three point six times ten to the five. The decimal point jumps five places; the value stays exactly the same.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Standard form: big numbers, small package",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "sf",
+            "kind": "latex",
+            "size": 52,
+            "tex": "3.6 \\times 10^{5}",
+            "x": 150,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "meaning",
+            "kind": "text",
+            "size": 28,
+            "text": "3.6 times ten to the power five",
+            "x": 150,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "expanded",
+            "kind": "text",
+            "size": 40,
+            "text": "= 360 000",
+            "x": 150,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "sf",
+          "to": {
+            "x": 150,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "sf"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "Standard form moves the decimal point, not the value"
+        }
+      ]
+    },
+    {
+      "caption": "Powers do not add when you add",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "Two cubed plus two to the four is not two to the seven. Work it out: eight plus sixteen is twenty-four \u2014 nowhere near one hundred and twenty-eight. The same-base rule is for multiplying, never for adding.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Powers do not add when you add",
+            "x": 120,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "trap",
+            "kind": "latex",
+            "size": 52,
+            "tex": "2^3 + 2^4 \\neq 2^7",
+            "x": 150,
+            "y": 230
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "val",
+            "kind": "latex",
+            "size": 44,
+            "tex": "2^3 + 2^4 = 8 + 16 = 24",
+            "x": 150,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "not128",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\text{not } 128",
+            "x": 150,
+            "y": 420
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "trap"
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "Adding powers works only for multiplication: a^m x a^n"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "E-Math numbers: primes, indices and standard form",
+  "topic": "e-numbers"
+}

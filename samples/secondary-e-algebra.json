@@ -1,0 +1,428 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "Expand with the area model",
+      "duration_ms": 10000,
+      "id": "s1",
+      "narration": "Expand x plus two times x plus three with an area model. The tiles land as x squared, three x, two x and six ones. Collect the x tiles: x squared plus five x plus six. Every term in one bracket multiplied every term in the other.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Expand with the area model",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "expr",
+            "kind": "latex",
+            "size": 48,
+            "tex": "(x + 2)(x + 3)",
+            "x": 150,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "fill": "#dceefb",
+            "h": 120,
+            "id": "tile_x2",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 200,
+            "x": 620,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "fill": "#eafbe6",
+            "h": 80,
+            "id": "tile_xa",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 120,
+            "x": 620,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "#eafbe6",
+            "h": 80,
+            "id": "tile_xb",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 80,
+            "x": 760,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "l_x2",
+            "kind": "latex",
+            "size": 36,
+            "tex": "x^2",
+            "x": 640,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "l_xa",
+            "kind": "latex",
+            "size": 36,
+            "tex": "3x",
+            "x": 640,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "l_xb",
+            "kind": "latex",
+            "size": 36,
+            "tex": "2x",
+            "x": 770,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "fill": "#fff3d6",
+            "h": 80,
+            "id": "tile_6",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 60,
+            "x": 820,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "l_6",
+            "kind": "latex",
+            "size": 32,
+            "tex": "6",
+            "x": 826,
+            "y": 432
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "sum",
+            "kind": "latex",
+            "size": 40,
+            "tex": "= x^2 + 3x + 2x + 6",
+            "x": 150,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ans",
+            "kind": "latex",
+            "size": 48,
+            "tex": "= x^2 + 5x + 6",
+            "x": 150,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "ans"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Every term in one bracket multiplies every term in the other"
+        }
+      ]
+    },
+    {
+      "caption": "Factorise by grouping",
+      "duration_ms": 9000,
+      "id": "s2",
+      "narration": "Two x plus six plus x y plus three y has no single common factor \u2014 so group it. Take two out of the first pair, y out of the second pair, and the bracket x plus three appears twice. Pull that whole bracket out: x plus three times two plus y.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Factorise by grouping",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "start",
+            "kind": "latex",
+            "size": 48,
+            "tex": "2x + 6 + xy + 3y",
+            "x": 150,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "grp",
+            "kind": "latex",
+            "size": 44,
+            "tex": "= (2x + 6) + (xy + 3y)",
+            "x": 150,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "fac",
+            "kind": "latex",
+            "size": 44,
+            "tex": "= 2(x + 3) + y(x + 3)",
+            "x": 150,
+            "y": 400
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "fac"
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "ans",
+            "kind": "latex",
+            "size": 48,
+            "tex": "= (x + 3)(2 + y)",
+            "x": 150,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "ans"
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "Spot the common bracket, then pull it out whole"
+        }
+      ]
+    },
+    {
+      "caption": "Change the subject to x",
+      "duration_ms": 8000,
+      "id": "s3",
+      "narration": "Make x the subject of y equals three x plus five. Undo the recipe in reverse: the plus five goes first \u2014 subtract five from both sides \u2014 then divide by three. x equals y minus five over three.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Change the subject to x",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "l1",
+            "kind": "latex",
+            "size": 48,
+            "tex": "y = 3x + 5",
+            "x": 150,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "l2",
+            "kind": "latex",
+            "size": 48,
+            "tex": "y - 5 = 3x",
+            "x": 150,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "l1",
+          "to": {
+            "x": 150,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "l3",
+            "kind": "latex",
+            "size": 48,
+            "tex": "x = \\frac{y - 5}{3}",
+            "x": 150,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "l3"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "Undo in reverse order: minus five first, then divide by three"
+        }
+      ]
+    },
+    {
+      "caption": "The (a+b)^2 trap",
+      "duration_ms": 8000,
+      "id": "s4",
+      "narration": "A plus b all squared is not a squared plus b squared. Check with a equals two and b equals three: the left side is twenty-five, the right side is thirteen. The full expansion has three terms \u2014 the secondary A binomial sample shows where the middle term comes from.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "The (a+b)^2 trap",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "trap",
+            "kind": "latex",
+            "size": 52,
+            "tex": "(a + b)^2 \\neq a^2 + b^2",
+            "x": 150,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "ce",
+            "kind": "latex",
+            "size": 40,
+            "tex": "a = 2,\\; b = 3:\\quad (2 + 3)^2 = 25",
+            "x": 150,
+            "y": 320
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "ce2",
+            "kind": "latex",
+            "size": 40,
+            "tex": "2^2 + 3^2 = 4 + 9 = 13",
+            "x": 150,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "trap"
+        },
+        {
+          "at_ms": 6000,
+          "do": "caption",
+          "text": "(a+b)^2 expands to a^2 + 2ab + b^2 \u2014 three terms, not two"
+        },
+        {
+          "at_ms": 7000,
+          "do": "caption",
+          "text": "See the secondary A binomial sample for the full expansion"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "E-Math algebra: expansion, factorisation and changing the subject",
+  "topic": "e-algebra"
+}
