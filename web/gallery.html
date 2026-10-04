@@ -25,6 +25,11 @@
   .back { font-size: 14px; color: #6b6455; margin-top: 24px; }
   .back a { color: #2b5cb8; }
   #err { margin-bottom: 16px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .filters input, .filters select { font-size: 14px; padding: 8px 10px;
+    border: 1px solid #e2ddd2; border-radius: 8px; background: #fff; }
+  .filters input { flex: 1 1 220px; }
+  #no-results { color: #6b6455; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -32,18 +37,58 @@
   <h1>Sample gallery</h1>
   <p class="tag">Hand-authored animations — no API key needed. Press Play on any card.</p>
   <div id="err"></div>
+  <div class="filters">
+    <input id="q" type="search" placeholder="Search title, topic, filename" aria-label="Search samples">
+    <select id="level" aria-label="Filter by level">
+      <option value="">All levels</option>
+      <option value="primary">Primary</option>
+      <option value="secondary">Secondary</option>
+      <option value="jc">JC</option>
+    </select>
+    <select id="subject" aria-label="Filter by subject">
+      <option value="">All subjects</option>
+      <option value="math">Math</option>
+      <option value="science">Science</option>
+    </select>
+  </div>
+  <p id="no-results" hidden>No samples match your filters.</p>
   <div class="grid" id="grid"></div>
   <p class="back"><a href="index.html">&larr; back to the generator</a> · Adding a sample is manifest + JSON only:
     drop a spec into <code>samples/</code> and add its filename to <code>samples/index.json</code>.</p>
 </div>
 <script src="../player/validate.js"></script>
 <script src="../player/player.js"></script>
+<script src="gallery.js"></script>
 <script>
 (function () {
   var grid = document.getElementById('grid');
   var errBox = document.getElementById('err');
   var activePlayer = null;
   var activeStage = null;
+  var items = [];
+  var kwInput = document.getElementById('q');
+  var levelSel = document.getElementById('level');
+  var subjectSel = document.getElementById('subject');
+  var noResults = document.getElementById('no-results');
+
+  // Apply the search/filter criteria to the cards. Cards whose spec failed
+  // to load or was invalid never entered `items` and stay visible regardless.
+  function onFilter() {
+    var matched = AnimathGallery.filterSamples(items, {
+      keyword: kwInput.value, level: levelSel.value, subject: subjectSel.value
+    });
+    var shown = 0;
+    items.forEach(function (item) {
+      var show = matched.indexOf(item) !== -1;
+      item.card.style.display = show ? '' : 'none';
+      if (show) shown++;
+    });
+    noResults.hidden = items.length === 0 || shown > 0;
+  }
+
+  kwInput.addEventListener('input', onFilter);
+  levelSel.addEventListener('change', onFilter);
+  subjectSel.addEventListener('change', onFilter);
 
   function showError(msg) {
     errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
@@ -83,6 +128,14 @@
       }
       meta.textContent = [spec.level, spec.subject, spec.topic].filter(Boolean).join(' · ');
       card.querySelector('h2').textContent = spec.title || file;
+      items.push({
+        card: card,
+        title: spec.title || file,
+        topic: spec.topic || '',
+        filename: file,
+        level: spec.level || '',
+        subject: spec.subject || ''
+      });
       var btns = document.createElement('div');
       btns.className = 'btns';
       var play = document.createElement('button');
