@@ -1,0 +1,1081 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "secondary",
+  "scenes": [
+    {
+      "caption": "SSS: three sides match",
+      "duration_ms": 9000,
+      "id": "s1",
+      "narration": "Two triangles with sides three, four and five. Every side of the first matches a side of the second. That is the SSS test: three matching sides force every angle to match too \u2014 the triangles are congruent.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "SSS: three sides match",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "tri1",
+            "kind": "polygon",
+            "points": [
+              [
+                120,
+                400
+              ],
+              [
+                120,
+                220
+              ],
+              [
+                360,
+                400
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "s1a",
+            "kind": "latex",
+            "size": 36,
+            "tex": "4",
+            "x": 88,
+            "y": 308
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "s1b",
+            "kind": "latex",
+            "size": 36,
+            "tex": "3",
+            "x": 232,
+            "y": 424
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "s1c",
+            "kind": "latex",
+            "size": 36,
+            "tex": "5",
+            "x": 252,
+            "y": 292
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "tri2",
+            "kind": "polygon",
+            "points": [
+              [
+                560,
+                400
+              ],
+              [
+                560,
+                220
+              ],
+              [
+                800,
+                400
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "s2a",
+            "kind": "latex",
+            "size": 36,
+            "tex": "4",
+            "x": 528,
+            "y": 308
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "s2b",
+            "kind": "latex",
+            "size": 36,
+            "tex": "3",
+            "x": 672,
+            "y": 424
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "s2c",
+            "kind": "latex",
+            "size": 36,
+            "tex": "5",
+            "x": 692,
+            "y": 292
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "sss",
+            "kind": "latex",
+            "size": 56,
+            "tex": "SSS",
+            "x": 442,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "caption",
+          "text": "SSS: all three sides match, so the triangles are congruent"
+        }
+      ]
+    },
+    {
+      "caption": "ASA: two angles and the side between",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "Two triangles share two angles \u2014 fifty and seventy degrees \u2014 and the side of length six between them. That is the ASA test: two angles and the included side leave no freedom, so the triangles are congruent. SAS works the same with two sides and the angle between them; RHS needs a right angle, the hypotenuse and one more side.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "ASA: two angles and the side between",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "tri1",
+            "kind": "polygon",
+            "points": [
+              [
+                150,
+                400
+              ],
+              [
+                390,
+                400
+              ],
+              [
+                317,
+                201
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "a1",
+            "kind": "latex",
+            "size": 36,
+            "tex": "50^\\circ",
+            "x": 162,
+            "y": 372
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "a2",
+            "kind": "latex",
+            "size": 36,
+            "tex": "70^\\circ",
+            "x": 340,
+            "y": 372
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "side",
+            "kind": "latex",
+            "size": 36,
+            "tex": "6",
+            "x": 264,
+            "y": 424
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "tri2",
+            "kind": "polygon",
+            "points": [
+              [
+                570,
+                400
+              ],
+              [
+                810,
+                400
+              ],
+              [
+                737,
+                201
+              ]
+            ],
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "b1",
+            "kind": "latex",
+            "size": 36,
+            "tex": "50^\\circ",
+            "x": 582,
+            "y": 372
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "b2",
+            "kind": "latex",
+            "size": 36,
+            "tex": "70^\\circ",
+            "x": 760,
+            "y": 372
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "bside",
+            "kind": "latex",
+            "size": 36,
+            "tex": "6",
+            "x": 684,
+            "y": 424
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "asa",
+            "kind": "latex",
+            "size": 56,
+            "tex": "ASA",
+            "x": 448,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "alltests",
+            "kind": "latex",
+            "size": 36,
+            "tex": "SSS \\quad SAS \\quad ASA \\quad RHS",
+            "x": 300,
+            "y": 496
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "caption",
+          "text": "Two angles and the included side pin the triangle down completely"
+        }
+      ]
+    },
+    {
+      "caption": "Similarity: lengths, areas and volumes",
+      "duration_ms": 10000,
+      "id": "s3",
+      "narration": "Two similar rectangles \u2014 every length on the big one is twice the small one, so k equals two. Areas scale by k squared: four times. Volumes would scale by k cubed: eight times. Check which ratio you need before you multiply.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Similarity: lengths, areas and volumes",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#dceefb",
+            "h": 90,
+            "id": "rect1",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 60,
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "fill": "#dceefb",
+            "h": 180,
+            "id": "rect2",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 120,
+            "x": 320,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "k",
+            "kind": "latex",
+            "size": 44,
+            "tex": "k = 2",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "lratio",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\frac{\\text{length}_2}{\\text{length}_1} = 2",
+            "x": 480,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "aratio",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\frac{\\text{area}_2}{\\text{area}_1} = 2^2 = 4",
+            "x": 480,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "vratio",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\frac{\\text{volume}_2}{\\text{volume}_1} = 2^3 = 8",
+            "x": 480,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "rect2"
+        },
+        {
+          "at_ms": 7200,
+          "do": "caption",
+          "text": "Lengths scale by k, areas by k\u00b2, volumes by k\u00b3"
+        }
+      ]
+    },
+    {
+      "caption": "Angle in a semicircle is a right angle",
+      "duration_ms": 10000,
+      "id": "s4",
+      "narration": "Draw any diameter, then join its ends to any point on the circle. The angle at the circle is always a right angle \u2014 ninety degrees \u2014 no matter where on the circle the point sits. That is the angle-in-a-semicircle theorem.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Angle in a semicircle is a right angle",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 300,
+            "fill": "none",
+            "id": "circ",
+            "kind": "circle",
+            "r": 140,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "diam",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "x1": 160,
+            "x2": 440,
+            "y1": 300,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 160,
+            "fill": "#b00020",
+            "id": "pt",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "id": "tri",
+            "kind": "polygon",
+            "points": [
+              [
+                160,
+                300
+              ],
+              [
+                440,
+                300
+              ],
+              [
+                300,
+                160
+              ]
+            ],
+            "stroke": "#1f7a3a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "mk1",
+            "kind": "line",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "x1": 292,
+            "x2": 283,
+            "y1": 168,
+            "y2": 177
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "mk2",
+            "kind": "line",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "x1": 292,
+            "x2": 301,
+            "y1": 168,
+            "y2": 177
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "ninety",
+            "kind": "latex",
+            "size": 40,
+            "tex": "90^\\circ",
+            "x": 316,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "stmt",
+            "kind": "latex",
+            "size": 36,
+            "tex": "\\text{angle in semicircle} = 90^\\circ",
+            "x": 470,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "tri"
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Any triangle built on a diameter has a right angle on the circle"
+        }
+      ]
+    },
+    {
+      "caption": "Centre angle = 2 × circumference angle",
+      "duration_ms": 10000,
+      "id": "s5",
+      "narration": "The angle at the centre stands on the same arc as the angle at the circumference \u2014 so it is twice as big: sixty degrees at the centre, thirty at the circle. And where a tangent touches the circle, it meets the radius at exactly ninety degrees.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Centre angle = 2 × circumference angle",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 280,
+            "fill": "none",
+            "id": "circ",
+            "kind": "circle",
+            "r": 130,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "roa",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "x1": 640,
+            "x2": 510,
+            "y1": 280,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "rob",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "x1": 640,
+            "x2": 705,
+            "y1": 280,
+            "y2": 167
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "ctr",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "cx": 640,
+            "cy": 410,
+            "fill": "#b00020",
+            "id": "pt",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "chorda",
+            "kind": "line",
+            "strokeWidth": 3,
+            "x1": 640,
+            "x2": 510,
+            "y1": 410,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "chordb",
+            "kind": "line",
+            "strokeWidth": 3,
+            "x1": 640,
+            "x2": 705,
+            "y1": 410,
+            "y2": 167
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "angc",
+            "kind": "latex",
+            "size": 32,
+            "tex": "60^\\circ",
+            "x": 596,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "angp",
+            "kind": "latex",
+            "size": 32,
+            "tex": "30^\\circ",
+            "x": 650,
+            "y": 378
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "stmt",
+            "kind": "latex",
+            "size": 40,
+            "tex": "\\angle O = 2 \\times \\angle P",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "tang",
+            "kind": "line",
+            "strokeWidth": 3,
+            "x1": 520,
+            "x2": 760,
+            "y1": 150,
+            "y2": 150
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "rad",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "x1": 640,
+            "x2": 640,
+            "y1": 280,
+            "y2": 150
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "show",
+          "shape": {
+            "id": "mk1",
+            "kind": "line",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "x1": 628,
+            "x2": 628,
+            "y1": 150,
+            "y2": 162
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "mk2",
+            "kind": "line",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "x1": 628,
+            "x2": 640,
+            "y1": 162,
+            "y2": 162
+          }
+        },
+        {
+          "at_ms": 8000,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "tninety",
+            "kind": "latex",
+            "size": 32,
+            "tex": "90^\\circ",
+            "x": 652,
+            "y": 172
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "caption",
+          "text": "Centre angle = 2 \u00d7 circumference angle; tangent \u22a5 radius"
+        }
+      ]
+    },
+    {
+      "caption": "The alternate segment theorem",
+      "duration_ms": 9000,
+      "id": "s6",
+      "narration": "A tangent meets a chord at the point of contact. The angle between them equals the angle the chord makes in the alternate segment \u2014 the arc on the far side. Here both are forty-five degrees.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "The alternate segment theorem",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 300,
+            "cy": 290,
+            "fill": "none",
+            "id": "circ",
+            "kind": "circle",
+            "r": 130,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "tang",
+            "kind": "line",
+            "strokeWidth": 3,
+            "x1": 170,
+            "x2": 170,
+            "y1": 140,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "cx": 170,
+            "cy": 290,
+            "fill": "#b00020",
+            "id": "tpt",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "chord",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "x1": 170,
+            "x2": 300,
+            "y1": 290,
+            "y2": 160
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "seg1",
+            "kind": "line",
+            "strokeWidth": 3,
+            "x1": 300,
+            "x2": 170,
+            "y1": 420,
+            "y2": 290
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "color": "#1f7a3a",
+            "id": "seg2",
+            "kind": "line",
+            "strokeWidth": 3,
+            "x1": 300,
+            "x2": 300,
+            "y1": 420,
+            "y2": 160
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "angt",
+            "kind": "latex",
+            "size": 36,
+            "tex": "45^\\circ",
+            "x": 188,
+            "y": 242
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "angb",
+            "kind": "latex",
+            "size": 36,
+            "tex": "45^\\circ",
+            "x": 312,
+            "y": 382
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "stmt",
+            "kind": "latex",
+            "size": 32,
+            "tex": "\\text{tangent-chord angle}",
+            "x": 470,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "stmt2",
+            "kind": "latex",
+            "size": 32,
+            "tex": "= \\text{alternate-segment angle}",
+            "x": 470,
+            "y": 250
+          }
+        },
+        {
+          "at_ms": 7200,
+          "do": "caption",
+          "text": "The angle between tangent and chord equals the angle in the opposite arc"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: same area means congruent?",
+      "duration_ms": 8000,
+      "id": "s7",
+      "narration": "A four-by-one rectangle and a two-by-two square both have area four \u2014 but they are clearly not the same shape. Equal area does not make shapes congruent. Congruence needs every matching side and every matching angle.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception: same area means congruent?",
+            "x": 120,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "fill": "#dceefb",
+            "h": 60,
+            "id": "recta",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 240,
+            "x": 120,
+            "y": 300
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "areaa",
+            "kind": "latex",
+            "size": 36,
+            "tex": "A = 4 \\times 1 = 4",
+            "x": 120,
+            "y": 396
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "fill": "#eafbe6",
+            "h": 120,
+            "id": "rectb",
+            "kind": "rect",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 120,
+            "x": 520,
+            "y": 240
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "areab",
+            "kind": "latex",
+            "size": 36,
+            "tex": "A = 2 \\times 2 = 4",
+            "x": 520,
+            "y": 396
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "verdict",
+            "kind": "text",
+            "size": 40,
+            "text": "equal area \u21cf congruent",
+            "x": 300,
+            "y": 480
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "emphasize",
+          "dur_ms": 900,
+          "target": "rectb"
+        },
+        {
+          "at_ms": 6600,
+          "do": "caption",
+          "text": "Congruent needs every side and angle to match \u2014 area is not enough"
+        }
+      ]
+    }
+  ],
+  "subject": "math",
+  "title": "E-Math geometry: congruence, similarity and circle theorems",
+  "topic": "e-geometry"
+}
