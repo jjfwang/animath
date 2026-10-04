@@ -101,7 +101,7 @@
             "size": 24,
             "text": "pumps oxygen-poor blood to the lungs",
             "x": 472,
-            "y": 462
+            "y": 495
           }
         },
         {
@@ -267,7 +267,7 @@
             "id": "pvL",
             "kind": "text",
             "size": 24,
-            "text": "lungs → heart: oxygenated blood",
+            "text": "lungs → heart flow",
             "x": 400,
             "y": 300
           }
@@ -293,7 +293,7 @@
             "id": "saL",
             "kind": "text",
             "size": 24,
-            "text": "heart → body: oxygenated blood",
+            "text": "heart → body flow",
             "x": 395,
             "y": 332
           }
