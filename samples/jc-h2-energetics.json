@@ -144,7 +144,7 @@
             "size": 24,
             "text": "site of aerobic respiration",
             "x": 560,
-            "y": 100
+            "y": 60
           }
         },
         {
@@ -520,9 +520,9 @@
             "id": "thylLabel",
             "kind": "text",
             "size": 24,
-            "text": "thylakoids (grana) — photolysis happens here",
+            "text": "thylakoids (grana) - photolysis",
             "x": 560,
-            "y": 330
+            "y": 420
           }
         },
         {
@@ -532,7 +532,7 @@
             "id": "stromaLabel",
             "kind": "text",
             "size": 24,
-            "text": "stroma — home of the Calvin cycle",
+            "text": "stroma - Calvin cycle site",
             "x": 580,
             "y": 375
           }
