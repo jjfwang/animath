@@ -66,6 +66,36 @@
       .replace(/\\([a-zA-Z]+)/g, '$1');
   }
 
+  // Map a keyboard event to a player action. DOM-free: takes an event-like
+  // {key, target} so Node tests can call it directly. Returns one of
+  // 'toggle' | 'prev' | 'next', or null for unmapped keys and for keys
+  // pressed while typing in an input/textarea/select.
+  function keyAction(eventLike) {
+    var t = eventLike && eventLike.target;
+    if (t && t.tagName) {
+      var tag = String(t.tagName).toUpperCase();
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return null;
+    }
+    var key = eventLike && eventLike.key;
+    if (key === ' ' || key === 'Spacebar') return 'toggle';
+    if (key === 'ArrowLeft') return 'prev';
+    if (key === 'ArrowRight') return 'next';
+    return null;
+  }
+
+  // Pure prefers-reduced-motion check: takes a matchMedia-like function so
+  // tests can inject a fake. The call site inside mount() guards
+  // matchMedia's existence; server/odd environments must never throw.
+  function prefersReducedMotion(matcher) {
+    if (typeof matcher !== 'function') return false;
+    try {
+      var m = matcher('(prefers-reduced-motion: reduce)');
+      return !!(m && m.matches);
+    } catch (e) {
+      return false;
+    }
+  }
+
   function drawShape(shape) {
     var n;
     switch (shape.kind) {
@@ -260,6 +290,12 @@
       return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
     }
 
+    // Honor prefers-reduced-motion: render every path instantly (no tween /
+    // fade / pulse animation) when the OS setting is on. matchMedia is
+    // feature-guarded; Node test runs never call mount() so it is simply
+    // absent there. Narration/caption text and all timing are untouched.
+    var reducedMotion = prefersReducedMotion(typeof matchMedia === 'function' ? matchMedia : null);
+
     function emitScene() {
       state.listeners.scene.forEach(function (fn) { fn(state.sceneIdx); });
     }
@@ -362,7 +398,7 @@
       // Fire due steps.
       scene.steps.forEach(function (step, si) {
         if (!state.fired[si] && step.at_ms <= state.sceneTime) {
-          fireStep(step, false);
+          fireStep(step, reducedMotion);
           state.fired[si] = true;
         }
       });
@@ -414,7 +450,7 @@
       var scene = spec.scenes[state.sceneIdx];
       if (state.sceneTime >= scene.duration_ms) {
         if (state.sceneIdx < spec.scenes.length - 1) goScene(state.sceneIdx + 1, 0);
-        else renderSceneAt(state.sceneIdx, 0, false);
+        else renderSceneAt(state.sceneIdx, 0, reducedMotion);
       }
       state.playing = true;
       state.lastTick = performance.now();
@@ -431,7 +467,7 @@
     function goScene(i, ms) {
       pause();
       state.sceneIdx = Math.max(0, Math.min(spec.scenes.length - 1, i));
-      renderSceneAt(state.sceneIdx, ms || 0, false);
+      renderSceneAt(state.sceneIdx, ms || 0, reducedMotion);
       emitScene();
     }
 
@@ -454,7 +490,21 @@
       state.speed = Number(speedSel.value);
     });
 
-    renderSceneAt(0, 0, false);
+    // Keyboard shortcuts. The container is focusable (tabindex="0") so the
+    // keys work after clicking anywhere in the player; preventDefault()
+    // stops Space from scrolling the page or re-activating a focused
+    // control button, so each keydown produces exactly one action.
+    container.setAttribute('tabindex', '0');
+    container.addEventListener('keydown', function (e) {
+      var action = keyAction(e);
+      if (!action) return;
+      e.preventDefault();
+      if (action === 'toggle') { if (state.playing) pause(); else play(); }
+      else if (action === 'prev') goScene(state.sceneIdx - 1, 0);
+      else if (action === 'next') goScene(state.sceneIdx + 1, 0);
+    });
+
+    renderSceneAt(0, 0, reducedMotion);
 
     return {
       spec: spec,
@@ -475,7 +525,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
