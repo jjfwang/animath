@@ -1,10 +1,10 @@
-/* animath teacher rubric — R-4: 5-dimension quality score for generated specs.
+/* animath teacher rubric — R-4 (+#131): 6-dimension quality score for generated specs.
  *
- * scoreSpec(spec) -> { score, maxScore, dimensions } with five dimensions
- * worth 20 points each (100 total): contract validity, pacing, captions,
- * pedagogy, canvas bounds. A teacher (or the review step) scores a generated
- * spec before showing it to a student. Non-object input scores 0 with a
- * reason and never throws.
+ * scoreSpec(spec) -> { score, maxScore, dimensions } with six dimensions
+ * worth 20 points each (120 total): contract validity, pacing, captions,
+ * pedagogy, canvas bounds, mechanism density. A teacher (or the review step)
+ * scores a generated spec before showing it to a student. Non-object input
+ * scores 0 with a reason and never throws.
  *
  * MEASURED BANDS — computed live over the 69 hand-authored samples
  * (330 scenes, 3415 consecutive step gaps), not invented:
@@ -42,6 +42,22 @@
  * Skip-if-inapplicable: an inapplicable pedagogy sub-check is skipped and
  * the dimension max adjusts (20 with one applicable sub-check, 0 with none,
  * lowering maxScore accordingly).
+ *
+ * MECHANISM HEURISTICS — documented as heuristics, owner-reversible:
+ * - A scene is mechanism-bearing when it shows a genuine state transition:
+ *   at least one move step; or staged build (>= 2 show steps of diagram
+ *   shapes — rect/circle/line/arrow/polygon, not text/latex — whose
+ *   axis-aligned bboxes intersect, ordered across consecutive at_ms beats);
+ *   or staged transform (a hide of a diagram shape followed within 1600ms,
+ *   the measured p95 consecutive step gap, by a show of a diagram shape
+ *   whose bbox intersects the hidden shape's bbox). Which steps were
+ *   counted is recorded in the dimension notes.
+ * - Bboxes: rect -> (x,y,w,h); circle -> (cx±r, cy±r); line/arrow ->
+ *   min/max of x1,x2,y1,y2; polygon -> min/max of points. Shapes with
+ *   missing or non-numeric bbox fields count as no-bbox (cannot intersect)
+ *   and never throw.
+ * - Dimension score = round(20 * mechanism-bearing scenes / total scenes);
+ *   a fully text-only spec scores 0.
  *
  * Dependency note: needs player/validate.js and generator/build_prompt.js
  * (in the browser, web/index.html must load them before this file). No
@@ -325,6 +341,143 @@
     return dim('canvas bounds', Math.round(DIM_MAX * ok / shapes.length), DIM_MAX, notes);
   }
 
+  // --- dimension 6: mechanism density ----------------------------------------
+  // Heuristic (see module header): a scene is mechanism-bearing when it shows
+  // a genuine state transition — move steps, a staged diagram build, or a
+  // staged diagram rebuild. Owner-reversible.
+
+  var STAGE_MS = 1600; // measured p95 consecutive step gap
+
+  function num(x) {
+    return (typeof x === 'number' && isFinite(x)) ? x : undefined;
+  }
+
+  function atMsOf(step) {
+    var t = num(step && step.at_ms);
+    return (t === undefined) ? 0 : t;
+  }
+
+  // Axis-aligned bbox of a diagram shape, or null for non-diagram shapes
+  // (text/latex/unknown kinds) and for shapes with missing or non-numeric
+  // bbox fields — those count as no-bbox and never throw.
+  function shapeBbox(shape) {
+    var x0, y0, x1, y1;
+    switch (shape.kind) {
+      case 'rect': {
+        var x = num(shape.x), y = num(shape.y), w = num(shape.w), h = num(shape.h);
+        if (x === undefined || y === undefined || w === undefined || h === undefined) return null;
+        x0 = x; y0 = y; x1 = x + w; y1 = y + h;
+        break;
+      }
+      case 'circle': {
+        var cx = num(shape.cx), cy = num(shape.cy), r = num(shape.r);
+        if (cx === undefined || cy === undefined || r === undefined) return null;
+        x0 = cx - r; y0 = cy - r; x1 = cx + r; y1 = cy + r;
+        break;
+      }
+      case 'line':
+      case 'arrow': {
+        var x1n = num(shape.x1), y1n = num(shape.y1);
+        var x2n = num(shape.x2), y2n = num(shape.y2);
+        if (x1n === undefined || y1n === undefined || x2n === undefined || y2n === undefined) return null;
+        x0 = Math.min(x1n, x2n); y0 = Math.min(y1n, y2n);
+        x1 = Math.max(x1n, x2n); y1 = Math.max(y1n, y2n);
+        break;
+      }
+      case 'polygon': {
+        var pts = shape.points;
+        if (!Array.isArray(pts) || pts.length === 0) return null;
+        var xs = [], ys = [];
+        for (var i = 0; i < pts.length; i++) {
+          var p = pts[i];
+          var px = p && num(p[0]), py = p && num(p[1]);
+          if (px === undefined || py === undefined) return null;
+          xs.push(px); ys.push(py);
+        }
+        x0 = Math.min.apply(null, xs); y0 = Math.min.apply(null, ys);
+        x1 = Math.max.apply(null, xs); y1 = Math.max.apply(null, ys);
+        break;
+      }
+      default:
+        return null;
+    }
+    return { x0: x0, y0: y0, x1: x1, y1: y1 };
+  }
+
+  function bboxesIntersect(a, b) {
+    return a.x0 <= b.x1 && b.x0 <= a.x1 && a.y0 <= b.y1 && b.y0 <= a.y1;
+  }
+
+  function shapeRef(entry) {
+    return entry.id || 'a diagram shape';
+  }
+
+  // Evidence strings for one scene; empty when the scene is not
+  // mechanism-bearing.
+  function sceneMechanism(scene) {
+    var evidence = [];
+    var byId = {};  // diagram-shape bboxes keyed by shown id
+    var shows = []; // { at_ms, bbox, id }
+    var hides = []; // { target, at_ms }
+    sceneSteps(scene).forEach(function (step) {
+      if (!step) return;
+      if (step.do === 'move') {
+        evidence.push('move step at ' + atMsOf(step) + 'ms');
+      } else if (step.do === 'show' && step.shape && typeof step.shape === 'object') {
+        var bb = shapeBbox(step.shape);
+        var id = step.shape.id;
+        shows.push({ at_ms: atMsOf(step), bbox: bb, id: id });
+        if (typeof id === 'string') byId[id] = bb;
+      } else if (step.do === 'hide' && typeof step.target === 'string') {
+        hides.push({ target: step.target, at_ms: atMsOf(step) });
+      }
+    });
+    // Staged build: two diagram shows at consecutive beats sharing a region.
+    var ordered = shows.slice().sort(function (a, b) { return a.at_ms - b.at_ms; });
+    for (var i = 1; i < ordered.length; i++) {
+      var prev = ordered[i - 1], cur = ordered[i];
+      if (prev.bbox && cur.bbox && bboxesIntersect(prev.bbox, cur.bbox)) {
+        evidence.push('staged build: ' + shapeRef(prev) + ' and ' + shapeRef(cur) +
+          ' share a diagram region (' + prev.at_ms + 'ms, ' + cur.at_ms + 'ms)');
+        break;
+      }
+    }
+    // Staged transform: a hide followed within STAGE_MS by an intersecting
+    // show — the diagram is rebuilt or replaced.
+    hides.forEach(function (h) {
+      var old = byId[h.target];
+      if (!old) return;
+      for (var j = 0; j < shows.length; j++) {
+        var gap = shows[j].at_ms - h.at_ms;
+        if (gap >= 0 && gap <= STAGE_MS && shows[j].bbox &&
+            bboxesIntersect(old, shows[j].bbox)) {
+          evidence.push('rebuild: ' + shapeRef(shows[j]) + ' replaces ' + h.target +
+            ' within ' + gap + 'ms');
+          return;
+        }
+      }
+    });
+    return evidence;
+  }
+
+  function scoreMechanism(spec) {
+    var scenes = Array.isArray(spec.scenes) ? spec.scenes : [];
+    if (scenes.length === 0) return dim('mechanism density', 0, DIM_MAX, ['no scenes to score']);
+    var notes = [];
+    var ok = 0;
+    scenes.forEach(function (scene, i) {
+      var id = sceneLabel(scene, i);
+      var evidence = sceneMechanism(scene);
+      if (evidence.length > 0) {
+        ok++;
+        notes.push(id + ': ' + evidence.join('; '));
+      } else {
+        notes.push(id + ': no mechanism (no move steps, no staged diagram build or rebuild)');
+      }
+    });
+    return dim('mechanism density', Math.round(DIM_MAX * ok / scenes.length), DIM_MAX, notes);
+  }
+
   // --- entry point -----------------------------------------------------------
 
   function scoreSpec(spec) {
@@ -341,7 +494,8 @@
       scorePacing(spec),
       scoreCaptions(spec),
       scorePedagogy(spec),
-      scoreCanvas(spec)
+      scoreCanvas(spec),
+      scoreMechanism(spec)
     ];
     var score = 0;
     var maxScore = 0;

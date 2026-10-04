@@ -110,14 +110,15 @@ function problemSpec(finalCaption, finalSteps, sceneCount) {
   };
 }
 
-test('exemplar sample scores near-max with a full 5-dimension breakdown', () => {
+test('exemplar sample scores near-max with a full 6-dimension breakdown', () => {
   const spec = loadSample('primary-math-percentage-of-quantity.json');
   const r = scoreSpec(spec);
   assert.ok(r.score >= 90, 'exemplar should score >= 90, got ' + r.score);
-  assert.equal(r.maxScore, 100);
-  assert.equal(r.dimensions.length, 5);
+  assert.equal(r.maxScore, 120);
+  assert.equal(r.dimensions.length, 6);
   assert.deepEqual(r.dimensions.map((d) => d.name),
-    ['contract validity', 'pacing', 'captions', 'pedagogy', 'canvas bounds']);
+    ['contract validity', 'pacing', 'captions', 'pedagogy', 'canvas bounds',
+      'mechanism density']);
   for (const d of r.dimensions) {
     assert.equal(d.max, 20, d.name + ' should be worth 20');
     assert.ok(Array.isArray(d.notes), d.name + ' notes should be an array');
@@ -132,7 +133,7 @@ test('exemplar sample scores near-max with a full 5-dimension breakdown', () => 
 test('deliberately broken spec scores low with each failing dimension named', () => {
   const r = scoreSpec(brokenSpec());
   assert.ok(r.score < 50, 'broken spec should score low, got ' + r.score);
-  assert.equal(r.maxScore, 100);
+  assert.equal(r.maxScore, 120);
   const contract = dimByName(r, 'contract validity');
   assert.equal(contract.score, 0);
   assert.ok(contract.notes.some((n) => n.includes('title')), 'contract notes name the title error');
@@ -206,7 +207,7 @@ test('unresolvable-topic spec skips the wrong-turn sub-check', () => {
   assert.equal(ped.max, 0, 'no applicable checks -> max 0');
   assert.equal(ped.score, 0);
   assert.ok(ped.notes.some((n) => n.includes('skipped')), 'notes record the skip');
-  assert.equal(r.maxScore, 80, 'maxScore adjusts when pedagogy is fully skipped');
+  assert.equal(r.maxScore, 100, 'maxScore adjusts when pedagogy is fully skipped');
 });
 
 test('empty scenes score 0 on pacing/captions/canvas without throwing', () => {
@@ -231,4 +232,138 @@ test('spec without a canvas defaults to 960x540', () => {
   };
   const canvas = dimByName(scoreSpec(spec), 'canvas bounds');
   assert.equal(canvas.score, 20, 'in-bounds shape on the default canvas: ' + JSON.stringify(canvas.notes));
+});
+
+// --- mechanism density (issue #131) -----------------------------------------
+
+function rectShape(id, x, y, w, h) {
+  return { id, kind: 'rect', x, y, w, h };
+}
+
+function moveStep(target, atMs) {
+  return { at_ms: atMs, do: 'move', target };
+}
+
+function mechSpec(scenes) {
+  return {
+    animath: '0.1', title: 'T', level: 'primary', subject: 'math',
+    topic: 'zzz-no-such-topic', kind: 'concept',
+    canvas: { width: 960, height: 540 }, scenes
+  };
+}
+
+test('mechanism density: one move step per scene scores full marks', () => {
+  const scenes = ['a', 'b', 'c'].map((s) => mkScene(
+    s, 'Caption for ' + s, 7000,
+    [showShape('t', textShape('t', 10, 10, 24, 'hi')), moveStep('t', 500)]
+  ));
+  const d = dimByName(scoreSpec(mechSpec(scenes)), 'mechanism density');
+  assert.equal(d.max, 20);
+  assert.equal(d.score, 20);
+  assert.equal(d.notes.length, 3);
+  assert.ok(d.notes.every((n) => n.includes('move step')),
+    'notes name the counted move steps: ' + JSON.stringify(d.notes));
+});
+
+test('mechanism density: fully text-only spec scores 0', () => {
+  const scenes = ['a', 'b'].map((s) => mkScene(
+    s, 'Caption for ' + s, 7000,
+    [showShape('t1', textShape('t1', 10, 10, 24, 'hello')),
+      showShape('t2', textShape('t2', 10, 60, 24, 'world'), 300)]
+  ));
+  const d = dimByName(scoreSpec(mechSpec(scenes)), 'mechanism density');
+  assert.equal(d.max, 20);
+  assert.equal(d.score, 0);
+  assert.ok(d.notes.some((n) => n.includes('no mechanism')),
+    'notes record the absence: ' + JSON.stringify(d.notes));
+});
+
+test('mechanism density: staged diagram build counts when bboxes intersect', () => {
+  const scene = mkScene('s1', 'Two bars', 7000, [
+    showShape('r1', rectShape('r1', 10, 10, 100, 50), 0),
+    showShape('r2', rectShape('r2', 50, 30, 80, 40), 200) // intersects r1
+  ]);
+  const d = dimByName(scoreSpec(mechSpec([scene])), 'mechanism density');
+  assert.equal(d.score, 20);
+  assert.ok(d.notes.some((n) => n.includes('staged build')),
+    'notes name the staged build: ' + JSON.stringify(d.notes));
+});
+
+test('mechanism density: disjoint diagram shows do not count as staged', () => {
+  const scene = mkScene('s1', 'Far apart', 7000, [
+    showShape('r1', rectShape('r1', 10, 10, 50, 50), 0),
+    showShape('r2', rectShape('r2', 800, 400, 50, 50), 200) // nowhere near r1
+  ]);
+  const d = dimByName(scoreSpec(mechSpec([scene])), 'mechanism density');
+  assert.equal(d.score, 0);
+});
+
+test('mechanism density: hide followed by an intersecting show counts as rebuild', () => {
+  const scene = mkScene('s1', 'Rebuild', 7000, [
+    showShape('r1', rectShape('r1', 10, 10, 100, 50), 0),
+    { at_ms: 500, do: 'hide', target: 'r1' },
+    showShape('r2', rectShape('r2', 20, 20, 80, 40), 1000) // intersects the hidden r1
+  ]);
+  const d = dimByName(scoreSpec(mechSpec([scene])), 'mechanism density');
+  assert.equal(d.score, 20);
+  assert.ok(d.notes.some((n) => n.includes('rebuild')),
+    'notes name the rebuild: ' + JSON.stringify(d.notes));
+
+  // too late to count as a staged transform (replacement placed far away so
+  // the staged-build check stays out of it too)
+  const late = mkScene('s2', 'Late', 7000, [
+    showShape('r1', rectShape('r1', 10, 10, 100, 50), 0),
+    { at_ms: 500, do: 'hide', target: 'r1' },
+    showShape('r2', rectShape('r2', 400, 400, 80, 40), 2500)
+  ]);
+  const d2 = dimByName(scoreSpec(mechSpec([late])), 'mechanism density');
+  assert.equal(d2.score, 0, 'rebuild past the 1600ms window must not count');
+
+  // hiding an id that was never shown never throws
+  const ghost = mkScene('s3', 'Ghost', 7000, [
+    { at_ms: 500, do: 'hide', target: 'never-shown' }
+  ]);
+  assert.doesNotThrow(() => scoreSpec(mechSpec([ghost])));
+  assert.equal(dimByName(scoreSpec(mechSpec([ghost])), 'mechanism density').score, 0);
+});
+
+test('mechanism density: partial credit is proportional with per-scene notes', () => {
+  const scenes = [
+    mkScene('move', 'Move scene', 7000,
+      [showShape('t', textShape('t', 10, 10, 24, 'hi')), moveStep('t', 500)]),
+    mkScene('text', 'Text scene', 7000,
+      [showShape('t', textShape('t', 10, 10, 24, 'hi'))]),
+    mkScene('staged', 'Staged scene', 7000, [
+      showShape('r1', rectShape('r1', 10, 10, 100, 50), 0),
+      showShape('r2', rectShape('r2', 50, 30, 80, 40), 200)
+    ])
+  ];
+  const d = dimByName(scoreSpec(mechSpec(scenes)), 'mechanism density');
+  assert.equal(d.score, Math.round(20 * 2 / 3));
+  assert.equal(d.notes.length, 3);
+  assert.ok(d.notes.some((n) => n.startsWith('move:') && n.includes('move step')),
+    'move scene note names the evidence');
+  assert.ok(d.notes.some((n) => n.startsWith('text:') && n.includes('no mechanism')),
+    'text scene note records the absence');
+  assert.ok(d.notes.some((n) => n.startsWith('staged:') && n.includes('staged build')),
+    'staged scene note names the evidence');
+});
+
+test('mechanism density: malformed bboxes count as no-bbox and never throw', () => {
+  const scene = mkScene('s1', 'Malformed', 7000, [
+    showShape('r1', { id: 'r1', kind: 'rect', x: 10, y: 10, h: 50 }, 0), // missing w
+    showShape('c1', { id: 'c1', kind: 'circle', cx: 100, cy: 100 }, 100), // missing r
+    showShape('l1', { id: 'l1', kind: 'line', x1: 0, y1: 0, x2: 50 }, 200), // missing y2
+    showShape('a1', { id: 'a1', kind: 'arrow', x1: 0, y1: 0, x2: 50, y2: 50 }, 300),
+    showShape('p1', { id: 'p1', kind: 'polygon', points: [] }, 400), // empty points
+    showShape('p2', { id: 'p2', kind: 'polygon', points: [[10, 10], null] }, 500), // bad point
+    showShape('t1', textShape('t1', 10, 10, 24, 'hi'), 600) // non-diagram kind
+  ]);
+  const d = dimByName(scoreSpec(mechSpec([scene])), 'mechanism density');
+  assert.equal(d.score, 0);
+});
+
+test('mechanism density: empty scenes score 0 without throwing', () => {
+  const r = scoreSpec(mechSpec([]));
+  assert.equal(dimByName(r, 'mechanism density').score, 0);
 });
