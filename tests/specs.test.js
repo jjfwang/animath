@@ -608,3 +608,35 @@ test('prefersReducedMotion honors an injected matcher', () => {
   assert.equal(player.prefersReducedMotion('not-a-function'), false);
   assert.equal(player.prefersReducedMotion(() => { throw new Error('odd env'); }), false);
 });
+
+test('stripLabels returns one 1-based label per scene with the scene id', () => {
+  const player = require('../player/player.js');
+  assert.deepEqual(player.stripLabels([{ id: 's1' }, { id: 's2' }, { id: 's3' }]),
+    ['1 · s1', '2 · s2', '3 · s3']);
+});
+
+test('stripLabels tolerates empty and missing ids', () => {
+  const player = require('../player/player.js');
+  const labels = player.stripLabels([{ id: 's1' }, {}, { id: '' }, null, undefined]);
+  // one label per scene even when the id is unusable
+  assert.equal(labels.length, 5);
+  // the id part is never the raw index: "1 · s1", not "0"
+  assert.equal(labels[0], '1 · s1');
+  assert.ok(labels[0].startsWith('1 · '), '1-based numbering: ' + labels[0]);
+  // missing/empty ids fall back to the 0-based index, never throw
+  assert.ok(labels[1].startsWith('2 · '), 'missing id tolerated: ' + labels[1]);
+  assert.ok(labels[2].startsWith('3 · '), 'empty id tolerated: ' + labels[2]);
+  assert.ok(labels[3].startsWith('4 · '), 'null scene tolerated: ' + labels[3]);
+  assert.ok(labels[4].startsWith('5 · '), 'undefined scene tolerated: ' + labels[4]);
+  // degenerate inputs yield an empty label list
+  assert.deepEqual(player.stripLabels(null), []);
+  assert.deepEqual(player.stripLabels(undefined), []);
+  assert.deepEqual(player.stripLabels([]), []);
+});
+
+test('stripLabels is exported alongside the other pure helpers', () => {
+  const player = require('../player/player.js');
+  assert.equal(typeof player.stripLabels, 'function');
+  assert.equal(typeof player.keyAction, 'function');
+  assert.equal(typeof player.prefersReducedMotion, 'function');
+});
