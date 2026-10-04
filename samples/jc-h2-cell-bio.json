@@ -1,0 +1,1245 @@
+{
+  "animath": "0.1",
+  "canvas": {
+    "height": 540,
+    "width": 960
+  },
+  "kind": "concept",
+  "level": "jc",
+  "scenes": [
+    {
+      "caption": "Cell membrane: the fluid mosaic",
+      "duration_ms": 11000,
+      "id": "s1",
+      "narration": "The cell membrane is a phospholipid bilayer with proteins drifting through it. Water-loving heads face outward, water-fearing tails hide inside, and channel proteins let only selected substances through — the structure decides the function.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "headRow1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 180,
+            "x2": 780,
+            "y1": 200,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 250,
+          "do": "show",
+          "shape": {
+            "id": "headRow2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 180,
+            "x2": 780,
+            "y1": 280,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 200,
+            "fill": "#1a56db",
+            "id": "h1",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 650,
+          "do": "show",
+          "shape": {
+            "cx": 370,
+            "cy": 200,
+            "fill": "#1a56db",
+            "id": "h2",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "cx": 490,
+            "cy": 200,
+            "fill": "#1a56db",
+            "id": "h3",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 950,
+          "do": "show",
+          "shape": {
+            "cx": 610,
+            "cy": 200,
+            "fill": "#1a56db",
+            "id": "h4",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "cx": 730,
+            "cy": 200,
+            "fill": "#1a56db",
+            "id": "h5",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1250,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "h6",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 370,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "h7",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1550,
+          "do": "show",
+          "shape": {
+            "cx": 490,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "h8",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1700,
+          "do": "show",
+          "shape": {
+            "cx": 610,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "h9",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 1850,
+          "do": "show",
+          "shape": {
+            "cx": 730,
+            "cy": 280,
+            "fill": "#1a56db",
+            "id": "h10",
+            "kind": "circle",
+            "r": 10
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 250,
+            "x2": 250,
+            "y1": 212,
+            "y2": 268
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 370,
+            "x2": 370,
+            "y1": 212,
+            "y2": 268
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 490,
+            "x2": 490,
+            "y1": 212,
+            "y2": 268
+          }
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "id": "t4",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 610,
+            "x2": 610,
+            "y1": 212,
+            "y2": 268
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "t5",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 730,
+            "x2": 730,
+            "y1": 212,
+            "y2": 268
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "headLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "phospholipid heads: hydrophilic",
+            "x": 180,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "tailLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "fatty acid tails: hydrophobic",
+            "x": 180,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 150,
+            "id": "prot",
+            "kind": "rect",
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "w": 56,
+            "x": 806,
+            "y": 165
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "chanArrow",
+            "kind": "arrow",
+            "stroke": "#b00020",
+            "width": 3,
+            "x1": 834,
+            "x2": 834,
+            "y1": 140,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "id": "protLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "channel protein: selective passage",
+            "x": 480,
+            "y": 390
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "prot"
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "Bilayer + embedded proteins → a selectively permeable membrane"
+        }
+      ]
+    },
+    {
+      "caption": "Nucleus: the control centre",
+      "duration_ms": 10000,
+      "id": "s2",
+      "narration": "The nucleus stores the cell's DNA as chromatin and controls cell activities. A double membrane, the nuclear envelope, is punctured by pores that let messenger RNA out — while the dense nucleolus inside manufactures ribosomal RNA.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 270,
+            "fill": "none",
+            "id": "nuc",
+            "kind": "circle",
+            "r": 140,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 270,
+            "fill": "none",
+            "id": "env2",
+            "kind": "circle",
+            "r": 128,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 420,
+            "cy": 270,
+            "fill": "#d9d2c4",
+            "id": "nucleolus",
+            "kind": "circle",
+            "r": 50
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "envLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "nuclear envelope: double membrane",
+            "x": 600,
+            "y": 130
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "poreArrow",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 552,
+            "x2": 640,
+            "y1": 270,
+            "y2": 270
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "poreLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "nuclear pore: mRNA exits",
+            "x": 650,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "nucleolusLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "nucleolus: makes ribosomal RNA",
+            "x": 180,
+            "y": 470
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "chromatinLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "chromatin: DNA + protein — the cell's instructions",
+            "x": 180,
+            "y": 90
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "nuc"
+        },
+        {
+          "at_ms": 8500,
+          "do": "caption",
+          "text": "Nucleus: stores DNA and directs the cell's activities"
+        }
+      ]
+    },
+    {
+      "caption": "Mitochondria: releasing energy from food",
+      "duration_ms": 11000,
+      "id": "s3",
+      "narration": "Mitochondria carry out aerobic respiration. Their inner membrane folds into cristae, packing a huge surface area of ATP-making enzymes into a small space. Glucose plus oxygen becomes carbon dioxide plus water — releasing energy the cell traps as ATP.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 160,
+            "id": "mito",
+            "kind": "rect",
+            "rx": 80,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 500,
+            "x": 230,
+            "y": 190
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 300,
+            "x2": 300,
+            "y1": 208,
+            "y2": 332
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 370,
+            "x2": 370,
+            "y1": 208,
+            "y2": 332
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 440,
+            "x2": 440,
+            "y1": 208,
+            "y2": 332
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "c4",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 510,
+            "x2": 510,
+            "y1": 208,
+            "y2": 332
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "c5",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 580,
+            "x2": 580,
+            "y1": 208,
+            "y2": 332
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "c6",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 650,
+            "x2": 650,
+            "y1": 208,
+            "y2": 332
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "cristaeLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "cristae: folded inner membrane",
+            "x": 200,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "areaLabel",
+            "kind": "text",
+            "size": 24,
+            "text": "large surface area → more ATP-making enzymes",
+            "x": 200,
+            "y": 448
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "respEq",
+            "kind": "latex",
+            "size": 30,
+            "tex": "\\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2 \\rightarrow 6\\text{CO}_2 + 6\\text{H}_2\\text{O}",
+            "x": 200,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "atpNote",
+            "kind": "text",
+            "size": 26,
+            "text": "aerobic respiration → energy trapped as ATP",
+            "x": 200,
+            "y": 150
+          }
+        },
+        {
+          "at_ms": 6600,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "mito"
+        },
+        {
+          "at_ms": 9500,
+          "do": "caption",
+          "text": "Mitochondria: cristae multiply surface area for aerobic respiration"
+        }
+      ]
+    },
+    {
+      "caption": "Chloroplast: capturing light energy",
+      "duration_ms": 11000,
+      "id": "s4",
+      "narration": "Chloroplasts trap light energy for photosynthesis. Stacks of thylakoid membranes, the grana, run the light-dependent stage — while the surrounding stroma hosts the Calvin cycle, which fixes carbon dioxide into sugar.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 200,
+            "id": "chloro",
+            "kind": "rect",
+            "rx": 60,
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3,
+            "w": 500,
+            "x": 230,
+            "y": 170
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "g1",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 300,
+            "x2": 420,
+            "y1": 200,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "g2",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 300,
+            "x2": 420,
+            "y1": 220,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "g3",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 300,
+            "x2": 420,
+            "y1": 240,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "g4",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 520,
+            "x2": 640,
+            "y1": 280,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "g5",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 520,
+            "x2": 640,
+            "y1": 300,
+            "y2": 300
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "g6",
+            "kind": "line",
+            "stroke": "#2e7d32",
+            "width": 4,
+            "x1": 520,
+            "x2": 640,
+            "y1": 320,
+            "y2": 320
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "granaLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "grana (thylakoid stacks): light-dependent stage",
+            "x": 180,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "show",
+          "shape": {
+            "id": "stromaLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "stroma: Calvin cycle fixes CO₂ into sugar",
+            "x": 180,
+            "y": 465
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "photoEq",
+            "kind": "latex",
+            "size": 28,
+            "tex": "6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{light}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2",
+            "x": 150,
+            "y": 100
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "chloro"
+        },
+        {
+          "at_ms": 9500,
+          "do": "caption",
+          "text": "Chloroplast: grana catch light; stroma builds sugar"
+        }
+      ]
+    },
+    {
+      "caption": "RER, SER and Golgi: the export line",
+      "duration_ms": 11000,
+      "id": "s5",
+      "narration": "The rough endoplasmic reticulum studs itself with ribosomes to fold new proteins, while the smooth ER makes lipids and detoxifies. The Golgi body then modifies, packages and ships proteins out in vesicles.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "rer1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 120,
+            "x2": 420,
+            "y1": 200,
+            "y2": 200
+          }
+        },
+        {
+          "at_ms": 400,
+          "do": "show",
+          "shape": {
+            "id": "rer2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 120,
+            "x2": 420,
+            "y1": 240,
+            "y2": 240
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "cx": 160,
+            "cy": 190,
+            "fill": "#1a1a1a",
+            "id": "rib1",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "cx": 250,
+            "cy": 190,
+            "fill": "#1a1a1a",
+            "id": "rib2",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "cx": 340,
+            "cy": 190,
+            "fill": "#1a1a1a",
+            "id": "rib3",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "cx": 205,
+            "cy": 230,
+            "fill": "#1a1a1a",
+            "id": "rib4",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "cx": 295,
+            "cy": 230,
+            "fill": "#1a1a1a",
+            "id": "rib5",
+            "kind": "circle",
+            "r": 6
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "rerLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "rough ER: ribosomes fold new proteins",
+            "x": 120,
+            "y": 290
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "ser1",
+            "kind": "line",
+            "stroke": "#6b7280",
+            "width": 3,
+            "x1": 120,
+            "x2": 420,
+            "y1": 360,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "id": "ser2",
+            "kind": "line",
+            "stroke": "#6b7280",
+            "width": 3,
+            "x1": 120,
+            "x2": 420,
+            "y1": 395,
+            "y2": 395
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "id": "serLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "smooth ER: makes lipids, detoxifies",
+            "x": 120,
+            "y": 440
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 36,
+            "id": "golgi1",
+            "kind": "rect",
+            "rx": 18,
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "w": 200,
+            "x": 560,
+            "y": 200
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 36,
+            "id": "golgi2",
+            "kind": "rect",
+            "rx": 18,
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "w": 200,
+            "x": 560,
+            "y": 246
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "fill": "none",
+            "h": 36,
+            "id": "golgi3",
+            "kind": "rect",
+            "rx": 18,
+            "stroke": "#b00020",
+            "strokeWidth": 3,
+            "w": 200,
+            "x": 560,
+            "y": 292
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "golgiLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "Golgi body: modifies, packages, ships",
+            "x": 540,
+            "y": 160
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "show",
+          "shape": {
+            "id": "flowArrow",
+            "kind": "arrow",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 440,
+            "x2": 545,
+            "y1": 220,
+            "y2": 220
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "cx": 830,
+            "cy": 246,
+            "fill": "none",
+            "id": "ves",
+            "kind": "circle",
+            "r": 28,
+            "stroke": "#1a56db",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "id": "vesArrow",
+            "kind": "arrow",
+            "stroke": "#1a56db",
+            "width": 3,
+            "x1": 768,
+            "x2": 798,
+            "y1": 246,
+            "y2": 246
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "vesLabel",
+            "kind": "text",
+            "size": 22,
+            "text": "vesicle ships protein out",
+            "x": 700,
+            "y": 340
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "golgi2"
+        },
+        {
+          "at_ms": 9500,
+          "do": "caption",
+          "text": "RER folds → Golgi packages → vesicle ships: the export line"
+        }
+      ]
+    },
+    {
+      "caption": "Tests for biomolecules: four classics",
+      "duration_ms": 10000,
+      "id": "s6",
+      "narration": "Four classic food tests. Benedict's turns from blue to brick-red for a reducing sugar — heat it first. Iodine turns brown to blue-black for starch. Biuret turns blue to purple for protein. And the emulsion test turns clear to milky white for a lipid.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t1",
+            "kind": "text",
+            "size": 28,
+            "text": "Benedict's: blue → brick-red",
+            "x": 160,
+            "y": 110
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "color": "#6b7280",
+            "id": "r1",
+            "kind": "text",
+            "size": 24,
+            "text": "= reducing sugar (heat the sample first)",
+            "x": 160,
+            "y": 148
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "t2",
+            "kind": "text",
+            "size": 28,
+            "text": "Iodine: brown → blue-black",
+            "x": 160,
+            "y": 210
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "color": "#6b7280",
+            "id": "r2",
+            "kind": "text",
+            "size": 24,
+            "text": "= starch",
+            "x": 160,
+            "y": 248
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "t3",
+            "kind": "text",
+            "size": 28,
+            "text": "Biuret: blue → purple",
+            "x": 160,
+            "y": 310
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "color": "#6b7280",
+            "id": "r3",
+            "kind": "text",
+            "size": 24,
+            "text": "= protein",
+            "x": 160,
+            "y": 348
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "t4",
+            "kind": "text",
+            "size": 28,
+            "text": "Emulsion test: clear → milky white",
+            "x": 160,
+            "y": 410
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "color": "#6b7280",
+            "id": "r4",
+            "kind": "text",
+            "size": 24,
+            "text": "= lipid (shake with ethanol, add water)",
+            "x": 160,
+            "y": 448
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "t2"
+        },
+        {
+          "at_ms": 9000,
+          "do": "caption",
+          "text": "Four tests: Benedict's, iodine, Biuret, emulsion"
+        }
+      ]
+    },
+    {
+      "caption": "Misconception: plant cells lack mitochondria",
+      "duration_ms": 9000,
+      "id": "s7",
+      "narration": "It is tempting to hand mitochondria to animal cells and chloroplasts to plant cells. But plant cells respire too — they burn the sugar photosynthesis makes, day and night. So plant cells have mitochondria as well; only the chloroplast is plant-only.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "color": "#b00020",
+            "id": "mis",
+            "kind": "text",
+            "size": 36,
+            "text": "Misconception:",
+            "x": 120,
+            "y": 120
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "wrongClaim",
+            "kind": "text",
+            "size": 28,
+            "text": "plant cells have no mitochondria",
+            "x": 120,
+            "y": 180
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "fix1",
+            "kind": "text",
+            "size": 28,
+            "text": "plant cells respire aerobically, day and night",
+            "x": 120,
+            "y": 280
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "fix2",
+            "kind": "text",
+            "size": 28,
+            "text": "they burn the sugar that photosynthesis makes",
+            "x": 120,
+            "y": 330
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "color": "#1a56db",
+            "id": "fix3",
+            "kind": "text",
+            "size": 28,
+            "text": "so plant cells have mitochondria too",
+            "x": 120,
+            "y": 380
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "fix4",
+            "kind": "text",
+            "size": 28,
+            "text": "only chloroplasts are plant-only",
+            "x": 120,
+            "y": 430
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "dur_ms": 1000,
+          "target": "fix3"
+        },
+        {
+          "at_ms": 8000,
+          "do": "caption",
+          "text": "Plant cells have mitochondria too — both respire"
+        }
+      ]
+    }
+  ],
+  "subject": "science",
+  "title": "JC H2 biology — cell: ultrastructure and biomolecules",
+  "topic": "h2-cell-bio"
+}
