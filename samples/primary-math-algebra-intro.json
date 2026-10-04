@@ -1,0 +1,405 @@
+{
+  "animath": "0.1",
+  "title": "Algebra: letters stand for numbers, balanced scales",
+  "level": "primary",
+  "subject": "math",
+  "topic": "algebra-intro",
+  "kind": "concept",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
+  "scenes": [
+    {
+      "id": "s1",
+      "caption": "Letters can stand for unknown numbers",
+      "narration": "Think of x as a mystery box. The box holds a number — we just don't know which one yet.",
+      "duration_ms": 8000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "x can stand for any number",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "letter",
+            "kind": "text",
+            "x": 200,
+            "y": 230,
+            "text": "x",
+            "size": 72
+          }
+        },
+        {
+          "at_ms": 1200,
+          "do": "show",
+          "shape": {
+            "id": "boxlab",
+            "kind": "text",
+            "x": 320,
+            "y": 130,
+            "text": "= a mystery box holding a number",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "blank",
+            "kind": "text",
+            "x": 420,
+            "y": 235,
+            "text": "___ + 4 = 9",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "letter",
+          "to": {
+            "x": 430,
+            "y": 220
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "sol",
+            "kind": "text",
+            "x": 120,
+            "y": 360,
+            "text": "x + 4 = 9  →  x = 5",
+            "size": 44,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "caption",
+          "text": "A letter is a placeholder for a number we find later"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "caption": "A balanced scale is an equation",
+      "narration": "An equation is a balanced scale. Whatever sits on the left must weigh the same as the right.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "t",
+            "kind": "text",
+            "x": 120,
+            "y": 80,
+            "text": "A balanced scale is an equation",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "stand",
+            "kind": "line",
+            "x1": 480,
+            "y1": 420,
+            "x2": 480,
+            "y2": 250,
+            "stroke": "#1a1a1a",
+            "width": 6
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "beam",
+            "kind": "rect",
+            "x": 280,
+            "y": 236,
+            "w": 400,
+            "h": 14,
+            "fill": "#8b6f47",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "str1",
+            "kind": "line",
+            "x1": 330,
+            "y1": 250,
+            "x2": 330,
+            "y2": 300,
+            "stroke": "#1a1a1a",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "pan1",
+            "kind": "rect",
+            "x": 290,
+            "y": 300,
+            "w": 80,
+            "h": 16,
+            "fill": "#d9e8f5",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "str2",
+            "kind": "line",
+            "x1": 630,
+            "y1": 250,
+            "x2": 630,
+            "y2": 300,
+            "stroke": "#1a1a1a",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "pan2",
+            "kind": "rect",
+            "x": 590,
+            "y": 300,
+            "w": 80,
+            "h": 16,
+            "fill": "#d9e8f5",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "lhs",
+            "kind": "text",
+            "x": 290,
+            "y": 360,
+            "text": "x + 3",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "rhs",
+            "kind": "text",
+            "x": 590,
+            "y": 360,
+            "text": "7",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "caption",
+          "text": "Both sides equal: x + 3 = 7"
+        },
+        {
+          "at_ms": 5600,
+          "do": "emphasize",
+          "target": "beam"
+        },
+        {
+          "at_ms": 6600,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "x": 120,
+            "y": 470,
+            "text": "The scale balances — so the two sides are equal",
+            "size": 28
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Solve x + 5 = 8 — undo the +5",
+      "narration": "To find x, undo the plus five. Take 5 from both sides so the scale stays balanced.",
+      "duration_ms": 9000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "text",
+            "x": 120,
+            "y": 170,
+            "text": "x + 5 = 8",
+            "size": 52
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "m1",
+            "kind": "text",
+            "x": 90,
+            "y": 280,
+            "text": "− 5",
+            "size": 40,
+            "color": "#b33"
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "m2",
+            "kind": "text",
+            "x": 470,
+            "y": 280,
+            "text": "− 5",
+            "size": 40,
+            "color": "#b33"
+          }
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "id": "note",
+            "kind": "text",
+            "x": 120,
+            "y": 360,
+            "text": "take 5 from both sides — the scale stays balanced",
+            "size": 28
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "target": "m1",
+          "to": {
+            "x": 250,
+            "y": 270
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "sol",
+            "kind": "text",
+            "x": 120,
+            "y": 450,
+            "text": "x = 3",
+            "size": 52,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "emphasize",
+          "target": "sol"
+        },
+        {
+          "at_ms": 7200,
+          "do": "caption",
+          "text": "Inverse operation: −5 undoes +5"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Misconception: x is a number, not a label",
+      "narration": "A common slip: treating x as a label for things. But x stands for a number — so 3x + 2x is 5x.",
+      "duration_ms": 7000,
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "text",
+            "x": 120,
+            "y": 180,
+            "text": "3x + 2x = 5x",
+            "size": 52,
+            "color": "#1f7a3a"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "why",
+            "kind": "text",
+            "x": 120,
+            "y": 280,
+            "text": "x is a number, not a label for things",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "bad",
+            "kind": "text",
+            "x": 120,
+            "y": 380,
+            "text": "3x + 2x = 5xx  ✗",
+            "size": 44,
+            "color": "#b33"
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "badnote",
+            "kind": "text",
+            "x": 120,
+            "y": 450,
+            "text": "the extra x sneaks in when x is treated as a label",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "caption",
+          "text": "Misconception: letters are labels — no, they are numbers"
+        }
+      ]
+    }
+  ]
+}

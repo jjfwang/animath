@@ -63,5 +63,7 @@
   "secondary-science-bio-transport.json",
   "secondary-science-bio-reproduction.json",
   "secondary-science-bio-ecology.json",
-  "secondary-science-bio-nutrition.json"
+  "secondary-science-bio-nutrition.json",
+  "primary-math-whole-numbers.json",
+  "primary-math-algebra-intro.json"
 ]
