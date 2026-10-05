@@ -958,7 +958,7 @@
     {
       "id": "s4",
       "caption": "Misconception: cos(A + B) does not split",
-      "narration": "The classic trap: cos of a sum does not split into a sum of cosines. Cos 60 degrees is a half - but cos 30 plus cos 30 is root 3, nearly 1.73. The wrong bar towers over the true one: compute the sum first, then the cosine.",
+      "narration": "The classic trap: cos of a sum does not split into a sum of cosines - cos 60 degrees is a half, but cos 30 plus cos 30 is root 3, nearly 1.73. The wrong bar towers over the true one: compute the sum first, then the cosine.",
       "duration_ms": 9600,
       "steps": [
         {
