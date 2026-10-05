@@ -38,6 +38,7 @@
 }
 .ap-controls {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   margin: 4px;
@@ -80,6 +81,22 @@
   outline: 3px solid #2b5cb8;
   outline-offset: 3px;
   border-radius: 12px;
+}
+/* Responsive control row (issue #152): the row may wrap (desktop keeps the
+ * single-row layout — every item still fits, so it renders pixel-identical);
+ * under 560px the scrub slider takes a full-width second row so it stays
+ * usable on phones; coarse pointers get 44px minimum touch targets on the
+ * transport buttons. */
+@media (max-width: 560px) {
+  .ap-controls input[type="range"] {
+    flex: 1 1 100%;
+  }
+}
+@media (pointer: coarse) {
+  .ap-controls button {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 .ap-filmstrip {
   display: flex;
