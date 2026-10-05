@@ -249,3 +249,70 @@ test151('dark block recolors the hint and the focus ring, no light leaks', () =>
   assert151.ok(!/#6b6455/i.test(dark), 'dark block must not reuse the light hint color');
   assert151.ok(!/#2b5cb8/i.test(dark), 'dark block must not reuse the light focus color');
 });
+
+/* Tests for issue #152 — responsive control row for narrow/mobile screens.
+ * CSS-only change; the wrap rule, the 560px breakpoint, and the 44px touch
+ * targets are asserted by reading player/player.css as text, mirroring the
+ * #150/#151 test pattern.
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test152 } = require('node:test');
+const assert152 = require('node:assert/strict');
+const fs152 = require('node:fs');
+const path152 = require('node:path');
+
+const css152 = fs152.readFileSync(path152.join(__dirname, '..', 'player', 'player.css'), 'utf8');
+
+function ruleBody152(css, selector) {
+  const at = css.indexOf(selector);
+  assert152.ok(at >= 0, 'player.css has a ' + selector + ' rule');
+  const open = css.indexOf('{', at);
+  const close = css.indexOf('}', open);
+  assert152.ok(open > 0 && close > open, selector + ' rule braces parse');
+  return css.slice(open + 1, close);
+}
+
+function mediaBody152(css, header) {
+  const at = css.indexOf(header);
+  assert152.ok(at >= 0, 'player.css has a ' + header + ' block');
+  const start = css.indexOf('{', at);
+  let depth = 0;
+  for (let i = start; i < css.length; i++) {
+    if (css[i] === '{') depth++;
+    else if (css[i] === '}') {
+      depth--;
+      if (depth === 0) return css.slice(start + 1, i);
+    }
+  }
+  assert152.fail('media block braces do not balance');
+}
+
+test152('control row may wrap, desktop flex values unchanged (issue #152)', () => {
+  const body = ruleBody152(css152, '.ap-controls');
+  assert152.ok(/display:\s*flex/.test(body), 'control row is a flex row, got: ' + body);
+  assert152.ok(/flex-wrap:\s*wrap/.test(body), 'control row may wrap, got: ' + body);
+  assert152.ok(/align-items:\s*center/.test(body), 'desktop alignment unchanged, got: ' + body);
+  assert152.ok(/gap:\s*8px/.test(body), 'desktop gap unchanged, got: ' + body);
+});
+
+test152('desktop scrub share is unchanged (flex: 1 outside the breakpoint)', () => {
+  const mqAt = css152.indexOf('@media (max-width: 560px)');
+  assert152.ok(mqAt >= 0, '560px breakpoint exists');
+  const body = ruleBody152(css152.slice(0, mqAt), '.ap-controls input[type="range"]');
+  assert152.ok(/flex:\s*1\s*;/.test(body), 'desktop scrub keeps flex: 1, got: ' + body);
+});
+
+test152('narrow screens give the scrub slider a full-width second row', () => {
+  const mq = mediaBody152(css152, '@media (max-width: 560px)');
+  const body = ruleBody152(mq, '.ap-controls input[type="range"]');
+  assert152.ok(/flex(-basis)?:\s*[^;]*100%/.test(body),
+    'scrub takes the full row width, got: ' + body);
+});
+
+test152('coarse pointers get 44px minimum touch targets on control buttons', () => {
+  const mq = mediaBody152(css152, '@media (pointer: coarse)');
+  const body = ruleBody152(mq, '.ap-controls button');
+  assert152.ok(/min-width:\s*44px/.test(body), 'buttons min-width 44px, got: ' + body);
+  assert152.ok(/min-height:\s*44px/.test(body), 'buttons min-height 44px, got: ' + body);
+});
