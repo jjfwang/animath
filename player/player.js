@@ -299,6 +299,10 @@
     header.textContent = spec.title;
     container.appendChild(header);
 
+    var captionBar = document.createElement('div');
+    captionBar.className = 'ap-caption';
+    container.appendChild(captionBar);
+
     var stage = document.createElement('div');
     stage.className = 'ap-stage';
     var svg = el('svg', {
@@ -307,9 +311,6 @@
       preserveAspectRatio: 'xMidYMid meet'
     });
     stage.appendChild(svg);
-    var captionBar = document.createElement('div');
-    captionBar.className = 'ap-caption';
-    stage.appendChild(captionBar);
     container.appendChild(stage);
 
     var narration = document.createElement('div');

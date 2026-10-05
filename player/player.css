@@ -23,14 +23,11 @@
     linear-gradient(#fdfcf8, #fdfcf8);
 }
 .ap-caption {
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  right: 12px;
   font-size: 17px;
   font-weight: 600;
   color: #3a352c;
-  pointer-events: none;
+  margin: 10px 4px;
+  min-height: 1.5em;
 }
 .ap-narration {
   margin: 10px 4px;
