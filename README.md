@@ -153,6 +153,17 @@ current-flow marker convention (red markers traveling the wires in the
 conventional-current direction) that keeps circuit scenes mechanism-first.
 Every electricity sample draws its circuits with these symbols.
 
+## Curly arrows
+
+`docs/curly-arrows.md` standardizes the electron-pushing arrow convention
+for `h2-organic` samples: double-barbed curly arrows (one electron pair)
+drawn as 8-point `polygon` polylines approximating a quadratic bezier
+with two barbed head lines, plus the electron-pair dot convention (two
+r=5 dots that visibly travel the arrow in staged `move` steps, then hide
+on arrival) that keeps mechanism scenes mechanism-first. The tail always
+starts at the electron pair being moved; atoms never move along the
+arrow.
+
 ## Tests
 
 Zero-dependency, Node built-in:
