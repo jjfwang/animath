@@ -129,3 +129,56 @@ test135('validator rejects a polygon move with a non-numeric pair (issue #135)',
   assert135.ok(problems.some(function (p) { return p.includes('.to:') && p.includes('at least one numeric field'); }),
     'expected a numeric-field error, got: ' + problems.join('; '));
 });
+
+/* Tests for issue #150 — dark-mode chrome (prefers-color-scheme: dark).
+ * Reads player/player.css as text: the dark block must exist, cover every
+ * chrome surface, and redefine the full light palette (no light hex leaks in).
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test150 } = require('node:test');
+const assert150 = require('node:assert/strict');
+const fs150 = require('node:fs');
+const path150 = require('node:path');
+
+const css150 = fs150.readFileSync(path150.join(__dirname, '..', 'player', 'player.css'), 'utf8');
+
+function darkBlock150(css) {
+  const at = css.indexOf('@media (prefers-color-scheme: dark)');
+  assert150.ok(at >= 0, 'player.css has a prefers-color-scheme: dark block');
+  const start = css.indexOf('{', at);
+  let depth = 0;
+  for (let i = start; i < css.length; i++) {
+    if (css[i] === '{') depth++;
+    else if (css[i] === '}') {
+      depth--;
+      if (depth === 0) return css.slice(start + 1, i);
+    }
+  }
+  assert150.fail('dark media block braces do not balance');
+}
+
+// Every hex hard-coded in the light chrome must be redefined, not reused.
+const lightHex150 = ['#1a1a1a', '#fdfcf8', '#e2ddd2', '#3a352c', '#4a4438',
+  '#d8d2c4', '#f4f0e6', '#6b6455', '#d99', '#fff5f5', '#8a1f1f'];
+const chromeSelectors150 = [
+  '.animath-player', '.ap-header', '.ap-stage', '.ap-caption', '.ap-narration',
+  '.ap-controls button', '.ap-controls select', '.ap-filmstrip button', '.ap-error',
+  '[aria-current="true"]'
+];
+
+test150('dark block redefines the whole chrome palette, no light color leaks', () => {
+  const dark = darkBlock150(css150);
+  lightHex150.forEach(function (hex) {
+    assert150.ok(!new RegExp(hex.replace('#', '\\#') + '(?![0-9a-fA-F])').test(dark),
+      'dark block must redefine ' + hex + ', not reuse it');
+  });
+  assert150.ok(!/(^|[^0-9a-fA-F])#fff(?![0-9a-fA-F])/i.test(dark),
+    'dark block must not reuse #fff');
+  chromeSelectors150.forEach(function (sel) {
+    assert150.ok(dark.indexOf(sel) >= 0, 'dark block covers ' + sel);
+  });
+  assert150.ok(dark.indexOf('.ap-stage svg') >= 0, 'dark block covers the svg stage background');
+  assert150.ok(dark.indexOf(':hover') >= 0, 'dark block covers button hover states');
+  assert150.ok(dark.indexOf('span[data-a="tlabel"]') >= 0, 'dark block covers the time label');
+});
