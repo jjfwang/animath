@@ -1056,3 +1056,41 @@ test('validator rejects widths on a line move (not a numeric field for the kind)
   assert.ok(errs.some(function (e) { return /\.to: must carry at least one numeric field/.test(e); }),
     'line move with widths must be rejected, got: ' + JSON.stringify(errs));
 });
+
+/* Issue #173 — optional `explain` field: plain-text "explain me this"
+ * tooltip content on any shape kind. The validator accepts a string,
+ * rejects anything else; the player maps it to tooltips via explainText.
+ * Run: node --test "tests/*.test.js"
+ */
+test('validator accepts a string explain field on any shape kind', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape.explain = 'The part you are staring at, in one sentence.';
+  assert.deepEqual(validateSpec(spec), [],
+    'a string explain field must validate clean');
+});
+
+test('validator rejects a non-string explain field', () => {
+  for (const bad of [42, true, null, ['text'], { t: 'x' }]) {
+    const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+    spec.scenes[0].steps[0].shape.explain = bad;
+    const problems = validateSpec(spec);
+    assert.ok(problems.some((p) => p.includes('.explain:')),
+      'expected an explain error for ' + JSON.stringify(bad) + ', got: ' + problems.join('; '));
+  }
+});
+
+test('shipped samples carry explain text on their key chart parts (issue #173)', () => {
+  const explainedCount = (f) => {
+    const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8'));
+    let n = 0;
+    for (const sc of spec.scenes) for (const st of sc.steps) {
+      if (st.do === 'show' && st.shape && typeof st.shape.explain === 'string' &&
+          st.shape.explain.trim()) n++;
+    }
+    return n;
+  };
+  assert.ok(explainedCount('jc-h2-thermal.json') >= 2,
+    'the thermal-physics sample should explain its speed-spread parts');
+  assert.ok(explainedCount('primary-math-data-graphs.json') >= 2,
+    'the chart sample should explain its pie-chart parts');
+});

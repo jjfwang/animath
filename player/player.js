@@ -252,6 +252,34 @@
            (shape.x1 - nx * wt / 2) + ',' + (shape.y1 - ny * wt / 2);
   }
 
+  // "Explain me this" tooltips (issue #173): an optional plain-text
+  // `explain` field on any shape becomes a hover / tap / keyboard-focus
+  // tooltip in the player. Pure helpers so Node tests can exercise the
+  // mapping without a DOM; mount() only wires events and positions the
+  // tooltip element (browser-only, verified by reading the diff).
+  //
+  // Returns the authored tooltip text, or '' when the shape carries none
+  // (missing, non-string, empty, or whitespace-only — all inert).
+  function explainText(shape) {
+    var e = shape && shape.explain;
+    return (typeof e === 'string' && e.trim()) ? e : '';
+  }
+
+  // Tooltip anchor: given a stage-relative pointer position and the stage
+  // size, returns the tooltip's top-left corner so the tooltip (max-width
+  // 240px) lands near the pointer without leaving the stage. Pure and
+  // DOM-free; mount() converts pointer coords to stage-relative first.
+  var TIP_DX = 12, TIP_DY = 16, TIP_MAXW = 240, TIP_EST_H = 110, TIP_M = 8;
+  function tipPoint(px, py, stageW, stageH) {
+    var x = px + TIP_DX, y = py + TIP_DY;
+    var maxX = Math.max(TIP_M, stageW - TIP_MAXW - TIP_M);
+    var maxY = Math.max(TIP_M, stageH - TIP_EST_H - TIP_M);
+    return {
+      x: Math.max(TIP_M, Math.min(x, maxX)),
+      y: Math.max(TIP_M, Math.min(y, maxY))
+    };
+  }
+
   function drawShape(shape) {
     var n;
     switch (shape.kind) {
@@ -517,6 +545,56 @@
     stage.appendChild(svg);
     container.appendChild(stage);
 
+    // Explain-me-this tooltip (issue #173): one absolutely-positioned div
+    // per player, shown when the pointer hovers, a touch taps, or keyboard
+    // focus lands on a shape carrying `explain`. pointer-events: none keeps
+    // it from intercepting clicks; it lives inside .ap-stage (position:
+    // relative) so it never covers the caption bar above or the controls
+    // below, and it hides whenever the scene changes or the target shape
+    // is hidden.
+    var tip = document.createElement('div');
+    tip.className = 'ap-tooltip';
+    tip.setAttribute('role', 'tooltip');
+    stage.appendChild(tip);
+
+    function hideTip() { tip.style.display = 'none'; }
+
+    // clientX/clientY are client coords; convert to stage-relative and
+    // clamp via the pure tipPoint() helper so the tooltip stays in stage.
+    function showTip(text, clientX, clientY) {
+      var rect = stage.getBoundingClientRect();
+      var p = tipPoint(clientX - rect.left, clientY - rect.top, rect.width, rect.height);
+      tip.textContent = text;
+      tip.style.left = p.x + 'px';
+      tip.style.top = p.y + 'px';
+      tip.style.display = 'block';
+    }
+
+    // Keyboard focus has no pointer: anchor on the shape's own bbox.
+    function showTipForNode(node, text) {
+      var rect = stage.getBoundingClientRect();
+      var nb = node.getBoundingClientRect();
+      showTip(text, nb.left + nb.width / 2, nb.top + nb.height / 2);
+    }
+
+    // Wire a shape carrying explain text as a tooltip target: focusable
+    // (tabindex + img role + aria-label) only because it has something to
+    // say; shapes without explain text get none of this and stay inert.
+    function wireExplain(node, shape) {
+      var text = explainText(shape);
+      if (!text) return;
+      node.setAttribute('tabindex', '0');
+      node.setAttribute('role', 'img');
+      node.setAttribute('aria-label', text);
+      node.addEventListener('mouseenter', function (e) { showTip(text, e.clientX, e.clientY); });
+      node.addEventListener('mouseleave', hideTip);
+      // Touch has no hover, so a tap shows the tooltip too; a mouse click
+      // showing it is harmless (hover already did).
+      node.addEventListener('click', function (e) { showTip(text, e.clientX, e.clientY); });
+      node.addEventListener('focus', function () { showTipForNode(node, text); });
+      node.addEventListener('blur', hideTip);
+    }
+
     var narration = document.createElement('div');
     narration.className = 'ap-narration';
     container.appendChild(narration);
@@ -587,6 +665,7 @@
 
     function clearScene() {
       while (svg.firstChild) svg.removeChild(svg.firstChild);
+      hideTip();
       state.shapes = {};
       state.fired = {};
       state.tweens = [];
@@ -599,6 +678,7 @@
         case 'show': {
           var node = drawShape(step.shape);
           svg.appendChild(node);
+          wireExplain(node, step.shape);
           if (step.shape.kind === 'latex' && node.tagName === 'foreignObject') {
             // Content-fit the equation box now that it is laid out: long
             // equations no longer clip at the old fixed 480x240 box, and
@@ -617,6 +697,7 @@
         case 'hide': {
           var rec = state.shapes[step.target];
           if (!rec) break;
+          hideTip();
           if (instant) {
             if (rec.node.parentNode) rec.node.parentNode.removeChild(rec.node);
           } else {
@@ -828,7 +909,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr, taperShaft: taperShaft, isWidths: isWidths };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr, taperShaft: taperShaft, isWidths: isWidths, explainText: explainText, tipPoint: tipPoint };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

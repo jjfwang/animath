@@ -421,3 +421,114 @@ test('interpFields skips malformed widths instead of throwing (issue #164)', () 
   var noStart = player.interpFields({ x1: 0, y1: 0, x2: 100, y2: 0 }, { widths: [20, 6] }, 0.5);
   assert.ok(!('widths' in noStart), 'no from.widths -> skipped mid-flight');
 });
+
+/* Issue #173 — explain-me-this tooltips: pure explainText + tipPoint.
+ * explainText maps a shape to its tooltip text ('' = inert, never a
+ * tooltip target); tipPoint clamps the tooltip's top-left corner inside
+ * the stage. Both are DOM-free; the mount() event wiring and tooltip
+ * positioning are browser-only (verified by reading the diff).
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test173 } = require('node:test');
+const assert173 = require('node:assert/strict');
+
+const player173 = require('../player/player.js');
+
+test173('explainText is exported and returns the authored text (issue #173)', () => {
+  assert173.equal(typeof player173.explainText, 'function', 'explainText must be exported');
+  assert173.equal(player173.explainText({ kind: 'circle', explain: 'A part, explained.' }), 'A part, explained.');
+});
+
+test173('explainText is blank for missing, empty, or non-string explain (issue #173)', () => {
+  assert173.equal(player173.explainText({ kind: 'circle' }), '', 'missing field is inert');
+  assert173.equal(player173.explainText({ kind: 'circle', explain: '' }), '', 'empty string is inert');
+  assert173.equal(player173.explainText({ kind: 'circle', explain: '   ' }), '', 'whitespace-only is inert');
+  assert173.equal(player173.explainText({ kind: 'circle', explain: 42 }), '', 'non-string is inert');
+  assert173.equal(player173.explainText({ kind: 'circle', explain: null }), '', 'null is inert');
+  assert173.equal(player173.explainText(null), '', 'null shape is inert');
+});
+
+test173('tipPoint offsets the tooltip from the pointer inside the stage (issue #173)', () => {
+  assert173.equal(typeof player173.tipPoint, 'function', 'tipPoint must be exported');
+  assert173.deepEqual(player173.tipPoint(480, 270, 960, 540), { x: 492, y: 286 },
+    'centered pointer: tooltip lands dx=12, dy=16 away');
+});
+
+test173('tipPoint clamps the tooltip inside the stage edges (issue #173)', () => {
+  assert173.deepEqual(player173.tipPoint(950, 270, 960, 540), { x: 712, y: 286 },
+    'pointer near the right edge: tooltip stays left of the edge');
+  assert173.deepEqual(player173.tipPoint(480, 530, 960, 540), { x: 492, y: 422 },
+    'pointer near the bottom: tooltip stays above the edge');
+  assert173.deepEqual(player173.tipPoint(950, 530, 960, 540), { x: 712, y: 422 },
+    'bottom-right corner clamps both axes');
+  assert173.deepEqual(player173.tipPoint(-50, -50, 960, 540), { x: 8, y: 8 },
+    'pointer outside top-left clamps to the 8px margin');
+});
+
+test173('tipPoint degrades gracefully on a tiny stage (issue #173)', () => {
+  assert173.deepEqual(player173.tipPoint(10, 10, 100, 80), { x: 8, y: 8 },
+    'stage smaller than the tooltip: pins to the margin, never negative');
+});
+
+/* Issue #173 — tooltip CSS: the .ap-tooltip rule positions the tooltip,
+ * keeps it out of the click path, and hides it by default; explained
+ * shapes get a visible keyboard focus ring; the dark block recolors both.
+ * Mirrors the #150/#151/#152 CSS-as-text test pattern.
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test173c } = require('node:test');
+const assert173c = require('node:assert/strict');
+const fs173c = require('node:fs');
+const path173c = require('node:path');
+
+const css173c = fs173c.readFileSync(path173c.join(__dirname, '..', 'player', 'player.css'), 'utf8');
+
+function ruleBody173c(css, selector) {
+  const at = css.indexOf(selector);
+  assert173c.ok(at >= 0, 'player.css has a ' + selector + ' rule');
+  const open = css.indexOf('{', at);
+  const close = css.indexOf('}', open);
+  assert173c.ok(open > 0 && close > open, selector + ' rule braces parse');
+  return css.slice(open + 1, close);
+}
+
+function mediaBody173c(css, header) {
+  const at = css.indexOf(header);
+  assert173c.ok(at >= 0, 'player.css has a ' + header + ' block');
+  const start = css.indexOf('{', at);
+  let depth = 0;
+  for (let i = start; i < css.length; i++) {
+    if (css[i] === '{') depth++;
+    else if (css[i] === '}') {
+      depth--;
+      if (depth === 0) return css.slice(start + 1, i);
+    }
+  }
+  assert173c.fail('media block braces do not balance');
+}
+
+test173c('tooltip is absolutely positioned, click-transparent, hidden by default (issue #173)', () => {
+  const body = ruleBody173c(css173c, '.ap-tooltip');
+  assert173c.ok(/position:\s*absolute/.test(body), 'tooltip floats over the stage, got: ' + body);
+  assert173c.ok(/display:\s*none/.test(body), 'tooltip hidden by default, got: ' + body);
+  assert173c.ok(/pointer-events:\s*none/.test(body), 'tooltip never blocks clicks, got: ' + body);
+  assert173c.ok(/max-width:\s*240px/.test(body), 'tooltip width capped at 240px, got: ' + body);
+  assert173c.ok(/z-index:\s*\d+/.test(body), 'tooltip layers above stage art, got: ' + body);
+});
+
+test173c('explained shapes get a visible keyboard focus ring (issue #173)', () => {
+  const body = ruleBody173c(css173c, '.ap-stage svg [data-shape-id]:focus');
+  assert173c.ok(/outline:\s*2px\s+solid\s+#2b5cb8/i.test(body),
+    'focus ring uses the accent outline, got: ' + body);
+  assert173c.ok(/outline-offset:/.test(body), 'focus ring is offset from the shape');
+});
+
+test173c('dark block recolors the tooltip and the focus ring, no light leaks (issue #173)', () => {
+  const dark = mediaBody173c(css173c, '@media (prefers-color-scheme: dark)');
+  assert173c.ok(dark.indexOf('.ap-tooltip') >= 0, 'dark block covers the tooltip');
+  assert173c.ok(dark.indexOf('.ap-stage svg [data-shape-id]:focus') >= 0,
+    'dark block covers the shape focus ring');
+  assert173c.ok(!/#2b5cb8/i.test(dark), 'dark block must not reuse the light focus color');
+});
