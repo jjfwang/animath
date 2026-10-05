@@ -182,3 +182,70 @@ test150('dark block redefines the whole chrome palette, no light color leaks', (
   assert150.ok(dark.indexOf(':hover') >= 0, 'dark block covers button hover states');
   assert150.ok(dark.indexOf('span[data-a="tlabel"]') >= 0, 'dark block covers the time label');
 });
+
+/* Tests for issue #151 — keyboard-shortcut discoverability (hint + focus ring).
+ * shortcutHint() is DOM-free and asserted directly; the CSS rules (hint style,
+ * :focus-visible ring, dark-mode overrides) are asserted by reading
+ * player/player.css as text, mirroring the #150 dark-block test pattern.
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test151 } = require('node:test');
+const assert151 = require('node:assert/strict');
+const fs151 = require('node:fs');
+const path151 = require('node:path');
+
+const player151 = require('../player/player.js');
+const css151 = fs151.readFileSync(path151.join(__dirname, '..', 'player', 'player.css'), 'utf8');
+
+test151('shortcutHint names the play/pause key and the scene keys (issue #151)', () => {
+  assert151.equal(typeof player151.shortcutHint, 'function', 'shortcutHint is exported');
+  const hint = player151.shortcutHint();
+  assert151.ok(hint.length > 0, 'hint text is non-empty');
+  assert151.ok(/space/i.test(hint), 'hint names Space, got: ' + hint);
+  assert151.ok(/arrow|scenes/.test(hint), 'hint names the scene keys, got: ' + hint);
+  assert151.ok(!/[<>&`]/.test(hint), 'hint text is innerHTML-safe, got: ' + hint);
+});
+
+function ruleBody151(css, selector) {
+  const at = css.indexOf(selector);
+  assert151.ok(at >= 0, 'player.css has a ' + selector + ' rule');
+  const start = css.indexOf('{', at);
+  const end = css.indexOf('}', start);
+  assert151.ok(start > 0 && end > start, selector + ' rule braces parse');
+  return css.slice(start + 1, end);
+}
+
+function darkBlock151(css) {
+  const at = css.indexOf('@media (prefers-color-scheme: dark)');
+  assert151.ok(at >= 0, 'player.css has a prefers-color-scheme: dark block');
+  const start = css.indexOf('{', at);
+  let depth = 0;
+  for (let i = start; i < css.length; i++) {
+    if (css[i] === '{') depth++;
+    else if (css[i] === '}') {
+      depth--;
+      if (depth === 0) return css.slice(start + 1, i);
+    }
+  }
+  assert151.fail('dark media block braces do not balance');
+}
+
+test151('hint has a muted 12px chrome rule and a visible focus ring', () => {
+  const hintRule = ruleBody151(css151, '.ap-kbd-hint');
+  assert151.ok(/font-size:\s*12px/.test(hintRule), 'hint is muted 12px, got: ' + hintRule);
+  assert151.ok(/color:/.test(hintRule), 'hint has a muted color');
+  const focusRule = ruleBody151(css151, '.animath-player:focus-visible');
+  assert151.ok(/outline:\s*3px\s+solid\s+#2b5cb8/i.test(focusRule),
+    'focus ring uses the accent outline, got: ' + focusRule);
+  assert151.ok(/outline-offset:/.test(focusRule), 'focus ring is offset from the chrome');
+});
+
+test151('dark block recolors the hint and the focus ring, no light leaks', () => {
+  const dark = darkBlock151(css151);
+  assert151.ok(dark.indexOf('.ap-kbd-hint') >= 0, 'dark block covers the hint');
+  assert151.ok(dark.indexOf('.animath-player:focus-visible') >= 0,
+    'dark block covers the focus ring');
+  assert151.ok(!/#6b6455/i.test(dark), 'dark block must not reuse the light hint color');
+  assert151.ok(!/#2b5cb8/i.test(dark), 'dark block must not reuse the light focus color');
+});
