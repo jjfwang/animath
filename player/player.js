@@ -149,6 +149,14 @@
     ];
   }
 
+  // The one-line keyboard-shortcut hint shown in the control chrome.
+  // DOM-free: mount() inserts this text into the controls row; Node tests
+  // assert the wording through it. keyAction itself is untouched (issue #151)
+  // — this only makes the already-tested shortcuts discoverable.
+  function shortcutHint() {
+    return 'Space: play/pause \u00B7 \u2190/\u2192: scenes';
+  }
+
   // Map a keyboard event to a player action. DOM-free: takes an event-like
   // {key, target} so Node tests can call it directly. Returns one of
   // 'toggle' | 'prev' | 'next', or null for unmapped keys and for keys
@@ -405,7 +413,8 @@
       '<span data-a="tlabel">0:00 / 0:00</span>' +
       '<select data-a="speed"><option value="0.5">0.5x</option>' +
       '<option value="1" selected>1x</option><option value="1.5">1.5x</option>' +
-      '<option value="2">2x</option></select>';
+      '<option value="2">2x</option></select>' +
+      '<span class="ap-kbd-hint" data-a="hint">' + shortcutHint() + '</span>';
     container.appendChild(controls);
 
     var btnPlay = controls.querySelector('[data-a="play"]');
@@ -700,7 +709,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
