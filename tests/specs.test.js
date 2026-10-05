@@ -877,3 +877,72 @@ test('latexFit and fitLatex are exported alongside the other pure helpers', () =
   assert.equal(typeof player.latexFit, 'function');
   assert.equal(typeof player.fitLatex, 'function');
 });
+
+/* Sector shape validation (issue #155): cx, cy, r (positive), startAngle,
+ * endAngle numeric; sector is not moveable in v0.
+ */
+function sectorSpec(shape) {
+  function scene(id, shapes) {
+    return {
+      id: id, caption: 'A caption.', narration: 'A narration.',
+      duration_ms: 8000,
+      steps: shapes.map(function (sh, i) {
+        return { at_ms: i * 1000, do: 'show', shape: Object.assign({ id: 's' + i }, sh) };
+      })
+    };
+  }
+  return {
+    animath: '0.1', title: 'Sector validation', level: 'primary', subject: 'math',
+    topic: 'data-graphs', kind: 'concept',
+    canvas: { width: 960, height: 540 },
+    scenes: [
+      scene('a', [shape]),
+      scene('b', [{ kind: 'text', x: 10, y: 10, text: 'filler' }])
+    ]
+  };
+}
+
+function goodSector() {
+  return { kind: 'sector', cx: 480, cy: 270, r: 120, startAngle: 0, endAngle: 90, fill: '#ffcc00' };
+}
+
+test('validator accepts a well-formed sector shape', () => {
+  assert.deepEqual(validateSpec(sectorSpec(goodSector())), []);
+});
+
+test('validator rejects a sector with zero, negative, or missing radius', () => {
+  [0, -5].forEach(function (r) {
+    var s = goodSector(); s.r = r;
+    var errs = validateSpec(sectorSpec(s));
+    assert.ok(errs.some(function (e) { return /\.r: required positive number/.test(e); }),
+      'r=' + r + ' must be rejected, got: ' + JSON.stringify(errs));
+  });
+  var noR = goodSector(); delete noR.r;
+  var errs = validateSpec(sectorSpec(noR));
+  assert.ok(errs.some(function (e) { return /\.r: required positive number/.test(e); }),
+    'missing r must be rejected, got: ' + JSON.stringify(errs));
+});
+
+test('validator rejects a sector with non-numeric angles or missing position', () => {
+  var badAngle = goodSector(); badAngle.startAngle = 'ninety';
+  assert.ok(validateSpec(sectorSpec(badAngle)).some(function (e) {
+    return /\.startAngle: required number/.test(e);
+  }), 'non-numeric startAngle must be rejected');
+  var badAngle2 = goodSector(); badAngle2.endAngle = NaN;
+  assert.ok(validateSpec(sectorSpec(badAngle2)).some(function (e) {
+    return /\.endAngle: required number/.test(e);
+  }), 'NaN endAngle must be rejected');
+  var noCx = goodSector(); delete noCx.cx;
+  assert.ok(validateSpec(sectorSpec(noCx)).some(function (e) {
+    return /\.cx: required number/.test(e);
+  }), 'missing cx must be rejected');
+});
+
+test('validator rejects moving a sector: not moveable in v0', () => {
+  var spec = sectorSpec(goodSector());
+  spec.scenes[0].steps.push(
+    { at_ms: 2000, do: 'move', target: 's0', to: { cx: 500 }, dur_ms: 500 });
+  var errs = validateSpec(spec);
+  assert.equal(errs.length, 1, 'exactly one error expected, got: ' + JSON.stringify(errs));
+  assert.ok(/not moveable in v0/.test(errs[0]), 'move of sector rejected, got: ' + errs[0]);
+});
