@@ -796,3 +796,26 @@ test('stripLabels is exported alongside the other pure helpers', () => {
   assert.equal(typeof player.keyAction, 'function');
   assert.equal(typeof player.prefersReducedMotion, 'function');
 });
+
+test('controlButtons lists the chrome affordances with restart last', () => {
+  const player = require('../player/player.js');
+  const buttons = player.controlButtons();
+  assert.deepEqual(buttons.map((b) => b.action), ['prev', 'play', 'next', 'restart'],
+    'chrome order must stay prev, play, next, then the new restart button');
+  buttons.forEach((b) => {
+    assert.ok(b.action && b.title && b.glyph, 'every chrome button needs action, title, and glyph');
+  });
+});
+
+test('controlButtons restart affordance carries the replay affordance', () => {
+  const player = require('../player/player.js');
+  const restart = player.controlButtons().filter((b) => b.action === 'restart')[0];
+  assert.ok(restart, 'a restart button must exist in the chrome');
+  assert.equal(restart.title, 'Restart from the beginning');
+  assert.ok(restart.glyph.indexOf('&#8635;') !== -1, 'restart glyph must be the replay arrow entity');
+});
+
+test('controlButtons is exported alongside the other pure helpers', () => {
+  const player = require('../player/player.js');
+  assert.equal(typeof player.controlButtons, 'function');
+});
