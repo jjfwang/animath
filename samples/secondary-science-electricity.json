@@ -19,10 +19,10 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "One loop: a simple circuit",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "One loop: a simple circuit",
+            "size": 34
           }
         },
         {
@@ -33,171 +33,359 @@
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 150,
-            "x2": 810,
-            "y1": 170,
-            "y2": 170
+            "x1": 170,
+            "y1": 190,
+            "x2": 790,
+            "y2": 190
           }
         },
         {
           "at_ms": 700,
           "do": "show",
           "shape": {
-            "id": "wRight",
+            "id": "wRightTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 810,
-            "x2": 810,
-            "y1": 170,
-            "y2": 430
+            "x1": 790,
+            "y1": 190,
+            "x2": 790,
+            "y2": 300
           }
         },
         {
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "wBot",
+            "id": "wRightBot",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 810,
-            "x2": 150,
-            "y1": 430,
-            "y2": 430
+            "x1": 790,
+            "y1": 340,
+            "x2": 790,
+            "y2": 450
           }
         },
         {
           "at_ms": 1300,
           "do": "show",
           "shape": {
-            "id": "wLeft",
+            "id": "wBotL",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
+            "x1": 170,
+            "y1": 450,
+            "x2": 460,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "wBotR",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 500,
+            "y1": 450,
+            "x2": 790,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "wLeftTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 170,
+            "y1": 190,
+            "x2": 170,
+            "y2": 299
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "wLeftBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 170,
+            "y1": 341,
+            "x2": 170,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "battL1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
             "x1": 150,
-            "x2": 150,
-            "y1": 430,
-            "y2": 170
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "fill": "#1a1a1a",
-            "h": 100,
-            "id": "battLong",
-            "kind": "rect",
-            "w": 20,
-            "x": 140,
-            "y": 250
-          }
-        },
-        {
-          "at_ms": 2100,
-          "do": "show",
-          "shape": {
-            "fill": "#1a1a1a",
-            "h": 30,
-            "id": "battShort",
-            "kind": "rect",
-            "w": 44,
-            "x": 128,
-            "y": 285
+            "y1": 299,
+            "x2": 190,
+            "y2": 299
           }
         },
         {
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "plus",
-            "kind": "text",
-            "size": 24,
-            "text": "+",
-            "x": 172,
-            "y": 282
+            "id": "battS1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 162,
+            "y1": 313,
+            "x2": 178,
+            "y2": 313
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "battL2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
+            "x1": 150,
+            "y1": 327,
+            "x2": 190,
+            "y2": 327
           }
         },
         {
           "at_ms": 2800,
           "do": "show",
           "shape": {
-            "id": "battLab",
+            "id": "battS2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 162,
+            "y1": 341,
+            "x2": 178,
+            "y2": 341
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "plus",
             "kind": "text",
-            "size": 22,
-            "text": "battery (the cell)",
-            "x": 200,
-            "y": 268
+            "x": 196,
+            "y": 306,
+            "text": "+",
+            "size": 24
           }
         },
         {
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "cx": 810,
-            "cy": 300,
-            "fill": "#fff7d6",
+            "id": "battLab",
+            "kind": "text",
+            "x": 200,
+            "y": 352,
+            "text": "battery",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 3500,
+          "do": "show",
+          "shape": {
             "id": "bulb",
             "kind": "circle",
-            "r": 45,
+            "cx": 790,
+            "cy": 320,
+            "r": 20,
+            "fill": "#fff7d6",
             "stroke": "#1a1a1a",
             "strokeWidth": 3
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 3700,
+          "do": "show",
+          "shape": {
+            "id": "bulbF1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 776,
+            "y1": 306,
+            "x2": 804,
+            "y2": 334
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "bulbF2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 776,
+            "y1": 334,
+            "x2": 804,
+            "y2": 306
+          }
+        },
+        {
+          "at_ms": 4100,
           "do": "show",
           "shape": {
             "id": "bulbLab",
             "kind": "text",
-            "size": 24,
+            "x": 816,
+            "y": 328,
             "text": "bulb",
-            "x": 862,
-            "y": 308
+            "size": 24
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 4400,
           "do": "show",
           "shape": {
+            "id": "amm",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 450,
+            "r": 20,
             "fill": "#ffffff",
-            "h": 50,
-            "id": "ammeter",
-            "kind": "rect",
             "stroke": "#1a1a1a",
-            "strokeWidth": 3,
-            "w": 60,
-            "x": 450,
-            "y": 405
-          }
-        },
-        {
-          "at_ms": 4300,
-          "do": "show",
-          "shape": {
-            "id": "aLab",
-            "kind": "text",
-            "size": 30,
-            "text": "A",
-            "x": 466,
-            "y": 443
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 4600,
           "do": "show",
           "shape": {
+            "id": "ammA",
+            "kind": "text",
+            "x": 480,
+            "y": 460,
+            "text": "A",
+            "size": 28,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
             "id": "ammLab",
             "kind": "text",
-            "size": 22,
+            "x": 506,
+            "y": 478,
             "text": "ammeter",
-            "x": 522,
-            "y": 442
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "d1",
+            "kind": "circle",
+            "cx": 170,
+            "cy": 380,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "d2",
+            "kind": "circle",
+            "cx": 400,
+            "cy": 190,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "d3",
+            "kind": "circle",
+            "cx": 790,
+            "cy": 230,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "d4",
+            "kind": "circle",
+            "cx": 650,
+            "cy": 450,
+            "r": 7,
+            "fill": "#d33f2f"
           }
         },
         {
           "at_ms": 5400,
+          "do": "move",
+          "target": "d1",
+          "to": {
+            "cx": 170,
+            "cy": 205
+          },
+          "dur_ms": 1300
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "d2",
+          "to": {
+            "cx": 700,
+            "cy": 190
+          },
+          "dur_ms": 1300
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "d3",
+          "to": {
+            "cx": 790,
+            "cy": 420
+          },
+          "dur_ms": 1300
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "d4",
+          "to": {
+            "cx": 300,
+            "cy": 450
+          },
+          "dur_ms": 1300
+        },
+        {
+          "at_ms": 6400,
           "do": "caption",
           "text": "One unbroken loop — that is a circuit"
         }
@@ -207,7 +395,7 @@
       "caption": "Conventional current flows + to −",
       "duration_ms": 8000,
       "id": "s2",
-      "narration": "Conventional current flows out of the battery's positive terminal, around the loop, and back into the negative terminal. The arrows crawl along the wires to show the direction.",
+      "narration": "Conventional current flows out of the battery's positive terminal, around the loop, and back into the negative terminal. The red markers crawl along the wires to show the direction.",
       "steps": [
         {
           "at_ms": 0,
@@ -215,10 +403,10 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Which way does current flow?",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Which way does current flow?",
+            "size": 34
           }
         },
         {
@@ -229,174 +417,322 @@
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 150,
-            "x2": 810,
-            "y1": 170,
-            "y2": 170
+            "x1": 170,
+            "y1": 190,
+            "x2": 790,
+            "y2": 190
           }
         },
         {
           "at_ms": 700,
           "do": "show",
           "shape": {
-            "id": "wRight",
+            "id": "wRightTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 810,
-            "x2": 810,
-            "y1": 170,
-            "y2": 430
+            "x1": 790,
+            "y1": 190,
+            "x2": 790,
+            "y2": 300
           }
         },
         {
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "wBot",
+            "id": "wRightBot",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 810,
-            "x2": 150,
-            "y1": 430,
-            "y2": 430
+            "x1": 790,
+            "y1": 340,
+            "x2": 790,
+            "y2": 450
           }
         },
         {
           "at_ms": 1300,
           "do": "show",
           "shape": {
-            "id": "wLeft",
+            "id": "wLeftTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 150,
-            "x2": 150,
-            "y1": 430,
-            "y2": 170
+            "x1": 170,
+            "y1": 190,
+            "x2": 170,
+            "y2": 299
           }
         },
         {
           "at_ms": 1600,
           "do": "show",
           "shape": {
-            "fill": "#1a1a1a",
-            "h": 100,
-            "id": "battLong",
-            "kind": "rect",
-            "w": 20,
-            "x": 140,
-            "y": 250
+            "id": "wLeftBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 170,
+            "y1": 341,
+            "x2": 170,
+            "y2": 450
           }
         },
         {
           "at_ms": 1900,
           "do": "show",
           "shape": {
-            "fill": "#1a1a1a",
-            "h": 30,
-            "id": "battShort",
-            "kind": "rect",
-            "w": 44,
-            "x": 128,
-            "y": 285
-          }
-        },
-        {
-          "at_ms": 2200,
-          "do": "show",
-          "shape": {
-            "cx": 810,
-            "cy": 300,
-            "fill": "#fff7d6",
-            "id": "bulb",
-            "kind": "circle",
-            "r": 45,
+            "id": "wBot",
+            "kind": "line",
             "stroke": "#1a1a1a",
-            "strokeWidth": 3
+            "width": 3,
+            "x1": 170,
+            "y1": 450,
+            "x2": 790,
+            "y2": 450
           }
         },
         {
-          "at_ms": 2800,
+          "at_ms": 2400,
           "do": "show",
           "shape": {
-            "id": "cur1",
-            "kind": "arrow",
-            "stroke": "#d33f2f",
-            "width": 5,
-            "x1": 300,
-            "x2": 420,
-            "y1": 170,
-            "y2": 170
+            "id": "battL1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
+            "x1": 150,
+            "y1": 299,
+            "x2": 190,
+            "y2": 299
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 2500,
           "do": "show",
           "shape": {
-            "id": "cur2",
-            "kind": "arrow",
-            "stroke": "#d33f2f",
-            "width": 5,
-            "x1": 810,
-            "x2": 810,
-            "y1": 250,
-            "y2": 330
+            "id": "battS1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 162,
+            "y1": 313,
+            "x2": 178,
+            "y2": 313
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "battL2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
+            "x1": 150,
+            "y1": 327,
+            "x2": 190,
+            "y2": 327
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "battS2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 162,
+            "y1": 341,
+            "x2": 178,
+            "y2": 341
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "id": "plus",
+            "kind": "text",
+            "x": 196,
+            "y": 306,
+            "text": "+",
+            "size": 24
           }
         },
         {
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "id": "cur3",
-            "kind": "arrow",
-            "stroke": "#d33f2f",
-            "width": 5,
-            "x1": 600,
-            "x2": 480,
-            "y1": 430,
-            "y2": 430
+            "id": "bulb",
+            "kind": "circle",
+            "cx": 790,
+            "cy": 320,
+            "r": 20,
+            "fill": "#fff7d6",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "bulbF1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 776,
+            "y1": 306,
+            "x2": 804,
+            "y2": 334
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "bulbF2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 776,
+            "y1": 334,
+            "x2": 804,
+            "y2": 306
           }
         },
         {
           "at_ms": 4000,
-          "do": "move",
-          "dur_ms": 1200,
-          "target": "cur1",
-          "to": {
-            "x1": 480,
-            "x2": 600,
-            "y1": 170,
-            "y2": 170
+          "do": "show",
+          "shape": {
+            "id": "d1",
+            "kind": "circle",
+            "cx": 170,
+            "cy": 380,
+            "r": 7,
+            "fill": "#d33f2f"
           }
         },
         {
           "at_ms": 4000,
-          "do": "move",
-          "dur_ms": 1200,
-          "target": "cur2",
-          "to": {
-            "x1": 810,
-            "x2": 810,
-            "y1": 330,
-            "y2": 410
+          "do": "show",
+          "shape": {
+            "id": "d2",
+            "kind": "circle",
+            "cx": 250,
+            "cy": 190,
+            "r": 7,
+            "fill": "#d33f2f"
           }
         },
         {
           "at_ms": 4000,
-          "do": "move",
-          "dur_ms": 1200,
-          "target": "cur3",
-          "to": {
-            "x1": 420,
-            "x2": 300,
-            "y1": 430,
-            "y2": 430
+          "do": "show",
+          "shape": {
+            "id": "d3",
+            "kind": "circle",
+            "cx": 790,
+            "cy": 230,
+            "r": 7,
+            "fill": "#d33f2f"
           }
         },
         {
-          "at_ms": 5800,
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "d4",
+            "kind": "circle",
+            "cx": 700,
+            "cy": 450,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "d1",
+          "to": {
+            "cx": 170,
+            "cy": 205
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "d2",
+          "to": {
+            "cx": 600,
+            "cy": 190
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "d3",
+          "to": {
+            "cx": 790,
+            "cy": 420
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "d4",
+          "to": {
+            "cx": 350,
+            "cy": 450
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "d1",
+          "to": {
+            "cx": 450,
+            "cy": 190
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "d2",
+          "to": {
+            "cx": 790,
+            "cy": 280
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "d3",
+          "to": {
+            "cx": 550,
+            "cy": 450
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "d4",
+          "to": {
+            "cx": 170,
+            "cy": 380
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 7600,
           "do": "caption",
           "text": "Conventional current: + terminal to − terminal"
         }
@@ -404,7 +740,7 @@
     },
     {
       "caption": "Series or parallel?",
-      "duration_ms": 8000,
+      "duration_ms": 9000,
       "id": "s3",
       "narration": "In a series circuit there is only one path, so one broken bulb kills the whole loop. In a parallel circuit each bulb sits on its own branch — one can fail and the other stays lit.",
       "steps": [
@@ -414,10 +750,10 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Series or parallel?",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Series or parallel?",
+            "size": 34
           }
         },
         {
@@ -426,10 +762,10 @@
           "shape": {
             "id": "sLab",
             "kind": "text",
-            "size": 26,
-            "text": "series",
             "x": 190,
-            "y": 150
+            "y": 150,
+            "text": "series",
+            "size": 26
           }
         },
         {
@@ -438,10 +774,10 @@
           "shape": {
             "id": "pLab",
             "kind": "text",
-            "size": 26,
-            "text": "parallel",
             "x": 660,
-            "y": 150
+            "y": 150,
+            "text": "parallel",
+            "size": 26
           }
         },
         {
@@ -453,8 +789,8 @@
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 80,
-            "x2": 400,
             "y1": 180,
+            "x2": 400,
             "y2": 180
           }
         },
@@ -462,27 +798,27 @@
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "sRight",
+            "id": "sRightTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 400,
-            "x2": 400,
             "y1": 180,
-            "y2": 440
+            "x2": 400,
+            "y2": 240
           }
         },
         {
           "at_ms": 1200,
           "do": "show",
           "shape": {
-            "id": "sBot",
+            "id": "sRightBot",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 400,
-            "x2": 80,
-            "y1": 440,
+            "y1": 390,
+            "x2": 400,
             "y2": 440
           }
         },
@@ -490,53 +826,110 @@
           "at_ms": 1400,
           "do": "show",
           "shape": {
-            "id": "sLeft",
+            "id": "sBot",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 80,
-            "x2": 80,
             "y1": 440,
-            "y2": 180
+            "x2": 400,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "sLeftTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 80,
+            "y1": 180,
+            "x2": 80,
+            "y2": 299
           }
         },
         {
           "at_ms": 1800,
           "do": "show",
           "shape": {
-            "fill": "#1a1a1a",
-            "h": 80,
-            "id": "sBatt",
-            "kind": "rect",
-            "w": 16,
-            "x": 72,
-            "y": 270
+            "id": "sLeftBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 80,
+            "y1": 341,
+            "x2": 80,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "sBattL1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
+            "x1": 60,
+            "y1": 299,
+            "x2": 100,
+            "y2": 299
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "sBattS1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 72,
+            "y1": 313,
+            "x2": 88,
+            "y2": 313
           }
         },
         {
           "at_ms": 2200,
           "do": "show",
           "shape": {
-            "cx": 400,
-            "cy": 260,
-            "fill": "#fff7d6",
-            "id": "sBulb1",
-            "kind": "circle",
-            "r": 30,
+            "id": "sBattL2",
+            "kind": "line",
             "stroke": "#1a1a1a",
-            "strokeWidth": 3
+            "width": 6,
+            "x1": 60,
+            "y1": 327,
+            "x2": 100,
+            "y2": 327
           }
         },
         {
-          "at_ms": 2400,
+          "at_ms": 2300,
           "do": "show",
           "shape": {
-            "cx": 400,
-            "cy": 370,
-            "fill": "#fff7d6",
-            "id": "sBulb2",
+            "id": "sBattS2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 72,
+            "y1": 341,
+            "x2": 88,
+            "y2": 341
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "sBulb1",
             "kind": "circle",
-            "r": 30,
+            "cx": 400,
+            "cy": 260,
+            "r": 20,
+            "fill": "#fff7d6",
             "stroke": "#1a1a1a",
             "strokeWidth": 3
           }
@@ -545,18 +938,88 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "id": "sBulb1F1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 386,
+            "y1": 246,
+            "x2": 414,
+            "y2": 274
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "sBulb1F2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 386,
+            "y1": 274,
+            "x2": 414,
+            "y2": 246
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "sBulb2",
+            "kind": "circle",
+            "cx": 400,
+            "cy": 370,
+            "r": 20,
+            "fill": "#fff7d6",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "id": "sBulb2F1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 386,
+            "y1": 356,
+            "x2": 414,
+            "y2": 384
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "sBulb2F2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 386,
+            "y1": 384,
+            "x2": 414,
+            "y2": 356
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
             "id": "pTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 560,
-            "x2": 880,
             "y1": 180,
+            "x2": 880,
             "y2": 180
           }
         },
         {
-          "at_ms": 2800,
+          "at_ms": 3400,
           "do": "show",
           "shape": {
             "id": "pBot",
@@ -564,122 +1027,378 @@
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 560,
-            "x2": 880,
             "y1": 440,
+            "x2": 880,
             "y2": 440
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 3600,
           "do": "show",
           "shape": {
-            "id": "pLeft",
+            "id": "pLeftTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
             "x1": 560,
+            "y1": 180,
             "x2": 560,
-            "y1": 440,
-            "y2": 180
-          }
-        },
-        {
-          "at_ms": 3200,
-          "do": "show",
-          "shape": {
-            "id": "pMid",
-            "kind": "line",
-            "stroke": "#1a1a1a",
-            "width": 3,
-            "x1": 720,
-            "x2": 720,
-            "y1": 180,
-            "y2": 440
-          }
-        },
-        {
-          "at_ms": 3400,
-          "do": "show",
-          "shape": {
-            "id": "pRight",
-            "kind": "line",
-            "stroke": "#1a1a1a",
-            "width": 3,
-            "x1": 880,
-            "x2": 880,
-            "y1": 180,
-            "y2": 440
+            "y2": 299
           }
         },
         {
           "at_ms": 3800,
           "do": "show",
           "shape": {
-            "fill": "#1a1a1a",
-            "h": 80,
-            "id": "pBatt",
-            "kind": "rect",
-            "w": 16,
-            "x": 552,
-            "y": 270
+            "id": "pLeftBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 560,
+            "y1": 341,
+            "x2": 560,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "pBattL1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
+            "x1": 540,
+            "y1": 299,
+            "x2": 580,
+            "y2": 299
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "pBattS1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 552,
+            "y1": 313,
+            "x2": 568,
+            "y2": 313
           }
         },
         {
           "at_ms": 4200,
           "do": "show",
           "shape": {
-            "cx": 720,
-            "cy": 260,
-            "fill": "#fff7d6",
+            "id": "pBattL2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 6,
+            "x1": 540,
+            "y1": 327,
+            "x2": 580,
+            "y2": 327
+          }
+        },
+        {
+          "at_ms": 4300,
+          "do": "show",
+          "shape": {
+            "id": "pBattS2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 8,
+            "x1": 552,
+            "y1": 341,
+            "x2": 568,
+            "y2": 341
+          }
+        },
+        {
+          "at_ms": 4500,
+          "do": "show",
+          "shape": {
+            "id": "pMidTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 720,
+            "y1": 180,
+            "x2": 720,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "pMidBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 720,
+            "y1": 320,
+            "x2": 720,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "pRightTop",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 880,
+            "y1": 180,
+            "x2": 880,
+            "y2": 280
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "pRightBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 880,
+            "y1": 320,
+            "x2": 880,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
             "id": "pBulb1",
             "kind": "circle",
-            "r": 30,
+            "cx": 720,
+            "cy": 300,
+            "r": 20,
+            "fill": "#fff7d6",
             "stroke": "#1a1a1a",
             "strokeWidth": 3
           }
         },
         {
-          "at_ms": 4400,
+          "at_ms": 5100,
           "do": "show",
           "shape": {
-            "cx": 880,
-            "cy": 370,
-            "fill": "#fff7d6",
-            "id": "pBulb2",
-            "kind": "circle",
-            "r": 30,
+            "id": "pBulb1F1",
+            "kind": "line",
             "stroke": "#1a1a1a",
-            "strokeWidth": 3
+            "width": 3,
+            "x1": 706,
+            "y1": 286,
+            "x2": 734,
+            "y2": 314
           }
         },
         {
           "at_ms": 5200,
           "do": "show",
           "shape": {
-            "id": "sNote",
-            "kind": "text",
-            "size": 20,
-            "text": "one path",
-            "x": 180,
-            "y": 478
+            "id": "pBulb1F2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 706,
+            "y1": 314,
+            "x2": 734,
+            "y2": 286
+          }
+        },
+        {
+          "at_ms": 5300,
+          "do": "show",
+          "shape": {
+            "id": "pBulb2",
+            "kind": "circle",
+            "cx": 880,
+            "cy": 300,
+            "r": 20,
+            "fill": "#fff7d6",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 5400,
           "do": "show",
           "shape": {
+            "id": "pBulb2F1",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 866,
+            "y1": 286,
+            "x2": 894,
+            "y2": 314
+          }
+        },
+        {
+          "at_ms": 5500,
+          "do": "show",
+          "shape": {
+            "id": "pBulb2F2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 866,
+            "y1": 314,
+            "x2": 894,
+            "y2": 286
+          }
+        },
+        {
+          "at_ms": 5700,
+          "do": "show",
+          "shape": {
+            "id": "sNote",
+            "kind": "text",
+            "x": 180,
+            "y": 478,
+            "text": "one path",
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
             "id": "pNote",
             "kind": "text",
-            "size": 20,
+            "x": 630,
+            "y": 478,
             "text": "each bulb its own path",
-            "x": 660,
-            "y": 478
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "sd1",
+            "kind": "circle",
+            "cx": 80,
+            "cy": 380,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "pd1",
+            "kind": "circle",
+            "cx": 720,
+            "cy": 230,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "show",
+          "shape": {
+            "id": "pd2",
+            "kind": "circle",
+            "cx": 880,
+            "cy": 230,
+            "r": 7,
+            "fill": "#d33f2f"
           }
         },
         {
           "at_ms": 6200,
+          "do": "move",
+          "target": "sd1",
+          "to": {
+            "cx": 80,
+            "cy": 205
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "pd1",
+          "to": {
+            "cx": 720,
+            "cy": 390
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "pd2",
+          "to": {
+            "cx": 880,
+            "cy": 390
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 7400,
+          "do": "hide",
+          "target": "pBulb2F1"
+        },
+        {
+          "at_ms": 7450,
+          "do": "hide",
+          "target": "pBulb2F2"
+        },
+        {
+          "at_ms": 7500,
+          "do": "hide",
+          "target": "pBulb2"
+        },
+        {
+          "at_ms": 7550,
+          "do": "show",
+          "shape": {
+            "id": "pBulb2off",
+            "kind": "circle",
+            "cx": 880,
+            "cy": 300,
+            "r": 20,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "hide",
+          "target": "pRightBot"
+        },
+        {
+          "at_ms": 7650,
+          "do": "hide",
+          "target": "pd2"
+        },
+        {
+          "at_ms": 7750,
+          "do": "move",
+          "target": "pd1",
+          "to": {
+            "cx": 720,
+            "cy": 220
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 8900,
           "do": "caption",
-          "text": "Series: one path. Parallel: each bulb gets its own."
+          "text": "Parallel: one branch fails, the other stays lit"
         }
       ]
     },
@@ -798,201 +1517,373 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Current is not 'used up'",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Current is not 'used up'",
+            "size": 34
           }
         },
         {
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "id": "wTop",
+            "id": "wTopL",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 150,
-            "x2": 810,
-            "y1": 170,
-            "y2": 170
+            "x1": 170,
+            "y1": 190,
+            "x2": 310,
+            "y2": 190
           }
         },
         {
           "at_ms": 700,
           "do": "show",
           "shape": {
-            "id": "wRight",
+            "id": "wTopR",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 810,
-            "x2": 810,
-            "y1": 170,
-            "y2": 430
+            "x1": 350,
+            "y1": 190,
+            "x2": 790,
+            "y2": 190
           }
         },
         {
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "wBot",
+            "id": "wRightTop",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 810,
-            "x2": 150,
-            "y1": 430,
-            "y2": 430
+            "x1": 790,
+            "y1": 190,
+            "x2": 790,
+            "y2": 300
           }
         },
         {
           "at_ms": 1300,
           "do": "show",
           "shape": {
+            "id": "wRightMid",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 790,
+            "y1": 340,
+            "x2": 790,
+            "y2": 360
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "wRightBot",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 790,
+            "y1": 400,
+            "x2": 790,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "wBotL",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 170,
+            "y1": 450,
+            "x2": 540,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "wBotR",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 580,
+            "y1": 450,
+            "x2": 790,
+            "y2": 450
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
             "id": "wLeft",
             "kind": "line",
             "stroke": "#1a1a1a",
             "width": 3,
-            "x1": 150,
-            "x2": 150,
-            "y1": 430,
-            "y2": 170
+            "x1": 170,
+            "y1": 190,
+            "x2": 170,
+            "y2": 450
           }
         },
         {
-          "at_ms": 1800,
+          "at_ms": 2800,
           "do": "show",
           "shape": {
-            "cx": 810,
-            "cy": 300,
-            "fill": "#fff7d6",
             "id": "bulb",
             "kind": "circle",
-            "r": 45,
+            "cx": 790,
+            "cy": 320,
+            "r": 20,
+            "fill": "#fff7d6",
             "stroke": "#1a1a1a",
             "strokeWidth": 3
-          }
-        },
-        {
-          "at_ms": 2400,
-          "do": "show",
-          "shape": {
-            "fill": "#ffffff",
-            "h": 44,
-            "id": "a1",
-            "kind": "rect",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 3,
-            "w": 64,
-            "x": 288,
-            "y": 148
-          }
-        },
-        {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "a1t",
-            "kind": "text",
-            "size": 26,
-            "text": "A",
-            "x": 306,
-            "y": 180
           }
         },
         {
           "at_ms": 3000,
           "do": "show",
           "shape": {
-            "fill": "#ffffff",
-            "h": 44,
-            "id": "a2",
-            "kind": "rect",
+            "id": "bulbF1",
+            "kind": "line",
             "stroke": "#1a1a1a",
-            "strokeWidth": 3,
-            "w": 64,
-            "x": 778,
-            "y": 278
+            "width": 3,
+            "x1": 776,
+            "y1": 306,
+            "x2": 804,
+            "y2": 334
           }
         },
         {
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "id": "a2t",
-            "kind": "text",
-            "size": 26,
-            "text": "A",
-            "x": 796,
-            "y": 310
+            "id": "bulbF2",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 3,
+            "x1": 776,
+            "y1": 334,
+            "x2": 804,
+            "y2": 306
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "a1",
+            "kind": "circle",
+            "cx": 330,
+            "cy": 190,
+            "r": 20,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 3600,
           "do": "show",
           "shape": {
-            "fill": "#ffffff",
-            "h": 44,
-            "id": "a3",
-            "kind": "rect",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 3,
-            "w": 64,
-            "x": 548,
-            "y": 408
+            "id": "a1A",
+            "kind": "text",
+            "x": 330,
+            "y": 200,
+            "text": "A",
+            "size": 28,
+            "align": "middle"
           }
         },
         {
           "at_ms": 3800,
           "do": "show",
           "shape": {
-            "id": "a3t",
+            "id": "a2",
+            "kind": "circle",
+            "cx": 790,
+            "cy": 380,
+            "r": 20,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "a2A",
             "kind": "text",
-            "size": 26,
+            "x": 790,
+            "y": 390,
             "text": "A",
-            "x": 566,
-            "y": 440
+            "size": 28,
+            "align": "middle"
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "show",
+          "shape": {
+            "id": "a3",
+            "kind": "circle",
+            "cx": 560,
+            "cy": 450,
+            "r": 20,
+            "fill": "#ffffff",
+            "stroke": "#1a1a1a",
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 4400,
           "do": "show",
           "shape": {
-            "id": "read1",
-            "kind": "latex",
-            "size": 32,
-            "tex": "I_1 = 0.5\\,\\text{A}",
-            "x": 190,
-            "y": 118
+            "id": "a3A",
+            "kind": "text",
+            "x": 560,
+            "y": 460,
+            "text": "A",
+            "size": 28,
+            "align": "middle"
           }
         },
         {
-          "at_ms": 5000,
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "d1",
+            "kind": "circle",
+            "cx": 250,
+            "cy": 190,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "d2",
+            "kind": "circle",
+            "cx": 790,
+            "cy": 250,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "d3",
+            "kind": "circle",
+            "cx": 700,
+            "cy": 450,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "d4",
+            "kind": "circle",
+            "cx": 170,
+            "cy": 300,
+            "r": 7,
+            "fill": "#d33f2f"
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "d1",
+          "to": {
+            "cx": 700,
+            "cy": 190
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "d2",
+          "to": {
+            "cx": 790,
+            "cy": 430
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "d3",
+          "to": {
+            "cx": 250,
+            "cy": 450
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 4800,
+          "do": "move",
+          "target": "d4",
+          "to": {
+            "cx": 170,
+            "cy": 190
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "read1",
+            "kind": "latex",
+            "x": 220,
+            "y": 130,
+            "tex": "I_1 = 0.5\\,\\text{A}",
+            "size": 32
+          }
+        },
+        {
+          "at_ms": 6500,
           "do": "show",
           "shape": {
             "id": "read2",
             "kind": "latex",
-            "size": 32,
+            "x": 590,
+            "y": 390,
             "tex": "I_2 = 0.5\\,\\text{A}",
-            "x": 560,
-            "y": 118
+            "size": 32
           }
         },
         {
-          "at_ms": 5600,
+          "at_ms": 6800,
           "do": "show",
           "shape": {
             "id": "read3",
             "kind": "latex",
-            "size": 32,
-            "tex": "I_3 = 0.5\\,\\text{A}",
             "x": 400,
-            "y": 498
+            "y": 505,
+            "tex": "I_3 = 0.5\\,\\text{A}",
+            "size": 32
           }
         },
         {
-          "at_ms": 6600,
+          "at_ms": 7300,
           "do": "caption",
           "text": "Same reading everywhere — current is conserved"
         }
