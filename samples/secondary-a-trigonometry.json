@@ -13,170 +13,268 @@
     {
       "id": "s1",
       "caption": "The two seed identities, on the unit circle",
-      "narration": "Two identities grow all the others: sin squared plus cos squared equals one, and tan is sin over cos. On the unit circle this is just Pythagoras: the legs are cos and sin, the hypotenuse is 1.",
-      "duration_ms": 8000,
+      "narration": "Two identities grow all the others: sin squared plus cos squared equals one, and tan is sin over cos. The probe travels the unit circle and the legs reshape as it goes - but the hypotenuse is always 1.",
+      "duration_ms": 9400,
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "id1",
-            "kind": "latex",
-            "tex": "\\sin^2 \\theta + \\cos^2 \\theta = 1",
-            "x": 120,
-            "y": 80,
-            "size": 46,
-            "color": "#1a1a1a"
-          }
-        },
-        {
-          "at_ms": 1100,
-          "do": "show",
-          "shape": {
-            "id": "id2",
-            "kind": "latex",
-            "tex": "\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}",
-            "x": 120,
-            "y": 170,
-            "size": 46,
-            "color": "#1a1a1a"
-          }
-        },
-        {
-          "at_ms": 2200,
-          "do": "show",
-          "shape": {
             "id": "uc",
             "kind": "circle",
-            "cx": 700,
-            "cy": 350,
+            "cx": 640,
+            "cy": 360,
             "r": 110,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 3
+            "stroke_width": 3
           }
         },
         {
-          "at_ms": 2600,
+          "at_ms": 200,
           "do": "show",
           "shape": {
             "id": "xh",
             "kind": "line",
-            "x1": 540,
-            "y1": 350,
-            "x2": 860,
-            "y2": 350,
-            "stroke": "#1a1a1a",
-            "width": 2
+            "x1": 520,
+            "y1": 360,
+            "x2": 760,
+            "y2": 360,
+            "stroke": "#888888",
+            "stroke_width": 1
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 400,
           "do": "show",
           "shape": {
             "id": "xv",
             "kind": "line",
-            "x1": 700,
-            "y1": 190,
-            "x2": 700,
-            "y2": 510,
-            "stroke": "#1a1a1a",
-            "width": 2
+            "x1": 640,
+            "y1": 240,
+            "x2": 640,
+            "y2": 480,
+            "stroke": "#888888",
+            "stroke_width": 1
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "probe",
+            "kind": "circle",
+            "cx": 750,
+            "cy": 360,
+            "r": 9,
+            "fill": "#d62728",
+            "stroke": "none"
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "rad",
+            "kind": "line",
+            "x1": 640,
+            "y1": 360,
+            "x2": 750,
+            "y2": 360,
+            "stroke": "#d62728",
+            "stroke_width": 3
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "probe",
+          "to": {
+            "cx": 724,
+            "cy": 289
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "rad",
+          "to": {
+            "x2": 724,
+            "y2": 289
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "cosleg",
+            "kind": "line",
+            "x1": 640,
+            "y1": 360,
+            "x2": 724,
+            "y2": 360,
+            "stroke": "#1f77b4",
+            "stroke_width": 4
           }
         },
         {
           "at_ms": 3400,
           "do": "show",
           "shape": {
-            "id": "hyp",
-            "kind": "line",
-            "x1": 700,
-            "y1": 350,
-            "x2": 778,
-            "y2": 272,
-            "stroke": "#b00020",
-            "width": 4
-          }
-        },
-        {
-          "at_ms": 3900,
-          "do": "show",
-          "shape": {
-            "id": "cosleg",
-            "kind": "line",
-            "x1": 700,
-            "y1": 350,
-            "x2": 778,
-            "y2": 350,
-            "stroke": "#1f7a3a",
-            "width": 5
-          }
-        },
-        {
-          "at_ms": 4300,
-          "do": "show",
-          "shape": {
             "id": "sinleg",
             "kind": "line",
-            "x1": 778,
-            "y1": 350,
-            "x2": 778,
-            "y2": 272,
-            "stroke": "#1f7a3a",
-            "width": 5
+            "x1": 724,
+            "y1": 360,
+            "x2": 724,
+            "y2": 289,
+            "stroke": "#2ca02c",
+            "stroke_width": 4
           }
         },
         {
-          "at_ms": 4700,
+          "at_ms": 3600,
           "do": "show",
           "shape": {
-            "id": "plab",
+            "id": "cosLab",
             "kind": "text",
-            "text": "adjacent = cos θ",
-            "x": 728,
-            "y": 365,
+            "x": 648,
+            "y": 348,
             "size": 24,
-            "color": "#1a1a1a"
+            "text": "cos theta"
           }
         },
         {
-          "at_ms": 5100,
+          "at_ms": 3800,
           "do": "show",
           "shape": {
-            "id": "qlab",
+            "id": "sinLab",
             "kind": "text",
-            "text": "opposite = sin θ",
-            "x": 728,
-            "y": 300,
+            "x": 560,
+            "y": 400,
             "size": 24,
-            "color": "#1a1a1a"
+            "text": "sin theta"
           }
         },
         {
-          "at_ms": 5600,
+          "at_ms": 4200,
+          "do": "move",
+          "target": "probe",
+          "to": {
+            "cx": 659,
+            "cy": 252
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "rad",
+          "to": {
+            "x2": 659,
+            "y2": 252
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "cosleg",
+          "to": {
+            "x2": 659
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "sinleg",
+          "to": {
+            "x1": 659,
+            "x2": 659,
+            "y2": 252
+          },
+          "dur_ms": 1400
+        },
+        {
+          "at_ms": 5900,
           "do": "show",
           "shape": {
-            "id": "pyth",
+            "id": "id1",
             "kind": "latex",
-            "tex": "\\cos^2 \\theta + \\sin^2 \\theta = (\\text{hypotenuse})^2 = 1",
+            "tex": "\\sin^2 \\theta + \\cos^2 \\theta = 1",
             "x": 90,
-            "y": 500,
-            "size": 36,
-            "color": "#1f7a3a"
+            "y": 90,
+            "size": 44,
+            "color": "#1a1a1a"
           }
         },
         {
           "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "id2",
+            "kind": "latex",
+            "tex": "\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}",
+            "x": 90,
+            "y": 180,
+            "size": 44,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 7400,
+          "do": "move",
+          "target": "probe",
+          "to": {
+            "cx": 735,
+            "cy": 305
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 7400,
+          "do": "move",
+          "target": "rad",
+          "to": {
+            "x2": 735,
+            "y2": 305
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 7400,
+          "do": "move",
+          "target": "cosleg",
+          "to": {
+            "x2": 735
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 7400,
+          "do": "move",
+          "target": "sinleg",
+          "to": {
+            "x1": 735,
+            "x2": 735,
+            "y2": 305
+          },
+          "dur_ms": 1200
+        },
+        {
+          "at_ms": 8900,
           "do": "caption",
-          "text": "On the unit circle, Pythagoras IS the identity"
+          "text": "The unit circle grows every identity"
         }
       ]
     },
     {
       "id": "s2",
-      "caption": "Compound angles: computing sin 75°",
-      "narration": "Sin of a sum expands into products: sin A cos B plus cos A sin B. So sin 75 degrees is sin(45+30): plug in the familiar exact values and simplify to (root 6 plus root 2) over 4.",
-      "duration_ms": 9000,
+      "caption": "Compound angles: computing sin 75 degrees",
+      "narration": "Sin of a sum expands: sin 75 degrees is sin of 45 plus 30. The four familiar values fly into their slots and multiply out to root 6 plus root 2 over 4 - about 0.966.",
+      "duration_ms": 10500,
       "steps": [
         {
           "at_ms": 0,
@@ -185,89 +283,209 @@
             "id": "sa",
             "kind": "latex",
             "tex": "\\sin(A + B) = \\sin A \\cos B + \\cos A \\sin B",
-            "x": 90,
+            "x": 80,
             "y": 80,
             "size": 40,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 1200,
+          "at_ms": 900,
           "do": "show",
           "shape": {
             "id": "e75",
             "kind": "latex",
             "tex": "\\sin 75^{\\circ} = \\sin(45^{\\circ} + 30^{\\circ})",
-            "x": 130,
-            "y": 180,
+            "x": 80,
+            "y": 170,
             "size": 40,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 2600,
+          "at_ms": 1800,
           "do": "show",
           "shape": {
             "id": "e1",
             "kind": "latex",
             "tex": "= \\sin 45^{\\circ} \\cos 30^{\\circ} + \\cos 45^{\\circ} \\sin 30^{\\circ}",
-            "x": 130,
-            "y": 270,
+            "x": 80,
+            "y": 260,
             "size": 38,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "tv1",
+            "kind": "latex",
+            "tex": "\\sin 45^{\\circ} = \\frac{\\sqrt{2}}{2}",
+            "x": 700,
+            "y": 250,
+            "size": 28,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "tv2",
+            "kind": "latex",
+            "tex": "\\cos 30^{\\circ} = \\frac{\\sqrt{3}}{2}",
+            "x": 700,
+            "y": 300,
+            "size": 28,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "tv3",
+            "kind": "latex",
+            "tex": "\\cos 45^{\\circ} = \\frac{\\sqrt{2}}{2}",
+            "x": 700,
+            "y": 350,
+            "size": 28,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "show",
+          "shape": {
+            "id": "tv4",
+            "kind": "latex",
+            "tex": "\\sin 30^{\\circ} = \\frac{1}{2}",
+            "x": 700,
+            "y": 400,
+            "size": 28,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "move",
+          "target": "tv1",
+          "to": {
+            "x": 60,
+            "y": 340
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4300,
+          "do": "move",
+          "target": "tv2",
+          "to": {
+            "x": 265,
+            "y": 340
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4700,
+          "do": "move",
+          "target": "tv3",
+          "to": {
+            "x": 470,
+            "y": 340
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5100,
+          "do": "move",
+          "target": "tv4",
+          "to": {
+            "x": 675,
+            "y": 340
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5900,
+          "do": "hide",
+          "target": "tv1"
+        },
+        {
+          "at_ms": 6100,
+          "do": "hide",
+          "target": "tv2"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "tv3"
+        },
+        {
+          "at_ms": 6500,
+          "do": "hide",
+          "target": "tv4"
+        },
+        {
+          "at_ms": 6700,
           "do": "show",
           "shape": {
             "id": "e2",
             "kind": "latex",
             "tex": "= \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2}",
-            "x": 130,
-            "y": 360,
-            "size": 36,
+            "x": 80,
+            "y": 420,
+            "size": 38,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 7900,
           "do": "show",
           "shape": {
             "id": "e3",
             "kind": "latex",
             "tex": "= \\frac{\\sqrt{6} + \\sqrt{2}}{4}",
-            "x": 130,
-            "y": 460,
-            "size": 44,
-            "color": "#1f7a3a"
+            "x": 80,
+            "y": 490,
+            "size": 42,
+            "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 6800,
+          "at_ms": 8800,
           "do": "show",
           "shape": {
             "id": "chk",
-            "kind": "latex",
-            "tex": "\\approx 0.966",
-            "x": 700,
-            "y": 460,
-            "size": 40,
-            "color": "#1f7a3a"
+            "kind": "text",
+            "x": 560,
+            "y": 490,
+            "size": 30,
+            "text": "~ 0.966"
           }
         },
         {
-          "at_ms": 7700,
+          "at_ms": 9200,
+          "do": "move",
+          "target": "chk",
+          "to": {
+            "x": 500
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 9900,
           "do": "caption",
-          "text": "Split the awkward angle into two familiar ones"
+          "text": "Four values fly in, and sin 75 degrees simplifies"
         }
       ]
     },
     {
       "id": "s3",
       "caption": "The R-formula: one wobble, not two",
-      "narration": "a cos x plus b sin x is really one wave: R cos(x minus alpha), where R is root(a squared plus b squared). For 3 cos x + 4 sin x that is 5 cos(x - 53 degrees) — and the max and min are suddenly obvious: 5 and minus 5.",
-      "duration_ms": 8500,
+      "narration": "A single cosine of amplitude R replaces a cos x plus b sin x. With 3-4-5, R is 5 and alpha is 53.1 degrees: the two waves merge into one, and max, min and period become obvious.",
+      "duration_ms": 10800,
       "steps": [
         {
           "at_ms": 0,
@@ -276,79 +494,462 @@
             "id": "rf",
             "kind": "latex",
             "tex": "a \\cos x + b \\sin x = R \\cos(x - \\alpha)",
-            "x": 90,
-            "y": 80,
-            "size": 42,
-            "color": "#1a1a1a"
-          }
-        },
-        {
-          "at_ms": 1100,
-          "do": "show",
-          "shape": {
-            "id": "def",
-            "kind": "latex",
-            "tex": "R = \\sqrt{a^2 + b^2}, \\quad \\tan \\alpha = \\frac{b}{a}",
-            "x": 120,
-            "y": 170,
+            "x": 80,
+            "y": 70,
             "size": 40,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 2300,
+          "at_ms": 900,
           "do": "show",
           "shape": {
-            "id": "q3",
+            "id": "def",
             "kind": "latex",
-            "tex": "3 \\cos x + 4 \\sin x = ?",
-            "x": 130,
-            "y": 270,
-            "size": 44,
-            "color": "#1a1a1a"
-          }
-        },
-        {
-          "at_ms": 3400,
-          "do": "show",
-          "shape": {
-            "id": "R5",
-            "kind": "latex",
-            "tex": "R = \\sqrt{3^2 + 4^2} = 5, \\quad \\alpha = \\tan^{-1}\\frac{4}{3} \\approx 53.1^{\\circ}",
-            "x": 120,
-            "y": 350,
+            "tex": "R = \\sqrt{a^2 + b^2}, \\quad \\tan \\alpha = b/a",
+            "x": 80,
+            "y": 150,
             "size": 36,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 4800,
+          "at_ms": 1700,
           "do": "show",
           "shape": {
-            "id": "res",
+            "id": "q3",
             "kind": "latex",
-            "tex": "3 \\cos x + 4 \\sin x = 5 \\cos(x - 53.1^{\\circ})",
-            "x": 120,
-            "y": 440,
-            "size": 40,
-            "color": "#1f7a3a"
+            "tex": "3 \\cos x + 4 \\sin x = \\, ?",
+            "x": 80,
+            "y": 230,
+            "size": 44,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2400,
+          "do": "show",
+          "shape": {
+            "id": "leg3",
+            "kind": "line",
+            "x1": 100,
+            "y1": 470,
+            "x2": 220,
+            "y2": 470,
+            "stroke": "#1f77b4",
+            "stroke_width": 5
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "leg4",
+            "kind": "line",
+            "x1": 100,
+            "y1": 470,
+            "x2": 100,
+            "y2": 350,
+            "stroke": "#2ca02c",
+            "stroke_width": 5
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "id": "lab3",
+            "kind": "text",
+            "x": 155,
+            "y": 494,
+            "size": 24,
+            "text": "3"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "lab4",
+            "kind": "text",
+            "x": 76,
+            "y": 412,
+            "size": 24,
+            "text": "4"
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "triDot",
+            "kind": "circle",
+            "cx": 100,
+            "cy": 470,
+            "r": 9,
+            "fill": "#d62728",
+            "stroke": "none"
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "triDot",
+          "to": {
+            "cx": 220,
+            "cy": 470
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4300,
+          "do": "move",
+          "target": "triDot",
+          "to": {
+            "cx": 100,
+            "cy": 350
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "R5",
+            "kind": "latex",
+            "tex": "R = \\sqrt{3^2 + 4^2} = 5, \\quad \\alpha = 53.1^{\\circ}",
+            "x": 80,
+            "y": 310,
+            "size": 36,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 6100,
+          "do": "show",
+          "shape": {
+            "id": "wx",
+            "kind": "line",
+            "x1": 590,
+            "y1": 430,
+            "x2": 910,
+            "y2": 430,
+            "stroke": "#888888",
+            "stroke_width": 1
           }
         },
         {
           "at_ms": 6200,
           "do": "show",
           "shape": {
-            "id": "max",
-            "kind": "text",
-            "text": "max value 5, min value −5 — one glance",
-            "x": 120,
-            "y": 510,
-            "size": 26,
-            "color": "#1a1a1a"
+            "id": "wy",
+            "kind": "line",
+            "x1": 600,
+            "y1": 330,
+            "x2": 600,
+            "y2": 530,
+            "stroke": "#888888",
+            "stroke_width": 1
+          }
+        },
+        {
+          "at_ms": 6500,
+          "do": "show",
+          "shape": {
+            "id": "w3",
+            "kind": "polygon",
+            "points": [
+              [
+                600,
+                400
+              ],
+              [
+                625,
+                404
+              ],
+              [
+                650,
+                415
+              ],
+              [
+                675,
+                430
+              ],
+              [
+                700,
+                445
+              ],
+              [
+                725,
+                456
+              ],
+              [
+                750,
+                460
+              ],
+              [
+                775,
+                456
+              ],
+              [
+                800,
+                445
+              ],
+              [
+                825,
+                430
+              ],
+              [
+                850,
+                415
+              ],
+              [
+                875,
+                404
+              ],
+              [
+                900,
+                400
+              ]
+            ],
+            "fill": "none",
+            "stroke": "#1f77b4",
+            "stroke_width": 3
+          }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "w4",
+            "kind": "polygon",
+            "points": [
+              [
+                600,
+                430
+              ],
+              [
+                625,
+                410
+              ],
+              [
+                650,
+                395
+              ],
+              [
+                675,
+                390
+              ],
+              [
+                700,
+                395
+              ],
+              [
+                725,
+                410
+              ],
+              [
+                750,
+                430
+              ],
+              [
+                775,
+                450
+              ],
+              [
+                800,
+                465
+              ],
+              [
+                825,
+                470
+              ],
+              [
+                850,
+                465
+              ],
+              [
+                875,
+                450
+              ],
+              [
+                900,
+                430
+              ]
+            ],
+            "fill": "none",
+            "stroke": "#2ca02c",
+            "stroke_width": 3
           }
         },
         {
           "at_ms": 7300,
+          "do": "hide",
+          "target": "w3"
+        },
+        {
+          "at_ms": 7400,
+          "do": "hide",
+          "target": "w4"
+        },
+        {
+          "at_ms": 7600,
+          "do": "show",
+          "shape": {
+            "id": "w1",
+            "kind": "polygon",
+            "points": [
+              [
+                600,
+                400
+              ],
+              [
+                625,
+                384
+              ],
+              [
+                650,
+                380
+              ],
+              [
+                675,
+                390
+              ],
+              [
+                700,
+                410
+              ]
+            ],
+            "fill": "none",
+            "stroke": "#d62728",
+            "stroke_width": 4
+          }
+        },
+        {
+          "at_ms": 7900,
+          "do": "show",
+          "shape": {
+            "id": "w2",
+            "kind": "polygon",
+            "points": [
+              [
+                700,
+                410
+              ],
+              [
+                725,
+                436
+              ],
+              [
+                750,
+                460
+              ],
+              [
+                775,
+                476
+              ],
+              [
+                800,
+                480
+              ]
+            ],
+            "fill": "none",
+            "stroke": "#d62728",
+            "stroke_width": 4
+          }
+        },
+        {
+          "at_ms": 8200,
+          "do": "show",
+          "shape": {
+            "id": "w3c",
+            "kind": "polygon",
+            "points": [
+              [
+                800,
+                480
+              ],
+              [
+                825,
+                470
+              ],
+              [
+                850,
+                450
+              ],
+              [
+                875,
+                424
+              ],
+              [
+                900,
+                400
+              ]
+            ],
+            "fill": "none",
+            "stroke": "#d62728",
+            "stroke_width": 4
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "show",
+          "shape": {
+            "id": "maxLab",
+            "kind": "text",
+            "x": 520,
+            "y": 300,
+            "size": 24,
+            "text": "max = 5"
+          }
+        },
+        {
+          "at_ms": 8700,
+          "do": "show",
+          "shape": {
+            "id": "minLab",
+            "kind": "text",
+            "x": 560,
+            "y": 532,
+            "size": 24,
+            "text": "min = -5"
+          }
+        },
+        {
+          "at_ms": 9000,
+          "do": "move",
+          "target": "maxLab",
+          "to": {
+            "x": 700,
+            "y": 352
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9100,
+          "do": "move",
+          "target": "minLab",
+          "to": {
+            "x": 830,
+            "y": 512
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "show",
+          "shape": {
+            "id": "res",
+            "kind": "latex",
+            "tex": "3 \\cos x + 4 \\sin x = 5 \\cos(x - 53.1^{\\circ})",
+            "x": 80,
+            "y": 395,
+            "size": 40,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 10300,
           "do": "caption",
           "text": "One cosine: max, min and period become obvious"
         }
@@ -357,8 +958,8 @@
     {
       "id": "s4",
       "caption": "Misconception: cos(A + B) does not split",
-      "narration": "Cosine of a sum is not the sum of cosines. Check with numbers: cos 60 degrees is 0.5, but cos 30 plus cos 30 is about 1.73. Use the real formula: cos A cos B minus sin A sin B.",
-      "duration_ms": 8500,
+      "narration": "The classic trap: cos of a sum does not split into a sum of cosines - cos 60 degrees is a half, but cos 30 plus cos 30 is root 3, nearly 1.73. The wrong bar towers over the true one: compute the sum first, then the cosine.",
+      "duration_ms": 9600,
       "steps": [
         {
           "at_ms": 0,
@@ -367,74 +968,158 @@
             "id": "wrong",
             "kind": "latex",
             "tex": "\\cos(A + B) \\neq \\cos A + \\cos B",
-            "x": 110,
-            "y": 120,
-            "size": 46,
-            "color": "#1a1a1a"
-          }
-        },
-        {
-          "at_ms": 1300,
-          "do": "show",
-          "shape": {
-            "id": "trap",
-            "kind": "text",
-            "text": "Same trap as (a+b)^n — the angle does not split.",
-            "x": 120,
-            "y": 220,
-            "size": 28,
-            "color": "#1a1a1a"
-          }
-        },
-        {
-          "at_ms": 2700,
-          "do": "show",
-          "shape": {
-            "id": "eg",
-            "kind": "latex",
-            "tex": "\\cos 60^{\\circ} = 0.5",
-            "x": 120,
-            "y": 320,
+            "x": 80,
+            "y": 100,
             "size": 44,
             "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "trap",
+            "kind": "text",
+            "x": 80,
+            "y": 190,
+            "size": 28,
+            "text": "Same trap as (a+b)^n: the angle does not split"
+          }
+        },
+        {
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "eg",
+            "kind": "latex",
+            "tex": "\\cos 60^{\\circ} = 0.5",
+            "x": 80,
+            "y": 280,
+            "size": 40,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "trueLab",
+            "kind": "text",
+            "x": 596,
+            "y": 290,
+            "size": 24,
+            "text": "true 0.5"
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "show",
+          "shape": {
+            "id": "truebar",
+            "kind": "rect",
+            "x": 620,
+            "y": 420,
+            "w": 60,
+            "h": 0,
+            "fill": "#2ca02c",
+            "stroke": "none"
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "target": "truebar",
+          "to": {
+            "y": 320,
+            "h": 100
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3900,
           "do": "show",
           "shape": {
             "id": "bad",
             "kind": "latex",
             "tex": "\\cos 30^{\\circ} + \\cos 30^{\\circ} = \\sqrt{3} \\approx 1.73",
-            "x": 120,
-            "y": 400,
-            "size": 40,
-            "color": "#b00020"
+            "x": 80,
+            "y": 360,
+            "size": 38,
+            "color": "#1a1a1a"
           }
         },
         {
-          "at_ms": 5300,
+          "at_ms": 4700,
           "do": "show",
           "shape": {
-            "id": "fix",
-            "kind": "latex",
-            "tex": "0.5 \\neq 1.73 \\;\\Rightarrow\\; \\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B",
-            "x": 110,
-            "y": 480,
-            "size": 34,
-            "color": "#1f7a3a"
+            "id": "badLab",
+            "kind": "text",
+            "x": 790,
+            "y": 440,
+            "size": 24,
+            "text": "wrong sum"
           }
         },
         {
-          "at_ms": 6200,
-          "do": "emphasize",
-          "target": "bad",
-          "dur_ms": 900
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "wrongbar",
+            "kind": "rect",
+            "x": 710,
+            "y": 420,
+            "w": 60,
+            "h": 0,
+            "fill": "#d62728",
+            "stroke": "none"
+          }
         },
         {
-          "at_ms": 7300,
+          "at_ms": 5000,
+          "do": "move",
+          "target": "wrongbar",
+          "to": {
+            "y": 74,
+            "h": 346
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 6400,
+          "do": "show",
+          "shape": {
+            "id": "neq",
+            "kind": "latex",
+            "tex": "0.5 \\neq 1.73 \\;\\Rightarrow\\; \\text{split fails}",
+            "x": 80,
+            "y": 450,
+            "size": 36,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 7500,
+          "do": "move",
+          "target": "wrongbar",
+          "to": {
+            "y": 420,
+            "h": 0
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 8500,
+          "do": "move",
+          "target": "wrongbar",
+          "to": {
+            "x": 880
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9200,
           "do": "caption",
-          "text": "Compound angles expand with the formula, never split"
+          "text": "Splitting cos(A+B) overshoots - compute the sum first"
         }
       ]
     }
