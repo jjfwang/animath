@@ -16,6 +16,8 @@
   var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon', 'latex', 'sector'];
   var MOVEABLE = ['text', 'rect', 'circle', 'line', 'arrow', 'latex', 'polygon'];
   var HEX = /^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/;
+  // Dash pattern: one or more numbers separated by whitespace (e.g. "6 4").
+  var DASH = /^\d+(\.\d+)?(\s+\d+(\.\d+)?)*$/;
 
   function isNum(x) { return typeof x === 'number' && isFinite(x); }
 
@@ -50,7 +52,15 @@
       case 'rect': num('x'); num('y'); num('w'); num('h'); break;
       case 'circle': num('cx'); num('cy'); num('r'); break;
       case 'line':
-      case 'arrow': num('x1'); num('y1'); num('x2'); num('y2'); break;
+      case 'arrow':
+        num('x1'); num('y1'); num('x2'); num('y2');
+        // dash is optional; absent or empty string = solid.
+        if (shape.dash !== undefined && shape.dash !== '') {
+          if (typeof shape.dash !== 'string' || !DASH.test(shape.dash.trim())) {
+            errors.push(p + '.dash: must be a string of space-separated numbers like "6 4"');
+          }
+        }
+        break;
       case 'polygon':
         if (!Array.isArray(shape.points) || shape.points.length < 3 ||
             !shape.points.every(function (pt) { return Array.isArray(pt) && pt.length === 2 && isNum(pt[0]) && isNum(pt[1]); })) {

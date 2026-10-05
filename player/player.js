@@ -224,6 +224,16 @@
     return d + ' Z';
   }
 
+  // Dash style for line and arrow (issue #156): absent, null, or empty =
+  // solid, so return undefined and el() sets no stroke-dasharray attribute;
+  // otherwise the pattern string passes through to SVG verbatim. For arrows
+  // the dash applies to the shaft only — the head stays solid. Factored out
+  // so it can be unit-tested without a DOM.
+  function dashAttr(shape) {
+    if (shape.dash === undefined || shape.dash === null || shape.dash === '') return undefined;
+    return shape.dash;
+  }
+
   function drawShape(shape) {
     var n;
     switch (shape.kind) {
@@ -273,7 +283,8 @@
           x1: shape.x1, y1: shape.y1, x2: shape.x2, y2: shape.y2,
           stroke: shape.stroke || '#1a1a1a',
           'stroke-width': shape.width || 3,
-          'stroke-linecap': 'round'
+          'stroke-linecap': 'round',
+          'stroke-dasharray': dashAttr(shape)
         });
         break;
       case 'arrow': {
@@ -282,7 +293,8 @@
         var w = shape.width || 3;
         n.appendChild(el('line', {
           x1: shape.x1, y1: shape.y1, x2: shape.x2, y2: shape.y2,
-          stroke: stroke, 'stroke-width': w, 'stroke-linecap': 'round'
+          stroke: stroke, 'stroke-width': w, 'stroke-linecap': 'round',
+          'stroke-dasharray': dashAttr(shape)
         }));
         var ang = Math.atan2(shape.y2 - shape.y1, shape.x2 - shape.x1);
         var s = 10 + w * 2;
@@ -754,7 +766,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -354,3 +354,20 @@ test('sectorPath accepts negative angles and trims float noise', () => {
   var d = player.sectorPath({ cx: 200, cy: 200, r: 80, startAngle: -90, endAngle: 45 });
   assert.equal(d, 'M200,200 L200,120 A80,80 0 0 1 256.569,256.569 Z');
 });
+
+/* Dash style for line and arrow (issue #156): pure dashAttr helper.
+ * Absent/null/empty = solid (undefined, so el() sets no stroke-dasharray
+ * attribute and existing solid lines render byte-identical); otherwise the
+ * pattern string passes through to stroke-dasharray verbatim.
+ */
+test('dashAttr returns undefined for absent, null, or empty dash', () => {
+  assert.equal(typeof player.dashAttr, 'function', 'dashAttr must be exported on the player API');
+  assert.equal(player.dashAttr({ kind: 'line', x1: 0, y1: 0, x2: 10, y2: 0 }), undefined);
+  assert.equal(player.dashAttr({ kind: 'arrow', x1: 0, y1: 0, x2: 10, y2: 0, dash: null }), undefined);
+  assert.equal(player.dashAttr({ kind: 'line', x1: 0, y1: 0, x2: 10, y2: 0, dash: '' }), undefined);
+});
+
+test('dashAttr passes the dash pattern through verbatim', () => {
+  assert.equal(player.dashAttr({ kind: 'line', dash: '6 4' }), '6 4');
+  assert.equal(player.dashAttr({ kind: 'arrow', dash: '6.5 4 2 4' }), '6.5 4 2 4');
+});
