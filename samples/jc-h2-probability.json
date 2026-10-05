@@ -13,7 +13,7 @@
     {
       "id": "s1",
       "caption": "A probability table must add to 1",
-      "narration": "A discrete random variable lists every possible outcome with its probability. Here X can be 0, 1, or 2 with probabilities 0.2, 0.5, and 0.3. Those three probabilities must sum to exactly 1, because something has to happen.",
+      "narration": "Every discrete distribution lists all its outcomes with their probabilities: here X is 0, 1, or 2 with probabilities 0.2, 0.5, and 0.3. Watch the three chips travel into the sum \u2014 0.2 plus 0.5 plus 0.3 makes exactly 1, because something has to happen.",
       "duration_ms": 8000,
       "steps": [
         {
@@ -54,7 +54,8 @@
             "x": 150,
             "y": 220,
             "text": "x:            0           1           2",
-            "size": 30
+            "size": 30,
+            "fill": "#1a1a1a"
           }
         },
         {
@@ -66,7 +67,8 @@
             "x": 150,
             "y": 320,
             "text": "P(X = x):   0.2        0.5        0.3",
-            "size": 30
+            "size": 30,
+            "fill": "#1a1a1a"
           }
         },
         {
@@ -77,27 +79,175 @@
             "kind": "latex",
             "x": 150,
             "y": 430,
-            "tex": "\\sum P(X = x) = 1",
+            "tex": "\\\\sum P(X = x)",
             "size": 36
           }
         },
         {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "chip0",
+            "kind": "circle",
+            "cx": 240,
+            "cy": 500,
+            "r": 24,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "show",
+          "shape": {
+            "id": "chip0t",
+            "kind": "text",
+            "x": 218,
+            "y": 510,
+            "text": "0.2",
+            "size": 28,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "chip1",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 500,
+            "r": 24,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "chip1t",
+            "kind": "text",
+            "x": 458,
+            "y": 510,
+            "text": "0.5",
+            "size": 28,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
           "at_ms": 5000,
-          "do": "emphasize",
-          "target": "sumEq",
-          "dur_ms": 900
+          "do": "show",
+          "shape": {
+            "id": "chip2",
+            "kind": "circle",
+            "cx": 720,
+            "cy": 500,
+            "r": 24,
+            "fill": "#cfe8d4",
+            "stroke": "#1f7a3a",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "chip2t",
+            "kind": "text",
+            "x": 698,
+            "y": 510,
+            "text": "0.3",
+            "size": 28,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "chip0",
+          "to": {
+            "cx": 660,
+            "cy": 432
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "chip0t",
+          "to": {
+            "x": 638,
+            "y": 442
+          },
+          "dur_ms": 600
         },
         {
           "at_ms": 6000,
+          "do": "move",
+          "target": "chip1",
+          "to": {
+            "cx": 716,
+            "cy": 432
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "chip1t",
+          "to": {
+            "x": 694,
+            "y": 442
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 6600,
+          "do": "move",
+          "target": "chip2",
+          "to": {
+            "cx": 772,
+            "cy": 432
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 6600,
+          "do": "move",
+          "target": "chip2t",
+          "to": {
+            "x": 750,
+            "y": 442
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "verdict",
+            "kind": "text",
+            "x": 830,
+            "y": 442,
+            "text": "= 1",
+            "size": 36,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 7700,
           "do": "caption",
-          "text": "probabilities must sum to 1 — check every table first"
+          "text": "probabilities must sum to 1 \u2014 check every table first"
         }
       ]
     },
     {
       "id": "s2",
       "caption": "Expectation: the balance point",
-      "narration": "The expectation of X is the weighted average of its values, which is where the whole distribution would balance on a pivot. Zero times 0.2 plus 1 times 0.5 plus 2 times 0.3 gives 1.1, so the fulcrum sits at 1.1.",
+      "narration": "Expectation is the weighted average of the values \u2014 the point where the whole distribution would balance on a pivot. The probe slides along the axis and settles at 1.1, so the fulcrum rises exactly there.",
       "duration_ms": 9000,
       "steps": [
         {
@@ -115,7 +265,7 @@
           }
         },
         {
-          "at_ms": 1000,
+          "at_ms": 800,
           "do": "show",
           "shape": {
             "id": "b0",
@@ -130,7 +280,7 @@
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 1400,
           "do": "show",
           "shape": {
             "id": "b1",
@@ -145,7 +295,7 @@
           }
         },
         {
-          "at_ms": 3000,
+          "at_ms": 2000,
           "do": "show",
           "shape": {
             "id": "b2",
@@ -160,7 +310,53 @@
           }
         },
         {
-          "at_ms": 4200,
+          "at_ms": 2800,
+          "do": "show",
+          "shape": {
+            "id": "expEq",
+            "kind": "latex",
+            "x": 120,
+            "y": 100,
+            "tex": "E(X) = 0(0.2) + 1(0.5) + 2(0.3) = 1.1",
+            "size": 36
+          }
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "probe",
+            "kind": "circle",
+            "cx": 200,
+            "cy": 440,
+            "r": 10,
+            "fill": "#f3c6cc",
+            "stroke": "#b00020",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4000,
+          "do": "move",
+          "target": "probe",
+          "to": {
+            "cx": 440,
+            "cy": 440
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 5200,
+          "do": "move",
+          "target": "probe",
+          "to": {
+            "cx": 464,
+            "cy": 440
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 6200,
           "do": "show",
           "shape": {
             "id": "fulcrum",
@@ -170,117 +366,283 @@
             "fill": "#f3c6cc",
             "points": [
               [
+                444,
+                440
+              ],
+              [
                 484,
                 440
               ],
               [
-                524,
-                440
-              ],
-              [
-                504,
+                464,
                 476
               ]
             ]
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 7000,
           "do": "show",
           "shape": {
-            "id": "expEq",
-            "kind": "latex",
-            "x": 120,
-            "y": 110,
-            "tex": "E(X) = 0(0.2) + 1(0.5) + 2(0.3) = 1.1",
-            "size": 36
+            "id": "fulcLab",
+            "kind": "text",
+            "x": 520,
+            "y": 478,
+            "text": "fulcrum: E(X) = 1.1",
+            "size": 26,
+            "fill": "#1a1a1a"
           }
         },
         {
-          "at_ms": 6800,
+          "at_ms": 7400,
           "do": "emphasize",
-          "target": "fulcrum",
+          "target": "probe",
           "dur_ms": 900
         },
         {
-          "at_ms": 7600,
+          "at_ms": 8000,
           "do": "caption",
-          "text": "E(X) = 1.1 — the whole distribution balances there"
+          "text": "E(X) = 1.1 \u2014 the whole distribution balances there"
         }
       ]
     },
     {
       "id": "s3",
       "caption": "Binomial: n = 10, p = 0.3",
-      "narration": "For a binomial variable with 10 trials and success probability 0.3, the chance of exactly 3 successes is 10 choose 3 times 0.3 cubed times 0.7 to the 7. There are 120 ways to pick which 3 trials succeed, giving about 0.267.",
+      "narration": "Exactly 3 successes in 10 trials means choosing which 3 trials succeed: 10 choose 3 is 120 ways. Each path has probability 0.3 cubed times 0.7 to the 7, so the total bar grows to about 0.267.",
       "duration_ms": 9000,
       "steps": [
         {
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "probEq",
-            "kind": "latex",
-            "x": 120,
-            "y": 150,
-            "tex": "P(X = 3) = \\binom{10}{3} (0.3)^{3} (0.7)^{7}",
-            "size": 40
+            "id": "axis",
+            "kind": "line",
+            "stroke": "#1a1a1a",
+            "width": 2,
+            "x1": 120,
+            "y1": 440,
+            "x2": 840,
+            "y2": 440
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "zLab",
+            "kind": "text",
+            "x": 116,
+            "y": 472,
+            "text": "0",
+            "size": 26,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "oLab",
+            "kind": "text",
+            "x": 832,
+            "y": 472,
+            "text": "1",
+            "size": 26,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "slot0",
+            "kind": "rect",
+            "x": 200,
+            "y": 100,
+            "w": 60,
+            "h": 60,
+            "fill": "none",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "slot1",
+            "kind": "rect",
+            "x": 300,
+            "y": 100,
+            "w": 60,
+            "h": 60,
+            "fill": "none",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "slot2",
+            "kind": "rect",
+            "x": 400,
+            "y": 100,
+            "w": 60,
+            "h": 60,
+            "fill": "none",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "d0",
+            "kind": "circle",
+            "cx": 700,
+            "cy": 130,
+            "r": 16,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "d1",
+            "kind": "circle",
+            "cx": 780,
+            "cy": 130,
+            "r": 16,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "d2",
+            "kind": "circle",
+            "cx": 860,
+            "cy": 130,
+            "r": 16,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "pickLab",
+            "kind": "text",
+            "x": 150,
+            "y": 64,
+            "text": "which 3 trials succeed?",
+            "size": 26,
+            "fill": "#1a1a1a"
           }
         },
         {
           "at_ms": 2000,
-          "do": "show",
-          "shape": {
-            "id": "cVal",
-            "kind": "text",
-            "x": 120,
-            "y": 250,
-            "text": "C(10, 3) = 120 ways to choose the 3 successes",
-            "size": 30
-          }
+          "do": "move",
+          "target": "d0",
+          "to": {
+            "cx": 230,
+            "cy": 130
+          },
+          "dur_ms": 700
         },
         {
-          "at_ms": 3800,
+          "at_ms": 2800,
+          "do": "move",
+          "target": "d1",
+          "to": {
+            "cx": 330,
+            "cy": 130
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 3600,
+          "do": "move",
+          "target": "d2",
+          "to": {
+            "cx": 430,
+            "cy": 130
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 4600,
           "do": "show",
           "shape": {
-            "id": "val",
-            "kind": "text",
+            "id": "probEq",
+            "kind": "latex",
             "x": 120,
-            "y": 340,
-            "text": "≈ 120 × 0.027 × 0.0823 ≈ 0.267",
-            "size": 34
+            "y": 220,
+            "tex": "P(X = 3) = \\\\binom{10}{3} (0.3)^{3} (0.7)^{7}",
+            "size": 36
           }
         },
         {
           "at_ms": 5400,
           "do": "show",
           "shape": {
-            "id": "note",
-            "kind": "text",
-            "x": 100,
-            "y": 430,
-            "text": "each success path has the same probability — multiply, don't add",
-            "size": 22
+            "id": "bar",
+            "kind": "rect",
+            "x": 120,
+            "y": 380,
+            "w": 10,
+            "h": 40,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
           }
         },
         {
-          "at_ms": 6600,
-          "do": "emphasize",
-          "target": "val",
-          "dur_ms": 900
+          "at_ms": 5800,
+          "do": "move",
+          "target": "bar",
+          "to": {
+            "w": 192
+          },
+          "dur_ms": 1200
         },
         {
-          "at_ms": 7600,
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "val",
+            "kind": "text",
+            "x": 336,
+            "y": 398,
+            "text": "\u2248 0.267",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 8100,
           "do": "caption",
-          "text": "≈ 0.267 — about a 1-in-4 chance of exactly 3"
+          "text": "\u2248 0.267 \u2014 about a 1-in-4 chance of exactly 3"
         }
       ]
     },
     {
       "id": "s4",
-      "caption": "The 68–95–99.7 rule",
-      "narration": "A normal distribution is fully described by its mean and standard deviation. About 68 percent of the area lies within one standard deviation of the mean, 95 within two, and 99.7 within three.",
-      "duration_ms": 9000,
+      "caption": "The 68\u201395\u201399.7 rule",
+      "narration": "The normal curve is pinned down by its mean and standard deviation. Watch the shaded band widen from one sigma to three \u2014 covering about 68, then 95, then 99.7 percent of the area \u2014 while the test marker slides into the tail and the critical region shades and clears.",
+      "duration_ms": 10000,
       "steps": [
         {
           "at_ms": 0,
@@ -332,7 +694,7 @@
           }
         },
         {
-          "at_ms": 1200,
+          "at_ms": 1000,
           "do": "show",
           "shape": {
             "id": "meanL",
@@ -346,7 +708,20 @@
           }
         },
         {
-          "at_ms": 2400,
+          "at_ms": 2000,
+          "do": "show",
+          "shape": {
+            "id": "rule",
+            "kind": "text",
+            "x": 150,
+            "y": 90,
+            "text": "\u03bc \u00b1 \u03c3: 68%     \u03bc \u00b1 2\u03c3: 95%     \u03bc \u00b1 3\u03c3: 99.7%",
+            "size": 26,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3000,
           "do": "show",
           "shape": {
             "id": "band",
@@ -362,45 +737,89 @@
         },
         {
           "at_ms": 3800,
-          "do": "show",
-          "shape": {
-            "id": "rule",
-            "kind": "text",
-            "x": 150,
-            "y": 90,
-            "text": "μ ± σ: 68%     μ ± 2σ: 95%     μ ± 3σ: 99.7%",
-            "size": 28
-          }
+          "do": "move",
+          "target": "band",
+          "to": {
+            "x": 300,
+            "w": 360
+          },
+          "dur_ms": 800
         },
         {
-          "at_ms": 5400,
+          "at_ms": 5000,
+          "do": "move",
+          "target": "band",
+          "to": {
+            "x": 210,
+            "w": 540
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 6200,
           "do": "show",
           "shape": {
-            "id": "densEq",
-            "kind": "latex",
-            "x": 140,
-            "y": 505,
-            "tex": "f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} e^{-(x-\\mu)^{2}/2\\sigma^{2}}",
-            "size": 28
+            "id": "marker",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 3,
+            "x1": 700,
+            "y1": 160,
+            "x2": 700,
+            "y2": 440
           }
         },
         {
           "at_ms": 6800,
-          "do": "emphasize",
-          "target": "rule",
-          "dur_ms": 900
+          "do": "move",
+          "target": "marker",
+          "to": {
+            "x1": 770,
+            "x2": 770
+          },
+          "dur_ms": 700
         },
         {
-          "at_ms": 7600,
+          "at_ms": 7800,
+          "do": "show",
+          "shape": {
+            "id": "tailR",
+            "kind": "rect",
+            "x": 740,
+            "y": 360,
+            "w": 90,
+            "h": 90,
+            "fill": "#f3c6cc",
+            "stroke": "#b00020",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 8600,
+          "do": "move",
+          "target": "marker",
+          "to": {
+            "x1": 700,
+            "x2": 700
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 8800,
+          "do": "hide",
+          "target": "tailR"
+        },
+        {
+          "at_ms": 9400,
           "do": "caption",
-          "text": "shade one σ: about two-thirds of the area"
+          "text": "shade one \u03c3: about two-thirds of the area"
         }
       ]
     },
     {
       "id": "s5",
       "caption": "Misconception: the coin has no memory",
-      "narration": "After five heads in a row, it feels like tails is due. It is not. Each toss is independent, so the probability of heads on the next toss is still one half. The six-heads run itself has probability 1 over 64, which is small — but the coin never remembers.",
+      "narration": "Five heads in a row feels like tails is due \u2014 it is not. Each toss is independent, so watch the sixth coin travel in and land: the memory needle never moves, and the probability of heads stays one half.",
       "duration_ms": 9000,
       "steps": [
         {
@@ -412,67 +831,246 @@
             "x": 120,
             "y": 110,
             "text": "Misconception:",
-            "size": 36,
-            "color": "#b00020"
-          }
-        },
-        {
-          "at_ms": 1200,
-          "do": "show",
-          "shape": {
-            "id": "tosses",
-            "kind": "text",
-            "x": 120,
-            "y": 200,
-            "text": "H H H H H — heads five times running",
-            "size": 36
-          }
-        },
-        {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "fallacy",
-            "kind": "text",
-            "x": 120,
-            "y": 290,
-            "text": "\"tails is due!\"",
             "size": 32,
-            "color": "#b00020"
+            "fill": "#1a1a1a"
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "circle",
+            "cx": 200,
+            "cy": 220,
+            "r": 24,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "h1",
+            "kind": "text",
+            "x": 189,
+            "y": 231,
+            "text": "H",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "circle",
+            "cx": 290,
+            "cy": 220,
+            "r": 24,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "h2",
+            "kind": "text",
+            "x": 279,
+            "y": 231,
+            "text": "H",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "circle",
+            "cx": 380,
+            "cy": 220,
+            "r": 24,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "h3",
+            "kind": "text",
+            "x": 369,
+            "y": 231,
+            "text": "H",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "c4",
+            "kind": "circle",
+            "cx": 470,
+            "cy": 220,
+            "r": 24,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "h4",
+            "kind": "text",
+            "x": 459,
+            "y": 231,
+            "text": "H",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "id": "c5",
+            "kind": "circle",
+            "cx": 560,
+            "cy": 220,
+            "r": 24,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 3300,
+          "do": "show",
+          "shape": {
+            "id": "h5",
+            "kind": "text",
+            "x": 549,
+            "y": 231,
+            "text": "H",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "needle",
+            "kind": "line",
+            "stroke": "#b00020",
+            "width": 3,
+            "x1": 600,
+            "y1": 340,
+            "x2": 820,
+            "y2": 340
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "nLab",
+            "kind": "text",
+            "x": 600,
+            "y": 310,
+            "text": "needle fixed \u2014 P(H) = 1/2",
+            "size": 24,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "c6",
+            "kind": "circle",
+            "cx": 880,
+            "cy": 120,
+            "r": 24,
+            "fill": "#dbeafe",
+            "stroke": "#1a56db",
+            "width": 2
+          }
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "h6",
+            "kind": "text",
+            "x": 869,
+            "y": 131,
+            "text": "H",
+            "size": 30,
+            "fill": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "c6",
+          "to": {
+            "cx": 650,
+            "cy": 220
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "h6",
+          "to": {
+            "x": 639,
+            "y": 231
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 6800,
           "do": "show",
           "shape": {
             "id": "truth",
             "kind": "text",
             "x": 120,
-            "y": 380,
-            "text": "no — P(H) = ½ on the next toss, every toss",
-            "size": 30
+            "y": 420,
+            "text": "no \u2014 P(H) = 1/2 on the next toss, every time",
+            "size": 30,
+            "fill": "#1a1a1a"
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 7400,
           "do": "show",
           "shape": {
             "id": "sixEq",
             "kind": "latex",
             "x": 120,
             "y": 470,
-            "tex": "P(HHHHHH) = \\left(\\frac{1}{2}\\right)^{6} = \\frac{1}{64}",
+            "tex": "P(HHHHHH) = \\\\left(\\\\frac{1}{2}\\\\right)^{6} = \\\\frac{1}{64}",
             "size": 36
           }
         },
         {
-          "at_ms": 6800,
-          "do": "emphasize",
-          "target": "truth",
-          "dur_ms": 900
-        },
-        {
-          "at_ms": 7600,
+          "at_ms": 8100,
           "do": "caption",
           "text": "independence: the coin never remembers"
         }
