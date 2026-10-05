@@ -627,6 +627,7 @@
             "cx": 250,
             "cy": 330,
             "fill": "#9aa0a6",
+            "explain": "Slow molecule — even hot gas has slow ones; the spread stays wide.",
             "id": "slow1",
             "kind": "circle",
             "r": 12
@@ -639,6 +640,7 @@
             "cx": 340,
             "cy": 330,
             "fill": "#9aa0a6",
+            "explain": "Another slow molecule — heating raises the average, not every molecule.",
             "id": "slow2",
             "kind": "circle",
             "r": 12
@@ -651,6 +653,7 @@
             "cx": 620,
             "cy": 330,
             "fill": "#b00020",
+            "explain": "Fast molecule — heating shifts the whole spread of speeds upward.",
             "id": "fast1",
             "kind": "circle",
             "r": 12
@@ -663,6 +666,7 @@
             "cx": 720,
             "cy": 330,
             "fill": "#b00020",
+            "explain": "Another fast molecule — hotter means a higher average speed.",
             "id": "fast2",
             "kind": "circle",
             "r": 12
@@ -672,6 +676,7 @@
           "at_ms": 4600,
           "do": "show",
           "shape": {
+            "explain": "The takeaway: heat shifts the whole spread up, but slow molecules remain.",
             "id": "distNote",
             "kind": "text",
             "size": 26,

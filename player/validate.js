@@ -94,6 +94,12 @@
         num('startAngle'); num('endAngle');
         break;
     }
+    // "Explain me this" tooltip text (issue #173): any shape kind may
+    // carry it; it must be a string when present. The player shows the
+    // tooltip; empty or whitespace-only strings are inert.
+    if (shape.explain !== undefined && typeof shape.explain !== 'string') {
+      errors.push(p + '.explain: must be a string when present');
+    }
     ['fill', 'stroke', 'color'].forEach(function (f) {
       if (shape[f] !== undefined && (typeof shape[f] !== 'string' ||
           !(HEX.test(shape[f]) || shape[f] === 'none'))) {

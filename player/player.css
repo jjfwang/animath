@@ -98,6 +98,30 @@
     min-height: 44px;
   }
 }
+/* Explain-me-this tooltips (issue #173): one absolutely-positioned div
+ * per player, positioned by JS near the hovered/tapped/focused shape.
+ * pointer-events: none so it never intercepts clicks or blocks the
+ * controls below the stage. Shapes carrying explain text are keyboard-
+ * focusable (tabindex wired in player.js); the focus ring below keeps the
+ * current tooltip target visible for keyboard users. */
+.ap-tooltip {
+  position: absolute;
+  display: none;
+  max-width: 240px;
+  padding: 8px 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #fdfcf8;
+  background: rgba(26, 26, 26, 0.94);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.ap-stage svg [data-shape-id]:focus {
+  outline: 2px solid #2b5cb8;
+  outline-offset: 2px;
+}
 .ap-filmstrip {
   display: flex;
   gap: 6px;
@@ -189,5 +213,16 @@
     border-color: #8a4a4a;
     background: #2b1a1a;
     color: #f0b0a8;
+  }
+  /* Tooltip recolor for dark mode (issue #173): light-on-dark tooltip
+   * inverted so it stays readable on the dark stage; the shape focus
+   * ring keeps the accent relationship. */
+  .ap-tooltip {
+    color: #ece9e0;
+    background: rgba(47, 44, 33, 0.96);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .ap-stage svg [data-shape-id]:focus {
+    outline-color: #89abff;
   }
 }

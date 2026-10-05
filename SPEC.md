@@ -78,6 +78,15 @@ enough. No text-only scenes.
 
 Every shape has a unique `id` within its scene.
 
+- `explain` (optional, all kinds): a plain-text "explain me this" sentence
+  for the shape. The player shows it as a tooltip when the viewer hovers
+  over, taps, or keyboard-focuses the shape; shapes without `explain` stay
+  inert (only shapes that carry it become hover/focus targets). Authoring
+  guidance: write it for a student staring at that one part — name the
+  part, state what it means in this scene, one short sentence, plain text
+  (no markdown, no LaTeX). Key chart/diagram parts should carry one;
+  decorative shapes and captions should not.
+
 - `text`: `{id, kind:"text", x, y, text, size?, color?, align?}` —
   `align`: `"start"` (default) | `"middle"` | `"end"`. `size` in px, default 28.
 - `latex`: `{id, kind:"latex", x, y, tex, size?, color?}` — math rendered
