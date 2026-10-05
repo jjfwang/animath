@@ -20,6 +20,7 @@ function makeItems() {
 
 test('UMD shape: exports api and registers the browser global', () => {
   assert.equal(typeof AnimathGallery.filterSamples, 'function');
+  assert.equal(typeof AnimathGallery.formatMeta, 'function');
   assert.equal(AnimathGallery.version, '0.1');
   assert.equal(globalThis.AnimathGallery, AnimathGallery);
 });
@@ -126,4 +127,47 @@ test('items with missing fields do not crash', () => {
   assert.equal(got.length, 1);
   const leveled = AnimathGallery.filterSamples(items, { level: 'primary' });
   assert.deepEqual(leveled, []);
+});
+
+// formatMeta: card meta line for a loaded spec — level · subject · topic ·
+// N scenes · Ms. Pure and DOM-free; the gallery.html call site is
+// browser-only and verified by reading it.
+function makeSpec() {
+  return {
+    level: 'Secondary',
+    subject: 'Chemistry',
+    topic: 'acids',
+    scenes: [
+      { duration_ms: 8000 }, { duration_ms: 9000 }, { duration_ms: 7000 },
+      { duration_ms: 8000 }, { duration_ms: 10000 }
+    ]
+  };
+}
+
+test('formatMeta shows level, subject, topic, scene count and runtime', () => {
+  assert.equal(AnimathGallery.formatMeta(makeSpec()), 'Secondary · Chemistry · acids · 5 scenes · 42s');
+});
+
+test('formatMeta rounds runtime to whole seconds', () => {
+  const spec = makeSpec();
+  spec.scenes = [{ duration_ms: 7500 }, { duration_ms: 7600 }]; // 15.1s
+  assert.equal(AnimathGallery.formatMeta(spec), 'Secondary · Chemistry · acids · 2 scenes · 15s');
+});
+
+test('formatMeta singular scene', () => {
+  const spec = makeSpec();
+  spec.scenes = [{ duration_ms: 20000 }];
+  assert.equal(AnimathGallery.formatMeta(spec), 'Secondary · Chemistry · acids · 1 scene · 20s');
+});
+
+test('formatMeta omits scene count and runtime when scenes are absent', () => {
+  const spec = { level: 'Secondary', subject: 'Chemistry', topic: 'acids' };
+  assert.equal(AnimathGallery.formatMeta(spec), 'Secondary · Chemistry · acids');
+});
+
+test('formatMeta tolerates missing or partial fields', () => {
+  assert.equal(AnimathGallery.formatMeta({}), '');
+  assert.equal(AnimathGallery.formatMeta(), '');
+  assert.equal(AnimathGallery.formatMeta({ level: 'primary', scenes: [{ duration_ms: 5000 }, {}] }),
+    'primary · 2 scenes · 5s');
 });

@@ -39,8 +39,32 @@
     return out;
   }
 
+  // Card meta line for a loaded animation spec:
+  //   "level · subject · topic · N scenes · Ms"
+  // Scene count comes from spec.scenes; runtime is the sum of scene
+  // duration_ms, rounded to whole seconds. Pure and DOM-free so Node
+  // tests can cover it. Guarded against missing fields: specs without
+  // scenes contribute only level/subject/topic, non-numeric duration_ms
+  // counts as 0.
+  function formatMeta(spec) {
+    spec = spec || {};
+    var parts = [spec.level, spec.subject, spec.topic].filter(Boolean);
+    var scenes = Array.isArray(spec.scenes) ? spec.scenes : [];
+    if (scenes.length) {
+      parts.push(scenes.length + (scenes.length === 1 ? ' scene' : ' scenes'));
+      var totalMs = 0;
+      for (var i = 0; i < scenes.length; i++) {
+        var d = Number(scenes[i] && scenes[i].duration_ms);
+        if (d > 0) totalMs += d;
+      }
+      parts.push(Math.round(totalMs / 1000) + 's');
+    }
+    return parts.join(' · ');
+  }
+
   var api = {
     filterSamples: filterSamples,
+    formatMeta: formatMeta,
     version: '0.1'
   };
   global.AnimathGallery = api;
