@@ -819,3 +819,61 @@ test('controlButtons is exported alongside the other pure helpers', () => {
   const player = require('../player/player.js');
   assert.equal(typeof player.controlButtons, 'function');
 });
+
+test('latexFit keeps the natural size when the equation fits the stage', () => {
+  const player = require('../player/player.js');
+  assert.deepEqual(player.latexFit(320.4, 58.1, 860), { width: 321, height: 59, scale: 1 });
+});
+
+test('latexFit scales the equation down when it would overflow the stage', () => {
+  const player = require('../player/player.js');
+  const fit = player.latexFit(1200, 60, 860);
+  assert.equal(fit.width, 860);
+  assert.equal(fit.height, 43, 'ceil(60 * 860/1200)');
+  assert.ok(Math.abs(fit.scale - 860 / 1200) < 1e-9, 'scale factor must be avail/width');
+});
+
+test('latexFit clamps degenerate measurements to a 1px box', () => {
+  const player = require('../player/player.js');
+  assert.deepEqual(player.latexFit(0, -5, 0), { width: 1, height: 1, scale: 1 });
+  assert.deepEqual(player.latexFit(860, 40, 860), { width: 860, height: 40, scale: 1 }, 'exact fit keeps scale 1');
+});
+
+test('fitLatex sizes the foreignObject to the measured equation when it fits', () => {
+  const player = require('../player/player.js');
+  const attrs = {};
+  const node = {
+    firstChild: { getBoundingClientRect: () => ({ width: 320.4, height: 58.1 }), style: {} },
+    setAttribute: (k, v) => { attrs[k] = v; }
+  };
+  player.fitLatex(node, 860);
+  assert.equal(attrs.width, 321);
+  assert.equal(attrs.height, 59);
+  assert.equal(node.firstChild.style.transform, undefined, 'no scale transform when the equation fits');
+});
+
+test('fitLatex scales the equation down to the available width when it overflows', () => {
+  const player = require('../player/player.js');
+  const attrs = {};
+  const div = { getBoundingClientRect: () => ({ width: 1200, height: 60 }), style: {} };
+  const node = { firstChild: div, setAttribute: (k, v) => { attrs[k] = v; } };
+  player.fitLatex(node, 860);
+  assert.equal(attrs.width, 860);
+  assert.equal(attrs.height, 43);
+  assert.ok(div.style.transform.startsWith('scale('), 'equation must be scaled, not clipped');
+  assert.equal(div.style.transformOrigin, 'left top', 'scale must anchor at the shape x/y');
+});
+
+test('fitLatex no-ops without a measurable equation div', () => {
+  const player = require('../player/player.js');
+  const boom = () => { throw new Error('setAttribute must not run without a measured div'); };
+  player.fitLatex(null, 860);
+  player.fitLatex({ firstChild: null, setAttribute: boom }, 860);
+  player.fitLatex({ firstChild: {}, setAttribute: boom }, 860);
+});
+
+test('latexFit and fitLatex are exported alongside the other pure helpers', () => {
+  const player = require('../player/player.js');
+  assert.equal(typeof player.latexFit, 'function');
+  assert.equal(typeof player.fitLatex, 'function');
+});

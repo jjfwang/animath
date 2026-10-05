@@ -66,6 +66,39 @@
       .replace(/\\([a-zA-Z]+)/g, '$1');
   }
 
+  // Pure sizing math for the latex foreignObject box: given the measured
+  // content size (CSS px) and the width available on the stage, returns the
+  // foreignObject width/height plus the inner scale factor. The equation
+  // keeps its natural size when it fits, and scales down (never up) when it
+  // would overflow. DOM-free so Node tests can cover every line.
+  function latexFit(contentW, contentH, availW) {
+    var w = Math.max(1, Math.ceil(contentW));
+    var h = Math.max(1, Math.ceil(contentH));
+    var avail = Math.max(1, Math.ceil(availW));
+    if (w <= avail) return { width: w, height: h, scale: 1 };
+    var s = avail / w;
+    return { width: avail, height: Math.max(1, Math.ceil(h * s)), scale: s };
+  }
+
+  // Content-fits a laid-out latex foreignObject: measures the rendered
+  // equation, sizes the box to the content via latexFit, and applies a
+  // top-left-origin scale when the equation would overflow the available
+  // width. No-op when there is no measurable equation div (the KaTeX-missing
+  // fallback renders a plain text node, and a detached node has no layout).
+  // The sizing math lives in latexFit (pure, tested); this only applies it.
+  function fitLatex(node, availW) {
+    var div = node && node.firstChild;
+    if (!div || typeof div.getBoundingClientRect !== 'function') return;
+    var rect = div.getBoundingClientRect();
+    var fit = latexFit(rect.width, rect.height, availW);
+    node.setAttribute('width', fit.width);
+    node.setAttribute('height', fit.height);
+    if (fit.scale !== 1) {
+      div.style.transform = 'scale(' + fit.scale + ')';
+      div.style.transformOrigin = 'left top';
+    }
+  }
+
   // The scene's human-facing caption, trimmed; '' when the scene has none.
   // DOM-free; stripLabels(), stripAria(), and mount() all read captions
   // through this so labels, aria-labels, and tests share one caption source.
@@ -156,12 +189,17 @@
       case 'latex': {
         if (katexAvailable(global.katex)) {
           var html = global.katex.renderToString(shape.tex, { throwOnError: false });
-          n = el('foreignObject', { x: shape.x, y: shape.y, width: 480, height: 240 });
+          // Placeholder 1x1 box: fitLatex measures the laid-out equation
+          // after insertion and sizes the foreignObject to the content.
+          // max-content lets the equation lay out at its natural width so
+          // the measurement is the full unclipped equation.
+          n = el('foreignObject', { x: shape.x, y: shape.y, width: 1, height: 1 });
           var div = document.createElement('div');
           div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
           div.style.fontSize = (shape.size || 28) + 'px';
           div.style.color = shape.color || '#1a1a1a';
           div.style.fontFamily = 'system-ui, -apple-system, sans-serif';
+          div.style.width = 'max-content';
           div.innerHTML = html;
           n.appendChild(div);
         } else {
@@ -433,6 +471,12 @@
         case 'show': {
           var node = drawShape(step.shape);
           svg.appendChild(node);
+          if (step.shape.kind === 'latex' && node.tagName === 'foreignObject') {
+            // Content-fit the equation box now that it is laid out: long
+            // equations no longer clip at the old fixed 480x240 box, and
+            // oversized ones scale down to the available stage width.
+            fitLatex(node, W - step.shape.x);
+          }
           state.shapes[step.shape.id] = { node: node, shape: step.shape };
           if (instant) {
             node.style.transition = 'none';
@@ -656,7 +700,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
