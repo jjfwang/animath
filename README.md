@@ -143,6 +143,16 @@ so they work in the browser too, and return spec-ready descriptors that
 `player/validate.js` accepts unchanged — `tests/charts.test.js` covers
 every line including the empty/negative/degenerate edge cases.
 
+## Circuit symbols
+
+`docs/circuit-symbols.md` standardizes circuit-diagram symbols for
+`phys-electricity` samples: cell, battery, resistor (IEC zigzag), bulb,
+switch, ammeter, and voltmeter, each specified as a composite of SPEC.md
+v0.1 primitives on a 40px grid with connection points, plus the
+current-flow marker convention (red markers traveling the wires in the
+conventional-current direction) that keeps circuit scenes mechanism-first.
+Every electricity sample draws its circuits with these symbols.
+
 ## Tests
 
 Zero-dependency, Node built-in:
