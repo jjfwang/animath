@@ -98,3 +98,57 @@
   font-size: 14px;
   white-space: pre-wrap;
 }
+
+/* Dark-mode chrome: prefers-color-scheme: dark (issue #150).
+ * Redefines the full chrome palette with the same contrast relationships as
+ * the light default. Sample artwork colors are author-chosen and untouched. */
+@media (prefers-color-scheme: dark) {
+  .animath-player {
+    color: #ece9e0;
+  }
+  .ap-header {
+    color: #ece9e0;
+  }
+  .ap-stage {
+    background: #171613;
+    border-color: #3a372c;
+  }
+  .ap-stage svg {
+    background:
+      linear-gradient(#171613, #171613);
+  }
+  .ap-caption {
+    color: #ded8c8;
+  }
+  .ap-narration {
+    color: #c6bfad;
+  }
+  .ap-controls button,
+  .ap-filmstrip button {
+    border-color: #3a372c;
+    background: #23211a;
+    color: #ece9e0;
+  }
+  .ap-controls button:hover,
+  .ap-filmstrip button:hover {
+    background: #2f2c21;
+  }
+  .ap-controls span[data-a="tlabel"] {
+    color: #a49c88;
+  }
+  .ap-controls select {
+    border-color: #3a372c;
+    background: #23211a;
+    color: #ece9e0;
+  }
+  .ap-filmstrip button[aria-current="true"] {
+    background: #ece9e0;
+    border-color: #ece9e0;
+    color: #171613;
+  }
+  .ap-error {
+    border-color: #8a4a4a;
+    background: #2b1a1a;
+    color: #f0b0a8;
+  }
+}
