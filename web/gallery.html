@@ -126,7 +126,7 @@
         err.innerHTML = '<div class="ap-error">' + problems.map(esc).join('\n') + '</div>';
         return;
       }
-      meta.textContent = [spec.level, spec.subject, spec.topic].filter(Boolean).join(' · ');
+      meta.textContent = AnimathGallery.formatMeta(spec);
       card.querySelector('h2').textContent = spec.title || file;
       items.push({
         card: card,
