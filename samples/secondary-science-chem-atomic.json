@@ -1105,9 +1105,9 @@
           "shape": {
             "id": "r1",
             "kind": "text",
-            "x": 520,
+            "x": 540,
             "y": 190,
-            "size": 22,
+            "size": 20,
             "text": "→ all have 1 outer electron"
           }
         },
@@ -1117,9 +1117,9 @@
           "shape": {
             "id": "r2",
             "kind": "text",
-            "x": 520,
+            "x": 540,
             "y": 260,
-            "size": 22,
+            "size": 20,
             "text": "→ all react with water the same way"
           }
         },
@@ -1129,9 +1129,9 @@
           "shape": {
             "id": "r3",
             "kind": "text",
-            "x": 520,
+            "x": 540,
             "y": 330,
-            "size": 22,
+            "size": 20,
             "text": "→ all are soft metals"
           }
         },
