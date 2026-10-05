@@ -128,6 +128,21 @@ limitation). `auditAllSamples('samples')` runs the audit over all
 `node --test --experimental-test-coverage "tests/*.test.js"` — every line
 of the module is covered by `tests/geometry.test.js`.
 
+## Chart toolkit
+
+`generator/charts.js` standardizes chart construction across samples and
+the generator: `pieSectors` builds pie slices as first-class sector
+descriptors (value-proportional sweeps from north, zero-angle sectors keep
+index alignment with legends), `barLayout` builds vertical or horizontal
+bar rects on a zero baseline, `axisTicks` produces "nice" tick values
+(1/2/2.5/5/10 × 10^k), `numberLine` composes a baseline with tick marks
+and centered labels, `areaUnderCurve` closes a polyline into polygon
+points down to a baseline, and `gridLines` lays out chart-grid lines. All
+six are pure (no DOM, no dependencies), UMD like `geometry.js`/`rubric.js`
+so they work in the browser too, and return spec-ready descriptors that
+`player/validate.js` accepts unchanged — `tests/charts.test.js` covers
+every line including the empty/negative/degenerate edge cases.
+
 ## Tests
 
 Zero-dependency, Node built-in:
