@@ -234,6 +234,24 @@
     return shape.dash;
   }
 
+  // Tapered arrow shaft (issue #164): a quadrilateral from the tail point to
+  // the arrowhead base, width wt at the tail interpolated to wh at the head
+  // end — Sankey-style flow arrows. The caller passes the head size so the
+  // shaft ends exactly where drawShape's arrowhead begins. Pure, exported
+  // for Node tests.
+  function taperShaft(shape, wt, wh, headSize) {
+    var dx = shape.x2 - shape.x1, dy = shape.y2 - shape.y1;
+    var len = Math.sqrt(dx * dx + dy * dy);
+    var ux = len === 0 ? 1 : dx / len, uy = len === 0 ? 0 : dy / len;
+    var nx = -uy, ny = ux;
+    var bl = len - headSize < 0 ? 0 : len - headSize;
+    var bx = shape.x1 + ux * bl, by = shape.y1 + uy * bl;
+    return (shape.x1 + nx * wt / 2) + ',' + (shape.y1 + ny * wt / 2) + ' ' +
+           (bx + nx * wh / 2) + ',' + (by + ny * wh / 2) + ' ' +
+           (bx - nx * wh / 2) + ',' + (by - ny * wh / 2) + ' ' +
+           (shape.x1 - nx * wt / 2) + ',' + (shape.y1 - ny * wt / 2);
+  }
+
   function drawShape(shape) {
     var n;
     switch (shape.kind) {
@@ -291,17 +309,32 @@
         n = el('g', {});
         var stroke = shape.stroke || '#1a1a1a';
         var w = shape.width || 3;
-        n.appendChild(el('line', {
-          x1: shape.x1, y1: shape.y1, x2: shape.x2, y2: shape.y2,
-          stroke: stroke, 'stroke-width': w, 'stroke-linecap': 'round',
-          'stroke-dasharray': dashAttr(shape)
-        }));
+        // Issue #164: optional widths [tailWidth, headWidth] renders the
+        // shaft as a tapered polygon (Sankey-style flow arrows); the
+        // arrowhead scales with the head-end width. Without widths the
+        // existing stroke-line shaft path runs unchanged (byte-identical).
+        var hasTaper = isWidths(shape.widths);
+        var wt = hasTaper ? shape.widths[0] : w;
+        var wh = hasTaper ? shape.widths[1] : w;
+        var hs = 10 + wh * 2;
+        if (hasTaper) {
+          // dash is ignored on a tapered shaft: stroke-dasharray cannot
+          // apply to a filled polygon (documented in SPEC.md).
+          n.appendChild(el('polygon', {
+            points: taperShaft(shape, wt, wh, hs), fill: stroke
+          }));
+        } else {
+          n.appendChild(el('line', {
+            x1: shape.x1, y1: shape.y1, x2: shape.x2, y2: shape.y2,
+            stroke: stroke, 'stroke-width': w, 'stroke-linecap': 'round',
+            'stroke-dasharray': dashAttr(shape)
+          }));
+        }
         var ang = Math.atan2(shape.y2 - shape.y1, shape.x2 - shape.x1);
-        var s = 10 + w * 2;
-        var p1x = shape.x2 - s * Math.cos(ang - 0.42);
-        var p1y = shape.y2 - s * Math.sin(ang - 0.42);
-        var p2x = shape.x2 - s * Math.cos(ang + 0.42);
-        var p2y = shape.y2 - s * Math.sin(ang + 0.42);
+        var p1x = shape.x2 - hs * Math.cos(ang - 0.42);
+        var p1y = shape.y2 - hs * Math.sin(ang - 0.42);
+        var p2x = shape.x2 - hs * Math.cos(ang + 0.42);
+        var p2y = shape.y2 - hs * Math.sin(ang + 0.42);
         n.appendChild(el('polygon', {
           points: shape.x2 + ',' + shape.y2 + ' ' + p1x + ',' + p1y + ' ' + p2x + ',' + p2y,
           fill: stroke
@@ -343,11 +376,17 @@
     rect: ['x', 'y', 'w', 'h'],
     circle: ['cx', 'cy', 'r'],
     line: ['x1', 'y1', 'x2', 'y2'],
-    arrow: ['x1', 'y1', 'x2', 'y2'],
+    arrow: ['x1', 'y1', 'x2', 'y2', 'widths'],
     polygon: ['points']
   };
 
   function isNum(x) { return typeof x === 'number' && isFinite(x); }
+
+  // Width profile for tapered arrows (issue #164): [tailWidth, headWidth],
+  // exactly two positive numbers. Pure; mirrors validate.js' check.
+  function isWidths(x) {
+    return Array.isArray(x) && x.length === 2 && isNum(x[0]) && x[0] > 0 && isNum(x[1]) && x[1] > 0;
+  }
 
   // Polygon move: `points` is not a scalar field — interpolate each [x,y]
   // pair pointwise. Guarded on equal, well-formed arrays; the validator
@@ -365,6 +404,19 @@
     return out;
   }
 
+  // Width-profile move (issue #164): `widths` is not a scalar field —
+  // interpolate the [tail, head] pair componentwise. Guarded like points:
+  // malformed input returns undefined and interpFields skips the field
+  // instead of throwing. Widths must be positive (SPEC.md) to interpolate.
+  function interpPair(fromPair, toPair, p) {
+    if (!Array.isArray(fromPair) || !Array.isArray(toPair) ||
+        fromPair.length !== 2 || toPair.length !== 2 ||
+        !isNum(fromPair[0]) || fromPair[0] <= 0 || !isNum(fromPair[1]) || fromPair[1] <= 0 ||
+        !isNum(toPair[0]) || toPair[0] <= 0 || !isNum(toPair[1]) || toPair[1] <= 0) return undefined;
+    return [fromPair[0] + (toPair[0] - fromPair[0]) * p,
+            fromPair[1] + (toPair[1] - fromPair[1]) * p];
+  }
+
   // Pure per-field interpolation of a move tween: pos[f] = from[f] +
   // (to[f] - from[f]) * p for every field present in `to` that also has a
   // starting value in `from`. Factored out of the tween loop so it can be
@@ -375,6 +427,12 @@
       if (f === 'points') {
         var pts = interpPoints(from.points, to.points, p);
         if (pts !== undefined) pos.points = pts;
+      } else if (f === 'widths') {
+        // Arrow taper animation (issue #164): componentwise interpolation of
+        // the [tailWidth, headWidth] pair. If the shown shape declared no
+        // widths, there is no start value — the taper snaps in at move end.
+        var wts = interpPair(from.widths, to.widths, p);
+        if (wts !== undefined) pos.widths = wts;
       } else if (from[f] !== undefined) {
         pos[f] = from[f] + (to[f] - from[f]) * p;
       }
@@ -393,6 +451,9 @@
     if (!fields) return;
     fields.forEach(function (f) {
       if (pos[f] === undefined) return;
+      // Arrow taper (issue #164): widths is not an SVG attribute — the
+      // arrowhead rebuild below re-renders the shaft with the new widths.
+      if (f === 'widths') return;
       if (f === 'points') {
         // polygon: serialize the [x,y] pairs to the SVG points attribute,
         // mirroring drawShape's polygon case. Guarded so a malformed
@@ -413,7 +474,8 @@
         y1: pos.y1 !== undefined ? pos.y1 : shape.y1,
         x2: pos.x2 !== undefined ? pos.x2 : shape.x2,
         y2: pos.y2 !== undefined ? pos.y2 : shape.y2,
-        stroke: shape.stroke, width: shape.width
+        stroke: shape.stroke, width: shape.width, dash: shape.dash,
+        widths: pos.widths !== undefined ? pos.widths : shape.widths
       });
       rebuilt.style.opacity = '1';
       rebuilt.style.transition = 'none';
@@ -766,7 +828,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr, taperShaft: taperShaft, isWidths: isWidths };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

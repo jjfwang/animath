@@ -371,3 +371,53 @@ test('dashAttr passes the dash pattern through verbatim', () => {
   assert.equal(player.dashAttr({ kind: 'line', dash: '6 4' }), '6 4');
   assert.equal(player.dashAttr({ kind: 'arrow', dash: '6.5 4 2 4' }), '6.5 4 2 4');
 });
+
+/* Tapered arrow shafts (issue #164): optional widths [tailWidth, headWidth]
+ * on arrow — pure isWidths check, pure taperShaft geometry (tail->head-base
+ * quadrilateral), and componentwise widths interpolation in interpFields.
+ * Plain arrows keep the old stroke-line shaft path.
+ */
+test('isWidths accepts exactly two positive numbers', () => {
+  assert.equal(typeof player.isWidths, 'function', 'isWidths must be exported on the player API');
+  assert.equal(player.isWidths([24, 8]), true);
+  assert.equal(player.isWidths([24]), false);
+  assert.equal(player.isWidths([24, 8, 2]), false);
+  assert.equal(player.isWidths([0, 8]), false);
+  assert.equal(player.isWidths([24, -1]), false);
+  assert.equal(player.isWidths('24,8'), false);
+  assert.equal(player.isWidths([24, NaN]), false);
+  assert.equal(player.isWidths(undefined), false);
+});
+
+test('taperShaft builds the tail->head-base quadrilateral', () => {
+  assert.equal(typeof player.taperShaft, 'function', 'taperShaft must be exported on the player API');
+  // horizontal arrow (0,0)->(100,0), wt=20, wh=6, headSize=22: shaft ends at x=78.
+  assert.equal(player.taperShaft({ x1: 0, y1: 0, x2: 100, y2: 0 }, 20, 6, 22), '0,10 78,3 78,-3 0,-10');
+});
+
+test('taperShaft handles vertical shafts and equal widths', () => {
+  // (50,10)->(50,110), wt=wh=8, headSize=26: shaft ends at y=84.
+  assert.equal(player.taperShaft({ x1: 50, y1: 10, x2: 50, y2: 110 }, 8, 8, 26), '46,10 46,84 54,84 54,10');
+});
+
+test('taperShaft falls back to a square nub on zero-length shafts', () => {
+  assert.equal(player.taperShaft({ x1: 5, y1: 5, x2: 5, y2: 5 }, 10, 10, 30), '5,10 5,10 5,0 5,0');
+});
+
+test('interpFields interpolates arrow widths componentwise (issue #164)', () => {
+  var from = { x1: 0, y1: 0, x2: 100, y2: 0, widths: [4, 4] };
+  assert.deepEqual(player.interpFields(from, { widths: [20, 6] }, 0.5).widths, [12, 5]);
+  assert.deepEqual(player.interpFields(from, { widths: [20, 6] }, 1).widths, [20, 6]);
+  assert.deepEqual(player.interpFields(from, { widths: [20, 6] }, 0).widths, [4, 4]);
+});
+
+test('interpFields skips malformed widths instead of throwing (issue #164)', () => {
+  var from = { x1: 0, y1: 0, x2: 100, y2: 0, widths: [4, 4] };
+  assert.ok(!('widths' in player.interpFields(from, { widths: 'wide' }, 0.5)), 'non-array skipped');
+  assert.ok(!('widths' in player.interpFields(from, { widths: [4] }, 0.5)), 'wrong length skipped');
+  assert.ok(!('widths' in player.interpFields(from, { widths: [4, -2] }, 0.5)), 'negative skipped');
+  // no start value on the shown shape: the taper snaps in at move end,
+  // so there is no interpolated mid-flight value.
+  var noStart = player.interpFields({ x1: 0, y1: 0, x2: 100, y2: 0 }, { widths: [20, 6] }, 0.5);
+  assert.ok(!('widths' in noStart), 'no from.widths -> skipped mid-flight');
+});

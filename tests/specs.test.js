@@ -996,3 +996,63 @@ test('validator rejects non-string and malformed dash values', () => {
       'dash="' + bad + '" must be rejected, got: ' + JSON.stringify(errs));
   });
 });
+
+/* Tapered arrow shafts (issue #164): optional widths [tailWidth, headWidth]
+ * on arrow — the shaft renders as a tapered polygon for Sankey-style flow
+ * arrows; a move step on an arrow may animate widths.
+ */
+function widthSpec(shape) {
+  function scene(id, shapes) {
+    return {
+      id: id, caption: 'A caption.', narration: 'A narration.',
+      duration_ms: 8000,
+      steps: shapes.map(function (sh, i) {
+        return { at_ms: i * 1000, do: 'show', shape: Object.assign({ id: 's' + i }, sh) };
+      })
+    };
+  }
+  return {
+    animath: '0.1', title: 'Widths validation', level: 'primary', subject: 'math',
+    topic: 'data-graphs', kind: 'concept',
+    canvas: { width: 960, height: 540 },
+    scenes: [
+      scene('a', [shape]),
+      scene('b', [{ kind: 'text', x: 10, y: 10, text: 'filler' }])
+    ]
+  };
+}
+
+test('validator accepts an arrow with a [tail, head] width profile', () => {
+  assert.deepEqual(validateSpec(widthSpec(
+    { kind: 'arrow', x1: 10, y1: 20, x2: 200, y2: 20, widths: [24, 8] })), []);
+});
+
+test('validator rejects malformed arrow widths', () => {
+  [[24], [24, 8, 2], [0, 8], [24, -1], '24,8', [24, 'x'], [Infinity, 8]].forEach(function (bad) {
+    var errs = validateSpec(widthSpec({ kind: 'arrow', x1: 10, y1: 20, x2: 200, y2: 20, widths: bad }));
+    assert.ok(errs.some(function (e) { return /\.widths: must be an array of two positive numbers/.test(e); }),
+      'widths=' + JSON.stringify(bad) + ' must be rejected, got: ' + JSON.stringify(errs));
+  });
+});
+
+test('validator allows a move step to animate arrow widths', () => {
+  var spec = widthSpec({ kind: 'arrow', x1: 10, y1: 20, x2: 200, y2: 20, widths: [8, 8] });
+  spec.scenes[0].steps.push({ at_ms: 4000, do: 'move', target: 's0', to: { widths: [32, 10] }, dur_ms: 800 });
+  assert.deepEqual(validateSpec(spec), []);
+});
+
+test('validator rejects malformed widths in an arrow move step', () => {
+  var spec = widthSpec({ kind: 'arrow', x1: 10, y1: 20, x2: 200, y2: 20, widths: [8, 8] });
+  spec.scenes[0].steps.push({ at_ms: 4000, do: 'move', target: 's0', to: { widths: [8] }, dur_ms: 800 });
+  var errs = validateSpec(spec);
+  assert.ok(errs.some(function (e) { return /\.to: must carry at least one numeric field/.test(e); }),
+    'malformed move widths must be rejected, got: ' + JSON.stringify(errs));
+});
+
+test('validator rejects widths on a line move (not a numeric field for the kind)', () => {
+  var spec = widthSpec({ kind: 'line', x1: 10, y1: 20, x2: 200, y2: 20 });
+  spec.scenes[0].steps.push({ at_ms: 4000, do: 'move', target: 's0', to: { widths: [8, 8] }, dur_ms: 800 });
+  var errs = validateSpec(spec);
+  assert.ok(errs.some(function (e) { return /\.to: must carry at least one numeric field/.test(e); }),
+    'line move with widths must be rejected, got: ' + JSON.stringify(errs));
+});
