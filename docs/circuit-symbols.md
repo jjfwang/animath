@@ -89,6 +89,8 @@ A circuit scene must show charge actually moving, not just arrows pointing:
   in the conventional-current direction (+ to − around the loop).
 - Chain moves across beats so markers visibly circulate; markers may pass
   through component slots (charge flows through the filament).
+- If a beat breaks a branch, that branch's markers hide with it (no marker
+  passes a break); the surviving markers keep circulating the live loop.
 
 ## Worked example: simple loop
 
