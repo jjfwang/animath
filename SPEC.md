@@ -85,8 +85,13 @@ Every shape has a unique `id` within its scene.
   `size` in px, default 28.
 - `rect`: `{id, kind:"rect", x, y, w, h, fill?, stroke?, strokeWidth?, rx?}`
 - `circle`: `{id, kind:"circle", cx, cy, r, fill?, stroke?, strokeWidth?}`
-- `line`: `{id, kind:"line", x1, y1, x2, y2, stroke?, width?}`
-- `arrow`: `{id, kind:"arrow", x1, y1, x2, y2, stroke?, width?}` — line with a head.
+- `line`: `{id, kind:"line", x1, y1, x2, y2, stroke?, width?, dash?}` —
+  `dash` is an optional string of space-separated numbers (e.g. `"6 4"`),
+  passed through to SVG `stroke-dasharray`; absent or empty means solid.
+  Use for asymptotes, construction lines, hidden 3D edges, field-line
+  conventions.
+- `arrow`: `{id, kind:"arrow", x1, y1, x2, y2, stroke?, width?, dash?}` —
+  line with a head; `dash` applies to the shaft only (the head stays solid).
 - `polygon`: `{id, kind:"polygon", points:[[x,y],...], fill?, stroke?, strokeWidth?}`
 - `sector`: `{id, kind:"sector", cx, cy, r, startAngle, endAngle, fill?, stroke?, strokeWidth?}` —
   pie slice / angle arc / mensuration sector. Angles in degrees: `0` is east,

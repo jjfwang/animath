@@ -946,3 +946,53 @@ test('validator rejects moving a sector: not moveable in v0', () => {
   assert.equal(errs.length, 1, 'exactly one error expected, got: ' + JSON.stringify(errs));
   assert.ok(/not moveable in v0/.test(errs[0]), 'move of sector rejected, got: ' + errs[0]);
 });
+
+/* Dashed line style (issue #156): optional 'dash' on line and arrow —
+ * a string of space-separated numbers like "6 4", passed through to SVG
+ * stroke-dasharray; absent or empty string = solid.
+ */
+function dashSpec(kind, dash) {
+  function scene(id, shapes) {
+    return {
+      id: id, caption: 'A caption.', narration: 'A narration.',
+      duration_ms: 8000,
+      steps: shapes.map(function (sh, i) {
+        return { at_ms: i * 1000, do: 'show', shape: Object.assign({ id: 's' + i }, sh) };
+      })
+    };
+  }
+  var shape = { kind: kind, x1: 10, y1: 20, x2: 200, y2: 20 };
+  if (dash !== undefined) shape.dash = dash;
+  return {
+    animath: '0.1', title: 'Dash validation', level: 'primary', subject: 'math',
+    topic: 'data-graphs', kind: 'concept',
+    canvas: { width: 960, height: 540 },
+    scenes: [
+      scene('a', [shape]),
+      scene('b', [{ kind: 'text', x: 10, y: 10, text: 'filler' }])
+    ]
+  };
+}
+
+test('validator accepts a line and an arrow with a dash pattern', () => {
+  assert.deepEqual(validateSpec(dashSpec('line', '6 4')), []);
+  assert.deepEqual(validateSpec(dashSpec('arrow', '6.5 4 2 4')), []);
+});
+
+test('validator treats absent or empty dash as solid', () => {
+  assert.deepEqual(validateSpec(dashSpec('line')), []);
+  assert.deepEqual(validateSpec(dashSpec('arrow', '')), []);
+});
+
+test('validator rejects non-string and malformed dash values', () => {
+  [['line', 6], ['arrow', null]].forEach(function (kv) {
+    var errs = validateSpec(dashSpec(kv[0], kv[1]));
+    assert.ok(errs.some(function (e) { return /\.dash: must be a string of space-separated numbers/.test(e); }),
+      kv[0] + ' dash=' + String(kv[1]) + ' must be rejected, got: ' + JSON.stringify(errs));
+  });
+  ['abc', '6,,4', ' ', '6 -4'].forEach(function (bad) {
+    var errs = validateSpec(dashSpec('line', bad));
+    assert.ok(errs.some(function (e) { return /\.dash: must be a string of space-separated numbers/.test(e); }),
+      'dash="' + bad + '" must be rejected, got: ' + JSON.stringify(errs));
+  });
+});
