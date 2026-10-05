@@ -187,6 +187,43 @@
     }
   }
 
+  // Pure sector path builder — the SVG `d` for a pie slice / angle arc /
+  // mensuration sector. Angles in degrees, 0 = east, positive clockwise
+  // (canvas y-down). DOM-free so Node tests can assert the exact path string.
+  function ptOnCircle(cx, cy, r, angleDeg) {
+    var a = angleDeg * Math.PI / 180;
+    return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+  }
+
+  // Trim float noise: round to 3 decimals, collapse -0 to '0'.
+  function fmtNum(n) {
+    var r = Math.round(n * 1000) / 1000;
+    return r === 0 ? '0' : String(r);
+  }
+
+  function sectorPath(shape) {
+    var cx = shape.cx, cy = shape.cy, r = shape.r;
+    var delta = ((shape.endAngle - shape.startAngle) % 360 + 360) % 360;
+    var start = ptOnCircle(cx, cy, r, shape.startAngle);
+    var d = 'M' + fmtNum(cx) + ',' + fmtNum(cy) +
+            ' L' + fmtNum(start[0]) + ',' + fmtNum(start[1]);
+    if (delta === 0) {
+      // Full circle: a single arc cannot close on its own start point, so
+      // emit two 180-degree arcs back to the start.
+      var mid = ptOnCircle(cx, cy, r, shape.startAngle + 180);
+      d += ' A' + fmtNum(r) + ',' + fmtNum(r) + ' 0 1 1 ' +
+           fmtNum(mid[0]) + ',' + fmtNum(mid[1]) +
+           ' A' + fmtNum(r) + ',' + fmtNum(r) + ' 0 1 1 ' +
+           fmtNum(start[0]) + ',' + fmtNum(start[1]);
+    } else {
+      var end = ptOnCircle(cx, cy, r, shape.endAngle);
+      d += ' A' + fmtNum(r) + ',' + fmtNum(r) + ' 0 ' +
+           (delta > 180 ? '1' : '0') + ' 1 ' +
+           fmtNum(end[0]) + ',' + fmtNum(end[1]);
+    }
+    return d + ' Z';
+  }
+
   function drawShape(shape) {
     var n;
     switch (shape.kind) {
@@ -270,6 +307,14 @@
         });
         break;
       }
+      case 'sector':
+        n = el('path', {
+          d: sectorPath(shape),
+          fill: shape.fill || 'none',
+          stroke: shape.stroke || '#1a1a1a',
+          'stroke-width': shape.strokeWidth || 2
+        });
+        break;
       default:
         throw new Error('unknown shape kind: ' + shape.kind);
     }
@@ -709,7 +754,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

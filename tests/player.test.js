@@ -316,3 +316,41 @@ test152('coarse pointers get 44px minimum touch targets on control buttons', () 
   assert152.ok(/min-width:\s*44px/.test(body), 'buttons min-width 44px, got: ' + body);
   assert152.ok(/min-height:\s*44px/.test(body), 'buttons min-height 44px, got: ' + body);
 });
+
+/* Sector shape: pure sectorPath SVG generation (issue #155).
+ * Angles in degrees, 0 = east, positive clockwise (canvas y-down).
+ */
+
+test('sectorPath draws a quarter wedge: center, line to arc start, clockwise arc, close', () => {
+  var d = player.sectorPath({ cx: 100, cy: 100, r: 50, startAngle: 0, endAngle: 90 });
+  assert.equal(d, 'M100,100 L150,100 A50,50 0 0 1 100,150 Z');
+});
+
+test('sectorPath draws a half wedge with large-arc 0', () => {
+  var d = player.sectorPath({ cx: 100, cy: 100, r: 50, startAngle: 0, endAngle: 180 });
+  assert.equal(d, 'M100,100 L150,100 A50,50 0 0 1 50,100 Z');
+});
+
+test('sectorPath sets the large-arc flag for sweeps over 180 degrees', () => {
+  var d = player.sectorPath({ cx: 100, cy: 100, r: 50, startAngle: 0, endAngle: 270 });
+  assert.equal(d, 'M100,100 L150,100 A50,50 0 1 1 100,50 Z');
+});
+
+test('sectorPath normalizes wrap-around and reversed angles', () => {
+  // 300 -> 60 is a 120-degree clockwise sweep crossing 0 degrees.
+  var d = player.sectorPath({ cx: 0, cy: 0, r: 10, startAngle: 300, endAngle: 60 });
+  assert.equal(d, 'M0,0 L5,-8.66 A10,10 0 0 1 5,8.66 Z');
+  // 90 -> 0 is a 270-degree sweep (not a -90 backtrack).
+  var d2 = player.sectorPath({ cx: 100, cy: 100, r: 50, startAngle: 90, endAngle: 0 });
+  assert.equal(d2, 'M100,100 L100,150 A50,50 0 1 1 150,100 Z');
+});
+
+test('sectorPath emits two 180-degree arcs for a full circle', () => {
+  var d = player.sectorPath({ cx: 100, cy: 100, r: 50, startAngle: 0, endAngle: 360 });
+  assert.equal(d, 'M100,100 L150,100 A50,50 0 1 1 50,100 A50,50 0 1 1 150,100 Z');
+});
+
+test('sectorPath accepts negative angles and trims float noise', () => {
+  var d = player.sectorPath({ cx: 200, cy: 200, r: 80, startAngle: -90, endAngle: 45 });
+  assert.equal(d, 'M200,200 L200,120 A80,80 0 0 1 256.569,256.569 Z');
+});

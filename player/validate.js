@@ -13,7 +13,7 @@
   var SUBJECTS = ['math', 'science'];
   var KINDS = ['concept', 'problem'];
   var VERBS = ['show', 'hide', 'move', 'emphasize', 'caption'];
-  var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon', 'latex'];
+  var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon', 'latex', 'sector'];
   var MOVEABLE = ['text', 'rect', 'circle', 'line', 'arrow', 'latex', 'polygon'];
   var HEX = /^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/;
 
@@ -56,6 +56,12 @@
             !shape.points.every(function (pt) { return Array.isArray(pt) && pt.length === 2 && isNum(pt[0]) && isNum(pt[1]); })) {
           errors.push(p + '.points: required array of [x,y] pairs (min 3)');
         }
+        break;
+      case 'sector':
+        // Not moveable in v0: intentionally absent from MOVEABLE above.
+        num('cx'); num('cy');
+        if (!isNum(shape.r) || shape.r <= 0) errors.push(p + '.r: required positive number');
+        num('startAngle'); num('endAngle');
         break;
     }
     ['fill', 'stroke', 'color'].forEach(function (f) {

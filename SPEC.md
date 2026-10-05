@@ -88,6 +88,9 @@ Every shape has a unique `id` within its scene.
 - `line`: `{id, kind:"line", x1, y1, x2, y2, stroke?, width?}`
 - `arrow`: `{id, kind:"arrow", x1, y1, x2, y2, stroke?, width?}` — line with a head.
 - `polygon`: `{id, kind:"polygon", points:[[x,y],...], fill?, stroke?, strokeWidth?}`
+- `sector`: `{id, kind:"sector", cx, cy, r, startAngle, endAngle, fill?, stroke?, strokeWidth?}` —
+  pie slice / angle arc / mensuration sector. Angles in degrees: `0` is east,
+  positive is clockwise (canvas y-down). `r` must be positive. Not moveable in v0.
 
 Coordinates are canvas pixels, origin top-left. Colors are CSS hex strings
 (`"#1a1a1a"`). Sensible defaults: 2px `#1a1a1a` strokes, transparent fills.
