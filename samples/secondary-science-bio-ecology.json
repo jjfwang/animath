@@ -1,17 +1,20 @@
 {
   "animath": "0.1",
-  "canvas": {
-    "height": 540,
-    "width": 960
-  },
   "kind": "concept",
+  "title": "Ecology: food webs, energy flow, the carbon cycle",
   "level": "secondary",
+  "subject": "science",
+  "topic": "bio-ecology",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
   "scenes": [
     {
+      "id": "s1",
       "caption": "Food chain: built beat by beat",
       "duration_ms": 12000,
-      "id": "s1",
-      "narration": "A food chain shows who eats whom. The arrow always points in the direction of energy flow: from the food to the eater. Real chains interweave into food webs.",
+      "narration": "A food chain shows who eats whom. Watch the energy packets: each arrow points the way energy flows, from the food to the eater.",
       "steps": [
         {
           "at_ms": 0,
@@ -19,308 +22,348 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Food chain: built beat by beat",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Food chain: built beat by beat",
+            "size": 34
           }
         },
         {
           "at_ms": 600,
           "do": "show",
           "shape": {
-            "fill": "#c8e6c9",
-            "h": 90,
             "id": "grass",
-            "kind": "rect",
+            "kind": "circle",
+            "cx": 60,
+            "cy": 300,
+            "r": 50,
+            "fill": "#c8e6c9",
             "stroke": "#2e7d32",
-            "w": 120,
-            "width": 3,
-            "x": 90,
-            "y": 245
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 1000,
+          "do": "move",
+          "target": "grass",
+          "to": {
+            "cx": 150
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 1700,
           "do": "show",
           "shape": {
             "id": "grassL",
             "kind": "text",
-            "size": 24,
+            "x": 122,
+            "y": 310,
             "text": "grass",
-            "x": 120,
-            "y": 300
+            "size": 24
           }
         },
         {
-          "at_ms": 1400,
+          "at_ms": 1700,
           "do": "show",
           "shape": {
             "id": "producerL",
             "kind": "text",
-            "size": 18,
+            "x": 108,
+            "y": 372,
             "text": "producer",
-            "x": 112,
-            "y": 365
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "id": "arrow1",
-            "kind": "arrow",
-            "stroke": "#5d4037",
-            "width": 4,
-            "x1": 225,
-            "x2": 315,
-            "y1": 290,
-            "y2": 290
+            "size": 18
           }
         },
         {
           "at_ms": 2200,
           "do": "show",
           "shape": {
-            "cx": 380,
-            "cy": 290,
-            "fill": "#fff3e0",
-            "id": "rabbit",
-            "kind": "circle",
-            "r": 55,
-            "stroke": "#ef6c00",
-            "strokeWidth": 3
+            "id": "arrow1",
+            "kind": "arrow",
+            "x1": 225,
+            "y1": 300,
+            "x2": 240,
+            "y2": 300,
+            "stroke": "#5d4037",
+            "width": 4
           }
         },
         {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "rabbitL",
-            "kind": "text",
-            "size": 24,
-            "text": "rabbit",
-            "x": 348,
-            "y": 300
-          }
+          "at_ms": 2400,
+          "do": "move",
+          "target": "arrow1",
+          "to": {
+            "x2": 315
+          },
+          "dur_ms": 500
         },
         {
           "at_ms": 3000,
           "do": "show",
           "shape": {
-            "id": "primaryL",
-            "kind": "text",
-            "size": 18,
-            "text": "primary consumer",
-            "x": 305,
-            "y": 365
+            "id": "pkt1",
+            "kind": "circle",
+            "cx": 225,
+            "cy": 300,
+            "r": 9,
+            "fill": "#ffd54f",
+            "stroke": "#f9a825",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 3400,
-          "do": "show",
-          "shape": {
-            "id": "arrow2",
-            "kind": "arrow",
-            "stroke": "#5d4037",
-            "width": 4,
-            "x1": 445,
-            "x2": 565,
-            "y1": 290,
-            "y2": 290
-          }
+          "at_ms": 3200,
+          "do": "move",
+          "target": "pkt1",
+          "to": {
+            "cx": 315
+          },
+          "dur_ms": 500
         },
         {
           "at_ms": 3800,
+          "do": "hide",
+          "target": "pkt1"
+        },
+        {
+          "at_ms": 4000,
           "do": "show",
           "shape": {
-            "cx": 630,
-            "cy": 290,
-            "fill": "#ffe0b2",
-            "id": "fox",
+            "id": "rabbit",
             "kind": "circle",
+            "cx": 60,
+            "cy": 300,
             "r": 55,
-            "stroke": "#e65100",
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
             "strokeWidth": 3
           }
         },
         {
           "at_ms": 4200,
-          "do": "show",
-          "shape": {
-            "id": "foxL",
-            "kind": "text",
-            "size": 24,
-            "text": "fox",
-            "x": 610,
-            "y": 300
-          }
+          "do": "move",
+          "target": "rabbit",
+          "to": {
+            "cx": 380
+          },
+          "dur_ms": 700
         },
         {
-          "at_ms": 4600,
+          "at_ms": 5000,
           "do": "show",
           "shape": {
-            "id": "secondaryL",
+            "id": "rabbitL",
             "kind": "text",
-            "size": 18,
-            "text": "secondary consumer",
-            "x": 545,
-            "y": 365
+            "x": 348,
+            "y": 310,
+            "text": "rabbit",
+            "size": 24
           }
         },
         {
           "at_ms": 5000,
           "do": "show",
           "shape": {
-            "id": "arrow3",
-            "kind": "arrow",
-            "stroke": "#5d4037",
-            "width": 4,
-            "x1": 695,
-            "x2": 785,
-            "y1": 290,
-            "y2": 290
+            "id": "primaryL",
+            "kind": "text",
+            "x": 300,
+            "y": 372,
+            "text": "primary consumer",
+            "size": 18
           }
         },
         {
-          "at_ms": 5400,
+          "at_ms": 5600,
           "do": "show",
           "shape": {
-            "cx": 850,
-            "cy": 290,
-            "fill": "#e3f2fd",
-            "id": "hawk",
-            "kind": "circle",
-            "r": 55,
-            "stroke": "#1565c0",
-            "strokeWidth": 3
+            "id": "arrow2",
+            "kind": "arrow",
+            "x1": 445,
+            "y1": 300,
+            "x2": 460,
+            "y2": 300,
+            "stroke": "#5d4037",
+            "width": 4
           }
         },
         {
           "at_ms": 5800,
-          "do": "show",
-          "shape": {
-            "id": "hawkL",
-            "kind": "text",
-            "size": 24,
-            "text": "hawk",
-            "x": 822,
-            "y": 300
-          }
+          "do": "move",
+          "target": "arrow2",
+          "to": {
+            "x2": 565
+          },
+          "dur_ms": 500
         },
         {
-          "at_ms": 6200,
+          "at_ms": 6400,
           "do": "show",
           "shape": {
-            "id": "tertiaryL",
-            "kind": "text",
-            "size": 18,
-            "text": "tertiary consumer",
-            "x": 775,
-            "y": 365
+            "id": "pkt2",
+            "kind": "circle",
+            "cx": 445,
+            "cy": 300,
+            "r": 9,
+            "fill": "#ffd54f",
+            "stroke": "#f9a825",
+            "strokeWidth": 2
           }
         },
         {
           "at_ms": 6600,
+          "do": "move",
+          "target": "pkt2",
+          "to": {
+            "cx": 565
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 7200,
+          "do": "hide",
+          "target": "pkt2"
+        },
+        {
+          "at_ms": 7400,
           "do": "show",
           "shape": {
-            "id": "t1",
-            "kind": "text",
-            "size": 24,
-            "text": "arrows follow the energy flow: food → eater",
-            "x": 80,
-            "y": 135
+            "id": "fox",
+            "kind": "circle",
+            "cx": 60,
+            "cy": 300,
+            "r": 55,
+            "fill": "#ffe0b2",
+            "stroke": "#e65100",
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 7600,
-          "do": "hide",
-          "target": "t1"
+          "do": "move",
+          "target": "fox",
+          "to": {
+            "cx": 630
+          },
+          "dur_ms": 700
         },
         {
-          "at_ms": 8000,
+          "at_ms": 8400,
           "do": "show",
           "shape": {
-            "cx": 380,
-            "cy": 478,
-            "fill": "#f3e5f5",
-            "id": "mouse",
-            "kind": "circle",
-            "r": 42,
-            "stroke": "#6a1b9a",
-            "strokeWidth": 3
+            "id": "foxL",
+            "kind": "text",
+            "x": 610,
+            "y": 310,
+            "text": "fox",
+            "size": 24
           }
         },
         {
           "at_ms": 8400,
           "do": "show",
           "shape": {
-            "id": "mouseL",
+            "id": "secondaryL",
             "kind": "text",
-            "size": 22,
-            "text": "mouse",
-            "x": 350,
-            "y": 486
+            "x": 548,
+            "y": 372,
+            "text": "secondary consumer",
+            "size": 18
           }
         },
         {
-          "at_ms": 8800,
+          "at_ms": 9000,
           "do": "show",
           "shape": {
-            "id": "arrow4",
+            "id": "arrow3",
             "kind": "arrow",
+            "x1": 695,
+            "y1": 300,
+            "x2": 710,
+            "y2": 300,
             "stroke": "#5d4037",
-            "width": 4,
-            "x1": 150,
-            "x2": 330,
-            "y1": 340,
-            "y2": 450
+            "width": 4
           }
         },
         {
           "at_ms": 9200,
+          "do": "move",
+          "target": "arrow3",
+          "to": {
+            "x2": 775
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 9800,
           "do": "show",
           "shape": {
-            "id": "arrow5",
-            "kind": "arrow",
-            "stroke": "#5d4037",
-            "width": 4,
-            "x1": 428,
-            "x2": 800,
-            "y1": 450,
-            "y2": 340
+            "id": "pkt3",
+            "kind": "circle",
+            "cx": 695,
+            "cy": 300,
+            "r": 9,
+            "fill": "#ffd54f",
+            "stroke": "#f9a825",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 9600,
-          "do": "show",
-          "shape": {
-            "id": "t2",
-            "kind": "text",
-            "size": 26,
-            "text": "interwoven chains: a food web",
-            "x": 80,
-            "y": 135
-          }
+          "at_ms": 10000,
+          "do": "move",
+          "target": "pkt3",
+          "to": {
+            "cx": 775
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 10600,
+          "do": "hide",
+          "target": "pkt3"
         },
         {
           "at_ms": 10800,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "t2"
+          "do": "show",
+          "shape": {
+            "id": "decomp",
+            "kind": "circle",
+            "cx": 60,
+            "cy": 300,
+            "r": 45,
+            "fill": "#d7ccc8",
+            "stroke": "#5d4037",
+            "strokeWidth": 3
+          }
         },
         {
-          "at_ms": 11200,
-          "do": "caption",
-          "text": "In a food web, energy has many routes to the top."
+          "at_ms": 11000,
+          "do": "move",
+          "target": "decomp",
+          "to": {
+            "cx": 830
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 11600,
+          "do": "show",
+          "shape": {
+            "id": "decompL",
+            "kind": "text",
+            "x": 782,
+            "y": 372,
+            "text": "decomposer",
+            "size": 20
+          }
         }
       ]
     },
     {
+      "id": "s2",
       "caption": "Energy pyramid: only about 10% passes up",
       "duration_ms": 12000,
-      "id": "s2",
-      "narration": "At every feeding level, most energy is lost as heat from respiration, movement, and waste. Only about one tenth moves up to the next level — which is why pyramids are narrow at the top.",
+      "narration": "At every feeding level, most energy is lost as heat from respiration, movement, and waste. Only about one tenth moves up to the next level \u2014 which is why pyramids are narrow at the top.",
       "steps": [
         {
           "at_ms": 0,
@@ -328,198 +371,413 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Energy pyramid: only about 10% passes up",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Energy pyramid: only about 10% passes up",
+            "size": 34
           }
         },
         {
           "at_ms": 600,
           "do": "show",
           "shape": {
-            "fill": "#c8e6c9",
-            "h": 80,
             "id": "L1",
             "kind": "rect",
+            "x": 440,
+            "y": 400,
+            "w": 80,
+            "h": 80,
+            "fill": "#c8e6c9",
             "stroke": "#2e7d32",
-            "w": 560,
-            "width": 3,
-            "x": 200,
-            "y": 400
+            "width": 3
           }
         },
         {
-          "at_ms": 1000,
+          "at_ms": 800,
+          "do": "move",
+          "target": "L1",
+          "to": {
+            "x": 200,
+            "w": 560
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 1600,
           "do": "show",
           "shape": {
             "id": "L1L",
             "kind": "text",
-            "size": 24,
-            "text": "producers",
             "x": 430,
-            "y": 450
+            "y": 450,
+            "text": "producers",
+            "size": 24
           }
         },
         {
-          "at_ms": 1400,
+          "at_ms": 2000,
           "do": "show",
           "shape": {
-            "fill": "#fff3e0",
-            "h": 80,
-            "id": "L2",
-            "kind": "rect",
-            "stroke": "#ef6c00",
-            "w": 400,
-            "width": 3,
-            "x": 280,
-            "y": 320
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "id": "L2L",
-            "kind": "text",
-            "size": 24,
-            "text": "primary consumers",
-            "x": 390,
-            "y": 370
+            "id": "pkt",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 470,
+            "r": 16,
+            "fill": "#ffd54f",
+            "stroke": "#f9a825",
+            "strokeWidth": 2
           }
         },
         {
           "at_ms": 2200,
+          "do": "move",
+          "target": "pkt",
+          "to": {
+            "cy": 440,
+            "r": 15
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 2800,
           "do": "show",
           "shape": {
-            "fill": "#ffe0b2",
-            "h": 80,
-            "id": "L3",
-            "kind": "rect",
-            "stroke": "#e65100",
-            "w": 260,
-            "width": 3,
-            "x": 350,
-            "y": 240
+            "id": "w1a",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 440,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 2600,
+          "at_ms": 2800,
           "do": "show",
           "shape": {
-            "id": "L3L",
-            "kind": "text",
-            "size": 24,
-            "text": "secondary consumers",
-            "x": 372,
-            "y": 290
+            "id": "w1b",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 440,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
           }
         },
         {
           "at_ms": 3000,
-          "do": "show",
-          "shape": {
-            "fill": "#e3f2fd",
-            "h": 80,
-            "id": "L4",
-            "kind": "rect",
-            "stroke": "#1565c0",
-            "w": 140,
-            "width": 3,
-            "x": 410,
-            "y": 160
-          }
+          "do": "move",
+          "target": "w1a",
+          "to": {
+            "cx": 360
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 3000,
+          "do": "move",
+          "target": "w1b",
+          "to": {
+            "cx": 600
+          },
+          "dur_ms": 800
         },
         {
           "at_ms": 3400,
+          "do": "move",
+          "target": "pkt",
+          "to": {
+            "cy": 360,
+            "r": 12
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 3900,
+          "do": "hide",
+          "target": "w1a"
+        },
+        {
+          "at_ms": 3900,
+          "do": "hide",
+          "target": "w1b"
+        },
+        {
+          "at_ms": 4000,
           "do": "show",
           "shape": {
-            "id": "L4L",
-            "kind": "text",
-            "size": 20,
-            "text": "top carnivores",
-            "x": 404,
-            "y": 206
+            "id": "L2",
+            "kind": "rect",
+            "x": 440,
+            "y": 320,
+            "w": 80,
+            "h": 80,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "width": 3
           }
         },
         {
           "at_ms": 4200,
-          "do": "show",
-          "shape": {
-            "id": "p1",
-            "kind": "latex",
-            "size": 26,
-            "tex": "\\approx 10\\,\\%",
-            "x": 790,
-            "y": 390
-          }
+          "do": "move",
+          "target": "L2",
+          "to": {
+            "x": 280,
+            "w": 400
+          },
+          "dur_ms": 700
         },
         {
           "at_ms": 5000,
           "do": "show",
           "shape": {
-            "id": "p2",
-            "kind": "latex",
-            "size": 26,
-            "tex": "\\approx 10\\,\\%",
-            "x": 710,
-            "y": 310
+            "id": "L2L",
+            "kind": "text",
+            "x": 390,
+            "y": 370,
+            "text": "primary consumers",
+            "size": 24
           }
         },
         {
-          "at_ms": 5800,
+          "at_ms": 5400,
           "do": "show",
           "shape": {
-            "id": "p3",
-            "kind": "latex",
-            "size": 26,
-            "tex": "\\approx 10\\,\\%",
-            "x": 645,
-            "y": 230
+            "id": "w2a",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 360,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
           }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "w2b",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 360,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "target": "w2a",
+          "to": {
+            "cx": 400
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "target": "w2b",
+          "to": {
+            "cx": 560
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "pkt",
+          "to": {
+            "cy": 280,
+            "r": 10
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 6500,
+          "do": "hide",
+          "target": "w2a"
+        },
+        {
+          "at_ms": 6500,
+          "do": "hide",
+          "target": "w2b"
         },
         {
           "at_ms": 6600,
           "do": "show",
           "shape": {
-            "id": "t1",
+            "id": "pT1",
             "kind": "text",
-            "size": 26,
-            "text": "only about 10% of the energy passes up",
-            "x": 80,
-            "y": 135
+            "x": 700,
+            "y": 365,
+            "text": "\u224810% moves up",
+            "size": 22
           }
+        },
+        {
+          "at_ms": 6800,
+          "do": "show",
+          "shape": {
+            "id": "L3",
+            "kind": "rect",
+            "x": 440,
+            "y": 240,
+            "w": 80,
+            "h": 80,
+            "fill": "#ffe0b2",
+            "stroke": "#e65100",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "move",
+          "target": "L3",
+          "to": {
+            "x": 350,
+            "w": 260
+          },
+          "dur_ms": 700
         },
         {
           "at_ms": 7800,
           "do": "show",
           "shape": {
-            "id": "heatL",
+            "id": "L3L",
             "kind": "text",
-            "size": 20,
-            "text": "the rest, about 90%, is lost as heat",
-            "x": 80,
-            "y": 510
+            "x": 372,
+            "y": 290,
+            "text": "secondary consumers",
+            "size": 24
           }
         },
         {
-          "at_ms": 8800,
-          "do": "emphasize",
-          "dur_ms": 1200,
-          "target": "p1"
+          "at_ms": 8200,
+          "do": "show",
+          "shape": {
+            "id": "w3a",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 280,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 8200,
+          "do": "show",
+          "shape": {
+            "id": "w3b",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 280,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 8400,
+          "do": "move",
+          "target": "w3a",
+          "to": {
+            "cx": 420
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 8400,
+          "do": "move",
+          "target": "w3b",
+          "to": {
+            "cx": 540
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 9000,
+          "do": "move",
+          "target": "pkt",
+          "to": {
+            "cy": 200,
+            "r": 8
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9300,
+          "do": "hide",
+          "target": "w3a"
+        },
+        {
+          "at_ms": 9300,
+          "do": "hide",
+          "target": "w3b"
+        },
+        {
+          "at_ms": 9400,
+          "do": "show",
+          "shape": {
+            "id": "L4",
+            "kind": "rect",
+            "x": 450,
+            "y": 160,
+            "w": 80,
+            "h": 80,
+            "fill": "#e3f2fd",
+            "stroke": "#1565c0",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 9600,
+          "do": "move",
+          "target": "L4",
+          "to": {
+            "x": 410,
+            "w": 140
+          },
+          "dur_ms": 700
         },
         {
           "at_ms": 10400,
-          "do": "caption",
-          "text": "Each feeding level holds only a tenth of the energy below it."
+          "do": "show",
+          "shape": {
+            "id": "L4L",
+            "kind": "text",
+            "x": 404,
+            "y": 206,
+            "text": "top carnivores",
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 10800,
+          "do": "show",
+          "shape": {
+            "id": "pT2",
+            "kind": "text",
+            "x": 580,
+            "y": 205,
+            "text": "\u224810% reaches the top",
+            "size": 22
+          }
         }
       ]
     },
     {
+      "id": "s3",
       "caption": "Carbon cycle: nature's closed loop",
       "duration_ms": 12000,
-      "id": "s3",
-      "narration": "Carbon is recycled. Photosynthesis pulls carbon dioxide from the air into plants; respiration returns it. Eating moves it up the chain, and decomposition returns it to the soil.",
+      "narration": "Carbon is recycled: photosynthesis pulls carbon dioxide from the air into plants, and eating moves it up the chain. Respiration and decomposition return it to the air and soil.",
       "steps": [
         {
           "at_ms": 0,
@@ -527,10 +785,10 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Carbon cycle: nature's closed loop",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Carbon cycle: nature's closed loop",
+            "size": 34
           }
         },
         {
@@ -539,22 +797,22 @@
           "shape": {
             "id": "airT",
             "kind": "text",
-            "size": 26,
-            "text": "CO₂ — carbon dioxide in the air",
             "x": 300,
-            "y": 130
+            "y": 130,
+            "text": "CO\u2082 \u2014 carbon dioxide in the air",
+            "size": 26
           }
         },
         {
           "at_ms": 1200,
           "do": "show",
           "shape": {
-            "cx": 200,
-            "cy": 400,
-            "fill": "#c8e6c9",
             "id": "plants",
             "kind": "circle",
+            "cx": 200,
+            "cy": 400,
             "r": 65,
+            "fill": "#c8e6c9",
             "stroke": "#2e7d32",
             "strokeWidth": 3
           }
@@ -565,213 +823,339 @@
           "shape": {
             "id": "plantsL",
             "kind": "text",
-            "size": 24,
-            "text": "plants",
             "x": 170,
-            "y": 408
+            "y": 408,
+            "text": "plants",
+            "size": 24
           }
         },
         {
           "at_ms": 2000,
           "do": "show",
           "shape": {
-            "cx": 760,
-            "cy": 400,
-            "fill": "#fff3e0",
-            "id": "animals",
-            "kind": "circle",
-            "r": 65,
-            "stroke": "#ef6c00",
-            "strokeWidth": 3
+            "id": "photo",
+            "kind": "arrow",
+            "x1": 320,
+            "y1": 160,
+            "x2": 312,
+            "y2": 168,
+            "stroke": "#2e7d32",
+            "width": 4
           }
         },
         {
-          "at_ms": 2400,
+          "at_ms": 2200,
+          "do": "move",
+          "target": "photo",
+          "to": {
+            "x2": 215,
+            "y2": 330
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 2900,
           "do": "show",
           "shape": {
-            "id": "animalsL",
+            "id": "photoL",
             "kind": "text",
-            "size": 24,
-            "text": "animals",
-            "x": 722,
-            "y": 408
-          }
-        },
-        {
-          "at_ms": 2800,
-          "do": "show",
-          "shape": {
-            "fill": "#d7ccc8",
-            "h": 70,
-            "id": "soil",
-            "kind": "rect",
-            "stroke": "#5d4037",
-            "w": 200,
-            "width": 3,
-            "x": 400,
-            "y": 420
+            "x": 55,
+            "y": 240,
+            "text": "photosynthesis",
+            "size": 20
           }
         },
         {
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "id": "soilL",
-            "kind": "text",
-            "size": 18,
-            "text": "soil + fossil fuels",
-            "x": 410,
-            "y": 462
+            "id": "c1",
+            "kind": "circle",
+            "cx": 320,
+            "cy": 160,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 3800,
-          "do": "show",
-          "shape": {
-            "id": "photo",
-            "kind": "arrow",
-            "stroke": "#2e7d32",
-            "width": 4,
-            "x1": 320,
-            "x2": 215,
-            "y1": 160,
-            "y2": 330
-          }
+          "at_ms": 3400,
+          "do": "move",
+          "target": "c1",
+          "to": {
+            "cx": 215,
+            "cy": 330
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 4400,
+          "do": "hide",
+          "target": "c1"
         },
         {
           "at_ms": 4400,
           "do": "show",
           "shape": {
-            "id": "photoL",
+            "id": "sinkL",
             "kind": "text",
-            "size": 20,
-            "text": "photosynthesis",
-            "x": 55,
-            "y": 240
+            "x": 30,
+            "y": 520,
+            "text": "sink: plants absorb CO\u2082",
+            "size": 20
           }
         },
         {
-          "at_ms": 5000,
+          "at_ms": 4800,
           "do": "show",
           "shape": {
-            "id": "respP",
-            "kind": "arrow",
-            "stroke": "#c62828",
-            "width": 4,
-            "x1": 275,
-            "x2": 390,
-            "y1": 330,
-            "y2": 165
+            "id": "animals",
+            "kind": "circle",
+            "cx": 760,
+            "cy": 400,
+            "r": 65,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "show",
+          "shape": {
+            "id": "animalsL",
+            "kind": "text",
+            "x": 722,
+            "y": 408,
+            "text": "animals",
+            "size": 24
           }
         },
         {
           "at_ms": 5600,
           "do": "show",
           "shape": {
-            "id": "respL",
-            "kind": "text",
-            "size": 20,
-            "text": "respiration",
-            "x": 405,
-            "y": 250
+            "id": "eat",
+            "kind": "arrow",
+            "x1": 275,
+            "y1": 400,
+            "x2": 290,
+            "y2": 400,
+            "stroke": "#5d4037",
+            "width": 4
           }
         },
         {
-          "at_ms": 6200,
+          "at_ms": 5800,
+          "do": "move",
+          "target": "eat",
+          "to": {
+            "x2": 685
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 6500,
           "do": "show",
           "shape": {
-            "id": "feed",
-            "kind": "arrow",
-            "stroke": "#5d4037",
-            "width": 4,
-            "x1": 275,
-            "x2": 685,
-            "y1": 395,
-            "y2": 395
+            "id": "eatL",
+            "kind": "text",
+            "x": 430,
+            "y": 368,
+            "text": "eating",
+            "size": 20
           }
         },
         {
           "at_ms": 6800,
           "do": "show",
           "shape": {
-            "id": "feedL",
-            "kind": "text",
-            "size": 20,
-            "text": "eating",
-            "x": 450,
-            "y": 378
+            "id": "c2",
+            "kind": "circle",
+            "cx": 275,
+            "cy": 400,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 7400,
+          "at_ms": 7000,
+          "do": "move",
+          "target": "c2",
+          "to": {
+            "cx": 685
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 8000,
+          "do": "hide",
+          "target": "c2"
+        },
+        {
+          "at_ms": 8200,
           "do": "show",
           "shape": {
             "id": "respA",
             "kind": "arrow",
-            "stroke": "#c62828",
-            "width": 4,
-            "x1": 730,
-            "x2": 565,
+            "x1": 810,
             "y1": 330,
-            "y2": 165
+            "x2": 804,
+            "y2": 322,
+            "stroke": "#c62828",
+            "width": 4
           }
         },
         {
-          "at_ms": 8000,
+          "at_ms": 8400,
+          "do": "move",
+          "target": "respA",
+          "to": {
+            "x2": 740,
+            "y2": 170
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9100,
           "do": "show",
           "shape": {
             "id": "respAL",
             "kind": "text",
-            "size": 20,
+            "x": 560,
+            "y": 250,
             "text": "respiration",
-            "x": 640,
-            "y": 250
+            "size": 20
           }
         },
         {
-          "at_ms": 8600,
+          "at_ms": 9400,
           "do": "show",
           "shape": {
-            "id": "decomp",
-            "kind": "arrow",
-            "stroke": "#6d4c41",
-            "width": 4,
-            "x1": 700,
-            "x2": 545,
-            "y1": 455,
-            "y2": 455
+            "id": "c3",
+            "kind": "circle",
+            "cx": 810,
+            "cy": 330,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 9200,
+          "at_ms": 9600,
+          "do": "move",
+          "target": "c3",
+          "to": {
+            "cx": 740,
+            "cy": 170
+          },
+          "dur_ms": 900
+        },
+        {
+          "at_ms": 10600,
+          "do": "hide",
+          "target": "c3"
+        },
+        {
+          "at_ms": 10600,
+          "do": "show",
+          "shape": {
+            "id": "sourceL",
+            "kind": "text",
+            "x": 660,
+            "y": 520,
+            "text": "source: respiration",
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 10800,
+          "do": "show",
+          "shape": {
+            "id": "soil",
+            "kind": "rect",
+            "x": 400,
+            "y": 420,
+            "w": 200,
+            "h": 70,
+            "fill": "#d7ccc8",
+            "stroke": "#5d4037",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 11000,
+          "do": "show",
+          "shape": {
+            "id": "soilL",
+            "kind": "text",
+            "x": 410,
+            "y": 462,
+            "text": "soil + fossil fuels",
+            "size": 18
+          }
+        },
+        {
+          "at_ms": 11200,
+          "do": "show",
+          "shape": {
+            "id": "decompA",
+            "kind": "arrow",
+            "x1": 695,
+            "y1": 425,
+            "x2": 605,
+            "y2": 450,
+            "stroke": "#6d4c41",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 11200,
           "do": "show",
           "shape": {
             "id": "decompL",
             "kind": "text",
-            "size": 20,
-            "text": "decomposition",
-            "x": 600,
-            "y": 440
+            "x": 340,
+            "y": 520,
+            "text": "decomposers feed the soil",
+            "size": 20
           }
         },
         {
-          "at_ms": 10000,
-          "do": "emphasize",
-          "dur_ms": 1200,
-          "target": "photo"
+          "at_ms": 11400,
+          "do": "show",
+          "shape": {
+            "id": "c4",
+            "kind": "circle",
+            "cx": 695,
+            "cy": 425,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
+          }
         },
         {
-          "at_ms": 11200,
-          "do": "caption",
-          "text": "Carbon cycles: air to leaf to animal to soil and back."
+          "at_ms": 11500,
+          "do": "move",
+          "target": "c4",
+          "to": {
+            "cx": 605,
+            "cy": 450
+          },
+          "dur_ms": 400
         }
       ]
     },
     {
+      "id": "s4",
       "caption": "Humans tip the balance",
       "duration_ms": 11000,
-      "id": "s4",
-      "narration": "Forests store carbon. Clearing them releases that stored carbon and removes a sink for carbon dioxide, so CO2 builds up and the planet warms. Replanting and protecting habitats pushes back.",
+      "narration": "Forests store carbon. Clearing them releases that stored carbon and removes the sink, so CO\u2082 builds up and the planet warms.",
       "steps": [
         {
           "at_ms": 0,
@@ -779,162 +1163,262 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 34,
-            "text": "Humans tip the balance",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Humans tip the balance",
+            "size": 34
           }
         },
         {
           "at_ms": 600,
           "do": "show",
           "shape": {
+            "id": "t1",
+            "kind": "circle",
+            "cx": 150,
+            "cy": 290,
+            "r": 45,
             "fill": "#c8e6c9",
-            "h": 220,
-            "id": "forest",
-            "kind": "rect",
             "stroke": "#2e7d32",
-            "w": 300,
-            "width": 3,
-            "x": 80,
-            "y": 180
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "forestL",
-            "kind": "text",
-            "size": 22,
-            "text": "forest stores carbon",
-            "x": 95,
-            "y": 220
+            "id": "t2",
+            "kind": "circle",
+            "cx": 280,
+            "cy": 290,
+            "r": 45,
+            "fill": "#c8e6c9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
           }
         },
         {
           "at_ms": 1400,
           "do": "show",
           "shape": {
-            "id": "cutT",
-            "kind": "text",
-            "size": 26,
-            "text": "deforestation clears it",
-            "x": 430,
-            "y": 200
-          }
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "forest"
-        },
-        {
-          "at_ms": 2700,
-          "do": "hide",
-          "target": "forestL"
-        },
-        {
-          "at_ms": 3000,
-          "do": "show",
-          "shape": {
-            "id": "stumpsT",
-            "kind": "text",
-            "size": 22,
-            "text": "stored carbon escapes to the air",
-            "x": 95,
-            "y": 250
-          }
-        },
-        {
-          "at_ms": 4200,
-          "do": "show",
-          "shape": {
-            "id": "co2",
-            "kind": "text",
-            "size": 26,
-            "text": "CO₂ piles up in the air",
-            "x": 95,
-            "y": 340
-          }
-        },
-        {
-          "at_ms": 4800,
-          "do": "move",
-          "dur_ms": 1500,
-          "target": "co2",
-          "to": {
-            "x": 95,
-            "y": 290
-          }
-        },
-        {
-          "at_ms": 6600,
-          "do": "show",
-          "shape": {
-            "id": "warmT",
-            "kind": "text",
-            "size": 22,
-            "text": "a warmer planet follows",
-            "x": 430,
-            "y": 320
-          }
-        },
-        {
-          "at_ms": 7400,
-          "do": "show",
-          "shape": {
-            "cx": 640,
-            "cy": 430,
-            "fill": "#c8e6c9",
-            "id": "sap",
+            "id": "t3",
             "kind": "circle",
-            "r": 40,
+            "cx": 410,
+            "cy": 290,
+            "r": 45,
+            "fill": "#c8e6c9",
             "stroke": "#2e7d32",
             "strokeWidth": 3
           }
         },
         {
-          "at_ms": 7800,
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "forestL",
+            "kind": "text",
+            "x": 95,
+            "y": 150,
+            "text": "forest stores carbon",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 2200,
+          "do": "show",
+          "shape": {
+            "id": "cutT",
+            "kind": "text",
+            "x": 480,
+            "y": 150,
+            "text": "deforestation clears it",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "hide",
+          "target": "t1"
+        },
+        {
+          "at_ms": 2800,
+          "do": "hide",
+          "target": "t2"
+        },
+        {
+          "at_ms": 3000,
+          "do": "hide",
+          "target": "t3"
+        },
+        {
+          "at_ms": 3200,
+          "do": "show",
+          "shape": {
+            "id": "c1",
+            "kind": "circle",
+            "cx": 150,
+            "cy": 290,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "c1",
+          "to": {
+            "cy": 180
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 3600,
+          "do": "show",
+          "shape": {
+            "id": "c2",
+            "kind": "circle",
+            "cx": 280,
+            "cy": 290,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "target": "c2",
+          "to": {
+            "cy": 180
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "circle",
+            "cx": 410,
+            "cy": 290,
+            "r": 10,
+            "fill": "#90caf9",
+            "stroke": "#1565c0",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 4200,
+          "do": "move",
+          "target": "c3",
+          "to": {
+            "cy": 180
+          },
+          "dur_ms": 1000
+        },
+        {
+          "at_ms": 4600,
+          "do": "show",
+          "shape": {
+            "id": "co2T",
+            "kind": "text",
+            "x": 95,
+            "y": 240,
+            "text": "CO\u2082 piles up in the air",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 5000,
+          "do": "hide",
+          "target": "forestL"
+        },
+        {
+          "at_ms": 5000,
+          "do": "show",
+          "shape": {
+            "id": "sinkLost",
+            "kind": "text",
+            "x": 95,
+            "y": 150,
+            "text": "sink lost",
+            "size": 22,
+            "fill": "#9e9e9e"
+          }
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "warmT",
+            "kind": "text",
+            "x": 480,
+            "y": 260,
+            "text": "a warmer planet follows",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 5800,
+          "do": "show",
+          "shape": {
+            "id": "sap",
+            "kind": "circle",
+            "cx": 640,
+            "cy": 430,
+            "r": 12,
+            "fill": "#c8e6c9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 6000,
+          "do": "move",
+          "target": "sap",
+          "to": {
+            "r": 40
+          },
+          "dur_ms": 800
+        },
+        {
+          "at_ms": 6900,
           "do": "show",
           "shape": {
             "id": "sapL",
             "kind": "text",
-            "size": 22,
+            "x": 600,
+            "y": 505,
             "text": "replanting",
-            "x": 605,
-            "y": 438
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 7300,
+          "do": "show",
+          "shape": {
+            "id": "pushT",
+            "kind": "text",
+            "x": 95,
+            "y": 330,
+            "text": "replanting pushes back",
+            "size": 22
           }
         },
         {
           "at_ms": 8200,
-          "do": "show",
-          "shape": {
-            "id": "protectT",
-            "kind": "text",
-            "size": 22,
-            "text": "replanting and reserves push back",
-            "x": 95,
-            "y": 490
-          }
-        },
-        {
-          "at_ms": 9200,
-          "do": "emphasize",
-          "dur_ms": 1200,
-          "target": "sap"
-        },
-        {
-          "at_ms": 10000,
           "do": "caption",
-          "text": "We shape the carbon cycle; conservation shapes it back."
+          "text": "Cutting forests tips the carbon balance \u2014 replanting pushes back"
         }
       ]
     },
     {
+      "id": "s5",
       "caption": "Myth: energy is recycled like nutrients",
       "duration_ms": 9000,
-      "id": "s5",
       "narration": "Nutrients cycle in closed loops, but energy does not. Energy enters as sunlight and flows one way through food chains, with most of it lost as heat at each step.",
       "steps": [
         {
@@ -943,75 +1427,460 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 30,
-            "text": "Myth: energy is recycled like nutrients",
             "x": 80,
-            "y": 70
+            "y": 70,
+            "text": "Myth: energy is recycled like nutrients",
+            "size": 30
           }
         },
         {
-          "at_ms": 1200,
+          "at_ms": 500,
           "do": "show",
           "shape": {
-            "id": "t1",
+            "id": "ePanelT",
             "kind": "text",
-            "size": 26,
-            "text": "Nutrients loop: carbon returns to air, soil, and leaves.",
-            "x": 80,
-            "y": 200
+            "x": 60,
+            "y": 110,
+            "text": "energy: one-way flow",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "sun",
+            "kind": "circle",
+            "cx": 120,
+            "cy": 180,
+            "r": 35,
+            "fill": "#fff9c4",
+            "stroke": "#f9a825",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 1000,
+          "do": "show",
+          "shape": {
+            "id": "sunL",
+            "kind": "text",
+            "x": 100,
+            "y": 232,
+            "text": "sunlight",
+            "size": 18
+          }
+        },
+        {
+          "at_ms": 1300,
+          "do": "show",
+          "shape": {
+            "id": "ea1",
+            "kind": "arrow",
+            "x1": 160,
+            "y1": 180,
+            "x2": 170,
+            "y2": 180,
+            "stroke": "#f9a825",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "ea1",
+          "to": {
+            "x2": 275
+          },
+          "dur_ms": 350
+        },
+        {
+          "at_ms": 1900,
+          "do": "show",
+          "shape": {
+            "id": "prod",
+            "kind": "rect",
+            "x": 280,
+            "y": 150,
+            "w": 110,
+            "h": 60,
+            "fill": "#c8e6c9",
+            "stroke": "#2e7d32",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "prodL",
+            "kind": "text",
+            "x": 292,
+            "y": 184,
+            "text": "producer",
+            "size": 18
           }
         },
         {
           "at_ms": 2400,
           "do": "show",
           "shape": {
-            "id": "t2",
-            "kind": "text",
-            "size": 26,
-            "text": "Energy does NOT loop.",
-            "x": 80,
-            "y": 262
+            "id": "eDot",
+            "kind": "circle",
+            "cx": 120,
+            "cy": 180,
+            "r": 9,
+            "fill": "#ffd54f",
+            "stroke": "#f9a825",
+            "strokeWidth": 2
           }
         },
         {
-          "at_ms": 3600,
+          "at_ms": 2600,
+          "do": "move",
+          "target": "eDot",
+          "to": {
+            "cx": 335
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3200,
           "do": "show",
           "shape": {
-            "id": "t3",
-            "kind": "text",
-            "size": 26,
-            "text": "Sunlight flows one way: producers, consumers, decomposers.",
-            "x": 80,
-            "y": 340
+            "id": "ea2",
+            "kind": "arrow",
+            "x1": 390,
+            "y1": 180,
+            "x2": 400,
+            "y2": 180,
+            "stroke": "#f9a825",
+            "width": 4
           }
         },
         {
-          "at_ms": 4800,
+          "at_ms": 3400,
+          "do": "move",
+          "target": "ea2",
+          "to": {
+            "x2": 485
+          },
+          "dur_ms": 350
+        },
+        {
+          "at_ms": 3800,
           "do": "show",
           "shape": {
-            "id": "t4",
-            "kind": "text",
-            "size": 26,
-            "text": "About 90% is lost as heat at every step.",
-            "x": 80,
-            "y": 402
+            "id": "cons",
+            "kind": "circle",
+            "cx": 530,
+            "cy": 180,
+            "r": 40,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 3
           }
         },
         {
-          "at_ms": 6200,
-          "do": "emphasize",
-          "dur_ms": 1200,
-          "target": "t2"
+          "at_ms": 4000,
+          "do": "show",
+          "shape": {
+            "id": "consL",
+            "kind": "text",
+            "x": 495,
+            "y": 188,
+            "text": "consumer",
+            "size": 18
+          }
         },
         {
-          "at_ms": 7400,
-          "do": "caption",
-          "text": "Nutrients cycle; energy flows through — and out."
+          "at_ms": 4300,
+          "do": "move",
+          "target": "eDot",
+          "to": {
+            "cx": 530
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4900,
+          "do": "hide",
+          "target": "eDot"
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "e1",
+            "kind": "circle",
+            "cx": 530,
+            "cy": 180,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "e2",
+            "kind": "circle",
+            "cx": 530,
+            "cy": 180,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 4900,
+          "do": "show",
+          "shape": {
+            "id": "e3",
+            "kind": "circle",
+            "cx": 530,
+            "cy": 180,
+            "r": 7,
+            "fill": "#ff8a65",
+            "stroke": "#e64a19",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 5100,
+          "do": "move",
+          "target": "e1",
+          "to": {
+            "cx": 600,
+            "cy": 110
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5100,
+          "do": "move",
+          "target": "e2",
+          "to": {
+            "cx": 635,
+            "cy": 140
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5100,
+          "do": "move",
+          "target": "e3",
+          "to": {
+            "cx": 605,
+            "cy": 165
+          },
+          "dur_ms": 700
+        },
+        {
+          "at_ms": 5900,
+          "do": "show",
+          "shape": {
+            "id": "eEnd",
+            "kind": "text",
+            "x": 600,
+            "y": 245,
+            "text": "energy escapes as heat",
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 6100,
+          "do": "show",
+          "shape": {
+            "id": "nPanelT",
+            "kind": "text",
+            "x": 60,
+            "y": 300,
+            "text": "nutrients: closed loop",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 6300,
+          "do": "show",
+          "shape": {
+            "id": "nplant",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 380,
+            "r": 40,
+            "fill": "#c8e6c9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 6300,
+          "do": "show",
+          "shape": {
+            "id": "nplantL",
+            "kind": "text",
+            "x": 152,
+            "y": 388,
+            "text": "plant",
+            "size": 18
+          }
+        },
+        {
+          "at_ms": 6500,
+          "do": "show",
+          "shape": {
+            "id": "nanimal",
+            "kind": "circle",
+            "cx": 480,
+            "cy": 380,
+            "r": 40,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 3
+          }
+        },
+        {
+          "at_ms": 6500,
+          "do": "show",
+          "shape": {
+            "id": "nanimalL",
+            "kind": "text",
+            "x": 448,
+            "y": 388,
+            "text": "animal",
+            "size": 18
+          }
+        },
+        {
+          "at_ms": 6700,
+          "do": "show",
+          "shape": {
+            "id": "nsoil",
+            "kind": "rect",
+            "x": 310,
+            "y": 465,
+            "w": 110,
+            "h": 55,
+            "fill": "#d7ccc8",
+            "stroke": "#5d4037",
+            "width": 3
+          }
+        },
+        {
+          "at_ms": 6700,
+          "do": "show",
+          "shape": {
+            "id": "nsoilL",
+            "kind": "text",
+            "x": 332,
+            "y": 500,
+            "text": "soil",
+            "size": 16
+          }
+        },
+        {
+          "at_ms": 6900,
+          "do": "show",
+          "shape": {
+            "id": "na1",
+            "kind": "arrow",
+            "x1": 225,
+            "y1": 380,
+            "x2": 435,
+            "y2": 380,
+            "stroke": "#2e7d32",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 6900,
+          "do": "show",
+          "shape": {
+            "id": "na2",
+            "kind": "arrow",
+            "x1": 450,
+            "y1": 408,
+            "x2": 375,
+            "y2": 462,
+            "stroke": "#2e7d32",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 6900,
+          "do": "show",
+          "shape": {
+            "id": "na3",
+            "kind": "arrow",
+            "x1": 310,
+            "y1": 468,
+            "x2": 220,
+            "y2": 418,
+            "stroke": "#2e7d32",
+            "width": 4
+          }
+        },
+        {
+          "at_ms": 7100,
+          "do": "show",
+          "shape": {
+            "id": "nDot",
+            "kind": "circle",
+            "cx": 180,
+            "cy": 380,
+            "r": 9,
+            "fill": "#a5d6a7",
+            "stroke": "#2e7d32",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 7300,
+          "do": "move",
+          "target": "nDot",
+          "to": {
+            "cx": 480,
+            "cy": 380
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 8000,
+          "do": "move",
+          "target": "nDot",
+          "to": {
+            "cx": 365,
+            "cy": 468
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 8600,
+          "do": "move",
+          "target": "nDot",
+          "to": {
+            "cx": 180,
+            "cy": 380
+          },
+          "dur_ms": 400
+        },
+        {
+          "at_ms": 8900,
+          "do": "show",
+          "shape": {
+            "id": "nEnd",
+            "kind": "text",
+            "x": 560,
+            "y": 300,
+            "text": "nutrients loop back",
+            "size": 20
+          }
         }
       ]
     }
-  ],
-  "subject": "science",
-  "title": "Ecology: food webs, energy flow, the carbon cycle",
-  "topic": "bio-ecology"
+  ]
 }
