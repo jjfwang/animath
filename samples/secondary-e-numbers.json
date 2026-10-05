@@ -1,17 +1,20 @@
 {
   "animath": "0.1",
-  "canvas": {
-    "height": 540,
-    "width": 960
-  },
   "kind": "concept",
+  "title": "E-Math numbers: primes, indices and standard form",
   "level": "secondary",
+  "subject": "math",
+  "topic": "e-numbers",
+  "canvas": {
+    "width": 960,
+    "height": 540
+  },
   "scenes": [
     {
-      "caption": "Primes under the sieve",
-      "duration_ms": 9040,
       "id": "s1",
-      "narration": "To find the primes, sieve the numbers: cross out the multiples of two, three and five, but keep each sieving number itself. What survives \u2014 two, three, five, seven, eleven, thirteen, seventeen and nineteen \u2014 is divisible only by one and itself.",
+      "caption": "Primes under the sieve",
+      "duration_ms": 11300,
+      "narration": "To find the primes, cross out the multiples of two, three and five - but keep each sieving number itself. The survivors - 2, 3, 5, 7, 11, 13, 17, 19, 23 - are divisible only by one and themselves.",
       "steps": [
         {
           "at_ms": 0,
@@ -19,538 +22,1114 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 36,
+            "x": 110,
+            "y": 80,
             "text": "Primes under the sieve",
-            "x": 120,
-            "y": 110
+            "size": 36
           }
         },
         {
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "id": "n1",
+            "id": "howto",
             "kind": "text",
-            "size": 34,
-            "text": "1",
-            "x": 150,
-            "y": 190
+            "x": 110,
+            "y": 118,
+            "text": "cross out the multiples - keep 2, 3, 5",
+            "size": 18
           }
         },
         {
-          "at_ms": 490,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "n2",
+            "id": "c2",
+            "kind": "rect",
+            "x": 110,
+            "y": 150,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "t2",
             "kind": "text",
-            "size": 34,
+            "x": 155,
+            "y": 188,
             "text": "2",
-            "x": 280,
-            "y": 190
+            "size": 26
           }
         },
         {
-          "at_ms": 580,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "n3",
+            "id": "c3",
+            "kind": "rect",
+            "x": 226,
+            "y": 150,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "t3",
             "kind": "text",
-            "size": 34,
+            "x": 271,
+            "y": 188,
             "text": "3",
-            "x": 410,
-            "y": 190
+            "size": 26
           }
         },
         {
-          "at_ms": 670,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "n4",
+            "id": "c4",
+            "kind": "rect",
+            "x": 342,
+            "y": 150,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "t4",
             "kind": "text",
-            "size": 34,
+            "x": 387,
+            "y": 188,
             "text": "4",
-            "x": 540,
-            "y": 190
+            "size": 26
           }
         },
         {
-          "at_ms": 760,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "n5",
+            "id": "c5",
+            "kind": "rect",
+            "x": 458,
+            "y": 150,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "t5",
             "kind": "text",
-            "size": 34,
+            "x": 503,
+            "y": 188,
             "text": "5",
-            "x": 670,
-            "y": 190
+            "size": 26
           }
         },
         {
-          "at_ms": 850,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "n6",
+            "id": "c6",
+            "kind": "rect",
+            "x": 574,
+            "y": 150,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "t6",
             "kind": "text",
-            "size": 34,
+            "x": 619,
+            "y": 188,
             "text": "6",
-            "x": 150,
-            "y": 260
+            "size": 26
           }
         },
         {
-          "at_ms": 940,
+          "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "n7",
+            "id": "c7",
+            "kind": "rect",
+            "x": 690,
+            "y": 150,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 600,
+          "do": "show",
+          "shape": {
+            "id": "t7",
             "kind": "text",
-            "size": 34,
+            "x": 735,
+            "y": 188,
             "text": "7",
-            "x": 280,
-            "y": 260
+            "size": 26
           }
         },
         {
-          "at_ms": 1030,
+          "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "n8",
+            "id": "c8",
+            "kind": "rect",
+            "x": 110,
+            "y": 218,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "t8",
             "kind": "text",
-            "size": 34,
+            "x": 155,
+            "y": 256,
             "text": "8",
-            "x": 410,
-            "y": 260
+            "size": 26
           }
         },
         {
-          "at_ms": 1120,
+          "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "n9",
+            "id": "c9",
+            "kind": "rect",
+            "x": 226,
+            "y": 218,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "t9",
             "kind": "text",
-            "size": 34,
+            "x": 271,
+            "y": 256,
             "text": "9",
-            "x": 540,
-            "y": 260
+            "size": 26
           }
         },
         {
-          "at_ms": 1210,
+          "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "n10",
+            "id": "c10",
+            "kind": "rect",
+            "x": 342,
+            "y": 218,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "t10",
             "kind": "text",
-            "size": 34,
+            "x": 380,
+            "y": 256,
             "text": "10",
-            "x": 670,
-            "y": 260
+            "size": 26
           }
         },
         {
-          "at_ms": 1300,
+          "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "n11",
+            "id": "c11",
+            "kind": "rect",
+            "x": 458,
+            "y": 218,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "t11",
             "kind": "text",
-            "size": 34,
+            "x": 496,
+            "y": 256,
             "text": "11",
-            "x": 150,
-            "y": 330
+            "size": 26
           }
         },
         {
-          "at_ms": 1390,
+          "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "n12",
+            "id": "c12",
+            "kind": "rect",
+            "x": 574,
+            "y": 218,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "t12",
             "kind": "text",
-            "size": 34,
+            "x": 612,
+            "y": 256,
             "text": "12",
-            "x": 280,
-            "y": 330
+            "size": 26
           }
         },
         {
-          "at_ms": 1480,
+          "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "n13",
+            "id": "c13",
+            "kind": "rect",
+            "x": 690,
+            "y": 218,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1100,
+          "do": "show",
+          "shape": {
+            "id": "t13",
             "kind": "text",
-            "size": 34,
+            "x": 728,
+            "y": 256,
             "text": "13",
-            "x": 410,
-            "y": 330
+            "size": 26
           }
         },
         {
-          "at_ms": 1570,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "n14",
+            "id": "c14",
+            "kind": "rect",
+            "x": 110,
+            "y": 286,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t14",
             "kind": "text",
-            "size": 34,
+            "x": 148,
+            "y": 324,
             "text": "14",
-            "x": 540,
-            "y": 330
+            "size": 26
           }
         },
         {
-          "at_ms": 1660,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "n15",
+            "id": "c15",
+            "kind": "rect",
+            "x": 226,
+            "y": 286,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t15",
             "kind": "text",
-            "size": 34,
+            "x": 264,
+            "y": 324,
             "text": "15",
-            "x": 670,
-            "y": 330
+            "size": 26
           }
         },
         {
-          "at_ms": 1750,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "n16",
+            "id": "c16",
+            "kind": "rect",
+            "x": 342,
+            "y": 286,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t16",
             "kind": "text",
-            "size": 34,
+            "x": 380,
+            "y": 324,
             "text": "16",
-            "x": 150,
-            "y": 400
+            "size": 26
           }
         },
         {
-          "at_ms": 1840,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "n17",
+            "id": "c17",
+            "kind": "rect",
+            "x": 458,
+            "y": 286,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t17",
             "kind": "text",
-            "size": 34,
+            "x": 496,
+            "y": 324,
             "text": "17",
-            "x": 280,
-            "y": 400
+            "size": 26
           }
         },
         {
-          "at_ms": 1930,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "n18",
+            "id": "c18",
+            "kind": "rect",
+            "x": 574,
+            "y": 286,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t18",
             "kind": "text",
-            "size": 34,
+            "x": 612,
+            "y": 324,
             "text": "18",
-            "x": 410,
-            "y": 400
+            "size": 26
           }
         },
         {
-          "at_ms": 2020,
+          "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "n19",
+            "id": "c19",
+            "kind": "rect",
+            "x": 690,
+            "y": 286,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "t19",
             "kind": "text",
-            "size": 34,
+            "x": 728,
+            "y": 324,
             "text": "19",
-            "x": 540,
-            "y": 400
+            "size": 26
           }
         },
         {
-          "at_ms": 2110,
+          "at_ms": 2100,
           "do": "show",
           "shape": {
-            "id": "n20",
+            "id": "c20",
+            "kind": "rect",
+            "x": 110,
+            "y": 354,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t20",
             "kind": "text",
-            "size": 34,
+            "x": 148,
+            "y": 392,
             "text": "20",
-            "x": 670,
-            "y": 400
+            "size": 26
           }
         },
         {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n4"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n6"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n8"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n10"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n12"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n14"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n16"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n18"
-        },
-        {
-          "at_ms": 2600,
-          "do": "hide",
-          "target": "n20"
-        },
-        {
-          "at_ms": 2900,
-          "do": "caption",
-          "text": "Cross out the multiples of 2 (keep 2 itself)"
-        },
-        {
-          "at_ms": 3800,
-          "do": "hide",
-          "target": "n3"
-        },
-        {
-          "at_ms": 3800,
-          "do": "hide",
-          "target": "n9"
-        },
-        {
-          "at_ms": 3800,
-          "do": "hide",
-          "target": "n15"
-        },
-        {
-          "at_ms": 4100,
-          "do": "caption",
-          "text": "Cross out the multiples of 3 (keep 3 itself)"
-        },
-        {
-          "at_ms": 5000,
-          "do": "hide",
-          "target": "n5"
-        },
-        {
-          "at_ms": 5300,
-          "do": "caption",
-          "text": "Cross out the multiples of 5 (keep 5 itself)"
-        },
-        {
-          "at_ms": 6200,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n2"
-        },
-        {
-          "at_ms": 6380,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n3"
-        },
-        {
-          "at_ms": 6560,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n5"
-        },
-        {
-          "at_ms": 6740,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n7"
-        },
-        {
-          "at_ms": 6920,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n11"
-        },
-        {
-          "at_ms": 7100,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n13"
-        },
-        {
-          "at_ms": 7280,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n17"
-        },
-        {
-          "at_ms": 7460,
-          "do": "emphasize",
-          "dur_ms": 700,
-          "target": "n19"
-        },
-        {
-          "at_ms": 7840,
-          "do": "caption",
-          "text": "Left standing: the primes \u2014 divisible only by 1 and themselves"
-        }
-      ]
-    },
-    {
-      "caption": "Same base? Add the powers",
-      "duration_ms": 8000,
-      "id": "s2",
-      "narration": "Two to the three times two to the four: write out every factor and count the twos. Three twos plus four twos make seven twos \u2014 two to the seven, which is one hundred and twenty-eight. Same base, add the powers.",
-      "steps": [
-        {
-          "at_ms": 0,
+          "at_ms": 2100,
           "do": "show",
           "shape": {
-            "id": "title",
+            "id": "c21",
+            "kind": "rect",
+            "x": 226,
+            "y": 354,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t21",
             "kind": "text",
-            "size": 36,
-            "text": "Same base? Add the powers",
-            "x": 120,
-            "y": 110
+            "x": 264,
+            "y": 392,
+            "text": "21",
+            "size": 26
           }
         },
         {
-          "at_ms": 600,
+          "at_ms": 2100,
           "do": "show",
           "shape": {
-            "color": "#1f7a3a",
-            "id": "rule",
-            "kind": "latex",
-            "size": 52,
-            "tex": "a^m \\times a^n = a^{m+n}",
+            "id": "c22",
+            "kind": "rect",
+            "x": 342,
+            "y": 354,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t22",
+            "kind": "text",
+            "x": 380,
+            "y": 392,
+            "text": "22",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "c23",
+            "kind": "rect",
+            "x": 458,
+            "y": 354,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t23",
+            "kind": "text",
+            "x": 496,
+            "y": 392,
+            "text": "23",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "c24",
+            "kind": "rect",
+            "x": 574,
+            "y": 354,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t24",
+            "kind": "text",
+            "x": 612,
+            "y": 392,
+            "text": "24",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "c25",
+            "kind": "rect",
+            "x": 690,
+            "y": 354,
+            "w": 104,
+            "h": 58,
+            "fill": "#e3f2fd",
+            "stroke": "#1976d2",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2100,
+          "do": "show",
+          "shape": {
+            "id": "t25",
+            "kind": "text",
+            "x": 728,
+            "y": 392,
+            "text": "25",
+            "size": 26
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "stat2",
+            "kind": "text",
+            "x": 560,
+            "y": 140,
+            "text": "sieving multiples of 2",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 2700,
+          "do": "show",
+          "shape": {
+            "id": "mark",
+            "kind": "text",
             "x": 150,
-            "y": 220
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "id": "work",
-            "kind": "latex",
-            "size": 36,
-            "tex": "2^3 \\times 2^4 = (2 \\times 2 \\times 2) \\times (2 \\times 2 \\times 2 \\times 2)",
-            "x": 150,
-            "y": 330
-          }
-        },
-        {
-          "at_ms": 3400,
-          "do": "show",
-          "shape": {
-            "id": "work2",
-            "kind": "latex",
+            "y": 194,
+            "text": "✕",
             "size": 44,
-            "tex": "= 2^{7} = 128",
-            "x": 150,
-            "y": 420
-          }
-        },
-        {
-          "at_ms": 4800,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "rule"
-        },
-        {
-          "at_ms": 6200,
-          "do": "caption",
-          "text": "8 x 16 = 128: the powers add when the base is the same"
-        }
-      ]
-    },
-    {
-      "caption": "Standard form: big numbers, small package",
-      "duration_ms": 8000,
-      "id": "s3",
-      "narration": "Three hundred and sixty thousand is a mouthful, so write it as three point six times ten to the five. The decimal point jumps five places; the value stays exactly the same.",
-      "steps": [
-        {
-          "at_ms": 0,
-          "do": "show",
-          "shape": {
-            "id": "title",
-            "kind": "text",
-            "size": 36,
-            "text": "Standard form: big numbers, small package",
-            "x": 120,
-            "y": 110
-          }
-        },
-        {
-          "at_ms": 600,
-          "do": "show",
-          "shape": {
-            "color": "#1f7a3a",
-            "id": "sf",
-            "kind": "latex",
-            "size": 52,
-            "tex": "3.6 \\times 10^{5}",
-            "x": 150,
-            "y": 230
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "id": "meaning",
-            "kind": "text",
-            "size": 28,
-            "text": "3.6 times ten to the power five",
-            "x": 150,
-            "y": 320
+            "fill": "#e53935"
           }
         },
         {
           "at_ms": 3000,
-          "do": "show",
-          "shape": {
-            "id": "expanded",
-            "kind": "text",
-            "size": 40,
-            "text": "= 360 000",
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 382,
+            "y": 194
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 3300,
+          "do": "hide",
+          "target": "c4"
+        },
+        {
+          "at_ms": 3300,
+          "do": "hide",
+          "target": "t4"
+        },
+        {
+          "at_ms": 3400,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 614,
+            "y": 194
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 3700,
+          "do": "hide",
+          "target": "c6"
+        },
+        {
+          "at_ms": 3700,
+          "do": "hide",
+          "target": "t6"
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "target": "mark",
+          "to": {
             "x": 150,
-            "y": 410
-          }
+            "y": 262
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 4100,
+          "do": "hide",
+          "target": "c8"
+        },
+        {
+          "at_ms": 4100,
+          "do": "hide",
+          "target": "t8"
         },
         {
           "at_ms": 4200,
           "do": "move",
-          "dur_ms": 1200,
-          "target": "sf",
+          "target": "mark",
+          "to": {
+            "x": 382,
+            "y": 262
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 4500,
+          "do": "hide",
+          "target": "c10"
+        },
+        {
+          "at_ms": 4500,
+          "do": "hide",
+          "target": "t10"
+        },
+        {
+          "at_ms": 4600,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 614,
+            "y": 262
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 4900,
+          "do": "hide",
+          "target": "c12"
+        },
+        {
+          "at_ms": 4900,
+          "do": "hide",
+          "target": "t12"
+        },
+        {
+          "at_ms": 5000,
+          "do": "move",
+          "target": "mark",
           "to": {
             "x": 150,
-            "y": 150
-          }
+            "y": 330
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 5300,
+          "do": "hide",
+          "target": "c14"
+        },
+        {
+          "at_ms": 5300,
+          "do": "hide",
+          "target": "t14"
+        },
+        {
+          "at_ms": 5400,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 382,
+            "y": 330
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 5700,
+          "do": "hide",
+          "target": "c16"
+        },
+        {
+          "at_ms": 5700,
+          "do": "hide",
+          "target": "t16"
         },
         {
           "at_ms": 5800,
-          "do": "emphasize",
-          "dur_ms": 900,
-          "target": "sf"
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 614,
+            "y": 330
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 6100,
+          "do": "hide",
+          "target": "c18"
+        },
+        {
+          "at_ms": 6100,
+          "do": "hide",
+          "target": "t18"
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 150,
+            "y": 398
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 6500,
+          "do": "hide",
+          "target": "c20"
+        },
+        {
+          "at_ms": 6500,
+          "do": "hide",
+          "target": "t20"
+        },
+        {
+          "at_ms": 6600,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 382,
+            "y": 398
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 6900,
+          "do": "hide",
+          "target": "c22"
+        },
+        {
+          "at_ms": 6900,
+          "do": "hide",
+          "target": "t22"
         },
         {
           "at_ms": 7000,
-          "do": "caption",
-          "text": "Standard form moves the decimal point, not the value"
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 614,
+            "y": 398
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 7300,
+          "do": "hide",
+          "target": "c24"
+        },
+        {
+          "at_ms": 7300,
+          "do": "hide",
+          "target": "t24"
+        },
+        {
+          "at_ms": 7400,
+          "do": "hide",
+          "target": "stat2"
+        },
+        {
+          "at_ms": 7400,
+          "do": "show",
+          "shape": {
+            "id": "stat3",
+            "kind": "text",
+            "x": 560,
+            "y": 140,
+            "text": "sieving multiples of 3",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 7600,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 266,
+            "y": 262
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 7900,
+          "do": "hide",
+          "target": "c9"
+        },
+        {
+          "at_ms": 7900,
+          "do": "hide",
+          "target": "t9"
+        },
+        {
+          "at_ms": 8000,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 266,
+            "y": 330
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 8300,
+          "do": "hide",
+          "target": "c15"
+        },
+        {
+          "at_ms": 8300,
+          "do": "hide",
+          "target": "t15"
+        },
+        {
+          "at_ms": 8400,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 266,
+            "y": 398
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 8700,
+          "do": "hide",
+          "target": "c21"
+        },
+        {
+          "at_ms": 8700,
+          "do": "hide",
+          "target": "t21"
+        },
+        {
+          "at_ms": 8800,
+          "do": "hide",
+          "target": "stat3"
+        },
+        {
+          "at_ms": 8800,
+          "do": "show",
+          "shape": {
+            "id": "stat5",
+            "kind": "text",
+            "x": 560,
+            "y": 140,
+            "text": "sieving multiples of 5",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 9000,
+          "do": "move",
+          "target": "mark",
+          "to": {
+            "x": 730,
+            "y": 398
+          },
+          "dur_ms": 280
+        },
+        {
+          "at_ms": 9300,
+          "do": "hide",
+          "target": "c25"
+        },
+        {
+          "at_ms": 9300,
+          "do": "hide",
+          "target": "t25"
+        },
+        {
+          "at_ms": 9400,
+          "do": "hide",
+          "target": "mark"
+        },
+        {
+          "at_ms": 9400,
+          "do": "hide",
+          "target": "stat5"
+        },
+        {
+          "at_ms": 9400,
+          "do": "show",
+          "shape": {
+            "id": "statP",
+            "kind": "text",
+            "x": 560,
+            "y": 140,
+            "text": "the primes survive!",
+            "size": 22
+          }
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c2",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c3",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c5",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c7",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c11",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c13",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c17",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c19",
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 9800,
+          "do": "emphasize",
+          "target": "c23",
+          "dur_ms": 600
         }
       ]
     },
     {
-      "caption": "Powers do not add when you add",
-      "duration_ms": 8000,
-      "id": "s4",
-      "narration": "Two cubed plus two to the four is not two to the seven. Work it out: eight plus sixteen is twenty-four \u2014 nowhere near one hundred and twenty-eight. The same-base rule is for multiplying, never for adding.",
+      "id": "s2",
+      "caption": "Same base? Add the powers",
+      "duration_ms": 8800,
+      "narration": "Two cubed times two to the four: write out every two and count them as they join the answer. Three twos plus four twos is seven twos - that is why you add the exponents.",
       "steps": [
         {
           "at_ms": 0,
@@ -558,65 +1137,1037 @@
           "shape": {
             "id": "title",
             "kind": "text",
-            "size": 36,
-            "text": "Powers do not add when you add",
-            "x": 120,
-            "y": 110
+            "x": 110,
+            "y": 80,
+            "text": "Same base? Add the powers",
+            "size": 36
           }
         },
         {
-          "at_ms": 600,
+          "at_ms": 400,
           "do": "show",
           "shape": {
-            "color": "#b00020",
-            "id": "trap",
-            "kind": "latex",
-            "size": 52,
-            "tex": "2^3 + 2^4 \\neq 2^7",
-            "x": 150,
-            "y": 230
+            "id": "l3",
+            "kind": "text",
+            "x": 80,
+            "y": 185,
+            "text": "2³",
+            "size": 30
           }
         },
         {
-          "at_ms": 2000,
+          "at_ms": 500,
           "do": "show",
           "shape": {
-            "id": "val",
-            "kind": "latex",
-            "size": 44,
-            "tex": "2^3 + 2^4 = 8 + 16 = 24",
-            "x": 150,
+            "id": "a0",
+            "kind": "rect",
+            "x": 160,
+            "y": 200,
+            "w": 70,
+            "h": 70,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "a0t",
+            "kind": "text",
+            "x": 187,
+            "y": 248,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 650,
+          "do": "show",
+          "shape": {
+            "id": "a1",
+            "kind": "rect",
+            "x": 240,
+            "y": 200,
+            "w": 70,
+            "h": 70,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 650,
+          "do": "show",
+          "shape": {
+            "id": "a1t",
+            "kind": "text",
+            "x": 267,
+            "y": 248,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "a2",
+            "kind": "rect",
+            "x": 320,
+            "y": 200,
+            "w": 70,
+            "h": 70,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "a2t",
+            "kind": "text",
+            "x": 347,
+            "y": 248,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 1400,
+          "do": "show",
+          "shape": {
+            "id": "l4",
+            "kind": "text",
+            "x": 80,
+            "y": 335,
+            "text": "2⁴",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "b0",
+            "kind": "rect",
+            "x": 160,
+            "y": 350,
+            "w": 70,
+            "h": 70,
+            "fill": "#e8f5e9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "b0t",
+            "kind": "text",
+            "x": 187,
+            "y": 398,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 1650,
+          "do": "show",
+          "shape": {
+            "id": "b1",
+            "kind": "rect",
+            "x": 240,
+            "y": 350,
+            "w": 70,
+            "h": 70,
+            "fill": "#e8f5e9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1650,
+          "do": "show",
+          "shape": {
+            "id": "b1t",
+            "kind": "text",
+            "x": 267,
+            "y": 398,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "b2",
+            "kind": "rect",
+            "x": 320,
+            "y": 350,
+            "w": 70,
+            "h": 70,
+            "fill": "#e8f5e9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "b2t",
+            "kind": "text",
+            "x": 347,
+            "y": 398,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 1950,
+          "do": "show",
+          "shape": {
+            "id": "b3",
+            "kind": "rect",
+            "x": 400,
+            "y": 350,
+            "w": 70,
+            "h": 70,
+            "fill": "#e8f5e9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 1950,
+          "do": "show",
+          "shape": {
+            "id": "b3t",
+            "kind": "text",
+            "x": 427,
+            "y": 398,
+            "text": "2",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "times",
+            "kind": "text",
+            "x": 500,
+            "y": 315,
+            "text": "×",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 2500,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "text",
+            "x": 560,
+            "y": 315,
+            "text": "=",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 2600,
+          "do": "show",
+          "shape": {
+            "id": "slot",
+            "kind": "rect",
+            "x": 610,
+            "y": 180,
+            "w": 320,
+            "h": 240,
+            "fill": "#eceff1",
+            "stroke": "#455a64",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 3200,
+          "do": "move",
+          "target": "a0",
+          "to": {
+            "x": 622,
+            "y": 200
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3200,
+          "do": "move",
+          "target": "a0t",
+          "to": {
+            "x": 646,
+            "y": 246
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "target": "a1",
+          "to": {
+            "x": 694,
+            "y": 200
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "target": "a1t",
+          "to": {
+            "x": 718,
+            "y": 246
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "target": "a2",
+          "to": {
+            "x": 766,
+            "y": 200
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "target": "a2t",
+          "to": {
+            "x": 790,
+            "y": 246
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 5000,
+          "do": "move",
+          "target": "b0",
+          "to": {
+            "x": 838,
+            "y": 200
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 5000,
+          "do": "move",
+          "target": "b0t",
+          "to": {
+            "x": 862,
+            "y": 246
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "target": "b1",
+          "to": {
+            "x": 622,
+            "y": 284
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 5600,
+          "do": "move",
+          "target": "b1t",
+          "to": {
+            "x": 646,
             "y": 330
-          }
-        },
-        {
-          "at_ms": 3400,
-          "do": "show",
-          "shape": {
-            "color": "#b00020",
-            "id": "not128",
-            "kind": "latex",
-            "size": 40,
-            "tex": "\\text{not } 128",
-            "x": 150,
-            "y": 420
-          }
-        },
-        {
-          "at_ms": 4800,
-          "do": "emphasize",
-          "dur_ms": 1000,
-          "target": "trap"
+          },
+          "dur_ms": 500
         },
         {
           "at_ms": 6200,
-          "do": "caption",
-          "text": "Adding powers works only for multiplication: a^m x a^n"
+          "do": "move",
+          "target": "b2",
+          "to": {
+            "x": 694,
+            "y": 284
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "b2t",
+          "to": {
+            "x": 718,
+            "y": 330
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6800,
+          "do": "move",
+          "target": "b3",
+          "to": {
+            "x": 766,
+            "y": 284
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 6800,
+          "do": "move",
+          "target": "b3t",
+          "to": {
+            "x": 790,
+            "y": 330
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 7800,
+          "do": "show",
+          "shape": {
+            "id": "ans",
+            "kind": "text",
+            "x": 620,
+            "y": 490,
+            "text": "2⁷",
+            "size": 54
+          }
+        },
+        {
+          "at_ms": 7800,
+          "do": "show",
+          "shape": {
+            "id": "ansl",
+            "kind": "text",
+            "x": 730,
+            "y": 488,
+            "text": "seven 2's",
+            "size": 24
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "caption": "Standard form: big numbers, small package",
+      "duration_ms": 7800,
+      "narration": "Three hundred and sixty thousand is a mouthful, so let the point travel left and count the jumps. Five jumps packages it as 3.6 × 10⁵.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 110,
+            "y": 80,
+            "text": "Standard form: big numbers, small package",
+            "size": 32
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "d0",
+            "kind": "text",
+            "x": 180,
+            "y": 300,
+            "text": "3",
+            "size": 56
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "d1",
+            "kind": "text",
+            "x": 270,
+            "y": 300,
+            "text": "6",
+            "size": 56
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "d2",
+            "kind": "text",
+            "x": 360,
+            "y": 300,
+            "text": "0",
+            "size": 56
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "d3",
+            "kind": "text",
+            "x": 450,
+            "y": 300,
+            "text": "0",
+            "size": 56
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "d4",
+            "kind": "text",
+            "x": 540,
+            "y": 300,
+            "text": "0",
+            "size": 56
+          }
+        },
+        {
+          "at_ms": 800,
+          "do": "show",
+          "shape": {
+            "id": "d5",
+            "kind": "text",
+            "x": 630,
+            "y": 300,
+            "text": "0",
+            "size": 56
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "show",
+          "shape": {
+            "id": "watch",
+            "kind": "text",
+            "x": 180,
+            "y": 380,
+            "text": "watch the point travel left",
+            "size": 20
+          }
+        },
+        {
+          "at_ms": 1600,
+          "do": "show",
+          "shape": {
+            "id": "dot",
+            "kind": "circle",
+            "cx": 680,
+            "cy": 290,
+            "r": 10,
+            "fill": "#e53935",
+            "stroke": "#b71c1c",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 2300,
+          "do": "move",
+          "target": "dot",
+          "to": {
+            "cx": 600,
+            "cy": 290
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "id": "pw0",
+            "kind": "text",
+            "x": 720,
+            "y": 300,
+            "text": "× 10¹",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "move",
+          "target": "dot",
+          "to": {
+            "cx": 510,
+            "cy": 290
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3100,
+          "do": "hide",
+          "target": "pw0"
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "pw1",
+            "kind": "text",
+            "x": 720,
+            "y": 300,
+            "text": "× 10²",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 3900,
+          "do": "move",
+          "target": "dot",
+          "to": {
+            "cx": 420,
+            "cy": 290
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 3900,
+          "do": "hide",
+          "target": "pw1"
+        },
+        {
+          "at_ms": 3900,
+          "do": "show",
+          "shape": {
+            "id": "pw2",
+            "kind": "text",
+            "x": 720,
+            "y": 300,
+            "text": "× 10³",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "move",
+          "target": "dot",
+          "to": {
+            "cx": 330,
+            "cy": 290
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4700,
+          "do": "hide",
+          "target": "pw2"
+        },
+        {
+          "at_ms": 4700,
+          "do": "show",
+          "shape": {
+            "id": "pw3",
+            "kind": "text",
+            "x": 720,
+            "y": 300,
+            "text": "× 10⁴",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 5500,
+          "do": "move",
+          "target": "dot",
+          "to": {
+            "cx": 240,
+            "cy": 290
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 5500,
+          "do": "hide",
+          "target": "pw3"
+        },
+        {
+          "at_ms": 5500,
+          "do": "show",
+          "shape": {
+            "id": "pw4",
+            "kind": "text",
+            "x": 720,
+            "y": 300,
+            "text": "× 10⁵",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "d0"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "d1"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "d2"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "d3"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "d4"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "d5"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "dot"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "pw4"
+        },
+        {
+          "at_ms": 6300,
+          "do": "hide",
+          "target": "watch"
+        },
+        {
+          "at_ms": 6300,
+          "do": "show",
+          "shape": {
+            "id": "final",
+            "kind": "text",
+            "x": 300,
+            "y": 300,
+            "text": "3.6 × 10⁵",
+            "size": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "caption": "Powers do not add when you add",
+      "duration_ms": 9000,
+      "narration": "Watch out - a common mistake: two cubed plus two to the four is not two to the seven. Eight plus sixteen is twenty-four; the ghost 2⁷ drops away.",
+      "steps": [
+        {
+          "at_ms": 0,
+          "do": "show",
+          "shape": {
+            "id": "title",
+            "kind": "text",
+            "x": 110,
+            "y": 80,
+            "text": "Powers do not add when you add",
+            "size": 32
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "c3",
+            "kind": "rect",
+            "x": 100,
+            "y": 200,
+            "w": 80,
+            "h": 80,
+            "fill": "#fff3e0",
+            "stroke": "#ef6c00",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "c3t",
+            "kind": "text",
+            "x": 124,
+            "y": 252,
+            "text": "2³",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 500,
+          "do": "show",
+          "shape": {
+            "id": "plus",
+            "kind": "text",
+            "x": 230,
+            "y": 262,
+            "text": "+",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "c4",
+            "kind": "rect",
+            "x": 320,
+            "y": 200,
+            "w": 80,
+            "h": 80,
+            "fill": "#e8f5e9",
+            "stroke": "#2e7d32",
+            "strokeWidth": 2
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "c4t",
+            "kind": "text",
+            "x": 344,
+            "y": 252,
+            "text": "2⁴",
+            "size": 30
+          }
+        },
+        {
+          "at_ms": 700,
+          "do": "show",
+          "shape": {
+            "id": "eq",
+            "kind": "text",
+            "x": 450,
+            "y": 262,
+            "text": "=",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "c3",
+          "to": {
+            "x": 100,
+            "y": 380
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 1500,
+          "do": "move",
+          "target": "c3t",
+          "to": {
+            "x": 124,
+            "y": 432
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 2300,
+          "do": "hide",
+          "target": "c3"
+        },
+        {
+          "at_ms": 2300,
+          "do": "hide",
+          "target": "c3t"
+        },
+        {
+          "at_ms": 2300,
+          "do": "show",
+          "shape": {
+            "id": "eight",
+            "kind": "text",
+            "x": 100,
+            "y": 440,
+            "text": "8",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 2900,
+          "do": "move",
+          "target": "c4",
+          "to": {
+            "x": 320,
+            "y": 380
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 2900,
+          "do": "move",
+          "target": "c4t",
+          "to": {
+            "x": 344,
+            "y": 432
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 3700,
+          "do": "hide",
+          "target": "c4"
+        },
+        {
+          "at_ms": 3700,
+          "do": "hide",
+          "target": "c4t"
+        },
+        {
+          "at_ms": 3700,
+          "do": "show",
+          "shape": {
+            "id": "sixteen",
+            "kind": "text",
+            "x": 300,
+            "y": 440,
+            "text": "16",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "plus2",
+            "kind": "text",
+            "x": 230,
+            "y": 445,
+            "text": "+",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 4100,
+          "do": "show",
+          "shape": {
+            "id": "eq2",
+            "kind": "text",
+            "x": 470,
+            "y": 445,
+            "text": "=",
+            "size": 40
+          }
+        },
+        {
+          "at_ms": 4700,
+          "do": "move",
+          "target": "eight",
+          "to": {
+            "x": 520,
+            "y": 440
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 4700,
+          "do": "move",
+          "target": "sixteen",
+          "to": {
+            "x": 600,
+            "y": 440
+          },
+          "dur_ms": 500
+        },
+        {
+          "at_ms": 5400,
+          "do": "hide",
+          "target": "eight"
+        },
+        {
+          "at_ms": 5400,
+          "do": "hide",
+          "target": "sixteen"
+        },
+        {
+          "at_ms": 5400,
+          "do": "show",
+          "shape": {
+            "id": "tf",
+            "kind": "text",
+            "x": 560,
+            "y": 445,
+            "text": "24",
+            "size": 48
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "ghost",
+            "kind": "text",
+            "x": 540,
+            "y": 262,
+            "text": "2⁷",
+            "size": 44
+          }
+        },
+        {
+          "at_ms": 6200,
+          "do": "show",
+          "shape": {
+            "id": "nox",
+            "kind": "text",
+            "x": 640,
+            "y": 262,
+            "text": "✗",
+            "size": 44,
+            "fill": "#e53935"
+          }
+        },
+        {
+          "at_ms": 7000,
+          "do": "move",
+          "target": "ghost",
+          "to": {
+            "x": 540,
+            "y": 60
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 7000,
+          "do": "move",
+          "target": "nox",
+          "to": {
+            "x": 640,
+            "y": 60
+          },
+          "dur_ms": 600
+        },
+        {
+          "at_ms": 7800,
+          "do": "hide",
+          "target": "ghost"
+        },
+        {
+          "at_ms": 7800,
+          "do": "hide",
+          "target": "nox"
         }
       ]
     }
-  ],
-  "subject": "math",
-  "title": "E-Math numbers: primes, indices and standard form",
-  "topic": "e-numbers"
+  ]
 }
