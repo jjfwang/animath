@@ -1105,7 +1105,7 @@
           "shape": {
             "id": "r1",
             "kind": "text",
-            "x": 450,
+            "x": 520,
             "y": 190,
             "size": 22,
             "text": "→ all have 1 outer electron"
@@ -1117,7 +1117,7 @@
           "shape": {
             "id": "r2",
             "kind": "text",
-            "x": 450,
+            "x": 520,
             "y": 260,
             "size": 22,
             "text": "→ all react with water the same way"
@@ -1129,7 +1129,7 @@
           "shape": {
             "id": "r3",
             "kind": "text",
-            "x": 450,
+            "x": 520,
             "y": 330,
             "size": 22,
             "text": "→ all are soft metals"
@@ -1565,7 +1565,7 @@
             "id": "mythT",
             "kind": "text",
             "x": 80,
-            "y": 180,
+            "y": 105,
             "size": 26,
             "text": "Planet-style orbits are wrong."
           }
