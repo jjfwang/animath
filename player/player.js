@@ -101,6 +101,21 @@
     return 'Go to scene ' + (index + 1) + (fc ? ': ' + fc : '');
   }
 
+  // The control chrome's button affordances, in order. DOM-free: mount()
+  // builds the .ap-controls markup from this, and Node tests assert the
+  // chrome's affordances through it without a DOM. Glyphs are HTML entities
+  // because the markup is injected via innerHTML, matching the previous
+  // hardcoded buttons exactly; the restart glyph is the standard
+  // replay/restart arrow.
+  function controlButtons() {
+    return [
+      { action: 'prev', title: 'Previous scene', glyph: '|&#9664;' },
+      { action: 'play', title: 'Play/Pause', glyph: '&#9654;' },
+      { action: 'next', title: 'Next scene', glyph: '&#9654;|' },
+      { action: 'restart', title: 'Restart from the beginning', glyph: '&#8635;' }
+    ];
+  }
+
   // Map a keyboard event to a player action. DOM-free: takes an event-like
   // {key, target} so Node tests can call it directly. Returns one of
   // 'toggle' | 'prev' | 'next', or null for unmapped keys and for keys
@@ -344,9 +359,10 @@
     var controls = document.createElement('div');
     controls.className = 'ap-controls';
     controls.innerHTML =
-      '<button data-a="prev" title="Previous scene">|&#9664;</button>' +
-      '<button data-a="play" title="Play/Pause">&#9654;</button>' +
-      '<button data-a="next" title="Next scene">&#9654;|</button>' +
+      controlButtons().map(function (b) {
+        return '<button data-a="' + b.action + '" title="' + b.title + '">' +
+          b.glyph + '</button>';
+      }).join('') +
       '<input data-a="scrub" type="range" min="0" max="1000" value="0">' +
       '<span data-a="tlabel">0:00 / 0:00</span>' +
       '<select data-a="speed"><option value="0.5">0.5x</option>' +
@@ -592,6 +608,10 @@
     controls.querySelector('[data-a="next"]').addEventListener('click', function () {
       goScene(state.sceneIdx + 1, 0);
     });
+    controls.querySelector('[data-a="restart"]').addEventListener('click', function () {
+      goScene(0, 0);
+      play();
+    });
     scrub.addEventListener('input', function () {
       var scene = spec.scenes[state.sceneIdx];
       pause();
@@ -636,7 +656,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
