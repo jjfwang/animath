@@ -717,10 +717,34 @@ test('prefersReducedMotion honors an injected matcher', () => {
   assert.equal(player.prefersReducedMotion(() => { throw new Error('odd env'); }), false);
 });
 
-test('stripLabels returns one 1-based label per scene with the scene id', () => {
+test('stripLabels returns one 1-based label per scene built from the caption', () => {
   const player = require('../player/player.js');
-  assert.deepEqual(player.stripLabels([{ id: 's1' }, { id: 's2' }, { id: 's3' }]),
-    ['1 · s1', '2 · s2', '3 · s3']);
+  assert.deepEqual(player.stripLabels([
+    { id: 's1', caption: 'Meet the 3-4-5 triangle' },
+    { id: 's2', caption: 'Read off sin, cos, tan' },
+    { id: 's3', caption: 'Sine rule in action' },
+  ]), ['1 · Meet the 3-4-5 triangle', '2 · Read off sin, cos, tan', '3 · Sine rule in action']);
+});
+
+test('stripLabels truncates long captions at the 28-char limit', () => {
+  const player = require('../player/player.js');
+  const long = 'A caption that is far longer than twenty-eight characters';
+  const labels = player.stripLabels([{ id: 's1', caption: long }]);
+  assert.equal(labels.length, 1);
+  // 28 chars of caption plus the ellipsis, still 1-based with the prefix
+  assert.equal(labels[0], '1 · ' + long.slice(0, 28) + '…');
+  // exactly 28 chars is not truncated
+  const exact = player.stripLabels([{ id: 's1', caption: 'x'.repeat(28) }]);
+  assert.equal(exact[0], '1 · ' + 'x'.repeat(28), '28 chars is the limit, not over it');
+});
+
+test('stripLabels falls back to the scene id when the caption is empty', () => {
+  const player = require('../player/player.js');
+  assert.deepEqual(player.stripLabels([
+    { id: 's1', caption: '' },
+    { id: 's2', caption: null },
+    { id: 's3' },
+  ]), ['1 · s1', '2 · s2', '3 · s3']);
 });
 
 test('stripLabels tolerates empty and missing ids', () => {
@@ -728,7 +752,7 @@ test('stripLabels tolerates empty and missing ids', () => {
   const labels = player.stripLabels([{ id: 's1' }, {}, { id: '' }, null, undefined]);
   // one label per scene even when the id is unusable
   assert.equal(labels.length, 5);
-  // the id part is never the raw index: "1 · s1", not "0"
+  // the label part is never the raw index: "1 · s1", not "0"
   assert.equal(labels[0], '1 · s1');
   assert.ok(labels[0].startsWith('1 · '), '1-based numbering: ' + labels[0]);
   // missing/empty ids fall back to the 0-based index, never throw
@@ -742,9 +766,33 @@ test('stripLabels tolerates empty and missing ids', () => {
   assert.deepEqual(player.stripLabels([]), []);
 });
 
+test('stripAria carries the full untruncated caption', () => {
+  const player = require('../player/player.js');
+  const long = 'A caption that is far longer than twenty-eight characters';
+  assert.equal(player.stripAria(2, { id: 's3', caption: long }),
+    'Go to scene 3: ' + long, 'aria keeps the full caption, no truncation');
+  assert.equal(player.stripAria(0, { id: 's1', caption: 'Meet the 3-4-5 triangle' }),
+    'Go to scene 1: Meet the 3-4-5 triangle');
+  assert.equal(player.stripAria(1, { id: 's2' }), 'Go to scene 2',
+    'no caption means a plain scene label, never the internal id');
+  assert.equal(player.stripAria(0, null), 'Go to scene 1');
+});
+
+test('fullCaption returns the trimmed caption or empty string', () => {
+  const player = require('../player/player.js');
+  assert.equal(player.fullCaption({ caption: '  Meet the 3-4-5 triangle  ' }), 'Meet the 3-4-5 triangle');
+  assert.equal(player.fullCaption({ caption: '' }), '');
+  assert.equal(player.fullCaption({ caption: null }), '');
+  assert.equal(player.fullCaption({}), '');
+  assert.equal(player.fullCaption(null), '');
+  assert.equal(player.fullCaption(undefined), '');
+});
+
 test('stripLabels is exported alongside the other pure helpers', () => {
   const player = require('../player/player.js');
   assert.equal(typeof player.stripLabels, 'function');
+  assert.equal(typeof player.stripAria, 'function');
+  assert.equal(typeof player.fullCaption, 'function');
   assert.equal(typeof player.keyAction, 'function');
   assert.equal(typeof player.prefersReducedMotion, 'function');
 });

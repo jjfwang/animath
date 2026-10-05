@@ -66,15 +66,39 @@
       .replace(/\\([a-zA-Z]+)/g, '$1');
   }
 
-  // One filmstrip label per scene: 1-based index plus the scene id,
-  // e.g. "1 · s1". DOM-free; mount() builds the per-scene nav buttons
-  // from this. A missing/empty id falls back to the 0-based index.
+  // The scene's human-facing caption, trimmed; '' when the scene has none.
+  // DOM-free; stripLabels(), stripAria(), and mount() all read captions
+  // through this so labels, aria-labels, and tests share one caption source.
+  function fullCaption(scene) {
+    var c = scene && scene.caption;
+    if (c === undefined || c === null) return '';
+    return String(c).trim();
+  }
+
+  // One filmstrip label per scene: 1-based index plus the scene caption,
+  // e.g. "3 · Odd powers: one end falls". Captions longer than 28 chars are
+  // truncated with an ellipsis; a missing/empty caption falls back to the
+  // scene id, then to the 0-based index. The id is a fallback only — the
+  // filmstrip is for students, not for internal identifiers.
+  var STRIP_LABEL_MAX = 28;
   function stripLabels(scenes) {
     return (scenes || []).map(function (scene, i) {
-      var id = (scene && scene.id !== undefined && scene.id !== null &&
-        String(scene.id) !== '') ? String(scene.id) : String(i);
-      return (i + 1) + ' · ' + id;
+      var text = fullCaption(scene);
+      if (!text) {
+        text = (scene && scene.id !== undefined && scene.id !== null &&
+          String(scene.id) !== '') ? String(scene.id) : String(i);
+      } else if (text.length > STRIP_LABEL_MAX) {
+        text = text.slice(0, STRIP_LABEL_MAX) + '…';
+      }
+      return (i + 1) + ' · ' + text;
     });
+  }
+
+  // aria-label for one filmstrip button: carries the FULL (untruncated)
+  // caption so screen-reader users navigate by content, not by internal id.
+  function stripAria(index, scene) {
+    var fc = fullCaption(scene);
+    return 'Go to scene ' + (index + 1) + (fc ? ': ' + fc : '');
   }
 
   // Map a keyboard event to a player action. DOM-free: takes an event-like
@@ -342,7 +366,7 @@
     var stripBtns = stripLabels(spec.scenes).map(function (label, i) {
       var b = document.createElement('button');
       b.setAttribute('data-scene', String(i));
-      b.setAttribute('aria-label', 'Go to scene ' + (i + 1));
+      b.setAttribute('aria-label', stripAria(i, spec.scenes[i]));
       b.textContent = label;
       b.addEventListener('click', function () { goScene(i, 0); });
       strip.appendChild(b);
@@ -612,7 +636,7 @@
     };
   }
 
-  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
+  var api = { mount: mount, version: '0.1', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);
