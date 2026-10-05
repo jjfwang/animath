@@ -117,7 +117,7 @@
             "kind": "text",
             "size": 28,
             "text": "grapes: 1/4",
-            "x": 400,
+            "x": 470,
             "y": 240
           }
         },
@@ -130,7 +130,7 @@
             "size": 32,
             "text": "biggest wedge = apples: half the class",
             "x": 120,
-            "y": 500
+            "y": 510
           }
         },
         {
