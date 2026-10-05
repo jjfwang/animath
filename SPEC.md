@@ -90,8 +90,17 @@ Every shape has a unique `id` within its scene.
   passed through to SVG `stroke-dasharray`; absent or empty means solid.
   Use for asymptotes, construction lines, hidden 3D edges, field-line
   conventions.
-- `arrow`: `{id, kind:"arrow", x1, y1, x2, y2, stroke?, width?, dash?}` —
+- `arrow`: `{id, kind:"arrow", x1, y1, x2, y2, stroke?, width?, dash?, widths?}` —
   line with a head; `dash` applies to the shaft only (the head stays solid).
+  Optional `widths: [w1, w2]` makes the shaft a tapered polygon instead of a
+  stroke — tail width `w1` at (x1,y1), head width `w2` at (x2,y2), interpolated
+  linearly along the shaft (Sankey-style flow arrows for energy diagrams);
+  both must be positive numbers. The arrowhead scales with the head width
+  (`w2` when `widths` is present, else `width`). `dash` is ignored on a tapered
+  shaft (stroke-dasharray cannot apply to a filled polygon). A `move` step on
+  an arrow may carry `widths` (an array of two positive numbers) to animate
+  the taper widening or narrowing; if the shown shape declared no `widths`,
+  the taper snaps in at the end of the move.
 - `polygon`: `{id, kind:"polygon", points:[[x,y],...], fill?, stroke?, strokeWidth?}`
 - `sector`: `{id, kind:"sector", cx, cy, r, startAngle, endAngle, fill?, stroke?, strokeWidth?}` —
   pie slice / angle arc / mensuration sector. Angles in degrees: `0` is east,

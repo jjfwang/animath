@@ -21,6 +21,13 @@
 
   function isNum(x) { return typeof x === 'number' && isFinite(x); }
 
+  // Width profile for tapered arrows (issue #164): [tailWidth, headWidth],
+  // exactly two positive numbers. Shared by the show-time check and the
+  // move-time `widths` field check.
+  function isWidths(x) {
+    return Array.isArray(x) && x.length === 2 && isNum(x[0]) && x[0] > 0 && isNum(x[1]) && x[1] > 0;
+  }
+
   function checkShape(shape, errors, where) {
     var p = where + '.shape';
     if (!shape || typeof shape !== 'object') { errors.push(p + ': must be an object'); return; }
@@ -52,9 +59,22 @@
       case 'rect': num('x'); num('y'); num('w'); num('h'); break;
       case 'circle': num('cx'); num('cy'); num('r'); break;
       case 'line':
-      case 'arrow':
         num('x1'); num('y1'); num('x2'); num('y2');
         // dash is optional; absent or empty string = solid.
+        if (shape.dash !== undefined && shape.dash !== '') {
+          if (typeof shape.dash !== 'string' || !DASH.test(shape.dash.trim())) {
+            errors.push(p + '.dash: must be a string of space-separated numbers like "6 4"');
+          }
+        }
+        break;
+      case 'arrow':
+        num('x1'); num('y1'); num('x2'); num('y2');
+        // widths is optional; [tailWidth, headWidth] for a tapered shaft.
+        if (shape.widths !== undefined && !isWidths(shape.widths)) {
+          errors.push(p + '.widths: must be an array of two positive numbers [tailWidth, headWidth]');
+        }
+        // dash is optional; absent or empty string = solid. Ignored on a
+        // tapered shaft (SPEC.md), but still validated here when present.
         if (shape.dash !== undefined && shape.dash !== '') {
           if (typeof shape.dash !== 'string' || !DASH.test(shape.dash.trim())) {
             errors.push(p + '.dash: must be a string of space-separated numbers like "6 4"');
@@ -152,13 +172,15 @@
             // SPEC.md: moveable kinds are text, rect, circle, line, arrow,
             // latex, polygon. `to` must carry at least one field and every
             // field must be valid for the target kind: position fields plus
-            // w/h for rect, r for circle. Polygon `to` carries only
+            // w/h for rect, r for circle, `widths` for arrow (the
+            // [tail,head] taper pair). Polygon `to` carries only
             // `points`, an array of [x,y] pairs matching the shown shape's
             // vertex count, interpolated pointwise.
             var MOVE_FIELDS = {
               text: ['x', 'y'], latex: ['x', 'y'],
               rect: ['x', 'y', 'w', 'h'], circle: ['cx', 'cy', 'r'],
-              line: ['x1', 'y1', 'x2', 'y2'], arrow: ['x1', 'y1', 'x2', 'y2'],
+              line: ['x1', 'y1', 'x2', 'y2'],
+              arrow: ['x1', 'y1', 'x2', 'y2', 'widths'],
               polygon: ['points']
             };
             var targetKind = (typeof step.target === 'string' && step.target && shown[step.target])
@@ -176,7 +198,12 @@
                   step.to.points.every(function (pt) {
                     return Array.isArray(pt) && pt.length === 2 && isNum(pt[0]) && isNum(pt[1]);
                   })
-                : keys.length > 0 && keys.every(function (k) { return isNum(step.to[k]); });
+                : keys.length > 0 && keys.every(function (k) {
+                    // Issue #164: an arrow move may animate the taper — the
+                    // widths value is a [tail,head] pair, not a scalar.
+                    if (targetKind === 'arrow' && k === 'widths') return isWidths(step.to[k]);
+                    return isNum(step.to[k]);
+                  });
               if (!fieldsOk) {
                 errors.push(s + '.to: must carry at least one numeric field' +
                   (isPoly ? ' — points must be an array of numeric [x,y] pairs' : ''));
