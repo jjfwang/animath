@@ -1417,9 +1417,9 @@
     },
     {
       "id": "s5",
-      "caption": "Myth: energy is recycled like nutrients",
+      "caption": "A common mistake: energy is recycled like nutrients",
       "duration_ms": 9000,
-      "narration": "Nutrients cycle in closed loops, but energy does not. Energy enters as sunlight and flows one way through food chains, with most of it lost as heat at each step.",
+      "narration": "Energy is recycled around the food chain like nutrients are. The \"cycle of life\" language makes energy sound like something that loops round forever. But energy is not recycled: only about a tenth passes to the next level, the rest is lost as heat.",
       "steps": [
         {
           "at_ms": 0,
