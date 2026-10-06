@@ -818,8 +818,8 @@
     },
     {
       "id": "s5",
-      "caption": "Misconception: the coin has no memory",
-      "narration": "Five heads in a row feels like tails is due \u2014 it is not. Each toss is independent, so watch the sixth coin travel in and land: the memory needle never moves, and the probability of heads stays one half.",
+      "caption": "A common mistake: tails is due after five heads",
+      "narration": "After five heads in a row, tails is due. A long run feels like it must balance out \u2014 but watch the sixth coin travel in and land: the memory needle never moves. The coin never remembers: after five heads the next toss is still 1/2.",
       "duration_ms": 9000,
       "steps": [
         {
