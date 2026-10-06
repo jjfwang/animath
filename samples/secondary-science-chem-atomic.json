@@ -1472,9 +1472,9 @@
     },
     {
       "id": "s6",
-      "caption": "Misconception: atoms are solid balls",
+      "caption": "A common mistake: atoms are solid balls",
       "duration_ms": 6000,
-      "narration": "Atoms are mostly empty space — the nucleus is a speck in the middle. And electrons do not circle like planets; they sit in fixed shells. Use the shell model, not the planet model.",
+      "narration": "A common mistake: atoms are solid balls. The ball-and-stick model is everywhere, so atoms look like tiny solid marbles. Atoms are mostly empty space — the nucleus is a speck in the middle. And electrons do not circle like planets; they sit in fixed shells. Use the shell model, not the planet model.",
       "steps": [
         {
           "at_ms": 0,
