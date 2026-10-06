@@ -478,10 +478,10 @@
       ]
     },
     {
-      "caption": "Two classic slips",
+      "caption": "A common mistake: moving a vector changes it",
       "duration_ms": 9000,
       "id": "s5",
-      "narration":"Two slips to dodge: a position vector is pinned to the origin; a direction vector is free, the same arrow anywhere. Dot product is the two lengths times cos theta; a line is r equals a plus lambda b.",
+      "narration":"A common mistake: moving a vector changes it: position vectors are pinned to the origin, so every vector feels pinned. Free vectors slide: the same arrow drawn anywhere is the same vector. Only position vectors are pinned to the origin. Dot product is the two lengths times cos theta; a line is r equals a plus lambda b.",
       "steps": [
         {
           "at_ms": 0,
