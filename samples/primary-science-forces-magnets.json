@@ -348,8 +348,8 @@
     },
     {
       "id": "s4",
-      "caption": "Like poles push away",
-      "narration": "Turn the magnet around and N faces N. Now they push each other apart — like poles repel. Magnets also ignore most things: they only pull iron and a few metals.",
+      "caption": "Watch out: a magnet does not attract every metal",
+      "narration": "Turn the magnet around and N faces N. Now they push each other apart — like poles repel. Watch out: it is tempting to think a magnet attracts every kind of metal. Magnets grab some metals so strongly that they feel like they grab all of them. But magnets ignore most things: they only pull iron and a few metals.",
       "duration_ms": 6000,
       "steps": [
         {
