@@ -1572,9 +1572,9 @@
     },
     {
       "id": "s6",
-      "caption": "Misconception: a catalyst shifts equilibrium",
+      "caption": "A common mistake: a catalyst shifts equilibrium",
       "duration_ms": 9000,
-      "narration": "A catalyst is not a shortcut to more product. It lowers the activation energy equally for forward and reverse reactions, so both rates speed up by the same factor — the equilibrium bars never move.",
+      "narration": "A common mistake: a catalyst pushes the equilibrium toward the products. A faster forward reaction looks like the products are winning — but a catalyst speeds the forward and reverse reactions equally: the position of equilibrium is unchanged. The equilibrium bars never move.",
       "steps": [
         {
           "at_ms": 0,
