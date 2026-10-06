@@ -1011,10 +1011,10 @@
       ]
     },
     {
-      "caption": "Misconception: taller container, same volume",
+      "caption": "Watch out: a taller container holds more",
       "duration_ms": 8000,
       "id": "s4",
-      "narration": "The tall stack looks bigger, but both use exactly six cubes. Same count, same volume: shape never changes the amount.",
+      "narration": "The taller container holds more - easy to think, but height dominates the eye, so taller looks like more. Count the unit cubes: six cubes is six cubes; shape never changes the amount.",
       "steps": [
         {
           "at_ms": 0,
