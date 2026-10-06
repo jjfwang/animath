@@ -731,6 +731,72 @@
           "dur_ms": 1800
         },
         {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "pt",
+          "to": {
+            "cx": 370,
+            "cy": 178.8
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "tri",
+          "to": {
+            "points": [
+              [
+                160,
+                300
+              ],
+              [
+                440,
+                300
+              ],
+              [
+                370,
+                178.8
+              ]
+            ]
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "mk1",
+          "to": {
+            "x1": 359.59,
+            "y1": 184.81,
+            "x2": 365.6,
+            "y2": 195.22
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "mk2",
+          "to": {
+            "x1": 365.6,
+            "y1": 195.22,
+            "x2": 376.01,
+            "y2": 189.21
+          },
+          "dur_ms": 1800
+        },
+        {
+          "at_ms": 6200,
+          "do": "move",
+          "target": "ninety",
+          "to": {
+            "x": 404,
+            "y": 120
+          },
+          "dur_ms": 1800
+        },
+        {
           "at_ms": 9500,
           "do": "caption",
           "text": "Angle in a semicircle is a right angle"
@@ -1211,8 +1277,8 @@
     },
     {
       "id": "s7",
-      "caption": "Misconception: same area means congruent?",
-      "narration": "A 4-by-1 rectangle and a 2-by-2 square both have area 4. Watch the rectangle morph and back — the area readout never changes, yet the shapes were never congruent.",
+      "caption": "A common mistake: same area means congruent?",
+      "narration": "A common mistake: two shapes with the same area are congruent. A 4-by-1 rectangle and a 2-by-2 square both have area 4. Watch the rectangle morph and back — the area readout never changes, yet the shapes were never congruent.",
       "duration_ms": 9000,
       "steps": [
         {
