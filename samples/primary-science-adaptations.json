@@ -8,10 +8,10 @@
   "level": "primary",
   "scenes": [
     {
-      "caption": "Desert plants store water",
+      "caption": "Watch out: features are not grown by choice",
       "duration_ms": 8000,
       "id": "s1",
-      "narration": "A cactus lives in the hot, dry desert. Its thick stem stores water like a bottle, and its sharp thorns stop thirsty animals from biting it. These features did not appear overnight — they developed over many, many generations.",
+      "narration": "A cactus lives in the hot, dry desert. Its thick stem stores water like a bottle, and its sharp thorns stop thirsty animals from biting it. Watch out: an animal can decide to grow a new feature when it needs one. The feature fits the animal so well that it looks chosen on purpose. But the truth is: these features did not appear overnight: they developed over many, many generations, not by choice.",
       "steps": [
         {
           "at_ms": 0,
