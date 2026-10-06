@@ -1,405 +1,1622 @@
 {
-  "animath": "0.1",
-  "title": "Algebra: letters stand for numbers, balanced scales",
-  "level": "primary",
-  "subject": "math",
-  "topic": "algebra-intro",
-  "kind": "concept",
-  "canvas": {
-    "width": 960,
-    "height": 540
-  },
-  "scenes": [
+ "animath": "0.1",
+ "title": "Algebra: letters stand for numbers, balanced scales",
+ "level": "primary",
+ "subject": "math",
+ "topic": "algebra-intro",
+ "kind": "concept",
+ "canvas": {
+  "width": 960,
+  "height": 540
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "caption": "Letters can stand for unknown numbers",
+   "narration": "Think of x as a mystery box. The box holds a number — we just don't know which one yet.",
+   "duration_ms": 8000,
+   "steps": [
     {
-      "id": "s1",
-      "caption": "Letters can stand for unknown numbers",
-      "narration": "Think of x as a mystery box. The box holds a number — we just don't know which one yet.",
-      "duration_ms": 8000,
-      "steps": [
-        {
-          "at_ms": 0,
-          "do": "show",
-          "shape": {
-            "id": "t",
-            "kind": "text",
-            "x": 120,
-            "y": 80,
-            "text": "x can stand for any number",
-            "size": 40
-          }
-        },
-        {
-          "at_ms": 600,
-          "do": "show",
-          "shape": {
-            "id": "letter",
-            "kind": "text",
-            "x": 200,
-            "y": 230,
-            "text": "x",
-            "size": 72
-          }
-        },
-        {
-          "at_ms": 1200,
-          "do": "show",
-          "shape": {
-            "id": "boxlab",
-            "kind": "text",
-            "x": 320,
-            "y": 130,
-            "text": "= a mystery box holding a number",
-            "size": 28
-          }
-        },
-        {
-          "at_ms": 2400,
-          "do": "show",
-          "shape": {
-            "id": "blank",
-            "kind": "text",
-            "x": 420,
-            "y": 235,
-            "text": "___ + 4 = 9",
-            "size": 44
-          }
-        },
-        {
-          "at_ms": 3600,
-          "do": "move",
-          "target": "letter",
-          "to": {
-            "x": 430,
-            "y": 220
-          },
-          "dur_ms": 800
-        },
-        {
-          "at_ms": 4800,
-          "do": "show",
-          "shape": {
-            "id": "sol",
-            "kind": "text",
-            "x": 120,
-            "y": 360,
-            "text": "x + 4 = 9  →  x = 5",
-            "size": 44,
-            "color": "#1f7a3a"
-          }
-        },
-        {
-          "at_ms": 6200,
-          "do": "caption",
-          "text": "A letter is a placeholder for a number we find later"
-        }
-      ]
+     "at_ms": 0,
+     "do": "show",
+     "shape": {
+      "id": "t",
+      "kind": "text",
+      "x": 120,
+      "y": 80,
+      "text": "x can stand for any number",
+      "size": 40
+     }
     },
     {
-      "id": "s2",
-      "caption": "A balanced scale is an equation",
-      "narration": "An equation is a balanced scale. Whatever sits on the left must weigh the same as the right.",
-      "duration_ms": 9000,
-      "steps": [
-        {
-          "at_ms": 0,
-          "do": "show",
-          "shape": {
-            "id": "t",
-            "kind": "text",
-            "x": 120,
-            "y": 80,
-            "text": "A balanced scale is an equation",
-            "size": 40
-          }
-        },
-        {
-          "at_ms": 600,
-          "do": "show",
-          "shape": {
-            "id": "stand",
-            "kind": "line",
-            "x1": 480,
-            "y1": 420,
-            "x2": 480,
-            "y2": 250,
-            "stroke": "#1a1a1a",
-            "width": 6
-          }
-        },
-        {
-          "at_ms": 900,
-          "do": "show",
-          "shape": {
-            "id": "beam",
-            "kind": "rect",
-            "x": 280,
-            "y": 236,
-            "w": 400,
-            "h": 14,
-            "fill": "#8b6f47",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
-          }
-        },
-        {
-          "at_ms": 1400,
-          "do": "show",
-          "shape": {
-            "id": "str1",
-            "kind": "line",
-            "x1": 330,
-            "y1": 250,
-            "x2": 330,
-            "y2": 300,
-            "stroke": "#1a1a1a",
-            "width": 3
-          }
-        },
-        {
-          "at_ms": 1400,
-          "do": "show",
-          "shape": {
-            "id": "pan1",
-            "kind": "rect",
-            "x": 290,
-            "y": 300,
-            "w": 80,
-            "h": 16,
-            "fill": "#d9e8f5",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
-          }
-        },
-        {
-          "at_ms": 1600,
-          "do": "show",
-          "shape": {
-            "id": "str2",
-            "kind": "line",
-            "x1": 630,
-            "y1": 250,
-            "x2": 630,
-            "y2": 300,
-            "stroke": "#1a1a1a",
-            "width": 3
-          }
-        },
-        {
-          "at_ms": 1600,
-          "do": "show",
-          "shape": {
-            "id": "pan2",
-            "kind": "rect",
-            "x": 590,
-            "y": 300,
-            "w": 80,
-            "h": 16,
-            "fill": "#d9e8f5",
-            "stroke": "#1a1a1a",
-            "strokeWidth": 2
-          }
-        },
-        {
-          "at_ms": 2400,
-          "do": "show",
-          "shape": {
-            "id": "lhs",
-            "kind": "text",
-            "x": 290,
-            "y": 360,
-            "text": "x + 3",
-            "size": 36
-          }
-        },
-        {
-          "at_ms": 2600,
-          "do": "show",
-          "shape": {
-            "id": "rhs",
-            "kind": "text",
-            "x": 590,
-            "y": 360,
-            "text": "7",
-            "size": 36
-          }
-        },
-        {
-          "at_ms": 4600,
-          "do": "caption",
-          "text": "Both sides equal: x + 3 = 7"
-        },
-        {
-          "at_ms": 5600,
-          "do": "emphasize",
-          "target": "beam"
-        },
-        {
-          "at_ms": 6600,
-          "do": "show",
-          "shape": {
-            "id": "note",
-            "kind": "text",
-            "x": 120,
-            "y": 470,
-            "text": "The scale balances — so the two sides are equal",
-            "size": 28
-          }
-        }
-      ]
+     "at_ms": 700,
+     "do": "show",
+     "shape": {
+      "id": "boxA",
+      "kind": "rect",
+      "x": 180,
+      "y": 180,
+      "w": 90,
+      "h": 90,
+      "fill": "#8b6f47",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
     },
     {
-      "id": "s3",
-      "caption": "Solve x + 5 = 8 — undo the +5",
-      "narration": "To find x, undo the plus five. Take 5 from both sides so the scale stays balanced.",
-      "duration_ms": 9000,
-      "steps": [
-        {
-          "at_ms": 0,
-          "do": "show",
-          "shape": {
-            "id": "eq",
-            "kind": "text",
-            "x": 120,
-            "y": 170,
-            "text": "x + 5 = 8",
-            "size": 52
-          }
-        },
-        {
-          "at_ms": 1500,
-          "do": "show",
-          "shape": {
-            "id": "m1",
-            "kind": "text",
-            "x": 90,
-            "y": 280,
-            "text": "− 5",
-            "size": 40,
-            "color": "#b33"
-          }
-        },
-        {
-          "at_ms": 1500,
-          "do": "show",
-          "shape": {
-            "id": "m2",
-            "kind": "text",
-            "x": 470,
-            "y": 280,
-            "text": "− 5",
-            "size": 40,
-            "color": "#b33"
-          }
-        },
-        {
-          "at_ms": 2300,
-          "do": "show",
-          "shape": {
-            "id": "note",
-            "kind": "text",
-            "x": 120,
-            "y": 360,
-            "text": "take 5 from both sides — the scale stays balanced",
-            "size": 28
-          }
-        },
-        {
-          "at_ms": 3800,
-          "do": "move",
-          "target": "m1",
-          "to": {
-            "x": 250,
-            "y": 270
-          },
-          "dur_ms": 700
-        },
-        {
-          "at_ms": 5200,
-          "do": "show",
-          "shape": {
-            "id": "sol",
-            "kind": "text",
-            "x": 120,
-            "y": 450,
-            "text": "x = 3",
-            "size": 52,
-            "color": "#1f7a3a"
-          }
-        },
-        {
-          "at_ms": 6200,
-          "do": "emphasize",
-          "target": "sol"
-        },
-        {
-          "at_ms": 7200,
-          "do": "caption",
-          "text": "Inverse operation: −5 undoes +5"
-        }
-      ]
+     "at_ms": 700,
+     "do": "show",
+     "shape": {
+      "id": "boxB",
+      "kind": "rect",
+      "x": 435,
+      "y": 180,
+      "w": 90,
+      "h": 90,
+      "fill": "#8b6f47",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
     },
     {
-      "id": "s4",
-      "caption": "Misconception: x is a number, not a label",
-      "narration": "A common slip: treating x as a label for things. But x stands for a number — so 3x + 2x is 5x.",
-      "duration_ms": 7000,
-      "steps": [
-        {
-          "at_ms": 0,
-          "do": "show",
-          "shape": {
-            "id": "eq",
-            "kind": "text",
-            "x": 120,
-            "y": 180,
-            "text": "3x + 2x = 5x",
-            "size": 52,
-            "color": "#1f7a3a"
-          }
-        },
-        {
-          "at_ms": 1800,
-          "do": "show",
-          "shape": {
-            "id": "why",
-            "kind": "text",
-            "x": 120,
-            "y": 280,
-            "text": "x is a number, not a label for things",
-            "size": 30
-          }
-        },
-        {
-          "at_ms": 3400,
-          "do": "show",
-          "shape": {
-            "id": "bad",
-            "kind": "text",
-            "x": 120,
-            "y": 380,
-            "text": "3x + 2x = 5xx  ✗",
-            "size": 44,
-            "color": "#b33"
-          }
-        },
-        {
-          "at_ms": 4200,
-          "do": "show",
-          "shape": {
-            "id": "badnote",
-            "kind": "text",
-            "x": 120,
-            "y": 450,
-            "text": "the extra x sneaks in when x is treated as a label",
-            "size": 26
-          }
-        },
-        {
-          "at_ms": 5600,
-          "do": "caption",
-          "text": "Misconception: letters are labels — no, they are numbers"
-        }
-      ]
+     "at_ms": 700,
+     "do": "show",
+     "shape": {
+      "id": "boxC",
+      "kind": "rect",
+      "x": 690,
+      "y": 180,
+      "w": 90,
+      "h": 90,
+      "fill": "#8b6f47",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1400,
+     "do": "show",
+     "shape": {
+      "id": "chipA",
+      "kind": "circle",
+      "cx": 225,
+      "cy": 150,
+      "r": 24,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1400,
+     "do": "show",
+     "shape": {
+      "id": "labA",
+      "kind": "text",
+      "x": 217,
+      "y": 163,
+      "text": "5",
+      "size": 26
+     }
+    },
+    {
+     "at_ms": 1500,
+     "do": "show",
+     "shape": {
+      "id": "chipB",
+      "kind": "circle",
+      "cx": 480,
+      "cy": 150,
+      "r": 24,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1500,
+     "do": "show",
+     "shape": {
+      "id": "labB",
+      "kind": "text",
+      "x": 472,
+      "y": 163,
+      "text": "3",
+      "size": 26
+     }
+    },
+    {
+     "at_ms": 1600,
+     "do": "show",
+     "shape": {
+      "id": "chipC",
+      "kind": "circle",
+      "cx": 735,
+      "cy": 150,
+      "r": 24,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1600,
+     "do": "show",
+     "shape": {
+      "id": "labC",
+      "kind": "text",
+      "x": 727,
+      "y": 163,
+      "text": "8",
+      "size": 26
+     }
+    },
+    {
+     "at_ms": 2200,
+     "do": "move",
+     "target": "chipA",
+     "to": {
+      "cx": 225,
+      "cy": 225
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 2200,
+     "do": "move",
+     "target": "labA",
+     "to": {
+      "x": 217,
+      "y": 238
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 2350,
+     "do": "move",
+     "target": "chipB",
+     "to": {
+      "cx": 480,
+      "cy": 225
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 2350,
+     "do": "move",
+     "target": "labB",
+     "to": {
+      "x": 472,
+      "y": 238
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 2500,
+     "do": "move",
+     "target": "chipC",
+     "to": {
+      "cx": 735,
+      "cy": 225
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 2500,
+     "do": "move",
+     "target": "labC",
+     "to": {
+      "x": 727,
+      "y": 238
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 3500,
+     "do": "hide",
+     "target": "chipA"
+    },
+    {
+     "at_ms": 3520,
+     "do": "hide",
+     "target": "labA"
+    },
+    {
+     "at_ms": 3540,
+     "do": "hide",
+     "target": "chipB"
+    },
+    {
+     "at_ms": 3560,
+     "do": "hide",
+     "target": "labB"
+    },
+    {
+     "at_ms": 3580,
+     "do": "hide",
+     "target": "chipC"
+    },
+    {
+     "at_ms": 3600,
+     "do": "hide",
+     "target": "labC"
+    },
+    {
+     "at_ms": 3700,
+     "do": "show",
+     "shape": {
+      "id": "qA",
+      "kind": "text",
+      "x": 210,
+      "y": 251,
+      "text": "?",
+      "size": 52
+     }
+    },
+    {
+     "at_ms": 3760,
+     "do": "show",
+     "shape": {
+      "id": "qB",
+      "kind": "text",
+      "x": 465,
+      "y": 251,
+      "text": "?",
+      "size": 52
+     }
+    },
+    {
+     "at_ms": 3820,
+     "do": "show",
+     "shape": {
+      "id": "qC",
+      "kind": "text",
+      "x": 720,
+      "y": 251,
+      "text": "?",
+      "size": 52
+     }
+    },
+    {
+     "at_ms": 4400,
+     "do": "show",
+     "shape": {
+      "id": "eq",
+      "kind": "text",
+      "x": 320,
+      "y": 400,
+      "text": "___ + 4 = 9",
+      "size": 48
+     }
+    },
+    {
+     "at_ms": 5200,
+     "do": "show",
+     "shape": {
+      "id": "letter",
+      "kind": "text",
+      "x": 140,
+      "y": 300,
+      "text": "x",
+      "size": 60,
+      "color": "#1f7a3a"
+     }
+    },
+    {
+     "at_ms": 5800,
+     "do": "move",
+     "target": "letter",
+     "to": {
+      "x": 340,
+      "y": 400
+     },
+     "dur_ms": 700
+    },
+    {
+     "at_ms": 6800,
+     "do": "caption",
+     "text": "A letter is a placeholder for a number we find later"
     }
-  ]
+   ]
+  },
+  {
+   "id": "s2",
+   "caption": "A balanced scale is an equation",
+   "narration": "An equation is a balanced scale. Whatever sits on the left must weigh the same as the right.",
+   "duration_ms": 9000,
+   "steps": [
+    {
+     "at_ms": 0,
+     "do": "show",
+     "shape": {
+      "id": "t",
+      "kind": "text",
+      "x": 120,
+      "y": 80,
+      "text": "A balanced scale is an equation",
+      "size": 40
+     }
+    },
+    {
+     "at_ms": 600,
+     "do": "show",
+     "shape": {
+      "id": "stand",
+      "kind": "line",
+      "x1": 480,
+      "y1": 420,
+      "x2": 480,
+      "y2": 250,
+      "stroke": "#1a1a1a",
+      "width": 6
+     }
+    },
+    {
+     "at_ms": 900,
+     "do": "show",
+     "shape": {
+      "id": "beam",
+      "kind": "line",
+      "x1": 300,
+      "y1": 243,
+      "x2": 660,
+      "y2": 243,
+      "stroke": "#8b6f47",
+      "width": 14
+     }
+    },
+    {
+     "at_ms": 1400,
+     "do": "show",
+     "shape": {
+      "id": "pan1",
+      "kind": "rect",
+      "x": 290,
+      "y": 300,
+      "w": 80,
+      "h": 16,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1400,
+     "do": "show",
+     "shape": {
+      "id": "pan2",
+      "kind": "rect",
+      "x": 590,
+      "y": 300,
+      "w": 80,
+      "h": 16,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2200,
+     "do": "show",
+     "shape": {
+      "id": "chip5a",
+      "kind": "circle",
+      "cx": 630,
+      "cy": 180,
+      "r": 22,
+      "fill": "#f0c987",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2200,
+     "do": "show",
+     "shape": {
+      "id": "lab5a",
+      "kind": "text",
+      "x": 622,
+      "y": 193,
+      "text": "5",
+      "size": 26
+     }
+    },
+    {
+     "at_ms": 2600,
+     "do": "move",
+     "target": "chip5a",
+     "to": {
+      "cx": 630,
+      "cy": 285
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 2600,
+     "do": "move",
+     "target": "lab5a",
+     "to": {
+      "x": 622,
+      "y": 298
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 3700,
+     "do": "move",
+     "target": "beam",
+     "to": {
+      "x1": 300,
+      "y1": 223,
+      "x2": 660,
+      "y2": 263
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 3700,
+     "do": "move",
+     "target": "pan1",
+     "to": {
+      "x": 290,
+      "y": 280
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 3700,
+     "do": "move",
+     "target": "pan2",
+     "to": {
+      "x": 590,
+      "y": 320
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 3700,
+     "do": "move",
+     "target": "chip5a",
+     "to": {
+      "cx": 630,
+      "cy": 305
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 3700,
+     "do": "move",
+     "target": "lab5a",
+     "to": {
+      "x": 622,
+      "y": 318
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 4800,
+     "do": "show",
+     "shape": {
+      "id": "chip5b",
+      "kind": "circle",
+      "cx": 330,
+      "cy": 180,
+      "r": 22,
+      "fill": "#f0c987",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 4800,
+     "do": "show",
+     "shape": {
+      "id": "lab5b",
+      "kind": "text",
+      "x": 322,
+      "y": 193,
+      "text": "5",
+      "size": 26
+     }
+    },
+    {
+     "at_ms": 5200,
+     "do": "move",
+     "target": "chip5b",
+     "to": {
+      "cx": 330,
+      "cy": 265
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 5200,
+     "do": "move",
+     "target": "lab5b",
+     "to": {
+      "x": 322,
+      "y": 278
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "beam",
+     "to": {
+      "x1": 300,
+      "y1": 243,
+      "x2": 660,
+      "y2": 243
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "pan1",
+     "to": {
+      "x": 290,
+      "y": 300
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "pan2",
+     "to": {
+      "x": 590,
+      "y": 300
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "chip5a",
+     "to": {
+      "cx": 630,
+      "cy": 285
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "lab5a",
+     "to": {
+      "x": 622,
+      "y": 298
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "chip5b",
+     "to": {
+      "cx": 330,
+      "cy": 285
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 6200,
+     "do": "move",
+     "target": "lab5b",
+     "to": {
+      "x": 322,
+      "y": 298
+     },
+     "dur_ms": 900
+    },
+    {
+     "at_ms": 7400,
+     "do": "show",
+     "shape": {
+      "id": "lhs",
+      "kind": "text",
+      "x": 290,
+      "y": 360,
+      "text": "x + 3",
+      "size": 36
+     }
+    },
+    {
+     "at_ms": 7500,
+     "do": "show",
+     "shape": {
+      "id": "rhs",
+      "kind": "text",
+      "x": 590,
+      "y": 360,
+      "text": "7",
+      "size": 36
+     }
+    },
+    {
+     "at_ms": 8000,
+     "do": "caption",
+     "text": "Both sides equal: x + 3 = 7"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "caption": "Solve x + 5 = 8 — undo the +5",
+   "narration": "To find x, undo the plus five. Take 5 from both sides so the scale stays balanced.",
+   "duration_ms": 9000,
+   "steps": [
+    {
+     "at_ms": 0,
+     "do": "show",
+     "shape": {
+      "id": "t",
+      "kind": "text",
+      "x": 120,
+      "y": 120,
+      "text": "x + 5 = 8",
+      "size": 52
+     }
+    },
+    {
+     "at_ms": 800,
+     "do": "show",
+     "shape": {
+      "id": "stand",
+      "kind": "line",
+      "x1": 480,
+      "y1": 420,
+      "x2": 480,
+      "y2": 250,
+      "stroke": "#1a1a1a",
+      "width": 6
+     }
+    },
+    {
+     "at_ms": 900,
+     "do": "show",
+     "shape": {
+      "id": "beam",
+      "kind": "line",
+      "x1": 300,
+      "y1": 243,
+      "x2": 660,
+      "y2": 243,
+      "stroke": "#8b6f47",
+      "width": 14
+     }
+    },
+    {
+     "at_ms": 1200,
+     "do": "show",
+     "shape": {
+      "id": "pan1",
+      "kind": "rect",
+      "x": 250,
+      "y": 300,
+      "w": 160,
+      "h": 16,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1300,
+     "do": "show",
+     "shape": {
+      "id": "pan2",
+      "kind": "rect",
+      "x": 550,
+      "y": 300,
+      "w": 160,
+      "h": 16,
+      "fill": "#d9e8f5",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1600,
+     "do": "show",
+     "shape": {
+      "id": "xbox",
+      "kind": "rect",
+      "x": 420,
+      "y": 60,
+      "w": 44,
+      "h": 44,
+      "fill": "#f0d9a8",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1600,
+     "do": "show",
+     "shape": {
+      "id": "xlabel",
+      "kind": "text",
+      "x": 437,
+      "y": 92,
+      "text": "x",
+      "size": 32
+     }
+    },
+    {
+     "at_ms": 1700,
+     "do": "move",
+     "target": "xbox",
+     "to": {
+      "x": 308,
+      "y": 256
+     },
+     "dur_ms": 800
+    },
+    {
+     "at_ms": 1700,
+     "do": "move",
+     "target": "xlabel",
+     "to": {
+      "x": 321,
+      "y": 294
+     },
+     "dur_ms": 800
+    },
+    {
+     "at_ms": 2400,
+     "do": "show",
+     "shape": {
+      "id": "dL1",
+      "kind": "circle",
+      "cx": 270,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2420,
+     "do": "move",
+     "target": "dL1",
+     "to": {
+      "cx": 270,
+      "cy": 210
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 2500,
+     "do": "show",
+     "shape": {
+      "id": "dL2",
+      "kind": "circle",
+      "cx": 300,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2520,
+     "do": "move",
+     "target": "dL2",
+     "to": {
+      "cx": 300,
+      "cy": 210
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 2600,
+     "do": "show",
+     "shape": {
+      "id": "dL3",
+      "kind": "circle",
+      "cx": 330,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2620,
+     "do": "move",
+     "target": "dL3",
+     "to": {
+      "cx": 330,
+      "cy": 210
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 2700,
+     "do": "show",
+     "shape": {
+      "id": "dL4",
+      "kind": "circle",
+      "cx": 360,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2720,
+     "do": "move",
+     "target": "dL4",
+     "to": {
+      "cx": 360,
+      "cy": 210
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 2800,
+     "do": "show",
+     "shape": {
+      "id": "dL5",
+      "kind": "circle",
+      "cx": 390,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 2820,
+     "do": "move",
+     "target": "dL5",
+     "to": {
+      "cx": 390,
+      "cy": 210
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3400,
+     "do": "show",
+     "shape": {
+      "id": "dR1",
+      "kind": "circle",
+      "cx": 585,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3420,
+     "do": "move",
+     "target": "dR1",
+     "to": {
+      "cx": 585,
+      "cy": 282
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3480,
+     "do": "show",
+     "shape": {
+      "id": "dR2",
+      "kind": "circle",
+      "cx": 615,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3500,
+     "do": "move",
+     "target": "dR2",
+     "to": {
+      "cx": 615,
+      "cy": 282
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3560,
+     "do": "show",
+     "shape": {
+      "id": "dR3",
+      "kind": "circle",
+      "cx": 645,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3580,
+     "do": "move",
+     "target": "dR3",
+     "to": {
+      "cx": 645,
+      "cy": 282
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3640,
+     "do": "show",
+     "shape": {
+      "id": "dR4",
+      "kind": "circle",
+      "cx": 675,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3660,
+     "do": "move",
+     "target": "dR4",
+     "to": {
+      "cx": 675,
+      "cy": 282
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3720,
+     "do": "show",
+     "shape": {
+      "id": "dR5",
+      "kind": "circle",
+      "cx": 585,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3740,
+     "do": "move",
+     "target": "dR5",
+     "to": {
+      "cx": 585,
+      "cy": 262
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3800,
+     "do": "show",
+     "shape": {
+      "id": "dR6",
+      "kind": "circle",
+      "cx": 615,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3820,
+     "do": "move",
+     "target": "dR6",
+     "to": {
+      "cx": 615,
+      "cy": 262
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3880,
+     "do": "show",
+     "shape": {
+      "id": "dR7",
+      "kind": "circle",
+      "cx": 645,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3900,
+     "do": "move",
+     "target": "dR7",
+     "to": {
+      "cx": 645,
+      "cy": 262
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 3960,
+     "do": "show",
+     "shape": {
+      "id": "dR8",
+      "kind": "circle",
+      "cx": 675,
+      "cy": 60,
+      "r": 10,
+      "fill": "#cfe3c0",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 3980,
+     "do": "move",
+     "target": "dR8",
+     "to": {
+      "cx": 675,
+      "cy": 262
+     },
+     "dur_ms": 600
+    },
+    {
+     "at_ms": 5000,
+     "do": "move",
+     "target": "dL1",
+     "to": {
+      "cx": 270,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5050,
+     "do": "move",
+     "target": "dL2",
+     "to": {
+      "cx": 300,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5100,
+     "do": "move",
+     "target": "dL3",
+     "to": {
+      "cx": 330,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5150,
+     "do": "move",
+     "target": "dL4",
+     "to": {
+      "cx": 360,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5200,
+     "do": "move",
+     "target": "dL5",
+     "to": {
+      "cx": 390,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5300,
+     "do": "move",
+     "target": "dR4",
+     "to": {
+      "cx": 585,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5350,
+     "do": "move",
+     "target": "dR5",
+     "to": {
+      "cx": 615,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5400,
+     "do": "move",
+     "target": "dR6",
+     "to": {
+      "cx": 645,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5450,
+     "do": "move",
+     "target": "dR7",
+     "to": {
+      "cx": 675,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 5500,
+     "do": "move",
+     "target": "dR8",
+     "to": {
+      "cx": 585,
+      "cy": 480
+     },
+     "dur_ms": 1000
+    },
+    {
+     "at_ms": 6500,
+     "do": "hide",
+     "target": "dL1"
+    },
+    {
+     "at_ms": 6510,
+     "do": "hide",
+     "target": "dL2"
+    },
+    {
+     "at_ms": 6520,
+     "do": "hide",
+     "target": "dL3"
+    },
+    {
+     "at_ms": 6530,
+     "do": "hide",
+     "target": "dL4"
+    },
+    {
+     "at_ms": 6540,
+     "do": "hide",
+     "target": "dL5"
+    },
+    {
+     "at_ms": 6600,
+     "do": "hide",
+     "target": "dR4"
+    },
+    {
+     "at_ms": 6610,
+     "do": "hide",
+     "target": "dR5"
+    },
+    {
+     "at_ms": 6620,
+     "do": "hide",
+     "target": "dR6"
+    },
+    {
+     "at_ms": 6630,
+     "do": "hide",
+     "target": "dR7"
+    },
+    {
+     "at_ms": 6640,
+     "do": "hide",
+     "target": "dR8"
+    },
+    {
+     "at_ms": 6800,
+     "do": "show",
+     "shape": {
+      "id": "sol",
+      "kind": "text",
+      "x": 520,
+      "y": 460,
+      "text": "x = 3",
+      "size": 56,
+      "color": "#1f7a3a"
+     }
+    },
+    {
+     "at_ms": 7600,
+     "do": "caption",
+     "text": "Inverse operation: −5 undoes +5"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "caption": "Misconception: x is a number, not a label",
+   "narration": "A common mistake: treating x as a label for things. But x stands for a number — so 3x + 2x is 5x.",
+   "duration_ms": 7000,
+   "steps": [
+    {
+     "at_ms": 0,
+     "do": "show",
+     "shape": {
+      "id": "wrongbox",
+      "kind": "rect",
+      "x": 700,
+      "y": 50,
+      "w": 260,
+      "h": 60,
+      "fill": "#fbe3e3",
+      "stroke": "#b33",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 200,
+     "do": "move",
+     "target": "wrongbox",
+     "to": {
+      "x": 350,
+      "y": 50
+     },
+     "dur_ms": 800
+    },
+    {
+     "at_ms": 1100,
+     "do": "show",
+     "shape": {
+      "id": "wrongtext",
+      "kind": "text",
+      "x": 293,
+      "y": 95,
+      "text": "3x + 2x won't combine",
+      "size": 30,
+      "color": "#b33"
+     }
+    },
+    {
+     "at_ms": 1400,
+     "do": "show",
+     "shape": {
+      "id": "bx1",
+      "kind": "rect",
+      "x": 150,
+      "y": 250,
+      "w": 52,
+      "h": 52,
+      "fill": "#f0d9a8",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1420,
+     "do": "show",
+     "shape": {
+      "id": "bx1l",
+      "kind": "text",
+      "x": 167,
+      "y": 291,
+      "text": "x",
+      "size": 30
+     }
+    },
+    {
+     "at_ms": 1500,
+     "do": "show",
+     "shape": {
+      "id": "bx2",
+      "kind": "rect",
+      "x": 230,
+      "y": 250,
+      "w": 52,
+      "h": 52,
+      "fill": "#f0d9a8",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1520,
+     "do": "show",
+     "shape": {
+      "id": "bx2l",
+      "kind": "text",
+      "x": 247,
+      "y": 291,
+      "text": "x",
+      "size": 30
+     }
+    },
+    {
+     "at_ms": 1600,
+     "do": "show",
+     "shape": {
+      "id": "bx3",
+      "kind": "rect",
+      "x": 310,
+      "y": 250,
+      "w": 52,
+      "h": 52,
+      "fill": "#f0d9a8",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1620,
+     "do": "show",
+     "shape": {
+      "id": "bx3l",
+      "kind": "text",
+      "x": 327,
+      "y": 291,
+      "text": "x",
+      "size": 30
+     }
+    },
+    {
+     "at_ms": 1700,
+     "do": "show",
+     "shape": {
+      "id": "bx4",
+      "kind": "rect",
+      "x": 660,
+      "y": 250,
+      "w": 52,
+      "h": 52,
+      "fill": "#f0d9a8",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1720,
+     "do": "show",
+     "shape": {
+      "id": "bx4l",
+      "kind": "text",
+      "x": 677,
+      "y": 291,
+      "text": "x",
+      "size": 30
+     }
+    },
+    {
+     "at_ms": 1800,
+     "do": "show",
+     "shape": {
+      "id": "bx5",
+      "kind": "rect",
+      "x": 740,
+      "y": 250,
+      "w": 52,
+      "h": 52,
+      "fill": "#f0d9a8",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 2
+     }
+    },
+    {
+     "at_ms": 1820,
+     "do": "show",
+     "shape": {
+      "id": "bx5l",
+      "kind": "text",
+      "x": 757,
+      "y": 291,
+      "text": "x",
+      "size": 30
+     }
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx1",
+     "to": {
+      "x": 260,
+      "y": 250
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx1l",
+     "to": {
+      "x": 277,
+      "y": 291
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx2",
+     "to": {
+      "x": 340,
+      "y": 250
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx2l",
+     "to": {
+      "x": 357,
+      "y": 291
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx3",
+     "to": {
+      "x": 420,
+      "y": 250
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx3l",
+     "to": {
+      "x": 437,
+      "y": 291
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx4",
+     "to": {
+      "x": 500,
+      "y": 250
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx4l",
+     "to": {
+      "x": 517,
+      "y": 291
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx5",
+     "to": {
+      "x": 580,
+      "y": 250
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 2800,
+     "do": "move",
+     "target": "bx5l",
+     "to": {
+      "x": 597,
+      "y": 291
+     },
+     "dur_ms": 1200
+    },
+    {
+     "at_ms": 4400,
+     "do": "hide",
+     "target": "bx1"
+    },
+    {
+     "at_ms": 4400,
+     "do": "hide",
+     "target": "bx2"
+    },
+    {
+     "at_ms": 4400,
+     "do": "hide",
+     "target": "bx3"
+    },
+    {
+     "at_ms": 4400,
+     "do": "hide",
+     "target": "bx4"
+    },
+    {
+     "at_ms": 4400,
+     "do": "hide",
+     "target": "bx5"
+    },
+    {
+     "at_ms": 4400,
+     "do": "hide",
+     "target": "wrongbox"
+    },
+    {
+     "at_ms": 4420,
+     "do": "hide",
+     "target": "bx1l"
+    },
+    {
+     "at_ms": 4420,
+     "do": "hide",
+     "target": "bx2l"
+    },
+    {
+     "at_ms": 4420,
+     "do": "hide",
+     "target": "bx3l"
+    },
+    {
+     "at_ms": 4420,
+     "do": "hide",
+     "target": "bx4l"
+    },
+    {
+     "at_ms": 4420,
+     "do": "hide",
+     "target": "bx5l"
+    },
+    {
+     "at_ms": 4440,
+     "do": "hide",
+     "target": "wrongtext"
+    },
+    {
+     "at_ms": 4460,
+     "do": "show",
+     "shape": {
+      "id": "fivex",
+      "kind": "text",
+      "x": 430,
+      "y": 296,
+      "text": "5x",
+      "size": 64,
+      "color": "#1f7a3a"
+     }
+    },
+    {
+     "at_ms": 5200,
+     "do": "show",
+     "shape": {
+      "id": "why",
+      "kind": "text",
+      "x": 120,
+      "y": 420,
+      "text": "x stands for a number: 3x + 2x is 5x",
+      "size": 28
+     }
+    },
+    {
+     "at_ms": 5800,
+     "do": "caption",
+     "text": "A common mistake: x is a number, not a label"
+    }
+   ]
+  }
+ ]
 }
