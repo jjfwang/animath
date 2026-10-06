@@ -368,7 +368,7 @@
             "id": "booksNote",
             "kind": "text",
             "size": 22,
-            "text": "photon energy = work function + electron's max kinetic energy",
+            "text": "photon energy = work function + max electron kinetic energy",
             "x": 150,
             "y": 500
           }
@@ -533,10 +533,10 @@
       ]
     },
     {
-      "caption": "Misconception: brighter light makes electrons faster",
+      "caption": "Misconception: brighter light ejects faster electrons",
       "duration_ms": 9000,
       "id": "s5",
-      "narration": "Brightness means more photons, not stronger ones. The escaping electron's speed comes from the frequency f: a bright red beam still ejects nothing, while a dim violet beam ejects fast electrons. For faster electrons, raise the frequency.",
+      "narration": "A common mistake: brighter light ejects faster electrons. Brightness feels like strength, so more light looks like harder hits. But brightness means more photons, not stronger ones: a dim violet beam ejects faster electrons than a bright red one. Electron speed comes from frequency alone.",
       "steps": [
         {
           "at_ms": 0,
