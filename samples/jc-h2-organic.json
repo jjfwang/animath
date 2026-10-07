@@ -2013,8 +2013,8 @@
     },
     {
       "id": "s7",
-      "caption": "Check the thinking",
-      "narration": "The most common arrow mistake: reading the curly arrow as an atom sliding along it. The arrow never moves atoms. It tracks one pair of electrons from where the pair starts to where the pair ends up.",
+      "caption": "A common mistake: atoms sliding along the arrow",
+      "narration": "A common mistake: reading the curly arrow as an atom sliding along it. The arrow never moves atoms: it reads as a path of motion rather than tracking the electrons themselves. It tracks one pair of electrons from where the pair starts to where the pair ends up.",
       "duration_ms": 9000,
       "steps": [
         {
