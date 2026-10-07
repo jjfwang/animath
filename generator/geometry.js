@@ -507,7 +507,8 @@
           out.push({
             file: file, scene: scene, kind: 'text-shape-overlap',
             detail: L.id + ' collides with ' + sb.id +
-              ' (' + Math.round(area) + 'px^2 intersection)'
+              ' (' + Math.round(area) + 'px^2 intersection)',
+            ids: [L.id, sb.id]
           });
         }
       });
@@ -524,7 +525,8 @@
         if (area > OVERLAP_TOLERANCE * smaller) {
           out.push({
             file: file, scene: scene, kind: 'overlap',
-            detail: A.id + ' overlaps ' + B.id + ' (' + Math.round(area) + 'px^2 intersection)'
+            detail: A.id + ' overlaps ' + B.id + ' (' + Math.round(area) + 'px^2 intersection)',
+            ids: [A.id, B.id]
           });
         }
       }
@@ -845,12 +847,13 @@
     });
   }
 
-  // ---- motion-band classification (issue #382) ----
+  // ---- motion-band + staging classification (issues #382, #384) ----
   //
-  // classifyFindings(spec, findings) marks each time-banded overlap finding
-  // (kind 'overlap' or 'text-shape-overlap' from auditGeometrySampled, which
-  // carries structured `band` {start,last} and `ids` [a,b]) as
-  // 'intentional-motion' or 'genuine':
+  // classifyFindings(spec, findings) marks each overlap finding
+  // (kind 'overlap' or 'text-shape-overlap', carrying structured
+  // `ids` [a,b] — time-banded findings from auditGeometrySampled also
+  // carry `band` {start,last}) as 'intentional-motion',
+  // 'intentional-staging', or 'genuine':
   //
   //   intentional-motion iff
   //     (a) the band TOUCHES a move-step flight interval
@@ -863,6 +866,17 @@
   //         check re-run on the shapes' rest states (after their last
   //         move) reports nothing, with the same tolerance and the same
   //         centered-on / point-anchor exemptions.
+  //   intentional-staging iff the finding is not intentional-motion and
+  //     the two shapes' visibility intervals never intersect — sequential
+  //     same-slot labels (read1/read2, q/q2, lab1/lab2/lab3) whose static
+  //     boxes overlap but which are never on screen together. Visibility
+  //     intervals come from show/hide step times (a hide closes the open
+  //     range; a re-show while visible keeps it open) and intersect iff
+  //     the two shapes share at least one 100ms audit sample — the
+  //     audit's existing tolerance. A pair brought co-visible by a
+  //     move-step flight (its band was observed, so the ranges share that
+  //     sample) stays genuine, as do static park/staging duplicates of
+  //     motion-classified pairs.
   //   everything else -> 'genuine'.
   //
   // A flight of a third, uninvolved shape never masks a finding: only the
@@ -872,19 +886,23 @@
   // centered on a chip is clear via the centered-on exemption, exactly as
   // the audit itself would report at rest.
   //
-  // Returns [{ finding, verdict, flight }] where flight is
-  // { id, startMs, endMs } for intentional-motion, null otherwise.
+  // Returns [{ finding, verdict, flight, staging }] where flight is
+  // { id, startMs, endMs } for intentional-motion (null otherwise) and
+  // staging is { aId, bId, aRanges, bRanges } for intentional-staging
+  // (null otherwise), aRanges/bRanges the grid-aligned
+  // [firstSample, lastSample] visibility ranges of the two shapes.
   //
   // KNOWN LIMITATION (run-274 lesson): bands are 100ms samples — a
   // sub-100ms graze between samples is invisible to the audit and
   // therefore to the classifier. Flight intervals come from the spec's own
   // move steps (scripted motion only); anything the player does at runtime
-  // is not classified. Static-audit findings carry no band and are always
-  // genuine here — the #172 gate's staging-pair class is a separate
-  // follow-up.
+  // is not classified. Like the static audit, move-shifted shapes are
+  // compared at their show-time position for visibility purposes only —
+  // visibility itself never moves, so flights cannot create or destroy
+  // co-visibility.
   //
   // Never throws on junk: null specs, missing scenes/ids, findings without
-  // band/ids all yield verdict 'genuine'.
+  // ids, and ids with no show events all yield verdict 'genuine'.
   function sceneEndMs(scene, steps) {
     var end = num(scene && scene.duration_ms, 0);
     if (!(end > 0)) {
@@ -957,40 +975,115 @@
     return !boxesOverlap(restA.box, restB.box);
   }
 
+  // Visibility ranges for one shape id: [firstSample, lastSample] ranges on
+  // the audit's 100ms grid, derived from show/hide step times in (atMs,
+  // step-order). A hide closes the open range (hide wins ties, per
+  // visibleState); a re-show while visible keeps the range open (the latest
+  // show wins, never closes). A range left open at the end runs through the
+  // scene's last grid sample. A show/hide window covering no grid sample
+  // contributes no range — the audit could never observe the shape, so it
+  // counts as never visible here. Never throws on junk: unknown ids yield
+  // [].
+  function visibilityRanges(byId, id, endMs) {
+    var rec = byId[id];
+    if (!rec) return [];
+    var events = [];
+    rec.shows.forEach(function (s) {
+      events.push({ atMs: s.atMs, order: s.order, open: true });
+    });
+    rec.hides.forEach(function (h) {
+      events.push({ atMs: h.atMs, order: h.order, open: false });
+    });
+    events.sort(function (a, b) { return (a.atMs - b.atMs) || (a.order - b.order); });
+    var ranges = [];
+    var start = null;
+    function closeRange(hideMs) {
+      // grid samples t with start <= t < hideMs
+      var first = Math.ceil(start / SAMPLE_DT) * SAMPLE_DT;
+      var last = Math.floor((hideMs - 1) / SAMPLE_DT) * SAMPLE_DT;
+      if (last >= first) ranges.push([first, last]);
+      start = null;
+    }
+    events.forEach(function (e) {
+      if (e.open) {
+        if (start === null) start = e.atMs;
+      } else if (start !== null) {
+        closeRange(e.atMs);
+      }
+    });
+    if (start !== null) {
+      var first = Math.ceil(start / SAMPLE_DT) * SAMPLE_DT;
+      var last = Math.floor(endMs / SAMPLE_DT) * SAMPLE_DT;
+      if (last >= first) ranges.push([first, last]);
+    }
+    return ranges;
+  }
+
+  // True when the two grid-aligned range sets share at least one audit
+  // sample. This is the audit's existing tolerance (SAMPLE_DT) applied to
+  // visibility — a sub-100ms co-visibility sliver between samples is
+  // invisible to the audit, so it does not count as co-visible here
+  // either.
+  function rangesShareSample(rangesA, rangesB) {
+    for (var i = 0; i < rangesA.length; i++) {
+      for (var j = 0; j < rangesB.length; j++) {
+        if (Math.max(rangesA[i][0], rangesB[j][0]) <=
+            Math.min(rangesA[i][1], rangesB[j][1])) return true;
+      }
+    }
+    return false;
+  }
+
   function classifyFindings(spec, findings) {
     var scenes = (spec && Array.isArray(spec.scenes)) ? spec.scenes : [];
     var list = Array.isArray(findings) ? findings : [];
     return list.map(function (f) {
       var verdict = 'genuine';
       var flight = null;
+      var staging = null;
       if (isObj(f) && (f.kind === 'overlap' || f.kind === 'text-shape-overlap') &&
-          isObj(f.band) && Array.isArray(f.ids) && f.ids.length === 2) {
+          Array.isArray(f.ids) && f.ids.length === 2) {
         var scene = sceneByLabel(scenes, f.scene);
         if (scene) {
           var steps = Array.isArray(scene.steps) ? scene.steps : [];
           var byId = sceneEvents(steps);
-          var flights = flightIntervals(byId, f.ids[0])
-            .concat(flightIntervals(byId, f.ids[1]));
-          for (var i = 0; i < flights.length; i++) {
-            if (!bandTouchesFlight(f.band, flights[i])) continue;
-            var tRest = sceneEndMs(scene, steps);
-            [f.ids[0], f.ids[1]].forEach(function (id) {
-              var rec = byId[id];
-              if (rec) rec.moves.forEach(function (m) {
-                if (m.atMs + m.durMs > tRest) tRest = m.atMs + m.durMs;
+          if (isObj(f.band)) {
+            var flights = flightIntervals(byId, f.ids[0])
+              .concat(flightIntervals(byId, f.ids[1]));
+            for (var i = 0; i < flights.length; i++) {
+              if (!bandTouchesFlight(f.band, flights[i])) continue;
+              var tRest = sceneEndMs(scene, steps);
+              [f.ids[0], f.ids[1]].forEach(function (id) {
+                var rec = byId[id];
+                if (rec) rec.moves.forEach(function (m) {
+                  if (m.atMs + m.durMs > tRest) tRest = m.atMs + m.durMs;
+                });
               });
-            });
-            if (restClear(f.kind,
-                restStateFor(byId, f.ids[0], tRest),
-                restStateFor(byId, f.ids[1], tRest))) {
-              verdict = 'intentional-motion';
-              flight = flights[i];
+              if (restClear(f.kind,
+                  restStateFor(byId, f.ids[0], tRest),
+                  restStateFor(byId, f.ids[1], tRest))) {
+                verdict = 'intentional-motion';
+                flight = flights[i];
+              }
+              break;
             }
-            break;
+          }
+          if (verdict === 'genuine') {
+            var endMs = sceneEndMs(scene, steps);
+            var rangesA = visibilityRanges(byId, f.ids[0], endMs);
+            var rangesB = visibilityRanges(byId, f.ids[1], endMs);
+            if (rangesA.length > 0 && rangesB.length > 0 &&
+                !rangesShareSample(rangesA, rangesB)) {
+              verdict = 'intentional-staging';
+              staging = {
+                aId: f.ids[0], bId: f.ids[1],
+                aRanges: rangesA, bRanges: rangesB
+              };
+            }
           }
         }
       }
-      return { finding: f, verdict: verdict, flight: flight };
+      return { finding: f, verdict: verdict, flight: flight, staging: staging };
     });
   }
 
