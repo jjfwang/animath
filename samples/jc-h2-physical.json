@@ -64,7 +64,7 @@
             "kind": "text",
             "size": 22,
             "text": "enthalpy",
-            "x": 45,
+            "x": 10,
             "y": 60
           }
         },
@@ -427,7 +427,7 @@
             "kind": "text",
             "size": 22,
             "text": "enthalpy",
-            "x": 45,
+            "x": 10,
             "y": 60
           }
         },
@@ -752,7 +752,7 @@
             "size": 22,
             "text": "reactant conc.",
             "x": 10,
-            "y": 80
+            "y": 40
           }
         },
         {
@@ -955,7 +955,7 @@
             "size": 32,
             "tex": "\\text{rate} = -\\frac{\\Delta[R]}{\\Delta t}",
             "x": 150,
-            "y": 440
+            "y": 368
           }
         },
         {
@@ -1026,7 +1026,7 @@
             "size": 22,
             "text": "fraction of molecules",
             "x": 10,
-            "y": 80
+            "y": 40
           }
         },
         {
