@@ -104,9 +104,9 @@
           "shape": {
             "id": "nucL",
             "kind": "text",
-            "x": 456,
-            "y": 342,
-            "size": 20,
+            "x": 453,
+            "y": 336,
+            "size": 14,
             "text": "nucleus",
             "color": "#ffffff"
           }
