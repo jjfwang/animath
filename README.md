@@ -115,7 +115,9 @@ in the browser too — load `player/validate.js` and
 ## Geometry audit
 
 `generator/geometry.js` statically audits text geometry across a spec:
-every `show`-step text shape is boxed (width ≈ 0.6 × size × length,
+every `show`-step text shape is boxed (width = size × the sum of
+PIL-measured DejaVu Sans per-glyph advances baked into the module,
+falling back to 0.6 × size per unknown glyph,
 resolved against `align`/`start`|`middle`|`end`, and baseline-anchored
 vertically — top = y − size, since SVG text y is the alphabetic baseline)
 and checked for canvas overflow, every pair of text boxes is checked for overlap beyond a 1%
