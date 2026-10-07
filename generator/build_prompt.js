@@ -43,23 +43,34 @@
 
   // Pure lookup: exact short-slug match first, then the longest key that is a
   // dash-boundary prefix of the slug (e.g. "fractions-addition" -> "fractions").
-  // Returns the entry or null.
-  function misconceptionFor(topicSlug) {
+  // Facet hint (issue #367): when the resolved entry carries `facets`, a
+  // matching hint returns that facet's entry; a missing or unknown hint
+  // returns the primary facet, preserving pre-facet behavior. Plain entries
+  // are returned as-is. Returns the entry or null.
+  function misconceptionFor(topicSlug, facetHint) {
     if (!topicSlug || typeof topicSlug !== 'string') return null;
-    if (MISCONCEPTIONS[topicSlug]) return MISCONCEPTIONS[topicSlug];
-    var best = null;
-    var keys = Object.keys(MISCONCEPTIONS);
-    for (var i = 0; i < keys.length; i++) {
-      var k = keys[i];
-      if (topicSlug.indexOf(k + '-') === 0 && (best === null || k.length > best.length)) {
-        best = k;
+    var entry = null;
+    if (MISCONCEPTIONS[topicSlug]) entry = MISCONCEPTIONS[topicSlug];
+    else {
+      var best = null;
+      var keys = Object.keys(MISCONCEPTIONS);
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i];
+        if (topicSlug.indexOf(k + '-') === 0 && (best === null || k.length > best.length)) {
+          best = k;
+        }
       }
+      if (best !== null) entry = MISCONCEPTIONS[best];
     }
-    return best === null ? null : MISCONCEPTIONS[best];
+    if (!entry) return null;
+    if (!entry.facets) return entry;
+    if (facetHint && entry.facets[facetHint]) return entry.facets[facetHint];
+    var primary = (entry.primary && entry.facets[entry.primary]) ? entry.primary : Object.keys(entry.facets)[0];
+    return entry.facets[primary];
   }
 
-  function misconceptionLine(topicSlug) {
-    var m = misconceptionFor(topicSlug);
+  function misconceptionLine(topicSlug, facetHint) {
+    var m = misconceptionFor(topicSlug, facetHint);
     if (!m) return GENERIC_MISCONCEPTION_LINE;
     return '- Address exactly one common misconception for the topic, visually:\n' +
       '  Common wrong turn: ' + m.wrongTurn + '\n' +
@@ -120,13 +131,13 @@
     });
   }
 
-  // opts: {level, subject, topic, topicLabel, kind, focus}
+  // opts: {level, subject, topic, topicLabel, kind, focus, facet}
   function buildPrompts(opts) {
     var level = opts.level || 'primary';
     var system = fill(SYSTEM_TEMPLATE, {
       LEVEL_LABEL: LEVEL_LABELS[level] || level,
       TONE: LEVEL_TONE[level] || LEVEL_TONE.secondary,
-      MISCONCEPTION_LINE: misconceptionLine(opts.topic)
+      MISCONCEPTION_LINE: misconceptionLine(opts.topic, opts.facet)
     });
     var user = [
       'Level: ' + level + ' (' + (LEVEL_LABELS[level] || level) + ')',

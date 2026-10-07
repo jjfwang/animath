@@ -46,6 +46,7 @@
       <div class="field"><label for="level">Level</label><select id="level"></select></div>
       <div class="field"><label for="track">Subject</label><select id="track"></select></div>
       <div class="field"><label for="topic">Topic</label><select id="topic"></select></div>
+      <div class="field" id="facetfield" style="display:none"><label for="facet">Focus</label><select id="facet"></select></div>
     </div>
     <div class="kindrow">
       <label><input type="radio" name="kind" value="concept" checked> Explain a concept</label>
@@ -102,6 +103,8 @@
   var levelSel = document.getElementById('level');
   var trackSel = document.getElementById('track');
   var topicSel = document.getElementById('topic');
+  var facetField = document.getElementById('facetfield');
+  var facetSel = document.getElementById('facet');
   var baseUrlEl = document.getElementById('baseurl');
   var modelEl = document.getElementById('model');
   var keyEl = document.getElementById('apikey');
@@ -202,7 +205,31 @@
       o.value = t.slug; o.textContent = t.label;
       topicSel.appendChild(o);
     });
+    fillFacets();
   }
+  // Facet sub-entries (issue #367): when the selected topic's misconception
+  // entry carries facets, offer a Focus select so the generator's
+  // misconception guidance matches the facet being animated.
+  function fillFacets() {
+    var lib = (window.AnimathMisconceptions && window.AnimathMisconceptions.MISCONCEPTIONS) || {};
+    var entry = lib[topicSel.value];
+    facetSel.innerHTML = '';
+    if (!entry || !entry.facets) {
+      facetField.style.display = 'none';
+      return;
+    }
+    var names = Object.keys(entry.facets);
+    if (entry.primary && entry.facets[entry.primary]) {
+      names = [entry.primary].concat(names.filter(function (n) { return n !== entry.primary; }));
+    }
+    names.forEach(function (n) {
+      var o = document.createElement('option');
+      o.value = n; o.textContent = n.charAt(0).toUpperCase() + n.slice(1);
+      facetSel.appendChild(o);
+    });
+    facetField.style.display = '';
+  }
+  topicSel.addEventListener('change', fillFacets);
   levelSel.addEventListener('change', fillTracks);
   trackSel.addEventListener('change', fillTopics);
   fillLevels(); fillTracks();
@@ -235,7 +262,8 @@
       topic: topicSel.value,
       topicLabel: topicOpt.textContent,
       kind: kind,
-      focus: focusEl.value.trim()
+      focus: focusEl.value.trim(),
+      facet: facetField.style.display === 'none' ? null : facetSel.value
     });
 
     genBtn.disabled = true;
