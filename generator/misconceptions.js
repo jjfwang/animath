@@ -329,9 +329,23 @@
       correctTurn: 'Inside the brackets means shift LEFT: f(x + 3) is zero where x = -3, to the left of the original.'
     },
     'h2-sequences': {
-      wrongTurn: 'u_10 needs ten jumps of d, so u_n = u_1 + n*d.',
-      why: 'The n feels like the number of jumps, but the first jump lands on u_2, not u_1.',
-      correctTurn: 'Exponents count the jumps, not the terms: u_10 = u_1 + 9d, and a geometric sum counts every term, not the last term times n.'
+      // Faceted entry (issue #369, decided option A of #360): the h2-sequences
+      // topic spans the formula-slip facet (primary, so bare-topic lookups
+      // keep pre-facet behavior) and a convergence facet grounded in the
+      // jc-h2-sequences.json s4 slip beat (r = -1 never settles).
+      primary: 'formula-slip',
+      facets: {
+        'formula-slip': {
+          wrongTurn: 'u_10 needs ten jumps of d, so u_n = u_1 + n*d.',
+          why: 'The n feels like the number of jumps, but the first jump lands on u_2, not u_1.',
+          correctTurn: 'Exponents count the jumps, not the terms: u_10 = u_1 + 9d, and a geometric sum counts every term, not the last term times n.'
+        },
+        convergence: {
+          wrongTurn: 'A geometric progression with r = -1 settles down eventually.',
+          why: 'The terms bounce between two values forever, and two close values feel like they are homing in on a limit.',
+          correctTurn: 'It never settles: convergence needs the ratio to shrink, with |r| < 1, and then the terms home in on the limit.'
+        }
+      }
     },
     'h2-vectors': {
       wrongTurn: 'Moving a vector to a new start point changes it.',

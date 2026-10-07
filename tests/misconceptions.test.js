@@ -106,8 +106,11 @@ test('misconceptionFor resolves the slice-4 secondary science slugs exactly', ()
 
 test('misconceptionFor resolves the slice-5 H2 slugs exactly', () => {
   for (const slug of H2_SLUGS) {
-    assert.strictEqual(Prompt.misconceptionFor(slug), MISCONCEPTIONS[slug],
-      'exact lookup for ' + slug + ' must resolve to its entry');
+    const e = MISCONCEPTIONS[slug];
+    // faceted entries resolve the primary facet, preserving pre-facet behavior
+    const expected = e.facets ? e.facets[e.primary] : e;
+    assert.strictEqual(Prompt.misconceptionFor(slug), expected,
+      'exact lookup for ' + slug + ' must resolve to its entry (primary facet)');
   }
 });
 
@@ -205,6 +208,37 @@ test('buildPrompts injects the facet entry when a facet is passed', () => {
   assert.ok(p.system.indexOf(photo.wrongTurn) !== -1, 'system prompt must contain the photosynthesis wrongTurn');
   assert.ok(p.system.indexOf('Digestion finishes in the stomach') === -1,
     'system prompt must not contain the digestion wrongTurn when the photosynthesis facet is requested');
+});
+
+test('faceted entry: h2-sequences bare lookup keeps the formula-slip facet (pre-facet behavior)', () => {
+  const entry = MISCONCEPTIONS['h2-sequences'];
+  assert.strictEqual(entry.primary, 'formula-slip', 'h2-sequences primary facet must be formula-slip');
+  assert.strictEqual(Prompt.misconceptionFor('h2-sequences'), entry.facets['formula-slip']);
+  assert.strictEqual(Prompt.misconceptionFor('h2-sequences', null), entry.facets['formula-slip']);
+});
+
+test('faceted entry: h2-sequences convergence facet is grounded in the s4 slip beat', () => {
+  const facet = MISCONCEPTIONS['h2-sequences'].facets.convergence;
+  assert.ok(facet.wrongTurn.indexOf('r = -1') !== -1,
+    'convergence wrongTurn must name the r = -1 slip');
+  assert.ok(facet.why.indexOf('bounce between two values forever') !== -1,
+    'convergence why must carry the s4 narration wording');
+  assert.ok(facet.correctTurn.indexOf('|r| < 1') !== -1,
+    'convergence correctTurn must carry the convergence condition');
+});
+
+test('faceted entry: h2-sequences facet hint returns the convergence facet, unknown hint falls back to primary', () => {
+  const entry = MISCONCEPTIONS['h2-sequences'];
+  assert.strictEqual(Prompt.misconceptionFor('h2-sequences', 'convergence'), entry.facets.convergence);
+  assert.strictEqual(Prompt.misconceptionFor('h2-sequences', 'nope'), entry.facets['formula-slip']);
+});
+
+test('buildPrompts injects the convergence facet when a facet is passed', () => {
+  const p = Prompt.buildPrompts({ level: 'jc', subject: 'math', topic: 'h2-sequences', facet: 'convergence', kind: 'concept' });
+  assert.ok(p.system.indexOf('settles down eventually') !== -1,
+    'system prompt must carry the convergence wrongTurn when the convergence facet is requested');
+  assert.ok(p.system.indexOf('u_1 + n*d') === -1,
+    'system prompt must not contain the formula-slip wrongTurn when the convergence facet is requested');
 });
 
 test('buildPrompts keeps the primary facet when no facet is passed', () => {
