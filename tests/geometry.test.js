@@ -943,3 +943,170 @@ test('classify: scene without duration_ms still resolves rest past the last flig
   const cl = classifyFindings(spec, [f]);
   assert.equal(cl[0].verdict, 'intentional-motion');
 });
+
+/* ---- classifyFindings: intentional-staging classification (issue #384) ---- */
+
+test('staging: sequential same-slot labels with disjoint intervals are intentional-staging', () => {
+  const spec = classifySpec([
+    show({ id: 'read1', kind: 'text', x: 100, y: 300, text: 'first', size: 24 }, 0),
+    hideStep('read1', 500),
+    show({ id: 'read2', kind: 'text', x: 100, y: 300, text: 'second', size: 24 }, 500)
+  ], 1000);
+  const findings = auditGeometry(spec, 'stage.json');
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].kind, 'overlap');
+  assert.deepEqual(findings[0].ids, ['read1', 'read2']);
+  const cl = classifyFindings(spec, findings);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'intentional-staging');
+  assert.equal(cl[0].flight, null);
+  assert.deepEqual(cl[0].staging.aId, 'read1');
+  assert.deepEqual(cl[0].staging.bId, 'read2');
+  assert.deepEqual(cl[0].staging.aRanges, [[0, 400]]);
+  assert.deepEqual(cl[0].staging.bRanges, [[500, 1000]]);
+});
+
+test('staging: co-visible overlapping shapes stay genuine', () => {
+  const spec = classifySpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'alpha', size: 24 }, 0),
+    show({ id: 'b', kind: 'text', x: 100, y: 300, text: 'beta', size: 24 }, 0)
+  ], 1000);
+  const findings = auditGeometry(spec, 'costage.json');
+  assert.equal(findings.length, 1);
+  const cl = classifyFindings(spec, findings);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].staging, null);
+  // the sampled band for the same pair is genuine too, never staging
+  const sampled = auditGeometrySampled(spec, 'costage.json');
+  assert.equal(sampled.length, 1);
+  const cl2 = classifyFindings(spec, sampled);
+  assert.equal(cl2[0].verdict, 'genuine');
+  assert.equal(cl2[0].staging, null);
+});
+
+test('staging: static park duplicate of a motion pair stays genuine', () => {
+  // the #373 striker-entrance-park pattern: parked overlapping, then departs
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0),
+    moveStep('ball', { cy: 100 }, 300, 700)
+  ], 1000);
+  const staticOnly = auditGeometry(spec, 'park.json');
+  assert.equal(staticOnly.length, 1);
+  assert.ok(!staticOnly[0].band, 'static finding carries no band');
+  const cl = classifyFindings(spec, staticOnly);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].staging, null);
+  // the sampled band for the same pair is intentional-motion, not staging
+  const banded = auditGeometrySampled(spec, 'park.json');
+  const cl2 = classifyFindings(spec, banded);
+  assert.equal(cl2[0].verdict, 'intentional-motion');
+  assert.equal(cl2[0].staging, null);
+});
+
+test('staging: text-shape sequential pair is intentional-staging', () => {
+  const spec = classifySpec([
+    show({ id: 'sum', kind: 'text', x: 100, y: 300, text: 'sum', size: 24 }, 0),
+    hideStep('sum', 500),
+    show({ id: 'bar', kind: 'rect', x: 130, y: 270, w: 80, h: 40 }, 500)
+  ], 1000);
+  const findings = auditGeometry(spec, 'tsstage.json');
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].kind, 'text-shape-overlap');
+  assert.deepEqual(findings[0].ids, ['sum', 'bar']);
+  const cl = classifyFindings(spec, findings);
+  assert.equal(cl[0].verdict, 'intentional-staging');
+});
+
+test('staging: re-shown label yields multiple visibility ranges', () => {
+  const spec = classifySpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 0),
+    hideStep('a', 400),
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 600),
+    show({ id: 'b', kind: 'text', x: 100, y: 300, text: 'bbb', size: 24 }, 400),
+    hideStep('b', 600)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'overlap', detail: 'a overlaps b', ids: ['a', 'b'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-staging');
+  assert.deepEqual(cl[0].staging.aRanges, [[0, 300], [600, 1000]]);
+  assert.deepEqual(cl[0].staging.bRanges, [[400, 500]]);
+});
+
+test('staging: re-show while visible keeps a single visibility range', () => {
+  const spec = classifySpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 0),
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 200),
+    hideStep('a', 400),
+    show({ id: 'b', kind: 'text', x: 100, y: 300, text: 'bbb', size: 24 }, 400)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'overlap', detail: 'a overlaps b', ids: ['a', 'b'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-staging');
+  assert.deepEqual(cl[0].staging.aRanges, [[0, 300]]);
+  assert.deepEqual(cl[0].staging.bRanges, [[400, 1000]]);
+});
+
+test('staging: sub-100ms co-visibility sliver does not count (audit tolerance)', () => {
+  // a is hidden at 50ms, b shown at 60ms: no 100ms grid sample ever sees both
+  const spec = classifySpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 0),
+    hideStep('a', 50),
+    show({ id: 'b', kind: 'text', x: 100, y: 300, text: 'bbb', size: 24 }, 60)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'overlap', detail: 'a overlaps b', ids: ['a', 'b'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-staging');
+  assert.deepEqual(cl[0].staging.aRanges, [[0, 0]]);
+  assert.deepEqual(cl[0].staging.bRanges, [[100, 1000]]);
+});
+
+test('staging: off-grid visibility windows sharing a sample stay genuine', () => {
+  // a visible on samples 100,200; b from sample 200: they share t=200
+  const spec = classifySpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 50),
+    hideStep('a', 250),
+    show({ id: 'b', kind: 'text', x: 100, y: 300, text: 'bbb', size: 24 }, 150)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'overlap', detail: 'a overlaps b', ids: ['a', 'b'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].staging, null);
+});
+
+test('staging: shape visible only between samples has no visibility range', () => {
+  // a is shown at 30ms and hidden at 80ms: no grid sample ever sees it,
+  // so the audit could never observe co-visibility -> stays genuine
+  const spec = classifySpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 300, text: 'aaa', size: 24 }, 30),
+    hideStep('a', 80),
+    show({ id: 'b', kind: 'text', x: 100, y: 300, text: 'bbb', size: 24 }, 500)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'overlap', detail: 'a overlaps b', ids: ['a', 'b'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].staging, null);
+});
+
+test('staging: junk ids and scenes stay genuine', () => {
+  const spec = classifySpec([
+    show(labelAt(100, 100), 0),
+    hideStep('ghost2', 50)
+  ], 100);
+  const junk = [
+    { kind: 'overlap', scene: 's1', detail: 'x', ids: ['ghost', 'lbl'] },
+    { kind: 'overlap', scene: 's1', detail: 'x', ids: ['lbl', 'ghost'] },
+    { kind: 'overlap', scene: 's1', detail: 'x', ids: ['ghost2', 'lbl'] },
+    { kind: 'overlap', scene: 'nope', detail: 'x', ids: ['lbl', 'lbl'] },
+    { kind: 'overflow', scene: 's1', detail: 'x', ids: ['lbl', 'lbl'] },
+    { kind: 'overlap', scene: 's1', detail: 'x', ids: ['lbl'] },
+    { kind: 'overlap', scene: 's1', detail: 'x', ids: 'lbl' }
+  ];
+  const out = classifyFindings(spec, junk);
+  assert.equal(out.length, junk.length);
+  out.forEach(c => {
+    assert.equal(c.verdict, 'genuine');
+    assert.equal(c.flight, null);
+    assert.equal(c.staging, null);
+  });
+});

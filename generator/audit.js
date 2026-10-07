@@ -5,19 +5,21 @@
  * (auditGeometrySampled) from generator/geometry.js over sample files and
  * reports findings with their time bands.
  *
- * CLASSIFICATION (issue #382): every time-banded overlap finding is passed
+ * CLASSIFICATION (issues #382, #384): every overlap finding is passed
  * through classifyFindings (generator/geometry.js), which marks it
  * intentional-motion iff its band touches a move-step flight interval of
  * either involved shape AND both shapes' rest positions are clear (the
  * audit's own band check re-run at rest — same tolerance, same centered-on
- * and point-anchor exemptions); everything else is genuine. Intentional
- * findings get their own report section (with the covering flight
- * interval) and do NOT affect the exit code. KNOWN LIMITATION (run-274
+ * and point-anchor exemptions); intentional-staging iff it is not
+ * intentional-motion and the two shapes' visibility intervals (from
+ * show/hide step times) never share a 100ms audit sample — sequential
+ * same-slot labels never on screen together; everything else is genuine.
+ * Intentional findings get their own report sections (motion with the
+ * covering flight interval, staging with the two disjoint visibility
+ * intervals) and do NOT affect the exit code. KNOWN LIMITATION (run-274
  * lesson): bands are 100ms samples, so a sub-100ms graze between samples
  * is invisible to the audit and the classifier alike; flight intervals
- * come from the spec's own move steps — scripted motion only. Static
- * findings carry no band and are always genuine here; the staging-pair
- * class is a separate follow-up.
+ * come from the spec's own move steps — scripted motion only.
  *
  * Exit-code contract (CI-able):
  *   0 — no genuine findings
@@ -117,11 +119,20 @@ function formatFinding(f) {
   return f.file + ' ' + f.scene + ' ' + f.kind + ' ' + f.detail;
 }
 
+function formatRanges(ranges) {
+  return ranges.map(function (r) {
+    return '[' + r[0] + '-' + r[1] + 'ms]';
+  }).join(', ');
+}
+
 function formatClassified(c) {
   var line = formatFinding(c.finding);
   if (c.verdict === 'intentional-motion' && c.flight) {
     line += '  flight ' + c.flight.id +
       ' [' + c.flight.startMs + '-' + c.flight.endMs + 'ms]';
+  } else if (c.verdict === 'intentional-staging' && c.staging) {
+    line += '  staging ' + c.staging.aId + ' ' + formatRanges(c.staging.aRanges) +
+      ' vs ' + c.staging.bId + ' ' + formatRanges(c.staging.bRanges);
   }
   return line;
 }
@@ -139,12 +150,15 @@ function run(opts) {
   }
   var genuineLines = [];
   var motionLines = [];
+  var stagingLines = [];
   for (var i = 0; i < files.length; i++) {
     var r = auditFile(files[i]);
     if (r.error) return { output: r.error, code: 2, findingCount: 0 };
     audits.classifyFindings(r.spec, r.findings).forEach(function (c) {
       if (c.verdict === 'intentional-motion') {
         motionLines.push(formatClassified(c));
+      } else if (c.verdict === 'intentional-staging') {
+        stagingLines.push(formatClassified(c));
       } else {
         genuineLines.push(formatFinding(c.finding));
       }
@@ -152,13 +166,15 @@ function run(opts) {
   }
   var genuine = genuineLines.length;
   var motion = motionLines.length;
-  var total = genuine + motion;
+  var staging = stagingLines.length;
+  var total = genuine + motion + staging;
   if (total === 0) return { output: 'clean: ' + files.length + ' file(s), no findings', code: 0, findingCount: 0 };
   var sections = [];
   if (genuine > 0) sections.push('genuine findings:\n' + genuineLines.join('\n'));
   if (motion > 0) sections.push('intentional-motion findings:\n' + motionLines.join('\n'));
+  if (staging > 0) sections.push('intentional-staging findings:\n' + stagingLines.join('\n'));
   sections.push(total + ' finding(s): ' + motion + ' intentional-motion, ' +
-    genuine + ' genuine');
+    staging + ' intentional-staging, ' + genuine + ' genuine');
   return { output: sections.join('\n'), code: genuine > 0 ? 1 : 0, findingCount: total };
 }
 
