@@ -109,6 +109,28 @@
           "target": "colVec"
         },
         {
+          "at_ms": 6400,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "vec",
+          "to": {
+            "x1": 120,
+            "y1": 300,
+            "x2": 480,
+            "y2": 90
+          }
+        },
+        {
+          "at_ms": 6400,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "vecLab",
+          "to": {
+            "x": 500,
+            "y": 100
+          }
+        },
+        {
           "at_ms": 7000,
           "do": "caption",
           "text": "Magnitude and direction - a vector is never just a number"
@@ -143,10 +165,10 @@
             "kind": "arrow",
             "stroke": "#1a56db",
             "width": 4,
-            "x1": 350,
-            "x2": 550,
-            "y1": 250,
-            "y2": 330
+            "x1": 600,
+            "x2": 800,
+            "y1": 180,
+            "y2": 260
           }
         },
         {
@@ -163,6 +185,18 @@
         },
         {
           "at_ms": 3000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "b",
+          "to": {
+            "x1": 350,
+            "y1": 250,
+            "x2": 550,
+            "y2": 330
+          }
+        },
+        {
+          "at_ms": 4400,
           "do": "show",
           "shape": {
             "id": "bLab",
@@ -170,11 +204,11 @@
             "size": 36,
             "text": "b",
             "x": 460,
-            "y": 260
+            "y": 232
           }
         },
         {
-          "at_ms": 4000,
+          "at_ms": 4800,
           "do": "show",
           "shape": {
             "id": "sum",
@@ -182,13 +216,24 @@
             "stroke": "#b00020",
             "width": 5,
             "x1": 150,
-            "x2": 550,
+            "x2": 150,
             "y1": 400,
-            "y2": 330
+            "y2": 400
           }
         },
         {
-          "at_ms": 5200,
+          "at_ms": 5000,
+          "do": "move",
+          "dur_ms": 1200,
+          "target": "sum",
+          "to": {
+            "x2": 550,
+            "y2": 330
+          }
+        },
+
+        {
+          "at_ms": 6400,
           "do": "show",
           "shape": {
             "color": "#b00020",
@@ -201,13 +246,13 @@
           }
         },
         {
-          "at_ms": 6400,
+          "at_ms": 7400,
           "do": "emphasize",
           "dur_ms": 900,
           "target": "sum"
         },
         {
-          "at_ms": 7400,
+          "at_ms": 8200,
           "do": "caption",
           "text": "a + b joins the first tail to the last head"
         }
@@ -270,9 +315,20 @@
             "x1": 480,
             "x2": 480,
             "y1": 180,
+            "y2": 180
+          }
+        },
+        {
+          "at_ms": 3800,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "proj",
+          "to": {
+            "x2": 480,
             "y2": 420
           }
         },
+
         {
           "at_ms": 4600,
           "do": "show",
@@ -380,6 +436,28 @@
             "tex": "r = a + \\lambda b",
             "x": 620,
             "y": 70
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "dirB",
+          "to": {
+            "x1": 477,
+            "y1": 271,
+            "x2": 654,
+            "y2": 201
+          }
+        },
+        {
+          "at_ms": 4400,
+          "do": "move",
+          "dur_ms": 900,
+          "target": "dirLab",
+          "to": {
+            "x": 677,
+            "y": 190
           }
         },
         {
@@ -558,6 +636,18 @@
             "text": "direction vector: the same arrow, drawn anywhere",
             "x": 120,
             "y": 440
+          }
+        },
+        {
+          "at_ms": 5200,
+          "do": "move",
+          "dur_ms": 1000,
+          "target": "dir",
+          "to": {
+            "x1": 200,
+            "y1": 380,
+            "x2": 400,
+            "y2": 280
           }
         },
         {
