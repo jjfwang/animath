@@ -33,8 +33,7 @@
  *
  * Slug naming note: the map is keyed on the short topic slugs that
  * buildPrompts receives (the issue's slugs), which match the samples' topic
- * fields exactly:
- *   decimals-place-value.json -> topic "decimals"  (key: decimals)
+ * fields exactly: *   decimals-place-value.json -> topic "decimals"  (key: decimals)
  *   fractions-addition.json   -> topic "fractions" (key: fractions)
  *   percentage-of-quantity.json -> topic "percentage" (key: percentage)
  *   ratio-sharing.json        -> topic "ratio"     (key: ratio)
@@ -48,6 +47,14 @@
  * is key-prefix only, so a caller passing "jc-h2-em" falls to the generic
  * line. Callers pass the topic field, which matches the short "h2-*" slugs,
  * so this is expected.
+ *
+ * Facet sub-entries (issue #367): an entry may be faceted when its syllabus
+ * topic spans multiple facets (e.g. bio-nutrition covers digestion and
+ * photosynthesis). A faceted entry carries `primary` (the facet bare-topic
+ * lookups resolve to, preserving pre-facet behavior) and `facets`, a map of
+ * facet name -> {wrongTurn, why, correctTurn}. misconceptionFor() in
+ * build_prompt.js takes an optional facet hint; unknown hints fall back to
+ * the primary facet. Entries without `facets` behave exactly as before.
  *
  * Works in browser and Node.
  */
@@ -242,9 +249,24 @@
       correctTurn: 'Energy is not recycled: only about a tenth passes to the next level, the rest is lost as heat.'
     },
     'bio-nutrition': {
-      wrongTurn: 'Digestion finishes in the stomach.',
-      why: 'The stomach gets all the attention, so it feels like the last stop.',
-      correctTurn: 'Digestion does not end in the stomach: it continues in the small intestine, where most absorption happens.'
+      // Faceted entry (issue #367, decided option A of #360): the SYLLABUS.md
+      // label "Nutrition: diet, digestion, photosynthesis" spans facets.
+      // `primary` names the facet bare-topic lookups resolve to, preserving
+      // the pre-facet behavior; callers may pass a facet hint to reach a
+      // non-primary facet (e.g. the photosynthesis sample).
+      primary: 'digestion',
+      facets: {
+        digestion: {
+          wrongTurn: 'Digestion finishes in the stomach.',
+          why: 'The stomach gets all the attention, so it feels like the last stop.',
+          correctTurn: 'Digestion does not end in the stomach: it continues in the small intestine, where most absorption happens.'
+        },
+        photosynthesis: {
+          wrongTurn: 'The oxygen released in photosynthesis comes from carbon dioxide.',
+          why: 'Carbon dioxide goes in and oxygen comes out, so the oxygen looks like it comes from the CO2.',
+          correctTurn: 'The released oxygen comes from water: splitting water gives the oxygen, while carbon dioxide supplies the carbon for glucose.'
+        }
+      }
     },
     'bio-reproduction': {
       wrongTurn: 'Pollination is fertilisation.',

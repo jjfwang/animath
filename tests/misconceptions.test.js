@@ -55,14 +55,22 @@ test('MISCONCEPTIONS holds exactly the 67 seeded topic slugs (12 Primary Math + 
 
 test('every entry has non-empty wrongTurn, why and correctTurn strings', () => {
   for (const slug of SEEDED_SLUGS) {
-    const e = MISCONCEPTIONS[slug];
-    for (const f of ['wrongTurn', 'why', 'correctTurn']) {
-      assert.strictEqual(typeof e[f], 'string',
-        'entry ' + slug + ' field ' + f + ' must be a plain string');
-      assert.ok(e[f].length > 0, 'entry ' + slug + ' field ' + f + ' must not be empty');
+    for (const e of entryVariants(slug)) {
+      for (const f of ['wrongTurn', 'why', 'correctTurn']) {
+        assert.strictEqual(typeof e[f], 'string',
+          'entry ' + slug + ' field ' + f + ' must be a plain string');
+        assert.ok(e[f].length > 0, 'entry ' + slug + ' field ' + f + ' must not be empty');
+      }
     }
   }
 });
+
+// Faceted entries (issue #367): one variant per facet; plain entries: one variant.
+function entryVariants(slug) {
+  const e = MISCONCEPTIONS[slug];
+  if (e.facets) return Object.keys(e.facets).map(k => e.facets[k]);
+  return [e];
+}
 
 test('misconceptionFor resolves exact slugs', () => {
   const e = Prompt.misconceptionFor('fractions');
@@ -88,8 +96,11 @@ test('misconceptionFor resolves the slice-3 secondary math slugs exactly', () =>
 
 test('misconceptionFor resolves the slice-4 secondary science slugs exactly', () => {
   for (const slug of SECONDARY_SCIENCE_SLUGS) {
-    assert.strictEqual(Prompt.misconceptionFor(slug), MISCONCEPTIONS[slug],
-      'exact lookup for ' + slug + ' must resolve to its entry');
+    const e = MISCONCEPTIONS[slug];
+    // faceted entries resolve the primary facet, preserving pre-facet behavior
+    const expected = e.facets ? e.facets[e.primary] : e;
+    assert.strictEqual(Prompt.misconceptionFor(slug), expected,
+      'exact lookup for ' + slug + ' must resolve to its entry (primary facet)');
   }
 });
 
@@ -111,7 +122,9 @@ test('no seeded slug is shadowed by another key prefix', () => {
   // every file-style slug used above must land on the same entry a
   // longer file path prefix would hit, i.e. no key prefixes another key
   for (const slug of SEEDED_SLUGS) {
-    assert.strictEqual(Prompt.misconceptionFor(slug + '-x'), MISCONCEPTIONS[slug],
+    const e = MISCONCEPTIONS[slug];
+    const expected = e.facets ? e.facets[e.primary] : e;
+    assert.strictEqual(Prompt.misconceptionFor(slug + '-x'), expected,
       'prefix extension of ' + slug + ' must still resolve to its entry');
   }
 });
@@ -119,9 +132,10 @@ test('no seeded slug is shadowed by another key prefix', () => {
 test('all entries stay plain ASCII like the earlier slices', () => {
   const ascii = /^[\x00-\x7F]*$/;
   for (const slug of SEEDED_SLUGS) {
-    const e = MISCONCEPTIONS[slug];
-    for (const f of ['wrongTurn', 'why', 'correctTurn']) {
-      assert.ok(ascii.test(e[f]), 'entry ' + slug + ' field ' + f + ' must be ASCII');
+    for (const e of entryVariants(slug)) {
+      for (const f of ['wrongTurn', 'why', 'correctTurn']) {
+        assert.ok(ascii.test(e[f]), 'entry ' + slug + ' field ' + f + ' must be ASCII');
+      }
     }
   }
 });
@@ -152,4 +166,49 @@ test('buildPrompts injects via the longer file-style slug too', () => {
   const p = Prompt.buildPrompts({ level: 'primary', subject: 'math', topic: 'percentage-of-quantity', kind: 'concept' });
   assert.ok(p.system.indexOf(MISCONCEPTIONS['percentage'].wrongTurn) !== -1,
     'system prompt must contain the percentage wrongTurn text via prefix resolution');
+});
+
+test('faceted entry: bare lookup returns the primary facet (pre-facet behavior)', () => {
+  const entry = MISCONCEPTIONS['bio-nutrition'];
+  assert.ok(entry.facets, 'bio-nutrition must be faceted');
+  assert.strictEqual(Prompt.misconceptionFor('bio-nutrition'), entry.facets.digestion);
+  assert.strictEqual(Prompt.misconceptionFor('bio-nutrition').wrongTurn,
+    'Digestion finishes in the stomach.');
+});
+
+test('faceted entry: facet hint returns the named facet', () => {
+  const photo = Prompt.misconceptionFor('bio-nutrition', 'photosynthesis');
+  assert.strictEqual(photo, MISCONCEPTIONS['bio-nutrition'].facets.photosynthesis);
+  assert.ok(photo.wrongTurn.indexOf('oxygen') !== -1,
+    'photosynthesis facet must address the oxygen misconception, not digestion');
+});
+
+test('faceted entry: unknown or missing hint falls back to the primary facet', () => {
+  const entry = MISCONCEPTIONS['bio-nutrition'];
+  assert.strictEqual(Prompt.misconceptionFor('bio-nutrition', 'nope'), entry.facets.digestion);
+  assert.strictEqual(Prompt.misconceptionFor('bio-nutrition', null), entry.facets.digestion);
+  assert.strictEqual(Prompt.misconceptionFor('bio-nutrition', undefined), entry.facets.digestion);
+});
+
+test('faceted entry: prefix resolution honors the facet hint', () => {
+  const photo = Prompt.misconceptionFor('bio-nutrition-extra', 'photosynthesis');
+  assert.strictEqual(photo, MISCONCEPTIONS['bio-nutrition'].facets.photosynthesis);
+});
+
+test('faceted entry: facet hint on a plain entry is ignored', () => {
+  assert.strictEqual(Prompt.misconceptionFor('fractions', 'photosynthesis'), MISCONCEPTIONS['fractions']);
+});
+
+test('buildPrompts injects the facet entry when a facet is passed', () => {
+  const p = Prompt.buildPrompts({ level: 'secondary', subject: 'science', topic: 'bio-nutrition', facet: 'photosynthesis', kind: 'concept' });
+  const photo = MISCONCEPTIONS['bio-nutrition'].facets.photosynthesis;
+  assert.ok(p.system.indexOf(photo.wrongTurn) !== -1, 'system prompt must contain the photosynthesis wrongTurn');
+  assert.ok(p.system.indexOf('Digestion finishes in the stomach') === -1,
+    'system prompt must not contain the digestion wrongTurn when the photosynthesis facet is requested');
+});
+
+test('buildPrompts keeps the primary facet when no facet is passed', () => {
+  const p = Prompt.buildPrompts({ level: 'secondary', subject: 'science', topic: 'bio-nutrition', kind: 'concept' });
+  assert.ok(p.system.indexOf('Digestion finishes in the stomach') !== -1,
+    'system prompt must keep the digestion wrongTurn for bare bio-nutrition lookups');
 });
