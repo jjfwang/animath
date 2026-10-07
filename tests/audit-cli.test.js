@@ -77,13 +77,40 @@ test('main: clean file exits 0', () => {
   assert.match(r.output, /clean/);
 });
 
-test('main: falling-shape file exits 1 with the time band', () => {
+test('main: falling-shape file exits 0 — the crossing is intentional-motion', () => {
+  // issue #382: the exit-1 contract applies to genuine findings only
   const dir = tmpDir();
   const f = writeSpec(dir, 'fall.json', fallingSpec());
   const r = cli.main([f]);
-  assert.equal(r.code, 1);
+  assert.equal(r.code, 0);
   assert.equal(r.findingCount, 1);
-  assert.match(r.output, /lbl collides with ball \[400-500ms\]/);
+  assert.match(r.output, /intentional-motion findings:/);
+  assert.match(r.output, /lbl collides with ball \[400-500ms\]  flight ball \[0-1000ms\]/);
+  assert.match(r.output, /1 finding\(s\): 1 intentional-motion, 0 genuine/);
+  assert.doesNotMatch(r.output, /genuine findings:/);
+});
+
+function restSpec() {
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{
+      id: 's1', duration_ms: 1000, steps: [
+        { at_ms: 0, do: 'show', shape: { id: 'lbl', kind: 'text', x: 100, y: 300, text: 'hello', size: 24 } },
+        { at_ms: 0, do: 'show', shape: { id: 'ball', kind: 'circle', cx: 160, cy: 290, r: 20 } }
+      ]
+    }]
+  };
+}
+
+test('main: rest overlap stays genuine and exits 1', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'rest.json', restSpec());
+  const r = cli.main([f]);
+  assert.equal(r.code, 1);
+  assert.equal(r.findingCount, 2); // static + sampled, both genuine
+  assert.match(r.output, /genuine findings:/);
+  assert.match(r.output, /2 finding\(s\): 0 intentional-motion, 2 genuine/);
+  assert.doesNotMatch(r.output, /intentional-motion findings:/);
 });
 
 test('main: unreadable and invalid files exit 2', () => {

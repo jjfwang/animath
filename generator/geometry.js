@@ -735,22 +735,31 @@
       }
       // Open time bands, keyed on the stable (kind, participants) part of
       // the finding; closed and emitted when a sample no longer shows them.
+      // Overlap findings also carry structured `band` {start,last} and
+      // `ids` [a,b] for the motion-band classifier (issue #382); the
+      // record contract {file, scene, kind, detail} is unchanged.
       var open = {};
       var order = [];
       function emit(key) {
         var b = open[key];
-        findings.push({
+        var rec = {
           file: file, scene: label, kind: b.kind,
           detail: b.detail + ' ' + bandOf(b.start, b.last)
-        });
+        };
+        if (b.ids) {
+          rec.band = { start: b.start, last: b.last };
+          rec.ids = b.ids;
+        }
+        findings.push(rec);
         delete open[key];
         order.splice(order.indexOf(key), 1);
       }
-      function note(key, kind, detail, t, seen) {
+      function note(key, kind, detail, t, seen, ids) {
         seen[key] = true;
         var b = open[key];
         if (!b) {
-          open[key] = { kind: kind, detail: detail, start: t, last: t };
+          open[key] = { kind: kind, detail: detail, start: t, last: t,
+            ids: ids || null };
           order.push(key);
         } else {
           b.last = t;
@@ -814,7 +823,7 @@
         var smaller = Math.min(boxArea(A), boxArea(B));
         if (area > OVERLAP_TOLERANCE * smaller) {
           note(A.id + '|' + B.id + '|overlap', 'overlap',
-            A.id + ' overlaps ' + B.id, t, seen);
+            A.id + ' overlaps ' + B.id, t, seen, [A.id, B.id]);
         }
       }
     }
@@ -830,9 +839,158 @@
         var smaller = Math.min(boxArea(L), boxArea(sb));
         if (area > OVERLAP_TOLERANCE * smaller) {
           note(L.id + '|' + sb.id + '|ts', 'text-shape-overlap',
-            L.id + ' collides with ' + sb.id, t, seen);
+            L.id + ' collides with ' + sb.id, t, seen, [L.id, sb.id]);
         }
       });
+    });
+  }
+
+  // ---- motion-band classification (issue #382) ----
+  //
+  // classifyFindings(spec, findings) marks each time-banded overlap finding
+  // (kind 'overlap' or 'text-shape-overlap' from auditGeometrySampled, which
+  // carries structured `band` {start,last} and `ids` [a,b]) as
+  // 'intentional-motion' or 'genuine':
+  //
+  //   intentional-motion iff
+  //     (a) the band TOUCHES a move-step flight interval
+  //         [atMs, atMs + durMs] of EITHER involved shape (inclusive —
+  //         covers the band inside the flight as well as the band's edge
+  //         meeting the flight's start, i.e. the scripted entrance/exit
+  //         park staging the triages classified as motion, e.g. #373's
+  //         300ms striker park); and
+  //     (b) both shapes' rest positions are clear — the audit's own band
+  //         check re-run on the shapes' rest states (after their last
+  //         move) reports nothing, with the same tolerance and the same
+  //         centered-on / point-anchor exemptions.
+  //   everything else -> 'genuine'.
+  //
+  // A flight of a third, uninvolved shape never masks a finding: only the
+  // two participants' flights count. A band that starts in flight but
+  // persists at rest fails (b) and stays genuine. Rest-clear treats a
+  // hidden/absent shape as clear (no rest box); a label that lands
+  // centered on a chip is clear via the centered-on exemption, exactly as
+  // the audit itself would report at rest.
+  //
+  // Returns [{ finding, verdict, flight }] where flight is
+  // { id, startMs, endMs } for intentional-motion, null otherwise.
+  //
+  // KNOWN LIMITATION (run-274 lesson): bands are 100ms samples — a
+  // sub-100ms graze between samples is invisible to the audit and
+  // therefore to the classifier. Flight intervals come from the spec's own
+  // move steps (scripted motion only); anything the player does at runtime
+  // is not classified. Static-audit findings carry no band and are always
+  // genuine here — the #172 gate's staging-pair class is a separate
+  // follow-up.
+  //
+  // Never throws on junk: null specs, missing scenes/ids, findings without
+  // band/ids all yield verdict 'genuine'.
+  function sceneEndMs(scene, steps) {
+    var end = num(scene && scene.duration_ms, 0);
+    if (!(end > 0)) {
+      end = 0;
+      steps.forEach(function (step) {
+        if (isObj(step)) end = Math.max(end, num(step.at_ms, 0));
+      });
+    }
+    return end;
+  }
+
+  function sceneByLabel(scenes, label) {
+    for (var i = 0; i < scenes.length; i++) {
+      if (sceneLabel(scenes[i], i) === label) return scenes[i];
+    }
+    return null;
+  }
+
+  // -> [{ id, startMs, endMs }] flight intervals for one shape id
+  function flightIntervals(byId, id) {
+    var rec = byId[id];
+    if (!rec) return [];
+    return rec.moves.map(function (m) {
+      return { id: id, startMs: m.atMs, endMs: m.atMs + m.durMs };
+    });
+  }
+
+  // The band touches the flight (inclusive on both ends — a sample exactly
+  // at the flight boundary is mid-flight at p = 0 or 1). Covers the full
+  // band inside the flight AND the band's edge meeting the flight's start
+  // (the scripted entrance/exit park staging the triages classified as
+  // motion, e.g. #373's 300ms striker park).
+  function bandTouchesFlight(band, f) {
+    return band.start <= f.endMs && band.last >= f.startMs;
+  }
+
+  // Rest state of one shape id at tRest: { label, box, shape } or null
+  // when hidden/absent/boxless (counts as clear).
+  function restStateFor(byId, id, tRest) {
+    var rec = byId[id];
+    if (!rec) return null;
+    var st = visibleState(rec, tRest);
+    if (!st) return null;
+    if (st.kind === 'text') {
+      var tb = textBox(st);
+      return tb ? { label: true, box: tb, shape: st } : null;
+    }
+    if (st.kind === 'latex') {
+      var lb = latexBox(st);
+      return lb ? { label: true, box: lb, shape: st } : null;
+    }
+    var sb = shapeBox(st);
+    return sb ? { label: false, box: sb, shape: st } : null;
+  }
+
+  function boxesOverlap(A, B) {
+    var area = intersectArea(A, B);
+    return area > OVERLAP_TOLERANCE * Math.min(boxArea(A), boxArea(B));
+  }
+
+  // True when the two rest states would NOT reproduce this finding —
+  // i.e. the audit's own band check, re-run at rest.
+  function restClear(kind, restA, restB) {
+    if (!restA || !restB) return true;
+    if (kind === 'overlap') return !boxesOverlap(restA.box, restB.box);
+    // text-shape-overlap: ids[0] is the label; same two exemptions as the
+    // audit band, so a label landing centered on its chip reads clear.
+    if (isCenteredOn(restA.box, restB.box)) return true;
+    if (isPointShape(restB.shape)) return true;
+    return !boxesOverlap(restA.box, restB.box);
+  }
+
+  function classifyFindings(spec, findings) {
+    var scenes = (spec && Array.isArray(spec.scenes)) ? spec.scenes : [];
+    var list = Array.isArray(findings) ? findings : [];
+    return list.map(function (f) {
+      var verdict = 'genuine';
+      var flight = null;
+      if (isObj(f) && (f.kind === 'overlap' || f.kind === 'text-shape-overlap') &&
+          isObj(f.band) && Array.isArray(f.ids) && f.ids.length === 2) {
+        var scene = sceneByLabel(scenes, f.scene);
+        if (scene) {
+          var steps = Array.isArray(scene.steps) ? scene.steps : [];
+          var byId = sceneEvents(steps);
+          var flights = flightIntervals(byId, f.ids[0])
+            .concat(flightIntervals(byId, f.ids[1]));
+          for (var i = 0; i < flights.length; i++) {
+            if (!bandTouchesFlight(f.band, flights[i])) continue;
+            var tRest = sceneEndMs(scene, steps);
+            [f.ids[0], f.ids[1]].forEach(function (id) {
+              var rec = byId[id];
+              if (rec) rec.moves.forEach(function (m) {
+                if (m.atMs + m.durMs > tRest) tRest = m.atMs + m.durMs;
+              });
+            });
+            if (restClear(f.kind,
+                restStateFor(byId, f.ids[0], tRest),
+                restStateFor(byId, f.ids[1], tRest))) {
+              verdict = 'intentional-motion';
+              flight = flights[i];
+            }
+            break;
+          }
+        }
+      }
+      return { finding: f, verdict: verdict, flight: flight };
     });
   }
 
@@ -881,6 +1039,7 @@
     // compare the model against PIL-measured widths directly.
     estimateTextWidth: widthOf,
     auditGeometrySampled: auditGeometrySampled,
+    classifyFindings: classifyFindings,
     auditSampleFile: auditSampleFile,
     auditAllSamples: auditAllSamples
   };
