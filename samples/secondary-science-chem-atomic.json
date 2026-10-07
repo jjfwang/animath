@@ -104,9 +104,9 @@
           "shape": {
             "id": "nucL",
             "kind": "text",
-            "x": 456,
-            "y": 342,
-            "size": 20,
+            "x": 453,
+            "y": 336,
+            "size": 14,
             "text": "nucleus",
             "color": "#ffffff"
           }
@@ -1194,7 +1194,7 @@
             "id": "pLiT",
             "kind": "text",
             "x": 142,
-            "y": 456,
+            "y": 455,
             "size": 24,
             "text": "Li"
           }
@@ -1416,7 +1416,7 @@
             "id": "pNaT",
             "kind": "text",
             "x": 140,
-            "y": 496,
+            "y": 500,
             "size": 24,
             "text": "Na"
           }
@@ -1693,7 +1693,7 @@
           "shape": {
             "id": "emptyT",
             "kind": "text",
-            "x": 640,
+            "x": 695,
             "y": 480,
             "size": 24,
             "text": "mostly empty space"
@@ -1705,9 +1705,9 @@
           "shape": {
             "id": "fixT",
             "kind": "text",
-            "x": 80,
-            "y": 470,
-            "size": 24,
+            "x": 700,
+            "y": 514,
+            "size": 22,
             "text": "Electrons sit in shells."
           }
         },
