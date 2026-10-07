@@ -8,11 +8,11 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const { auditGeometry, auditGeometrySampled, auditSampleFile, auditAllSamples } = require('../generator/geometry.js');
+const { auditGeometry, auditGeometrySampled, auditSampleFile, auditAllSamples, estimateTextWidth } = require('../generator/geometry.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
 
-// 'hello' at size 24: width 0.6*24*5 = 72, height 28.8
+// 'hello' at size 24: per-glyph width 57.99, height 28.8
 function textShape(over) {
   return Object.assign(
     { id: 't1', kind: 'text', x: 100, y: 100, text: 'hello', size: 24 },
@@ -112,7 +112,7 @@ test('overlap: two substantially intersecting text boxes are flagged', () => {
 });
 
 test('tolerance: grazing adjacency (touching edges) is not flagged', () => {
-  // a spans 100..172; b starts exactly at 172 -> intersection width 0
+  // a spans 100..158; b starts at 172, clear of it -> intersection width 0
   const f = auditGeometry(specOf([
     show(textShape({ id: 'a', x: 100 })),
     show(textShape({ id: 'b', x: 172 }), 100)
@@ -202,7 +202,7 @@ test('move steps are not tracked: audit uses the show-time position', () => {
 
 test('missing canvas defaults to 960x540', () => {
   const f = auditGeometry({ scenes: [{ id: 's1', steps: [show(textShape({ x: 900, text: 'x'.repeat(10) }))]}] });
-  // width 0.6*24*10 = 144 > 60 remaining -> right edge 1044 > 960
+  // per-glyph width 142.03 > 60 remaining -> right edge 1042 > 960
   assert.equal(f.length, 1);
   assert.match(f[0].detail, /960x540/);
 });
@@ -254,7 +254,7 @@ test('auditAllSamples: default dir, non-string dir, and bad manifests', () => {
 
 /* ---- text-vs-shape extension (issue #172) ---- */
 
-// text 'hello' at size 24 anchored at x=100,y=100: box 100..172 x 76..104.8
+// text 'hello' at size 24 anchored at x=100,y=100: box 100..158 x 76..104.8
 function rectShape(over) {
   return Object.assign({ id: 'bar1', kind: 'rect', x: 90, y: 80, w: 120, h: 40 }, over || {});
 }
@@ -263,9 +263,9 @@ function circleShape(over) {
 }
 
 test('text-shape-overlap: label grazing a rect from outside is flagged', () => {
-  // rect starts at x=160: label center (136) is outside, right edge of the
-  // label band (100..172) bleeds 12px into the rect
-  const f = auditGeometry(specOf([show(textShape()), show(rectShape({ x: 160 }))]));
+  // rect starts at x=146: label center (129) is outside, right edge of the
+  // label band (100..158) bleeds 12px into the rect
+  const f = auditGeometry(specOf([show(textShape()), show(rectShape({ x: 146 }))]));
   assert.equal(f.length, 1);
   assert.equal(f[0].kind, 'text-shape-overlap');
   assert.match(f[0].detail, /t1 collides with bar1/);
@@ -281,7 +281,7 @@ test('text-shape-overlap: label far from shapes is clean', () => {
 });
 
 test('text-shape-overlap: label centered on a shape is intentional (centered-on)', () => {
-  // label box 100..172 x 76..104.8, center (136, 90.4) inside the big rect
+  // label box 100..158 x 76..104.8, center (129, 90.4) inside the big rect
   const inside = auditGeometry(specOf([
     show(textShape()),
     show(rectShape({ x: 50, y: 50, w: 200, h: 80 }))
@@ -304,10 +304,10 @@ test('text-shape-overlap: label on a probe dot (r<=10) is a point anchor', () =>
 });
 
 test('text-shape-overlap: label grazing a bigger circle is flagged', () => {
-  // circle box 165..215 x 65..115: label center (136) outside, 7px bleed
+  // circle box 151..201 x 65..115: label center (129) outside, 7px bleed
   const f = auditGeometry(specOf([
     show(textShape()),
-    show(circleShape({ cx: 190 }))
+    show(circleShape({ cx: 176 }))
   ]));
   assert.equal(f.length, 1);
   assert.equal(f[0].kind, 'text-shape-overlap');
@@ -412,8 +412,8 @@ test('text-shape-overlap: sub-1% grazing intersection is not flagged', () => {
 });
 
 test('text-shape-overlap: latex labels use the estimated box', () => {
-  // tex 'x^2' -> visible 'x^2' (3 chars, no backslash command): width 0.6*24*3 = 43.2
-  // box 100..143.2 x 100..128.8 (top-left anchored); a rect grazing its right
+  // tex 'x^2' -> visible 'x^2' (no backslash command): per-glyph width 49.58,
+  // box 100..149.6 x 100..128.8 (top-left anchored); a rect grazing its right
   // edge (label center outside the rect) is flagged
   const f = auditGeometry(specOf([
     show({ id: 'm1', kind: 'latex', x: 100, y: 100, tex: 'x^2' }),
@@ -425,7 +425,7 @@ test('text-shape-overlap: latex labels use the estimated box', () => {
 });
 
 test('text-shape-overlap: latex with backslash commands strips them for the estimate', () => {
-  // tex '\\frac{1}{2}' -> visible '12': width 0.6*24*2 = 28.8, box 100..128.8
+  // tex '\\frac{1}{2}' -> visible '12': per-glyph width 30.54, box 100..130.5
   // rect starting at 140: no intersection -> clean
   const clean = auditGeometry(specOf([
     show({ id: 'm2', kind: 'latex', x: 100, y: 100, tex: '\\frac{1}{2}' }),
@@ -448,7 +448,7 @@ test('text-shape-overlap: latex with backslash commands strips them for the esti
 });
 
 test('text-shape-overlap: record shape matches the audit record contract', () => {
-  const f = auditGeometry(specOf([show(textShape()), show(rectShape({ x: 160 }))]), 'demo.json');
+  const f = auditGeometry(specOf([show(textShape()), show(rectShape({ x: 146 }))]), 'demo.json');
   assert.equal(f.length, 1);
   assert.equal(f[0].file, 'demo.json');
   assert.equal(f[0].scene, 's1');
@@ -677,13 +677,16 @@ test('sampled: malformed input never throws', () => {
 test('sampled: findings on shipped samples are well-formed and real', () => {
   // Hand-verified true positive (issue #363 acceptance): uB3 slides left
   // across labB in primary-math-model-method s1; the static audit misses it.
-  // Bands computed by hand: [4500-4600ms] and [4900-5000ms], with the
-  // centered-on exemption correctly suppressing the middle samples.
+  // Bands verified by hand against the per-glyph width (issue #376):
+  // labB "Ben: 3 units" is 180.07px wide (was 198 under the 0.6 average),
+  // so the 4500ms sample no longer overlaps (54px^2 < 61.6 threshold);
+  // [4600ms] overlaps, 4700-4800ms is centered-on-exempt, [4900-5000ms]
+  // overlaps again as uB3 exits left.
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, 'primary-math-model-method.json'), 'utf8'));
   assert.deepEqual(auditGeometry(spec), []);
   const f = auditGeometrySampled(spec, 'primary-math-model-method.json');
   const bands = f.filter(r => /labB collides with uB3/.test(r.detail)).map(r => r.detail.match(/\[[^\]]+\]/)[0]);
-  assert.deepEqual(bands, ['[4500-4600ms]', '[4900-5000ms]']);
+  assert.deepEqual(bands, ['[4600ms]', '[4900-5000ms]']);
   // every sampled finding on every shipped sample is a well-formed record
   // with a known kind — no invented findings
   for (const name of fs.readdirSync(samplesDir).filter(n => n.endsWith('.json') && n !== 'index.json')) {
@@ -700,3 +703,52 @@ function wellFormedSampled(records) {
     assert.match(r.detail, /\[\d+(-\d+)?ms\]$/, 'record.detail carries a time band');
   }
 }
+
+/* ---- per-glyph width model (issue #376) ---- */
+
+test('width model: per-glyph estimates beat the 0.6 average on real labels', () => {
+  // Fixture: PIL-measured (kerned) DejaVu Sans widths for 1632 real sample
+  // labels, generated by generator/tooling/gen-glyph-table.py. Acceptance:
+  // mean absolute error under half the old 0.6-model error.
+  const fixture = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'widths.json'), 'utf8'));
+  assert.ok(fixture.length > 100, 'fixture carries a real label corpus');
+  let newErr = 0, oldErr = 0;
+  for (const { text, size, measured } of fixture) {
+    newErr += Math.abs(estimateTextWidth(text, size) - measured);
+    oldErr += Math.abs(0.6 * size * text.length - measured);
+  }
+  newErr /= fixture.length;
+  oldErr /= fixture.length;
+  assert.ok(newErr < 0.5 * oldErr,
+    'mean abs error ' + newErr.toFixed(2) + 'px should be under half the old model\'s ' + oldErr.toFixed(2) + 'px');
+});
+
+test('width model: estimates stay conservative within the documented margin', () => {
+  // WIDTH_MARGIN_PX = 2 in generator/geometry.js: no label underestimates
+  // the PIL-measured width by more than 2px (the model ignores kerning, and
+  // the unkerned per-glyph sum is >= the kerned width almost everywhere).
+  const fixture = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'widths.json'), 'utf8'));
+  let worst = 0, worstLabel = null;
+  for (const { text, size, measured } of fixture) {
+    const under = measured - estimateTextWidth(text, size);
+    if (under > worst) { worst = under; worstLabel = text; }
+  }
+  assert.ok(worst <= 2,
+    'worst underestimate ' + worst.toFixed(2) + 'px on ' + JSON.stringify(worstLabel) + ' exceeds the 2px margin');
+});
+
+test('width model: unknown glyphs fall back to the 0.6 average', () => {
+  // U+4E2D is not in the baked table (no CJK in the samples corpus):
+  // one unknown glyph at size 20 estimates 12px wide.
+  assert.equal(estimateTextWidth('中', 20), 12);
+  // mixed known + unknown: known advance plus one fallback advance
+  assert.equal(estimateTextWidth('a中', 20), estimateTextWidth('a', 20) + 12);
+});
+
+test('width model: astral-plane glyphs count as one glyph (surrogate pairs)', () => {
+  // An astral character (a UTF-16 surrogate pair) not in the table:
+  // one fallback advance, not two.
+  assert.equal(estimateTextWidth('𝟘', 20), 12);
+  // a lone high surrogate degrades to the fallback and never throws
+  assert.ok(estimateTextWidth('a\ud83d', 20) > estimateTextWidth('a', 20));
+});

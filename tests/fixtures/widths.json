@@ -1,0 +1,8162 @@
+[
+ {
+  "text": "phospholipid heads: hydrophilic",
+  "size": 22,
+  "measured": 349.5
+ },
+ {
+  "text": "fatty acid tails: hydrophobic",
+  "size": 22,
+  "measured": 307.8
+ },
+ {
+  "text": "channel protein: selective passage",
+  "size": 22,
+  "measured": 383.0
+ },
+ {
+  "text": "nuclear envelope: double membrane",
+  "size": 22,
+  "measured": 407.0
+ },
+ {
+  "text": "nuclear pore: mRNA exits",
+  "size": 22,
+  "measured": 280.7
+ },
+ {
+  "text": "nucleolus: makes ribosomal RNA",
+  "size": 22,
+  "measured": 360.2
+ },
+ {
+  "text": "chromatin: DNA + protein — the cell's instructions",
+  "size": 22,
+  "measured": 555.4
+ },
+ {
+  "text": "cristae: folded inner membrane",
+  "size": 24,
+  "measured": 380.2
+ },
+ {
+  "text": "large surface area → more ATP-making enzymes",
+  "size": 24,
+  "measured": 579.4
+ },
+ {
+  "text": "C_6H_12O_6 + 6O_2  6CO_2 + 6H_2O",
+  "size": 30,
+  "measured": 569.8
+ },
+ {
+  "text": "aerobic respiration → energy trapped as ATP",
+  "size": 26,
+  "measured": 576.9
+ },
+ {
+  "text": "grana (thylakoid stacks): light-dependent stage",
+  "size": 22,
+  "measured": 523.8
+ },
+ {
+  "text": "stroma: Calvin cycle fixes CO₂ into sugar",
+  "size": 22,
+  "measured": 448.0
+ },
+ {
+  "text": "6CO_2 + 6H_2O light C_6H_12O_6 + 6O_2",
+  "size": 28,
+  "measured": 593.9
+ },
+ {
+  "text": "rough ER: ribosomes fold new proteins",
+  "size": 22,
+  "measured": 425.1
+ },
+ {
+  "text": "smooth ER: makes lipids, detoxifies",
+  "size": 22,
+  "measured": 389.8
+ },
+ {
+  "text": "Golgi body: modifies, packages, ships",
+  "size": 22,
+  "measured": 414.0
+ },
+ {
+  "text": "vesicle ships protein out",
+  "size": 22,
+  "measured": 268.0
+ },
+ {
+  "text": "Benedict's",
+  "size": 22,
+  "measured": 114.4
+ },
+ {
+  "text": "iodine",
+  "size": 22,
+  "measured": 67.1
+ },
+ {
+  "text": "brick-red: reducing sugar",
+  "size": 16,
+  "measured": 201.7
+ },
+ {
+  "text": "blue-black: starch",
+  "size": 18,
+  "measured": 160.7
+ },
+ {
+  "text": "Biuret",
+  "size": 22,
+  "measured": 65.9
+ },
+ {
+  "text": "purple: protein",
+  "size": 18,
+  "measured": 133.5
+ },
+ {
+  "text": "emulsion",
+  "size": 22,
+  "measured": 100.0
+ },
+ {
+  "text": "milky white: lipid",
+  "size": 18,
+  "measured": 152.6
+ },
+ {
+  "text": "Misconception:",
+  "size": 36,
+  "measured": 270.3
+ },
+ {
+  "text": "plant cells have no mitochondria",
+  "size": 28,
+  "measured": 458.8
+ },
+ {
+  "text": "plant cells respire aerobically, day and night",
+  "size": 24,
+  "measured": 532.9
+ },
+ {
+  "text": "so plant cells have mitochondria too",
+  "size": 24,
+  "measured": 436.9
+ },
+ {
+  "text": "Re",
+  "size": 28,
+  "measured": 35.4
+ },
+ {
+  "text": "Im",
+  "size": 28,
+  "measured": 35.5
+ },
+ {
+  "text": "z = 3 + 2i",
+  "size": 32,
+  "measured": 160.7
+ },
+ {
+  "text": "z = x + iy",
+  "size": 30,
+  "measured": 148.0
+ },
+ {
+  "text": "|z| = x^2 + y^2",
+  "size": 44,
+  "measured": 364.2
+ },
+ {
+  "text": "θ",
+  "size": 36,
+  "measured": 22.0
+ },
+ {
+  "text": " z = ",
+  "size": 36,
+  "measured": 83.4
+ },
+ {
+  "text": "z = x - iy",
+  "size": 36,
+  "measured": 160.4
+ },
+ {
+  "text": "1",
+  "size": 28,
+  "measured": 17.8
+ },
+ {
+  "text": "× i",
+  "size": 32,
+  "measured": 45.9
+ },
+ {
+  "text": "i",
+  "size": 28,
+  "measured": 7.8
+ },
+ {
+  "text": "−1",
+  "size": 28,
+  "measured": 41.3
+ },
+ {
+  "text": "× i turns 1 to i; again gives i² = −1",
+  "size": 30,
+  "measured": 525.8
+ },
+ {
+  "text": "z^n = r^n( n + i n)",
+  "size": 40,
+  "measured": 391.5
+ },
+ {
+  "text": "de Moivre: powers turn multiplication into angles",
+  "size": 26,
+  "measured": 638.1
+ },
+ {
+  "text": "θ = 100°",
+  "size": 30,
+  "measured": 134.8
+ },
+ {
+  "text": "2θ = 200°",
+  "size": 30,
+  "measured": 153.9
+ },
+ {
+  "text": "3θ = 300°",
+  "size": 30,
+  "measured": 153.9
+ },
+ {
+  "text": "Arg = −60° (wrapped)",
+  "size": 30,
+  "measured": 337.7
+ },
+ {
+  "text": "Connected rates of change",
+  "size": 38,
+  "measured": 514.3
+ },
+ {
+  "text": "one rate of change drags another with it",
+  "size": 28,
+  "measured": 567.8
+ },
+ {
+  "text": "dA/dt grows as dr/dt grows",
+  "size": 28,
+  "measured": 376.5
+ },
+ {
+  "text": "r = 2",
+  "size": 30,
+  "measured": 75.6
+ },
+ {
+  "text": "dr/dt = 0.5",
+  "size": 30,
+  "measured": 164.2
+ },
+ {
+  "text": "dAdt = 2 r\\,drdt",
+  "size": 40,
+  "measured": 315.1
+ },
+ {
+  "text": "dAdt = 2(2)(0.5) = 2  6.283",
+  "size": 36,
+  "measured": 498.0
+ },
+ {
+  "text": "square units per second",
+  "size": 28,
+  "measured": 337.3
+ },
+ {
+  "text": "x^2 + y^2 = 5^2",
+  "size": 36,
+  "measured": 330.8
+ },
+ {
+  "text": "x = 3, y = 4  (3-4-5 triangle)",
+  "size": 28,
+  "measured": 399.2
+ },
+ {
+  "text": "2x\\,dxdt + 2y\\,dydt = 0",
+  "size": 36,
+  "measured": 426.8
+ },
+ {
+  "text": "dx/dt = 1",
+  "size": 26,
+  "measured": 122.2
+ },
+ {
+  "text": "dy/dt = ?",
+  "size": 26,
+  "measured": 119.5
+ },
+ {
+  "text": "dxdt = 1  dydt = -34 = -0.75",
+  "size": 34,
+  "measured": 490.3
+ },
+ {
+  "text": "A common mistake:",
+  "size": 36,
+  "measured": 358.2
+ },
+ {
+  "text": "dydx",
+  "size": 52,
+  "measured": 127.6
+ },
+ {
+  "text": "cancel the d's",
+  "size": 26,
+  "measured": 180.6
+ },
+ {
+  "text": "dy/dx is one symbol for a limit",
+  "size": 30,
+  "measured": 454.7
+ },
+ {
+  "text": "dydx = _ x  0  y x",
+  "size": 36,
+  "measured": 314.8
+ },
+ {
+  "text": "Δx → 0",
+  "size": 28,
+  "measured": 94.8
+ },
+ {
+  "text": "A =  r^2 \\;\\; dAdt = 2 rdrdt",
+  "size": 36,
+  "measured": 487.8
+ },
+ {
+  "text": "x^2 + y^2 = L^2 \\;\\; xdxdt + ydydt = 0",
+  "size": 36,
+  "measured": 733.2
+ },
+ {
+  "text": "differentiate w.r.t. time",
+  "size": 28,
+  "measured": 320.1
+ },
+ {
+  "text": "circle: 2π ≈ 6.28",
+  "size": 28,
+  "measured": 231.1
+ },
+ {
+  "text": "ladder: −0.75",
+  "size": 28,
+  "measured": 192.9
+ },
+ {
+  "text": "grass",
+  "size": 30,
+  "measured": 81.0
+ },
+ {
+  "text": "rabbit",
+  "size": 30,
+  "measured": 88.9
+ },
+ {
+  "text": "fox",
+  "size": 30,
+  "measured": 45.7
+ },
+ {
+  "text": "producer",
+  "size": 24,
+  "measured": 107.5
+ },
+ {
+  "text": "primary consumer",
+  "size": 24,
+  "measured": 220.4
+ },
+ {
+  "text": "secondary consumer",
+  "size": 24,
+  "measured": 250.8
+ },
+ {
+  "text": "grass",
+  "size": 28,
+  "measured": 75.6
+ },
+ {
+  "text": "rabbit",
+  "size": 28,
+  "measured": 83.0
+ },
+ {
+  "text": "mouse",
+  "size": 28,
+  "measured": 94.0
+ },
+ {
+  "text": "fox",
+  "size": 28,
+  "measured": 42.7
+ },
+ {
+  "text": "owl",
+  "size": 28,
+  "measured": 47.8
+ },
+ {
+  "text": "producers",
+  "size": 24,
+  "measured": 120.0
+ },
+ {
+  "text": "primary consumers",
+  "size": 24,
+  "measured": 232.9
+ },
+ {
+  "text": "secondary consumers",
+  "size": 24,
+  "measured": 263.3
+ },
+ {
+  "text": "tertiary consumers",
+  "size": 24,
+  "measured": 227.8
+ },
+ {
+  "text": " 10\\%",
+  "size": 44,
+  "measured": 126.6
+ },
+ {
+  "text": "atmospheric CO₂",
+  "size": 28,
+  "measured": 236.3
+ },
+ {
+  "text": "green plants",
+  "size": 28,
+  "measured": 175.8
+ },
+ {
+  "text": "photosynthesis draws CO₂ in",
+  "size": 24,
+  "measured": 344.2
+ },
+ {
+  "text": "respiration + combustion",
+  "size": 28,
+  "measured": 355.4
+ },
+ {
+  "text": "returns CO₂ to the air",
+  "size": 24,
+  "measured": 256.4
+ },
+ {
+  "text": "decomposers release carbon",
+  "size": 26,
+  "measured": 375.4
+ },
+ {
+  "text": "fossil fuels: ancient carbon burned all at once",
+  "size": 24,
+  "measured": 547.7
+ },
+ {
+  "text": "hornbills",
+  "size": 26,
+  "measured": 110.8
+ },
+ {
+  "text": "pangolins",
+  "size": 26,
+  "measured": 125.8
+ },
+ {
+  "text": "tigers",
+  "size": 26,
+  "measured": 74.2
+ },
+ {
+  "text": "protected corridors connect the fragments",
+  "size": 24,
+  "measured": 511.3
+ },
+ {
+  "text": "plants",
+  "size": 28,
+  "measured": 86.0
+ },
+ {
+  "text": "animals",
+  "size": 28,
+  "measured": 109.5
+ },
+ {
+  "text": "heat escapes",
+  "size": 28,
+  "measured": 186.0
+ },
+ {
+  "text": "plants",
+  "size": 24,
+  "measured": 73.7
+ },
+ {
+  "text": "animals",
+  "size": 24,
+  "measured": 93.8
+ },
+ {
+  "text": "air CO₂",
+  "size": 24,
+  "measured": 84.1
+ },
+ {
+  "text": "+",
+  "size": 36,
+  "measured": 30.2
+ },
+ {
+  "text": "−",
+  "size": 36,
+  "measured": 30.2
+ },
+ {
+  "text": "evenly spaced lines → uniform field E",
+  "size": 26,
+  "measured": 484.4
+ },
+ {
+  "text": "N",
+  "size": 32,
+  "measured": 23.9
+ },
+ {
+  "text": "S",
+  "size": 32,
+  "measured": 20.3
+ },
+ {
+  "text": "field lines never cross and never end in empty space",
+  "size": 24,
+  "measured": 635.8
+ },
+ {
+  "text": "one turn of wire",
+  "size": 24,
+  "measured": 190.4
+ },
+ {
+  "text": "N",
+  "size": 28,
+  "measured": 20.9
+ },
+ {
+  "text": "emf meter",
+  "size": 24,
+  "measured": 126.4
+ },
+ {
+  "text": "flux Φ: 0 mWb",
+  "size": 26,
+  "measured": 186.3
+ },
+ {
+  "text": "flux Φ: 0.4 mWb",
+  "size": 26,
+  "measured": 211.1
+ },
+ {
+  "text": "flux Φ: 0.9 mWb",
+  "size": 26,
+  "measured": 211.1
+ },
+ {
+  "text": "E = -N t",
+  "size": 36,
+  "measured": 141.3
+ },
+ {
+  "text": "faster push → bigger emf",
+  "size": 26,
+  "measured": 327.3
+ },
+ {
+  "text": "N",
+  "size": 40,
+  "measured": 29.9
+ },
+ {
+  "text": "S",
+  "size": 40,
+  "measured": 25.4
+ },
+ {
+  "text": "flux: max",
+  "size": 26,
+  "measured": 121.9
+ },
+ {
+  "text": "flux: zero",
+  "size": 26,
+  "measured": 120.9
+ },
+ {
+  "text": "emf = −BANω sin ωt",
+  "size": 30,
+  "measured": 315.2
+ },
+ {
+  "text": "coil",
+  "size": 24,
+  "measured": 41.2
+ },
+ {
+  "text": "wrong turn",
+  "size": 24,
+  "measured": 131.0
+ },
+ {
+  "text": "an emf flows while the magnet sits inside",
+  "size": 26,
+  "measured": 540.6
+ },
+ {
+  "text": "needle flat: no emf",
+  "size": 24,
+  "measured": 228.1
+ },
+ {
+  "text": "needle kicks: emf!",
+  "size": 24,
+  "measured": 221.1
+ },
+ {
+  "text": "folding → huge surface area → more ATP made",
+  "size": 28,
+  "measured": 653.3
+ },
+ {
+  "text": "aerobic respiration",
+  "size": 28,
+  "measured": 262.8
+ },
+ {
+  "text": "glucose",
+  "size": 22,
+  "measured": 84.6
+ },
+ {
+  "text": "oxygen",
+  "size": 22,
+  "measured": 80.3
+ },
+ {
+  "text": "C_6H_12O_6 + 6O_2  6CO_2 + 6H_2O + energy",
+  "size": 32,
+  "measured": 766.5
+ },
+ {
+  "text": "carbon dioxide",
+  "size": 20,
+  "measured": 147.7
+ },
+ {
+  "text": "water",
+  "size": 20,
+  "measured": 57.0
+ },
+ {
+  "text": " 32  ATP per glucose",
+  "size": 36,
+  "measured": 366.8
+ },
+ {
+  "text": "mitochondrion (recharge zone)",
+  "size": 22,
+  "measured": 341.0
+ },
+ {
+  "text": "ATP",
+  "size": 28,
+  "measured": 51.0
+ },
+ {
+  "text": "ADP",
+  "size": 28,
+  "measured": 57.6
+ },
+ {
+  "text": "ATP is the energy currency",
+  "size": 28,
+  "measured": 374.4
+ },
+ {
+  "text": "glucose",
+  "size": 24,
+  "measured": 92.3
+ },
+ {
+  "text": "yeast — ethanol + CO₂",
+  "size": 22,
+  "measured": 253.1
+ },
+ {
+  "text": "muscle — lactic acid",
+  "size": 22,
+  "measured": 225.7
+ },
+ {
+  "text": "glucose  2C_2H_5OH + 2CO_2 + energy",
+  "size": 28,
+  "measured": 561.9
+ },
+ {
+  "text": "glucose  2C_3H_6O_3 + energy",
+  "size": 28,
+  "measured": 440.2
+ },
+ {
+  "text": "far less ATP than aerobic",
+  "size": 26,
+  "measured": 321.5
+ },
+ {
+  "text": "water",
+  "size": 22,
+  "measured": 62.7
+ },
+ {
+  "text": "2H_2O  4H^+ + 4e^- + O_2",
+  "size": 30,
+  "measured": 430.0
+ },
+ {
+  "text": "thylakoids — photolysis",
+  "size": 22,
+  "measured": 259.7
+ },
+ {
+  "text": "CO₂ in",
+  "size": 22,
+  "measured": 68.5
+ },
+ {
+  "text": "glucose built up",
+  "size": 22,
+  "measured": 175.2
+ },
+ {
+  "text": "light intensity",
+  "size": 24,
+  "measured": 164.9
+ },
+ {
+  "text": "carbon dioxide",
+  "size": 24,
+  "measured": 177.2
+ },
+ {
+  "text": "temperature",
+  "size": 24,
+  "measured": 150.9
+ },
+ {
+  "text": "rate capped by the shortest bar",
+  "size": 24,
+  "measured": 382.3
+ },
+ {
+  "text": "respiration never stops — photosynthesis just masks it by day",
+  "size": 22,
+  "measured": 685.2
+ },
+ {
+  "text": "y = f(x)",
+  "size": 32,
+  "measured": 121.3
+ },
+ {
+  "text": "y = 2f(x)",
+  "size": 32,
+  "measured": 141.6
+ },
+ {
+  "text": "y = 2f(x) + 1",
+  "size": 32,
+  "measured": 209.1
+ },
+ {
+  "text": "y = f(x + 2)",
+  "size": 32,
+  "measured": 188.8
+ },
+ {
+  "text": "y = f(2x + 2) = f(2(x + 1))",
+  "size": 30,
+  "measured": 397.8
+ },
+ {
+  "text": "x = 0",
+  "size": 28,
+  "measured": 75.6
+ },
+ {
+  "text": "y = 0",
+  "size": 28,
+  "measured": 75.6
+ },
+ {
+  "text": "y = 1x",
+  "size": 36,
+  "measured": 118.6
+ },
+ {
+  "text": "Misconception:",
+  "size": 34,
+  "measured": 255.3
+ },
+ {
+  "text": "shifted right ✗",
+  "size": 26,
+  "measured": 188.0
+ },
+ {
+  "text": "y = f(x + 3)\\ shifts left",
+  "size": 28,
+  "measured": 312.8
+ },
+ {
+  "text": "root check: f(x+3) = 0 at x = −3, left of the original",
+  "size": 24,
+  "measured": 622.7
+ },
+ {
+  "text": "From DNA to protein: the central dogma",
+  "size": 32,
+  "measured": 642.7
+ },
+ {
+  "text": "DNA",
+  "size": 26,
+  "measured": 57.3
+ },
+ {
+  "text": "mRNA",
+  "size": 26,
+  "measured": 80.6
+ },
+ {
+  "text": "ribosome",
+  "size": 22,
+  "measured": 102.5
+ },
+ {
+  "text": "transcription",
+  "size": 22,
+  "measured": 139.9
+ },
+ {
+  "text": "translation",
+  "size": 22,
+  "measured": 118.3
+ },
+ {
+  "text": "a polypeptide chain builds up",
+  "size": 22,
+  "measured": 324.8
+ },
+ {
+  "text": "one gene → one polypeptide chain",
+  "size": 26,
+  "measured": 449.2
+ },
+ {
+  "text": "Monohybrid cross: the 3:1 ratio",
+  "size": 32,
+  "measured": 501.2
+ },
+ {
+  "text": "A",
+  "size": 20,
+  "measured": 13.7
+ },
+ {
+  "text": "a",
+  "size": 20,
+  "measured": 12.3
+ },
+ {
+  "text": "AA",
+  "size": 22,
+  "measured": 30.7
+ },
+ {
+  "text": "Aa",
+  "size": 22,
+  "measured": 28.5
+ },
+ {
+  "text": "aa",
+  "size": 22,
+  "measured": 27.0
+ },
+ {
+  "text": "3:1",
+  "size": 44,
+  "measured": 70.8
+ },
+ {
+  "text": "phenotype ratio",
+  "size": 24,
+  "measured": 191.7
+ },
+ {
+  "text": "genotypes hide a 1 : 2 : 1 ratio",
+  "size": 24,
+  "measured": 370.9
+ },
+ {
+  "text": "Dihybrid cross: 9:3:3:1",
+  "size": 32,
+  "measured": 363.3
+ },
+ {
+  "text": "9 round, yellow",
+  "size": 24,
+  "measured": 184.5
+ },
+ {
+  "text": "3 round, green",
+  "size": 24,
+  "measured": 177.2
+ },
+ {
+  "text": "3 wrinkled, yellow",
+  "size": 24,
+  "measured": 216.7
+ },
+ {
+  "text": "1 wrinkled, green",
+  "size": 24,
+  "measured": 209.4
+ },
+ {
+  "text": "9:3:3:1",
+  "size": 36,
+  "measured": 128.0
+ },
+ {
+  "text": "Sex-linked inheritance",
+  "size": 32,
+  "measured": 356.5
+ },
+ {
+  "text": "mother: X^H X^h (carrier)",
+  "size": 24,
+  "measured": 321.5
+ },
+ {
+  "text": "father: X^H Y",
+  "size": 24,
+  "measured": 164.6
+ },
+ {
+  "text": "X^H",
+  "size": 28,
+  "measured": 63.7
+ },
+ {
+  "text": "X^h",
+  "size": 28,
+  "measured": 60.4
+ },
+ {
+  "text": "Y",
+  "size": 28,
+  "measured": 17.1
+ },
+ {
+  "text": "son",
+  "size": 24,
+  "measured": 42.4
+ },
+ {
+  "text": "daughter",
+  "size": 24,
+  "measured": 109.6
+ },
+ {
+  "text": "X^H X^h — carrier daughter",
+  "size": 24,
+  "measured": 349.0
+ },
+ {
+  "text": "X^h Y — affected son",
+  "size": 24,
+  "measured": 262.0
+ },
+ {
+  "text": "no second X to mask a recessive allele",
+  "size": 22,
+  "measured": 426.8
+ },
+ {
+  "text": "X^H X^H — normal daughter",
+  "size": 24,
+  "measured": 357.4
+ },
+ {
+  "text": "X^H Y — normal son",
+  "size": 24,
+  "measured": 250.3
+ },
+ {
+  "text": "Misconception: mutations are always harmful",
+  "size": 30,
+  "measured": 682.8
+ },
+ {
+  "text": "gene",
+  "size": 26,
+  "measured": 65.0
+ },
+ {
+  "text": "mutation",
+  "size": 22,
+  "measured": 99.6
+ },
+ {
+  "text": "protein (works)",
+  "size": 22,
+  "measured": 167.1
+ },
+ {
+  "text": "new shape — same job",
+  "size": 22,
+  "measured": 255.3
+ },
+ {
+  "text": "most mutations are neutral",
+  "size": 26,
+  "measured": 356.1
+ },
+ {
+  "text": "some harmful · a few beneficial",
+  "size": 26,
+  "measured": 409.6
+ },
+ {
+  "text": "n=4: estimate 3.75",
+  "size": 26,
+  "measured": 252.4
+ },
+ {
+  "text": "−0.5",
+  "size": 28,
+  "measured": 68.0
+ },
+ {
+  "text": "2",
+  "size": 28,
+  "measured": 17.8
+ },
+ {
+  "text": "+2",
+  "size": 30,
+  "measured": 44.2
+ },
+ {
+  "text": "2 − 0.5 = 1.5",
+  "size": 30,
+  "measured": 202.9
+ },
+ {
+  "text": "_0^1 2x e^x^2 \\, dx",
+  "size": 32,
+  "measured": 336.3
+ },
+ {
+  "text": "u = x²",
+  "size": 26,
+  "measured": 80.6
+ },
+ {
+  "text": "du = 2x dx",
+  "size": 26,
+  "measured": 143.4
+ },
+ {
+  "text": "u",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "_0^1 e^u \\, du = e - 1",
+  "size": 32,
+  "measured": 361.5
+ },
+ {
+  "text": "V =  _0^1 (x^2)^2 \\, dx = 5",
+  "size": 30,
+  "measured": 430.5
+ },
+ {
+  "text": " x^2 \\, dx = x^33",
+  "size": 30,
+  "measured": 272.3
+ },
+ {
+  "text": "_1^2 x^2 \\, dx = [x^33]_1^2",
+  "size": 30,
+  "measured": 452.3
+ },
+ {
+  "text": "+C",
+  "size": 32,
+  "measured": 49.2
+ },
+ {
+  "text": "8/3",
+  "size": 30,
+  "measured": 48.3
+ },
+ {
+  "text": "1/3",
+  "size": 30,
+  "measured": 48.3
+ },
+ {
+  "text": "7/3",
+  "size": 36,
+  "measured": 57.9
+ },
+ {
+  "text": "always points to the centre",
+  "size": 26,
+  "measured": 354.0
+ },
+ {
+  "text": "a = v^2r",
+  "size": 40,
+  "measured": 182.5
+ },
+ {
+  "text": "F = mv^2r",
+  "size": 40,
+  "measured": 220.0
+ },
+ {
+  "text": "v",
+  "size": 28,
+  "measured": 16.6
+ },
+ {
+  "text": "× 2",
+  "size": 28,
+  "measured": 50.2
+ },
+ {
+  "text": "r",
+  "size": 28,
+  "measured": 11.5
+ },
+ {
+  "text": "F: 1 → 4 → 2, relative",
+  "size": 26,
+  "measured": 270.8
+ },
+ {
+  "text": "F = GMmr^2",
+  "size": 40,
+  "measured": 261.8
+ },
+ {
+  "text": "G is tiny: 6.67 × 10⁻¹¹ N m² kg⁻²",
+  "size": 26,
+  "measured": 421.4
+ },
+ {
+  "text": "T = 24 h",
+  "size": 44,
+  "measured": 189.6
+ },
+ {
+  "text": "same angular speed as the Earth below",
+  "size": 26,
+  "measured": 516.9
+ },
+ {
+  "text": "A centrifugal force flings you outward in a sharp turn.",
+  "size": 20,
+  "measured": 535.9
+ },
+ {
+  "text": "No outward fling exists: your body keeps going straight",
+  "size": 22,
+  "measured": 610.1
+ },
+ {
+  "text": "while the seat pushes you inward - the inward push is real.",
+  "size": 22,
+  "measured": 648.5
+ },
+ {
+  "text": "the real force is inward",
+  "size": 24,
+  "measured": 275.9
+ },
+ {
+  "text": "Organic starts with carbon chains",
+  "size": 34,
+  "measured": 571.7
+ },
+ {
+  "text": "CH₄ — methane",
+  "size": 26,
+  "measured": 207.1
+ },
+ {
+  "text": "CH₃CH₃ — ethane",
+  "size": 26,
+  "measured": 229.9
+ },
+ {
+  "text": "CH₃CH₂CH₃ — propane",
+  "size": 26,
+  "measured": 294.4
+ },
+ {
+  "text": "CH₃CH₂CH₂CH₃ — butane",
+  "size": 26,
+  "measured": 326.6
+ },
+ {
+  "text": "C_nH_2n+2",
+  "size": 42,
+  "measured": 244.8
+ },
+ {
+  "text": "the added unit: CH₂",
+  "size": 26,
+  "measured": 256.2
+ },
+ {
+  "text": "CH_4 + CH_2  C_2H_6",
+  "size": 30,
+  "measured": 330.1
+ },
+ {
+  "text": "Functional groups change the chemistry",
+  "size": 34,
+  "measured": 684.4
+ },
+ {
+  "text": "a 3-carbon skeleton",
+  "size": 22,
+  "measured": 218.0
+ },
+ {
+  "text": "–OH  alcohol",
+  "size": 26,
+  "measured": 162.5
+ },
+ {
+  "text": "–COOH  carboxylic acid",
+  "size": 26,
+  "measured": 302.4
+ },
+ {
+  "text": "C=O  carbonyl",
+  "size": 26,
+  "measured": 189.4
+ },
+ {
+  "text": "–NH₂  amine",
+  "size": 26,
+  "measured": 159.9
+ },
+ {
+  "text": "propan-1-ol",
+  "size": 24,
+  "measured": 138.8
+ },
+ {
+  "text": "propanoic acid",
+  "size": 24,
+  "measured": 176.4
+ },
+ {
+  "text": "CH_3CH_2CH_2OH",
+  "size": 30,
+  "measured": 279.0
+ },
+ {
+  "text": "Electrophilic addition to alkenes",
+  "size": 34,
+  "measured": 543.1
+ },
+ {
+  "text": "CH_2 = CH_2 + HBr  CH_3CH_2Br",
+  "size": 28,
+  "measured": 472.5
+ },
+ {
+  "text": "π bond — electron-rich",
+  "size": 24,
+  "measured": 273.3
+ },
+ {
+  "text": "H–Br",
+  "size": 30,
+  "measured": 70.5
+ },
+ {
+  "text": "δ+ H",
+  "size": 22,
+  "measured": 55.4
+ },
+ {
+  "text": "1: π pair → H",
+  "size": 22,
+  "measured": 140.2
+ },
+ {
+  "text": "2: H–Br pair → Br",
+  "size": 22,
+  "measured": 186.2
+ },
+ {
+  "text": "CH_3CH_2Br",
+  "size": 34,
+  "measured": 213.2
+ },
+ {
+  "text": "SN1: slow step first",
+  "size": 34,
+  "measured": 328.3
+ },
+ {
+  "text": "(CH_3)_3CBr + OH^-  (CH_3)_3COH + Br^-",
+  "size": 24,
+  "measured": 519.7
+ },
+ {
+  "text": "(CH₃)₃C–",
+  "size": 24,
+  "measured": 101.5
+ },
+ {
+  "text": "Br",
+  "size": 22,
+  "measured": 24.1
+ },
+ {
+  "text": "Step 1 — slow: the C–Br bond breaks",
+  "size": 24,
+  "measured": 442.9
+ },
+ {
+  "text": "Br⁻",
+  "size": 28,
+  "measured": 45.5
+ },
+ {
+  "text": "+",
+  "size": 44,
+  "measured": 36.9
+ },
+ {
+  "text": "planar carbocation",
+  "size": 22,
+  "measured": 206.8
+ },
+ {
+  "text": "Step 2 — fast: OH⁻ attacks",
+  "size": 24,
+  "measured": 322.7
+ },
+ {
+  "text": "OH⁻",
+  "size": 28,
+  "measured": 57.9
+ },
+ {
+  "text": "rate = k[(CH_3)_3CBr]",
+  "size": 28,
+  "measured": 312.6
+ },
+ {
+  "text": "SN2: one step, backside attack",
+  "size": 34,
+  "measured": 528.1
+ },
+ {
+  "text": "CH_3Br + OH^-  CH_3OH + Br^-",
+  "size": 28,
+  "measured": 459.9
+ },
+ {
+  "text": "CH₃–",
+  "size": 24,
+  "measured": 56.4
+ },
+ {
+  "text": "attacks from the back",
+  "size": 22,
+  "measured": 241.1
+ },
+ {
+  "text": "transition state — partial bonds",
+  "size": 22,
+  "measured": 348.1
+ },
+ {
+  "text": "Br⁻ leaves",
+  "size": 24,
+  "measured": 124.2
+ },
+ {
+  "text": "rate = k[CH_3Br][OH^-]",
+  "size": 28,
+  "measured": 337.8
+ },
+ {
+  "text": "One route, three steps",
+  "size": 34,
+  "measured": 383.5
+ },
+ {
+  "text": "CH_2 = CH_2 HBr CH_3CH_2Br",
+  "size": 26,
+  "measured": 400.4
+ },
+ {
+  "text": "electrophilic addition",
+  "size": 20,
+  "measured": 209.9
+ },
+ {
+  "text": "CH_3CH_2Br NaOH(aq), heat CH_3CH_2OH",
+  "size": 26,
+  "measured": 557.3
+ },
+ {
+  "text": "nucleophilic substitution",
+  "size": 20,
+  "measured": 244.3
+ },
+ {
+  "text": "CH_3CH_2OH [heat]K_2Cr_2O_7 / H^+ CH_3CHO",
+  "size": 24,
+  "measured": 589.6
+ },
+ {
+  "text": "partial oxidation",
+  "size": 20,
+  "measured": 163.0
+ },
+ {
+  "text": "retrosynthesis: start from the target, work backwards",
+  "size": 22,
+  "measured": 589.2
+ },
+ {
+  "text": "Check the thinking",
+  "size": 34,
+  "measured": 320.1
+ },
+ {
+  "text": "❌ “The curly arrow means the Br atom moves along it.”",
+  "size": 26,
+  "measured": 720.8
+ },
+ {
+  "text": "Br",
+  "size": 26,
+  "measured": 28.5
+ },
+ {
+  "text": "atoms stay put",
+  "size": 22,
+  "measured": 165.6
+ },
+ {
+  "text": "✅ The arrow tracks one electron PAIR: bond → Br gives Br⁻.",
+  "size": 26,
+  "measured": 763.0
+ },
+ {
+  "text": "pair starts at the bond, ends on Br",
+  "size": 22,
+  "measured": 379.2
+ },
+ {
+  "text": "Organic mechanisms in one page",
+  "size": 34,
+  "measured": 569.3
+ },
+ {
+  "text": "✓ addition: π electrons attack the electrophile",
+  "size": 26,
+  "measured": 598.9
+ },
+ {
+  "text": "✓ SN1: two steps, rate = k[RX]",
+  "size": 26,
+  "measured": 403.9
+ },
+ {
+  "text": "✓ SN2: one step, rate = k[RX][Nu⁻]",
+  "size": 26,
+  "measured": 461.3
+ },
+ {
+  "text": "✓ synthesis: chain known reactions, plan backwards",
+  "size": 26,
+  "measured": 681.5
+ },
+ {
+  "text": "CH_2 = CH_2 HBr CH_3CH_2Br NaOH(aq) CH_3CH_2OH",
+  "size": 24,
+  "measured": 664.2
+ },
+ {
+  "text": "reaction progress →",
+  "size": 22,
+  "measured": 217.2
+ },
+ {
+  "text": "enthalpy",
+  "size": 22,
+  "measured": 96.6
+ },
+ {
+  "text": "reactants",
+  "size": 24,
+  "measured": 113.3
+ },
+ {
+  "text": "products",
+  "size": 24,
+  "measured": 104.8
+ },
+ {
+  "text": " H < 0",
+  "size": 36,
+  "measured": 114.5
+ },
+ {
+  "text": "transition state",
+  "size": 22,
+  "measured": 167.5
+ },
+ {
+  "text": "E_a",
+  "size": 30,
+  "measured": 52.3
+ },
+ {
+  "text": "heat leaves the system",
+  "size": 26,
+  "measured": 304.1
+ },
+ {
+  "text": " H > 0",
+  "size": 36,
+  "measured": 114.5
+ },
+ {
+  "text": "heat is absorbed from the surroundings",
+  "size": 26,
+  "measured": 515.0
+ },
+ {
+  "text": "reactant conc.",
+  "size": 22,
+  "measured": 157.9
+ },
+ {
+  "text": "time",
+  "size": 22,
+  "measured": 49.7
+ },
+ {
+  "text": "T",
+  "size": 28,
+  "measured": 17.1
+ },
+ {
+  "text": "higher T (or catalyst) — steeper",
+  "size": 24,
+  "measured": 383.2
+ },
+ {
+  "text": "lower T — gentler",
+  "size": 24,
+  "measured": 213.1
+ },
+ {
+  "text": "rate = -[R] t",
+  "size": 32,
+  "measured": 193.6
+ },
+ {
+  "text": "kinetic energy",
+  "size": 22,
+  "measured": 156.8
+ },
+ {
+  "text": "fraction of molecules",
+  "size": 22,
+  "measured": 231.4
+ },
+ {
+  "text": "higher T",
+  "size": 24,
+  "measured": 99.2
+ },
+ {
+  "text": "only molecules past Ea can react",
+  "size": 24,
+  "measured": 397.0
+ },
+ {
+  "text": "N_2 + 3H_2  2NH_3",
+  "size": 36,
+  "measured": 352.5
+ },
+ {
+  "text": "K_c = [NH_3]^2[N_2][H_2]^3",
+  "size": 32,
+  "measured": 476.1
+ },
+ {
+  "text": "N₂",
+  "size": 24,
+  "measured": 27.6
+ },
+ {
+  "text": "H₂",
+  "size": 24,
+  "measured": 27.7
+ },
+ {
+  "text": "NH₃",
+  "size": 24,
+  "measured": 45.6
+ },
+ {
+  "text": "add N₂ to the mixture",
+  "size": 26,
+  "measured": 281.4
+ },
+ {
+  "text": "opposes it: shifts right, more NH₃ made",
+  "size": 24,
+  "measured": 473.8
+ },
+ {
+  "text": "now raise the pressure (compress)",
+  "size": 26,
+  "measured": 450.6
+ },
+ {
+  "text": "opposes it: shifts to fewer gas moles → right",
+  "size": 24,
+  "measured": 531.6
+ },
+ {
+  "text": "Kc itself only changes with temperature",
+  "size": 22,
+  "measured": 439.0
+ },
+ {
+  "text": "a catalyst shifts equilibrium toward the products",
+  "size": 28,
+  "measured": 679.6
+ },
+ {
+  "text": "forward rate",
+  "size": 22,
+  "measured": 136.0
+ },
+ {
+  "text": "reverse rate",
+  "size": 22,
+  "measured": 134.4
+ },
+ {
+  "text": "both rates ×k — the SAME factor",
+  "size": 26,
+  "measured": 430.3
+ },
+ {
+  "text": "equilibrium position: unchanged",
+  "size": 26,
+  "measured": 420.3
+ },
+ {
+  "text": "Kc: unchanged",
+  "size": 26,
+  "measured": 193.5
+ },
+ {
+  "text": "x:            0           1           2",
+  "size": 30,
+  "measured": 409.4
+ },
+ {
+  "text": "P(X = x):   0.2        0.5        0.3",
+  "size": 30,
+  "measured": 458.4
+ },
+ {
+  "text": "\\ P(X = x)",
+  "size": 36,
+  "measured": 172.4
+ },
+ {
+  "text": "0.2",
+  "size": 28,
+  "measured": 44.5
+ },
+ {
+  "text": "0.5",
+  "size": 28,
+  "measured": 44.5
+ },
+ {
+  "text": "0.3",
+  "size": 28,
+  "measured": 44.5
+ },
+ {
+  "text": "= 1",
+  "size": 36,
+  "measured": 64.5
+ },
+ {
+  "text": "E(X) = 0(0.2) + 1(0.5) + 2(0.3) = 1.1",
+  "size": 36,
+  "measured": 669.7
+ },
+ {
+  "text": "fulcrum: E(X) = 1.1",
+  "size": 26,
+  "measured": 250.9
+ },
+ {
+  "text": "0",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "1",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "which 3 trials succeed?",
+  "size": 26,
+  "measured": 302.8
+ },
+ {
+  "text": "P(X = 3) = \\103 (0.3)^3 (0.7)^7",
+  "size": 36,
+  "measured": 584.0
+ },
+ {
+  "text": "≈ 0.267",
+  "size": 30,
+  "measured": 120.6
+ },
+ {
+  "text": "μ ± σ: 68%     μ ± 2σ: 95%     μ ± 3σ: 99.7%",
+  "size": 26,
+  "measured": 579.0
+ },
+ {
+  "text": "Misconception:",
+  "size": 32,
+  "measured": 240.3
+ },
+ {
+  "text": "H",
+  "size": 30,
+  "measured": 22.6
+ },
+ {
+  "text": "needle fixed — P(H) = 1/2",
+  "size": 24,
+  "measured": 312.1
+ },
+ {
+  "text": "no — P(H) = 1/2 on the next toss, every time",
+  "size": 30,
+  "measured": 676.7
+ },
+ {
+  "text": "P(HHHHHH) = \\(\\12\\)^6 = \\164",
+  "size": 36,
+  "measured": 562.5
+ },
+ {
+  "text": "each photon carries energy hf",
+  "size": 26,
+  "measured": 391.4
+ },
+ {
+  "text": "low frequency: no electrons escape, however many photons",
+  "size": 26,
+  "measured": 782.1
+ },
+ {
+  "text": "hf = W + 12mv_max^2",
+  "size": 44,
+  "measured": 524.2
+ },
+ {
+  "text": "photon energy = work function + max electron kinetic energy",
+  "size": 22,
+  "measured": 684.6
+ },
+ {
+  "text": "double the intensity → double the electrons, same speed each",
+  "size": 22,
+  "measured": 686.7
+ },
+ {
+  "text": "brighter light makes electrons faster",
+  "size": 28,
+  "measured": 511.7
+ },
+ {
+  "text": "speed comes from frequency — brightness only adds photons",
+  "size": 26,
+  "measured": 806.3
+ },
+ {
+  "text": "5",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "8",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "11",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "14",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "+3",
+  "size": 26,
+  "measured": 38.3
+ },
+ {
+  "text": "u_n = a + (n - 1)d",
+  "size": 40,
+  "measured": 360.4
+ },
+ {
+  "text": "2",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "4",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "16",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "x2",
+  "size": 26,
+  "measured": 31.9
+ },
+ {
+  "text": "u_n = 2 × 2^(n-1)",
+  "size": 40,
+  "measured": 369.5
+ },
+ {
+  "text": "S_n",
+  "size": 28,
+  "measured": 49.5
+ },
+ {
+  "text": "2",
+  "size": 20,
+  "measured": 12.7
+ },
+ {
+  "text": "4",
+  "size": 20,
+  "measured": 12.7
+ },
+ {
+  "text": "6",
+  "size": 20,
+  "measured": 12.7
+ },
+ {
+  "text": "8",
+  "size": 20,
+  "measured": 12.7
+ },
+ {
+  "text": "S1 = 2",
+  "size": 26,
+  "measured": 87.9
+ },
+ {
+  "text": "S2 = 6",
+  "size": 26,
+  "measured": 87.9
+ },
+ {
+  "text": "S3 = 12",
+  "size": 26,
+  "measured": 104.4
+ },
+ {
+  "text": "S4 = 20",
+  "size": 26,
+  "measured": 104.4
+ },
+ {
+  "text": "S_n = (n/2)(a + l)",
+  "size": 40,
+  "measured": 351.0
+ },
+ {
+  "text": "-1",
+  "size": 30,
+  "measured": 29.9
+ },
+ {
+  "text": "1",
+  "size": 30,
+  "measured": 19.1
+ },
+ {
+  "text": "it never settles",
+  "size": 30,
+  "measured": 225.2
+ },
+ {
+  "text": "shrinks to the limit",
+  "size": 28,
+  "measured": 262.5
+ },
+ {
+  "text": "|r| < 1",
+  "size": 44,
+  "measured": 140.6
+ },
+ {
+  "text": "u_n =",
+  "size": 36,
+  "measured": 105.2
+ },
+ {
+  "text": "(n-1)",
+  "size": 36,
+  "measured": 86.8
+ },
+ {
+  "text": "a",
+  "size": 30,
+  "measured": 18.4
+ },
+ {
+  "text": "d",
+  "size": 30,
+  "measured": 19.0
+ },
+ {
+  "text": "u_n = a + (n - 1)d",
+  "size": 36,
+  "measured": 324.3
+ },
+ {
+  "text": "×",
+  "size": 36,
+  "measured": 30.2
+ },
+ {
+  "text": "^(n-1)",
+  "size": 28,
+  "measured": 91.0
+ },
+ {
+  "text": "r",
+  "size": 30,
+  "measured": 12.3
+ },
+ {
+  "text": "u_n = a × r^(n-1)",
+  "size": 36,
+  "measured": 323.6
+ },
+ {
+  "text": "n = 2",
+  "size": 28,
+  "measured": 76.8
+ },
+ {
+  "text": "n = 25",
+  "size": 28,
+  "measured": 94.6
+ },
+ {
+  "text": "same data, more samples → steadier mean",
+  "size": 28,
+  "measured": 607.6
+ },
+ {
+  "text": "H_0: \\ = 60",
+  "size": 36,
+  "measured": 202.5
+ },
+ {
+  "text": "H_1: \\ > 60",
+  "size": 36,
+  "measured": 202.5
+ },
+ {
+  "text": "μ₀ = 60",
+  "size": 24,
+  "measured": 90.8
+ },
+ {
+  "text": "\\ = 0.05",
+  "size": 26,
+  "measured": 105.0
+ },
+ {
+  "text": "p = 0.31",
+  "size": 30,
+  "measured": 130.0
+ },
+ {
+  "text": "\\reject  H_0",
+  "size": 30,
+  "measured": 171.0
+ },
+ {
+  "text": "p = 0.03 means P(H₀ true) = 3%",
+  "size": 32,
+  "measured": 521.4
+ },
+ {
+  "text": "3%",
+  "size": 30,
+  "measured": 47.6
+ },
+ {
+  "text": "Repeat the test 100 times while H₀ is true:",
+  "size": 26,
+  "measured": 553.2
+ },
+ {
+  "text": "3% of repeats land out here",
+  "size": 24,
+  "measured": 335.3
+ },
+ {
+  "text": "p = P\\(\\data this extreme \\ H_0 \\ true\\)",
+  "size": 30,
+  "measured": 578.3
+ },
+ {
+  "text": "H₀ true",
+  "size": 26,
+  "measured": 91.6
+ },
+ {
+  "text": "H₀ false",
+  "size": 26,
+  "measured": 100.1
+ },
+ {
+  "text": "Reject H₀",
+  "size": 26,
+  "measured": 118.8
+ },
+ {
+  "text": "Accept H₀",
+  "size": 26,
+  "measured": 126.9
+ },
+ {
+  "text": "Type I",
+  "size": 28,
+  "measured": 81.5
+ },
+ {
+  "text": "false alarm",
+  "size": 22,
+  "measured": 122.5
+ },
+ {
+  "text": "P = \\",
+  "size": 24,
+  "measured": 57.9
+ },
+ {
+  "text": "Type II",
+  "size": 28,
+  "measured": 89.7
+ },
+ {
+  "text": "missed signal",
+  "size": 22,
+  "measured": 150.0
+ },
+ {
+  "text": "P = \\",
+  "size": 24,
+  "measured": 57.9
+ },
+ {
+  "text": "✓ correct",
+  "size": 26,
+  "measured": 121.1
+ },
+ {
+  "text": "\\Power  = 1-\\",
+  "size": 24,
+  "measured": 155.7
+ },
+ {
+  "text": "300 K",
+  "size": 30,
+  "measured": 86.5
+ },
+ {
+  "text": "450 K",
+  "size": 30,
+  "measured": 86.5
+ },
+ {
+  "text": "600 K",
+  "size": 30,
+  "measured": 86.5
+ },
+ {
+  "text": "the far end warms up",
+  "size": 26,
+  "measured": 279.8
+ },
+ {
+  "text": "P =  A T^4",
+  "size": 36,
+  "measured": 197.3
+ },
+ {
+  "text": "80°C",
+  "size": 30,
+  "measured": 74.1
+ },
+ {
+  "text": "30°C",
+  "size": 30,
+  "measured": 74.1
+ },
+ {
+  "text": "Temperature measures how much heat a body holds",
+  "size": 26,
+  "measured": 684.2
+ },
+ {
+  "text": "Heat is the total; temperature is the average",
+  "size": 26,
+  "measured": 584.5
+ },
+ {
+  "text": "a",
+  "size": 40,
+  "measured": 24.5
+ },
+ {
+  "text": "a = pmatrix 2 \\\\ 3 pmatrix",
+  "size": 44,
+  "measured": 576.1
+ },
+ {
+  "text": "2 right, 3 up",
+  "size": 28,
+  "measured": 172.5
+ },
+ {
+  "text": "a",
+  "size": 36,
+  "measured": 22.1
+ },
+ {
+  "text": "b",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "a + b",
+  "size": 40,
+  "measured": 108.8
+ },
+ {
+  "text": "θ",
+  "size": 40,
+  "measured": 24.5
+ },
+ {
+  "text": "a  b = |a||b|",
+  "size": 44,
+  "measured": 261.9
+ },
+ {
+  "text": "the shadow of b on a",
+  "size": 26,
+  "measured": 273.5
+ },
+ {
+  "text": "b",
+  "size": 32,
+  "measured": 20.3
+ },
+ {
+  "text": "r = a +  b",
+  "size": 44,
+  "measured": 216.6
+ },
+ {
+  "text": "normal n",
+  "size": 28,
+  "measured": 124.8
+ },
+ {
+  "text": "position vector: pinned to its start",
+  "size": 26,
+  "measured": 441.9
+ },
+ {
+  "text": "direction vector: the same arrow, drawn anywhere",
+  "size": 26,
+  "measured": 658.0
+ },
+ {
+  "text": "a  b = |a||b|",
+  "size": 32,
+  "measured": 190.5
+ },
+ {
+  "text": "r = a +  b",
+  "size": 32,
+  "measured": 157.6
+ },
+ {
+  "text": "x can stand for any number",
+  "size": 40,
+  "measured": 555.5
+ },
+ {
+  "text": "3",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "?",
+  "size": 52,
+  "measured": 27.6
+ },
+ {
+  "text": "___ + 4 = 9",
+  "size": 48,
+  "measured": 274.5
+ },
+ {
+  "text": "x",
+  "size": 60,
+  "measured": 35.5
+ },
+ {
+  "text": "A balanced scale is an equation",
+  "size": 40,
+  "measured": 635.2
+ },
+ {
+  "text": "x + 3",
+  "size": 36,
+  "measured": 97.3
+ },
+ {
+  "text": "7",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "x + 5 = 8",
+  "size": 52,
+  "measured": 250.2
+ },
+ {
+  "text": "x",
+  "size": 32,
+  "measured": 18.9
+ },
+ {
+  "text": "x = 3",
+  "size": 56,
+  "measured": 151.3
+ },
+ {
+  "text": "3x + 2x won't combine",
+  "size": 30,
+  "measured": 347.8
+ },
+ {
+  "text": "x",
+  "size": 30,
+  "measured": 17.8
+ },
+ {
+  "text": "5x",
+  "size": 64,
+  "measured": 78.6
+ },
+ {
+  "text": "x stands for a number: 3x + 2x is 5x",
+  "size": 28,
+  "measured": 512.4
+ },
+ {
+  "text": "Area and perimeter of an L-shape",
+  "size": 44,
+  "measured": 741.3
+ },
+ {
+  "text": "part A: 200 by 120",
+  "size": 30,
+  "measured": 281.1
+ },
+ {
+  "text": "part B: 120 by 140",
+  "size": 30,
+  "measured": 281.7
+ },
+ {
+  "text": "A = 200 × 120 = 24 000",
+  "size": 34,
+  "measured": 422.3
+ },
+ {
+  "text": "B = 120 × 140 = 16 800",
+  "size": 34,
+  "measured": 422.4
+ },
+ {
+  "text": "total = 40 800",
+  "size": 34,
+  "measured": 246.8
+ },
+ {
+  "text": "Walk around the whole edge",
+  "size": 40,
+  "measured": 571.2
+ },
+ {
+  "text": "200",
+  "size": 26,
+  "measured": 49.6
+ },
+ {
+  "text": "120",
+  "size": 26,
+  "measured": 49.6
+ },
+ {
+  "text": "80",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "140",
+  "size": 26,
+  "measured": 49.6
+ },
+ {
+  "text": "260",
+  "size": 26,
+  "measured": 49.6
+ },
+ {
+  "text": "perimeter = 200 + 120 + 80",
+  "size": 30,
+  "measured": 433.7
+ },
+ {
+  "text": "+ 140 + 120 + 260",
+  "size": 30,
+  "measured": 294.9
+ },
+ {
+  "text": "= 920 units ✓",
+  "size": 40,
+  "measured": 279.9
+ },
+ {
+  "text": "Area ≠ length × width of the box",
+  "size": 36,
+  "measured": 596.1
+ },
+ {
+  "text": "The box is 200 by 260 — but part is empty.",
+  "size": 30,
+  "measured": 647.5
+ },
+ {
+  "text": "box = 200 × 260 = 52 000!",
+  "size": 34,
+  "measured": 474.2
+ },
+ {
+  "text": "real: 24 000 + 16 800 = 40 800",
+  "size": 28,
+  "measured": 447.8
+ },
+ {
+  "text": "24 000",
+  "size": 30,
+  "measured": 105.0
+ },
+ {
+  "text": "16 800",
+  "size": 30,
+  "measured": 105.0
+ },
+ {
+  "text": "total area = 40 800 ✓",
+  "size": 34,
+  "measured": 372.7
+ },
+ {
+  "text": "Favourite fruit:",
+  "size": 40,
+  "measured": 294.1
+ },
+ {
+  "text": "the whole class: 12 pupils",
+  "size": 32,
+  "measured": 414.1
+ },
+ {
+  "text": "apples: 1/2",
+  "size": 28,
+  "measured": 155.7
+ },
+ {
+  "text": "bananas: 1/4",
+  "size": 28,
+  "measured": 182.7
+ },
+ {
+  "text": "grapes: 1/4",
+  "size": 28,
+  "measured": 159.4
+ },
+ {
+  "text": "Plants sold: Jan 20, Feb 35, Mar 30, Apr 50",
+  "size": 32,
+  "measured": 680.2
+ },
+ {
+  "text": "Jan",
+  "size": 22,
+  "measured": 33.9
+ },
+ {
+  "text": "Feb",
+  "size": 22,
+  "measured": 39.0
+ },
+ {
+  "text": "Mar",
+  "size": 22,
+  "measured": 41.5
+ },
+ {
+  "text": "Apr",
+  "size": 22,
+  "measured": 38.1
+ },
+ {
+  "text": "small dip in March",
+  "size": 28,
+  "measured": 255.5
+ },
+ {
+  "text": "the line climbs overall: sales are rising",
+  "size": 32,
+  "measured": 615.8
+ },
+ {
+  "text": "24 children voted.",
+  "size": 36,
+  "measured": 327.0
+ },
+ {
+  "text": "How many more chose soccer",
+  "size": 36,
+  "measured": 541.7
+ },
+ {
+  "text": "than badminton?",
+  "size": 36,
+  "measured": 307.0
+ },
+ {
+  "text": "soccer: 13",
+  "size": 28,
+  "measured": 144.7
+ },
+ {
+  "text": "badminton: 8",
+  "size": 28,
+  "measured": 187.5
+ },
+ {
+  "text": "swimming: 3",
+  "size": 28,
+  "measured": 179.3
+ },
+ {
+  "text": "13 − 8 = 5 more chose soccer",
+  "size": 34,
+  "measured": 517.7
+ },
+ {
+  "text": "Which sale rose faster?",
+  "size": 38,
+  "measured": 442.2
+ },
+ {
+  "text": "0",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "50",
+  "size": 24,
+  "measured": 30.5
+ },
+ {
+  "text": "25",
+  "size": 24,
+  "measured": 30.5
+ },
+ {
+  "text": "shop A: 20 to 40",
+  "size": 26,
+  "measured": 213.9
+ },
+ {
+  "text": "200",
+  "size": 24,
+  "measured": 45.8
+ },
+ {
+  "text": "100",
+  "size": 24,
+  "measured": 45.8
+ },
+ {
+  "text": "shop B: 20 to 40",
+  "size": 26,
+  "measured": 214.4
+ },
+ {
+  "text": "A axis: 0 to 50",
+  "size": 24,
+  "measured": 173.0
+ },
+ {
+  "text": "B axis: 0 to 200",
+  "size": 24,
+  "measured": 188.3
+ },
+ {
+  "text": "same rise: +20 each — B only looks flatter",
+  "size": 30,
+  "measured": 642.2
+ },
+ {
+  "text": "0.4 — four tenths",
+  "size": 44,
+  "measured": 384.6
+ },
+ {
+  "text": "4 out of 10 equal parts",
+  "size": 30,
+  "measured": 343.4
+ },
+ {
+  "text": "0 . 4 — the 4 is in the tenths place",
+  "size": 32,
+  "measured": 552.8
+ },
+ {
+  "text": "0.25 — twenty-five hundredths",
+  "size": 44,
+  "measured": 683.1
+ },
+ {
+  "text": "20 hundredths = 0.20",
+  "size": 30,
+  "measured": 330.4
+ },
+ {
+  "text": "5 more hundredths",
+  "size": 30,
+  "measured": 287.5
+ },
+ {
+  "text": "0.20 + 0.05 = 0.25",
+  "size": 36,
+  "measured": 346.6
+ },
+ {
+  "text": "10 hundredths = 1 tenth",
+  "size": 30,
+  "measured": 372.2
+ },
+ {
+  "text": "0",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": ".",
+  "size": 36,
+  "measured": 11.4
+ },
+ {
+  "text": "4",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "2",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "5",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "0.40 + 0.25 = 0.65",
+  "size": 34,
+  "measured": 327.3
+ },
+ {
+  "text": "0.25 is NOT bigger than 0.4 — 25 > 4 says nothing here!",
+  "size": 26,
+  "measured": 741.6
+ },
+ {
+  "text": "tenths bar",
+  "size": 24,
+  "measured": 124.0
+ },
+ {
+  "text": "hundredths square",
+  "size": 24,
+  "measured": 226.7
+ },
+ {
+  "text": "0.4 + 0.25 = 0.65 ✓",
+  "size": 34,
+  "measured": 345.0
+ },
+ {
+  "text": "tenths with tenths, hundredths with hundredths",
+  "size": 28,
+  "measured": 671.2
+ },
+ {
+  "text": "0.4 = 0.40 — zeros on the right change nothing",
+  "size": 28,
+  "measured": 669.5
+ },
+ {
+  "text": "1/2 + 1/4 = ?",
+  "size": 44,
+  "measured": 294.7
+ },
+ {
+  "text": "1/2 of the bar is blue",
+  "size": 30,
+  "measured": 312.7
+ },
+ {
+  "text": "1/4 of the bar is green",
+  "size": 30,
+  "measured": 334.5
+ },
+ {
+  "text": "1/2",
+  "size": 34,
+  "measured": 54.7
+ },
+ {
+  "text": "1/2 = 2/4",
+  "size": 38,
+  "measured": 178.3
+ },
+ {
+  "text": "2/4 + 1/4 = 3/4",
+  "size": 40,
+  "measured": 311.0
+ },
+ {
+  "text": "3/8?",
+  "size": 40,
+  "measured": 85.6
+ },
+ {
+  "text": "The bottoms never add - pieces stay quarters",
+  "size": 26,
+  "measured": 595.3
+ },
+ {
+  "text": "Same size -> add tops, keep bottom",
+  "size": 30,
+  "measured": 548.0
+ },
+ {
+  "text": "Different sizes -> convert, then add",
+  "size": 30,
+  "measured": 537.3
+ },
+ {
+  "text": "1/2 + 1/4 = 3/4",
+  "size": 40,
+  "measured": 311.0
+ },
+ {
+  "text": "Name the angle: right, acute, obtuse",
+  "size": 44,
+  "measured": 813.6
+ },
+ {
+  "text": "60° — acute",
+  "size": 30,
+  "measured": 186.4
+ },
+ {
+  "text": "90° — right angle",
+  "size": 30,
+  "measured": 265.5
+ },
+ {
+  "text": "120° — obtuse",
+  "size": 30,
+  "measured": 223.6
+ },
+ {
+  "text": "Reading a protractor",
+  "size": 44,
+  "measured": 454.3
+ },
+ {
+  "text": "Put the centre dot on the vertex, the baseline on one arm.",
+  "size": 24,
+  "measured": 701.3
+ },
+ {
+  "text": "0°",
+  "size": 22,
+  "measured": 25.0
+ },
+ {
+  "text": "30°",
+  "size": 22,
+  "measured": 39.0
+ },
+ {
+  "text": "60°",
+  "size": 22,
+  "measured": 39.0
+ },
+ {
+  "text": "90°",
+  "size": 22,
+  "measured": 39.0
+ },
+ {
+  "text": "120°",
+  "size": 22,
+  "measured": 53.0
+ },
+ {
+  "text": "150°",
+  "size": 22,
+  "measured": 53.0
+ },
+ {
+  "text": "180°",
+  "size": 22,
+  "measured": 53.0
+ },
+ {
+  "text": "the ray reads 60°",
+  "size": 30,
+  "measured": 262.7
+ },
+ {
+  "text": "the ray reads 120°",
+  "size": 30,
+  "measured": 281.8
+ },
+ {
+  "text": "read where the other arm crosses the scale",
+  "size": 26,
+  "measured": 566.3
+ },
+ {
+  "text": "Angles that add up",
+  "size": 44,
+  "measured": 418.1
+ },
+ {
+  "text": "70°",
+  "size": 26,
+  "measured": 46.1
+ },
+ {
+  "text": "110°",
+  "size": 26,
+  "measured": 62.6
+ },
+ {
+  "text": "70° + 110° = 180°",
+  "size": 34,
+  "measured": 324.3
+ },
+ {
+  "text": "two angles on a straight line make 180°",
+  "size": 28,
+  "measured": 561.0
+ },
+ {
+  "text": "A full turn around one point",
+  "size": 40,
+  "measured": 551.8
+ },
+ {
+  "text": "a full turn = 360°",
+  "size": 32,
+  "measured": 279.2
+ },
+ {
+  "text": "Three corners of a triangle",
+  "size": 44,
+  "measured": 585.4
+ },
+ {
+  "text": "56°",
+  "size": 26,
+  "measured": 46.1
+ },
+ {
+  "text": "68°",
+  "size": 26,
+  "measured": 46.1
+ },
+ {
+  "text": "56° + 56° + 68° = 180°",
+  "size": 32,
+  "measured": 388.7
+ },
+ {
+  "text": "a straight line — 180°",
+  "size": 28,
+  "measured": 307.2
+ },
+ {
+  "text": "Opposite corners of a parallelogram",
+  "size": 40,
+  "measured": 721.0
+ },
+ {
+  "text": "63°",
+  "size": 26,
+  "measured": 46.1
+ },
+ {
+  "text": "opposite angles are equal",
+  "size": 28,
+  "measured": 362.3
+ },
+ {
+  "text": "Watch out: longer arms ≠ bigger angle",
+  "size": 40,
+  "measured": 780.1
+ },
+ {
+  "text": "45°",
+  "size": 30,
+  "measured": 53.2
+ },
+ {
+  "text": "do longer arms make a bigger angle?",
+  "size": 28,
+  "measured": 523.9
+ },
+ {
+  "text": "no — still 45°",
+  "size": 32,
+  "measured": 215.0
+ },
+ {
+  "text": "Mia has 2 units, Ben has 3 units",
+  "size": 40,
+  "measured": 638.2
+ },
+ {
+  "text": "Mia: 2 units",
+  "size": 30,
+  "measured": 174.6
+ },
+ {
+  "text": "Ben: 3 units",
+  "size": 30,
+  "measured": 180.1
+ },
+ {
+  "text": "each unit box is the same length",
+  "size": 34,
+  "measured": 558.1
+ },
+ {
+  "text": "Mia has 3 units, gives 1 away",
+  "size": 40,
+  "measured": 590.1
+ },
+ {
+  "text": "before: 3 units",
+  "size": 30,
+  "measured": 218.6
+ },
+ {
+  "text": "sister",
+  "size": 30,
+  "measured": 82.1
+ },
+ {
+  "text": "after: 2 units",
+  "size": 30,
+  "measured": 192.5
+ },
+ {
+  "text": "3 − 1 = 2 units left",
+  "size": 36,
+  "measured": 344.5
+ },
+ {
+  "text": "36 pupils, 3/7 are boys",
+  "size": 40,
+  "measured": 457.1
+ },
+ {
+  "text": "3/7 are boys",
+  "size": 26,
+  "measured": 161.8
+ },
+ {
+  "text": "girls: 4 units",
+  "size": 26,
+  "measured": 160.9
+ },
+ {
+  "text": "3 boy-units",
+  "size": 26,
+  "measured": 145.5
+ },
+ {
+  "text": "diff = 4 − 3 = 1 unit",
+  "size": 32,
+  "measured": 326.0
+ },
+ {
+  "text": "Sam draws 1 unit and 2 units",
+  "size": 40,
+  "measured": 587.1
+ },
+ {
+  "text": "not to scale",
+  "size": 30,
+  "measured": 175.6
+ },
+ {
+  "text": "correct: same units",
+  "size": 30,
+  "measured": 289.7
+ },
+ {
+  "text": "2 units = 2 × 1 unit",
+  "size": 32,
+  "measured": 316.4
+ },
+ {
+  "text": "25% — 25 out of 100",
+  "size": 44,
+  "measured": 466.2
+ },
+ {
+  "text": "25 cells shaded out of 100",
+  "size": 30,
+  "measured": 398.0
+ },
+ {
+  "text": "25% = 25/100",
+  "size": 36,
+  "measured": 259.7
+ },
+ {
+  "text": "25% of 60 — is the answer 25?",
+  "size": 36,
+  "measured": 559.4
+ },
+ {
+  "text": "No — 25% is 25 out of 100, not 25 out of 60.",
+  "size": 30,
+  "measured": 672.0
+ },
+ {
+  "text": "25% of a hundred-grid",
+  "size": 26,
+  "measured": 292.4
+ },
+ {
+  "text": "but here the whole is 60",
+  "size": 26,
+  "measured": 316.5
+ },
+ {
+  "text": "so 25% of 60 must be smaller than 25",
+  "size": 22,
+  "measured": 421.1
+ },
+ {
+  "text": "25% of 60",
+  "size": 44,
+  "measured": 224.2
+ },
+ {
+  "text": "60 ÷ 4 = 15",
+  "size": 38,
+  "measured": 232.9
+ },
+ {
+  "text": "25% = 1/4",
+  "size": 34,
+  "measured": 180.4
+ },
+ {
+  "text": "25% of 60 = 15 ✓",
+  "size": 40,
+  "measured": 359.9
+ },
+ {
+  "text": "25% = 25/100 = 1/4",
+  "size": 28,
+  "measured": 288.3
+ },
+ {
+  "text": "25% of 60 = 15 ✓",
+  "size": 34,
+  "measured": 305.9
+ },
+ {
+  "text": "Speed: distance in one hour",
+  "size": 44,
+  "measured": 617.9
+ },
+ {
+  "text": "start",
+  "size": 26,
+  "measured": 60.6
+ },
+ {
+  "text": "1 hour",
+  "size": 24,
+  "measured": 77.9
+ },
+ {
+  "text": "2 hours",
+  "size": 24,
+  "measured": 90.4
+ },
+ {
+  "text": "3 hours",
+  "size": 24,
+  "measured": 90.4
+ },
+ {
+  "text": "60 km",
+  "size": 30,
+  "measured": 94.3
+ },
+ {
+  "text": "60 km so far",
+  "size": 30,
+  "measured": 188.6
+ },
+ {
+  "text": "120 km",
+  "size": 30,
+  "measured": 113.4
+ },
+ {
+  "text": "120 km so far",
+  "size": 30,
+  "measured": 207.7
+ },
+ {
+  "text": "180 km",
+  "size": 30,
+  "measured": 113.4
+ },
+ {
+  "text": "180 km so far",
+  "size": 30,
+  "measured": 207.7
+ },
+ {
+  "text": "60 km/h for 2.5 hours",
+  "size": 44,
+  "measured": 477.2
+ },
+ {
+  "text": "60 km",
+  "size": 26,
+  "measured": 81.7
+ },
+ {
+  "text": "120 km",
+  "size": 26,
+  "measured": 98.3
+ },
+ {
+  "text": "150 km",
+  "size": 26,
+  "measured": 98.3
+ },
+ {
+  "text": "150 km",
+  "size": 30,
+  "measured": 113.4
+ },
+ {
+  "text": "60 km/h",
+  "size": 34,
+  "measured": 139.9
+ },
+ {
+  "text": "×",
+  "size": 40,
+  "measured": 33.5
+ },
+ {
+  "text": "2.5 h",
+  "size": 34,
+  "measured": 86.4
+ },
+ {
+  "text": "=",
+  "size": 40,
+  "measured": 33.5
+ },
+ {
+  "text": "150 km",
+  "size": 34,
+  "measured": 128.5
+ },
+ {
+  "text": "60 km/h for ½ hour — is that 60 km?",
+  "size": 40,
+  "measured": 739.1
+ },
+ {
+  "text": "½ hour",
+  "size": 26,
+  "measured": 93.0
+ },
+ {
+  "text": "60 km?",
+  "size": 30,
+  "measured": 110.2
+ },
+ {
+  "text": "30 km",
+  "size": 30,
+  "measured": 94.3
+ },
+ {
+  "text": "60 × ½ = 30 km",
+  "size": 34,
+  "measured": 283.3
+ },
+ {
+  "text": "d",
+  "size": 40,
+  "measured": 25.4
+ },
+ {
+  "text": "s",
+  "size": 40,
+  "measured": 20.8
+ },
+ {
+  "text": "t",
+  "size": 40,
+  "measured": 15.7
+ },
+ {
+  "text": "÷",
+  "size": 40,
+  "measured": 33.5
+ },
+ {
+  "text": "$48 shared in the ratio 2 : 3",
+  "size": 44,
+  "measured": 616.4
+ },
+ {
+  "text": "2 parts — child A",
+  "size": 30,
+  "measured": 256.1
+ },
+ {
+  "text": "3 parts — child B",
+  "size": 30,
+  "measured": 256.2
+ },
+ {
+  "text": "one part",
+  "size": 30,
+  "measured": 126.9
+ },
+ {
+  "text": "whole = 2 + 3 = 5 parts",
+  "size": 34,
+  "measured": 414.0
+ },
+ {
+  "text": "Is 3 parts = 3/2 of the whole?",
+  "size": 36,
+  "measured": 532.4
+ },
+ {
+  "text": "No. 3 : 2 means 3 parts out of 5 — not 3 out of 2.",
+  "size": 30,
+  "measured": 740.1
+ },
+ {
+  "text": "3/2 × $48 = $72 ≠ $48 — impossible!",
+  "size": 30,
+  "measured": 574.2
+ },
+ {
+  "text": "3 parts out of 5 = 3/5 of the whole",
+  "size": 30,
+  "measured": 519.5
+ },
+ {
+  "text": "1 part = $48 ÷ 5",
+  "size": 44,
+  "measured": 373.9
+ },
+ {
+  "text": "1 part = $9.60",
+  "size": 30,
+  "measured": 220.2
+ },
+ {
+  "text": "A: 2 × $9.60 = $19.20",
+  "size": 30,
+  "measured": 338.0
+ },
+ {
+  "text": "B: 3 × $9.60 = $28.80",
+  "size": 30,
+  "measured": 338.6
+ },
+ {
+  "text": "A gets $19.20, B gets $28.80 ✓",
+  "size": 34,
+  "measured": 535.8
+ },
+ {
+  "text": "1. Add: 2 + 3 = 5 parts",
+  "size": 30,
+  "measured": 348.3
+ },
+ {
+  "text": "2. Divide: $48 ÷ 5 = $9.60",
+  "size": 30,
+  "measured": 403.5
+ },
+ {
+  "text": "3. Multiply: A $19.20, B $28.80",
+  "size": 30,
+  "measured": 463.3
+ },
+ {
+  "text": "Volume: how much space it takes",
+  "size": 40,
+  "measured": 671.5
+ },
+ {
+  "text": "1",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "2",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "3",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "4",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "5",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "6",
+  "size": 24,
+  "measured": 15.3
+ },
+ {
+  "text": "volume = 6 unit cubes",
+  "size": 34,
+  "measured": 385.6
+ },
+ {
+  "text": "volume counts the unit cubes that fill a shape",
+  "size": 28,
+  "measured": 643.2
+ },
+ {
+  "text": "Volume of a cuboid",
+  "size": 40,
+  "measured": 383.7
+ },
+ {
+  "text": "one layer = length × width; stack the layers for height",
+  "size": 24,
+  "measured": 657.4
+ },
+ {
+  "text": "bottom layer: 4 × 3 = 12 cubes",
+  "size": 28,
+  "measured": 443.7
+ },
+ {
+  "text": "two layers stacked: 12 × 2",
+  "size": 28,
+  "measured": 375.0
+ },
+ {
+  "text": "volume = 4 × 3 × 2 = 24",
+  "size": 34,
+  "measured": 434.5
+ },
+ {
+  "text": "cuboid volume = length × width × height",
+  "size": 30,
+  "measured": 627.5
+ },
+ {
+  "text": "Measuring liquid: mL and L",
+  "size": 40,
+  "measured": 540.7
+ },
+ {
+  "text": "500 mL",
+  "size": 30,
+  "measured": 112.7
+ },
+ {
+  "text": "1 L",
+  "size": 30,
+  "measured": 45.3
+ },
+ {
+  "text": "1 L = 1000 mL",
+  "size": 36,
+  "measured": 265.6
+ },
+ {
+  "text": "mL for small, L for big",
+  "size": 26,
+  "measured": 284.9
+ },
+ {
+  "text": "Watch out: taller ≠ more volume",
+  "size": 40,
+  "measured": 655.9
+ },
+ {
+  "text": "6 cubes",
+  "size": 28,
+  "measured": 109.4
+ },
+ {
+  "text": "same 6 cubes — same volume",
+  "size": 32,
+  "measured": 490.6
+ },
+ {
+  "text": "shape does not change volume, the count does",
+  "size": 26,
+  "measured": 619.1
+ },
+ {
+  "text": "Place value: 3 452",
+  "size": 36,
+  "measured": 332.1
+ },
+ {
+  "text": "3",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "4",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "5",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "2",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "Thousands",
+  "size": 26,
+  "measured": 140.8
+ },
+ {
+  "text": "Hundreds",
+  "size": 26,
+  "measured": 125.2
+ },
+ {
+  "text": "Tens",
+  "size": 26,
+  "measured": 57.5
+ },
+ {
+  "text": "Ones",
+  "size": 26,
+  "measured": 66.5
+ },
+ {
+  "text": "10",
+  "size": 28,
+  "measured": 35.6
+ },
+ {
+  "text": "Addition with regrouping: 247 + 385",
+  "size": 36,
+  "measured": 658.4
+ },
+ {
+  "text": "6",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "Subtraction with regrouping: 632 − 247",
+  "size": 36,
+  "measured": 717.9
+ },
+ {
+  "text": "8",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "Repeated addition: 4 x 3",
+  "size": 36,
+  "measured": 443.5
+ },
+ {
+  "text": "3 + 3 + 3 + 3 = 12",
+  "size": 36,
+  "measured": 349.6
+ },
+ {
+  "text": "One worked example: 45 + 25 − 30",
+  "size": 36,
+  "measured": 649.1
+ },
+ {
+  "text": "45",
+  "size": 64,
+  "measured": 81.4
+ },
+ {
+  "text": "+ 25",
+  "size": 40,
+  "measured": 97.1
+ },
+ {
+  "text": "70",
+  "size": 64,
+  "measured": 81.4
+ },
+ {
+  "text": "− 30",
+  "size": 40,
+  "measured": 97.1
+ },
+ {
+  "text": "40",
+  "size": 64,
+  "measured": 81.4
+ },
+ {
+  "text": "Misconception: 5 0 6 7 is not 567",
+  "size": 36,
+  "measured": 598.5
+ },
+ {
+  "text": "0",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "7",
+  "size": 48,
+  "measured": 30.5
+ },
+ {
+  "text": "567",
+  "size": 56,
+  "measured": 106.9
+ },
+ {
+  "text": "5 0 6 7",
+  "size": 56,
+  "measured": 195.9
+ },
+ {
+  "text": "Thick stem stores water",
+  "size": 28,
+  "measured": 336.2
+ },
+ {
+  "text": "Thorns stop animals eating it",
+  "size": 28,
+  "measured": 408.3
+ },
+ {
+  "text": "Deep roots find water",
+  "size": 26,
+  "measured": 282.4
+ },
+ {
+  "text": "Can you see the moth?",
+  "size": 32,
+  "measured": 370.8
+ },
+ {
+  "text": "Camouflage keeps it safe",
+  "size": 28,
+  "measured": 355.0
+ },
+ {
+  "text": "Hungry bird",
+  "size": 26,
+  "measured": 153.8
+ },
+ {
+  "text": "Winter is coming",
+  "size": 30,
+  "measured": 252.4
+ },
+ {
+  "text": "Fly south for winter",
+  "size": 28,
+  "measured": 272.0
+ },
+ {
+  "text": "Forest home",
+  "size": 32,
+  "measured": 199.1
+ },
+ {
+  "text": "Monkey",
+  "size": 26,
+  "measured": 100.3
+ },
+ {
+  "text": "Five forms of energy",
+  "size": 40,
+  "measured": 409.7
+ },
+ {
+  "text": "Light",
+  "size": 30,
+  "measured": 74.9
+ },
+ {
+  "text": "Heat",
+  "size": 30,
+  "measured": 71.2
+ },
+ {
+  "text": "Sound",
+  "size": 30,
+  "measured": 94.5
+ },
+ {
+  "text": "Movement",
+  "size": 30,
+  "measured": 158.9
+ },
+ {
+  "text": "Stored",
+  "size": 30,
+  "measured": 98.3
+ },
+ {
+  "text": "Light from a lamp",
+  "size": 20,
+  "measured": 177.8
+ },
+ {
+  "text": "Heat for cooking",
+  "size": 20,
+  "measured": 165.6
+ },
+ {
+  "text": "Sound from a radio",
+  "size": 20,
+  "measured": 191.8
+ },
+ {
+  "text": "A moving car",
+  "size": 20,
+  "measured": 132.4
+ },
+ {
+  "text": "Electrical energy",
+  "size": 28,
+  "measured": 235.2
+ },
+ {
+  "text": "Light + heat",
+  "size": 28,
+  "measured": 174.2
+ },
+ {
+  "text": "One form of energy changed into two others",
+  "size": 26,
+  "measured": 579.2
+ },
+ {
+  "text": "Energy is used up, like fuel disappearing from a tank.",
+  "size": 28,
+  "measured": 748.2
+ },
+ {
+  "text": "Stored",
+  "size": 26,
+  "measured": 85.2
+ },
+ {
+  "text": "Heat",
+  "size": 26,
+  "measured": 61.7
+ },
+ {
+  "text": "Energy is never used up:",
+  "size": 30,
+  "measured": 373.5
+ },
+ {
+  "text": "it changes form and moves somewhere else.",
+  "size": 30,
+  "measured": 673.4
+ },
+ {
+  "text": "PUSH",
+  "size": 40,
+  "measured": 108.9
+ },
+ {
+  "text": "PULL",
+  "size": 40,
+  "measured": 98.0
+ },
+ {
+  "text": "←",
+  "size": 44,
+  "measured": 36.9
+ },
+ {
+  "text": "rough surface",
+  "size": 28,
+  "measured": 193.7
+ },
+ {
+  "text": "friction pushes back",
+  "size": 28,
+  "measured": 282.2
+ },
+ {
+  "text": "N  |  S",
+  "size": 40,
+  "measured": 119.6
+ },
+ {
+  "text": "S and N face each other",
+  "size": 32,
+  "measured": 385.9
+ },
+ {
+  "text": "Click!",
+  "size": 40,
+  "measured": 111.3
+ },
+ {
+  "text": "N faces N this time",
+  "size": 32,
+  "measured": 304.1
+ },
+ {
+  "text": "Mouth",
+  "size": 30,
+  "measured": 94.0
+ },
+ {
+  "text": "Stomach",
+  "size": 30,
+  "measured": 132.3
+ },
+ {
+  "text": "Intestines",
+  "size": 30,
+  "measured": 146.9
+ },
+ {
+  "text": "Nose",
+  "size": 30,
+  "measured": 74.9
+ },
+ {
+  "text": "Lungs",
+  "size": 30,
+  "measured": 88.9
+ },
+ {
+  "text": "Heart",
+  "size": 32,
+  "measured": 89.1
+ },
+ {
+  "text": "To the body",
+  "size": 28,
+  "measured": 162.5
+ },
+ {
+  "text": "Body",
+  "size": 32,
+  "measured": 80.8
+ },
+ {
+  "text": "Heart uses up the blood",
+  "size": 26,
+  "measured": 312.7
+ },
+ {
+  "text": "Digestive",
+  "size": 26,
+  "measured": 122.1
+ },
+ {
+  "text": "Respiratory",
+  "size": 26,
+  "measured": 149.0
+ },
+ {
+  "text": "Circulatory",
+  "size": 26,
+  "measured": 141.6
+ },
+ {
+  "text": "Seed",
+  "size": 30,
+  "measured": 75.0
+ },
+ {
+  "text": "Seedling",
+  "size": 30,
+  "measured": 129.7
+ },
+ {
+  "text": "Flower",
+  "size": 30,
+  "measured": 99.3
+ },
+ {
+  "text": "Eggs",
+  "size": 28,
+  "measured": 67.8
+ },
+ {
+  "text": "Caterpillar",
+  "size": 30,
+  "measured": 156.7
+ },
+ {
+  "text": "Pupa",
+  "size": 30,
+  "measured": 74.0
+ },
+ {
+  "text": "Time passes",
+  "size": 26,
+  "measured": 161.0
+ },
+ {
+  "text": "Adult butterfly",
+  "size": 28,
+  "measured": 202.3
+ },
+ {
+  "text": "Leaf",
+  "size": 30,
+  "measured": 63.6
+ },
+ {
+  "text": "Stem",
+  "size": 30,
+  "measured": 78.5
+ },
+ {
+  "text": "Roots",
+  "size": 30,
+  "measured": 83.6
+ },
+ {
+  "text": "carbon dioxide",
+  "size": 28,
+  "measured": 206.8
+ },
+ {
+  "text": "light",
+  "size": 28,
+  "measured": 62.1
+ },
+ {
+  "text": "water",
+  "size": 28,
+  "measured": 79.8
+ },
+ {
+  "text": "food",
+  "size": 28,
+  "measured": 61.9
+ },
+ {
+  "text": "+ oxygen",
+  "size": 28,
+  "measured": 134.5
+ },
+ {
+  "text": "light + water + carbon dioxide → food + oxygen",
+  "size": 30,
+  "measured": 726.1
+ },
+ {
+  "text": "energy",
+  "size": 30,
+  "measured": 104.5
+ },
+ {
+  "text": "+ water",
+  "size": 28,
+  "measured": 112.1
+ },
+ {
+  "text": "This is the reverse of photosynthesis!",
+  "size": 28,
+  "measured": 526.1
+ },
+ {
+  "text": "Plants do not breathe like animals do?",
+  "size": 32,
+  "measured": 612.1
+ },
+ {
+  "text": "Plants breathe too — day and night!",
+  "size": 32,
+  "measured": 580.8
+ },
+ {
+  "text": "gases in",
+  "size": 26,
+  "measured": 107.5
+ },
+ {
+  "text": "gases out",
+  "size": 26,
+  "measured": 126.4
+ },
+ {
+  "text": "day",
+  "size": 26,
+  "measured": 47.8
+ },
+ {
+  "text": "night",
+  "size": 26,
+  "measured": 66.9
+ },
+ {
+  "text": "Soil",
+  "size": 30,
+  "measured": 54.1
+ },
+ {
+  "text": "Roots",
+  "size": 32,
+  "measured": 89.2
+ },
+ {
+  "text": "Stem",
+  "size": 32,
+  "measured": 83.7
+ },
+ {
+  "text": "Water goes up",
+  "size": 28,
+  "measured": 202.8
+ },
+ {
+  "text": "Leaves",
+  "size": 32,
+  "measured": 111.9
+ },
+ {
+  "text": "Flower",
+  "size": 32,
+  "measured": 105.9
+ },
+ {
+  "text": "Sea",
+  "size": 32,
+  "measured": 59.6
+ },
+ {
+  "text": "Heat rises the water up",
+  "size": 32,
+  "measured": 376.0
+ },
+ {
+  "text": "Cold air",
+  "size": 30,
+  "measured": 115.3
+ },
+ {
+  "text": "Rain",
+  "size": 36,
+  "measured": 79.1
+ },
+ {
+  "text": "River",
+  "size": 30,
+  "measured": 77.7
+ },
+ {
+  "text": "(a + b)^3 = 1a^3 + 3a^2b + 3ab^2 + 1b^3",
+  "size": 44,
+  "measured": 1014.4
+ },
+ {
+  "text": "1",
+  "size": 34,
+  "measured": 21.6
+ },
+ {
+  "text": "2",
+  "size": 34,
+  "measured": 21.6
+ },
+ {
+  "text": "3",
+  "size": 34,
+  "measured": 21.6
+ },
+ {
+  "text": "4",
+  "size": 34,
+  "measured": 21.6
+ },
+ {
+  "text": "6",
+  "size": 34,
+  "measured": 21.6
+ },
+ {
+  "text": "(a + b)^3 = _r=0^3 3r a^3-r b^r",
+  "size": 40,
+  "measured": 682.1
+ },
+ {
+  "text": "T_1 = 30 a^3 = 1a^3",
+  "size": 36,
+  "measured": 399.4
+ },
+ {
+  "text": "coefficient 1, powers of a fall 3 → 0",
+  "size": 24,
+  "measured": 420.7
+ },
+ {
+  "text": "T_2 = 31 a^2 b^1 = 3a^2b",
+  "size": 36,
+  "measured": 509.6
+ },
+ {
+  "text": "coefficient 3, powers of b rise",
+  "size": 24,
+  "measured": 355.0
+ },
+ {
+  "text": "T_3 = 32 a^1 b^2 = 3ab^2",
+  "size": 36,
+  "measured": 509.6
+ },
+ {
+  "text": "coefficient 3",
+  "size": 24,
+  "measured": 148.0
+ },
+ {
+  "text": "T_4 = 33 b^3 = 1b^3",
+  "size": 36,
+  "measured": 401.0
+ },
+ {
+  "text": "coefficient 1",
+  "size": 24,
+  "measured": 148.0
+ },
+ {
+  "text": "(2x - 3)^4 = _r=0^4 4r(2x)^4-r(-3)^r",
+  "size": 38,
+  "measured": 725.6
+ },
+ {
+  "text": "C(4,0)(2x)^4(-3)^0",
+  "size": 36,
+  "measured": 352.9
+ },
+ {
+  "text": "= 16x^4",
+  "size": 36,
+  "measured": 161.8
+ },
+ {
+  "text": "C(4,1)(2x)^3(-3)^1",
+  "size": 36,
+  "measured": 352.9
+ },
+ {
+  "text": "= -96x^3",
+  "size": 36,
+  "measured": 174.8
+ },
+ {
+  "text": "C(4,2)(2x)^2(-3)^2",
+  "size": 36,
+  "measured": 352.9
+ },
+ {
+  "text": "= 216x^2",
+  "size": 36,
+  "measured": 184.7
+ },
+ {
+  "text": "C(4,3)(2x)^1(-3)^3",
+  "size": 36,
+  "measured": 352.9
+ },
+ {
+  "text": "= -216x",
+  "size": 36,
+  "measured": 144.6
+ },
+ {
+  "text": "C(4,4)(2x)^0(-3)^4",
+  "size": 36,
+  "measured": 352.9
+ },
+ {
+  "text": "= 81",
+  "size": 36,
+  "measured": 87.4
+ },
+ {
+  "text": "(2x - 3)^4 = 16x^4 - 96x^3 + 216x^2 - 216x + 81",
+  "size": 34,
+  "measured": 882.4
+ },
+ {
+  "text": "(a + b)^n  a^n + b^n",
+  "size": 48,
+  "measured": 541.1
+ },
+ {
+  "text": "The classic trap: distributing the power over the sum.",
+  "size": 28,
+  "measured": 752.4
+ },
+ {
+  "text": "(1 + 2)^2 = 3^2 = 9",
+  "size": 44,
+  "measured": 470.6
+ },
+ {
+  "text": "but  1^2 + 2^2 = 1 + 4 = 5",
+  "size": 44,
+  "measured": 630.1
+ },
+ {
+  "text": "9  5 \\;\\; (a+b)^2 = a^2 + 2ab + b^2",
+  "size": 40,
+  "measured": 749.3
+ },
+ {
+  "text": "P",
+  "size": 28,
+  "measured": 16.9
+ },
+ {
+  "text": "secant PQ",
+  "size": 26,
+  "measured": 130.9
+ },
+ {
+  "text": "tangent at P - gradient dy/dx",
+  "size": 28,
+  "measured": 405.3
+ },
+ {
+  "text": "y = x^5",
+  "size": 44,
+  "measured": 181.8
+ },
+ {
+  "text": "5",
+  "size": 44,
+  "measured": 28.0
+ },
+ {
+  "text": "dydx = 5x^4",
+  "size": 40,
+  "measured": 265.2
+ },
+ {
+  "text": "y = x^3",
+  "size": 44,
+  "measured": 181.8
+ },
+ {
+  "text": "3",
+  "size": 44,
+  "measured": 28.0
+ },
+ {
+  "text": "dydx = 3x^2",
+  "size": 40,
+  "measured": 265.2
+ },
+ {
+  "text": "multiply by the power, drop the power by one",
+  "size": 24,
+  "measured": 551.3
+ },
+ {
+  "text": "x",
+  "size": 26,
+  "measured": 15.4
+ },
+ {
+  "text": "x + Δx",
+  "size": 26,
+  "measured": 86.9
+ },
+ {
+  "text": "Δx",
+  "size": 22,
+  "measured": 28.1
+ },
+ {
+  "text": "Δy",
+  "size": 22,
+  "measured": 28.1
+ },
+ {
+  "text": "as Δx -> 0: Δy/Δx -> dy/dx",
+  "size": 28,
+  "measured": 374.3
+ },
+ {
+  "text": "dy/dx > 0",
+  "size": 26,
+  "measured": 127.4
+ },
+ {
+  "text": "dy/dx = 0 - max",
+  "size": 26,
+  "measured": 210.0
+ },
+ {
+  "text": "dy/dx < 0 - inflexion, no turn",
+  "size": 26,
+  "measured": 374.5
+ },
+ {
+  "text": "dy/dx = 0 - min",
+  "size": 26,
+  "measured": 202.3
+ },
+ {
+  "text": "max? min?",
+  "size": 30,
+  "measured": 163.3
+ },
+ {
+  "text": "still climbing - not max, not min",
+  "size": 28,
+  "measured": 446.1
+ },
+ {
+  "text": "area accumulates as x sweeps right",
+  "size": 28,
+  "measured": 503.8
+ },
+ {
+  "text": "4 wide rectangles: a rough total",
+  "size": 28,
+  "measured": 446.7
+ },
+ {
+  "text": "8 narrower rectangles: closer",
+  "size": 28,
+  "measured": 409.9
+ },
+ {
+  "text": "the limit: the exact shaded area",
+  "size": 28,
+  "measured": 449.0
+ },
+ {
+  "text": "_a^b f(x)\\,dx",
+  "size": 36,
+  "measured": 234.3
+ },
+ {
+  "text": "y = 2x",
+  "size": 28,
+  "measured": 92.2
+ },
+ {
+  "text": "x = 1",
+  "size": 24,
+  "measured": 64.8
+ },
+ {
+  "text": "x = 2",
+  "size": 24,
+  "measured": 64.8
+ },
+ {
+  "text": "x^2",
+  "size": 36,
+  "measured": 74.4
+ },
+ {
+  "text": "4-1=3",
+  "size": 36,
+  "measured": 111.9
+ },
+ {
+  "text": "area = 3 square units",
+  "size": 30,
+  "measured": 325.2
+ },
+ {
+  "text": "C = 0",
+  "size": 24,
+  "measured": 67.4
+ },
+ {
+  "text": "C = 5",
+  "size": 24,
+  "measured": 67.4
+ },
+ {
+  "text": "C = −3",
+  "size": 24,
+  "measured": 87.5
+ },
+ {
+  "text": "slope = 2x",
+  "size": 24,
+  "measured": 128.7
+ },
+ {
+  "text": "still 2x",
+  "size": 24,
+  "measured": 79.0
+ },
+ {
+  "text": "Trap: x² alone is wrong",
+  "size": 28,
+  "measured": 318.1
+ },
+ {
+  "text": "every C works — keep +C",
+  "size": 28,
+  "measured": 364.0
+ },
+ {
+  "text": "s–t: straight line ⇒ uniform motion",
+  "size": 24,
+  "measured": 413.7
+ },
+ {
+  "text": "v–t: flat line ⇒ constant speed",
+  "size": 24,
+  "measured": 361.3
+ },
+ {
+  "text": "v =  s t = gradient",
+  "size": 40,
+  "measured": 372.0
+ },
+ {
+  "text": "= 40 - 106 - 0 = 5\\ m/s",
+  "size": 38,
+  "measured": 439.4
+ },
+ {
+  "text": "s = area under  v-t =  v\\,dt",
+  "size": 36,
+  "measured": 485.6
+ },
+ {
+  "text": "v = u + at",
+  "size": 50,
+  "measured": 258.9
+ },
+ {
+  "text": "s = ut + 12at^2",
+  "size": 50,
+  "measured": 412.3
+ },
+ {
+  "text": "Δs/Δt = const",
+  "size": 22,
+  "measured": 149.6
+ },
+ {
+  "text": "…so the acceleration is constant?",
+  "size": 40,
+  "measured": 675.3
+ },
+ {
+  "text": "No: constant gradient of s–t means constant velocity — a = 0",
+  "size": 26,
+  "measured": 801.6
+ },
+ {
+  "text": "x^2 + 6x",
+  "size": 44,
+  "measured": 209.8
+ },
+ {
+  "text": "x²",
+  "size": 28,
+  "measured": 27.8
+ },
+ {
+  "text": "3x + 3x = 6x",
+  "size": 26,
+  "measured": 172.4
+ },
+ {
+  "text": "x^2 + 6x + 9 = (x+3)^2",
+  "size": 44,
+  "measured": 557.5
+ },
+ {
+  "text": "f(x) = ax^2 + bx + c,  D = b^2 - 4ac",
+  "size": 44,
+  "measured": 822.9
+ },
+ {
+  "text": "D < 0: no real roots",
+  "size": 28,
+  "measured": 275.4
+ },
+ {
+  "text": "D = 0: one touch",
+  "size": 28,
+  "measured": 239.0
+ },
+ {
+  "text": "D > 0: two crossings",
+  "size": 28,
+  "measured": 289.4
+ },
+ {
+  "text": "x^2 - 4 > 0",
+  "size": 44,
+  "measured": 255.6
+ },
+ {
+  "text": "x = −2",
+  "size": 28,
+  "measured": 99.1
+ },
+ {
+  "text": "x = 2",
+  "size": 28,
+  "measured": 75.6
+ },
+ {
+  "text": "x = -3: 9-4 = 5 > 0, true",
+  "size": 28,
+  "measured": 343.2
+ },
+ {
+  "text": "x = 0: 0-4 = -4 > 0, false",
+  "size": 28,
+  "measured": 352.4
+ },
+ {
+  "text": "x = 3: 9-4 = 5 > 0, true",
+  "size": 28,
+  "measured": 333.1
+ },
+ {
+  "text": "x < -2  or  x > 2",
+  "size": 40,
+  "measured": 322.3
+ },
+ {
+  "text": "x^2 + 1 = 0,  D = -4",
+  "size": 44,
+  "measured": 461.1
+ },
+ {
+  "text": "real line",
+  "size": 20,
+  "measured": 80.4
+ },
+ {
+  "text": "D < 0: no REAL roots",
+  "size": 34,
+  "measured": 357.3
+ },
+ {
+  "text": "Im",
+  "size": 24,
+  "measured": 30.5
+ },
+ {
+  "text": "i",
+  "size": 24,
+  "measured": 6.7
+ },
+ {
+  "text": "−i",
+  "size": 24,
+  "measured": 26.8
+ },
+ {
+  "text": "x = ±i: two complex roots",
+  "size": 34,
+  "measured": 443.9
+ },
+ {
+  "text": "cos theta",
+  "size": 24,
+  "measured": 111.5
+ },
+ {
+  "text": "sin theta",
+  "size": 24,
+  "measured": 105.5
+ },
+ {
+  "text": "^2  + ^2  = 1",
+  "size": 44,
+  "measured": 315.4
+ },
+ {
+  "text": "  =   ",
+  "size": 44,
+  "measured": 106.8
+ },
+ {
+  "text": "(A + B) =  A  B +  A  B",
+  "size": 40,
+  "measured": 448.8
+ },
+ {
+  "text": " 75^ = (45^ + 30^)",
+  "size": 40,
+  "measured": 415.1
+ },
+ {
+  "text": "=  45^  30^ +  45^  30^",
+  "size": 38,
+  "measured": 493.2
+ },
+ {
+  "text": " 45^ = 22",
+  "size": 28,
+  "measured": 144.9
+ },
+ {
+  "text": " 30^ = 32",
+  "size": 28,
+  "measured": 144.9
+ },
+ {
+  "text": " 45^ = 22",
+  "size": 28,
+  "measured": 144.9
+ },
+ {
+  "text": " 30^ = 12",
+  "size": 28,
+  "measured": 144.9
+ },
+ {
+  "text": "= 22  32 + 22  12",
+  "size": 38,
+  "measured": 341.6
+ },
+ {
+  "text": "= 6 + 24",
+  "size": 42,
+  "measured": 190.6
+ },
+ {
+  "text": "~ 0.966",
+  "size": 30,
+  "measured": 120.6
+ },
+ {
+  "text": "a  x + b  x = R (x - )",
+  "size": 40,
+  "measured": 401.3
+ },
+ {
+  "text": "R = a^2 + b^2,    = b/a",
+  "size": 36,
+  "measured": 438.0
+ },
+ {
+  "text": "3  x + 4  x = \\, ?",
+  "size": 44,
+  "measured": 359.8
+ },
+ {
+  "text": "R = 3^2 + 4^2 = 5,   = 53.1^",
+  "size": 36,
+  "measured": 556.7
+ },
+ {
+  "text": "max = 5",
+  "size": 24,
+  "measured": 102.9
+ },
+ {
+  "text": "min = -5",
+  "size": 24,
+  "measured": 104.6
+ },
+ {
+  "text": "3  x + 4  x = 5 (x - 53.1^)",
+  "size": 40,
+  "measured": 522.5
+ },
+ {
+  "text": "(A + B)   A +  B",
+  "size": 44,
+  "measured": 340.5
+ },
+ {
+  "text": "Same trap as (a+b)^n: the angle does not split",
+  "size": 28,
+  "measured": 665.8
+ },
+ {
+  "text": " 60^ = 0.5",
+  "size": 40,
+  "measured": 219.7
+ },
+ {
+  "text": "true 0.5",
+  "size": 24,
+  "measured": 95.1
+ },
+ {
+  "text": " 30^ +  30^ = 3  1.73",
+  "size": 38,
+  "measured": 429.5
+ },
+ {
+  "text": "wrong sum",
+  "size": 24,
+  "measured": 132.8
+ },
+ {
+  "text": "0.5  1.73 \\;\\; split fails",
+  "size": 36,
+  "measured": 392.4
+ },
+ {
+  "text": "Expand with the area model",
+  "size": 36,
+  "measured": 508.2
+ },
+ {
+  "text": "(x + 2)(x + 3)",
+  "size": 44,
+  "measured": 306.4
+ },
+ {
+  "text": "3",
+  "size": 32,
+  "measured": 20.4
+ },
+ {
+  "text": "2",
+  "size": 32,
+  "measured": 20.4
+ },
+ {
+  "text": "x^2",
+  "size": 32,
+  "measured": 66.1
+ },
+ {
+  "text": "3x",
+  "size": 32,
+  "measured": 39.3
+ },
+ {
+  "text": "2x",
+  "size": 32,
+  "measured": 39.3
+ },
+ {
+  "text": "6",
+  "size": 32,
+  "measured": 20.4
+ },
+ {
+  "text": "= x^2 + 5x + 6",
+  "size": 44,
+  "measured": 353.5
+ },
+ {
+  "text": "Factorise by grouping",
+  "size": 36,
+  "measured": 388.4
+ },
+ {
+  "text": "2x + 6 + xy + 3y",
+  "size": 44,
+  "measured": 382.7
+ },
+ {
+  "text": "2x + 6",
+  "size": 44,
+  "measured": 146.9
+ },
+ {
+  "text": "xy + 3y",
+  "size": 44,
+  "measured": 171.0
+ },
+ {
+  "text": "2",
+  "size": 44,
+  "measured": 28.0
+ },
+ {
+  "text": "(x + 3)",
+  "size": 44,
+  "measured": 153.2
+ },
+ {
+  "text": "y",
+  "size": 44,
+  "measured": 26.0
+ },
+ {
+  "text": "(x + 3)(2 + y)",
+  "size": 48,
+  "measured": 334.3
+ },
+ {
+  "text": "Change the subject to x",
+  "size": 36,
+  "measured": 430.6
+ },
+ {
+  "text": "y = 3x + 5",
+  "size": 48,
+  "measured": 259.4
+ },
+ {
+  "text": "- 5",
+  "size": 44,
+  "measured": 57.9
+ },
+ {
+  "text": "y - 5 = 3x",
+  "size": 48,
+  "measured": 236.5
+ },
+ {
+  "text": "y - 5",
+  "size": 44,
+  "measured": 97.9
+ },
+ {
+  "text": "3",
+  "size": 44,
+  "measured": 28.0
+ },
+ {
+  "text": "x =",
+  "size": 48,
+  "measured": 83.9
+ },
+ {
+  "text": "The (a+b)^2 trap",
+  "size": 36,
+  "measured": 319.9
+ },
+ {
+  "text": "(a + b)^2  a^2 + b^2",
+  "size": 48,
+  "measured": 541.5
+ },
+ {
+  "text": "2^2 + 3^2 = 4 + 9 =",
+  "size": 36,
+  "measured": 398.5
+ },
+ {
+  "text": "13",
+  "size": 72,
+  "measured": 91.6
+ },
+ {
+  "text": "2ab",
+  "size": 48,
+  "measured": 90.4
+ },
+ {
+  "text": "25",
+  "size": 72,
+  "measured": 91.6
+ },
+ {
+  "text": "(a + b)^2 = a^2 + 2ab + b^2",
+  "size": 40,
+  "measured": 619.0
+ },
+ {
+  "text": "See secondary A: binomial expansion",
+  "size": 24,
+  "measured": 449.7
+ },
+ {
+  "text": "Sketch y = 2x − 3",
+  "size": 36,
+  "measured": 327.3
+ },
+ {
+  "text": "y = 2x - 3",
+  "size": 48,
+  "measured": 236.5
+ },
+ {
+  "text": "(0, -3)",
+  "size": 32,
+  "measured": 97.6
+ },
+ {
+  "text": "run  1",
+  "size": 28,
+  "measured": 82.6
+ },
+ {
+  "text": "rise  2",
+  "size": 28,
+  "measured": 86.7
+ },
+ {
+  "text": "y = 2x - 3",
+  "size": 32,
+  "measured": 157.6
+ },
+ {
+  "text": "Read the gradient and the intercept",
+  "size": 36,
+  "measured": 647.2
+ },
+ {
+  "text": "(0, 2)",
+  "size": 32,
+  "measured": 86.0
+ },
+ {
+  "text": "4",
+  "size": 28,
+  "measured": 17.8
+ },
+ {
+  "text": "(4, 8)",
+  "size": 32,
+  "measured": 86.0
+ },
+ {
+  "text": "6",
+  "size": 28,
+  "measured": 17.8
+ },
+ {
+  "text": "m = 64 = 32",
+  "size": 40,
+  "measured": 258.7
+ },
+ {
+  "text": "Parallel lines share a gradient",
+  "size": 36,
+  "measured": 534.2
+ },
+ {
+  "text": "y = 3x + 1",
+  "size": 44,
+  "measured": 237.7
+ },
+ {
+  "text": "y = 3x - 4",
+  "size": 44,
+  "measured": 216.8
+ },
+ {
+  "text": "m = 3  for both",
+  "size": 40,
+  "measured": 307.4
+ },
+ {
+  "text": "Roots and the turning point of y = x² − 4",
+  "size": 36,
+  "measured": 737.9
+ },
+ {
+  "text": "y = x^2 - 4",
+  "size": 48,
+  "measured": 276.7
+ },
+ {
+  "text": "x = -2",
+  "size": 32,
+  "measured": 98.0
+ },
+ {
+  "text": "x = 2",
+  "size": 32,
+  "measured": 86.5
+ },
+ {
+  "text": "x^2 - 4 = 0 \\;\\; x =  2",
+  "size": 36,
+  "measured": 389.2
+ },
+ {
+  "text": "turning point  (0, -4)",
+  "size": 36,
+  "measured": 365.5
+ },
+ {
+  "text": "Misconception: bigger intercept, steeper line?",
+  "size": 36,
+  "measured": 826.1
+ },
+ {
+  "text": "A:\\; y = 4x - 6",
+  "size": 40,
+  "measured": 276.9
+ },
+ {
+  "text": "B:\\; y = x + 3",
+  "size": 40,
+  "measured": 271.3
+ },
+ {
+  "text": "m_A = 4 > 1 = m_B",
+  "size": 40,
+  "measured": 400.5
+ },
+ {
+  "text": "c_A = -6 < 3 = c_B",
+  "size": 40,
+  "measured": 381.0
+ },
+ {
+  "text": "SSS: three sides match",
+  "size": 36,
+  "measured": 416.6
+ },
+ {
+  "text": "4",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "3",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "5",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "SSS",
+  "size": 56,
+  "measured": 106.6
+ },
+ {
+  "text": "ASA: two angles and the side between",
+  "size": 36,
+  "measured": 693.4
+ },
+ {
+  "text": "50^",
+  "size": 36,
+  "measured": 76.0
+ },
+ {
+  "text": "70^",
+  "size": 36,
+  "measured": 76.0
+ },
+ {
+  "text": "6",
+  "size": 36,
+  "measured": 22.9
+ },
+ {
+  "text": "ASA",
+  "size": 56,
+  "measured": 113.2
+ },
+ {
+  "text": "SSS  SAS  ASA  RHS",
+  "size": 36,
+  "measured": 355.9
+ },
+ {
+  "text": "Similarity: lengths, areas and volumes",
+  "size": 36,
+  "measured": 689.3
+ },
+ {
+  "text": "k = 2",
+  "size": 44,
+  "measured": 118.3
+ },
+ {
+  "text": "length_2length_1 = 2",
+  "size": 36,
+  "measured": 387.3
+ },
+ {
+  "text": "area_2area_1 = 2^2 = 4",
+  "size": 36,
+  "measured": 447.3
+ },
+ {
+  "text": "volume_2volume_1 = 2^3 = 8",
+  "size": 36,
+  "measured": 553.5
+ },
+ {
+  "text": "Angle in a semicircle is a right angle",
+  "size": 36,
+  "measured": 654.4
+ },
+ {
+  "text": "90^",
+  "size": 40,
+  "measured": 84.4
+ },
+ {
+  "text": "angle in semicircle = 90^",
+  "size": 36,
+  "measured": 466.3
+ },
+ {
+  "text": "Centre angle = 2 × circumference angle",
+  "size": 36,
+  "measured": 729.3
+ },
+ {
+  "text": "60^",
+  "size": 32,
+  "measured": 67.5
+ },
+ {
+  "text": "30^",
+  "size": 32,
+  "measured": 67.5
+ },
+ {
+  "text": " O = 2   P",
+  "size": 40,
+  "measured": 190.9
+ },
+ {
+  "text": "90^",
+  "size": 32,
+  "measured": 67.5
+ },
+ {
+  "text": "The alternate segment theorem",
+  "size": 36,
+  "measured": 575.2
+ },
+ {
+  "text": "45^",
+  "size": 36,
+  "measured": 76.0
+ },
+ {
+  "text": "75^",
+  "size": 36,
+  "measured": 76.0
+ },
+ {
+  "text": "tangent-chord angle",
+  "size": 32,
+  "measured": 326.1
+ },
+ {
+  "text": "= alternate-segment angle",
+  "size": 32,
+  "measured": 433.3
+ },
+ {
+  "text": "Misconception: same area means congruent?",
+  "size": 36,
+  "measured": 818.6
+ },
+ {
+  "text": "A = 4  1 = 4",
+  "size": 36,
+  "measured": 222.3
+ },
+ {
+  "text": "A = 2  2 = 4",
+  "size": 36,
+  "measured": 222.3
+ },
+ {
+  "text": "equal area ⇏ congruent",
+  "size": 40,
+  "measured": 476.5
+ },
+ {
+  "text": "θ = 20°",
+  "size": 26,
+  "measured": 100.3
+ },
+ {
+  "text": "arc ≈ 34.9",
+  "size": 26,
+  "measured": 136.6
+ },
+ {
+  "text": "θ = 40°",
+  "size": 26,
+  "measured": 100.3
+ },
+ {
+  "text": "arc ≈ 69.8",
+  "size": 26,
+  "measured": 136.6
+ },
+ {
+  "text": "θ = 60°",
+  "size": 26,
+  "measured": 100.3
+ },
+ {
+  "text": "arc ≈ 104.7",
+  "size": 26,
+  "measured": 153.1
+ },
+ {
+  "text": "r = 100",
+  "size": 24,
+  "measured": 91.0
+ },
+ {
+  "text": "area = 60360  (100)^2  5236",
+  "size": 30,
+  "measured": 445.9
+ },
+ {
+  "text": "base area = 6 × 6 = 36",
+  "size": 26,
+  "measured": 309.3
+ },
+ {
+  "text": "h = 3",
+  "size": 26,
+  "measured": 71.3
+ },
+ {
+  "text": "h = 6",
+  "size": 26,
+  "measured": 71.3
+ },
+ {
+  "text": "h = 9",
+  "size": 26,
+  "measured": 71.3
+ },
+ {
+  "text": "V = 13  base area  h",
+  "size": 30,
+  "measured": 308.0
+ },
+ {
+  "text": "V = 13(36)(9) = 108",
+  "size": 30,
+  "measured": 308.5
+ },
+ {
+  "text": "r = 1",
+  "size": 26,
+  "measured": 65.5
+ },
+ {
+  "text": "r³ = 1",
+  "size": 26,
+  "measured": 76.0
+ },
+ {
+  "text": "r = 2",
+  "size": 26,
+  "measured": 65.5
+ },
+ {
+  "text": "r³ = 8",
+  "size": 26,
+  "measured": 76.0
+ },
+ {
+  "text": "r = 3",
+  "size": 26,
+  "measured": 65.5
+ },
+ {
+  "text": "r³ = 27",
+  "size": 26,
+  "measured": 92.5
+ },
+ {
+  "text": "V = 43 r^3",
+  "size": 30,
+  "measured": 169.0
+ },
+ {
+  "text": "V = 43(3)^3 = 36  113.1",
+  "size": 30,
+  "measured": 377.0
+ },
+ {
+  "text": "Doubling the radius doubles the area.",
+  "size": 30,
+  "measured": 567.4
+ },
+ {
+  "text": "r = 2, A ≈ 12.6",
+  "size": 26,
+  "measured": 196.1
+ },
+ {
+  "text": "r = 4, A ≈ 50.3",
+  "size": 26,
+  "measured": 196.1
+ },
+ {
+  "text": "50.3  4  12.6",
+  "size": 32,
+  "measured": 203.5
+ },
+ {
+  "text": "Area scales with r²: double r → 4× area.",
+  "size": 28,
+  "measured": 557.0
+ },
+ {
+  "text": "Primes under the sieve",
+  "size": 36,
+  "measured": 415.1
+ },
+ {
+  "text": "cross out the multiples - keep 2, 3, 5",
+  "size": 18,
+  "measured": 330.0
+ },
+ {
+  "text": "6",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "7",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "9",
+  "size": 26,
+  "measured": 16.5
+ },
+ {
+  "text": "10",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "12",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "13",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "15",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "17",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "18",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "19",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "20",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "21",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "22",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "23",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "24",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "25",
+  "size": 26,
+  "measured": 33.1
+ },
+ {
+  "text": "sieving multiples of 2",
+  "size": 22,
+  "measured": 235.6
+ },
+ {
+  "text": "✕",
+  "size": 44,
+  "measured": 36.9
+ },
+ {
+  "text": "sieving multiples of 3",
+  "size": 22,
+  "measured": 235.6
+ },
+ {
+  "text": "sieving multiples of 5",
+  "size": 22,
+  "measured": 235.6
+ },
+ {
+  "text": "the primes survive!",
+  "size": 22,
+  "measured": 214.6
+ },
+ {
+  "text": "Same base? Add the powers",
+  "size": 36,
+  "measured": 511.6
+ },
+ {
+  "text": "2³",
+  "size": 30,
+  "measured": 31.1
+ },
+ {
+  "text": "2",
+  "size": 30,
+  "measured": 19.1
+ },
+ {
+  "text": "2⁴",
+  "size": 30,
+  "measured": 31.1
+ },
+ {
+  "text": "×",
+  "size": 44,
+  "measured": 36.9
+ },
+ {
+  "text": "=",
+  "size": 44,
+  "measured": 36.9
+ },
+ {
+  "text": "2⁷",
+  "size": 54,
+  "measured": 56.0
+ },
+ {
+  "text": "seven 2's",
+  "size": 24,
+  "measured": 113.4
+ },
+ {
+  "text": "Standard form: big numbers, small package",
+  "size": 32,
+  "measured": 703.4
+ },
+ {
+  "text": "3",
+  "size": 56,
+  "measured": 35.6
+ },
+ {
+  "text": "6",
+  "size": 56,
+  "measured": 35.6
+ },
+ {
+  "text": "0",
+  "size": 56,
+  "measured": 35.6
+ },
+ {
+  "text": "watch the point travel left",
+  "size": 20,
+  "measured": 259.8
+ },
+ {
+  "text": "× 10¹",
+  "size": 40,
+  "measured": 113.2
+ },
+ {
+  "text": "× 10²",
+  "size": 40,
+  "measured": 113.2
+ },
+ {
+  "text": "× 10³",
+  "size": 40,
+  "measured": 113.2
+ },
+ {
+  "text": "× 10⁴",
+  "size": 40,
+  "measured": 113.2
+ },
+ {
+  "text": "× 10⁵",
+  "size": 40,
+  "measured": 113.2
+ },
+ {
+  "text": "3.6 × 10⁵",
+  "size": 60,
+  "measured": 284.2
+ },
+ {
+  "text": "Powers do not add when you add",
+  "size": 32,
+  "measured": 532.4
+ },
+ {
+  "text": "+",
+  "size": 40,
+  "measured": 33.5
+ },
+ {
+  "text": "8",
+  "size": 44,
+  "measured": 28.0
+ },
+ {
+  "text": "16",
+  "size": 44,
+  "measured": 56.0
+ },
+ {
+  "text": "24",
+  "size": 48,
+  "measured": 61.1
+ },
+ {
+  "text": "2⁷",
+  "size": 44,
+  "measured": 45.6
+ },
+ {
+  "text": "✗",
+  "size": 44,
+  "measured": 36.9
+ },
+ {
+  "text": "0 — impossible",
+  "size": 30,
+  "measured": 228.5
+ },
+ {
+  "text": "1/2 — even chance",
+  "size": 30,
+  "measured": 288.4
+ },
+ {
+  "text": "1 — certain",
+  "size": 30,
+  "measured": 172.9
+ },
+ {
+  "text": "fraction",
+  "size": 22,
+  "measured": 84.5
+ },
+ {
+  "text": "decimal",
+  "size": 22,
+  "measured": 86.7
+ },
+ {
+  "text": "percentage",
+  "size": 22,
+  "measured": 125.2
+ },
+ {
+  "text": "1/2",
+  "size": 48,
+  "measured": 77.3
+ },
+ {
+  "text": "0.5",
+  "size": 48,
+  "measured": 76.3
+ },
+ {
+  "text": "50%",
+  "size": 48,
+  "measured": 106.7
+ },
+ {
+  "text": "favourable outcomes over total outcomes",
+  "size": 26,
+  "measured": 545.0
+ },
+ {
+  "text": "favourable = 3",
+  "size": 28,
+  "measured": 209.0
+ },
+ {
+  "text": "total = 5",
+  "size": 28,
+  "measured": 123.1
+ },
+ {
+  "text": "toss twice, list every outcome",
+  "size": 26,
+  "measured": 389.2
+ },
+ {
+  "text": "HH",
+  "size": 28,
+  "measured": 42.1
+ },
+ {
+  "text": "HT",
+  "size": 28,
+  "measured": 38.2
+ },
+ {
+  "text": "TH",
+  "size": 28,
+  "measured": 38.2
+ },
+ {
+  "text": "TT",
+  "size": 28,
+  "measured": 33.7
+ },
+ {
+  "text": "multiply along the branches",
+  "size": 26,
+  "measured": 365.0
+ },
+ {
+  "text": "1/2",
+  "size": 22,
+  "measured": 35.4
+ },
+ {
+  "text": "HH",
+  "size": 22,
+  "measured": 33.1
+ },
+ {
+  "text": "1/4",
+  "size": 30,
+  "measured": 48.3
+ },
+ {
+  "text": "HT",
+  "size": 22,
+  "measured": 30.0
+ },
+ {
+  "text": "TH",
+  "size": 22,
+  "measured": 30.0
+ },
+ {
+  "text": "TT",
+  "size": 22,
+  "measured": 26.5
+ },
+ {
+  "text": "The gambler's slip",
+  "size": 26,
+  "measured": 238.3
+ },
+ {
+  "text": "H",
+  "size": 28,
+  "measured": 21.1
+ },
+ {
+  "text": "After three heads, tails is due.",
+  "size": 22,
+  "measured": 331.2
+ },
+ {
+  "text": "?",
+  "size": 28,
+  "measured": 14.9
+ },
+ {
+  "text": "The coin has no memory:",
+  "size": 26,
+  "measured": 329.2
+ },
+ {
+  "text": "the next toss is still 1/2.",
+  "size": 26,
+  "measured": 311.1
+ },
+ {
+  "text": "Nine test scores",
+  "size": 34,
+  "measured": 273.3
+ },
+ {
+  "text": "0",
+  "size": 18,
+  "measured": 11.5
+ },
+ {
+  "text": "20",
+  "size": 18,
+  "measured": 22.9
+ },
+ {
+  "text": "mean = 10",
+  "size": 22,
+  "measured": 122.8
+ },
+ {
+  "text": "Mean, median and mode",
+  "size": 34,
+  "measured": 423.7
+ },
+ {
+  "text": "mean 10",
+  "size": 22,
+  "measured": 97.4
+ },
+ {
+  "text": "median 9",
+  "size": 22,
+  "measured": 103.5
+ },
+ {
+  "text": "mode 8",
+  "size": 22,
+  "measured": 83.4
+ },
+ {
+  "text": "One outlier changes the mean",
+  "size": 34,
+  "measured": 517.0
+ },
+ {
+  "text": "30",
+  "size": 18,
+  "measured": 22.9
+ },
+ {
+  "text": "mean 11",
+  "size": 22,
+  "measured": 97.4
+ },
+ {
+  "text": "Grouped data: cumulative frequency",
+  "size": 32,
+  "measured": 589.2
+ },
+ {
+  "text": "class",
+  "size": 22,
+  "measured": 54.6
+ },
+ {
+  "text": "f",
+  "size": 22,
+  "measured": 7.7
+ },
+ {
+  "text": "mid x",
+  "size": 22,
+  "measured": 61.5
+ },
+ {
+  "text": "f × x",
+  "size": 22,
+  "measured": 53.2
+ },
+ {
+  "text": "cum. f",
+  "size": 22,
+  "measured": 69.2
+ },
+ {
+  "text": "0 < x ≤ 10",
+  "size": 22,
+  "measured": 119.9
+ },
+ {
+  "text": "2",
+  "size": 22,
+  "measured": 14.0
+ },
+ {
+  "text": "5",
+  "size": 22,
+  "measured": 14.0
+ },
+ {
+  "text": "10",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "10 < x ≤ 20",
+  "size": 22,
+  "measured": 133.8
+ },
+ {
+  "text": "6",
+  "size": 22,
+  "measured": 14.0
+ },
+ {
+  "text": "15",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "90",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "8",
+  "size": 22,
+  "measured": 14.0
+ },
+ {
+  "text": "20 < x ≤ 30",
+  "size": 22,
+  "measured": 133.8
+ },
+ {
+  "text": "25",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "200",
+  "size": 22,
+  "measured": 42.0
+ },
+ {
+  "text": "16",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "30 < x ≤ 40",
+  "size": 22,
+  "measured": 133.8
+ },
+ {
+  "text": "35",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "210",
+  "size": 22,
+  "measured": 42.0
+ },
+ {
+  "text": "22",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "40 < x ≤ 50",
+  "size": 22,
+  "measured": 133.8
+ },
+ {
+  "text": "45",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": "24",
+  "size": 22,
+  "measured": 28.0
+ },
+ {
+  "text": " f = 24,  fx = 600, x  60024 = 25",
+  "size": 24,
+  "measured": 395.7
+ },
+ {
+  "text": "The ogive: cumulative frequency curve",
+  "size": 32,
+  "measured": 626.4
+ },
+ {
+  "text": "marks",
+  "size": 18,
+  "measured": 55.8
+ },
+ {
+  "text": "cf",
+  "size": 18,
+  "measured": 16.2
+ },
+ {
+  "text": "Reading the median and quartiles",
+  "size": 32,
+  "measured": 543.3
+ },
+ {
+  "text": "median  25",
+  "size": 26,
+  "measured": 147.1
+ },
+ {
+  "text": "Q_1  16.7",
+  "size": 24,
+  "measured": 114.9
+ },
+ {
+  "text": "Q_3  33.3",
+  "size": 24,
+  "measured": 114.9
+ },
+ {
+  "text": "IQR = 33.3 - 16.7  16.7",
+  "size": 26,
+  "measured": 300.6
+ },
+ {
+  "text": "The mean is the balance point",
+  "size": 32,
+  "measured": 486.8
+ },
+ {
+  "text": "5",
+  "size": 18,
+  "measured": 11.5
+ },
+ {
+  "text": "7",
+  "size": 18,
+  "measured": 11.5
+ },
+ {
+  "text": "8",
+  "size": 18,
+  "measured": 11.5
+ },
+ {
+  "text": "9",
+  "size": 18,
+  "measured": 11.5
+ },
+ {
+  "text": "10",
+  "size": 18,
+  "measured": 22.9
+ },
+ {
+  "text": "11",
+  "size": 18,
+  "measured": 22.9
+ },
+ {
+  "text": "14",
+  "size": 18,
+  "measured": 22.9
+ },
+ {
+  "text": "18",
+  "size": 18,
+  "measured": 22.9
+ },
+ {
+  "text": "the typical score?",
+  "size": 20,
+  "measured": 176.6
+ },
+ {
+  "text": "x = 10",
+  "size": 30,
+  "measured": 100.1
+ },
+ {
+  "text": "opposite = 3",
+  "size": 26,
+  "measured": 166.6
+ },
+ {
+  "text": "adjacent = 4",
+  "size": 26,
+  "measured": 167.4
+ },
+ {
+  "text": "hyp = 5",
+  "size": 26,
+  "measured": 103.2
+ },
+ {
+  "text": "θ",
+  "size": 30,
+  "measured": 18.4
+ },
+ {
+  "text": " = 35 = 0.6",
+  "size": 40,
+  "measured": 232.4
+ },
+ {
+  "text": " = 45 = 0.8",
+  "size": 40,
+  "measured": 232.4
+ },
+ {
+  "text": " = 34 = 0.75",
+  "size": 40,
+  "measured": 257.9
+ },
+ {
+  "text": "SOH: sin = opp/hyp",
+  "size": 26,
+  "measured": 255.2
+ },
+ {
+  "text": "CAH: cos = adj/hyp",
+  "size": 26,
+  "measured": 251.4
+ },
+ {
+  "text": "TOA: tan = opp/adj",
+  "size": 26,
+  "measured": 248.5
+ },
+ {
+  "text": "A = 30°",
+  "size": 28,
+  "measured": 110.0
+ },
+ {
+  "text": "B = 60°",
+  "size": 28,
+  "measured": 110.1
+ },
+ {
+  "text": "a = 4",
+  "size": 28,
+  "measured": 76.2
+ },
+ {
+  "text": "b = ?",
+  "size": 28,
+  "measured": 73.9
+ },
+ {
+  "text": "h: shared altitude",
+  "size": 24,
+  "measured": 212.4
+ },
+ {
+  "text": "a A = b B",
+  "size": 44,
+  "measured": 208.0
+ },
+ {
+  "text": "4 30^ = b 60^",
+  "size": 40,
+  "measured": 304.0
+ },
+ {
+  "text": "b = 4  0.86600.5  6.93",
+  "size": 40,
+  "measured": 453.3
+ },
+ {
+  "text": "b ≈ 6.93",
+  "size": 28,
+  "measured": 121.4
+ },
+ {
+  "text": " = 43",
+  "size": 44,
+  "measured": 120.8
+ },
+ {
+  "text": "4/3 = 1.33: taller than the whole",
+  "size": 24,
+  "measured": 393.0
+ },
+ {
+  "text": " = 34",
+  "size": 44,
+  "measured": 120.8
+ },
+ {
+  "text": "3/4 = 0.75: TOA, opp over adj",
+  "size": 24,
+  "measured": 358.5
+ },
+ {
+  "text": "a = 3",
+  "size": 28,
+  "measured": 76.2
+ },
+ {
+  "text": "b = 4",
+  "size": 28,
+  "measured": 76.8
+ },
+ {
+  "text": "c = ?",
+  "size": 28,
+  "measured": 71.5
+ },
+ {
+  "text": "3² = 9",
+  "size": 28,
+  "measured": 88.1
+ },
+ {
+  "text": "4² = 16",
+  "size": 28,
+  "measured": 105.9
+ },
+ {
+  "text": "c² = 25",
+  "size": 30,
+  "measured": 110.9
+ },
+ {
+  "text": "The trap: c = 3 + 4 = 7 ?",
+  "size": 28,
+  "measured": 353.1
+ },
+ {
+  "text": "The truth: c = 5",
+  "size": 28,
+  "measured": 222.7
+ },
+ {
+  "text": "Lengths add to 7, but the squares add: 9 + 16 = 25.",
+  "size": 26,
+  "measured": 682.5
+ },
+ {
+  "text": "a^2 + b^2 = c^2",
+  "size": 46,
+  "measured": 421.7
+ },
+ {
+  "text": "Work: pushing a crate",
+  "size": 34,
+  "measured": 373.5
+ },
+ {
+  "text": "F = 50 N",
+  "size": 20,
+  "measured": 87.7
+ },
+ {
+  "text": "W = F  d",
+  "size": 40,
+  "measured": 172.3
+ },
+ {
+  "text": "W = 50  4 = 200\\ J",
+  "size": 36,
+  "measured": 336.2
+ },
+ {
+  "text": "d = 4 m",
+  "size": 20,
+  "measured": 80.7
+ },
+ {
+  "text": "Power: how fast is the work done?",
+  "size": 34,
+  "measured": 580.6
+ },
+ {
+  "text": "slow: 10 s",
+  "size": 20,
+  "measured": 98.8
+ },
+ {
+  "text": "fast: 2 s",
+  "size": 20,
+  "measured": 80.2
+ },
+ {
+  "text": "power",
+  "size": 18,
+  "measured": 55.6
+ },
+ {
+  "text": "100 W",
+  "size": 24,
+  "measured": 77.2
+ },
+ {
+  "text": "20 W",
+  "size": 24,
+  "measured": 61.9
+ },
+ {
+  "text": "P = Wt",
+  "size": 40,
+  "measured": 138.3
+ },
+ {
+  "text": "Energy is conserved: GPE becomes KE",
+  "size": 34,
+  "measured": 653.8
+ },
+ {
+  "text": "h = 5 m   m = 2 kg",
+  "size": 20,
+  "measured": 192.1
+ },
+ {
+  "text": "GPE",
+  "size": 20,
+  "measured": 40.2
+ },
+ {
+  "text": "KE",
+  "size": 20,
+  "measured": 25.8
+ },
+ {
+  "text": "GPE = mgh",
+  "size": 32,
+  "measured": 183.2
+ },
+ {
+  "text": "= 2  9.8  5 = 98\\ J",
+  "size": 32,
+  "measured": 287.5
+ },
+ {
+  "text": "Let it fall",
+  "size": 22,
+  "measured": 96.2
+ },
+ {
+  "text": "KE = 98\\ J",
+  "size": 34,
+  "measured": 169.4
+ },
+ {
+  "text": "total stays 98 J — nothing is lost",
+  "size": 22,
+  "measured": 355.0
+ },
+ {
+  "text": "Misconception: energy gets used up?",
+  "size": 34,
+  "measured": 633.5
+ },
+ {
+  "text": "❌ “Energy is used up when work is done.”",
+  "size": 28,
+  "measured": 584.8
+ },
+ {
+  "text": "petrol",
+  "size": 18,
+  "measured": 52.6
+ },
+ {
+  "text": "total energy",
+  "size": 20,
+  "measured": 121.8
+ },
+ {
+  "text": "heat escapes",
+  "size": 20,
+  "measured": 132.8
+ },
+ {
+  "text": "✓ Energy is never used up: it changes form,",
+  "size": 26,
+  "measured": 574.0
+ },
+ {
+  "text": "chemical energy becoming kinetic energy plus heat.",
+  "size": 26,
+  "measured": 682.9
+ },
+ {
+  "text": "Friction fights the slide",
+  "size": 34,
+  "measured": 387.3
+ },
+ {
+  "text": "push 60 N",
+  "size": 24,
+  "measured": 121.9
+ },
+ {
+  "text": "friction 40 N",
+  "size": 24,
+  "measured": 147.9
+ },
+ {
+  "text": "Net force 20 N right — the block keeps sliding",
+  "size": 26,
+  "measured": 597.6
+ },
+ {
+  "text": "Balancing moments",
+  "size": 34,
+  "measured": 338.6
+ },
+ {
+  "text": "M = F  d",
+  "size": 40,
+  "measured": 167.3
+ },
+ {
+  "text": "60 N",
+  "size": 24,
+  "measured": 56.1
+ },
+ {
+  "text": "0.5 m",
+  "size": 24,
+  "measured": 69.2
+ },
+ {
+  "text": "30 N·m",
+  "size": 24,
+  "measured": 87.1
+ },
+ {
+  "text": "30 N",
+  "size": 24,
+  "measured": 56.1
+ },
+ {
+  "text": "0.75 m",
+  "size": 24,
+  "measured": 84.4
+ },
+ {
+  "text": "22.5 N·m",
+  "size": 24,
+  "measured": 110.0
+ },
+ {
+  "text": "60 × 0.5 = 30 beats 30 × 0.75 = 22.5 — left side tips down.",
+  "size": 24,
+  "measured": 726.4
+ },
+ {
+  "text": "1.0 m",
+  "size": 24,
+  "measured": 69.2
+ },
+ {
+  "text": "30 N·m = 30 N·m — the beam is balanced.",
+  "size": 24,
+  "measured": 515.8
+ },
+ {
+  "text": "Pressure = force over area",
+  "size": 34,
+  "measured": 454.2
+ },
+ {
+  "text": "P = FA",
+  "size": 40,
+  "measured": 129.8
+ },
+ {
+  "text": "200 N",
+  "size": 24,
+  "measured": 71.4
+ },
+ {
+  "text": "A = 0.5 m²",
+  "size": 24,
+  "measured": 130.6
+ },
+ {
+  "text": "P = 400 Pa",
+  "size": 28,
+  "measured": 153.3
+ },
+ {
+  "text": "A = 0.05 m²",
+  "size": 24,
+  "measured": 145.9
+ },
+ {
+  "text": "P = 4000 Pa",
+  "size": 32,
+  "measured": 195.5
+ },
+ {
+  "text": "Area ÷10 → pressure ×10",
+  "size": 24,
+  "measured": 310.8
+ },
+ {
+  "text": "Trap: friction always opposes motion.",
+  "size": 28,
+  "measured": 522.0
+ },
+ {
+  "text": "tyre pushes back on road",
+  "size": 22,
+  "measured": 279.2
+ },
+ {
+  "text": "friction pushes car forward",
+  "size": 22,
+  "measured": 295.4
+ },
+ {
+  "text": "Friction opposes relative slide — not motion itself.",
+  "size": 24,
+  "measured": 598.8
+ },
+ {
+  "text": "Speed or velocity?",
+  "size": 34,
+  "measured": 313.9
+ },
+ {
+  "text": "v = dt",
+  "size": 40,
+  "measured": 123.7
+ },
+ {
+  "text": "0 m",
+  "size": 24,
+  "measured": 46.3
+ },
+ {
+  "text": "100 m",
+  "size": 24,
+  "measured": 76.8
+ },
+ {
+  "text": "v = 100\\ m20\\ s = 5\\ m/s",
+  "size": 36,
+  "measured": 455.3
+ },
+ {
+  "text": "direction: to the right  →  this is velocity",
+  "size": 24,
+  "measured": 478.7
+ },
+ {
+  "text": "Reading a distance–time graph",
+  "size": 34,
+  "measured": 528.7
+ },
+ {
+  "text": "time: 0 → 60 s",
+  "size": 22,
+  "measured": 157.0
+ },
+ {
+  "text": "distance: 0 → 120 m",
+  "size": 22,
+  "measured": 224.5
+ },
+ {
+  "text": "run = 60 s",
+  "size": 24,
+  "measured": 126.3
+ },
+ {
+  "text": "rise = 120 m",
+  "size": 24,
+  "measured": 156.0
+ },
+ {
+  "text": "speed = riserun = 120\\ m60\\ s = 2\\ m/s",
+  "size": 36,
+  "measured": 722.0
+ },
+ {
+  "text": "Steeper = faster. Flat = stopped.",
+  "size": 24,
+  "measured": 396.8
+ },
+ {
+  "text": "Reading a velocity–time graph",
+  "size": 34,
+  "measured": 517.5
+ },
+ {
+  "text": "time: 0 → 10 s",
+  "size": 22,
+  "measured": 157.0
+ },
+ {
+  "text": "velocity: 0 → 20 m/s",
+  "size": 22,
+  "measured": 220.5
+ },
+ {
+  "text": "a = 20\\ m/s10\\ s = 2\\ m/s^2",
+  "size": 34,
+  "measured": 488.4
+ },
+ {
+  "text": "d = area = 12  10  20 = 100\\ m",
+  "size": 32,
+  "measured": 509.2
+ },
+ {
+  "text": "Triangle, not rectangle —",
+  "size": 22,
+  "measured": 276.3
+ },
+ {
+  "text": "velocity is changing.",
+  "size": 22,
+  "measured": 226.0
+ },
+ {
+  "text": "❌ “Speed and velocity are the same thing.”",
+  "size": 28,
+  "measured": 606.4
+ },
+ {
+  "text": "out: 400 m",
+  "size": 24,
+  "measured": 131.8
+ },
+ {
+  "text": "back: 400 m",
+  "size": 24,
+  "measured": 149.6
+ },
+ {
+  "text": "speed = 800\\ m100\\ s = 8\\ m/s, v = 0\\ m100\\ s = 0",
+  "size": 34,
+  "measured": 879.7
+ },
+ {
+  "text": "Velocity counts displacement — and she ended where she began.",
+  "size": 24,
+  "measured": 790.6
+ },
+ {
+  "text": "Two kinds of wave: light and sound",
+  "size": 34,
+  "measured": 595.0
+ },
+ {
+  "text": "LIGHT — transverse",
+  "size": 22,
+  "measured": 218.9
+ },
+ {
+  "text": "light: the dot bobs up-down as it races right",
+  "size": 24,
+  "measured": 527.3
+ },
+ {
+  "text": "SOUND — longitudinal",
+  "size": 22,
+  "measured": 246.5
+ },
+ {
+  "text": "sound: particles bunch and spread, energy moves on",
+  "size": 24,
+  "measured": 639.0
+ },
+ {
+  "text": "The wave equation: v = f × λ",
+  "size": 34,
+  "measured": 499.2
+ },
+ {
+  "text": "v = f  ",
+  "size": 40,
+  "measured": 122.1
+ },
+ {
+  "text": "λ = one full wave",
+  "size": 22,
+  "measured": 192.3
+ },
+ {
+  "text": "vibrates in place: f = 2 Hz",
+  "size": 22,
+  "measured": 286.1
+ },
+ {
+  "text": "crest races right at speed v",
+  "size": 22,
+  "measured": 302.1
+ },
+ {
+  "text": "Sound in air: v = 340 m/s,   f = 170 Hz",
+  "size": 24,
+  "measured": 464.6
+ },
+ {
+  "text": " = 340\\ m/s170\\ Hz = 2\\ m",
+  "size": 36,
+  "measured": 484.1
+ },
+ {
+  "text": "Check: 170 Hz × 2 m = 340 m/s — it agrees",
+  "size": 22,
+  "measured": 488.0
+ },
+ {
+  "text": "Misconception: is sound faster than light?",
+  "size": 34,
+  "measured": 709.1
+ },
+ {
+  "text": "you",
+  "size": 22,
+  "measured": 40.4
+ },
+ {
+  "text": "light arrives almost instantly",
+  "size": 24,
+  "measured": 343.6
+ },
+ {
+  "text": "thunder arrives seconds later",
+  "size": 24,
+  "measured": 353.5
+ },
+ {
+  "text": "light: 3 × 10⁸ m/s",
+  "size": 22,
+  "measured": 193.7
+ },
+ {
+  "text": "sound: 340 m/s — about 880,000× slower",
+  "size": 22,
+  "measured": 464.9
+ },
+ {
+  "text": "waves carry energy across the stage",
+  "size": 24,
+  "measured": 441.9
+ },
+ {
+  "text": "particles only vibrate in place",
+  "size": 24,
+  "measured": 355.6
+ },
+ {
+  "text": "v = f × λ",
+  "size": 28,
+  "measured": 125.5
+ },
+ {
+  "text": "light ≈ 880,000× faster than sound",
+  "size": 24,
+  "measured": 427.9
+ },
+ {
+  "text": "Food chain: built beat by beat",
+  "size": 34,
+  "measured": 509.5
+ },
+ {
+  "text": "grass",
+  "size": 24,
+  "measured": 64.8
+ },
+ {
+  "text": "producer",
+  "size": 18,
+  "measured": 80.6
+ },
+ {
+  "text": "rabbit",
+  "size": 24,
+  "measured": 71.1
+ },
+ {
+  "text": "primary consumer",
+  "size": 18,
+  "measured": 165.3
+ },
+ {
+  "text": "fox",
+  "size": 24,
+  "measured": 36.6
+ },
+ {
+  "text": "secondary consumer",
+  "size": 18,
+  "measured": 188.1
+ },
+ {
+  "text": "decomposer",
+  "size": 20,
+  "measured": 123.6
+ },
+ {
+  "text": "Energy pyramid: only about 10% passes up",
+  "size": 34,
+  "measured": 741.2
+ },
+ {
+  "text": "≈10% moves up",
+  "size": 22,
+  "measured": 182.1
+ },
+ {
+  "text": "top carnivores",
+  "size": 20,
+  "measured": 143.1
+ },
+ {
+  "text": "≈10% reaches the top",
+  "size": 22,
+  "measured": 247.1
+ },
+ {
+  "text": "Carbon cycle: nature's closed loop",
+  "size": 34,
+  "measured": 585.3
+ },
+ {
+  "text": "CO₂ — carbon dioxide in the air",
+  "size": 26,
+  "measured": 408.6
+ },
+ {
+  "text": "photosynthesis",
+  "size": 20,
+  "measured": 151.8
+ },
+ {
+  "text": "sink: plants absorb CO₂",
+  "size": 20,
+  "measured": 233.7
+ },
+ {
+  "text": "eating",
+  "size": 20,
+  "measured": 63.3
+ },
+ {
+  "text": "respiration",
+  "size": 20,
+  "measured": 107.5
+ },
+ {
+  "text": "source: respiration",
+  "size": 20,
+  "measured": 187.1
+ },
+ {
+  "text": "soil + fossil fuels",
+  "size": 18,
+  "measured": 151.9
+ },
+ {
+  "text": "decomposers feed the soil",
+  "size": 20,
+  "measured": 264.0
+ },
+ {
+  "text": "Humans tip the balance",
+  "size": 34,
+  "measured": 406.8
+ },
+ {
+  "text": "forest stores carbon",
+  "size": 22,
+  "measured": 220.5
+ },
+ {
+  "text": "deforestation clears it",
+  "size": 26,
+  "measured": 284.8
+ },
+ {
+  "text": "CO₂ piles up in the air",
+  "size": 26,
+  "measured": 284.1
+ },
+ {
+  "text": "sink lost",
+  "size": 22,
+  "measured": 90.9
+ },
+ {
+  "text": "a warmer planet follows",
+  "size": 22,
+  "measured": 264.6
+ },
+ {
+  "text": "replanting",
+  "size": 22,
+  "measured": 112.2
+ },
+ {
+  "text": "replanting pushes back",
+  "size": 22,
+  "measured": 256.8
+ },
+ {
+  "text": "Myth: energy is recycled like nutrients",
+  "size": 30,
+  "measured": 574.2
+ },
+ {
+  "text": "energy: one-way flow",
+  "size": 22,
+  "measured": 235.1
+ },
+ {
+  "text": "sunlight",
+  "size": 18,
+  "measured": 72.1
+ },
+ {
+  "text": "consumer",
+  "size": 18,
+  "measured": 89.1
+ },
+ {
+  "text": "energy escapes as heat",
+  "size": 20,
+  "measured": 237.9
+ },
+ {
+  "text": "nutrients: closed loop",
+  "size": 22,
+  "measured": 238.3
+ },
+ {
+  "text": "plant",
+  "size": 18,
+  "measured": 45.9
+ },
+ {
+  "text": "animal",
+  "size": 18,
+  "measured": 61.0
+ },
+ {
+  "text": "soil",
+  "size": 16,
+  "measured": 27.0
+ },
+ {
+  "text": "nutrients loop back",
+  "size": 20,
+  "measured": 193.2
+ },
+ {
+  "text": "carbs",
+  "size": 14,
+  "measured": 38.2
+ },
+ {
+  "text": "protein",
+  "size": 14,
+  "measured": 49.8
+ },
+ {
+  "text": "fats",
+  "size": 14,
+  "measured": 26.3
+ },
+ {
+  "text": "vitamins",
+  "size": 14,
+  "measured": 59.9
+ },
+ {
+  "text": "minerals",
+  "size": 14,
+  "measured": 60.5
+ },
+ {
+  "text": "fibre",
+  "size": 14,
+  "measured": 31.8
+ },
+ {
+  "text": "water",
+  "size": 14,
+  "measured": 39.9
+ },
+ {
+  "text": "All seven groups, in the right proportions",
+  "size": 26,
+  "measured": 533.0
+ },
+ {
+  "text": "carbs",
+  "size": 20,
+  "measured": 54.6
+ },
+ {
+  "text": "17 kJ/g",
+  "size": 20,
+  "measured": 68.7
+ },
+ {
+  "text": "protein",
+  "size": 20,
+  "measured": 71.1
+ },
+ {
+  "text": "fat",
+  "size": 20,
+  "measured": 27.1
+ },
+ {
+  "text": "37 kJ/g",
+  "size": 20,
+  "measured": 68.7
+ },
+ {
+  "text": "fat has more energy per gram",
+  "size": 24,
+  "measured": 362.0
+ },
+ {
+  "text": "mouth",
+  "size": 24,
+  "measured": 77.9
+ },
+ {
+  "text": "oesophagus",
+  "size": 24,
+  "measured": 144.7
+ },
+ {
+  "text": "stomach",
+  "size": 24,
+  "measured": 103.1
+ },
+ {
+  "text": "small intestine",
+  "size": 24,
+  "measured": 176.2
+ },
+ {
+  "text": "large intestine",
+  "size": 24,
+  "measured": 173.1
+ },
+ {
+  "text": "amylase",
+  "size": 26,
+  "measured": 109.3
+ },
+ {
+  "text": "starch",
+  "size": 20,
+  "measured": 62.0
+ },
+ {
+  "text": "protease",
+  "size": 26,
+  "measured": 114.2
+ },
+ {
+  "text": "lipase",
+  "size": 26,
+  "measured": 76.4
+ },
+ {
+  "text": "nutrients into the blood",
+  "size": 28,
+  "measured": 330.2
+ },
+ {
+  "text": "stomach",
+  "size": 26,
+  "measured": 111.7
+ },
+ {
+  "text": "myth: digestion ends in the stomach",
+  "size": 26,
+  "measured": 477.6
+ },
+ {
+  "text": "Most digestion and absorption continue",
+  "size": 30,
+  "measured": 594.9
+ },
+ {
+  "text": "in the small intestine",
+  "size": 30,
+  "measured": 315.9
+ },
+ {
+  "text": "Pollination: pollen on the move",
+  "size": 34,
+  "measured": 527.5
+ },
+ {
+  "text": "flower A",
+  "size": 26,
+  "measured": 106.3
+ },
+ {
+  "text": "flower B",
+  "size": 26,
+  "measured": 106.3
+ },
+ {
+  "text": "pollination = pollen transfer",
+  "size": 24,
+  "measured": 336.8
+ },
+ {
+  "text": "Fertilisation: tube to ovule",
+  "size": 34,
+  "measured": 446.2
+ },
+ {
+  "text": "stigma",
+  "size": 22,
+  "measured": 75.1
+ },
+ {
+  "text": "style",
+  "size": 22,
+  "measured": 52.8
+ },
+ {
+  "text": "ovary",
+  "size": 22,
+  "measured": 62.0
+ },
+ {
+  "text": "pollen tube grows down the style",
+  "size": 22,
+  "measured": 365.8
+ },
+ {
+  "text": "Seed dispersal: four ways to travel",
+  "size": 34,
+  "measured": 591.3
+ },
+ {
+  "text": "pod",
+  "size": 22,
+  "measured": 41.4
+ },
+ {
+  "text": "wind",
+  "size": 22,
+  "measured": 52.0
+ },
+ {
+  "text": "animals",
+  "size": 22,
+  "measured": 86.0
+ },
+ {
+  "text": "explosion",
+  "size": 22,
+  "measured": 104.7
+ },
+ {
+  "text": "Myth: pollination IS fertilisation",
+  "size": 34,
+  "measured": 530.3
+ },
+ {
+  "text": "flower",
+  "size": 22,
+  "measured": 67.9
+ },
+ {
+  "text": "pollination",
+  "size": 22,
+  "measured": 115.3
+ },
+ {
+  "text": "easy to think: pollination IS fertilisation",
+  "size": 24,
+  "measured": 470.7
+ },
+ {
+  "text": "fertilisation",
+  "size": 22,
+  "measured": 124.4
+ },
+ {
+  "text": "Delivery is not fusion - fertilisation needs fusion.",
+  "size": 22,
+  "measured": 533.0
+ },
+ {
+  "text": "The heart is a double pump",
+  "size": 34,
+  "measured": 469.6
+ },
+ {
+  "text": "left side",
+  "size": 30,
+  "measured": 119.6
+ },
+ {
+  "text": "pumps oxygen-rich blood to the body",
+  "size": 24,
+  "measured": 450.2
+ },
+ {
+  "text": "right side",
+  "size": 30,
+  "measured": 141.5
+ },
+ {
+  "text": "pumps oxygen-poor blood to the lungs",
+  "size": 24,
+  "measured": 465.2
+ },
+ {
+  "text": "Two loops, one pump",
+  "size": 34,
+  "measured": 358.4
+ },
+ {
+  "text": "lungs",
+  "size": 26,
+  "measured": 70.2
+ },
+ {
+  "text": "heart",
+  "size": 26,
+  "measured": 69.3
+ },
+ {
+  "text": "body",
+  "size": 26,
+  "measured": 64.3
+ },
+ {
+  "text": "Xylem and phloem",
+  "size": 34,
+  "measured": 319.9
+ },
+ {
+  "text": "soil",
+  "size": 22,
+  "measured": 37.1
+ },
+ {
+  "text": "xylem: water and minerals up",
+  "size": 24,
+  "measured": 359.6
+ },
+ {
+  "text": "phloem: food moves both ways",
+  "size": 24,
+  "measured": 376.7
+ },
+ {
+  "text": "Myth: arteries always carry oxygen",
+  "size": 32,
+  "measured": 562.8
+ },
+ {
+  "text": "artery = AWAY from the heart",
+  "size": 24,
+  "measured": 357.0
+ },
+ {
+  "text": "pulmonary artery: blue blood - the exception",
+  "size": 24,
+  "measured": 537.8
+ },
+ {
+  "text": "A plant cell, labelled",
+  "size": 34,
+  "measured": 345.9
+ },
+ {
+  "text": "cell wall",
+  "size": 24,
+  "measured": 96.6
+ },
+ {
+  "text": "vacuole",
+  "size": 24,
+  "measured": 93.4
+ },
+ {
+  "text": "cell membrane",
+  "size": 24,
+  "measured": 180.2
+ },
+ {
+  "text": "nucleus",
+  "size": 24,
+  "measured": 92.8
+ },
+ {
+  "text": "chloroplast",
+  "size": 24,
+  "measured": 132.3
+ },
+ {
+  "text": "An animal cell, labelled",
+  "size": 34,
+  "measured": 395.9
+ },
+ {
+  "text": "mitochondrion",
+  "size": 22,
+  "measured": 159.6
+ },
+ {
+  "text": "no cell wall — only the membrane",
+  "size": 22,
+  "measured": 375.9
+ },
+ {
+  "text": "The membrane is the gatekeeper",
+  "size": 34,
+  "measured": 568.9
+ },
+ {
+  "text": "outside the cell",
+  "size": 24,
+  "measured": 184.4
+ },
+ {
+  "text": "inside the cell",
+  "size": 24,
+  "measured": 167.0
+ },
+ {
+  "text": "a solid wall?",
+  "size": 22,
+  "measured": 134.0
+ },
+ {
+  "text": "food in",
+  "size": 22,
+  "measured": 75.7
+ },
+ {
+  "text": "blocked",
+  "size": 22,
+  "measured": 85.1
+ },
+ {
+  "text": "waste out",
+  "size": 22,
+  "measured": 108.1
+ },
+ {
+  "text": "Two specialists: nucleus and chloroplast",
+  "size": 34,
+  "measured": 678.1
+ },
+ {
+  "text": "chloroplast: food factory",
+  "size": 26,
+  "measured": 317.7
+ },
+ {
+  "text": "nucleus: control centre",
+  "size": 26,
+  "measured": 299.0
+ },
+ {
+  "text": "Why plants stand up straight",
+  "size": 34,
+  "measured": 492.9
+ },
+ {
+  "text": "turgid: firm",
+  "size": 24,
+  "measured": 134.9
+ },
+ {
+  "text": "wilting: limp",
+  "size": 24,
+  "measured": 147.2
+ },
+ {
+  "text": "Cells team up: the organisation ladder",
+  "size": 34,
+  "measured": 653.5
+ },
+ {
+  "text": "cell",
+  "size": 26,
+  "measured": 44.7
+ },
+ {
+  "text": "tissue",
+  "size": 26,
+  "measured": 77.0
+ },
+ {
+  "text": "organ",
+  "size": 26,
+  "measured": 75.1
+ },
+ {
+  "text": "system",
+  "size": 26,
+  "measured": 94.0
+ },
+ {
+  "text": "leaf cell → leaf tissue → leaf → shoot system",
+  "size": 26,
+  "measured": 572.4
+ },
+ {
+  "text": "Acids and alkalis around you",
+  "size": 34,
+  "measured": 486.1
+ },
+ {
+  "text": "acid",
+  "size": 26,
+  "measured": 54.0
+ },
+ {
+  "text": "alkali",
+  "size": 26,
+  "measured": 68.1
+ },
+ {
+  "text": "lemon juice · vinegar · stomach acid  |  soap · baking soda · toothpaste",
+  "size": 22,
+  "measured": 781.9
+ },
+ {
+  "text": "The pH scale",
+  "size": 34,
+  "measured": 219.6
+ },
+ {
+  "text": "pH 0 — strongly acidic",
+  "size": 22,
+  "measured": 247.5
+ },
+ {
+  "text": "pH 1–6 — acidic",
+  "size": 22,
+  "measured": 176.3
+ },
+ {
+  "text": "pH 7 — neutral",
+  "size": 22,
+  "measured": 166.2
+ },
+ {
+  "text": "pH 8–13 — alkaline",
+  "size": 22,
+  "measured": 211.6
+ },
+ {
+  "text": "pH 14 — strongly alkaline",
+  "size": 22,
+  "measured": 282.8
+ },
+ {
+  "text": "Each step is ten times stronger — a big jump.",
+  "size": 22,
+  "measured": 503.4
+ },
+ {
+  "text": "It is about ions: H⁺ and OH⁻",
+  "size": 34,
+  "measured": 472.2
+ },
+ {
+  "text": "acid",
+  "size": 24,
+  "measured": 49.8
+ },
+ {
+  "text": "alkali",
+  "size": 24,
+  "measured": 62.9
+ },
+ {
+  "text": "H⁺",
+  "size": 18,
+  "measured": 23.0
+ },
+ {
+  "text": "OH⁻",
+  "size": 16,
+  "measured": 33.1
+ },
+ {
+  "text": "More H⁺ than OH⁻ → acidic",
+  "size": 24,
+  "measured": 322.3
+ },
+ {
+  "text": "More OH⁻ than H⁺ → alkaline",
+  "size": 24,
+  "measured": 345.5
+ },
+ {
+  "text": "Equal numbers → neutral.",
+  "size": 24,
+  "measured": 309.6
+ },
+ {
+  "text": "Neutralisation: acid + alkali → salt + water",
+  "size": 30,
+  "measured": 643.3
+ },
+ {
+  "text": "HCl + NaOH  NaCl + H_2O",
+  "size": 40,
+  "measured": 528.9
+ },
+ {
+  "text": "H⁺",
+  "size": 22,
+  "measured": 28.2
+ },
+ {
+  "text": "OH⁻",
+  "size": 20,
+  "measured": 41.3
+ },
+ {
+  "text": "H₂O",
+  "size": 22,
+  "measured": 42.7
+ },
+ {
+  "text": "Na⁺",
+  "size": 18,
+  "measured": 34.0
+ },
+ {
+  "text": "Cl⁻",
+  "size": 18,
+  "measured": 27.1
+ },
+ {
+  "text": "NaCl",
+  "size": 22,
+  "measured": 51.4
+ },
+ {
+  "text": "The litmus test",
+  "size": 34,
+  "measured": 254.8
+ },
+ {
+  "text": "blue litmus",
+  "size": 20,
+  "measured": 111.1
+ },
+ {
+  "text": "blue litmus turns RED",
+  "size": 24,
+  "measured": 260.7
+ },
+ {
+  "text": "red litmus",
+  "size": 20,
+  "measured": 100.7
+ },
+ {
+  "text": "red litmus turns BLUE",
+  "size": 24,
+  "measured": 259.2
+ },
+ {
+  "text": "Naming the salt",
+  "size": 34,
+  "measured": 270.7
+ },
+ {
+  "text": "hydrochloric acid",
+  "size": 24,
+  "measured": 205.6
+ },
+ {
+  "text": "sodium CHLORIDE",
+  "size": 24,
+  "measured": 218.9
+ },
+ {
+  "text": "nitric acid",
+  "size": 24,
+  "measured": 118.5
+ },
+ {
+  "text": "potassium NITRATE",
+  "size": 24,
+  "measured": 231.7
+ },
+ {
+  "text": "sulfuric acid",
+  "size": 24,
+  "measured": 145.2
+ },
+ {
+  "text": "magnesium SULFATE",
+  "size": 24,
+  "measured": 250.8
+ },
+ {
+  "text": "❌ “All acids are strong.”",
+  "size": 28,
+  "measured": 328.5
+ },
+ {
+  "text": "strong acid",
+  "size": 24,
+  "measured": 133.8
+ },
+ {
+  "text": "vinegar (weak acid)",
+  "size": 24,
+  "measured": 237.4
+ },
+ {
+  "text": "almost every H⁺ breaks free",
+  "size": 22,
+  "measured": 310.0
+ },
+ {
+  "text": "the rest stay bound",
+  "size": 20,
+  "measured": 195.6
+ },
+ {
+  "text": "only 1 of 4 H⁺ breaks free",
+  "size": 22,
+  "measured": 283.0
+ },
+ {
+  "text": "The titration curve",
+  "size": 34,
+  "measured": 316.2
+ },
+ {
+  "text": "volume of base added (mL)",
+  "size": 20,
+  "measured": 275.4
+ },
+ {
+  "text": "pH",
+  "size": 20,
+  "measured": 27.7
+ },
+ {
+  "text": "20 mL",
+  "size": 18,
+  "measured": 56.2
+ },
+ {
+  "text": "40 mL",
+  "size": 18,
+  "measured": 56.2
+ },
+ {
+  "text": "base",
+  "size": 16,
+  "measured": 38.1
+ },
+ {
+  "text": "equivalence point",
+  "size": 20,
+  "measured": 178.5
+ },
+ {
+  "text": "indicator turns here",
+  "size": 18,
+  "measured": 177.6
+ },
+ {
+  "text": "Inside the atom",
+  "size": 34,
+  "measured": 266.7
+ },
+ {
+  "text": "nucleus",
+  "size": 20,
+  "measured": 77.3
+ },
+ {
+  "text": "electrons",
+  "size": 22,
+  "measured": 101.3
+ },
+ {
+  "text": "live in shells",
+  "size": 22,
+  "measured": 135.4
+ },
+ {
+  "text": "Counting particles: carbon",
+  "size": 34,
+  "measured": 450.0
+ },
+ {
+  "text": "6p 6n",
+  "size": 18,
+  "measured": 51.5
+ },
+ {
+  "text": "2 electrons fill shell 1",
+  "size": 24,
+  "measured": 255.9
+ },
+ {
+  "text": "4 more sit in shell 2",
+  "size": 24,
+  "measured": 237.1
+ },
+ {
+  "text": "Protons = 6 → it is carbon.",
+  "size": 24,
+  "measured": 316.9
+ },
+ {
+  "text": "Counting particles: sodium",
+  "size": 34,
+  "measured": 456.8
+ },
+ {
+  "text": "11p 12n",
+  "size": 18,
+  "measured": 74.4
+ },
+ {
+  "text": "2 in shell 1",
+  "size": 24,
+  "measured": 131.1
+ },
+ {
+  "text": "8 in shell 2",
+  "size": 24,
+  "measured": 131.1
+ },
+ {
+  "text": "1 lone electron in shell 3",
+  "size": 24,
+  "measured": 295.7
+ },
+ {
+  "text": "Groups: the table’s columns",
+  "size": 34,
+  "measured": 478.4
+ },
+ {
+  "text": "Group 1",
+  "size": 24,
+  "measured": 96.0
+ },
+ {
+  "text": "Li",
+  "size": 26,
+  "measured": 21.7
+ },
+ {
+  "text": "Na",
+  "size": 26,
+  "measured": 35.4
+ },
+ {
+  "text": "K",
+  "size": 26,
+  "measured": 17.0
+ },
+ {
+  "text": "lithium",
+  "size": 22,
+  "measured": 76.3
+ },
+ {
+  "text": "sodium",
+  "size": 22,
+  "measured": 80.4
+ },
+ {
+  "text": "potassium",
+  "size": 22,
+  "measured": 113.9
+ },
+ {
+  "text": "→ all have 1 outer electron",
+  "size": 20,
+  "measured": 268.7
+ },
+ {
+  "text": "→ all react with water the same way",
+  "size": 20,
+  "measured": 363.0
+ },
+ {
+  "text": "→ all are soft metals",
+  "size": 20,
+  "measured": 203.0
+ },
+ {
+  "text": "Periods: the table’s rows",
+  "size": 34,
+  "measured": 417.6
+ },
+ {
+  "text": "Period 2",
+  "size": 24,
+  "measured": 97.7
+ },
+ {
+  "text": "Li",
+  "size": 24,
+  "measured": 20.0
+ },
+ {
+  "text": "Be",
+  "size": 24,
+  "measured": 31.2
+ },
+ {
+  "text": "B",
+  "size": 24,
+  "measured": 16.5
+ },
+ {
+  "text": "C",
+  "size": 24,
+  "measured": 16.8
+ },
+ {
+  "text": "period 2 → 2 shells",
+  "size": 24,
+  "measured": 225.9
+ },
+ {
+  "text": "Period 3",
+  "size": 24,
+  "measured": 97.7
+ },
+ {
+  "text": "Na",
+  "size": 24,
+  "measured": 32.7
+ },
+ {
+  "text": "period 3 → 3 shells",
+  "size": 24,
+  "measured": 225.9
+ },
+ {
+  "text": "Planet-style orbits are wrong.",
+  "size": 26,
+  "measured": 382.7
+ },
+ {
+  "text": "mostly empty space",
+  "size": 24,
+  "measured": 243.5
+ },
+ {
+  "text": "Electrons sit in shells.",
+  "size": 24,
+  "measured": 260.2
+ },
+ {
+  "text": "Ionic bonding: electron transfer",
+  "size": 34,
+  "measured": 535.7
+ },
+ {
+  "text": "Na",
+  "size": 20,
+  "measured": 27.2
+ },
+ {
+  "text": "Cl",
+  "size": 20,
+  "measured": 19.5
+ },
+ {
+  "text": "Na: 2, 8, 1",
+  "size": 24,
+  "measured": 124.7
+ },
+ {
+  "text": "Cl: 2, 8, 8",
+  "size": 24,
+  "measured": 115.5
+ },
+ {
+  "text": "The ionic lattice",
+  "size": 34,
+  "measured": 270.8
+ },
+ {
+  "text": "Na⁺",
+  "size": 16,
+  "measured": 30.2
+ },
+ {
+  "text": "Cl⁻",
+  "size": 16,
+  "measured": 24.1
+ },
+ {
+  "text": "Covalent bonding: sharing, not giving",
+  "size": 34,
+  "measured": 640.4
+ },
+ {
+  "text": "H",
+  "size": 18,
+  "measured": 13.5
+ },
+ {
+  "text": "each H: 1 electron",
+  "size": 24,
+  "measured": 220.2
+ },
+ {
+  "text": "Metallic bonding: a sea of electrons",
+  "size": 34,
+  "measured": 604.7
+ },
+ {
+  "text": "+",
+  "size": 22,
+  "measured": 18.4
+ },
+ {
+  "text": "sharing",
+  "size": 24,
+  "measured": 89.4
+ },
+ {
+  "text": "given away",
+  "size": 24,
+  "measured": 137.0
+ },
+ {
+  "text": "Both atoms own the pair — together.",
+  "size": 28,
+  "measured": 518.5
+ },
+ {
+  "text": "A mole is a counting word",
+  "size": 34,
+  "measured": 441.7
+ },
+ {
+  "text": "1 dozen = 12 eggs",
+  "size": 26,
+  "measured": 245.6
+ },
+ {
+  "text": "1 mole = 6.02 × 10²³ particles",
+  "size": 26,
+  "measured": 397.6
+ },
+ {
+  "text": "far too many to count one by one",
+  "size": 24,
+  "measured": 403.3
+ },
+ {
+  "text": "…so we weigh moles instead of counting",
+  "size": 24,
+  "measured": 491.3
+ },
+ {
+  "text": "Mass to moles",
+  "size": 34,
+  "measured": 243.3
+ },
+ {
+  "text": "n = mM",
+  "size": 40,
+  "measured": 157.8
+ },
+ {
+  "text": "n = moles,  m = mass,  M = molar mass",
+  "size": 22,
+  "measured": 445.8
+ },
+ {
+  "text": "M of carbon-12 = 12 g/mol",
+  "size": 22,
+  "measured": 295.9
+ },
+ {
+  "text": "12 g",
+  "size": 26,
+  "measured": 57.9
+ },
+ {
+  "text": "m = 12 g",
+  "size": 26,
+  "measured": 121.5
+ },
+ {
+  "text": "n = 12\\ g12\\ g/mol = 1\\ mol",
+  "size": 36,
+  "measured": 506.2
+ },
+ {
+  "text": "weighed, not counted",
+  "size": 24,
+  "measured": 261.4
+ },
+ {
+  "text": "Mole ratios",
+  "size": 34,
+  "measured": 187.4
+ },
+ {
+  "text": "2 H₂ + O₂ → 2 H₂O",
+  "size": 30,
+  "measured": 274.1
+ },
+ {
+  "text": "moles:   2   :   1   :   2",
+  "size": 22,
+  "measured": 235.1
+ },
+ {
+  "text": "How much O₂ for 4 mol of H₂?",
+  "size": 24,
+  "measured": 357.8
+ },
+ {
+  "text": "double everything",
+  "size": 22,
+  "measured": 200.7
+ },
+ {
+  "text": "→ 2 mol O₂, 4 mol H₂O",
+  "size": 22,
+  "measured": 246.2
+ },
+ {
+  "text": "❌ 1 mol = 1 gram",
+  "size": 26,
+  "measured": 228.7
+ },
+ {
+  "text": "carbon",
+  "size": 22,
+  "measured": 76.0
+ },
+ {
+  "text": "1 mol of C = 12 g",
+  "size": 22,
+  "measured": 193.9
+ },
+ {
+  "text": "1 mol of H₂O = 18 g",
+  "size": 22,
+  "measured": 221.2
+ },
+ {
+  "text": "Same number of particles. Different mass.",
+  "size": 24,
+  "measured": 509.6
+ },
+ {
+  "text": "One loop: a simple circuit",
+  "size": 34,
+  "measured": 434.0
+ },
+ {
+  "text": "+",
+  "size": 24,
+  "measured": 20.1
+ },
+ {
+  "text": "battery",
+  "size": 22,
+  "measured": 80.3
+ },
+ {
+  "text": "bulb",
+  "size": 24,
+  "measured": 52.3
+ },
+ {
+  "text": "A",
+  "size": 28,
+  "measured": 19.2
+ },
+ {
+  "text": "ammeter",
+  "size": 22,
+  "measured": 101.1
+ },
+ {
+  "text": "Which way does current flow?",
+  "size": 34,
+  "measured": 508.6
+ },
+ {
+  "text": "Series or parallel?",
+  "size": 34,
+  "measured": 305.5
+ },
+ {
+  "text": "series",
+  "size": 26,
+  "measured": 77.0
+ },
+ {
+  "text": "parallel",
+  "size": 26,
+  "measured": 96.7
+ },
+ {
+  "text": "one path",
+  "size": 20,
+  "measured": 89.0
+ },
+ {
+  "text": "each bulb its own path",
+  "size": 20,
+  "measured": 227.8
+ },
+ {
+  "text": "Ohm's law: V = IR",
+  "size": 34,
+  "measured": 304.8
+ },
+ {
+  "text": "6 V",
+  "size": 22,
+  "measured": 36.0
+ },
+ {
+  "text": "4 Ω",
+  "size": 22,
+  "measured": 37.8
+ },
+ {
+  "text": "1.5 A",
+  "size": 20,
+  "measured": 51.8
+ },
+ {
+  "text": "12 V",
+  "size": 22,
+  "measured": 50.0
+ },
+ {
+  "text": "3 A",
+  "size": 20,
+  "measured": 32.8
+ },
+ {
+  "text": "12 V",
+  "size": 20,
+  "measured": 45.5
+ },
+ {
+  "text": "4 Ω",
+  "size": 20,
+  "measured": 34.4
+ },
+ {
+  "text": "Current is not 'used up'",
+  "size": 34,
+  "measured": 397.4
+ },
+ {
+  "text": "I_1 = 0.5\\,A",
+  "size": 32,
+  "measured": 186.7
+ },
+ {
+  "text": "I_2 = 0.5\\,A",
+  "size": 32,
+  "measured": 186.7
+ },
+ {
+  "text": "I_3 = 0.5\\,A",
+  "size": 32,
+  "measured": 186.7
+ },
+ {
+  "text": "Electricity in one minute",
+  "size": 34,
+  "measured": 415.5
+ },
+ {
+  "text": "+",
+  "size": 20,
+  "measured": 16.8
+ },
+ {
+  "text": "A",
+  "size": 24,
+  "measured": 16.4
+ },
+ {
+  "text": "0.5 A",
+  "size": 18,
+  "measured": 46.7
+ },
+ {
+  "text": "Sun",
+  "size": 26,
+  "measured": 49.5
+ },
+ {
+  "text": "leaf",
+  "size": 30,
+  "measured": 55.7
+ },
+ {
+  "text": "light energy",
+  "size": 26,
+  "measured": 156.5
+ },
+ {
+  "text": "carbon dioxide",
+  "size": 26,
+  "measured": 192.0
+ },
+ {
+  "text": "water",
+  "size": 26,
+  "measured": 74.1
+ },
+ {
+  "text": "oxygen",
+  "size": 26,
+  "measured": 94.9
+ },
+ {
+  "text": "glucose",
+  "size": 26,
+  "measured": 100.0
+ },
+ {
+  "text": "carbon dioxide + water → glucose + oxygen",
+  "size": 26,
+  "measured": 575.8
+ },
+ {
+  "text": "producers: make food for almost all life",
+  "size": 30,
+  "measured": 589.7
+ },
+ {
+  "text": "water",
+  "size": 24,
+  "measured": 68.4
+ },
+ {
+  "text": "oxygen",
+  "size": 24,
+  "measured": 87.6
+ },
+ {
+  "text": "myth: oxygen comes from carbon dioxide",
+  "size": 24,
+  "measured": 500.0
+ },
+ {
+  "text": "oxygen comes from water",
+  "size": 24,
+  "measured": 313.2
+ }
+]
