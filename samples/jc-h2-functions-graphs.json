@@ -872,7 +872,7 @@
           "target": "labLeft",
           "to": {
             "x": 140,
-            "y": 220
+            "y": 210
           },
           "dur_ms": 800
         },
@@ -1665,7 +1665,7 @@
             "id": "rootChk",
             "kind": "text",
             "x": 120,
-            "y": 480,
+            "y": 506,
             "text": "root check: f(x+3) = 0 at x = −3, left of the original",
             "size": 24
           }
