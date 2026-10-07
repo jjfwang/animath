@@ -168,7 +168,7 @@
             "id": "primaryL",
             "kind": "text",
             "x": 300,
-            "y": 372,
+            "y": 378,
             "text": "primary consumer",
             "size": 18
           }
@@ -266,7 +266,7 @@
             "id": "secondaryL",
             "kind": "text",
             "x": 548,
-            "y": 372,
+            "y": 378,
             "text": "secondary consumer",
             "size": 18
           }
@@ -409,7 +409,7 @@
             "id": "L1L",
             "kind": "text",
             "x": 430,
-            "y": 450,
+            "y": 444,
             "text": "producers",
             "size": 24
           }
@@ -1466,7 +1466,7 @@
             "id": "sunL",
             "kind": "text",
             "x": 100,
-            "y": 232,
+            "y": 238,
             "text": "sunlight",
             "size": 18
           }
