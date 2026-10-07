@@ -246,3 +246,34 @@ test('buildPrompts keeps the primary facet when no facet is passed', () => {
   assert.ok(p.system.indexOf('Digestion finishes in the stomach') !== -1,
     'system prompt must keep the digestion wrongTurn for bare bio-nutrition lookups');
 });
+
+test('faceted entry: h2-organic bare lookup keeps the arrow-direction facet (pre-facet behavior)', () => {
+  const entry = MISCONCEPTIONS['h2-organic'];
+  assert.strictEqual(entry.primary, 'arrow-direction', 'h2-organic primary facet must be arrow-direction');
+  assert.strictEqual(Prompt.misconceptionFor('h2-organic'), entry.facets['arrow-direction']);
+  assert.strictEqual(Prompt.misconceptionFor('h2-organic', null), entry.facets['arrow-direction']);
+});
+
+test('faceted entry: h2-organic atom-motion facet is grounded in the s7 beat', () => {
+  const facet = MISCONCEPTIONS['h2-organic'].facets['atom-motion'];
+  assert.ok(facet.wrongTurn.indexOf('atom sliding along it') !== -1,
+    'atom-motion wrongTurn must name the atom-sliding slip');
+  assert.ok(facet.why.indexOf('never moves atoms') !== -1,
+    'atom-motion why must carry the s7 narration wording');
+  assert.ok(facet.correctTurn.indexOf('one pair of electrons') !== -1,
+    'atom-motion correctTurn must carry the electron-pair tracking fix');
+});
+
+test('faceted entry: h2-organic facet hint returns atom-motion, unknown hint falls back to primary', () => {
+  const entry = MISCONCEPTIONS['h2-organic'];
+  assert.strictEqual(Prompt.misconceptionFor('h2-organic', 'atom-motion'), entry.facets['atom-motion']);
+  assert.strictEqual(Prompt.misconceptionFor('h2-organic', 'nope'), entry.facets['arrow-direction']);
+});
+
+test('buildPrompts injects the atom-motion facet when a facet is passed', () => {
+  const p = Prompt.buildPrompts({ level: 'jc', subject: 'science', topic: 'h2-organic', facet: 'atom-motion', kind: 'concept' });
+  assert.ok(p.system.indexOf('atom sliding along it') !== -1,
+    'system prompt must carry the atom-motion wrongTurn when the atom-motion facet is requested');
+  assert.ok(p.system.indexOf('electron-poor atom toward the electron-rich') === -1,
+    'system prompt must not contain the arrow-direction wrongTurn when the atom-motion facet is requested');
+});

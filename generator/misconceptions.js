@@ -20,10 +20,10 @@
  * h2-probability, h2-statistics, h2-mechanics, h2-em, h2-thermal,
  * h2-quantum, h2-physical, h2-inorganic, h2-organic, h2-cell-bio,
  * h2-genetics, h2-energetics, h2-ecology), grounded in the matching
- * misconception scenes in samples/jc-h2-*.json. jc-h2-organic.json carries
- * no misconception beat, so its entry uses the canonical H2 organic
- * misconception (curly arrows drawn against the electron flow),
- * cross-checked against the sample's mechanism scenes.
+ * misconception scenes in samples/jc-h2-*.json. The h2-organic entry is
+ * faceted (issue #371): its primary arrow-direction facet carries the
+ * canonical H2 organic misconception, and the atom-motion facet is grounded
+ * in the jc-h2-organic.json s7 misconception beat (in place since #166).
  *
  * Prefix note (slices 3-5): no key in the map is a prefix of another key,
  * so the longest-prefix ordering inside misconceptionFor() cannot be
@@ -408,9 +408,24 @@
       correctTurn: 'Zinc(II) has a full 3d subshell: no partially filled d orbitals, so zinc is not a transition metal.'
     },
     'h2-organic': {
-      wrongTurn: 'Curly arrows point from the electron-poor atom toward the electron-rich one.',
-      why: 'The arrow is read like a direction pointer instead of tracking the electrons themselves.',
-      correctTurn: 'Curly arrows follow the electrons: they start at an electron-rich region (a lone pair or pi bond) and point to where the electrons go.'
+      // Faceted entry (issue #371, decided option A of #360): the h2-organic
+      // topic spans the arrow-direction facet (primary, so bare-topic lookups
+      // keep pre-facet behavior) and an atom-motion facet grounded in the
+      // jc-h2-organic.json s7 misconception beat (reading the curly arrow as
+      // an atom sliding along it).
+      primary: 'arrow-direction',
+      facets: {
+        'arrow-direction': {
+          wrongTurn: 'Curly arrows point from the electron-poor atom toward the electron-rich one.',
+          why: 'The arrow is read like a direction pointer instead of tracking the electrons themselves.',
+          correctTurn: 'Curly arrows follow the electrons: they start at an electron-rich region (a lone pair or pi bond) and point to where the electrons go.'
+        },
+        'atom-motion': {
+          wrongTurn: 'Reading the curly arrow as an atom sliding along it.',
+          why: 'The arrow never moves atoms: it reads as a path of motion rather than tracking the electrons themselves.',
+          correctTurn: 'It tracks one pair of electrons from where the pair starts to where the pair ends up.'
+        }
+      }
     },
     'h2-cell-bio': {
       wrongTurn: 'Plant cells have no mitochondria.',
