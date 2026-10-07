@@ -51,7 +51,7 @@
             "kind": "text",
             "size": 30,
             "text": "Seed",
-            "x": 168,
+            "x": 240,
             "y": 435
           }
         },
@@ -667,7 +667,7 @@
             "kind": "text",
             "size": 26,
             "text": "Time passes",
-            "x": 480,
+            "x": 420,
             "y": 140
           }
         },
@@ -751,7 +751,7 @@
             "size": 28,
             "text": "Adult butterfly",
             "x": 660,
-            "y": 370
+            "y": 400
           }
         },
         {
