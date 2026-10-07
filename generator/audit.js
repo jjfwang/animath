@@ -3,9 +3,25 @@
  *
  * Runs the static geometry audit (auditGeometry) and the time-sampled audit
  * (auditGeometrySampled) from generator/geometry.js over sample files and
- * reports findings with their time bands. Exit-code contract (CI-able):
- *   0 — no findings
- *   1 — one or more findings
+ * reports findings with their time bands.
+ *
+ * CLASSIFICATION (issue #382): every time-banded overlap finding is passed
+ * through classifyFindings (generator/geometry.js), which marks it
+ * intentional-motion iff its band touches a move-step flight interval of
+ * either involved shape AND both shapes' rest positions are clear (the
+ * audit's own band check re-run at rest — same tolerance, same centered-on
+ * and point-anchor exemptions); everything else is genuine. Intentional
+ * findings get their own report section (with the covering flight
+ * interval) and do NOT affect the exit code. KNOWN LIMITATION (run-274
+ * lesson): bands are 100ms samples, so a sub-100ms graze between samples
+ * is invisible to the audit and the classifier alike; flight intervals
+ * come from the spec's own move steps — scripted motion only. Static
+ * findings carry no band and are always genuine here; the staging-pair
+ * class is a separate follow-up.
+ *
+ * Exit-code contract (CI-able):
+ *   0 — no genuine findings
+ *   1 — one or more genuine findings
  *   2 — usage error or unreadable file
  *
  * Usage:
@@ -85,19 +101,29 @@ function manifestFiles(dir) {
   }
 }
 
-// findings for one file: static + sampled, each in record shape
+// findings for one file: static + sampled, each in record shape.
+// The parsed spec is threaded through so run() can classify findings.
 function auditFile(file) {
   var read = readJson(file);
-  if (read.error) return { file: file, findings: [], error: read.error };
+  if (read.error) return { file: file, spec: null, findings: [], error: read.error };
   var label = path.basename(file);
   var findings = [];
   Array.prototype.push.apply(findings, audits.auditGeometry(read.spec, label));
   Array.prototype.push.apply(findings, audits.auditGeometrySampled(read.spec, label));
-  return { file: file, findings: findings, error: null };
+  return { file: file, spec: read.spec, findings: findings, error: null };
 }
 
 function formatFinding(f) {
   return f.file + ' ' + f.scene + ' ' + f.kind + ' ' + f.detail;
+}
+
+function formatClassified(c) {
+  var line = formatFinding(c.finding);
+  if (c.verdict === 'intentional-motion' && c.flight) {
+    line += '  flight ' + c.flight.id +
+      ' [' + c.flight.startMs + '-' + c.flight.endMs + 'ms]';
+  }
+  return line;
 }
 
 // -> { output, code, findingCount }
@@ -111,18 +137,29 @@ function run(opts) {
     // resolve relative file args against --dir
     files = files.map(function (f) { return path.join(opts.dir, f); });
   }
-  var lines = [];
-  var count = 0;
+  var genuineLines = [];
+  var motionLines = [];
   for (var i = 0; i < files.length; i++) {
     var r = auditFile(files[i]);
     if (r.error) return { output: r.error, code: 2, findingCount: 0 };
-    r.findings.forEach(function (f) {
-      lines.push(formatFinding(f));
-      count++;
+    audits.classifyFindings(r.spec, r.findings).forEach(function (c) {
+      if (c.verdict === 'intentional-motion') {
+        motionLines.push(formatClassified(c));
+      } else {
+        genuineLines.push(formatFinding(c.finding));
+      }
     });
   }
-  if (count === 0) return { output: 'clean: ' + files.length + ' file(s), no findings', code: 0, findingCount: 0 };
-  return { output: lines.join('\n') + '\n' + count + ' finding(s)', code: 1, findingCount: count };
+  var genuine = genuineLines.length;
+  var motion = motionLines.length;
+  var total = genuine + motion;
+  if (total === 0) return { output: 'clean: ' + files.length + ' file(s), no findings', code: 0, findingCount: 0 };
+  var sections = [];
+  if (genuine > 0) sections.push('genuine findings:\n' + genuineLines.join('\n'));
+  if (motion > 0) sections.push('intentional-motion findings:\n' + motionLines.join('\n'));
+  sections.push(total + ' finding(s): ' + motion + ' intentional-motion, ' +
+    genuine + ' genuine');
+  return { output: sections.join('\n'), code: genuine > 0 ? 1 : 0, findingCount: total };
 }
 
 function main(argv) {

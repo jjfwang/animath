@@ -8,7 +8,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const { auditGeometry, auditGeometrySampled, auditSampleFile, auditAllSamples, estimateTextWidth } = require('../generator/geometry.js');
+const { auditGeometry, auditGeometrySampled, classifyFindings, auditSampleFile, auditAllSamples, estimateTextWidth } = require('../generator/geometry.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
 
@@ -751,4 +751,195 @@ test('width model: astral-plane glyphs count as one glyph (surrogate pairs)', ()
   assert.equal(estimateTextWidth('𝟘', 20), 12);
   // a lone high surrogate degrades to the fallback and never throws
   assert.ok(estimateTextWidth('a\ud83d', 20) > estimateTextWidth('a', 20));
+});
+
+/* ---- classifyFindings: motion-band classification (issue #382) ---- */
+
+function classifySpec(steps, durMs) {
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{ id: 's1', duration_ms: durMs, steps: steps }]
+  };
+}
+function fallingBallSpec() {
+  return classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 }, 0),
+    moveStep('ball', { cy: 500 }, 0, 1000)
+  ], 1000);
+}
+function crafted(kind, scene, band, ids, detail) {
+  return {
+    file: 'x.json', scene: scene, kind: kind,
+    detail: detail + ' [' + band.start + '-' + band.last + 'ms]',
+    band: { start: band.start, last: band.last }, ids: ids
+  };
+}
+
+test('classify: overlap fully inside a move flight is intentional-motion', () => {
+  const spec = fallingBallSpec();
+  const findings = auditGeometrySampled(spec, 'fall.json');
+  assert.equal(findings.length, 1);
+  const cl = classifyFindings(spec, findings);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+  assert.deepEqual(cl[0].flight, { id: 'ball', startMs: 0, endMs: 1000 });
+  // the structured band/ids ride on the finding record
+  assert.deepEqual(cl[0].finding.band, { start: 400, last: 500 });
+  assert.deepEqual(cl[0].finding.ids, ['lbl', 'ball']);
+});
+
+test('classify: overlap at rest (no flight) stays genuine', () => {
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0)
+  ], 1000);
+  const findings = auditGeometrySampled(spec, 'rest.json');
+  assert.equal(findings.length, 1);
+  const cl = classifyFindings(spec, findings);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].flight, null);
+});
+
+test('classify: overlap starting in flight but persisting at rest stays genuine', () => {
+  // latex label (covers the latex rest-state branch); the ball drops onto
+  // it and parks overlapping -> rest positions not clear -> genuine
+  const spec = classifySpec([
+    show({ id: 'm1', kind: 'latex', x: 100, y: 276, tex: 'x^2' }, 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 }, 0),
+    moveStep('ball', { cy: 320 }, 0, 1000)
+  ], 1000);
+  const f = crafted('text-shape-overlap', 's1', { start: 700, last: 1000 },
+    ['m1', 'ball'], 'm1 collides with ball');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].flight, null);
+});
+
+test('classify: a third uninvolved shape\'s flight does not mask a genuine overlap', () => {
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0),
+    show({ id: 'flyer', kind: 'circle', cx: 700, cy: 100, r: 20 }, 0),
+    moveStep('flyer', { cx: 800 }, 0, 500)
+  ], 1000);
+  const findings = auditGeometrySampled(spec, 'third.json')
+    .filter(f => f.kind === 'text-shape-overlap');
+  assert.equal(findings.length, 1);
+  const cl = classifyFindings(spec, findings);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].flight, null);
+});
+
+test('classify: text-vs-text overlap in flight is intentional-motion', () => {
+  const spec = classifySpec([
+    show({ id: 't1', kind: 'text', x: 100, y: 100, text: 'hello', size: 24 }, 0),
+    show({ id: 't2', kind: 'text', x: 400, y: 100, text: 'hello', size: 24 }, 0),
+    moveStep('t2', { x: 10 }, 0, 1000)
+  ], 1000);
+  const f = crafted('overlap', 's1', { start: 500, last: 600 },
+    ['t1', 't2'], 't1 overlaps t2');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+  assert.deepEqual(cl[0].flight, { id: 't2', startMs: 0, endMs: 1000 });
+});
+
+test('classify: label landing centered on its chip reads clear at rest', () => {
+  const spec = classifySpec([
+    show({ id: 'lbl', kind: 'text', x: 100, y: 100, text: 'hi', size: 24 }, 0),
+    show({ id: 'chip', kind: 'rect', x: 500, y: 80, w: 120, h: 60 }, 0),
+    moveStep('lbl', { x: 530, y: 115 }, 0, 1000)
+  ], 1000);
+  const f = crafted('text-shape-overlap', 's1', { start: 800, last: 900 },
+    ['lbl', 'chip'], 'lbl collides with chip');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+});
+
+test('classify: point-anchor shape at rest reads clear', () => {
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'dot', kind: 'circle', cx: 100, cy: 100, r: 5 }, 0),
+    moveStep('dot', { cy: 500 }, 0, 1000)
+  ], 1000);
+  const f = crafted('text-shape-overlap', 's1', { start: 400, last: 500 },
+    ['lbl', 'dot'], 'lbl collides with dot');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+});
+
+test('classify: shape hidden after its flight reads clear at rest', () => {
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 }, 0),
+    moveStep('ball', { cy: 400 }, 0, 500),
+    hideStep('ball', 600)
+  ], 1000);
+  const f = crafted('text-shape-overlap', 's1', { start: 300, last: 400 },
+    ['lbl', 'ball'], 'lbl collides with ball');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+});
+
+test('classify: band meeting the flight start (entrance park) is intentional-motion', () => {
+  // the #373 striker pattern: parked overlapping, then the flight starts
+  // exactly at the band's end
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0),
+    moveStep('ball', { cy: 100 }, 300, 700)
+  ], 1000);
+  const f = crafted('text-shape-overlap', 's1', { start: 0, last: 300 },
+    ['lbl', 'ball'], 'lbl collides with ball');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+  assert.deepEqual(cl[0].flight, { id: 'ball', startMs: 300, endMs: 1000 });
+});
+
+test('classify: junk inputs never throw and read genuine', () => {
+  const spec = classifySpec([show(labelAt(100, 100), 0)], 100);
+  assert.deepEqual(classifyFindings(null, null), []);
+  assert.deepEqual(classifyFindings(spec, null), []);
+  assert.deepEqual(classifyFindings(spec, 'nope'), []);
+  const junk = [
+    null,
+    { kind: 'overlap' },
+    { kind: 'text-shape-overlap', scene: 's1', band: { start: 0, last: 100 }, ids: ['lbl'] },
+    { kind: 'text-shape-overlap', scene: 'nope', band: { start: 0, last: 100 }, ids: ['lbl', 'ball'] },
+    { kind: 'text-shape-overlap', scene: 's1', band: { start: 0, last: 100 }, ids: ['ghost', 'lbl'] },
+    { kind: 'overflow', scene: 's1', band: { start: 0, last: 100 }, ids: ['lbl', 'ball'] }
+  ];
+  const out = classifyFindings(spec, junk);
+  assert.equal(out.length, junk.length);
+  out.forEach(c => {
+    assert.equal(c.verdict, 'genuine');
+    assert.equal(c.flight, null);
+  });
+});
+
+test('classify: unknown participant id with a touching flight reads clear', () => {
+  const spec = fallingBallSpec();
+  const f = crafted('text-shape-overlap', 's1', { start: 400, last: 500 },
+    ['ghost', 'ball'], 'ghost collides with ball');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+});
+
+test('classify: scene without duration_ms still resolves rest past the last flight', () => {
+  const spec = {
+    canvas: { width: 960, height: 540 },
+    scenes: [{
+      id: 's1', steps: [
+        show(labelAt(100, 300), 0),
+        show({ id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 }, 0),
+        moveStep('ball', { cy: 500 }, 0, 1000)
+      ]
+    }]
+  };
+  const f = crafted('text-shape-overlap', 's1', { start: 400, last: 500 },
+    ['lbl', 'ball'], 'lbl collides with ball');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl[0].verdict, 'intentional-motion');
 });
