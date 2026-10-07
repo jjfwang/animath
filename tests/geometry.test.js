@@ -8,7 +8,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const { auditGeometry, auditSampleFile, auditAllSamples } = require('../generator/geometry.js');
+const { auditGeometry, auditGeometrySampled, auditSampleFile, auditAllSamples } = require('../generator/geometry.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
 
@@ -465,3 +465,238 @@ test('text-shape-overlap: moved shapes keep the show-time-position limitation', 
   ]));
   assert.deepEqual(f, []);
 });
+
+/* ---- auditGeometrySampled: time-sampled geometry audit (issue #363) ---- */
+
+function sampledSpec(steps, durMs) {
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{ id: 's1', duration_ms: durMs, steps: steps }]
+  };
+}
+function moveStep(target, to, atMs, durMs) {
+  return { at_ms: atMs, do: 'move', target: target, to: to, dur_ms: durMs };
+}
+function hideStep(target, atMs) {
+  return { at_ms: atMs, do: 'hide', target: target };
+}
+// 'hello' at size 24, baseline y=300: box left 100, top 276, right 172, bottom 304.8
+function labelAt(x, y) {
+  return { id: 'lbl', kind: 'text', x: x, y: y, text: 'hello', size: 24 };
+}
+
+test('sampled: run-274 case — falling shape crosses a label mid-flight', () => {
+  const spec = sampledSpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 }, 0),
+    moveStep('ball', { cy: 500 }, 0, 1000)
+  ], 1000);
+  // static audit sees only the clean endpoints
+  assert.deepEqual(auditGeometry(spec), []);
+  const f = auditGeometrySampled(spec, 'fall.json');
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'text-shape-overlap');
+  assert.equal(f[0].file, 'fall.json');
+  assert.equal(f[0].scene, 's1');
+  assert.match(f[0].detail, /lbl collides with ball \[400-500ms\]/);
+  wellFormed(f);
+});
+
+test('sampled: statically clean scene stays clean', () => {
+  const spec = sampledSpec([
+    show(labelAt(100, 100), 0),
+    show({ id: 'c', kind: 'circle', cx: 700, cy: 400, r: 30 }, 0),
+    moveStep('c', { cx: 800 }, 0, 500)
+  ], 1000);
+  assert.deepEqual(auditGeometry(spec), []);
+  assert.deepEqual(auditGeometrySampled(spec, 'clean.json'), []);
+});
+
+test('sampled: hide during the crossing window suppresses the finding', () => {
+  const ball = { id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 };
+  const spec = sampledSpec([
+    show(labelAt(100, 300), 0),
+    show(ball, 0),
+    moveStep('ball', { cy: 500 }, 0, 1000),
+    hideStep('ball', 300),
+    show(ball, 700)
+  ], 1000);
+  assert.deepEqual(auditGeometrySampled(spec, 'hide.json'), []);
+});
+
+test('sampled: sequential moves compose from the current spot', () => {
+  // label sits where only the composed path reaches: move 2 must start from
+  // move 1's end (cy 200), not from the original cy 100
+  const spec = sampledSpec([
+    show({ id: 'lbl', kind: 'text', x: 200, y: 330, text: 'xx', size: 24 }, 0),
+    show({ id: 'ball', kind: 'circle', cx: 200, cy: 100, r: 15 }, 0),
+    moveStep('ball', { cy: 200 }, 0, 400),
+    moveStep('ball', { cy: 400 }, 400, 400)
+  ], 800);
+  const f = auditGeometrySampled(spec, 'compose.json');
+  assert.equal(f.length, 1);
+  assert.match(f[0].detail, /lbl collides with ball \[600ms\]/);
+});
+
+test('sampled: single-sample overlap uses the [Tms] band form', () => {
+  const spec = sampledSpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'b2', kind: 'circle', cx: 160, cy: 290, r: 20 }, 500),
+    hideStep('b2', 600)
+  ], 1000);
+  const f = auditGeometrySampled(spec, 'single.json');
+  assert.equal(f.length, 1);
+  assert.match(f[0].detail, /lbl collides with b2 \[500ms\]/);
+});
+
+test('sampled: missing duration_ms falls back to the last step time', () => {
+  const steps = [
+    show(labelAt(100, 300), 0),
+    show({ id: 'ball', kind: 'circle', cx: 160, cy: 100, r: 20 }, 0),
+    moveStep('ball', { cy: 500 }, 0, 1000),
+    show({ id: 'far', kind: 'circle', cx: 900, cy: 500, r: 5 }, 900)
+  ];
+  const spec = { canvas: { width: 960, height: 540 }, scenes: [{ id: 's1', steps: steps }] };
+  const f = auditGeometrySampled(spec, 'nodur.json');
+  assert.equal(f.length, 1);
+  assert.match(f[0].detail, /\[400-500ms\]/);
+});
+
+test('sampled: text-vs-text overlap follows the same sampling', () => {
+  const spec = sampledSpec([
+    show({ id: 'a', kind: 'text', x: 100, y: 100, text: 'hello', size: 24 }, 0),
+    show({ id: 'b', kind: 'text', x: 120, y: 100, text: 'hello', size: 24 }, 0),
+    hideStep('b', 300)
+  ], 1000);
+  const f = auditGeometrySampled(spec, 'tt.json');
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'overlap');
+  assert.match(f[0].detail, /a overlaps b \[0-200ms\]/);
+});
+
+test('sampled: latex labels participate in the text-vs-shape band', () => {
+  const spec = sampledSpec([
+    show({ id: 'm2', kind: 'latex', x: 100, y: 100, tex: '\\frac{1}{2}' }, 0),
+    show({ id: 'r1', kind: 'rect', x: 126, y: 80, w: 60, h: 40 }, 0)
+  ], 1000);
+  const f = auditGeometrySampled(spec, 'latex.json');
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'text-shape-overlap');
+  assert.match(f[0].detail, /\[0-1000ms\]/);
+  // latex anchor off-canvas: overflow band
+  const off = sampledSpec([
+    show({ id: 'm9', kind: 'latex', x: -10, y: 100, tex: 'x' }, 0),
+    hideStep('m9', 200)
+  ], 1000);
+  const g = auditGeometrySampled(off, 'latexo.json');
+  assert.equal(g.length, 1);
+  assert.equal(g[0].kind, 'overflow');
+  assert.match(g[0].detail, /\[0-100ms\]/);
+});
+
+test('sampled: point-anchor and centered-on exemptions hold while moving', () => {
+  // r=8 probe dot sliding across the label: exempt as a point anchor
+  const dotSpec = sampledSpec([
+    show(labelAt(100, 100), 0),
+    show({ id: 'dot', kind: 'circle', cx: 40, cy: 100, r: 8 }, 0),
+    moveStep('dot', { cx: 240 }, 0, 500)
+  ], 1000);
+  assert.deepEqual(auditGeometrySampled(dotSpec, 'dot.json'), []);
+  // label centered on a rect sliding underneath: exempt as centered-on
+  const centerSpec = sampledSpec([
+    show({ id: 'lbl', kind: 'text', x: 100, y: 100, text: 'hi', size: 24 }, 0),
+    show({ id: 'r1', kind: 'rect', x: 40, y: 70, w: 120, h: 60 }, 0),
+    moveStep('r1', { x: 200 }, 0, 500)
+  ], 1000);
+  assert.deepEqual(auditGeometrySampled(centerSpec, 'center.json'), []);
+});
+
+test('sampled: overflow is reported as a time band', () => {
+  const spec = sampledSpec([
+    show({ id: 't', kind: 'text', x: -50, y: 100, text: 'hello', size: 24 }, 0),
+    hideStep('t', 200)
+  ], 1000);
+  const f = auditGeometrySampled(spec, 'over.json');
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'overflow');
+  assert.match(f[0].detail, /\[0-100ms\]/);
+});
+
+test('sampled: polygon points interpolate pointwise', () => {
+  const poly = { id: 'p1', kind: 'polygon', points: [[10, 10], [60, 10], [35, 60]] };
+  const spec = sampledSpec([
+    show({ id: 'lbl', kind: 'text', x: 455, y: 40, text: 'xx', size: 24 }, 0),
+    show(poly, 0),
+    moveStep('p1', { points: [[410, 10], [460, 10], [435, 60]] }, 0, 500)
+  ], 1000);
+  const f = auditGeometrySampled(spec, 'poly.json');
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'text-shape-overlap');
+  assert.match(f[0].detail, /\[500-1000ms\]/); // rests on the label after arrival
+  // mismatched point counts: guarded, no throw, no finding
+  const bad = sampledSpec([
+    show(poly, 0),
+    moveStep('p1', { points: [[1, 1]] }, 0, 500)
+  ], 1000);
+  assert.deepEqual(auditGeometrySampled(bad, 'badpoly.json'), []);
+});
+
+test('sampled: malformed input never throws', () => {
+  assert.deepEqual(auditGeometrySampled(null), []);
+  assert.deepEqual(auditGeometrySampled({}), []);
+  assert.deepEqual(auditGeometrySampled({ scenes: null }), []);
+  assert.deepEqual(auditGeometrySampled({ scenes: [{ id: 's' }] }), []);
+  const junk = sampledSpec([
+    null, 42, 'x',
+    { do: 'move' },
+    { do: 'show' },
+    { do: 'show', shape: null },
+    { do: 'show', shape: { kind: 'text' } },
+    { do: 'hide', target: '' },
+    { do: 'hide', target: 42 },
+    { at_ms: 0, do: 'move', target: 'ghost', to: null },
+    { at_ms: 0, do: 'move', target: 'ghost', to: { cy: 10 }, dur_ms: 100 }
+  ], 500);
+  assert.deepEqual(auditGeometrySampled(junk, 'junk.json'), []);
+  // shown shape, then a move with junk fields and a negative duration:
+  // non-numeric targets are skipped, negative dur is instant, no throw
+  const weird = sampledSpec([
+    show({ id: 'c', kind: 'circle', cx: 700, cy: 400, r: 20 }, 0),
+    moveStep('c', { cy: 'far', cx: 750 }, 0, -5)
+  ], 500);
+  assert.deepEqual(auditGeometrySampled(weird, 'weird.json'), []);
+  // unlisted kind (sector) has no move fields: keeps show-time geometry
+  const sector = sampledSpec([
+    show(labelAt(100, 100), 0),
+    show({ id: 's1', kind: 'sector', cx: 700, cy: 400, r: 40 }, 0),
+    moveStep('s1', { cx: 120 }, 0, 500)
+  ], 500);
+  assert.deepEqual(auditGeometrySampled(sector, 'sector.json'), []);
+});
+
+test('sampled: findings on shipped samples are well-formed and real', () => {
+  // Hand-verified true positive (issue #363 acceptance): uB3 slides left
+  // across labB in primary-math-model-method s1; the static audit misses it.
+  // Bands computed by hand: [4500-4600ms] and [4900-5000ms], with the
+  // centered-on exemption correctly suppressing the middle samples.
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, 'primary-math-model-method.json'), 'utf8'));
+  assert.deepEqual(auditGeometry(spec), []);
+  const f = auditGeometrySampled(spec, 'primary-math-model-method.json');
+  const bands = f.filter(r => /labB collides with uB3/.test(r.detail)).map(r => r.detail.match(/\[[^\]]+\]/)[0]);
+  assert.deepEqual(bands, ['[4500-4600ms]', '[4900-5000ms]']);
+  // every sampled finding on every shipped sample is a well-formed record
+  // with a known kind — no invented findings
+  for (const name of fs.readdirSync(samplesDir).filter(n => n.endsWith('.json') && n !== 'index.json')) {
+    const s = JSON.parse(fs.readFileSync(path.join(samplesDir, name), 'utf8'));
+    wellFormedSampled(auditGeometrySampled(s, name));
+  }
+});
+function wellFormedSampled(records) {
+  for (const r of records) {
+    assert.equal(typeof r.file, 'string', 'record.file is a string');
+    assert.equal(typeof r.scene, 'string', 'record.scene is a string');
+    assert.ok(r.kind === 'overflow' || r.kind === 'overlap' || r.kind === 'text-shape-overlap', 'record.kind valid');
+    assert.equal(typeof r.detail, 'string', 'record.detail is a string');
+    assert.match(r.detail, /\[\d+(-\d+)?ms\]$/, 'record.detail carries a time band');
+  }
+}

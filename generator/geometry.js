@@ -10,13 +10,18 @@
  * = clean. Never throws on invalid input: null specs, empty scenes, missing
  * size/text all return [] (or skip the shape).
  *
- * KNOWN LIMITATION (per issue #117 acceptance 3): shapes moved by later
- * `move` steps are audited at their show-time position. SPEC.md v0 `move`
- * verbs interpolate a shape from its current position over dur_ms, so a
- * static audit cannot know the rest position without simulating the scene
- * timeline; like generator/rubric.js, this module collects shapes at their
- * `show` steps only. A shape moved off-canvas mid-scene is therefore not
+ * KNOWN LIMITATION (per issue #117 acceptance 3): auditGeometry is a
+ * static snapshot — shapes moved by later `move` steps are audited at
+ * their show-time position. SPEC.md v0 `move` verbs interpolate a shape
+ * from its current position over dur_ms, so a static audit cannot know
+ * the rest position without simulating the scene timeline; like
+ * generator/rubric.js, auditGeometry collects shapes at their `show`
+ * steps only. A shape moved off-canvas mid-scene is therefore not
  * flagged — a documented, conservative trade-off, not a bug.
+ * The time-sampled replacement is auditGeometrySampled (issue #363):
+ * reviewers no longer need the manual 100ms audit the run-274 lesson
+ * prescribed — the library function simulates the timeline itself.
+ * auditGeometry's contract is unchanged.
  *
  * WIDTH MODEL (font-metric-based, not char-count — run 87's lesson):
  * label width ≈ 0.6 × size × text.length (average glyph advance),
@@ -358,6 +363,275 @@
     return findings;
   }
 
+  // ---- time-sampled geometry audit (issue #363) ----
+  //
+  // auditGeometrySampled(spec[, fileName]) steps each scene timeline at
+  // SAMPLE_DT ms, interpolates `move` steps per SPEC.md v0 (each move runs
+  // from the shape's current spot over dur_ms; sequential and overlapping
+  // moves compose), respects show/hide sequencing, and re-runs the same
+  // three bands with the same two exemptions (centered-on, point anchors).
+  // Findings share the record shape { file, scene, kind, detail }; detail
+  // carries a time band ([300-700ms], or [300ms] for a single sample)
+  // instead of the static audit's px^2 intersection (the area varies along
+  // a path, so it cannot key a band). A finding seen at non-consecutive
+  // samples is reported once per contiguous band. Additive: auditGeometry
+  // above is untouched.
+  var SAMPLE_DT = 100; // ms — the manual run-274 audit's step, now canonical
+
+  // Position/size fields the player interpolates, per SPEC.md v0 move
+  // semantics (mirrors player/player.js POS_FIELDS).
+  var MOVE_FIELDS = {
+    text: ['x', 'y'],
+    latex: ['x', 'y'],
+    rect: ['x', 'y', 'w', 'h'],
+    circle: ['cx', 'cy', 'r'],
+    line: ['x1', 'y1', 'x2', 'y2'],
+    arrow: ['x1', 'y1', 'x2', 'y2'],
+    polygon: ['points']
+  };
+
+  function copyShape(s) {
+    var c = Object.assign({}, s);
+    if (Array.isArray(s.points)) c.points = s.points.slice();
+    return c;
+  }
+
+  function lerpNum(a, b, p) { return a + (b - a) * p; }
+
+  // Pointwise polygon interpolation, guarded like the player: malformed
+  // input returns undefined and the field is skipped, never throws.
+  function interpPointsSampled(fromPts, toPts, p) {
+    if (!Array.isArray(fromPts) || !Array.isArray(toPts) ||
+        fromPts.length !== toPts.length) return undefined;
+    var out = [];
+    for (var i = 0; i < toPts.length; i++) {
+      var a = fromPts[i], b = toPts[i];
+      if (!Array.isArray(a) || !Array.isArray(b) || a.length < 2 || b.length < 2 ||
+          typeof a[0] !== 'number' || typeof a[1] !== 'number' ||
+          typeof b[0] !== 'number' || typeof b[1] !== 'number' ||
+          !isFinite(a[0]) || !isFinite(a[1]) || !isFinite(b[0]) || !isFinite(b[1])) return undefined;
+      out.push([lerpNum(a[0], b[0], p), lerpNum(a[1], b[1], p)]);
+    }
+    return out;
+  }
+
+  // Shape with `to` applied at progress p (0 = from, 1 = to). Only
+  // numeric fields interpolate; anything else is skipped, never throws.
+  // `to` is collector-validated (an object); unlisted kinds (e.g. sector)
+  // have no MOVE_FIELDS entry and keep their show-time geometry.
+  function lerpShape(from, to, p) {
+    var out = copyShape(from);
+    var fields = MOVE_FIELDS[from.kind];
+    if (!fields) return out;
+    fields.forEach(function (f) {
+      var tv = to[f];
+      if (f === 'points') {
+        var pts = interpPointsSampled(from.points, tv, p);
+        if (pts !== undefined) out.points = pts;
+        return;
+      }
+      if (typeof tv !== 'number' || !isFinite(tv)) return;
+      out[f] = lerpNum(num(from[f], tv), tv, p);
+    });
+    return out;
+  }
+
+  // Interpolated state of one shown shape at time t. Moves run in
+  // (at_ms, step-order); each move starts from the shape's state at its
+  // own at_ms ("from its current spot", SPEC.md v0), so sequential and
+  // overlapping moves compose. dur_ms <= 0 means instant.
+  function stateAt(showShape, moves, t) {
+    var state = copyShape(showShape);
+    for (var i = 0; i < moves.length; i++) {
+      var m = moves[i];
+      if (t < m.atMs) break;
+      var start = stateAt(showShape, moves.slice(0, i), m.atMs);
+      var p = m.durMs > 0 ? Math.min(1, (t - m.atMs) / m.durMs) : 1;
+      state = lerpShape(start, m.to, p);
+    }
+    return state;
+  }
+
+  // Show/hide/move events per shape id, in collector order. Only steps
+  // with usable addressing land here: shows need an object shape with a
+  // non-empty string id, hide/move need a non-empty string target, moves
+  // need an object `to`. Never throws on junk steps.
+  function sceneEvents(steps) {
+    var byId = {};
+    steps.forEach(function (step, si) {
+      if (!isObj(step)) return;
+      var atMs = num(step.at_ms, 0);
+      var id;
+      if (step.do === 'show' && isObj(step.shape) &&
+          typeof step.shape.id === 'string' && step.shape.id.length > 0) {
+        id = step.shape.id;
+        (byId[id] = byId[id] || { shows: [], hides: [], moves: [] })
+          .shows.push({ atMs: atMs, order: si, shape: step.shape });
+      } else if (step.do === 'hide' &&
+          typeof step.target === 'string' && step.target.length > 0) {
+        id = step.target;
+        (byId[id] = byId[id] || { shows: [], hides: [], moves: [] })
+          .hides.push({ atMs: atMs, order: si });
+      } else if (step.do === 'move' &&
+          typeof step.target === 'string' && step.target.length > 0 &&
+          isObj(step.to)) {
+        id = step.target;
+        (byId[id] = byId[id] || { shows: [], hides: [], moves: [] })
+          .moves.push({ atMs: atMs, order: si, to: step.to,
+            // Mirror the player (player.js move case): dur_ms || 800, so a
+            // missing or zero dur_ms animates over 800ms, never instant.
+            durMs: num(step.dur_ms, 800) || 800 });
+      }
+    });
+    return byId;
+  }
+
+  // Interpolated, visibility-resolved shape for one id at time t, or null
+  // when nothing is on stage. The latest show at-or-before t (at_ms, then
+  // step order) is the base; a hide wins when it is later; only moves
+  // after that show participate.
+  function visibleState(rec, t) {
+    var show = null;
+    rec.shows.forEach(function (s) {
+      if (s.atMs <= t &&
+          (!show || s.atMs > show.atMs || (s.atMs === show.atMs && s.order > show.order))) show = s;
+    });
+    if (!show) return null;
+    var hidden = false;
+    rec.hides.forEach(function (h) {
+      if (h.atMs <= t &&
+          (h.atMs > show.atMs || (h.atMs === show.atMs && h.order > show.order))) hidden = true;
+    });
+    if (hidden) return null;
+    var moves = rec.moves.filter(function (m) {
+      return m.atMs > show.atMs || (m.atMs === show.atMs && m.order > show.order);
+    });
+    moves.sort(function (a, b) { return (a.atMs - b.atMs) || (a.order - b.order); });
+    return stateAt(show.shape, moves, t);
+  }
+
+  function bandOf(a, b) { return a === b ? '[' + a + 'ms]' : '[' + a + '-' + b + 'ms]'; }
+
+  function auditGeometrySampled(spec, fileName) {
+    var file = (typeof fileName === 'string' && fileName.length > 0) ? fileName : null;
+    var findings = [];
+    var canvas = canvasOf(spec);
+    var scenes = (spec && Array.isArray(spec.scenes)) ? spec.scenes : [];
+    scenes.forEach(function (scene, i) {
+      var label = sceneLabel(scene, i);
+      var steps = (scene && Array.isArray(scene.steps)) ? scene.steps : [];
+      var byId = sceneEvents(steps);
+      var ids = Object.keys(byId);
+      var end = num(scene && scene.duration_ms, 0);
+      if (!(end > 0)) {
+        end = 0;
+        steps.forEach(function (step) {
+          if (isObj(step)) end = Math.max(end, num(step.at_ms, 0));
+        });
+      }
+      // Open time bands, keyed on the stable (kind, participants) part of
+      // the finding; closed and emitted when a sample no longer shows them.
+      var open = {};
+      var order = [];
+      function emit(key) {
+        var b = open[key];
+        findings.push({
+          file: file, scene: label, kind: b.kind,
+          detail: b.detail + ' ' + bandOf(b.start, b.last)
+        });
+        delete open[key];
+        order.splice(order.indexOf(key), 1);
+      }
+      function note(key, kind, detail, t, seen) {
+        seen[key] = true;
+        var b = open[key];
+        if (!b) {
+          open[key] = { kind: kind, detail: detail, start: t, last: t };
+          order.push(key);
+        } else {
+          b.last = t;
+        }
+      }
+      function closeUnseen(seen) {
+        order.slice().forEach(function (key) {
+          if (!seen[key]) emit(key);
+        });
+      }
+      for (var t = 0; t <= end; t += SAMPLE_DT) {
+        var seen = {};
+        var boxes = [];   // text boxes: overflow + text-vs-text bands
+        var labels = [];  // text + latex label boxes: text-vs-shape band
+        var shapes = [];  // non-text shape boxes: text-vs-shape band
+        ids.forEach(function (id) {
+          var st = visibleState(byId[id], t);
+          if (!st) return;
+          if (st.kind === 'text') {
+            var box = textBox(st);
+            if (box) {
+              boxes.push(box);
+              labels.push(box);
+              if (box.left < 0 || box.right > canvas.W ||
+                  box.top < 0 || box.bottom > canvas.H) {
+                note(st.id + '|overflow', 'overflow',
+                  st.id + ': text box extends outside the ' +
+                    canvas.W + 'x' + canvas.H + ' canvas', t, seen);
+              }
+            }
+          } else if (st.kind === 'latex') {
+            var x = num(st.x, 0);
+            var y = num(st.y, 0);
+            if (x < 0 || x > canvas.W || y < 0 || y > canvas.H) {
+              note(st.id + '|latex-overflow', 'overflow',
+                st.id + ': latex anchor outside the ' +
+                  canvas.W + 'x' + canvas.H + ' canvas', t, seen);
+            }
+            var lbox = latexBox(st);
+            if (lbox) labels.push(lbox);
+          } else {
+            var sbox = shapeBox(st);
+            if (sbox) shapes.push({ box: sbox, shape: st });
+          }
+        });
+        noteOverlaps(boxes, t, seen, note);
+        noteTextShape(labels, shapes, t, seen, note);
+        closeUnseen(seen);
+      }
+      order.slice().forEach(emit);
+    });
+    return findings;
+  }
+
+  function noteOverlaps(boxes, t, seen, note) {
+    for (var a = 0; a < boxes.length; a++) {
+      for (var b = a + 1; b < boxes.length; b++) {
+        var A = boxes[a];
+        var B = boxes[b];
+        var area = intersectArea(A, B);
+        var smaller = Math.min(boxArea(A), boxArea(B));
+        if (area > OVERLAP_TOLERANCE * smaller) {
+          note(A.id + '|' + B.id + '|overlap', 'overlap',
+            A.id + ' overlaps ' + B.id, t, seen);
+        }
+      }
+    }
+  }
+
+  function noteTextShape(labels, shapes, t, seen, note) {
+    labels.forEach(function (L) {
+      shapes.forEach(function (S) {
+        var sb = S.box;
+        if (isCenteredOn(L, sb)) return;
+        if (isPointShape(S.shape)) return;
+        var area = intersectArea(L, sb);
+        var smaller = Math.min(boxArea(L), boxArea(sb));
+        if (area > OVERLAP_TOLERANCE * smaller) {
+          note(L.id + '|' + sb.id + '|ts', 'text-shape-overlap',
+            L.id + ' collides with ' + sb.id, t, seen);
+        }
+      });
+    });
+  }
+
   function baseName(p) {
     var s = String(p);
     var i = Math.max(s.lastIndexOf('/'), s.lastIndexOf('\\'));
@@ -398,6 +672,7 @@
 
   return {
     auditGeometry: auditGeometry,
+    auditGeometrySampled: auditGeometrySampled,
     auditSampleFile: auditSampleFile,
     auditAllSamples: auditAllSamples
   };
