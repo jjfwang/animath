@@ -29,6 +29,14 @@ Every change passes all three before a PR opens:
    new or changed line must be covered. Uncovered new code is not mergeable.
    Tests are `node:test` + `assert/strict`, zero dependencies.
 
+## Geometry audit CLI
+
+`node generator/audit.js <file...> | --all` runs the static and time-sampled
+geometry audits from `generator/geometry.js` over sample files and prints
+findings with their time bands (e.g. `[400-500ms]`). Exit codes: 0 clean,
+1 findings, 2 usage/file error — so it is CI-able. Run it on any sample PR
+before review.
+
 ## Sample conventions
 
 - Hand-authored JSON in `samples/`, pretty-printed.
