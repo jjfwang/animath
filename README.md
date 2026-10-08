@@ -177,6 +177,21 @@ node --test "tests/*.test.js"
 This validates every sample in `samples/` against `SPEC.md` via
 `player/validate.js`, plus negative cases for the validator itself.
 
+### Validate a single spec
+
+`player/validate.js` also runs as a standalone CLI against `SPEC.md`:
+
+```sh
+node player/validate.js <spec.json>
+```
+
+Exit codes: `0` = valid spec, `2` = spec has validation errors, `1` = bad
+arguments, unreadable file, or invalid JSON. Validation findings (exit `0`
+/ `2`) print to stdout; usage, argument, file, and JSON errors (exit `1`)
+print to stderr. The CLI is Node-only and guarded by
+`require.main === module`, so the UMD/browser path is unchanged and the
+module API is still exactly `{ validateSpec }`.
+
 ## Roadmap
 
 See `ROADMAP.md`. The repo is developed in small reviewed slices by an
