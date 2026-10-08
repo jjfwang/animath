@@ -581,7 +581,7 @@
           "do": "show",
           "shape": {
             "cx": 300,
-            "cy": 120,
+            "cy": 210,
             "fill": "#b00020",
             "id": "brightRed1",
             "kind": "circle",
@@ -593,7 +593,7 @@
           "do": "show",
           "shape": {
             "cx": 380,
-            "cy": 80,
+            "cy": 210,
             "fill": "#b00020",
             "id": "brightRed2",
             "kind": "circle",
