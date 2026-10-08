@@ -318,12 +318,41 @@ test('text-shape-overlap: small circle on a label center is flagged (issue #461)
   assert.deepEqual(big, []);
 });
 
-test('text-shape-overlap: label on a probe dot (r<=10) is a point anchor', () => {
-  const f = auditGeometry(specOf([
+test('text-shape-overlap: r<=10 dot grazing a label edge stays a point anchor (issue #465)', () => {
+  // graze: dot box 156..172 x 82..98 kisses the label's right edge —
+  // intersection ~32px^2 <= pi*8^2/4 (~50.3), and > the 1% tolerance, so
+  // the exemption (not the tolerance) is what keeps this quiet
+  const graze = auditGeometry(specOf([
+    show(textShape()),
+    show(circleShape({ cx: 164, r: 8 }))
+  ]));
+  assert.deepEqual(graze, []);
+  // park: the default r=8 dot sits fully inside the label box
+  // (intersection 256px^2 > 50.3) — now flagged as a genuine overlap
+  const park = auditGeometry(specOf([
     show(textShape()),
     show(circleShape({ r: 8 }))
   ]));
-  assert.deepEqual(f, []);
+  assert.equal(park.length, 1);
+  assert.equal(park[0].kind, 'text-shape-overlap');
+  assert.match(park[0].detail, /t1 collides with dot1/);
+});
+
+test('text-shape-overlap: parked r<=10 dots on a label are all flagged (issue #465)', () => {
+  // bio-reproduction s3: the 'pod' label with four r=8 dots parked on it —
+  // the old blanket point-anchor exemption masked all four of these
+  const f = auditGeometry(specOf([
+    show({ id: 'podL', kind: 'text', x: 143, y: 278, text: 'pod', size: 22 }),
+    show({ id: 'sdA', kind: 'circle', cx: 150, cy: 258, r: 8 }),
+    show({ id: 'sdB', kind: 'circle', cx: 170, cy: 262, r: 8 }),
+    show({ id: 'sdC', kind: 'circle', cx: 150, cy: 278, r: 8 }),
+    show({ id: 'sdD', kind: 'circle', cx: 170, cy: 278, r: 8 })
+  ]));
+  assert.equal(f.length, 4);
+  for (const id of ['sdA', 'sdB', 'sdC', 'sdD']) {
+    assert.ok(f.some((r) => r.kind === 'text-shape-overlap' &&
+      r.detail.includes('podL collides with ' + id)), 'missing ' + id);
+  }
 });
 
 test('text-shape-overlap: label grazing a bigger circle is flagged', () => {
@@ -618,10 +647,12 @@ test('sampled: latex labels participate in the text-vs-shape band', () => {
 });
 
 test('sampled: point-anchor and centered-on exemptions hold while moving', () => {
-  // r=8 probe dot sliding across the label: exempt as a point anchor
+  // r=8 probe dot skirting the label's top edge while sliding across:
+  // box intersection stays <= pi*8^2/4 at every sample (a 2px graze, not
+  // a park), so the refined point-anchor exemption holds while moving
   const dotSpec = sampledSpec([
     show(labelAt(100, 100), 0),
-    show({ id: 'dot', kind: 'circle', cx: 40, cy: 100, r: 8 }, 0),
+    show({ id: 'dot', kind: 'circle', cx: 40, cy: 70, r: 8 }, 0),
     moveStep('dot', { cx: 240 }, 0, 500)
   ], 1000);
   assert.deepEqual(auditGeometrySampled(dotSpec, 'dot.json'), []);
@@ -649,6 +680,22 @@ test('sampled: dot parking on a label center is flagged (issue #461)', () => {
   assert.equal(pair.length, 1);
   // the reported band covers the 400ms park [2000-2400ms]
   assert.ok(pair[0].band.start <= 2000 && pair[0].band.last >= 2400,
+    'park band not covered: ' + JSON.stringify(pair[0].band));
+});
+
+test('sampled: r<=10 dot parking on a label is flagged (issue #465)', () => {
+  // the r=8 dot flies to the label center and parks there; the refined
+  // point-anchor exemption (graze only) must not suppress the band
+  const spec = sampledSpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'dot', kind: 'circle', cx: 40, cy: 290, r: 8 }, 0),
+    moveStep('dot', { cx: 129 }, 0, 500)
+  ], 1000);
+  const f = auditGeometrySampled(spec, 'dot-park-8.json');
+  const pair = f.filter((r) => r.kind === 'text-shape-overlap' && /lbl collides with dot/.test(r.detail));
+  assert.equal(pair.length, 1);
+  // the band covers the park: arrived by 500ms, still parked at the end
+  assert.ok(pair[0].band.start <= 500 && pair[0].band.last >= 1000,
     'park band not covered: ' + JSON.stringify(pair[0].band));
 });
 
@@ -909,6 +956,23 @@ test('classify: point-anchor shape at rest reads clear', () => {
     ['lbl', 'dot'], 'lbl collides with dot');
   const cl = classifyFindings(spec, [f]);
   assert.equal(cl[0].verdict, 'intentional-motion');
+});
+
+test('classify: parked r<=10 dot at rest stays genuine (issue #465)', () => {
+  // the r=8 dot flies onto the label and parks there; the graze refinement
+  // no longer exempts the park, so restClear is false and the verdict
+  // stays genuine instead of flipping to intentional-motion
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'dot', kind: 'circle', cx: 40, cy: 290, r: 8 }, 0),
+    moveStep('dot', { cx: 129 }, 0, 500)
+  ], 1000);
+  const f = crafted('text-shape-overlap', 's1', { start: 400, last: 1000 },
+    ['lbl', 'dot'], 'lbl collides with dot');
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].flight, null);
 });
 
 test('classify: shape hidden after its flight reads clear at rest', () => {
