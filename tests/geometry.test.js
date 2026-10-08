@@ -1049,6 +1049,73 @@ test('classify: scene without duration_ms still resolves rest past the last flig
   assert.equal(cl[0].verdict, 'intentional-motion');
 });
 
+/* ---- classifyFindings: static findings with flights (issue #493) ---- */
+
+test('classify: static finding dropped — never co-visible at rest is intentional-motion', () => {
+  // the chem-atomic s1 pattern: e1 shown overlapping the label's slot, moved
+  // away, the label shown later; the static finding carries no band
+  const spec = classifySpec([
+    show({ id: 'e1', kind: 'circle', cx: 480, cy: 260, r: 10 }, 0),
+    moveStep('e1', { cx: 200, cy: 100 }, 3300, 800),
+    show(labelAt(480, 260), 5000)
+  ], 8000);
+  const f = { file: 'x.json', scene: 's1', kind: 'text-shape-overlap',
+    detail: 'lbl collides with e1', ids: ['lbl', 'e1'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'intentional-motion');
+  assert.equal(cl[0].flight, null);
+});
+
+test('classify: static rest park with no moves stays genuine (issue #493)', () => {
+  // the podL/sdA-D #465 pattern, band-less: no flights at all, so the
+  // static branch leaves the verdict untouched
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'pod', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'text-shape-overlap',
+    detail: 'lbl collides with pod', ids: ['lbl', 'pod'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].flight, null);
+});
+
+test('classify: static finding with a flight but rest still overlapping stays genuine', () => {
+  // the #465 parked-dot pattern, band-less: a flight exists but the pair
+  // still overlaps at rest, so restClear fails and the verdict stays genuine
+  const spec = classifySpec([
+    show(labelAt(100, 300), 0),
+    show({ id: 'dot', kind: 'circle', cx: 40, cy: 290, r: 8 }, 0),
+    moveStep('dot', { cx: 129 }, 0, 500)
+  ], 1000);
+  const f = { file: 'x.json', scene: 's1', kind: 'text-shape-overlap',
+    detail: 'lbl collides with dot', ids: ['lbl', 'dot'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].flight, null);
+});
+
+test('classify: static finding never co-visible keeps staging over motion (issue #493)', () => {
+  // staging takes precedence: the dot has a flight and the pair is clear
+  // at rest, but visibility never intersects, so the verdict stays
+  // intentional-staging rather than flipping to intentional-motion
+  const spec = classifySpec([
+    show({ id: 'dot', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0),
+    moveStep('dot', { cx: 40, cy: 100 }, 200, 500),
+    hideStep('dot', 800),
+    show(labelAt(100, 300), 1000)
+  ], 2000);
+  const f = { file: 'x.json', scene: 's1', kind: 'text-shape-overlap',
+    detail: 'lbl collides with dot', ids: ['lbl', 'dot'] };
+  const cl = classifyFindings(spec, [f]);
+  assert.equal(cl.length, 1);
+  assert.equal(cl[0].verdict, 'intentional-staging');
+  assert.ok(cl[0].staging, 'staging detail recorded');
+});
+
 /* ---- classifyFindings: intentional-staging classification (issue #384) ---- */
 
 test('staging: sequential same-slot labels with disjoint intervals are intentional-staging', () => {
@@ -1089,8 +1156,10 @@ test('staging: co-visible overlapping shapes stay genuine', () => {
   assert.equal(cl2[0].staging, null);
 });
 
-test('staging: static park duplicate of a motion pair stays genuine', () => {
+test('staging: static park duplicate of a motion pair clear at rest is intentional-motion', () => {
   // the #373 striker-entrance-park pattern: parked overlapping, then departs
+  // — issue #493: the static duplicate is no longer genuine, because the
+  // pair is never co-visible at rest (flight exists, restClear holds)
   const spec = classifySpec([
     show(labelAt(100, 300), 0),
     show({ id: 'ball', kind: 'circle', cx: 160, cy: 290, r: 20 }, 0),
@@ -1100,7 +1169,8 @@ test('staging: static park duplicate of a motion pair stays genuine', () => {
   assert.equal(staticOnly.length, 1);
   assert.ok(!staticOnly[0].band, 'static finding carries no band');
   const cl = classifyFindings(spec, staticOnly);
-  assert.equal(cl[0].verdict, 'genuine');
+  assert.equal(cl[0].verdict, 'intentional-motion');
+  assert.equal(cl[0].flight, null);
   assert.equal(cl[0].staging, null);
   // the sampled band for the same pair is intentional-motion, not staging
   const banded = auditGeometrySampled(spec, 'park.json');
