@@ -236,3 +236,59 @@
 
   return { validateSpec: validateSpec };
 });
+
+/* ------------------------------------------------------------------
+ * Node CLI entry point (issue #500): `node player/validate.js <spec.json>`
+ *
+ * Node-only and guarded by `require.main === module`, so requiring this
+ * file as a module — or loading it in a browser via the UMD wrapper
+ * above — never runs the CLI. The validator itself is untouched.
+ * ------------------------------------------------------------------ */
+(function validateCli() {
+  'use strict';
+  // Browser / non-Node runtimes: the UMD wrapper above already exported the API.
+  if (typeof require === 'undefined' || typeof module === 'undefined' || !module.exports) return;
+  var validateSpec = module.exports.validateSpec;
+
+  function cliUsage() {
+    return 'Usage: node player/validate.js <spec.json>\n' +
+      'Validate an animath animation spec file against SPEC.md.\n' +
+      'Exit codes: 0 = valid spec; 2 = spec has validation errors; 1 = bad\n' +
+      'arguments, unreadable file, or invalid JSON.';
+  }
+
+  // Pure CLI core: returns { code, output }. Exercised via spawnSync (the
+  // child process's coverage merges into the parent report under
+  // `node --test --experimental-test-coverage`).
+  function cliMain(args, readFileSync) {
+    if (args.length !== 1) {
+      return { code: 1, output: 'error: expected exactly one <spec.json> argument\n\n' + cliUsage() + '\n' };
+    }
+    var file = args[0];
+    var raw;
+    try {
+      raw = readFileSync(file, 'utf8');
+    } catch (err) {
+      return { code: 1, output: 'error: cannot read file "' + file + '"\n' };
+    }
+    var spec;
+    try {
+      spec = JSON.parse(raw);
+    } catch (err) {
+      return { code: 1, output: 'error: "' + file + '" is not valid JSON\n' };
+    }
+    var errors = validateSpec(spec);
+    if (errors.length > 0) {
+      return { code: 2, output: errors.join('\n') + '\n' };
+    }
+    return { code: 0, output: 'ok: "' + file + '" is a valid animath spec\n' };
+  }
+
+  // Thin entry point: only when this file is the main Node script.
+  // The validator's findings (exit 0/2) go to stdout; usage, argument,
+  // file, and JSON errors (exit 1) go to stderr.
+  if (require.main !== module) return;
+  var result = cliMain(process.argv.slice(2), require('fs').readFileSync);
+  (result.code === 1 ? process.stderr : process.stdout).write(result.output);
+  process.exit(result.code);
+})();
