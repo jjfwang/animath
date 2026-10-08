@@ -234,3 +234,143 @@ test('main: mixed file reports all three classes and exits 1 on the genuine', ()
   assert.doesNotMatch(r.output, /intentional-motion findings:/);
   assert.match(r.output, /3 finding\(s\): 0 intentional-motion, 1 intentional-staging, 2 genuine/);
 });
+
+/* Triage-verdict records (issue #495). */
+
+function overlapSpec() {
+  // static + sampled audits both flag this rest overlap as genuine
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{
+      id: 's1', duration_ms: 1000, steps: [
+        { at_ms: 0, do: 'show', shape: { id: 'cap', kind: 'text', x: 100, y: 300, text: 'cap', size: 24 } },
+        // rect offset so the label grazes its left edge (not centered-on it)
+        { at_ms: 0, do: 'show', shape: { id: 'box', kind: 'rect', x: 130, y: 280, w: 60, h: 30 } }
+      ]
+    }]
+  };
+}
+
+function verdictRecord(over) {
+  return Object.assign({
+    file: 'overlap.json', scene: 's1', label: 'cap', shape: 'box',
+    verdict: 'deliberate-placement',
+    evidence: 'test fixture evidence', date: '2026-10-09'
+  }, over || {});
+}
+
+function writeVerdicts(dir, records) {
+  const p = path.join(dir, 'verdicts.json');
+  fs.writeFileSync(p, JSON.stringify(records));
+  return p;
+}
+
+test('loadTriageVerdicts: valid file loads records', () => {
+  const dir = tmpDir();
+  const p = writeVerdicts(dir, [verdictRecord()]);
+  const r = cli.loadTriageVerdicts(p);
+  assert.equal(r.error, null);
+  assert.equal(r.records.length, 1);
+  assert.equal(r.records[0].verdict, 'deliberate-placement');
+});
+
+test('loadTriageVerdicts: fail-closed on unreadable, unparsable, non-array', () => {
+  const missing = cli.loadTriageVerdicts(path.join(tmpDir(), 'nope.json'));
+  assert.match(missing.error, /cannot read triage verdicts/);
+  assert.deepEqual(missing.records, []);
+  const dir = tmpDir();
+  const bad = path.join(dir, 'verdicts.json');
+  fs.writeFileSync(bad, '{not json');
+  assert.match(cli.loadTriageVerdicts(bad).error, /cannot parse triage verdicts/);
+  const arr = path.join(dir, 'verdicts2.json');
+  fs.writeFileSync(arr, '{"a":1}');
+  assert.match(cli.loadTriageVerdicts(arr).error, /must be an array/);
+});
+
+test('loadTriageVerdicts: fail-closed on malformed records and unknown verdicts', () => {
+  const dir = tmpDir();
+  const missingLabel = verdictRecord();
+  delete missingLabel.label;
+  const cases = [
+    [['nope'], /not an object/], // non-object record
+    [[missingLabel], /missing\/invalid field "label"/],
+    [[verdictRecord({ date: 2026 })], /missing\/invalid field "date"/],
+    [[verdictRecord({ verdict: 'fine-by-me' })], /unknown verdict "fine-by-me"/]
+  ];
+  cases.forEach(([records, re]) => {
+    const p = writeVerdicts(dir, records);
+    assert.match(cli.loadTriageVerdicts(p).error, re);
+  });
+});
+
+test('parseCollideIds: parses collides-with ids, rejects other phrasing', () => {
+  assert.deepEqual(cli.parseCollideIds('cap collides with box (100px^2 intersection)'),
+    { label: 'cap', shape: 'box' });
+  assert.deepEqual(cli.parseCollideIds('cap collides with box [600-9000ms]'),
+    { label: 'cap', shape: 'box' });
+  assert.equal(cli.parseCollideIds('cap overlaps box (100px^2 intersection)'), null);
+  assert.equal(cli.parseCollideIds('overflow wrongL: text box extends outside'), null);
+});
+
+test('run: recorded genuine pair moves off genuine into triage-verified', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'overlap.json', overlapSpec());
+  const v = writeVerdicts(dir, [verdictRecord()]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 0); // no genuine left
+  assert.equal(r.findingCount, 2); // static + sampled, both triaged
+  assert.match(r.output, /triage-verified findings:/);
+  assert.match(r.output, /cap collides with box \(/);
+  assert.match(r.output, /triage: deliberate-placement \(test fixture evidence\)/);
+  assert.doesNotMatch(r.output, /genuine findings:/);
+  assert.match(r.output, /2 finding\(s\): 0 intentional-motion, 0 intentional-staging, 0 genuine, 2 triage-verified/);
+});
+
+test('run: unrecorded genuine stays genuine', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'overlap.json', overlapSpec());
+  const v = writeVerdicts(dir, [verdictRecord({ label: 'other' })]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 1);
+  assert.match(r.output, /genuine findings:/);
+  assert.doesNotMatch(r.output, /triage-verified findings:/);
+});
+
+test('run: malformed verdicts file and unknown verdict exit 2', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'overlap.json', overlapSpec());
+  const bad = path.join(dir, 'bad.json');
+  fs.writeFileSync(bad, '{not json');
+  const r1 = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: bad });
+  assert.equal(r1.code, 2);
+  assert.match(r1.output, /cannot parse triage verdicts/);
+  const v2 = writeVerdicts(dir, [verdictRecord({ verdict: 'bogus' })]);
+  const r2 = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v2 });
+  assert.equal(r2.code, 2);
+  assert.match(r2.output, /unknown verdict "bogus"/);
+});
+
+test('run: default verdicts path is the shipped audit-verdicts.json', () => {
+  // every shipped record still matches a current genuine finding
+  const r = cli.run({ files: [], all: true, dir: path.join(repoRoot, 'samples') });
+  const records = JSON.parse(fs.readFileSync(
+    path.join(repoRoot, 'generator', 'audit-verdicts.json'), 'utf8'));
+  assert.ok(records.length > 0);
+  const triage = r.output.split('triage-verified findings:\n')[1]
+    .split('intentional-motion findings:')[0];
+  records.forEach(rec => {
+    const re = new RegExp(rec.file.replace(/\./g, '\\.') + ' ' + rec.scene +
+      ' .*' + rec.label + ' collides with ' + rec.shape);
+    assert.match(triage, re);
+  });
+  // genuine count drops by exactly the number of triaged lines
+  const r2 = cli.run({ files: [], all: true, dir: path.join(repoRoot, 'samples'),
+    verdictsFile: writeVerdicts(tmpDir(), []) });
+  const genuineCount = out => {
+    const m = /(\d+) genuine, (\d+) triage-verified/.exec(out);
+    return m ? [Number(m[1]), Number(m[2])] : null;
+  };
+  const [g1, t1] = genuineCount(r.output);
+  const [g2] = genuineCount(r2.output);
+  assert.equal(t1, g2 - g1); // every triaged line came off genuine, nothing else moved
+});

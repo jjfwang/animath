@@ -1,0 +1,137 @@
+[
+  {
+    "file": "secondary-e-trigonometry.json",
+    "scene": "s1",
+    "label": "labHyp",
+    "shape": "hyp",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: label deliberately set against the hypotenuse; intended placement",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-science-photosynthesis-intro.json",
+    "scene": "s4",
+    "label": "gasOutL",
+    "shape": "gasOutD1",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: label sits adjacent to its gas-outlet diagram by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-science-photosynthesis-intro.json",
+    "scene": "s4",
+    "label": "gasOutL",
+    "shape": "gasOutD2",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: label sits adjacent to its gas-outlet diagram by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-science-bio-nutrition.json",
+    "scene": "s1",
+    "label": "cl2",
+    "shape": "c2",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: label deliberately placed against its component; intended placement",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-science-chem-acids.json",
+    "scene": "s8",
+    "label": "t0",
+    "shape": "tick0",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL render: 6px^2 text-box graze only; padding artifact, no visible overlap",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-science-chem-acids.json",
+    "scene": "s8",
+    "label": "t7",
+    "shape": "tick7",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL render: 6px^2 text-box graze only; padding artifact, no visible overlap",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-science-chem-acids.json",
+    "scene": "s8",
+    "label": "t14",
+    "shape": "tick14",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL render: 4px^2 text-box graze only; padding artifact, no visible overlap",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-geometry-angles.json",
+    "scene": "s2",
+    "label": "t30",
+    "shape": "prot",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: tick label placed along the protractor dial by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-geometry-angles.json",
+    "scene": "s2",
+    "label": "t60",
+    "shape": "prot",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: tick label placed along the protractor dial by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-geometry-angles.json",
+    "scene": "s2",
+    "label": "t120",
+    "shape": "prot",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: tick label placed along the protractor dial by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-geometry-angles.json",
+    "scene": "s2",
+    "label": "t150",
+    "shape": "prot",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: tick label placed along the protractor dial by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-geometry-angles.json",
+    "scene": "s2",
+    "label": "t180",
+    "shape": "tick180",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: tick label placed along the protractor dial by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-a-integration.json",
+    "scene": "s4",
+    "label": "sl1",
+    "shape": "c0b",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: stage label set against its curve box by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-a-integration.json",
+    "scene": "s4",
+    "label": "sl2",
+    "shape": "c5b",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: stage label set against its curve box by design",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-a-integration.json",
+    "scene": "s4",
+    "label": "sl3",
+    "shape": "cm3b",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL render: stage label set against its curve box by design",
+    "date": "2026-10-09"
+  }
+]
