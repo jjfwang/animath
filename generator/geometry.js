@@ -896,6 +896,16 @@
   //         check re-run on the shapes' rest states (after their last
   //         move) reports nothing, with the same tolerance and the same
   //         centered-on / point-anchor exemptions.
+  //   For findings WITHOUT a band (static audit): (a) becomes — either
+  //     involved shape has at least one move-step flight interval; (b)
+  //     stays — restClear at tRest, with tRest computed exactly as in the
+  //     band path (scene end extended past both shapes' move tails).
+  //     flight is null for these: there is no band to attribute, and
+  //     audit.js formatClassified only appends the flight suffix when set.
+  //     Static show-time-geometry false positives where the pair is never
+  //     co-visible at rest are now classified this way, not flagged. A
+  //     static finding with flights whose pair still overlaps at rest
+  //     stays genuine, as does one with no flights at all.
   //   intentional-staging iff the finding is not intentional-motion and
   //     the two shapes' visibility intervals never intersect — sequential
   //     same-slot labels (read1/read2, q/q2, lab1/lab2/lab3) whose static
@@ -906,7 +916,9 @@
   //     audit's existing tolerance. A pair brought co-visible by a
   //     move-step flight (its band was observed, so the ranges share that
   //     sample) stays genuine, as do static park/staging duplicates of
-  //     motion-classified pairs.
+  //     motion-classified pairs that still overlap at rest — duplicates
+  //     clear at rest are intentional-motion per the band-less motion rule
+  //     above (issue #493).
   //   everything else -> 'genuine'.
   //
   // A flight of a third, uninvolved shape never masks a finding: only the
@@ -924,7 +936,10 @@
   //
   // KNOWN LIMITATION (run-274 lesson): bands are 100ms samples — a
   // sub-100ms graze between samples is invisible to the audit and
-  // therefore to the classifier. Flight intervals come from the spec's own
+  // therefore to the classifier. Static show-time-geometry false
+  // positives where the pair is never co-visible at rest were previously
+  // flagged genuine — they are now classified as intentional-motion
+  // (issue #493). Flight intervals come from the spec's own
   // move steps (scripted motion only); anything the player does at runtime
   // is not classified. Like the static audit, move-shifted shapes are
   // compared at their show-time position for visibility purposes only —
@@ -1005,6 +1020,20 @@
     return !boxesOverlap(restA.box, restB.box);
   }
 
+  // tRest: scene end extended past both ids' move tails — the moment both
+  // shapes are at rest. Shared by the banded and static motion paths so
+  // the static check mirrors the band path by construction.
+  function restTimeFor(byId, ids, scene, steps) {
+    var tRest = sceneEndMs(scene, steps);
+    ids.forEach(function (id) {
+      var rec = byId[id];
+      if (rec) rec.moves.forEach(function (m) {
+        if (m.atMs + m.durMs > tRest) tRest = m.atMs + m.durMs;
+      });
+    });
+    return tRest;
+  }
+
   // Visibility ranges for one shape id: [firstSample, lastSample] ranges on
   // the audit's 100ms grid, derived from show/hide step times in (atMs,
   // step-order). A hide closes the open range (hide wins ties, per
@@ -1082,13 +1111,7 @@
               .concat(flightIntervals(byId, f.ids[1]));
             for (var i = 0; i < flights.length; i++) {
               if (!bandTouchesFlight(f.band, flights[i])) continue;
-              var tRest = sceneEndMs(scene, steps);
-              [f.ids[0], f.ids[1]].forEach(function (id) {
-                var rec = byId[id];
-                if (rec) rec.moves.forEach(function (m) {
-                  if (m.atMs + m.durMs > tRest) tRest = m.atMs + m.durMs;
-                });
-              });
+              var tRest = restTimeFor(byId, f.ids, scene, steps);
               if (restClear(f.kind,
                   restStateFor(byId, f.ids[0], tRest),
                   restStateFor(byId, f.ids[1], tRest))) {
@@ -1096,6 +1119,32 @@
                 flight = flights[i];
               }
               break;
+            }
+          } else {
+            // Static audit findings carry no band: (a) becomes "either
+            // shape has at least one move-step flight interval", (b)
+            // stays restClear at tRest. flight stays null — no band to
+            // attribute (audit.js formatClassified only appends the
+            // flight suffix when set).
+            // Staging takes precedence (issue #493): pairs never co-visible
+            // keep their intentional-staging verdict below; the motion rule
+            // only reclassifies static findings that were previously genuine.
+            var endMsS = sceneEndMs(scene, steps);
+            var rangesAS = visibilityRanges(byId, f.ids[0], endMsS);
+            var rangesBS = visibilityRanges(byId, f.ids[1], endMsS);
+            var neverCoVisible = rangesAS.length > 0 && rangesBS.length > 0 &&
+                !rangesShareSample(rangesAS, rangesBS);
+            if (!neverCoVisible) {
+              var sFlights = flightIntervals(byId, f.ids[0])
+                .concat(flightIntervals(byId, f.ids[1]));
+              if (sFlights.length > 0) {
+                var tRestS = restTimeFor(byId, f.ids, scene, steps);
+                if (restClear(f.kind,
+                    restStateFor(byId, f.ids[0], tRestS),
+                    restStateFor(byId, f.ids[1], tRestS))) {
+                  verdict = 'intentional-motion';
+                }
+              }
             }
           }
           if (verdict === 'genuine') {
