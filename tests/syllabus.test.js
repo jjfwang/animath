@@ -95,3 +95,32 @@ test('SYLLABUS.md and web/syllabus.js hold the same 67 topic slugs, 1:1', () => 
       'every track subject must be math or science, got: ' + String(subject));
   }
 });
+
+// Issue #497 regression: a shipped sample declared topic "ratio-sharing",
+// which matches no taxonomy slug, so the taxonomy's "ratio" topic read as
+// uncovered. This test locks every sample's topic to the 67 slugs parsed
+// from SYLLABUS.md, and locks the full 67/67 slug coverage.
+test('every sample topic is a taxonomy slug, and every slug has a sample', () => {
+  const mdSlugs = parseSyllabusSlugs(syllabusMd);
+  const slugSet = new Set(mdSlugs);
+  const manifest = JSON.parse(
+    fs.readFileSync(path.join(root, 'samples', 'index.json'), 'utf8')
+  );
+  const offTaxonomy = [];
+  const covered = new Set();
+  for (const name of manifest) {
+    const spec = JSON.parse(
+      fs.readFileSync(path.join(root, 'samples', name), 'utf8')
+    );
+    if (slugSet.has(spec.topic)) {
+      covered.add(spec.topic);
+    } else {
+      offTaxonomy.push(name + ' declares topic ' + JSON.stringify(spec.topic));
+    }
+  }
+  assert.deepEqual(offTaxonomy, [],
+    'every sample topic must be a SYLLABUS.md taxonomy slug');
+  const uncovered = mdSlugs.filter((s) => !covered.has(s));
+  assert.deepEqual(uncovered, [],
+    'every taxonomy slug must have at least one sample (67/67 coverage)');
+});
