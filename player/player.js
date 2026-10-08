@@ -46,24 +46,86 @@
 
   // Best-effort unicode approximation of a LaTeX string, for the fallback
   // path when KaTeX is unavailable (CDN failed, offline, file://).
+  //
+  // Issue #463: the old regex chain used [^{}]* for \frac and \sqrt
+  // arguments, so any nested braces garbled the output and leaked command
+  // names (e.g. "frac12\ textg12\ textg/mol"). The fallback now parses
+  // balanced braces, renders \text{...} as its inner content, treats
+  // backslash-space as a space, keeps the single-command replacements, and
+  // strips unknown commands entirely — no command name may leak.
+
+  // Read a balanced {...} group starting at index `open` (pointing at
+  // '{'). Returns [inner, end] where end is the index just past the
+  // matching '}', or null when the braces never balance. Pure, DOM-free.
+  function readGroup(s, open) {
+    var depth = 0, i = open, n = s.length;
+    while (i < n) {
+      if (s[i] === '{') depth++;
+      else if (s[i] === '}') {
+        depth--;
+        if (depth === 0) return [s.slice(open + 1, i), i + 1];
+      }
+      i++;
+    }
+    return null;
+  }
+
+  // Single-command replacements on the fallback path: the same set the old
+  // regex chain replaced, applied during the scanner pass below.
+  var LATEX_SINGLE = {
+    times: '\u00D7', div: '\u00F7', pm: '\u00B1', cdot: '\u00B7',
+    leq: '\u2264', geq: '\u2265', neq: '\u2260', approx: '\u2248',
+    pi: '\u03C0', theta: '\u03B8'
+  };
+
+  // Recursive resolver: consumes one LaTeX string and returns plain text.
+  // \frac and \sqrt take balanced-brace arguments (nested braces work),
+  // \text renders its inner content, backslash-space is a plain space,
+  // ^2/^3 (braced or bare) become superscript unicode, and unknown
+  // commands are stripped entirely. Pure string work, DOM-free.
+  function resolveLatex(s) {
+    var out = '', i = 0, n = s.length;
+    while (i < n) {
+      var c = s[i];
+      if (c === '\\') {
+        var name = /^[a-zA-Z]+/.exec(s.slice(i + 1));
+        if (name) {
+          var cmd = name[0], j = i + 1 + cmd.length;
+          var single = LATEX_SINGLE[cmd];
+          if (single !== undefined) { out += single; i = j; continue; }
+          if (cmd === 'text' || cmd === 'frac' || cmd === 'sqrt') {
+            var g1 = s[j] === '{' ? readGroup(s, j) : null;
+            if (!g1) { i = j; continue; }  // unbalanced: drop the command
+            if (cmd === 'text') { out += resolveLatex(g1[0]); i = g1[1]; continue; }
+            if (cmd === 'sqrt') { out += '\u221A(' + resolveLatex(g1[0]) + ')'; i = g1[1]; continue; }
+            var g2 = s[g1[1]] === '{' ? readGroup(s, g1[1]) : null;
+            if (!g2) { i = g1[1]; continue; }  // unbalanced: drop the command
+            out += resolveLatex(g1[0]) + '/' + resolveLatex(g2[0]);
+            i = g2[1]; continue;
+          }
+          i = j; continue;  // unknown command: stripped, name never leaks
+        }
+        // Backslash followed by a non-letter: '\ ' is a space; any other
+        // control symbol drops the backslash and keeps the character.
+        if (s[i + 1] === ' ') { out += ' '; i += 2; }
+        else i += 1;
+        continue;
+      }
+      if (c === '^') {
+        var grp = s[i + 1] === '{' ? readGroup(s, i + 1) : null;
+        var exp = grp ? grp[0] : s[i + 1];
+        if (exp === '2') { out += '\u00B2'; i = grp ? grp[1] : i + 2; continue; }
+        if (exp === '3') { out += '\u00B3'; i = grp ? grp[1] : i + 2; continue; }
+        out += c; i++; continue;
+      }
+      if (c === '{' || c === '}') { i++; continue; }  // stray braces dropped
+      out += c; i++;
+    }
+    return out;
+  }
+
   function latexFallbackText(tex) {
-    return String(tex)
-      .replace(/\\frac\{([^{}]*)\}\{([^{}]*)\}/g, '$1/$2')
-      .replace(/\\sqrt\{([^{}]*)\}/g, '\u221A($1)')
-      .replace(/\^2/g, '\u00B2')
-      .replace(/\^3/g, '\u00B3')
-      .replace(/\\times/g, '\u00D7')
-      .replace(/\\div/g, '\u00F7')
-      .replace(/\\pm/g, '\u00B1')
-      .replace(/\\cdot/g, '\u00B7')
-      .replace(/\\leq/g, '\u2264')
-      .replace(/\\geq/g, '\u2265')
-      .replace(/\\neq/g, '\u2260')
-      .replace(/\\approx/g, '\u2248')
-      .replace(/\\pi/g, '\u03C0')
-      .replace(/\\theta/g, '\u03B8')
-      .replace(/[{}]/g, '')
-      .replace(/\\([a-zA-Z]+)/g, '$1');
+    return resolveLatex(String(tex));
   }
 
   // Pure sizing math for the latex foreignObject box: given the measured
