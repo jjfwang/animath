@@ -532,3 +532,79 @@ test173c('dark block recolors the tooltip and the focus ring, no light leaks (is
     'dark block covers the shape focus ring');
   assert173c.ok(!/#2b5cb8/i.test(dark), 'dark block must not reuse the light focus color');
 });
+
+/* Tests for issue #463 — latexFallbackText balanced-brace fallback.
+ * Pure string work: no DOM. Covers the acceptance case (nested \text
+ * inside \frac on the real chem-mole s2 tex), \sqrt with nested braces,
+ * backslash-space, unknown-command stripping (no name may leak), braced
+ * superscripts, stray/unbalanced braces, and the no-leak sweep over every
+ * tex string in samples/*.json.
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test463 } = require('node:test');
+const assert463 = require('node:assert/strict');
+const fs463 = require('fs');
+const path463 = require('path');
+
+const player463 = require('../player/player.js');
+
+test463('latexFallbackText resolves the chem-mole nested-brace tex exactly (issue #463)', () => {
+  const tex = 'n = \\frac{12\\ \\text{g}}{12\\ \\text{g/mol}} = 1\\ \\text{mol}';
+  assert463.equal(player463.latexFallbackText(tex), 'n = 12 g/12 g/mol = 1 mol');
+});
+
+test463('latexFallbackText handles nested braces in \\frac and \\sqrt (issue #463)', () => {
+  assert463.equal(player463.latexFallbackText('\\frac{1}{2}'), '1/2');
+  assert463.equal(player463.latexFallbackText('\\frac{\\text{a}}{\\text{b}}'), 'a/b');
+  assert463.equal(player463.latexFallbackText('\\frac{\\frac{1}{2}}{3}'), '1/2/3');
+  assert463.equal(player463.latexFallbackText('\\sqrt{x^2 + y^2}'), '\u221A(x\u00B2 + y\u00B2)');
+  assert463.equal(player463.latexFallbackText('\\sqrt{\\frac{a}{b}}'), '\u221A(a/b)');
+});
+
+test463('latexFallbackText treats backslash-space as a space and keeps replacements (issue #463)', () => {
+  assert463.equal(player463.latexFallbackText('a\\ b'), 'a b');
+  assert463.equal(player463.latexFallbackText('a^2 + b^3'), 'a\u00B2 + b\u00B3');
+  assert463.equal(player463.latexFallbackText('x^{2} + y^{3}'), 'x\u00B2 + y\u00B3');
+  assert463.equal(player463.latexFallbackText('\\pi \\times \\theta \\approx 2'), '\u03C0 \u00D7 \u03B8 \u2248 2');
+  assert463.equal(player463.latexFallbackText('10\\% off'), '10% off');
+});
+
+test463('latexFallbackText strips unknown commands without leaking names (issue #463)', () => {
+  assert463.equal(player463.latexFallbackText('\\alpha + x'), ' + x');
+  assert463.equal(player463.latexFallbackText('\\rightarrow'), '');
+  assert463.equal(player463.latexFallbackText('\\text{plain}'), 'plain');
+});
+
+test463('latexFallbackText drops stray braces and survives unbalanced input (issue #463)', () => {
+  assert463.equal(player463.latexFallbackText('{a} b }c{'), 'a b c');
+  assert463.equal(player463.latexFallbackText('x^{n} + w^n'), 'x^n + w^n');
+  assert463.equal(player463.latexFallbackText('\\frac{1'), '1');
+  assert463.equal(player463.latexFallbackText('\\frac{1}'), '');
+  assert463.equal(player463.latexFallbackText('\\frac12'), '12');
+  assert463.equal(player463.latexFallbackText('\\frac{1}2'), '2');
+  assert463.equal(player463.latexFallbackText('plain text'), 'plain text');
+});
+
+test463('no tex string in samples/*.json leaks a command name into the fallback (issue #463)', () => {
+  const samplesDir = path463.join(__dirname, '..', 'samples');
+  const files = fs463.readdirSync(samplesDir).filter((f) => f.endsWith('.json'));
+  let count = 0;
+  function walk(o) {
+    if (typeof o === 'string') return;
+    if (Array.isArray(o)) { o.forEach(walk); return; }
+    if (o && typeof o === 'object') {
+      for (const k of Object.keys(o)) {
+        if (k === 'tex' && typeof o[k] === 'string') {
+          count++;
+          const out = player463.latexFallbackText(o[k]);
+          assert463.ok(!/\\[a-zA-Z]/.test(out),
+            'fallback leaked a command in ' + JSON.stringify(o[k]) + ' -> ' + JSON.stringify(out));
+        }
+        walk(o[k]);
+      }
+    }
+  }
+  files.forEach((f) => walk(JSON.parse(fs463.readFileSync(path463.join(samplesDir, f), 'utf8'))));
+  assert463.ok(count > 0, 'expected to find tex strings in samples/');
+});
