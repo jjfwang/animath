@@ -79,8 +79,12 @@
  * label never counts as its host — a small circle covering a label's center
  * is ON the label (e.g. a dot transiently parked on it), not a deliberate
  * placement; (2) point anchors — circles with r <= 10
- * (probe/marker dots) are points by design, so a label touching one is not
- * a defect. Like the rest
+ * (probe/marker dots) are points by design, so a label grazing one
+ * (at most a quarter of the dot's disk area intersecting the label box)
+ * is not a defect; a dot parked on the label — more than a quarter-disk
+ * of intersection — is a genuine text-smudging overlap and is flagged
+ * (issue #465 refined this from the old blanket r<=10 rule, which masked
+ * genuine dot-on-label parks). Like the rest
  * of the audit, shapes moved by later `move` steps are compared at their
  * show-time position (the KNOWN LIMITATION above) — a label grazing a
  * moving shape's rest position stays a manual-triage call, and it counts
@@ -495,9 +499,20 @@
   }
 
   // Probe/marker dots (r <= 10) are point anchors by design — a label
-  // touching one is not a defect.
-  function isPointShape(shape) {
-    return shape.kind === 'circle' && num(shape.r, 0) <= POINT_R;
+  // grazing one is not a defect. A dot only grazes when its box
+  // intersection with the label box covers at most 1/4 of the dot's disk
+  // area (pi*r^2): the bbox intersection upper-bounds the dot's actual ink
+  // on the label, so the comparison is conservative. Below that line the
+  // dot is at most edge-kissing; above it a dot visibly parks on the
+  // label and is flagged. (Issue #465: the old blanket r<=10 rule exempted
+  // such parks — e.g. the bio-reproduction s3 'pod' label buried under
+  // four r=8 dots — masking genuine text-smudging overlaps. A parked dot
+  // can never be exempt by construction, since its intersection always
+  // exceeds the quarter-disk cap.)
+  function isPointShape(label, shapeBox, shape) {
+    if (shape.kind !== 'circle' || num(shape.r, 0) > POINT_R) return false;
+    var r = num(shape.r, 0);
+    return intersectArea(label, shapeBox) <= Math.PI * r * r / 4;
   }
 
   function boxArea(B) {
@@ -515,7 +530,7 @@
       shapes.forEach(function (S) {
         var sb = S.box;
         if (isCenteredOn(L, sb, S.shape && S.shape.kind)) return;
-        if (isPointShape(S.shape)) return;
+        if (isPointShape(L, sb, S.shape)) return;
         var area = intersectArea(L, sb);
         var smaller = Math.min(boxArea(L), boxArea(sb));
         if (area > OVERLAP_TOLERANCE * smaller) {
@@ -851,7 +866,7 @@
       shapes.forEach(function (S) {
         var sb = S.box;
         if (isCenteredOn(L, sb, S.shape && S.shape.kind)) return;
-        if (isPointShape(S.shape)) return;
+        if (isPointShape(L, sb, S.shape)) return;
         var area = intersectArea(L, sb);
         var smaller = Math.min(boxArea(L), boxArea(sb));
         if (area > OVERLAP_TOLERANCE * smaller) {
@@ -986,7 +1001,7 @@
     // text-shape-overlap: ids[0] is the label; same two exemptions as the
     // audit band, so a label landing centered on its chip reads clear.
     if (isCenteredOn(restA.box, restB.box, restB.shape && restB.shape.kind)) return true;
-    if (isPointShape(restB.shape)) return true;
+    if (isPointShape(restA.box, restB.box, restB.shape)) return true;
     return !boxesOverlap(restA.box, restB.box);
   }
 
