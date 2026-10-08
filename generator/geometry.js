@@ -75,7 +75,10 @@
  * genuine-vs-noise rules: (1) centered-on — a label whose box CENTER sits
  * inside the shape's box was placed on the shape deliberately (a chip's
  * number, a label centered inside a bar/cell, an annotation riding a curve
- * or wire), not a defect; (2) point anchors — circles with r <= 10
+ * or wire), not a defect; refined (issue #461) so a circle smaller than the
+ * label never counts as its host — a small circle covering a label's center
+ * is ON the label (e.g. a dot transiently parked on it), not a deliberate
+ * placement; (2) point anchors — circles with r <= 10
  * (probe/marker dots) are points by design, so a label touching one is not
  * a defect. Like the rest
  * of the audit, shapes moved by later `move` steps are compared at their
@@ -472,11 +475,23 @@
   // shape deliberately (a value chip's number, a label centered inside a
   // bar/cell, an annotation riding a curve or wire) — never a finding.
   // Full containment is a special case of this rule.
-  function isCenteredOn(label, shapeBox) {
+  //
+  // Refined (issue #461): a small circle cannot host a label. When the
+  // shape is a circle whose box is smaller than the label's box, the
+  // circle is ON the label — an intruder, e.g. a moving dot transiently
+  // parked on a label (the #458 defect: a food dot's flight parked at the
+  // label's box center, hiding 143 real ink px from the audit) — not a
+  // deliberate label-on-shape placement, so the exemption does not fire.
+  // Rects/bars/chips keep the center-inside rule (a plaque can host a
+  // centered label that overflows it), as do lines/arrows (an annotation
+  // rides the wire) and the other kinds.
+  function isCenteredOn(label, shapeBox, shapeKind) {
     var cx = (label.left + label.right) / 2;
     var cy = (label.top + label.bottom) / 2;
-    return cx >= shapeBox.left && cx <= shapeBox.right &&
-           cy >= shapeBox.top && cy <= shapeBox.bottom;
+    if (!(cx >= shapeBox.left && cx <= shapeBox.right &&
+          cy >= shapeBox.top && cy <= shapeBox.bottom)) return false;
+    if (shapeKind === 'circle' && boxArea(shapeBox) < boxArea(label)) return false;
+    return true;
   }
 
   // Probe/marker dots (r <= 10) are point anchors by design — a label
@@ -499,7 +514,7 @@
     labels.forEach(function (L) {
       shapes.forEach(function (S) {
         var sb = S.box;
-        if (isCenteredOn(L, sb)) return;
+        if (isCenteredOn(L, sb, S.shape && S.shape.kind)) return;
         if (isPointShape(S.shape)) return;
         var area = intersectArea(L, sb);
         var smaller = Math.min(boxArea(L), boxArea(sb));
@@ -835,7 +850,7 @@
     labels.forEach(function (L) {
       shapes.forEach(function (S) {
         var sb = S.box;
-        if (isCenteredOn(L, sb)) return;
+        if (isCenteredOn(L, sb, S.shape && S.shape.kind)) return;
         if (isPointShape(S.shape)) return;
         var area = intersectArea(L, sb);
         var smaller = Math.min(boxArea(L), boxArea(sb));
@@ -970,7 +985,7 @@
     if (kind === 'overlap') return !boxesOverlap(restA.box, restB.box);
     // text-shape-overlap: ids[0] is the label; same two exemptions as the
     // audit band, so a label landing centered on its chip reads clear.
-    if (isCenteredOn(restA.box, restB.box)) return true;
+    if (isCenteredOn(restA.box, restB.box, restB.shape && restB.shape.kind)) return true;
     if (isPointShape(restB.shape)) return true;
     return !boxesOverlap(restA.box, restB.box);
   }

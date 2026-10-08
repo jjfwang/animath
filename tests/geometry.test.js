@@ -295,6 +295,29 @@ test('text-shape-overlap: label centered on a shape is intentional (centered-on)
   assert.deepEqual(chip, []);
 });
 
+test('text-shape-overlap: small circle on a label center is flagged (issue #461)', () => {
+  // #458 scenario: a food dot (r=16) parked at the stomach label's box
+  // center. The dot is ON the label (circle box smaller than the label
+  // box), not a deliberate label-on-shape placement — the refined
+  // centered-on exemption must not fire.
+  // label box 184.2..295.8 x 266..297.2, center (240, 281.6); dot box
+  // 224..256 x 264..296: the label center sits inside the dot's box.
+  const f = auditGeometry(specOf([
+    show({ id: 'stomt', kind: 'text', x: 240, y: 292, text: 'stomach', size: 26, align: 'middle' }),
+    show({ id: 'dot', kind: 'circle', cx: 240, cy: 280, r: 16 }),
+    moveStep('dot', { cx: 400, cy: 280 }, 2400, 800)
+  ]));
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'text-shape-overlap');
+  assert.match(f[0].detail, /stomt collides with dot/);
+  // a circle larger than the label still hosts it (deliberate placement)
+  const big = auditGeometry(specOf([
+    show({ id: 'stomt', kind: 'text', x: 240, y: 292, text: 'stomach', size: 26, align: 'middle' }),
+    show({ id: 'stom', kind: 'circle', cx: 240, cy: 280, r: 100 })
+  ]));
+  assert.deepEqual(big, []);
+});
+
 test('text-shape-overlap: label on a probe dot (r<=10) is a point anchor', () => {
   const f = auditGeometry(specOf([
     show(textShape()),
@@ -609,6 +632,24 @@ test('sampled: point-anchor and centered-on exemptions hold while moving', () =>
     moveStep('r1', { x: 200 }, 0, 500)
   ], 1000);
   assert.deepEqual(auditGeometrySampled(centerSpec, 'center.json'), []);
+});
+
+test('sampled: dot parking on a label center is flagged (issue #461)', () => {
+  // #458 timeline: the dot flies to the label's box center, parks 400ms
+  // [2000-2400ms], then leaves. The refined centered-on exemption must not
+  // suppress the band — the small circle is on the label, not hosting it.
+  const spec = sampledSpec([
+    show({ id: 'stomt', kind: 'text', x: 240, y: 292, text: 'stomach', size: 26, align: 'middle' }, 0),
+    show({ id: 'dot', kind: 'circle', cx: 110, cy: 280, r: 16 }, 800),
+    moveStep('dot', { cx: 240, cy: 280 }, 1400, 600),
+    moveStep('dot', { cx: 400, cy: 280 }, 2400, 800)
+  ], 4000);
+  const f = auditGeometrySampled(spec, 'dot-park.json');
+  const pair = f.filter(r => r.kind === 'text-shape-overlap' && /stomt collides with dot/.test(r.detail));
+  assert.equal(pair.length, 1);
+  // the reported band covers the 400ms park [2000-2400ms]
+  assert.ok(pair[0].band.start <= 2000 && pair[0].band.last >= 2400,
+    'park band not covered: ' + JSON.stringify(pair[0].band));
 });
 
 test('sampled: overflow is reported as a time band', () => {
