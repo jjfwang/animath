@@ -21,10 +21,21 @@
  * is invisible to the audit and the classifier alike; flight intervals
  * come from the spec's own move steps — scripted motion only.
  *
+ * TRIAGE VERDICTS (issue #495): `generator/audit-verdicts.json` records
+ * human-triage verdicts for genuine findings that were verified (e.g. by
+ * PIL-rendered inspection) to be acceptable as-is. A genuine finding whose
+ * (file, scene, label, shape) matches a record — label/shape are the two ids
+ * parsed from the finding's "<L> collides with <R>" detail — moves into the
+ * "triage-verified" report section and no longer counts as genuine. Matching
+ * is deliberately narrow: only the "collides with" detail phrasing is parsed,
+ * so findings with other phrasing never match. The verdict file is validated
+ * fail-closed: unreadable, malformed, or unknown-verdict records make the run
+ * exit 2 with a clear message rather than silently ignoring the records.
+ *
  * Exit-code contract (CI-able):
  *   0 — no genuine findings
  *   1 — one or more genuine findings
- *   2 — usage error or unreadable file
+ *   2 — usage error, unreadable file, or bad triage-verdicts file
  *
  * Usage:
  *   node generator/audit.js <file...> [--dir <samples-dir>]
@@ -119,6 +130,77 @@ function formatFinding(f) {
   return f.file + ' ' + f.scene + ' ' + f.kind + ' ' + f.detail;
 }
 
+// Triage-verdict records live next to audit.js so --dir variants still load
+// them; exported for test injection via run's opts.verdictsFile.
+var triageVerdictsPath = path.join(__dirname, 'audit-verdicts.json');
+
+// -> { records, error }. Fail-closed: any structural problem is an error.
+function loadTriageVerdicts(file) {
+  var p = file || triageVerdictsPath;
+  var raw;
+  try {
+    raw = fs.readFileSync(p, 'utf8');
+  } catch (e) {
+    return { records: [], error: 'cannot read triage verdicts ' + p };
+  }
+  var parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (e) {
+    return { records: [], error: 'cannot parse triage verdicts ' + p };
+  }
+  if (!Array.isArray(parsed)) {
+    return { records: [], error: 'triage verdicts must be an array: ' + p };
+  }
+  var verdicts = ['deliberate-placement', 'box-model-artifact'];
+  var fields = ['file', 'scene', 'label', 'shape', 'verdict', 'evidence', 'date'];
+  for (var i = 0; i < parsed.length; i++) {
+    var r = parsed[i];
+    if (!r || typeof r !== 'object') {
+      return { records: [], error: 'triage verdict record #' + i + ' is not an object' };
+    }
+    for (var f = 0; f < fields.length; f++) {
+      if (typeof r[fields[f]] !== 'string') {
+        return { records: [], error: 'triage verdict record #' + i +
+          ' missing/invalid field "' + fields[f] + '"' };
+      }
+    }
+    if (verdicts.indexOf(r.verdict) === -1) {
+      return { records: [], error: 'triage verdict record #' + i +
+        ' has unknown verdict "' + r.verdict + '"' };
+    }
+  }
+  return { records: parsed, error: null };
+}
+
+// Narrow parser: only the "<L> collides with <R>" detail phrasing.
+// Non-matching details (other finding kinds/phrasings) never triage-match.
+// -> { label, shape } or null
+function parseCollideIds(detail) {
+  var m = /^(\S+) collides with (\S+)/.exec(detail);
+  if (!m) return null;
+  return { label: m[1], shape: m[2] };
+}
+
+// -> matching record or null
+function triageMatch(records, finding) {
+  var ids = parseCollideIds(finding.detail);
+  if (!ids) return null;
+  var file = path.basename(finding.file);
+  for (var i = 0; i < records.length; i++) {
+    var r = records[i];
+    if (path.basename(r.file) === file && r.scene === finding.scene &&
+        r.label === ids.label && r.shape === ids.shape) {
+      return r;
+    }
+  }
+  return null;
+}
+
+function formatTriage(f, record) {
+  return formatFinding(f) + '  triage: ' + record.verdict + ' (' + record.evidence + ')';
+}
+
 function formatRanges(ranges) {
   return ranges.map(function (r) {
     return '[' + r[0] + '-' + r[1] + 'ms]';
@@ -138,8 +220,11 @@ function formatClassified(c) {
 }
 
 // -> { output, code, findingCount }
+// opts.verdictsFile overrides the triage-verdicts path (test injection).
 function run(opts) {
   var files = opts.files.slice();
+  var verdictLoad = loadTriageVerdicts(opts.verdictsFile);
+  if (verdictLoad.error) return { output: 'error: ' + verdictLoad.error, code: 2, findingCount: 0 };
   if (opts.all) {
     var m = manifestFiles(opts.dir);
     if (m.error) return { output: m.error, code: 2, findingCount: 0 };
@@ -149,6 +234,7 @@ function run(opts) {
     files = files.map(function (f) { return path.join(opts.dir, f); });
   }
   var genuineLines = [];
+  var triageLines = [];
   var motionLines = [];
   var stagingLines = [];
   for (var i = 0; i < files.length; i++) {
@@ -160,21 +246,29 @@ function run(opts) {
       } else if (c.verdict === 'intentional-staging') {
         stagingLines.push(formatClassified(c));
       } else {
-        genuineLines.push(formatFinding(c.finding));
+        var record = triageMatch(verdictLoad.records, c.finding);
+        if (record) {
+          triageLines.push(formatTriage(c.finding, record));
+        } else {
+          genuineLines.push(formatFinding(c.finding));
+        }
       }
     });
   }
   var genuine = genuineLines.length;
+  var triage = triageLines.length;
   var motion = motionLines.length;
   var staging = stagingLines.length;
-  var total = genuine + motion + staging;
+  var total = genuine + triage + motion + staging;
   if (total === 0) return { output: 'clean: ' + files.length + ' file(s), no findings', code: 0, findingCount: 0 };
   var sections = [];
   if (genuine > 0) sections.push('genuine findings:\n' + genuineLines.join('\n'));
+  if (triage > 0) sections.push('triage-verified findings:\n' + triageLines.join('\n'));
   if (motion > 0) sections.push('intentional-motion findings:\n' + motionLines.join('\n'));
   if (staging > 0) sections.push('intentional-staging findings:\n' + stagingLines.join('\n'));
   sections.push(total + ' finding(s): ' + motion + ' intentional-motion, ' +
-    staging + ' intentional-staging, ' + genuine + ' genuine');
+    staging + ' intentional-staging, ' + genuine + ' genuine, ' +
+    triage + ' triage-verified');
   return { output: sections.join('\n'), code: genuine > 0 ? 1 : 0, findingCount: total };
 }
 
@@ -191,6 +285,9 @@ module.exports = {
   parseArgs: parseArgs,
   auditFile: auditFile,
   formatFinding: formatFinding,
+  loadTriageVerdicts: loadTriageVerdicts,
+  parseCollideIds: parseCollideIds,
+  triageMatch: triageMatch,
   run: run,
   main: main,
   usage: usage
