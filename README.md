@@ -162,7 +162,7 @@ The runnable developer entry point is `node generator/audit.js`:
 prints `genuine findings:` and `triage-verified findings:` sections with an
 exit-code contract CI-able as 0 = no genuine findings, 1 = one or more genuine
 findings, 2 = usage error, unreadable file, or bad triage-verdicts file.
-`generator/audit-verdicts.json` (15 records) holds human-triage verdicts —
+`generator/audit-verdicts.json` holds human-triage verdicts —
 `deliberate-placement` or `box-model-artifact` — for genuine findings verified
 acceptable as-is; matching pairs move into the `triage-verified` section and
 stop counting as genuine. The verdicts file is validated fail-closed:
