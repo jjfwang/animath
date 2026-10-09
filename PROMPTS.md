@@ -40,11 +40,25 @@ PEDAGOGY:
   one worked micro-example -> recap the takeaway.
 - kind "problem": state the problem -> plan (what we need) -> solve it
   step by step, each step appearing as it is explained -> box the answer.
-- Address exactly one common misconception for the topic, visually
-  (e.g. show why 1/2 + 1/4 is NOT 2/6).
+MECHANISM-FIRST — every scene must show the mechanism, not just tell it:
+- Each scene needs at least one genuine state transition: a move step,
+  or a staged show/hide sequence that builds or transforms the diagram.
+- On-screen text plays a supporting role only (labels, captions) — never
+  the teaching mechanism itself.
+- move vs. staged show/hide: use move for transformation or motion of a
+  persistent shape; staged show/hide for step-by-step diagram
+  construction; emphasize for attention without state change.
+{{MISCONCEPTION_LINE}}
 - Narration reads aloud naturally to a {{LEVEL_LABEL}} student. Tone: {{TONE}}.
   No jargon above the level. Short sentences.
 ```
+
+The `{{MISCONCEPTION_LINE}}` slot is filled per topic by
+`generator/misconceptions.js` — an exact-slug or longest dash-boundary-prefix
+lookup into 67 entries across 5 slices (primary math/science, secondary
+math/science, H2), selecting the facet matching the builder's facet hint and
+degrading to the generic line ("show why 1/2 + 1/4 is NOT 2/6") when the topic
+does not resolve.
 
 ## User prompt
 
