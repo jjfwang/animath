@@ -11,9 +11,12 @@
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
 <style>
   body { margin: 0; padding: 16px; background: #f6f3ec; }
-  .demo-bar { max-width: 980px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; }
+  .demo-bar { max-width: 980px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
   .demo-bar select { font-size: 15px; padding: 6px 10px; border-radius: 8px; border: 1px solid #d8d2c4; }
   .demo-bar .hint { font-size: 13px; color: #6b6455; }
+  .demo-bar #exportbtn { font-size: 15px; padding: 6px 14px; border-radius: 8px; border: 1px solid #2b5cb8; background: #2b5cb8; color: #fff; cursor: pointer; white-space: nowrap; }
+  .demo-bar #exportbtn:disabled { background: #b9b2a3; border-color: #b9b2a3; cursor: not-allowed; }
+  #exportstatus { min-width: 0; }
 </style>
 </head>
 <body>
@@ -91,11 +94,16 @@
     <option value="../samples/primary-math-volume.json">Primary math — volume: cubes, cuboids, litres</option>
   </select>
   <span class="hint">Hand-authored specs, no API key needed. Add ?spec=path/to.json to load your own. Keyboard shortcuts: Space play/pause, left/right arrows prev/next scene. The filmstrip buttons jump straight to any scene.</span>
+  <button id="exportbtn" type="button">Export WebM</button>
+  <span id="exportstatus" class="hint" aria-live="polite"></span>
 </div>
 <div id="stage"></div>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
+<script src="export-frames.js"></script>
+<script src="export-record.js"></script>
+<script src="export-ui.js"></script>
 <script>
 (function () {
   var params = new URLSearchParams(location.search);
@@ -103,6 +111,18 @@
   var stage = document.getElementById('stage');
   var errBox = document.getElementById('err');
   var player = null;
+  var currentSpec = null;
+  var currentSlug = 'animath';
+
+  function slugFromUrl(url) {
+    var base = String(url).split('/').pop().split('?')[0];
+    return base.replace(/\.json$/, '') || 'animath';
+  }
+
+  var exportUI = AnimathExportUI.attachExportUI(document, window, AnimathExportRecord, {
+    getSpec: function () { return currentSpec; },
+    getSlug: function () { return currentSlug; }
+  });
 
   function load(url) {
     errBox.innerHTML = '';
@@ -114,13 +134,20 @@
       if (problems.length) {
         errBox.innerHTML = '<div class="ap-error">Spec failed validation:\n' +
           problems.map(function (p) { return p.replace(/</g, '&lt;'); }).join('\n') + '</div>';
+        currentSpec = null;
+        exportUI.refresh();
         return;
       }
       if (player) player.destroy();
       player = AnimathPlayer.mount(stage, spec);
       player.play();
+      currentSpec = spec;
+      currentSlug = slugFromUrl(url);
+      exportUI.refresh();
     }).catch(function (e) {
       errBox.innerHTML = '<div class="ap-error">' + String(e).replace(/</g, '&lt;') + '</div>';
+      currentSpec = null;
+      exportUI.refresh();
     });
   }
 
