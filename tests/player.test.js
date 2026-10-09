@@ -608,3 +608,140 @@ test463('no tex string in samples/*.json leaks a command name into the fallback 
   files.forEach((f) => walk(JSON.parse(fs463.readFileSync(path463.join(samplesDir, f), 'utf8'))));
   assert463.ok(count > 0, 'expected to find tex strings in samples/');
 });
+
+/* Tests for issue #554 — player keeps autoplay across scene boundaries.
+ * mount() closes over document/requestAnimationFrame/performance, so this
+ * test installs a minimal DOM + rAF stub and drives the captured rAF
+ * callbacks by hand. Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test554 } = require('node:test');
+const assert554 = require('node:assert/strict');
+
+const player554 = require('../player/player.js');
+const { validateSpec: validateSpec554 } = require('../player/validate.js');
+
+function inertEl554(shared) {
+  return {
+    className: '', textContent: '', innerHTML: '', value: '0',
+    style: {},
+    setAttribute: function () {},
+    removeAttribute: function () {},
+    addEventListener: function () {},
+    appendChild: function () {},
+    removeChild: function () {},
+    getBoundingClientRect: function () { return { left: 0, top: 0, width: 960, height: 540 }; },
+    querySelector: function (sel) {
+      return shared[sel] || inertEl554(shared);
+    }
+  };
+}
+
+function boundarySpec554() {
+  function scene(id, duration) {
+    return {
+      id: id, caption: 'caption ' + id, narration: 'narration ' + id,
+      duration_ms: duration,
+      steps: [
+        { at_ms: 0, do: 'show', shape: { id: 'box-' + id, kind: 'rect', x: 10, y: 10, w: 100, h: 50 } }
+      ]
+    };
+  }
+  return {
+    animath: '0.1', title: 'boundary test', level: 'primary', subject: 'math',
+    topic: 'shapes', kind: 'concept', canvas: { width: 960, height: 540 },
+    scenes: [scene('s1', 4000), scene('s2', 6000)]
+  };
+}
+
+test554('issue #554: autoplay continues across a scene boundary, pauses only at the final scene end', () => {
+  var spec = boundarySpec554();
+  assert554.deepEqual(validateSpec554(spec), [], 'fixture spec must validate clean');
+
+  var shared = {};
+  var btnPlay = inertEl554(shared);
+  shared['[data-a="play"]'] = btnPlay;
+  shared['[data-a="scrub"]'] = inertEl554(shared);
+  var tlabel = inertEl554(shared);
+  shared['[data-a="tlabel"]'] = tlabel;
+  shared['[data-a="speed"]'] = inertEl554(shared);
+
+  var rafQueue = [];
+  var rafById = {};
+  var rafId = 0;
+  var now = 1000;
+
+  var prevDocument = global.document;
+  var prevRaf = global.requestAnimationFrame;
+  var prevCaf = global.cancelAnimationFrame;
+  var prevPerf = global.performance;
+  global.document = {
+    createElement: function () { return inertEl554(shared); },
+    createElementNS: function () { return inertEl554(shared); }
+  };
+  global.requestAnimationFrame = function (cb) {
+    rafId += 1;
+    rafById[rafId] = cb;
+    rafQueue.push(rafId);
+    return rafId;
+  };
+  global.cancelAnimationFrame = function (id) {
+    delete rafById[id];
+    rafQueue = rafQueue.filter(function (x) { return x !== id; });
+  };
+  global.performance = { now: function () { return now; } };
+
+  function pump(advance) {
+    now += advance;
+    var ids = rafQueue;
+    rafQueue = [];
+    ids.forEach(function (id) {
+      var cb = rafById[id];
+      delete rafById[id];
+      if (cb) cb(now);
+    });
+  }
+
+  try {
+    var sceneEvents = [];
+    var p = player554.mount(inertEl554(shared), spec);
+    p.on('scene', function (i) { sceneEvents.push(i); });
+
+    p.play();
+    assert554.ok(btnPlay.innerHTML.indexOf('10074') !== -1, 'playing: pause glyph shown after play()');
+
+    // Drive past scene 1's 4000ms duration; goScene(1, 0) must fire and the
+    // loop must keep running into scene 2.
+    for (var k = 0; k < 10 && sceneEvents.indexOf(1) === -1; k++) pump(500);
+    assert554.ok(sceneEvents.indexOf(1) !== -1, 'boundary crossed: scene 1 rendered during autoplay');
+    assert554.ok(btnPlay.innerHTML.indexOf('10074') !== -1,
+      'still playing after the first scene boundary (no pause at the boundary)');
+
+    // A further frame must advance scene 2's clock: the rAF loop is alive.
+    var tlabelBefore = tlabel.textContent;
+    pump(1500);
+    assert554.notEqual(tlabel.textContent, tlabelBefore,
+      'scene 2 time advances after the boundary: autoplay loop still ticking');
+
+    // Drive past the final scene's 6000ms duration: only here may pause run.
+    for (var j = 0; j < 20 && btnPlay.innerHTML.indexOf('10074') !== -1; j++) pump(500);
+    assert554.ok(btnPlay.innerHTML.indexOf('9654') !== -1,
+      'paused only at the end of the last scene (play glyph shown)');
+    var frozen = tlabel.textContent;
+    pump(500);
+    assert554.equal(tlabel.textContent, frozen, 'clock frozen after final-scene pause');
+
+    // Manual navigation must still pause: jump forward on a fresh playing run.
+    p.play();
+    assert554.ok(btnPlay.innerHTML.indexOf('10074') !== -1, 'playing again before the manual-jump check');
+    p.nextScene();
+    assert554.ok(btnPlay.innerHTML.indexOf('9654') !== -1,
+      'manual nextScene() leaves the player paused');
+    p.destroy();
+  } finally {
+    global.document = prevDocument;
+    global.requestAnimationFrame = prevRaf;
+    global.cancelAnimationFrame = prevCaf;
+    global.performance = prevPerf;
+  }
+});
