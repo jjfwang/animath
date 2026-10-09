@@ -107,6 +107,17 @@
   var ADVANCE = 0.6;          // fallback advance (fraction of size) for glyphs
                               // absent from the GLYPH_ADVANCES table (run 376)
   var ASCENT = 1.0;           // conservative ascent above the baseline, as a multiple of size
+  var LOW_ASCENT = 0.8;       // content-aware ascent for ascender-less labels (issue #504):
+                              // PIL-measured on DejaVu Sans (the reviewer's conservative gate
+                              // font, issue #376): the tallest ascender-less glyph ('t') inks
+                              // 0.71xsize above the baseline; 0.8 leaves a 0.09xsize margin
+                              // for system-ui font variation. Fail-safe: any character that
+                              // could ink higher forces the full ASCENT (see hasTallChar).
+  var LOW_CHARS = 'acegmnopqrstuvwxyz ,.-:;';
+                              // characters whose DejaVu Sans ink tops out at x-height (0.57xsize)
+                              // or below, plus 't' (0.71xsize, inside the LOW_ASCENT budget).
+                              // Every other character (capitals, digits, bdfhkl, i/j tittles,
+                              // tall punctuation, non-ASCII) keeps the conservative ascent.
   var DESCENDER = 0.2;        // descender budget below the baseline, as a multiple of size
                               // (ASCENT + DESCENDER = 1.2 keeps the old box height)
   var OVERLAP_TOLERANCE = 0.01; // intersection > 1% of smaller box => flag
@@ -319,6 +330,18 @@
     return (a === 'middle' || a === 'end') ? a : 'start';
   }
 
+  // Fail-safe ascent for a text string: full ASCENT (1.0xsize) when any
+  // character could ink above LOW_ASCENT, the documented LOW_ASCENT
+  // otherwise. Any character outside the measured LOW_CHARS set — including
+  // every non-ASCII character (surrogate halves never match LOW_CHARS) —
+  // forces the conservative ascent, so the audit may flag more, never less.
+  function hasTallChar(t) {
+    for (var i = 0; i < t.length; i++) {
+      if (LOW_CHARS.indexOf(t.charAt(i)) < 0) return true;
+    }
+    return false;
+  }
+
   // Bounding box for a text shape, or null when there is nothing to audit.
   function textBox(shape) {
     if (!isObj(shape) || shape.kind !== 'text') return null;
@@ -330,10 +353,12 @@
     var y = num(shape.y, 0);
     var a = alignOf(shape);
     var left = a === 'middle' ? x - w / 2 : (a === 'end' ? x - w : x);
-    // SVG text y is the alphabetic baseline: glyphs rise ~1.0*size above it
-    // (conservative ascent) and descend ~0.2*size below it.
+    // SVG text y is the alphabetic baseline: glyphs rise ASCENT*size above it
+    // (conservative), or LOW_ASCENT*size for ascender-less labels (issue #504);
+    // glyphs descend ~0.2*size below it.
+    var ascent = hasTallChar(t) ? ASCENT : LOW_ASCENT;
     return {
-      id: shape.id || '?', left: left, top: y - ASCENT * size,
+      id: shape.id || '?', left: left, top: y - ascent * size,
       right: left + w, bottom: y + DESCENDER * size
     };
   }
@@ -368,6 +393,9 @@
 
   // Estimated bounding box for a latex label (top-left anchored at x/y,
   // like the player's foreignObject), or null when nothing to audit.
+  // Kept at the conservative ASCENT on purpose (issue #504 changed only
+  // textBox): the foreignObject box model is a different path with its own
+  // KaTeX-layer evidence, and shrinking it is a separate issue.
   function latexBox(shape) {
     if (!isObj(shape) || shape.kind !== 'latex') return null;
     var t = shape.tex;
@@ -1210,6 +1238,9 @@
     // the per-glyph advance table (issue #376). Exported so tests can
     // compare the model against PIL-measured widths directly.
     estimateTextWidth: widthOf,
+    // Bounding box for a text shape (issue #504). Exported so tests can pin
+    // the content-aware ascent directly against PIL-measured ink tops.
+    textBox: textBox,
     auditGeometrySampled: auditGeometrySampled,
     classifyFindings: classifyFindings,
     auditSampleFile: auditSampleFile,
