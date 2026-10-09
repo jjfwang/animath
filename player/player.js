@@ -878,6 +878,12 @@
       if (state.sceneTime >= scene.duration_ms) {
         if (state.sceneIdx < spec.scenes.length - 1) {
           goScene(state.sceneIdx + 1, 0);
+          // Keep autoplay running across the scene boundary. goScene() pauses
+          // (manual jumps must stay paused), so re-arm playback here directly
+          // instead of play() — tick() already schedules the next frame below,
+          // and a second requestAnimationFrame would double the loop to 2x.
+          state.playing = true;
+          state.lastTick = now;
         } else {
           pause();
           renderSceneAt(state.sceneIdx, scene.duration_ms, true);
