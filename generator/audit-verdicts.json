@@ -214,5 +214,23 @@
     "verdict": "deliberate-placement",
     "evidence": "PIL DejaVu 'ls': 'x' size 32 at rest (321,294) - 0 shared ink px with pan1, ink bottom 293 vs pan top 300 (7px clearance); label deliberately parked above pan1 where the x-box lands at [1700-2500ms]; the flag comes from the audit box bottom 300.4 (0.2*32 descender budget below baseline)",
     "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-vectors.json",
+    "scene": "s3",
+    "label": "dotEq",
+    "shape": "b",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL two-layer (DejaVu 44): fallback exact text anchor ls at (120,130) 0 shared ink px, label ink x 122-420 vs arrowhead x 462-480 (~60px clear); KaTeX-faithful single-line top-left at (120,130) 0 shared px, 13px min clearance to arrowhead top edge (462,170 vs 462,183); audit 1257px^2 is the latexBox/arrow-bbox sliver at y 180-183. Equation deliberately parked top-left for the vector diagram; sampled audit 0 bands.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-vectors.json",
+    "scene": "s4",
+    "label": "lineEq",
+    "shape": "lineL",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 44): fallback exact text anchor ls at (620,70) 0 shared px (ink y 37-69, line ink at y>=120); KaTeX-faithful top-left at (620,70) 0 shared px, ~14px min clearance to the diagonal stroke (ink bottom (846,110) vs line (846,~125)); audit 1040px^2 is the diagonal line's bbox corner grazing the conservative latexBox bottom sliver (y 120-122.8). Sampled audit 0 bands.",
+    "date": "2026-10-09"
   }
 ]
