@@ -61,6 +61,42 @@ Every step has `at_ms` (0 ≤ at_ms < scene `duration_ms`) and a `do` verb.
 - `caption`: `{at_ms, do:"caption", text}` — replaces the scene caption bar
   mid-scene.
 
+## Playback
+
+The reference player (`player/player.js`) advances a spec through a small
+playback state machine. The relevant state fields are `sceneIdx` (current
+scene), `sceneTime` (ms into the current scene), `playing`, `lastTick`
+(timestamp of the previous frame), and `fired` (per-scene record of steps
+already triggered):
+
+- When playback reaches the end of a non-final scene, the player advances
+  to the next scene and keeps playing. `tick()` calls
+  `goScene(state.sceneIdx + 1, 0)`, then re-arms playback directly —
+  `state.playing = true; state.lastTick = now` — instead of calling
+  `play()`: `tick()` already schedules the next animation frame itself
+  (`state.raf = requestAnimationFrame(tick)`), and a second frame request
+  would run the loop twice as fast.
+- When the final scene ends, playback stops. `tick()` calls `pause()`
+  (cancelling the scheduled frame, flipping `state.playing` off) and
+  leaves the final frame on screen —
+  `renderSceneAt(state.sceneIdx, scene.duration_ms, true)`.
+- Manual navigation always lands paused: the prev/next buttons, the
+  filmstrip, and the keyboard prev/next shortcuts go through `goScene()`,
+  which calls `pause()` before jumping; the scrub slider calls `pause()`
+  directly and then renders the scrubbed position. The restart button is
+  the deliberate exception — `goScene(0, 0)` followed by `play()` — so it
+  lands on the first scene playing.
+- `play()` pressed at or past the end of a scene seeks before playing: at
+  the end of a non-final scene it jumps to the next scene from 0
+  (`goScene(state.sceneIdx + 1, 0)`); at the end of the final scene it
+  restarts the final scene from 0
+  (`renderSceneAt(state.sceneIdx, 0, reducedMotion)`). Either way it then
+  sets `state.playing = true`, `state.lastTick = performance.now()` and
+  schedules the frame loop.
+
+The player mounts paused on the first frame (`renderSceneAt(0, 0,
+reducedMotion)`); playback starts when the user presses play.
+
 ## Mechanism-first authoring
 
 Contract validity (see "Validation") is the floor, not the bar. Every scene
