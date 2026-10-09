@@ -268,5 +268,23 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL two-layer (DejaVu 40) re-verified 2026-10-09 on the current tree: fallback exact latexFallbackText 'F = GMm/r²' anchor ls at (60,80) 0 shared ink px vs orbit ring (cx 480 cy 270 r 170, width 2), ~113px clearance; KaTeX-faithful stacked-fraction top-left at (60,80) 0 shared px, ~143px clearance. Audit 331px^2 is the orbit circle's bbox-corner artifact; pair is static (no move steps on either shape).",
     "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-functions-graphs.json",
+    "scene": "s1",
+    "label": "labShift",
+    "shape": "curveShift",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 32) re-verified 2026-10-09 on the current tree: fallback exact latexFallbackText 'y = 2f(x) + 1' anchor ls at (690,40) 0 shared ink px (label ink x 691-895 y 16-46; the 3px curve stroke under the label's x-range runs y 162-331, min per-column clearance 125px); KaTeX-faithful single-line top-left at (690,40) 0 shared px (ink y 40-70, 101px clearance). Audit 1092px^2 is the polygon-bbox overestimate: the curve's bbox top y=70 comes from the peak at x=480, while under the label's x-range the actual stroke never rises above y=162. Pair is static (no move steps on either shape); the banded line [4600-11000ms] is pure coexistence.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-functions-graphs.json",
+    "scene": "s2",
+    "label": "labF",
+    "shape": "curveLeft",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 32) re-verified 2026-10-09 on the current tree: fallback exact latexFallbackText 'y = f(x)' anchor ls 0 shared ink px at rest (620,250: label ink x 621-738 y 226-256) and across the [2600-3400ms] flight time-sampled at 100ms (y 190->250, every sample 0 shared px); the 3px curve stroke under the label's x-range runs y 369-400, min per-column clearance 124px. KaTeX-faithful single-line top-left 0 shared px at rest (ink y 250-280, 100px clearance) and at every flight sample. Audit line [3000-12000ms] is the polygon-bbox overestimate (bbox top y=250 from the x=360 peak vs the label's true ink band).",
+    "date": "2026-10-09"
   }
 ]
