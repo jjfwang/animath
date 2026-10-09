@@ -173,11 +173,14 @@ function loadTriageVerdicts(file) {
   return { records: parsed, error: null };
 }
 
-// Narrow parser: only the "<L> collides with <R>" detail phrasing.
-// Non-matching details (other finding kinds/phrasings) never triage-match.
+// Narrow parser: the "<L> collides with <R>" (text-vs-shape) and
+// "<L> overlaps <R>" (text-vs-text / shape-vs-shape, issue #529: the s1
+// eq/letter blank-landing pair is phrased "overlaps" and was untriagable)
+// detail phrasings. Non-matching details (other finding kinds/phrasings)
+// never triage-match.
 // -> { label, shape } or null
 function parseCollideIds(detail) {
-  var m = /^(\S+) collides with (\S+)/.exec(detail);
+  var m = /^(\S+) (?:collides with|overlaps) (\S+)/.exec(detail);
   if (!m) return null;
   return { label: m[1], shape: m[2] };
 }

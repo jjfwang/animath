@@ -178,5 +178,41 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL two-layer 0 shared ink px across [4100-9000ms] sampled at 200ms incl. the [2800-4600ms] flight; real wire x>=370 in the label band vs ink right x=345 (fallback) / 345 (KaTeX); pure diagonal-wire bbox corner artifact",
     "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-algebra-intro.json",
+    "scene": "s1",
+    "label": "eq",
+    "shape": "letter",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL DejaVu 'ls' left+baseline, FULL verbatim spec text: letter 'x' size 60 at rest (340,400) sits on the equation blank - 0 shared ink px with eq '___ + 4 = 9' size 48 (letter ink y 367-399, underscore ink y 407-410; letter x-range 341-373 inside blank x-range 319-392; 0 shared px with eq ink right of x=400); the [5800-6500ms] flight landing on the blank is the scene's reveal mechanism",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-algebra-intro.json",
+    "scene": "s2",
+    "label": "lab5a",
+    "shape": "pan2",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL DejaVu 'ls': count label '5' size 26 rides 3px above pan2 - 0 shared ink px at the [3500-6200ms] tip (ink bottom 317 vs pan top 320) and at rest [7100-9000ms] (ink bottom 297 vs pan top 300); label deliberately follows its weight chip onto the tipping pan; the flag comes from the audit's 0.2*size descender budget (box bottom 323.2/303.2)",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-algebra-intro.json",
+    "scene": "s2",
+    "label": "lab5b",
+    "shape": "pan1",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL DejaVu 'ls': count label '5' size 26 rides 3px above pan1 - 0 shared ink px mid-tip (ink bottom 277 vs pan top 280) and at rest [7100-9000ms] (ink bottom 297 vs pan top 300); label deliberately follows its weight chip onto the tipping pan; the flag comes from the audit's 0.2*size descender budget",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-algebra-intro.json",
+    "scene": "s3",
+    "label": "xlabel",
+    "shape": "pan1",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL DejaVu 'ls': 'x' size 32 at rest (321,294) - 0 shared ink px with pan1, ink bottom 293 vs pan top 300 (7px clearance); label deliberately parked above pan1 where the x-box lands at [1700-2500ms]; the flag comes from the audit box bottom 300.4 (0.2*32 descender budget below baseline)",
+    "date": "2026-10-09"
   }
 ]

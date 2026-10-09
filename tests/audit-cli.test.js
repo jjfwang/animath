@@ -303,12 +303,16 @@ test('loadTriageVerdicts: fail-closed on malformed records and unknown verdicts'
   });
 });
 
-test('parseCollideIds: parses collides-with ids, rejects other phrasing', () => {
+test('parseCollideIds: parses collides-with and overlaps ids, rejects other phrasing', () => {
   assert.deepEqual(cli.parseCollideIds('cap collides with box (100px^2 intersection)'),
     { label: 'cap', shape: 'box' });
   assert.deepEqual(cli.parseCollideIds('cap collides with box [600-9000ms]'),
     { label: 'cap', shape: 'box' });
-  assert.equal(cli.parseCollideIds('cap overlaps box (100px^2 intersection)'), null);
+  // issue #529: text-vs-text / shape-vs-shape "overlaps" phrasing triages too
+  assert.deepEqual(cli.parseCollideIds('eq overlaps letter (100px^2 intersection)'),
+    { label: 'eq', shape: 'letter' });
+  assert.deepEqual(cli.parseCollideIds('eq overlaps letter [600-9000ms]'),
+    { label: 'eq', shape: 'letter' });
   assert.equal(cli.parseCollideIds('overflow wrongL: text box extends outside'), null);
 });
 
@@ -324,6 +328,47 @@ test('run: recorded genuine pair moves off genuine into triage-verified', () => 
   assert.match(r.output, /triage: deliberate-placement \(test fixture evidence\)/);
   assert.doesNotMatch(r.output, /genuine findings:/);
   assert.match(r.output, /2 finding\(s\): 0 intentional-motion, 0 intentional-staging, 0 genuine, 2 triage-verified/);
+});
+
+function textOverlapSpec() {
+  // issue #529: two text shapes whose boxes overlap at rest -> kind 'overlap'
+  // ("eq overlaps letter") phrasing, static + sampled both flag it
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{
+      id: 's1', duration_ms: 1000, steps: [
+        { at_ms: 0, do: 'show', shape: { id: 'eq', kind: 'text', x: 100, y: 300, text: 'aaa', size: 48 } },
+        { at_ms: 0, do: 'show', shape: { id: 'letter', kind: 'text', x: 130, y: 300, text: 'b', size: 48 } }
+      ]
+    }]
+  };
+}
+
+test('run: overlaps-phrased pair triages via record (issue #529)', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'textoverlap.json', textOverlapSpec());
+  const v = writeVerdicts(dir, [Object.assign(verdictRecord(), {
+    file: 'textoverlap.json', label: 'eq', shape: 'letter'
+  })]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 0); // no genuine left
+  assert.equal(r.findingCount, 2); // static + sampled, both triaged
+  assert.match(r.output, /triage-verified findings:/);
+  assert.match(r.output, /eq overlaps letter/);
+  assert.match(r.output, /triage: deliberate-placement \(test fixture evidence\)/);
+  assert.doesNotMatch(r.output, /genuine findings:/);
+  assert.match(r.output, /2 finding\(s\): 0 intentional-motion, 0 intentional-staging, 0 genuine, 2 triage-verified/);
+});
+
+test('run: unrecorded overlaps-phrased pair stays genuine', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'textoverlap.json', textOverlapSpec());
+  const v = writeVerdicts(dir, [verdictRecord({ label: 'other', shape: 'letter', file: 'textoverlap.json' })]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 1);
+  assert.match(r.output, /genuine findings:/);
+  assert.match(r.output, /eq overlaps letter/);
+  assert.doesNotMatch(r.output, /triage-verified findings:/);
 });
 
 test('run: unrecorded genuine stays genuine', () => {
@@ -360,7 +405,7 @@ test('run: default verdicts path is the shipped audit-verdicts.json', () => {
     .split('intentional-motion findings:')[0];
   records.forEach(rec => {
     const re = new RegExp(rec.file.replace(/\./g, '\\.') + ' ' + rec.scene +
-      ' .*' + rec.label + ' collides with ' + rec.shape);
+      ' .*' + rec.label + ' (collides with|overlaps) ' + rec.shape);
     assert.match(triage, re);
   });
   // genuine count drops by exactly the number of triaged lines
