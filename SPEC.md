@@ -135,3 +135,8 @@ Two kinds of on-screen math:
 
 `player/validate.js` is the reference validator. `node --test "tests/*.test.js"`
 runs it over every file in `samples/` plus negative cases.
+It also ships a Node CLI — `node player/validate.js <spec.json>` — guarded by
+`require.main === module`, so requiring it as a module or loading it in a
+browser never runs the CLI. Exit codes: 0 = valid spec (names the file on
+stdout); 2 = validation errors (one finding per line on stdout); 1 = bad
+arguments, unreadable file, or invalid JSON (errors and usage on stderr).
