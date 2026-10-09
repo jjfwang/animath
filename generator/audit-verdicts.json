@@ -232,5 +232,23 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL two-layer (DejaVu 44): fallback exact text anchor ls at (620,70) 0 shared px (ink y 37-69, line ink at y>=120); KaTeX-faithful top-left at (620,70) 0 shared px, ~14px min clearance to the diagonal stroke (ink bottom (846,110) vs line (846,~125)); audit 1040px^2 is the diagonal line's bbox corner grazing the conservative latexBox bottom sliver (y 120-122.8). Sampled audit 0 bands.",
     "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-statistics.json",
+    "scene": "s2",
+    "label": "h1",
+    "shape": "nullBell",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 36) re-verified on the current tree: fallback exact latexFallbackText 'H_1:  > 60' anchor ls at (100,160) 0 shared ink px (ink y 134-168, bell stroke+fill ink at the label x-range 100-288 is y>=365); KaTeX-faithful single-line top-left at (100,160) 0 shared px (ink y 168-206, subscript lowered); audit 1457px^2 is the polygon-bbox overestimate (bbox y 189-440 vs latexBox) - the bell's actual ink never enters the label's ink band.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-statistics.json",
+    "scene": "s4",
+    "label": "cellT1a",
+    "shape": "hline",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 24) re-verified on the current tree: fallback exact latexFallbackText 'P = ' anchor ls at (330,240) 0 shared ink px (ink y 222-240, 30px above the y=270 wire); KaTeX-faithful 'P = α' top-left at (330,240) 0 shared px (ink y 245-263, 7px above the wire); audit 40px^2 is the conservative-ascent latexBox bottom sliver grazing the wire bbox - no shared ink on either render layer.",
+    "date": "2026-10-09"
   }
 ]
