@@ -313,5 +313,14 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL (DejaVu 20, anchor ls, wide canvas) re-verified 2026-10-09 on the current tree: 'the typical score?' at its dismissal-flight park (790,238) inks x790-965 -- exactly 5 ink-px columns (x961-965) past the 960 edge, matching the amended #444 triage. The audit's advance-estimate text box overstates the width; the 5px overhang is invisible (SVG viewport clips at 960x540, the player renders narrower system-ui) and the park lasts 200ms [4600-4700ms] before the 4800ms hide -- the designed dismissal endpoint. Width-estimate artifact; triage-matched via the issue-#545 overflow parser (shape 'canvas').",
     "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-science-photosynthesis.json",
+    "scene": "s1",
+    "label": "lightL",
+    "shape": "beam",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL (DejaVu Sans 26, anchor ls left+baseline per runs 402/404, FULL verbatim text 'light energy' per run 412) verified 2026-10-09 on the current tree: label inks x372-526 y155-180 at (370,175); beam shaft stroke-width 4 plus player.js arrowhead (hs=10+2w) at (220,170)->(520,262) inks x220-522 y169-265; 0 shared ink px; beam ink top at y216 within the label x-range, 36px below the label ink bottom (y180). The audit's 1854px^2 comes from the beam segment-bbox top band grazing the conservative label text box -- pure bbox over-approximation; both shapes static, so the [4400-7000ms] band is pure coexistence (scene ends at 7000ms).",
+    "date": "2026-10-09"
   }
 ]
