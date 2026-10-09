@@ -157,6 +157,18 @@ limitation). `auditAllSamples('samples')` runs the audit over all
 `node --test --experimental-test-coverage "tests/*.test.js"` — every line
 of the module is covered by `tests/geometry.test.js`.
 
+The runnable developer entry point is `node generator/audit.js`:
+`--all` (or `<file...>` paths) runs the static and time-sampled audits and
+prints `genuine findings:` and `triage-verified findings:` sections with an
+exit-code contract CI-able as 0 = no genuine findings, 1 = one or more genuine
+findings, 2 = usage error, unreadable file, or bad triage-verdicts file.
+`generator/audit-verdicts.json` (15 records) holds human-triage verdicts —
+`deliberate-placement` or `box-model-artifact` — for genuine findings verified
+acceptable as-is; matching pairs move into the `triage-verified` section and
+stop counting as genuine. The verdicts file is validated fail-closed:
+unreadable, malformed, or unknown-verdict records exit 2 rather than being
+silently ignored.
+
 ## Chart toolkit
 
 `generator/charts.js` standardizes chart construction across samples and
