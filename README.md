@@ -159,15 +159,30 @@ of the module is covered by `tests/geometry.test.js`.
 
 The runnable developer entry point is `node generator/audit.js`:
 `--all` (or `<file...>` paths) runs the static and time-sampled audits and
-prints `genuine findings:` and `triage-verified findings:` sections with an
-exit-code contract CI-able as 0 = no genuine findings, 1 = one or more genuine
-findings, 2 = usage error, unreadable file, or bad triage-verdicts file.
+prints up to four finding sections in order — `genuine findings:`,
+`triage-verified findings:`, `intentional-motion findings:`,
+`intentional-staging findings:` (each only when it has entries) — followed by
+a counts line, e.g. `559 finding(s): 367 intentional-motion, 127
+intentional-staging, 0 genuine, 65 triage-verified`. The exit-code contract is
+CI-able as 0 = no genuine findings, 1 = one or more genuine findings, 2 =
+usage error, unreadable file, or bad triage-verdicts file: intentional
+findings get their own sections and do NOT affect the exit code.
 `generator/audit-verdicts.json` holds human-triage verdicts —
 `deliberate-placement` or `box-model-artifact` — for genuine findings verified
 acceptable as-is; matching pairs move into the `triage-verified` section and
 stop counting as genuine. The verdicts file is validated fail-closed:
 unreadable, malformed, or unknown-verdict records exit 2 rather than being
 silently ignored.
+
+Intentional findings are classified by `classifyFindings` (issues #382/#384):
+intentional-motion iff the overlap band touches a move-step flight interval of
+either involved shape AND both shapes' rest positions are clear;
+intentional-staging iff not intentional-motion and the two shapes' visibility
+intervals (from show/hide step times) never share a 100ms audit sample —
+sequential same-slot labels never on screen together; everything else is
+genuine. Known limitation: bands are 100ms samples, so a sub-100ms graze
+between samples is invisible to the audit and the classifier alike, and flight
+intervals come only from the spec's own move steps (scripted motion).
 
 ## Chart toolkit
 
