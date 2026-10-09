@@ -826,7 +826,7 @@
       "id": "dropFix",
       "kind": "circle",
       "cx": 300,
-      "cy": 270,
+      "cy": 305,
       "r": 12,
       "fill": "#e0352b"
      }
@@ -847,7 +847,7 @@
      "target": "dropFix",
      "to": {
       "cx": 300,
-      "cy": 270
+      "cy": 305
      },
      "dur_ms": 1500
     },
