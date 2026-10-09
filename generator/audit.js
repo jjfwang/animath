@@ -176,13 +176,23 @@ function loadTriageVerdicts(file) {
 // Narrow parser: the "<L> collides with <R>" (text-vs-shape) and
 // "<L> overlaps <R>" (text-vs-text / shape-vs-shape, issue #529: the s1
 // eq/letter blank-landing pair is phrased "overlaps" and was untriagable)
-// detail phrasings. Non-matching details (other finding kinds/phrasings)
-// never triage-match.
+// detail phrasings, plus the overflow phrasing "<id>: text box extends
+// outside the WxH canvas" (issue #545: width-estimate overflows are the
+// same #495 re-surfacing class, triaged with the canvas as the shape).
+// Non-matching details (other finding kinds/phrasings) never triage-match.
 // -> { label, shape } or null
 function parseCollideIds(detail) {
   var m = /^(\S+) (?:collides with|overlaps) (\S+)/.exec(detail);
-  if (!m) return null;
-  return { label: m[1], shape: m[2] };
+  if (m) {
+    return { label: m[1], shape: m[2] };
+  } else {
+    var o = /^(\S+): text box extends outside the \d+x\d+ canvas/.exec(detail);
+    if (o) {
+      return { label: o[1], shape: 'canvas' };
+    } else {
+      return null;
+    }
+  }
 }
 
 // -> matching record or null

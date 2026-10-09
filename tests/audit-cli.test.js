@@ -314,6 +314,10 @@ test('parseCollideIds: parses collides-with and overlaps ids, rejects other phra
   assert.deepEqual(cli.parseCollideIds('eq overlaps letter [600-9000ms]'),
     { label: 'eq', shape: 'letter' });
   assert.equal(cli.parseCollideIds('overflow wrongL: text box extends outside'), null);
+  // issue #545: overflow findings triage-match with the canvas as the shape
+  assert.deepEqual(cli.parseCollideIds('wrongL: text box extends outside the 960x540 canvas'),
+    { label: 'wrongL', shape: 'canvas' });
+  assert.equal(cli.parseCollideIds('eq: latex anchor outside the 960x540 canvas'), null);
 });
 
 test('run: recorded genuine pair moves off genuine into triage-verified', () => {
@@ -371,6 +375,74 @@ test('run: unrecorded overlaps-phrased pair stays genuine', () => {
   assert.doesNotMatch(r.output, /triage-verified findings:/);
 });
 
+function overflowSpec() {
+  // in-bounds at show time (static audit clean), parked out-of-bounds by a
+  // flight — the sampled audit flags the post-flight band, like wrongL
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{
+      id: 's1', duration_ms: 1000, steps: [
+        { at_ms: 0, do: 'show', shape: { id: 'far', kind: 'text', x: 100, y: 300, text: 'wide label here', size: 40 } },
+        { at_ms: 400, do: 'move', target: 'far', to: { x: 920, y: 300 }, dur_ms: 200 }
+      ]
+    }]
+  };
+}
+
+test('run: overflow finding triages via record with canvas shape (issue #545)', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'overflow.json', overflowSpec());
+  const v = writeVerdicts(dir, [Object.assign(verdictRecord(), {
+    file: 'overflow.json', scene: 's1', label: 'far', shape: 'canvas',
+    verdict: 'box-model-artifact'
+  })]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 0); // no genuine left
+  assert.equal(r.findingCount, 1); // single overflow note, triaged
+  assert.match(r.output, /triage-verified findings:/);
+  assert.match(r.output, /far: text box extends outside/);
+  assert.match(r.output, /triage: box-model-artifact \(test fixture evidence\)/);
+  assert.doesNotMatch(r.output, /genuine findings:/);
+  assert.match(r.output, /1 finding\(s\): 0 intentional-motion, 0 intentional-staging, 0 genuine, 1 triage-verified/);
+});
+
+test('run: unrecorded overflow stays genuine', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'overflow.json', overflowSpec());
+  const v = writeVerdicts(dir, [verdictRecord({ label: 'other', shape: 'canvas', file: 'overflow.json' })]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 1);
+  assert.match(r.output, /genuine findings:/);
+  assert.match(r.output, /far: text box extends outside/);
+  assert.doesNotMatch(r.output, /triage-verified findings:/);
+});
+
+function latexAnchorSpec() {
+  // latex anchor outside the canvas: the "latex anchor outside" phrasing
+  // must never triage-match (parseCollideIds rejects it by design)
+  return {
+    canvas: { width: 960, height: 540 },
+    scenes: [{
+      id: 's1', duration_ms: 1000, steps: [
+        { at_ms: 0, do: 'show', shape: { id: 'lx', kind: 'latex', x: 1000, y: 100, tex: 'x', size: 24 } }
+      ]
+    }]
+  };
+}
+
+test('run: latex-anchor overflow never triage-matches (issue #545)', () => {
+  const dir = tmpDir();
+  const f = writeSpec(dir, 'lxoverflow.json', latexAnchorSpec());
+  const v = writeVerdicts(dir, [Object.assign(verdictRecord(), {
+    file: 'lxoverflow.json', scene: 's1', label: 'lx', shape: 'canvas',
+    verdict: 'box-model-artifact'
+  })]);
+  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  assert.equal(r.code, 1); // stays genuine: the phrasing is not triage-matchable
+  assert.match(r.output, /lx: latex anchor outside the 960x540 canvas/);
+  assert.doesNotMatch(r.output, /triage-verified findings:/);
+});
+
 test('run: unrecorded genuine stays genuine', () => {
   const dir = tmpDir();
   const f = writeSpec(dir, 'overlap.json', overlapSpec());
@@ -404,8 +476,12 @@ test('run: default verdicts path is the shipped audit-verdicts.json', () => {
   const triage = r.output.split('triage-verified findings:\n')[1]
     .split('intentional-motion findings:')[0];
   records.forEach(rec => {
+    // issue #545: overflow findings triage-match with the canvas as the shape
+    const frag = rec.shape === 'canvas'
+      ? rec.label + ': text box extends outside'
+      : rec.label + ' (collides with|overlaps) ' + rec.shape;
     const re = new RegExp(rec.file.replace(/\./g, '\\.') + ' ' + rec.scene +
-      ' .*' + rec.label + ' (collides with|overlaps) ' + rec.shape);
+      ' .*' + frag);
     assert.match(triage, re);
   });
   // genuine count drops by exactly the number of triaged lines

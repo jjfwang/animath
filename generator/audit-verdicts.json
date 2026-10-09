@@ -286,5 +286,32 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL two-layer (DejaVu 32) re-verified 2026-10-09 on the current tree: fallback exact latexFallbackText 'y = f(x)' anchor ls 0 shared ink px at rest (620,250: label ink x 621-738 y 226-256) and across the [2600-3400ms] flight time-sampled at 100ms (y 190->250, every sample 0 shared px); the 3px curve stroke under the label's x-range runs y 369-400, min per-column clearance 124px. KaTeX-faithful single-line top-left 0 shared px at rest (ink y 250-280, 100px clearance) and at every flight sample. Audit line [3000-12000ms] is the polygon-bbox overestimate (bbox top y=250 from the x=360 peak vs the label's true ink band).",
     "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-statistics.json",
+    "scene": "s6",
+    "label": "q1l",
+    "shape": "medv",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu) re-verified 2026-10-09 on the current tree (main b595fe7a): KaTeX-faithful (foreignObject top-left (405,300); Q + lowered 0.7em subscript 1 + rest, ink-top-aligned per fitLatex) 0 shared ink px vs the medv dashed drop line (x=440, y270-420, w3) -- the line threads the inter-glyph gap between the subscript '1' ink (x430-434) and the approx sign (x447+), min ~6px clearance; 0 shared px vs the g2 ogive stroke (~7px min clearance). Fallback exact latexFallbackText 'Q_1 ≈ 16.7' anchor ls: 9 shared px vs medv -- the documented #444 degraded-path limitation (literal underscore string ~133px wide; an x-sweep [386,423] shows no clear slot, KaTeX is the shipped path). The audit's advance-based latexBox spans x=440, so the line persists as a box-model artifact.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-statistics.json",
+    "scene": "s6",
+    "label": "medl",
+    "shape": "q3h",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu) re-verified 2026-10-09 on the current tree: KaTeX-faithful (foreignObject top-left (120,170), ink-top-aligned per fitLatex) ink y170-190, 0 shared px vs the q3h dashed drop line (y=195, w3) at rest (x2=553) and at every 100ms sample of the [8200-8700ms] growth flight, min ~4px clearance; fallback exact 'median ≈ 25' anchor ls ink y150-170, 0 shared px, ~24px clearance. The audit's latexBox bottom (201.2) uses the top-left-anchored foreignObject box plus the 0.2*size descender budget, but the rendered string has no descenders -- real ink bottom is y=190. Clearance measured fresh (the run-504 content-aware ascent change kept latexBox conservative by design).",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-statistics.json",
+    "scene": "s7",
+    "label": "wrongL",
+    "shape": "canvas",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL (DejaVu 20, anchor ls, wide canvas) re-verified 2026-10-09 on the current tree: 'the typical score?' at its dismissal-flight park (790,238) inks x790-965 -- exactly 5 ink-px columns (x961-965) past the 960 edge, matching the amended #444 triage. The audit's advance-estimate text box overstates the width; the 5px overhang is invisible (SVG viewport clips at 960x540, the player renders narrower system-ui) and the park lasts 200ms [4600-4700ms] before the 4800ms hide -- the designed dismissal endpoint. Width-estimate artifact; triage-matched via the issue-#545 overflow parser (shape 'canvas').",
+    "date": "2026-10-09"
   }
 ]
