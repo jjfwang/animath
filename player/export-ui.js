@@ -98,6 +98,8 @@
       if (!spec) {
         ctl = null;
         button.disabled = true;
+        button.title = 'Load a sample to enable export';
+        setStatus('');
         return;
       }
       ctl = createExportController({

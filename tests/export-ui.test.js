@@ -76,17 +76,24 @@ function flush(n) {
 }
 
 describe('attachExportUI', function () {
-  test('refresh with no spec disables the button and ignores clicks', function () {
+  test('refresh with no spec disables the button, clears stale state, and ignores clicks', function () {
     var doc = fakeDoc();
     var win = fakeWin(fakeMR);
     var calls = [];
+    var current = twoSceneSpec();
     var api = ui.attachExportUI(doc, win, recordHarness(function () { calls.push(1); }), {
-      getSpec: function () { return null; },
+      getSpec: function () { return current; },
       getSlug: function () { return 'x'; }
     });
     var button = doc.getElementById('exportbtn');
+    var status = doc.getElementById('exportstatus');
+    api.refresh();
+    assert.equal(button.disabled, false);
+    current = null; // spec load failed after a good load: stale state must clear
     api.refresh();
     assert.equal(button.disabled, true);
+    assert.equal(button.title, 'Load a sample to enable export');
+    assert.equal(status.textContent, '');
     button.listeners.click();
     assert.equal(calls.length, 0);
   });
