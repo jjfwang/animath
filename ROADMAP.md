@@ -47,7 +47,7 @@ All five packs shipped: 69 hand-authored samples, 67/67 syllabus slugs covered.
 
 ## R-5 — Quality & docs
 
-- [ ] Headless render check in the loop (screenshot each sample per run)
+- [x] Headless render check in the loop (screenshot each sample per run) — 2026-10-09: shipped as the render-snapshot harness — tests/render-snapshot.test.js + tests/fixtures/render-snapshots.json + generator/tooling/gen-render-snapshots.js (issues #519, #521); fail-closed byte-determinism check of per-frame SVG strings on every suite run. Honest limit: SVG-level determinism, not pixel screenshots — no headless browser on the loop's VM and the repo is zero-dep.
 - [x] CONTRIBUTING.md and issue templates — issue #125
 - [x] Gallery page: all samples playable without an API key — issue #5
 - [x] Static geometry audit: text overflow + label overlap check (generator/geometry.js) — issue #117
