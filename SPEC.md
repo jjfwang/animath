@@ -140,3 +140,59 @@ It also ships a Node CLI — `node player/validate.js <spec.json>` — guarded b
 browser never runs the CLI. Exit codes: 0 = valid spec (names the file on
 stdout); 2 = validation errors (one finding per line on stdout); 1 = bad
 arguments, unreadable file, or invalid JSON (errors and usage on stderr).
+
+## Export
+
+`player/export-frames.js` defines the DOM-free deterministic per-frame SVG
+contract (issue #506):
+
+- `shapeMarkup` mirrors `drawShape`'s attribute decisions and geometry — the
+  same defaults (fill `none`, stroke `#1a1a1a`, stroke-width 2, text-anchor
+  `start`), the same geometry helpers — by reusing the player's exported pure
+  helpers, so the contract cannot drift from the renderer.
+- `sceneShapes` replays the scene timeline with the player's instant semantics
+  (`renderSceneAt(i, ms, instant=true)`), except move steps interpolate at
+  p = (ms - at_ms) / (dur_ms || 800) so mid-tween frames match the live tween
+  position. Fades are flattened — a frame either contains a shape or it does
+  not; emphasize is a geometric no-op; caption targets the HTML chrome and is
+  ignored.
+- `renderFrame` returns a standalone byte-deterministic `<svg>` (byte-identical
+  across runs and processes); `frameMs` / `sceneFrameCount` define the
+  frame-index contract. Text content is XML-escaped; latex shapes render
+  through the no-KaTeX fallback (`latexFallbackText`), exactly like the player
+  without KaTeX loaded.
+
+`player/export-record.js` is the browser recording harness consuming that
+contract:
+
+- It rasterizes each frame's SVG string to an offscreen canvas at a fixed fps
+  (default 30) and feeds `canvas.captureStream()` into MediaRecorder, producing
+  a WebM blob.
+- Wall-clock pacing: frames are drawn on a timer at 1000/fps ms and the stream
+  is captured at the same fps, so playback runs at the export fps in real time —
+  a 12s scene takes ~12s to record; it is a recorder, not a fast renderer.
+- Pure DOM-free helpers: `buildFramePlan`; `defaultExportName`
+  (`<slug>-YYYYMMDD-HHmmss.webm`, injectable timestamp so repeats never
+  overwrite each other); `preferredMimeTypes` (vp9, then vp8, then plain webm;
+  fail-closed — `pickMimeType` returns `''` when nothing is supported);
+  `supportCheck` with human-readable reasons.
+- `recordSpec` reads every browser capability through an injectable `env`
+  (`{ document, Image, MediaRecorder, Blob }`) — never bare globals — so the
+  whole pipeline runs in Node under test with fakes.
+
+`player/export-ui.js` wires the harness to a demo page:
+
+- One `attachExportUI(document, window, AnimathExportRecord,
+  { getSpec, getSlug })` call: a native Export button plus a short status line
+  (idle / recording progress / done with the file name / error reason);
+  `player/demo.html` mounts it as `#exportbtn` + `#exportstatus` in the demo
+  bar.
+- Reduced-motion is respected: the full scene sequence always records at normal
+  pace, never time-compressed.
+- The button is a native `<button>` (keyboard-accessible by default); when
+  MediaRecorder is absent it is disabled with the reason as its title and
+  status ("Export unavailable: <reason>").
+
+Honest limitation: the MediaRecorder wiring itself cannot run on this VM's Node
+build; the testable contract is everything around it. Parent issue #506 stays
+open for end-to-end browser-download acceptance.
