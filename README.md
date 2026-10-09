@@ -119,7 +119,10 @@ every `show`-step text shape is boxed (width = size × the sum of
 PIL-measured DejaVu Sans per-glyph advances baked into the module,
 falling back to 0.6 × size per unknown glyph,
 resolved against `align`/`start`|`middle`|`end`, and baseline-anchored
-vertically — top = y − size, since SVG text y is the alphabetic baseline)
+vertically — top = y − ascent × size (ascent is 1.0 conservatively, or 0.8
+for ascender-less labels: only lowercase without bdfhkl/i/j-tittle/tall
+characters, per the PIL-measured budget in `geometry.js`), since SVG text y
+is the alphabetic baseline)
 and checked for canvas overflow, every pair of text boxes is checked for overlap beyond a 1%
 tolerance, and latex anchors are checked against the canvas (no width
 estimate — KaTeX width is not statically computable). Shapes moved by

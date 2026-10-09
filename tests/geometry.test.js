@@ -8,7 +8,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const { auditGeometry, auditGeometrySampled, classifyFindings, auditSampleFile, auditAllSamples, estimateTextWidth } = require('../generator/geometry.js');
+const { auditGeometry, auditGeometrySampled, classifyFindings, auditSampleFile, auditAllSamples, estimateTextWidth, textBox } = require('../generator/geometry.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
 
@@ -1284,4 +1284,50 @@ test('staging: junk ids and scenes stay genuine', () => {
     assert.equal(c.flight, null);
     assert.equal(c.staging, null);
   });
+});
+
+/* issue #504: content-aware textBox ascent */
+
+// 'hello' at size 24 keeps the conservative 1.0 ascent ('h' and 'l' are tall)
+test('textBox: tall characters keep the conservative 1.0 ascent', () => {
+  const size = 24, y = 100;
+  for (const text of ['hello', 'Fats', 'fats', 'fine', 'gases out!', 'a1', 'well?', '(a)', 'a_b/c', 'café']) {
+    const b = textBox({ kind: 'text', id: 't', x: 100, y: y, text: text, size: size });
+    assert.equal(b.top, y - 1.0 * size, JSON.stringify(text));
+    assert.equal(b.bottom, y + 0.2 * size, JSON.stringify(text));
+  }
+});
+
+// ascender-less labels (x-height glyphs + 't' + low punctuation) get 0.8
+test('textBox: ascender-less labels get the 0.8 ascent budget', () => {
+  const size = 24, y = 100;
+  for (const text of ['sense', 'gases out', 'water, sea.', 'a maze', 't t t']) {
+    const b = textBox({ kind: 'text', id: 't', x: 100, y: y, text: text, size: size });
+    assert.equal(b.top, y - 0.8 * size, JSON.stringify(text));
+    assert.equal(b.bottom, y + 0.2 * size, JSON.stringify(text));
+  }
+});
+
+test('textBox: null for empty or non-text shapes', () => {
+  assert.equal(textBox({ kind: 'text', text: '' }), null);
+  assert.equal(textBox({ kind: 'circle', x: 1, y: 2, r: 3 }), null);
+  assert.equal(textBox(null), null);
+});
+
+// dot parked in the old ascent band ([y-1.0*size, y-0.8*size]) no longer
+// flags an ascender-less label, but still flags a tall-character label.
+function ascentSpec(text) {
+  return specOf([
+    show({ id: 'lbl', kind: 'text', x: 100, y: 100, text: text, size: 24 }, 0),
+    show({ id: 'dot', kind: 'circle', cx: 120, cy: 78, r: 2 }, 0)
+  ]);
+}
+test('audit: dot in the old ascent band clears an ascender-less label', () => {
+  assert.deepEqual(auditGeometry(ascentSpec('sense')), []);
+});
+test('audit: dot in the same band still flags a tall-character label', () => {
+  const f = auditGeometry(ascentSpec('sense!'));
+  assert.equal(f.length, 1);
+  assert.equal(f[0].kind, 'text-shape-overlap');
+  assert.match(f[0].detail, /lbl collides with dot/);
 });
