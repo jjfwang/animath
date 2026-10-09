@@ -133,5 +133,50 @@
     "verdict": "deliberate-placement",
     "evidence": "PIL render: stage label set against its curve box by design",
     "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-functions-graphs.json",
+    "scene": "s1",
+    "label": "eq",
+    "shape": "line",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (fallback ls + KaTeX-faithful top-left, DejaVu, FULL verbatim 'y = 2x - 3'): 0 shared ink px at rest and across the [6000-7600ms] flight sampled at 200ms; diagonal-wire bbox corner overestimate (audit box y-overlap 238-247.6 vs real ink bottom 236)",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-functions-graphs.json",
+    "scene": "s3",
+    "label": "eqa",
+    "shape": "linea",
+    "verdict": "box-model-artifact",
+    "evidence": "post-fix (eqa x 120->90): PIL two-layer 0 shared ink px at rest both layers, ink right x=324 vs wire x>=344 in the y-band (18px clearance); residual box overlap is the diagonal-wire bbox overestimate",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-functions-graphs.json",
+    "scene": "s3",
+    "label": "eqb",
+    "shape": "linea",
+    "verdict": "box-model-artifact",
+    "evidence": "post-fix (eqb x 120->90): PIL two-layer 0 shared ink px at rest both layers, ink right x=305 vs wire x>=317 in the y-band (11px clearance); residual box overlap is the diagonal-wire bbox overestimate",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-functions-graphs.json",
+    "scene": "s3",
+    "label": "title",
+    "shape": "lineb",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer 0 shared ink px (title 'Parallel lines share a gradient' size 36 ls at (120,100)); arrow tip (425,105) lands in the inter-word space between 'Parallel' and 'lines', 2px below the baseline; overlap is the diagonal-wire bbox corner",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-functions-graphs.json",
+    "scene": "s5",
+    "label": "eqb",
+    "shape": "lineb",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer 0 shared ink px across [4100-9000ms] sampled at 200ms incl. the [2800-4600ms] flight; real wire x>=370 in the label band vs ink right x=345 (fallback) / 345 (KaTeX); pure diagonal-wire bbox corner artifact",
+    "date": "2026-10-09"
   }
 ]
