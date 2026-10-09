@@ -28,7 +28,7 @@ All five packs shipped: 69 hand-authored samples, 67/67 syllabus slugs covered.
 
 - [x] KaTeX rendering (`latex` shape kind; unicode `text` keeps working) — issue #3
 - [x] Filmstrip navigation (one labeled button per scene) — issue #95
-- [ ] Export: record a scene sequence to WebM via canvas capture (deferred — too big for one slice)
+- [x] Export: record a scene sequence to WebM via canvas capture — issue #506 (PRs #508 slice 1, #510 slice 2, #512 slice 3); #506 stays open pending end-to-end browser-download acceptance
 - [x] Keyboard shortcuts and reduced-motion support — issue #93
 
 ## R-3 — Generator capabilities
