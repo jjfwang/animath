@@ -36,6 +36,48 @@ tests assert the documented invariants (mean abs error under half the old
 model's; no underestimate beyond `WIDTH_MARGIN_PX`); if a regenerated
 table breaks them, the table — not the tests — is wrong.
 
+## gen-render-snapshots.js (issue #519)
+
+Renders every frame of every scene of every sample at a 1fps stride and
+bakes sha256 hashes of the resulting SVG into
+`tests/fixtures/render-snapshots.json`, locking per-frame SVG determinism
+across all samples.
+
+Requirements: Node, zero dependencies.
+
+What it does (from the repo root):
+
+    node generator/tooling/gen-render-snapshots.js
+
+1. Iterates `samples/*.json` except `index.json`; for each scene renders
+   `renderFrame(spec, sceneIdx, frameMs(i, 1))` via `player/export-frames.js`
+   (the DOM-free deterministic frame contract) and sha256-hashes each
+   frame's SVG.
+2. Writes `tests/fixtures/render-snapshots.json` shaped
+   `{ sampleBasename: { sceneId: [hashes...] } }` and prints a summary line
+   (samples, scenes, frames — currently 69 / 332 / 3070).
+
+Then re-run the suite: `node --test "tests/*.test.js"`. The snapshot test
+(`tests/render-snapshot.test.js`) fails closed: it asserts the manifest's
+sample/scene keys match the on-disk `samples/` listing exactly, then for
+every scene renders each frame twice — asserting the two renders are
+byte-identical (the determinism guard) — and asserts each hash equals the
+manifest entry. The manifest is never regenerated implicitly; a missing
+sample/scene, a missing frame, or any render-output change fails the suite.
+
+Change-then-regenerate loop: edit the renderer (or a sample), watch the
+snapshot test fail, re-run the script to adopt the new hashes deliberately,
+and commit the regenerated manifest. Sample-count drift is intentional:
+adding a sample or scene fails the test until you regen.
+
+Honest limits: the manifest samples at 1fps, not the player's 30fps live
+stride — a full-30fps audit is offline (CI/maintainer) work; the 1fps
+manifest costs ~1s of suite time for render+hash x2 (3070 frames). The
+regen script itself is not covered by the test suite (same precedent as
+`gen-glyph-table.py`); its acceptance is the demonstrated
+change-fails/regen-passes loop plus review reading the script against the
+test's consumption.
+
 ## audit-verdicts.json — triage-verdict records (issue #495)
 
 `generator/audit-verdicts.json` records human-triage verdicts for genuine
