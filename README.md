@@ -83,6 +83,30 @@ Like the gallery, embedding fetches the sample JSON over HTTP — serve your
 site with e.g. `python3 -m http.server` rather than `file://`, which Chrome
 blocks for fetch.
 
+## Export WebM
+
+Open any sample in `player/demo.html` and press the Export WebM button (`#exportbtn`,
+in the demo bar) to record the currently loaded animation as a WebM video file —
+handy for teachers embedding a clip in slides or worksheets.
+
+The filename is `<slug>-YYYYMMDD-HHmmss.webm` (e.g.
+`primary-math-fractions-addition-20261009-101825.webm`), so repeated exports never
+overwrite each other. Three modules do the work:
+
+- `player/export-frames.js` — DOM-free, deterministic per-frame SVG rendering
+  (`renderFrame` / `frameMs` / `sceneFrameCount`): replays the scene timeline with
+  the player's instant semantics and emits a standalone SVG string per frame.
+- `player/export-record.js` — browser recording harness: rasterizes each frame to
+  an offscreen canvas, feeds `canvas.captureStream()` into `MediaRecorder`
+  (VP9 first, then VP8, then plain WebM), and resolves a WebM blob.
+- `player/export-ui.js` — wires the button to the harness on demo.html.
+
+The export records the full scene sequence at normal playback pace — reduced-motion
+users receive the same complete video. The button is a native `<button>`, so it is
+keyboard-accessible. On browsers without `MediaRecorder` (checked by `supportCheck`,
+fail-closed with human-readable reasons), the button is disabled and shows the
+reason as a tooltip plus an "Export unavailable: <reason>" status message.
+
 ## Singapore syllabus coverage
 
 Primary (PSLE) · Secondary (O/N-level, E-Math & A-Math, Physics / Chemistry /
