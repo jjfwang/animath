@@ -322,5 +322,50 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL (DejaVu Sans 26, anchor ls left+baseline per runs 402/404, FULL verbatim text 'light energy' per run 412) verified 2026-10-09 on the current tree: label inks x372-526 y155-180 at (370,175); beam shaft stroke-width 4 plus player.js arrowhead (hs=10+2w) at (220,170)->(520,262) inks x220-522 y169-265; 0 shared ink px; beam ink top at y216 within the label x-range, 36px below the label ink bottom (y180). The audit's 1854px^2 comes from the beam segment-bbox top band grazing the conservative label text box -- pure bbox over-approximation; both shapes static, so the [4400-7000ms] band is pure coexistence (scene ends at 7000ms).",
     "date": "2026-10-09"
+  },
+  {
+    "file": "primary-math-area-perimeter.json",
+    "scene": "s3",
+    "label": "bad",
+    "shape": "ghost",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL (DejaVu Sans 34, anchor ls left+baseline per runs 402/404, FULL verbatim text 'box = 200 x 260 = 52 000!' per run 412) verified 2026-10-09 on the current tree: label inks x451-916 y324-349 at (448,350); ghost rect stroke-width 3 at rest (480,180) 80x140 inks x480-560 y180-320; 0 shared ink px, 5.4px min clearance (rect ink bottom y320 vs label ink top y324; DejaVu is the conservative wide font per run-87). The audit's 320px^2 comes from the rect bbox bottom band grazing the conservative label text box -- pure bbox over-approximation; ghost's return flight ends 7400ms, so the banded [7100-8000ms] line is pure coexistence at rest.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "primary-science-energy-forms.json",
+    "scene": "s1",
+    "label": "l1",
+    "shape": "ray3",
+    "verdict": "deliberate-placement",
+    "evidence": "PIL (DejaVu Sans 30, anchor ms middle+baseline for align:middle per run-404, FULL verbatim text 'Light' per run 412) verified 2026-10-09 on the current tree: label inks x125-197 y322-350 at (160,345); ray3 arrow shaft width 4 plus player.js arrowhead (hs=10+2w, +-0.42 rad) inks x178-252 y278-357 at rest (180,280)->(250,355); flight [1500-2200ms] time-sampled at 100ms per run-274: 0 shared ink px at every sample, 19.7px min clearance at rest. The ray deliberately extends toward its label -- the proximity is the design (ray head parks pointing at the word 'Light'); the banded [1600-11000ms] line is the label box overlapping the arrow's segment bbox, no real ink contact.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-science-chem-mole.json",
+    "scene": "s2",
+    "label": "work",
+    "shape": "stem",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer latex evidence per runs 429/457 (DejaVu Sans 36, FULL verbatim tex per run 412) verified 2026-10-09 on the current tree. Shipped KaTeX path (KaTeX-faithful stacked fraction: numerator '12 g' over bar over denominator '12 g/mol', foreignObject top-left at (80,440)): equation inks x83-466 y400-482; stem rect 20x60 at (470,418) inks x470-490 y418-478; 0 shared ink px, 4.0px min clearance (DejaVu is the conservative wide font per run-87, so the real KaTeX render clears by more). Degraded fallback path only (player.js latexFallbackText 'n = 12 g/12 g/mol = 1 mol', anchor ls left+baseline per run-457): 48 shared ink px at x470-473 y418-439 -- disclosed per the run-545 s6 q1l precedent (fallback renders only when KaTeX is unavailable). The audit's 760px^2 comes from the conservative latexBox width estimate -- pure box-model over-approximation on the shipped path.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-cell-bio.json",
+    "scene": "s2",
+    "label": "envLabel",
+    "shape": "nuc",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL (DejaVu Sans 22, anchor ls left+baseline per runs 402/404, FULL verbatim text 'nuclear envelope: double membrane' per run 412) verified 2026-10-09 on the current tree: label inks x522-925 y113-134 at (520,130); nuc circle r140 stroke-width 3 at (420,270) inks x280-560 y130-410; 0 shared ink px, 33.8px min clearance (circle stroke at the label's x-range runs y~170-174, well below the label ink band). The audit's 176px^2 is the circle-bbox top-right corner grazing the label text box -- pure bbox-corner over-approximation; both shapes static, so the banded [2000-11000ms] band is pure coexistence. The label deliberately names the drawn nucleus's envelope; the flagged overlap is not real.",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-ecology.json",
+    "scene": "s2",
+    "label": "ow",
+    "shape": "w4",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL (DejaVu Sans 28, anchor ls left+baseline per runs 402/404, FULL verbatim text 'owl' per run 412) verified 2026-10-09 on the current tree: label inks x621-665 y409-429 at (620,430); w4 arrow (700,310)->(350,410) width 3 (shaft plus player.js arrowhead hs=10+2w=16 at the (350,410) tip) inks x348-701 y308-412; 0 shared ink px, 79.1px min clearance (shaft at the label's x-range runs y~320-333). The audit's 478px^2 is the arrow's segment-bbox bottom band (y up to 412) grazing the label text box top -- pure bbox over-approximation; both shapes static, so the banded [5000-11000ms] band is pure coexistence. The label sits at the arrow's tail side by design; the flagged overlap is not real.",
+    "date": "2026-10-09"
   }
 ]
