@@ -250,5 +250,23 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL two-layer (DejaVu 24) re-verified on the current tree: fallback exact latexFallbackText 'P = ' anchor ls at (330,240) 0 shared ink px (ink y 222-240, 30px above the y=270 wire); KaTeX-faithful 'P = α' top-left at (330,240) 0 shared px (ink y 245-263, 7px above the wire); audit 40px^2 is the conservative-ascent latexBox bottom sliver grazing the wire bbox - no shared ink on either render layer.",
     "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-mechanics.json",
+    "scene": "s2",
+    "label": "forceEq",
+    "shape": "planet",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 40) re-verified 2026-10-09 on the current tree: fallback exact latexFallbackText 'F = mv²/r' anchor ls at (120,230) 0 shared ink px vs planet disk (cx 360 cy 300 r 28), ~67px clearance; KaTeX-faithful stacked-fraction top-left at (120,230) 0 shared px, ~65px clearance. Audit 48px^2 is the planet circle's bbox-corner artifact; pair is static (no move steps on either shape).",
+    "date": "2026-10-09"
+  },
+  {
+    "file": "jc-h2-mechanics.json",
+    "scene": "s3",
+    "label": "gravEq",
+    "shape": "orbit",
+    "verdict": "box-model-artifact",
+    "evidence": "PIL two-layer (DejaVu 40) re-verified 2026-10-09 on the current tree: fallback exact latexFallbackText 'F = GMm/r²' anchor ls at (60,80) 0 shared ink px vs orbit ring (cx 480 cy 270 r 170, width 2), ~113px clearance; KaTeX-faithful stacked-fraction top-left at (60,80) 0 shared px, ~143px clearance. Audit 331px^2 is the orbit circle's bbox-corner artifact; pair is static (no move steps on either shape).",
+    "date": "2026-10-09"
   }
 ]
