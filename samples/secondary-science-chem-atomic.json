@@ -39,7 +39,8 @@
             "r": 180,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 3: the outermost electron shell shown here."
           }
         },
         {
@@ -53,7 +54,8 @@
             "r": 125,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 2: the middle electron shell."
           }
         },
         {
@@ -67,7 +69,8 @@
             "r": 70,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 1: the innermost electron shell, closest to the nucleus."
           }
         },
         {
@@ -81,7 +84,8 @@
             "r": 14,
             "fill": "#c0392b",
             "stroke": "#c0392b",
-            "width": 2
+            "width": 2,
+            "explain": "The nucleus: tiny and dense, holding the protons and neutrons."
           }
         },
         {
@@ -108,7 +112,8 @@
             "y": 336,
             "size": 14,
             "text": "nucleus",
-            "color": "#ffffff"
+            "color": "#ffffff",
+            "explain": "nucleus: the dense centre of the atom."
           }
         },
         {
@@ -122,7 +127,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -146,7 +152,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -170,7 +177,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -194,7 +202,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -218,7 +227,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -240,7 +250,8 @@
             "x": 700,
             "y": 120,
             "size": 22,
-            "text": "electrons"
+            "text": "electrons",
+            "explain": "electrons: they sit in shells, not in random orbits."
           }
         },
         {
@@ -252,7 +263,8 @@
             "x": 700,
             "y": 150,
             "size": 22,
-            "text": "live in shells"
+            "text": "live in shells",
+            "explain": "live in shells: each shell is a fixed energy level."
           }
         },
         {
@@ -291,7 +303,8 @@
             "r": 130,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 2: the middle electron shell."
           }
         },
         {
@@ -305,7 +318,8 @@
             "r": 70,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 1: the innermost electron shell, closest to the nucleus."
           }
         },
         {
@@ -319,7 +333,8 @@
             "r": 32,
             "fill": "#c0392b",
             "stroke": "#c0392b",
-            "width": 2
+            "width": 2,
+            "explain": "The nucleus: tiny and dense, holding the protons and neutrons."
           }
         },
         {
@@ -332,7 +347,8 @@
             "y": 342,
             "size": 18,
             "text": "6p 6n",
-            "color": "#ffffff"
+            "color": "#ffffff",
+            "explain": "6p 6n: six protons and six neutrons in carbon's nucleus."
           }
         },
         {
@@ -356,7 +372,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -380,7 +397,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -402,7 +420,8 @@
             "x": 430,
             "y": 250,
             "size": 24,
-            "text": "2 electrons fill shell 1"
+            "text": "2 electrons fill shell 1",
+            "explain": "2 electrons fill shell 1: the first shell holds at most 2."
           }
         },
         {
@@ -416,7 +435,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -440,7 +460,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -464,7 +485,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -488,7 +510,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -510,7 +533,8 @@
             "x": 430,
             "y": 290,
             "size": 24,
-            "text": "4 more sit in shell 2"
+            "text": "4 more sit in shell 2",
+            "explain": "4 more sit in shell 2: the second shell holds up to 8."
           }
         },
         {
@@ -522,7 +546,8 @@
             "x": 430,
             "y": 370,
             "size": 24,
-            "text": "Protons = 6 → it is carbon."
+            "text": "Protons = 6 → it is carbon.",
+            "explain": "Protons = 6 means carbon: the proton count is the atomic number."
           }
         },
         {
@@ -561,7 +586,8 @@
             "r": 180,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 3: the outermost electron shell shown here."
           }
         },
         {
@@ -575,7 +601,8 @@
             "r": 125,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 2: the middle electron shell."
           }
         },
         {
@@ -589,7 +616,8 @@
             "r": 70,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "Shell 1: the innermost electron shell, closest to the nucleus."
           }
         },
         {
@@ -603,7 +631,8 @@
             "r": 34,
             "fill": "#c0392b",
             "stroke": "#c0392b",
-            "width": 2
+            "width": 2,
+            "explain": "The nucleus: tiny and dense, holding the protons and neutrons."
           }
         },
         {
@@ -616,7 +645,8 @@
             "y": 342,
             "size": 18,
             "text": "11p 12n",
-            "color": "#ffffff"
+            "color": "#ffffff",
+            "explain": "11p 12n: eleven protons and twelve neutrons in sodium's nucleus."
           }
         },
         {
@@ -630,7 +660,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -654,7 +685,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -676,7 +708,8 @@
             "x": 450,
             "y": 210,
             "size": 24,
-            "text": "2 in shell 1"
+            "text": "2 in shell 1",
+            "explain": "2 in shell 1: the first shell is full."
           }
         },
         {
@@ -690,7 +723,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -714,7 +748,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -738,7 +773,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -762,7 +798,8 @@
             "r": 10,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "An electron: it sits in a fixed shell around the nucleus."
           }
         },
         {
@@ -784,7 +821,8 @@
             "x": 450,
             "y": 250,
             "size": 24,
-            "text": "8 in shell 2"
+            "text": "8 in shell 2",
+            "explain": "8 in shell 2: the second shell is full."
           }
         },
         {
@@ -798,7 +836,8 @@
             "r": 12,
             "fill": "#e67e22",
             "stroke": "#e67e22",
-            "width": 2
+            "width": 2,
+            "explain": "The lone outer electron: it sits alone in shell 3 and rules sodium's chemistry."
           }
         },
         {
@@ -810,7 +849,8 @@
             "x": 450,
             "y": 300,
             "size": 24,
-            "text": "1 lone electron in shell 3"
+            "text": "1 lone electron in shell 3",
+            "explain": "1 lone electron in shell 3: sodium loses this electron in reactions."
           }
         },
         {
@@ -862,7 +902,8 @@
             "x": 105,
             "y": 120,
             "size": 24,
-            "text": "Group 1"
+            "text": "Group 1",
+            "explain": "Group 1: the first column of the periodic table."
           }
         },
         {
@@ -877,7 +918,8 @@
             "h": 270,
             "fill": "none",
             "stroke": "#e67e22",
-            "width": 2
+            "width": 2,
+            "explain": "The Group 1 column: highlighted to show that the column is the group."
           }
         },
         {
@@ -892,7 +934,8 @@
             "h": 60,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The lithium cell: a Group 1 element's box on the table."
           }
         },
         {
@@ -904,7 +947,8 @@
             "x": 440,
             "y": 198,
             "size": 26,
-            "text": "Li"
+            "text": "Li",
+            "explain": "Li: lithium's chemical symbol."
           }
         },
         {
@@ -939,7 +983,8 @@
             "h": 60,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The sodium cell: a Group 1 element's box on the table."
           }
         },
         {
@@ -951,7 +996,8 @@
             "x": 438,
             "y": 268,
             "size": 26,
-            "text": "Na"
+            "text": "Na",
+            "explain": "Na: sodium's chemical symbol."
           }
         },
         {
@@ -986,7 +1032,8 @@
             "h": 60,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The potassium cell: a Group 1 element's box on the table."
           }
         },
         {
@@ -998,7 +1045,8 @@
             "x": 444,
             "y": 338,
             "size": 26,
-            "text": "K"
+            "text": "K",
+            "explain": "K: potassium's chemical symbol."
           }
         },
         {
@@ -1030,7 +1078,8 @@
             "x": 260,
             "y": 190,
             "size": 22,
-            "text": "lithium"
+            "text": "lithium",
+            "explain": "lithium: the element's full name."
           }
         },
         {
@@ -1042,7 +1091,8 @@
             "x": 260,
             "y": 260,
             "size": 22,
-            "text": "sodium"
+            "text": "sodium",
+            "explain": "sodium: the element's full name."
           }
         },
         {
@@ -1054,7 +1104,8 @@
             "x": 260,
             "y": 330,
             "size": 22,
-            "text": "potassium"
+            "text": "potassium",
+            "explain": "potassium: the element's full name."
           }
         },
         {
@@ -1068,7 +1119,8 @@
             "x2": 435,
             "y2": 190,
             "stroke": "#e67e22",
-            "width": 3
+            "width": 3,
+            "explain": "Group arrow: it links the three cells standing in the same column."
           }
         },
         {
@@ -1082,7 +1134,8 @@
             "x2": 435,
             "y2": 260,
             "stroke": "#e67e22",
-            "width": 3
+            "width": 3,
+            "explain": "Group arrow: it links the three cells standing in the same column."
           }
         },
         {
@@ -1096,7 +1149,8 @@
             "x2": 435,
             "y2": 330,
             "stroke": "#e67e22",
-            "width": 3
+            "width": 3,
+            "explain": "Group arrow: it links the three cells standing in the same column."
           }
         },
         {
@@ -1108,7 +1162,8 @@
             "x": 540,
             "y": 190,
             "size": 20,
-            "text": "→ all have 1 outer electron"
+            "text": "→ all have 1 outer electron",
+            "explain": "All have 1 outer electron: that shared outer electron makes them a group."
           }
         },
         {
@@ -1120,7 +1175,8 @@
             "x": 540,
             "y": 260,
             "size": 20,
-            "text": "→ all react with water the same way"
+            "text": "→ all react with water the same way",
+            "explain": "All react with water the same way: same outer electrons, similar chemistry."
           }
         },
         {
@@ -1132,7 +1188,8 @@
             "x": 540,
             "y": 330,
             "size": 20,
-            "text": "→ all are soft metals"
+            "text": "→ all are soft metals",
+            "explain": "All are soft metals: a shared Group 1 property."
           }
         },
         {
@@ -1169,7 +1226,8 @@
             "x": 120,
             "y": 130,
             "size": 24,
-            "text": "Period 2"
+            "text": "Period 2",
+            "explain": "Period 2: the second row of the periodic table."
           }
         },
         {
@@ -1184,7 +1242,8 @@
             "h": 55,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The Li cell: a Period 2 element."
           }
         },
         {
@@ -1196,7 +1255,8 @@
             "x": 142,
             "y": 455,
             "size": 24,
-            "text": "Li"
+            "text": "Li",
+            "explain": "Li: lithium's symbol."
           }
         },
         {
@@ -1231,7 +1291,8 @@
             "h": 55,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The Be cell: a Period 2 element."
           }
         },
         {
@@ -1243,7 +1304,8 @@
             "x": 232,
             "y": 456,
             "size": 24,
-            "text": "Be"
+            "text": "Be",
+            "explain": "Be: beryllium's symbol."
           }
         },
         {
@@ -1278,7 +1340,8 @@
             "h": 55,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The B cell: a Period 2 element."
           }
         },
         {
@@ -1290,7 +1353,8 @@
             "x": 326,
             "y": 456,
             "size": 24,
-            "text": "B"
+            "text": "B",
+            "explain": "B: boron's symbol."
           }
         },
         {
@@ -1325,7 +1389,8 @@
             "h": 55,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The C cell: a Period 2 element."
           }
         },
         {
@@ -1337,7 +1402,8 @@
             "x": 416,
             "y": 456,
             "size": 24,
-            "text": "C"
+            "text": "C",
+            "explain": "C: carbon's symbol."
           }
         },
         {
@@ -1369,7 +1435,8 @@
             "x": 120,
             "y": 240,
             "size": 24,
-            "text": "period 2 → 2 shells"
+            "text": "period 2 → 2 shells",
+            "explain": "period 2 to 2 shells: the period number matches the number of electron shells."
           }
         },
         {
@@ -1391,7 +1458,8 @@
             "x": 120,
             "y": 300,
             "size": 24,
-            "text": "Period 3"
+            "text": "Period 3",
+            "explain": "Period 3: the third row of the periodic table."
           }
         },
         {
@@ -1406,7 +1474,8 @@
             "h": 55,
             "fill": "#ffffff",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The Na cell: a Period 3 element."
           }
         },
         {
@@ -1418,7 +1487,8 @@
             "x": 140,
             "y": 500,
             "size": 24,
-            "text": "Na"
+            "text": "Na",
+            "explain": "Na: sodium's symbol."
           }
         },
         {
@@ -1450,7 +1520,8 @@
             "x": 250,
             "y": 370,
             "size": 24,
-            "text": "period 3 → 3 shells"
+            "text": "period 3 → 3 shells",
+            "explain": "period 3 to 3 shells: the period number matches the number of electron shells."
           }
         },
         {
@@ -1499,7 +1570,8 @@
             "r": 150,
             "fill": "none",
             "stroke": "#7f8c8d",
-            "width": 2
+            "width": 2,
+            "explain": "A planet-style orbit: the wrong picture - electrons do not circle the nucleus like planets."
           }
         },
         {
@@ -1513,7 +1585,8 @@
             "r": 9,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "A planet-model electron: drawn circling the nucleus, which is the misconception."
           }
         },
         {
@@ -1527,7 +1600,8 @@
             "r": 9,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "A planet-model electron: drawn circling the nucleus, which is the misconception."
           }
         },
         {
@@ -1541,7 +1615,8 @@
             "r": 90,
             "fill": "none",
             "stroke": "#7f8c8d",
-            "width": 2
+            "width": 2,
+            "explain": "A planet-style orbit: the wrong picture - electrons do not circle the nucleus like planets."
           }
         },
         {
@@ -1555,7 +1630,8 @@
             "r": 9,
             "fill": "#2471a3",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "A planet-model electron: drawn circling the nucleus, which is the misconception."
           }
         },
         {
@@ -1567,7 +1643,8 @@
             "x": 80,
             "y": 105,
             "size": 26,
-            "text": "Planet-style orbits are wrong."
+            "text": "Planet-style orbits are wrong.",
+            "explain": "Planet-style orbits are wrong: electrons sit in fixed shells."
           }
         },
         {
@@ -1629,7 +1706,8 @@
             "r": 215,
             "fill": "none",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "A shell: the correct fixed energy level where electrons sit."
           }
         },
         {
@@ -1652,7 +1730,8 @@
             "r": 215,
             "fill": "none",
             "stroke": "#2471a3",
-            "width": 2
+            "width": 2,
+            "explain": "A shell: the correct fixed energy level where electrons sit."
           }
         },
         {
@@ -1675,7 +1754,8 @@
             "r": 6,
             "fill": "#c0392b",
             "stroke": "#c0392b",
-            "width": 2
+            "width": 2,
+            "explain": "The nucleus: a speck in the middle of mostly empty space."
           }
         },
         {
@@ -1696,7 +1776,8 @@
             "x": 695,
             "y": 480,
             "size": 24,
-            "text": "mostly empty space"
+            "text": "mostly empty space",
+            "explain": "mostly empty space: the atom is almost entirely empty."
           }
         },
         {
@@ -1708,7 +1789,8 @@
             "x": 700,
             "y": 514,
             "size": 22,
-            "text": "Electrons sit in shells."
+            "text": "Electrons sit in shells.",
+            "explain": "Electrons sit in shells: the correct shell model."
           }
         },
         {
