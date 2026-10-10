@@ -20,7 +20,7 @@
             "cx": 800,
             "cy": 100,
             "fill": "#ffdd55",
-            "id": "sun",
+            "id": "sun", "explain": "The desert sun: it makes the desert hot and dry, which is why the cactus stores water.",
             "kind": "circle",
             "r": 60,
             "stroke": "#e6b800",
@@ -33,7 +33,7 @@
           "shape": {
             "fill": "#e8c96a",
             "h": 110,
-            "id": "sand",
+            "id": "sand", "explain": "The desert sand: the cactus's dry home, where water is hard to find.",
             "kind": "rect",
             "stroke": "#c9a227",
             "strokeWidth": 3,
@@ -48,7 +48,7 @@
           "shape": {
             "fill": "#43a047",
             "h": 230,
-            "id": "stem",
+            "id": "stem", "explain": "The thick stem: it stores water like a bottle, so the cactus survives the dry desert.",
             "kind": "rect",
             "rx": 20,
             "stroke": "#2e7d32",
@@ -64,7 +64,7 @@
           "shape": {
             "fill": "#43a047",
             "h": 110,
-            "id": "arm",
+            "id": "arm", "explain": "An arm of the cactus: also thick, storing extra water.",
             "kind": "rect",
             "rx": 15,
             "stroke": "#2e7d32",
@@ -78,7 +78,7 @@
           "at_ms": 1500,
           "do": "show",
           "shape": {
-            "id": "thorn1",
+            "id": "thorn1", "explain": "A sharp thorn: it stops thirsty animals from biting the cactus.",
             "kind": "line",
             "stroke": "#8d6e63",
             "width": 3,
@@ -92,7 +92,7 @@
           "at_ms": 1600,
           "do": "show",
           "shape": {
-            "id": "thorn2",
+            "id": "thorn2", "explain": "A sharp thorn: it stops thirsty animals from biting the cactus.",
             "kind": "line",
             "stroke": "#8d6e63",
             "width": 3,
@@ -106,7 +106,7 @@
           "at_ms": 1700,
           "do": "show",
           "shape": {
-            "id": "thorn3",
+            "id": "thorn3", "explain": "A sharp thorn: it stops thirsty animals from biting the cactus.",
             "kind": "line",
             "stroke": "#8d6e63",
             "width": 3,
@@ -120,7 +120,7 @@
           "at_ms": 1800,
           "do": "show",
           "shape": {
-            "id": "thorn4",
+            "id": "thorn4", "explain": "A sharp thorn: it stops thirsty animals from biting the cactus.",
             "kind": "line",
             "stroke": "#8d6e63",
             "width": 3,
@@ -135,7 +135,7 @@
           "do": "show",
           "shape": {
             "color": "#1b5e20",
-            "id": "storeLabel",
+            "id": "storeLabel", "explain": "Label: the thick stem stores water like a bottle.",
             "kind": "text",
             "size": 28,
             "text": "Thick stem stores water",
@@ -150,7 +150,7 @@
             "cx": 345,
             "cy": 340,
             "fill": "#90caf9",
-            "id": "waterInside",
+            "id": "waterInside", "explain": "Stored water inside the stem: the cactus's drink for dry days.",
             "kind": "circle",
             "r": 20
           }
@@ -160,7 +160,7 @@
           "do": "show",
           "shape": {
             "color": "#1b5e20",
-            "id": "thornLabel",
+            "id": "thornLabel", "explain": "Label: the thorns stop animals from eating the cactus.",
             "kind": "text",
             "size": 28,
             "text": "Thorns stop animals eating it",
@@ -172,7 +172,7 @@
           "at_ms": 3600,
           "do": "show",
           "shape": {
-            "id": "rootArrow",
+            "id": "rootArrow", "explain": "The arrow shows the deep roots reaching down to find water.",
             "kind": "arrow",
             "stroke": "#6d4c41",
             "width": 6,
@@ -187,7 +187,7 @@
           "do": "show",
           "shape": {
             "color": "#4e342e",
-            "id": "rootLabel",
+            "id": "rootLabel", "explain": "Label: deep roots find water far below the dry sand.",
             "kind": "text",
             "size": 26,
             "text": "Deep roots find water",
@@ -220,7 +220,7 @@
           "shape": {
             "fill": "#a1887f",
             "h": 380,
-            "id": "bark",
+            "id": "bark", "explain": "The tree bark: the moth's wings match its colour, so the moth blends in.",
             "kind": "rect",
             "stroke": "#5d4037",
             "strokeWidth": 3,
@@ -236,7 +236,7 @@
             "cx": 450,
             "cy": 220,
             "fill": "#8d6e63",
-            "id": "wingL",
+            "id": "wingL", "explain": "A moth wing: the same colour as the bark, hiding the moth from hungry birds.",
             "kind": "circle",
             "r": 40
           }
@@ -248,7 +248,7 @@
             "cx": 530,
             "cy": 220,
             "fill": "#8d6e63",
-            "id": "wingR",
+            "id": "wingR", "explain": "A moth wing: the same colour as the bark, hiding the moth from hungry birds.",
             "kind": "circle",
             "r": 40
           }
@@ -257,7 +257,7 @@
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "body",
+            "id": "body", "explain": "The moth's body: hidden between its camouflaged wings.",
             "kind": "line",
             "stroke": "#4e342e",
             "width": 8,
@@ -284,7 +284,7 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "pointArrow",
+            "id": "pointArrow", "explain": "The arrow points to the hidden moth: blending in keeps it safe.",
             "kind": "arrow",
             "stroke": "#d32f2f",
             "width": 5,
@@ -305,7 +305,7 @@
           "do": "show",
           "shape": {
             "color": "#3e2723",
-            "id": "camLabel",
+            "id": "camLabel", "explain": "Label: camouflage keeps it safe. Matching its home hides the moth.",
             "kind": "text",
             "size": 28,
             "text": "Camouflage keeps it safe",
@@ -320,7 +320,7 @@
             "cx": 120,
             "cy": 140,
             "fill": "#546e7a",
-            "id": "bird",
+            "id": "bird", "explain": "The hungry bird: it flies right past without seeing the hidden moth.",
             "kind": "circle",
             "r": 25
           }
@@ -330,7 +330,7 @@
           "do": "show",
           "shape": {
             "color": "#37474f",
-            "id": "birdLabel",
+            "id": "birdLabel", "explain": "Label: hungry bird. The moth's enemy, fooled by camouflage.",
             "kind": "text",
             "size": 26,
             "text": "Hungry bird",
@@ -377,7 +377,7 @@
           "shape": {
             "fill": "#a5d6a7",
             "h": 120,
-            "id": "ground",
+            "id": "ground", "explain": "The winter ground: cold and bare, with food hard to find.",
             "kind": "rect",
             "stroke": "#66bb6a",
             "strokeWidth": 3,
@@ -393,7 +393,7 @@
             "cx": 800,
             "cy": 100,
             "fill": "#ffdd55",
-            "id": "sun",
+            "id": "sun", "explain": "The winter sun: low and weak, bringing little warmth.",
             "kind": "circle",
             "r": 50,
             "stroke": "#e6b800",
@@ -405,7 +405,7 @@
           "do": "show",
           "shape": {
             "color": "#3a7bd5",
-            "id": "winterLabel",
+            "id": "winterLabel", "explain": "Label: winter is coming. Food will soon be hard to find.",
             "kind": "text",
             "size": 30,
             "text": "Winter is coming",
@@ -420,7 +420,7 @@
             "cx": 200,
             "cy": 300,
             "fill": "#546e7a",
-            "id": "b1",
+            "id": "b1", "explain": "A migrating bird: flying thousands of kilometres to a warmer place.",
             "kind": "circle",
             "r": 18
           }
@@ -432,7 +432,7 @@
             "cx": 250,
             "cy": 280,
             "fill": "#546e7a",
-            "id": "b2",
+            "id": "b2", "explain": "A migrating bird: flying thousands of kilometres to a warmer place.",
             "kind": "circle",
             "r": 18
           }
@@ -444,7 +444,7 @@
             "cx": 300,
             "cy": 300,
             "fill": "#546e7a",
-            "id": "b3",
+            "id": "b3", "explain": "A migrating bird: flying thousands of kilometres to a warmer place.",
             "kind": "circle",
             "r": 18
           }
@@ -453,7 +453,7 @@
           "at_ms": 1800,
           "do": "show",
           "shape": {
-            "id": "route",
+            "id": "route", "explain": "The migration route: the long path the birds fly south for winter.",
             "kind": "arrow",
             "stroke": "#5c6bc0",
             "width": 5,
@@ -468,7 +468,7 @@
           "do": "show",
           "shape": {
             "color": "#3949ab",
-            "id": "routeLabel",
+            "id": "routeLabel", "explain": "Label: fly south for winter. Birds return when spring brings food back.",
             "kind": "text",
             "size": 28,
             "text": "Fly south for winter",
@@ -530,7 +530,7 @@
           "do": "show",
           "shape": {
             "fill": "#2e7d32",
-            "id": "tree1",
+            "id": "tree1", "explain": "A forest tree: part of the animals' home, giving food and shelter.",
             "kind": "polygon",
             "points": [
               [
@@ -555,7 +555,7 @@
           "do": "show",
           "shape": {
             "fill": "#2e7d32",
-            "id": "tree2",
+            "id": "tree2", "explain": "A forest tree: part of the animals' home, giving food and shelter.",
             "kind": "polygon",
             "points": [
               [
@@ -580,7 +580,7 @@
           "do": "show",
           "shape": {
             "fill": "#2e7d32",
-            "id": "tree3",
+            "id": "tree3", "explain": "A forest tree: part of the animals' home, giving food and shelter.",
             "kind": "polygon",
             "points": [
               [
@@ -606,7 +606,7 @@
           "shape": {
             "fill": "#6d4c41",
             "h": 70,
-            "id": "trunk1",
+            "id": "trunk1", "explain": "A tree trunk left standing: the forest is being cleared.",
             "kind": "rect",
             "w": 24,
             "x": 218,
@@ -619,7 +619,7 @@
           "shape": {
             "fill": "#6d4c41",
             "h": 70,
-            "id": "trunk2",
+            "id": "trunk2", "explain": "A tree trunk left standing: the forest is being cleared.",
             "kind": "rect",
             "w": 24,
             "x": 468,
@@ -632,7 +632,7 @@
           "shape": {
             "fill": "#6d4c41",
             "h": 70,
-            "id": "trunk3",
+            "id": "trunk3", "explain": "A tree trunk left standing: the forest is being cleared.",
             "kind": "rect",
             "w": 24,
             "x": 718,
@@ -644,7 +644,7 @@
           "do": "show",
           "shape": {
             "color": "#1b5e20",
-            "id": "forestLabel",
+            "id": "forestLabel", "explain": "Label: forest home. The animals' home, before it is cleared.",
             "kind": "text",
             "size": 32,
             "text": "Forest home",
@@ -659,7 +659,7 @@
             "cx": 230,
             "cy": 200,
             "fill": "#8d6e63",
-            "id": "monkey",
+            "id": "monkey", "explain": "The monkey: it lived in the forest and loses its food and shelter when the trees go.",
             "kind": "circle",
             "r": 22
           }
@@ -669,7 +669,7 @@
           "do": "show",
           "shape": {
             "color": "#4e342e",
-            "id": "monkeyLabel",
+            "id": "monkeyLabel", "explain": "Label: Monkey. Loses its home when the forest is cleared.",
             "kind": "text",
             "size": 26,
             "text": "Monkey",
@@ -703,7 +703,7 @@
           "shape": {
             "fill": "#a1887f",
             "h": 30,
-            "id": "stump1",
+            "id": "stump1", "explain": "A stump: all that is left of a cut-down tree.",
             "kind": "rect",
             "w": 60,
             "x": 460,
@@ -716,7 +716,7 @@
           "shape": {
             "fill": "#a1887f",
             "h": 30,
-            "id": "stump2",
+            "id": "stump2", "explain": "A stump: all that is left of a cut-down tree.",
             "kind": "rect",
             "w": 60,
             "x": 710,

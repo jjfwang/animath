@@ -19,7 +19,7 @@
           "shape": {
             "fill": "#a5774b",
             "h": 120,
-            "id": "soil",
+            "id": "soil", "explain": "The soil: the seed rests in it, drinking water to wake up.",
             "kind": "rect",
             "stroke": "#6d4c41",
             "strokeWidth": 3,
@@ -35,7 +35,7 @@
             "cx": 200,
             "cy": 470,
             "fill": "#7a4a22",
-            "id": "seed",
+            "id": "seed", "explain": "A seed: the start of a plant's life. It waits for water, warmth and light to wake up.",
             "kind": "circle",
             "r": 18,
             "stroke": "#4e2c10",
@@ -47,7 +47,7 @@
           "do": "show",
           "shape": {
             "color": "#3a2410",
-            "id": "seedLabel",
+            "id": "seedLabel", "explain": "Label: Seed. Where every plant's life starts.",
             "kind": "text",
             "size": 30,
             "text": "Seed",
@@ -62,7 +62,7 @@
             "cx": 810,
             "cy": 100,
             "fill": "#ffdd55",
-            "id": "sun",
+            "id": "sun", "explain": "The sun: its warmth and light help the seed wake up and sprout.",
             "kind": "circle",
             "r": 55,
             "stroke": "#e6b800",
@@ -76,7 +76,7 @@
             "cx": 350,
             "cy": 120,
             "fill": "#5a9bd4",
-            "id": "drop1",
+            "id": "drop1", "explain": "Water: with water, the seed wakes up and starts growing.",
             "kind": "circle",
             "r": 12
           }
@@ -88,7 +88,7 @@
             "cx": 620,
             "cy": 120,
             "fill": "#5a9bd4",
-            "id": "drop2",
+            "id": "drop2", "explain": "Water: with water, the seed wakes up and starts growing.",
             "kind": "circle",
             "r": 12
           }
@@ -117,7 +117,7 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "stem",
+            "id": "stem", "explain": "The shoot: the seed's first upward growth, reaching for the light.",
             "kind": "line",
             "stroke": "#2e7d32",
             "width": 8,
@@ -134,7 +134,7 @@
             "cx": 168,
             "cy": 360,
             "fill": "#43a047",
-            "id": "leafL",
+            "id": "leafL", "explain": "A first leaf: it will catch sunlight so the young plant can grow.",
             "kind": "circle",
             "r": 20
           }
@@ -146,7 +146,7 @@
             "cx": 232,
             "cy": 360,
             "fill": "#43a047",
-            "id": "leafR",
+            "id": "leafR", "explain": "A first leaf: it will catch sunlight so the young plant can grow.",
             "kind": "circle",
             "r": 20
           }
@@ -156,7 +156,7 @@
           "do": "show",
           "shape": {
             "color": "#1b5e20",
-            "id": "seedlingLabel",
+            "id": "seedlingLabel", "explain": "Label: Seedling. The baby plant that has just sprouted.",
             "kind": "text",
             "size": 30,
             "text": "Seedling",
@@ -187,7 +187,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "stem",
+            "id": "stem", "explain": "The stem of the grown plant: it holds the leaves and flower up to the light.",
             "kind": "line",
             "stroke": "#2e7d32",
             "width": 8,
@@ -204,7 +204,7 @@
             "cx": 440,
             "cy": 330,
             "fill": "#43a047",
-            "id": "leafL",
+            "id": "leafL", "explain": "A leaf of the adult plant: catching sunlight to make food for growth.",
             "kind": "circle",
             "r": 26
           }
@@ -216,7 +216,7 @@
             "cx": 520,
             "cy": 330,
             "fill": "#43a047",
-            "id": "leafR",
+            "id": "leafR", "explain": "A leaf of the adult plant: catching sunlight to make food for growth.",
             "kind": "circle",
             "r": 26
           }
@@ -228,7 +228,7 @@
             "cx": 480,
             "cy": 220,
             "fill": "#c62828",
-            "id": "bud",
+            "id": "bud", "explain": "A bud: a flower that is about to open.",
             "kind": "circle",
             "r": 24
           }
@@ -240,7 +240,7 @@
             "cx": 480,
             "cy": 155,
             "fill": "#ef5350",
-            "id": "petal1",
+            "id": "petal1", "explain": "A petal of the flower: the flower looks like the finish, but it is not the end.",
             "kind": "circle",
             "r": 20
           }
@@ -252,7 +252,7 @@
             "cx": 528,
             "cy": 195,
             "fill": "#ef5350",
-            "id": "petal2",
+            "id": "petal2", "explain": "A petal of the flower: the flower looks like the finish, but it is not the end.",
             "kind": "circle",
             "r": 20
           }
@@ -264,7 +264,7 @@
             "cx": 510,
             "cy": 262,
             "fill": "#ef5350",
-            "id": "petal3",
+            "id": "petal3", "explain": "A petal of the flower: the flower looks like the finish, but it is not the end.",
             "kind": "circle",
             "r": 20
           }
@@ -276,7 +276,7 @@
             "cx": 450,
             "cy": 262,
             "fill": "#ef5350",
-            "id": "petal4",
+            "id": "petal4", "explain": "A petal of the flower: the flower looks like the finish, but it is not the end.",
             "kind": "circle",
             "r": 20
           }
@@ -288,7 +288,7 @@
             "cx": 432,
             "cy": 195,
             "fill": "#ef5350",
-            "id": "petal5",
+            "id": "petal5", "explain": "A petal of the flower: the flower looks like the finish, but it is not the end.",
             "kind": "circle",
             "r": 20
           }
@@ -298,7 +298,7 @@
           "do": "show",
           "shape": {
             "color": "#b71c1c",
-            "id": "flowerLabel",
+            "id": "flowerLabel", "explain": "Label: Flower. New seeds form inside it, so the cycle starts again.",
             "kind": "text",
             "size": 30,
             "text": "Flower",
@@ -310,7 +310,7 @@
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "id": "pollenArrow",
+            "id": "pollenArrow", "explain": "The arrow shows what happens next: the flower makes new seeds.",
             "kind": "arrow",
             "stroke": "#8d6e63",
             "width": 5,
@@ -327,7 +327,7 @@
             "cx": 430,
             "cy": 215,
             "fill": "#7a4a22",
-            "id": "seedA",
+            "id": "seedA", "explain": "A new seed: formed inside the flower, ready to start the cycle again.",
             "kind": "circle",
             "r": 10
           }
@@ -339,7 +339,7 @@
             "cx": 480,
             "cy": 215,
             "fill": "#7a4a22",
-            "id": "seedB",
+            "id": "seedB", "explain": "A new seed: formed inside the flower, ready to start the cycle again.",
             "kind": "circle",
             "r": 10
           }
@@ -351,7 +351,7 @@
             "cx": 530,
             "cy": 215,
             "fill": "#7a4a22",
-            "id": "seedC",
+            "id": "seedC", "explain": "A new seed: formed inside the flower, ready to start the cycle again.",
             "kind": "circle",
             "r": 10
           }
@@ -410,7 +410,7 @@
           "do": "show",
           "shape": {
             "fill": "#66bb6a",
-            "id": "leaf",
+            "id": "leaf", "explain": "The leaf: where the butterfly lays its tiny eggs.",
             "kind": "polygon",
             "points": [
               [
@@ -441,7 +441,7 @@
             "cx": 200,
             "cy": 400,
             "fill": "#fff9c4",
-            "id": "egg1",
+            "id": "egg1", "explain": "An egg: the start of a butterfly's life. A caterpillar will hatch from it.",
             "kind": "circle",
             "r": 8,
             "stroke": "#9c8a00",
@@ -455,7 +455,7 @@
             "cx": 230,
             "cy": 395,
             "fill": "#fff9c4",
-            "id": "egg2",
+            "id": "egg2", "explain": "An egg: the start of a butterfly's life. A caterpillar will hatch from it.",
             "kind": "circle",
             "r": 8,
             "stroke": "#9c8a00",
@@ -469,7 +469,7 @@
             "cx": 260,
             "cy": 400,
             "fill": "#fff9c4",
-            "id": "egg3",
+            "id": "egg3", "explain": "An egg: the start of a butterfly's life. A caterpillar will hatch from it.",
             "kind": "circle",
             "r": 8,
             "stroke": "#9c8a00",
@@ -481,7 +481,7 @@
           "do": "show",
           "shape": {
             "color": "#5d4e00",
-            "id": "eggLabel",
+            "id": "eggLabel", "explain": "Label: Eggs. Where the butterfly's life starts.",
             "kind": "text",
             "size": 28,
             "text": "Eggs",
@@ -496,7 +496,7 @@
             "cx": 355,
             "cy": 335,
             "fill": "#558b2f",
-            "id": "head",
+            "id": "head", "explain": "The caterpillar's head: it leads the way as the caterpillar munches leaves.",
             "kind": "circle",
             "r": 18
           }
@@ -508,7 +508,7 @@
             "cx": 380,
             "cy": 330,
             "fill": "#7cb342",
-            "id": "c1",
+            "id": "c1", "explain": "A body segment of the caterpillar: the growing-up stage of the butterfly.",
             "kind": "circle",
             "r": 16
           }
@@ -520,7 +520,7 @@
             "cx": 415,
             "cy": 325,
             "fill": "#7cb342",
-            "id": "c2",
+            "id": "c2", "explain": "A body segment of the caterpillar: the growing-up stage of the butterfly.",
             "kind": "circle",
             "r": 16
           }
@@ -532,7 +532,7 @@
             "cx": 450,
             "cy": 330,
             "fill": "#7cb342",
-            "id": "c3",
+            "id": "c3", "explain": "A body segment of the caterpillar: the growing-up stage of the butterfly.",
             "kind": "circle",
             "r": 16
           }
@@ -544,7 +544,7 @@
             "cx": 485,
             "cy": 325,
             "fill": "#7cb342",
-            "id": "c4",
+            "id": "c4", "explain": "A body segment of the caterpillar: the growing-up stage of the butterfly.",
             "kind": "circle",
             "r": 16
           }
@@ -554,7 +554,7 @@
           "do": "show",
           "shape": {
             "color": "#33691e",
-            "id": "catLabel",
+            "id": "catLabel", "explain": "Label: Caterpillar. The butterfly's growing-up stage.",
             "kind": "text",
             "size": 30,
             "text": "Caterpillar",
@@ -605,7 +605,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "branch",
+            "id": "branch", "explain": "The branch: where the caterpillar hangs its pupa.",
             "kind": "line",
             "stroke": "#6d4c41",
             "width": 10,
@@ -621,7 +621,7 @@
           "shape": {
             "fill": "#a2b56b",
             "h": 110,
-            "id": "pupa",
+            "id": "pupa", "explain": "The pupa: a resting case where the caterpillar's body changes into a butterfly.",
             "kind": "rect",
             "rx": 25,
             "stroke": "#6b7a3e",
@@ -636,7 +636,7 @@
           "do": "show",
           "shape": {
             "color": "#4c5b26",
-            "id": "pupaLabel",
+            "id": "pupaLabel", "explain": "Label: Pupa. The changing stage.",
             "kind": "text",
             "size": 30,
             "text": "Pupa",
@@ -648,7 +648,7 @@
           "at_ms": 2000,
           "do": "show",
           "shape": {
-            "id": "timeArrow",
+            "id": "timeArrow", "explain": "The arrow shows time passing: the change inside the pupa takes time.",
             "kind": "arrow",
             "stroke": "#5c6bc0",
             "width": 5,
@@ -663,7 +663,7 @@
           "do": "show",
           "shape": {
             "color": "#3949ab",
-            "id": "timeLabel",
+            "id": "timeLabel", "explain": "Label: Time passes. The body is changing inside the pupa.",
             "kind": "text",
             "size": 26,
             "text": "Time passes",
@@ -675,7 +675,7 @@
           "at_ms": 3000,
           "do": "show",
           "shape": {
-            "id": "body",
+            "id": "body", "explain": "The butterfly's body: it carries the wings after the change.",
             "kind": "line",
             "stroke": "#4e342e",
             "width": 8,
@@ -692,7 +692,7 @@
             "cx": 680,
             "cy": 260,
             "fill": "#ab47bc",
-            "id": "wingUL",
+            "id": "wingUL", "explain": "A wing of the adult butterfly: grown during the change inside the pupa.",
             "kind": "circle",
             "r": 30,
             "stroke": "#6a1b9a",
@@ -706,7 +706,7 @@
             "cx": 760,
             "cy": 260,
             "fill": "#ab47bc",
-            "id": "wingUR",
+            "id": "wingUR", "explain": "A wing of the adult butterfly: grown during the change inside the pupa.",
             "kind": "circle",
             "r": 30,
             "stroke": "#6a1b9a",
@@ -720,7 +720,7 @@
             "cx": 680,
             "cy": 320,
             "fill": "#ce93d8",
-            "id": "wingLL",
+            "id": "wingLL", "explain": "A wing of the adult butterfly: grown during the change inside the pupa.",
             "kind": "circle",
             "r": 24,
             "stroke": "#6a1b9a",
@@ -734,7 +734,7 @@
             "cx": 760,
             "cy": 320,
             "fill": "#ce93d8",
-            "id": "wingLR",
+            "id": "wingLR", "explain": "A wing of the adult butterfly: grown during the change inside the pupa.",
             "kind": "circle",
             "r": 24,
             "stroke": "#6a1b9a",
@@ -746,7 +746,7 @@
           "do": "show",
           "shape": {
             "color": "#4a148c",
-            "id": "adultLabel",
+            "id": "adultLabel", "explain": "Label: Adult butterfly. Ready to lay eggs and start the cycle again.",
             "kind": "text",
             "size": 28,
             "text": "Adult butterfly",
