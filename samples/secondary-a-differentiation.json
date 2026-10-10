@@ -514,6 +514,7 @@
           "do": "show",
           "shape": {
             "id": "ptA",
+            "explain": "Point A: the fixed end of the chord, where the tangent is found.",
             "kind": "circle",
             "cx": 350,
             "cy": 312,
@@ -711,7 +712,7 @@
           "at_ms": 6000,
           "do": "show",
           "shape": {
-            "id": "tangent", "explain": "The tangent at P: the secant becomes this line as Q reaches P. Its gradient is dy/dx.",
+            "id": "tangent", "explain": "The tangent at A: the chord becomes this line as B reaches A. Its gradient is dy/dx.",
             "kind": "line",
             "x1": 270,
             "y1": 347,
@@ -1126,7 +1127,7 @@
           "at_ms": 2100,
           "do": "show",
           "shape": {
-            "id": "probe", "explain": "The slider: drag Q toward P and watch the secant close in.",
+            "id": "probe", "explain": "The marker: it rides the cubic while the slope changes around the stationary point.",
             "kind": "circle",
             "cx": 240,
             "cy": 390,

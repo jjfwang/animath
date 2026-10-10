@@ -307,6 +307,7 @@
           "do": "show",
           "shape": {
             "id": "e1",
+            "explain": "The formula applied: sin 45 degrees times cos 30 degrees, plus cos 45 degrees times sin 30 degrees.",
             "kind": "latex",
             "tex": "= \\sin 45^{\\circ} \\cos 30^{\\circ} + \\cos 45^{\\circ} \\sin 30^{\\circ}",
             "x": 80,
@@ -1016,6 +1017,7 @@
           "do": "show",
           "shape": {
             "id": "truebar",
+            "explain": "The true value: cos(A+B) = 0.5.",
             "kind": "rect",
             "x": 620,
             "y": 420,
@@ -1065,6 +1067,7 @@
           "do": "show",
           "shape": {
             "id": "wrongbar",
+            "explain": "The wrong answer's bar: cos A + cos B, about 1.73.",
             "kind": "rect",
             "x": 710,
             "y": 420,
