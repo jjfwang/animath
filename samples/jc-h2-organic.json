@@ -38,7 +38,8 @@
             "x": 100,
             "y": 160,
             "text": "CH₄ — methane",
-            "size": 26
+            "size": 26,
+            "explain": "Methane: the first alkane - one carbon, four hydrogens."
           }
         },
         {
@@ -50,7 +51,8 @@
             "x": 100,
             "y": 220,
             "text": "CH₃CH₃ — ethane",
-            "size": 26
+            "size": 26,
+            "explain": "Ethane: two carbons - one CH2 unit longer than methane."
           }
         },
         {
@@ -62,7 +64,8 @@
             "x": 100,
             "y": 280,
             "text": "CH₃CH₂CH₃ — propane",
-            "size": 26
+            "size": 26,
+            "explain": "Propane: three carbons - one CH2 longer than ethane."
           }
         },
         {
@@ -74,7 +77,8 @@
             "x": 100,
             "y": 340,
             "text": "CH₃CH₂CH₂CH₃ — butane",
-            "size": 26
+            "size": 26,
+            "explain": "Butane: four carbons - each member adds one CH2 unit."
           }
         },
         {
@@ -87,7 +91,8 @@
             "y": 150,
             "tex": "\\text{C}_n\\text{H}_{2n+2}",
             "size": 42,
-            "color": "#1a56db"
+            "color": "#1a56db",
+            "explain": "The general formula CnH2n+2 covers every alkane."
           }
         },
         {
@@ -100,7 +105,8 @@
             "y": 215,
             "text": "the added unit: CH₂",
             "size": 26,
-            "color": "#c0392b"
+            "color": "#c0392b",
+            "explain": "The CH2 unit is the repeating block of the homologous series."
           }
         },
         {
@@ -133,7 +139,8 @@
             "y": 430,
             "tex": "\\text{CH}_4 + \\text{CH}_2 \\rightarrow \\text{C}_2\\text{H}_6",
             "size": 30,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "Methane plus one CH2 unit gives ethane: the series steps up."
           }
         },
         {
@@ -178,7 +185,8 @@
             "r": 30,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "One carbon of the three-carbon skeleton."
           }
         },
         {
@@ -192,7 +200,8 @@
             "r": 30,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "One carbon of the three-carbon skeleton."
           }
         },
         {
@@ -206,7 +215,8 @@
             "r": 30,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "One carbon of the three-carbon skeleton."
           }
         },
         {
@@ -220,7 +230,8 @@
             "x2": 400,
             "y2": 250,
             "stroke": "#2c3e50",
-            "width": 4
+            "width": 4,
+            "explain": "A bond linking two carbons in the skeleton."
           }
         },
         {
@@ -234,7 +245,8 @@
             "x2": 530,
             "y2": 250,
             "stroke": "#2c3e50",
-            "width": 4
+            "width": 4,
+            "explain": "A bond linking two carbons in the skeleton."
           }
         },
         {
@@ -247,7 +259,8 @@
             "y": 308,
             "text": "a 3-carbon skeleton",
             "size": 22,
-            "color": "#5d6d7e"
+            "color": "#5d6d7e",
+            "explain": "A bare three-carbon skeleton: chemistry depends on what attaches to it."
           }
         },
         {
@@ -260,7 +273,8 @@
             "y": 120,
             "text": "–OH  alcohol",
             "size": 26,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The -OH group marks the alcohol family."
           }
         },
         {
@@ -273,7 +287,8 @@
             "y": 180,
             "text": "–COOH  carboxylic acid",
             "size": 26,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The -COOH group marks carboxylic acids."
           }
         },
         {
@@ -286,7 +301,8 @@
             "y": 240,
             "text": "C=O  carbonyl",
             "size": 26,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The C=O carbonyl group: central to aldehydes, ketones and acids."
           }
         },
         {
@@ -299,7 +315,8 @@
             "y": 300,
             "text": "–NH₂  amine",
             "size": 26,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The -NH2 group marks amines."
           }
         },
         {
@@ -337,7 +354,8 @@
             "y": 340,
             "text": "propan-1-ol",
             "size": 24,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "propan-1-ol: the alcohol made by adding -OH to propane."
           }
         },
         {
@@ -350,7 +368,8 @@
             "y": 340,
             "text": "propanoic acid",
             "size": 24,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "propanoic acid: the acid made by adding -COOH to propane."
           }
         },
         {
@@ -362,7 +381,8 @@
             "x": 640,
             "y": 420,
             "tex": "\\text{CH}_3\\text{CH}_2\\text{CH}_2\\text{OH}",
-            "size": 30
+            "size": 30,
+            "explain": "The structural formula of propan-1-ol: CH3CH2CH2OH."
           }
         },
         {
@@ -405,7 +425,8 @@
             "x": 80,
             "y": 130,
             "tex": "\\text{CH}_2 = \\text{CH}_2 + \\text{HBr} \\rightarrow \\text{CH}_3\\text{CH}_2\\text{Br}",
-            "size": 28
+            "size": 28,
+            "explain": "The overall change: ethene plus HBr gives bromoethane."
           }
         },
         {
@@ -419,7 +440,8 @@
             "r": 28,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "One carbon of the ethene double bond."
           }
         },
         {
@@ -433,7 +455,8 @@
             "r": 28,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "One carbon of the ethene double bond."
           }
         },
         {
@@ -447,7 +470,8 @@
             "x2": 432,
             "y2": 290,
             "stroke": "#2c3e50",
-            "width": 5
+            "width": 5,
+            "explain": "One line of the C=C double bond: the sigma bond."
           }
         },
         {
@@ -461,7 +485,8 @@
             "x2": 432,
             "y2": 310,
             "stroke": "#2c3e50",
-            "width": 5
+            "width": 5,
+            "explain": "One line of the C=C double bond: the pi bond."
           }
         },
         {
@@ -474,7 +499,8 @@
             "y": 420,
             "text": "π bond — electron-rich",
             "size": 24,
-            "color": "#c0392b"
+            "color": "#c0392b",
+            "explain": "The pi bond is electron-rich: it attacks electrophiles."
           }
         },
         {
@@ -487,7 +513,8 @@
             "y": 318,
             "text": "H–Br",
             "size": 30,
-            "color": "#7b5e3a"
+            "color": "#7b5e3a",
+            "explain": "Hydrogen bromide: the H end carries a slight positive charge."
           }
         },
         {
@@ -500,7 +527,8 @@
             "y": 350,
             "text": "δ+ H",
             "size": 22,
-            "color": "#1a56db"
+            "color": "#1a56db",
+            "explain": "The hydrogen is delta-plus: the pi electrons attack it."
           }
         },
         {
@@ -545,7 +573,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "A curly arrow tracks an electron pair: from the pi bond to the H."
           }
         },
         {
@@ -559,7 +588,8 @@
             "x2": 697.7,
             "y2": 285.0,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead lines: the tip lands on the electrophile."
           }
         },
         {
@@ -573,7 +603,8 @@
             "x2": 688.2,
             "y2": 295.3,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead lines: the tip lands on the electrophile."
           }
         },
         {
@@ -585,7 +616,8 @@
             "cx": 386.0,
             "cy": 271.3,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the moving electron pair from the pi bond."
           }
         },
         {
@@ -597,7 +629,8 @@
             "cx": 374.0,
             "cy": 260.7,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the moving electron pair from the pi bond."
           }
         },
         {
@@ -610,7 +643,8 @@
             "y": 170,
             "text": "1: π pair → H",
             "size": 22,
-            "color": "#c0392b"
+            "color": "#c0392b",
+            "explain": "Step 1: the pi pair forms a new bond to the hydrogen."
           }
         },
         {
@@ -675,7 +709,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Curly arrow 2: the H-Br bond pair moves onto bromine."
           }
         },
         {
@@ -689,7 +724,8 @@
             "x2": 790.8,
             "y2": 292.2,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead of the second curly arrow."
           }
         },
         {
@@ -703,7 +739,8 @@
             "x2": 776.8,
             "y2": 292.0,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead of the second curly arrow."
           }
         },
         {
@@ -735,7 +772,8 @@
             "cx": 750.5,
             "cy": 296.7,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the H-Br electron pair, heading for bromine."
           }
         },
         {
@@ -747,7 +785,8 @@
             "cx": 737.5,
             "cy": 287.3,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the H-Br electron pair, heading for bromine."
           }
         },
         {
@@ -760,7 +799,8 @@
             "y": 250,
             "text": "2: H–Br pair → Br",
             "size": 22,
-            "color": "#c0392b"
+            "color": "#c0392b",
+            "explain": "Step 2: the H-Br pair gives Br-, completing the addition."
           }
         },
         {
@@ -873,7 +913,8 @@
             "y": 480,
             "tex": "\\text{CH}_3\\text{CH}_2\\text{Br}",
             "size": 34,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "CH3CH2Br: bromoethane, the addition product."
           }
         },
         {
@@ -926,7 +967,8 @@
             "x": 80,
             "y": 130,
             "tex": "(\\text{CH}_3)_3\\text{CBr} + \\text{OH}^- \\rightarrow (\\text{CH}_3)_3\\text{COH} + \\text{Br}^-",
-            "size": 24
+            "size": 24,
+            "explain": "The overall SN1 substitution: (CH3)3CBr plus OH- gives the alcohol."
           }
         },
         {
@@ -940,7 +982,8 @@
             "r": 30,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The central carbon of the tertiary halogenoalkane."
           }
         },
         {
@@ -952,7 +995,8 @@
             "x": 300,
             "y": 200,
             "text": "(CH₃)₃C–",
-            "size": 24
+            "size": 24,
+            "explain": "The (CH3)3C- group: three methyl groups crowd the carbon."
           }
         },
         {
@@ -966,7 +1010,8 @@
             "x2": 454,
             "y2": 300,
             "stroke": "#2c3e50",
-            "width": 5
+            "width": 5,
+            "explain": "The C-Br bond that breaks on its own in step 1."
           }
         },
         {
@@ -980,7 +1025,8 @@
             "r": 26,
             "fill": "#7b5e3a",
             "stroke": "#5e3d22",
-            "width": 2
+            "width": 2,
+            "explain": "The bromine atom, about to leave as Br-."
           }
         },
         {
@@ -993,7 +1039,8 @@
             "y": 310,
             "text": "Br",
             "size": 22,
-            "color": "#ffffff"
+            "color": "#ffffff",
+            "explain": "Bromine: the leaving group."
           }
         },
         {
@@ -1006,7 +1053,8 @@
             "y": 420,
             "text": "Step 1 — slow: the C–Br bond breaks",
             "size": 24,
-            "color": "#c0392b"
+            "color": "#c0392b",
+            "explain": "Step 1 is slow because the C-Br bond breaks without help."
           }
         },
         {
@@ -1051,7 +1099,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "A curly arrow: the C-Br bond pair moves onto bromine."
           }
         },
         {
@@ -1065,7 +1114,8 @@
             "x2": 488.1,
             "y2": 273.0,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead pointing at the leaving bromine."
           }
         },
         {
@@ -1079,7 +1129,8 @@
             "x2": 476.0,
             "y2": 280.0,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead pointing at the leaving bromine."
           }
         },
         {
@@ -1091,7 +1142,8 @@
             "cx": 431.6,
             "cy": 290.6,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the C-Br bond pair that leaves with bromine."
           }
         },
         {
@@ -1103,7 +1155,8 @@
             "cx": 416.4,
             "cy": 285.4,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the C-Br bond pair that leaves with bromine."
           }
         },
         {
@@ -1141,7 +1194,8 @@
             "y": 300,
             "text": "Br⁻",
             "size": 28,
-            "color": "#7b5e3a"
+            "color": "#7b5e3a",
+            "explain": "Br-: the bromide ion released in step 1."
           }
         },
         {
@@ -1174,7 +1228,8 @@
             "y": 208,
             "text": "+",
             "size": 44,
-            "color": "#8e44ad"
+            "color": "#8e44ad",
+            "explain": "The plus sign: the carbocation carries a positive charge."
           }
         },
         {
@@ -1187,7 +1242,8 @@
             "y": 370,
             "text": "planar carbocation",
             "size": 22,
-            "color": "#8e44ad"
+            "color": "#8e44ad",
+            "explain": "The planar carbocation: the carbon is flat and open to attack."
           }
         },
         {
@@ -1235,7 +1291,8 @@
             "y": 460,
             "text": "Step 2 — fast: OH⁻ attacks",
             "size": 24,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "Step 2 is fast: OH- attacks the carbocation."
           }
         },
         {
@@ -1248,7 +1305,8 @@
             "y": 300,
             "text": "OH⁻",
             "size": 28,
-            "color": "#1a56db"
+            "color": "#1a56db",
+            "explain": "The hydroxide nucleophile: a lone pair looking for carbon."
           }
         },
         {
@@ -1271,7 +1329,8 @@
             "y": 510,
             "tex": "\\text{rate} = k[(\\text{CH}_3)_3\\text{CBr}]",
             "size": 28,
-            "color": "#1a1a1a"
+            "color": "#1a1a1a",
+            "explain": "The rate depends only on the halogenoalkane: step 1 is the bottleneck."
           }
         },
         {
@@ -1314,7 +1373,8 @@
             "x": 80,
             "y": 130,
             "tex": "\\text{CH}_3\\text{Br} + \\text{OH}^- \\rightarrow \\text{CH}_3\\text{OH} + \\text{Br}^-",
-            "size": 28
+            "size": 28,
+            "explain": "The overall SN2 change: CH3Br plus OH- gives methanol, in one step."
           }
         },
         {
@@ -1328,7 +1388,8 @@
             "r": 30,
             "fill": "#2c3e50",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The carbon of the primary halogenoalkane."
           }
         },
         {
@@ -1340,7 +1401,8 @@
             "x": 370,
             "y": 200,
             "text": "CH₃–",
-            "size": 24
+            "size": 24,
+            "explain": "The CH3- group attached to bromine."
           }
         },
         {
@@ -1354,7 +1416,8 @@
             "x2": 514,
             "y2": 300,
             "stroke": "#2c3e50",
-            "width": 5
+            "width": 5,
+            "explain": "The C-Br bond that OH- attacks from behind."
           }
         },
         {
@@ -1368,7 +1431,8 @@
             "r": 26,
             "fill": "#7b5e3a",
             "stroke": "#5e3d22",
-            "width": 2
+            "width": 2,
+            "explain": "The bromine atom: the leaving group."
           }
         },
         {
@@ -1381,7 +1445,8 @@
             "y": 334,
             "text": "OH⁻",
             "size": 28,
-            "color": "#1a56db"
+            "color": "#1a56db",
+            "explain": "Hydroxide: the nucleophile, attacking from the back."
           }
         },
         {
@@ -1394,7 +1459,8 @@
             "y": 380,
             "text": "attacks from the back",
             "size": 22,
-            "color": "#1a56db"
+            "color": "#1a56db",
+            "explain": "Backside attack: OH- approaches opposite the C-Br bond."
           }
         },
         {
@@ -1439,7 +1505,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Curly arrow: the OH- lone pair forms the new C-O bond."
           }
         },
         {
@@ -1453,7 +1520,8 @@
             "x2": 398.0,
             "y2": 283.6,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead of the attack arrow."
           }
         },
         {
@@ -1467,7 +1535,8 @@
             "x2": 391.4,
             "y2": 295.9,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead of the attack arrow."
           }
         },
         {
@@ -1479,7 +1548,8 @@
             "cx": 172.6,
             "cy": 292.6,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the hydroxide lone pair attacking the carbon."
           }
         },
         {
@@ -1491,7 +1561,8 @@
             "cx": 163.4,
             "cy": 279.4,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the hydroxide lone pair attacking the carbon."
           }
         },
         {
@@ -1585,7 +1656,8 @@
             "x2": 385,
             "y2": 300,
             "stroke": "#e67e22",
-            "width": 4
+            "width": 4,
+            "explain": "A partial C-O bond forming in the transition state."
           }
         },
         {
@@ -1599,7 +1671,8 @@
             "x2": 520,
             "y2": 300,
             "stroke": "#e67e22",
-            "width": 4
+            "width": 4,
+            "explain": "A partial C-Br bond breaking in the transition state."
           }
         },
         {
@@ -1612,7 +1685,8 @@
             "y": 242,
             "text": "transition state — partial bonds",
             "size": 22,
-            "color": "#e67e22"
+            "color": "#e67e22",
+            "explain": "The transition state: both bonds are half-formed, half-broken."
           }
         },
         {
@@ -1657,7 +1731,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Curly arrow: the C-Br pair moves onto bromine as it leaves."
           }
         },
         {
@@ -1671,7 +1746,8 @@
             "x2": 547.5,
             "y2": 269.5,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead pointing at the leaving bromine."
           }
         },
         {
@@ -1685,7 +1761,8 @@
             "x2": 537.7,
             "y2": 279.5,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead pointing at the leaving bromine."
           }
         },
         {
@@ -1697,7 +1774,8 @@
             "cx": 484.3,
             "cy": 290.9,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the C-Br bond pair leaving with the bromine."
           }
         },
         {
@@ -1709,7 +1787,8 @@
             "cx": 471.7,
             "cy": 281.1,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the C-Br bond pair leaving with the bromine."
           }
         },
         {
@@ -1807,7 +1886,8 @@
             "y": 360,
             "text": "Br⁻ leaves",
             "size": 24,
-            "color": "#7b5e3a"
+            "color": "#7b5e3a",
+            "explain": "Br- leaves: the substitution is complete."
           }
         },
         {
@@ -1830,7 +1910,8 @@
             "y": 510,
             "tex": "\\text{rate} = k[\\text{CH}_3\\text{Br}][\\text{OH}^-]",
             "size": 28,
-            "color": "#1a1a1a"
+            "color": "#1a1a1a",
+            "explain": "The rate depends on both reactants: they meet in the single slow step."
           }
         },
         {
@@ -1873,7 +1954,8 @@
             "x": 80,
             "y": 170,
             "tex": "\\text{CH}_2 = \\text{CH}_2 \\xrightarrow{\\text{HBr}} \\text{CH}_3\\text{CH}_2\\text{Br}",
-            "size": 26
+            "size": 26,
+            "explain": "Step A: ethene to bromoethane by electrophilic addition."
           }
         },
         {
@@ -1886,7 +1968,8 @@
             "y": 220,
             "text": "electrophilic addition",
             "size": 20,
-            "color": "#5d6d7e"
+            "color": "#5d6d7e",
+            "explain": "Reaction type: electrophilic addition."
           }
         },
         {
@@ -1898,7 +1981,8 @@
             "x": 80,
             "y": 290,
             "tex": "\\text{CH}_3\\text{CH}_2\\text{Br} \\xrightarrow{\\text{NaOH(aq), heat}} \\text{CH}_3\\text{CH}_2\\text{OH}",
-            "size": 26
+            "size": 26,
+            "explain": "Step B: bromoethane to ethanol with aqueous NaOH, heated."
           }
         },
         {
@@ -1911,7 +1995,8 @@
             "y": 340,
             "text": "nucleophilic substitution",
             "size": 20,
-            "color": "#5d6d7e"
+            "color": "#5d6d7e",
+            "explain": "Reaction type: nucleophilic substitution."
           }
         },
         {
@@ -1923,7 +2008,8 @@
             "x": 80,
             "y": 410,
             "tex": "\\text{CH}_3\\text{CH}_2\\text{OH} \\xrightarrow[\\text{heat}]{\\text{K}_2\\text{Cr}_2\\text{O}_7 / \\text{H}^+} \\text{CH}_3\\text{CHO}",
-            "size": 24
+            "size": 24,
+            "explain": "Step C: ethanol to ethanal by partial oxidation with K2Cr2O7."
           }
         },
         {
@@ -1936,7 +2022,8 @@
             "y": 460,
             "text": "partial oxidation",
             "size": 20,
-            "color": "#5d6d7e"
+            "color": "#5d6d7e",
+            "explain": "Reaction type: partial oxidation - stop before ethanoic acid."
           }
         },
         {
@@ -1948,7 +2035,8 @@
             "cx": 830,
             "cy": 170,
             "r": 6,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "The route marker: this step links into the chain."
           }
         },
         {
@@ -2001,7 +2089,8 @@
             "y": 505,
             "text": "retrosynthesis: start from the target, work backwards",
             "size": 22,
-            "color": "#8e44ad"
+            "color": "#8e44ad",
+            "explain": "Retrosynthesis: plan backwards from the target molecule."
           }
         },
         {
@@ -2039,7 +2128,8 @@
             "x": 80,
             "y": 170,
             "text": "❌ “The curly arrow means the Br atom moves along it.”",
-            "size": 26
+            "size": 26,
+            "explain": "The mistake: reading the curly arrow as an atom sliding along it."
           }
         },
         {
@@ -2084,7 +2174,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "The curly arrow under dispute: it tracks electrons, not atoms."
           }
         },
         {
@@ -2098,7 +2189,8 @@
             "x2": 514.0,
             "y2": 260.3,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "The arrowhead lines: they point where the pair goes."
           }
         },
         {
@@ -2112,7 +2204,8 @@
             "x2": 506.7,
             "y2": 272.3,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "The arrowhead lines: they point where the pair goes."
           }
         },
         {
@@ -2125,7 +2218,8 @@
             "y": 330,
             "text": "Br",
             "size": 26,
-            "color": "#7b5e3a"
+            "color": "#7b5e3a",
+            "explain": "The bromine atom stays put: it never slides along the arrow."
           }
         },
         {
@@ -2138,7 +2232,8 @@
             "y": 330,
             "text": "Br",
             "size": 26,
-            "color": "#7b5e3a"
+            "color": "#7b5e3a",
+            "explain": "The bromine atom stays put: it never slides along the arrow."
           }
         },
         {
@@ -2151,7 +2246,8 @@
             "y": 280,
             "text": "atoms stay put",
             "size": 22,
-            "color": "#c0392b"
+            "color": "#c0392b",
+            "explain": "Atoms stay put: only electron pairs move."
           }
         },
         {
@@ -2163,7 +2259,8 @@
             "cx": 345.5,
             "cy": 271.8,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the electron pair the arrow is actually tracking."
           }
         },
         {
@@ -2175,7 +2272,8 @@
             "cx": 334.5,
             "cy": 260.2,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the electron pair the arrow is actually tracking."
           }
         },
         {
@@ -2263,7 +2361,8 @@
             "y": 380,
             "text": "✅ The arrow tracks one electron PAIR: bond → Br gives Br⁻.",
             "size": 26,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The correct reading: the arrow tracks one electron pair, bond to Br."
           }
         },
         {
@@ -2275,7 +2374,8 @@
             "x": 300,
             "y": 430,
             "text": "pair starts at the bond, ends on Br",
-            "size": 22
+            "size": 22,
+            "explain": "The pair starts at the bond and ends on bromine."
           }
         },
         {
@@ -2318,7 +2418,8 @@
             "x": 80,
             "y": 160,
             "text": "✓ addition: π electrons attack the electrophile",
-            "size": 26
+            "size": 26,
+            "explain": "Takeaway 1: addition is pi electrons attacking the electrophile."
           }
         },
         {
@@ -2330,7 +2431,8 @@
             "x": 80,
             "y": 220,
             "text": "✓ SN1: two steps, rate = k[RX]",
-            "size": 26
+            "size": 26,
+            "explain": "Takeaway 2: SN1 has two steps; the rate depends on the halogenoalkane alone."
           }
         },
         {
@@ -2342,7 +2444,8 @@
             "x": 80,
             "y": 280,
             "text": "✓ SN2: one step, rate = k[RX][Nu⁻]",
-            "size": 26
+            "size": 26,
+            "explain": "Takeaway 3: SN2 has one step; the rate depends on both reactants."
           }
         },
         {
@@ -2354,7 +2457,8 @@
             "x": 80,
             "y": 340,
             "text": "✓ synthesis: chain known reactions, plan backwards",
-            "size": 26
+            "size": 26,
+            "explain": "Takeaway 4: chain known reactions and plan backwards from the target."
           }
         },
         {
@@ -2367,7 +2471,8 @@
             "y": 384,
             "tex": "\\text{CH}_2 = \\text{CH}_2 \\xrightarrow{\\text{HBr}} \\text{CH}_3\\text{CH}_2\\text{Br} \\xrightarrow{\\text{NaOH(aq)}} \\text{CH}_3\\text{CH}_2\\text{OH}",
             "size": 24,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The running example: ethene to bromoethane by addition."
           }
         },
         {
@@ -2417,7 +2522,8 @@
             ],
             "fill": "none",
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "The curly arrow: the pi pair becomes the new C-H bond."
           }
         },
         {
@@ -2431,7 +2537,8 @@
             "x2": 904.0,
             "y2": 448.2,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead of the summary curly arrow."
           }
         },
         {
@@ -2445,7 +2552,8 @@
             "x2": 896.8,
             "y2": 460.2,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "Arrowhead of the summary curly arrow."
           }
         },
         {
@@ -2457,7 +2565,8 @@
             "cx": 734.8,
             "cy": 458.4,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the moving electron pair in the summary arrow."
           }
         },
         {
@@ -2469,7 +2578,8 @@
             "cx": 725.2,
             "cy": 445.6,
             "r": 5,
-            "fill": "#c0392b"
+            "fill": "#c0392b",
+            "explain": "One dot of the moving electron pair in the summary arrow."
           }
         },
         {
