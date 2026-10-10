@@ -27,7 +27,8 @@
             "x1": 80,
             "y1": 420,
             "x2": 880,
-            "y2": 420
+            "y2": 420,
+            "explain": "The x-axis."
           }
         },
         {
@@ -41,7 +42,8 @@
             "x1": 480,
             "y1": 500,
             "x2": 480,
-            "y2": 40
+            "y2": 40,
+            "explain": "The y-axis."
           }
         },
         {
@@ -154,7 +156,8 @@
                 820,
                 420
               ]
-            ]
+            ],
+            "explain": "The original curve: y = f(x), before any transformation."
           }
         },
         {
@@ -166,7 +169,8 @@
             "x": 690,
             "y": 210,
             "tex": "y = f(x)",
-            "size": 32
+            "size": 32,
+            "explain": "The starting function: y = f(x)."
           }
         },
         {
@@ -279,7 +283,8 @@
                 820,
                 420
               ]
-            ]
+            ],
+            "explain": "The stretched curve: every y-coordinate doubled, y = 2f(x)."
           }
         },
         {
@@ -292,7 +297,8 @@
             "y": 80,
             "tex": "y = 2f(x)",
             "size": 32,
-            "color": "#7c3aed"
+            "color": "#7c3aed",
+            "explain": "After the stretch: y = 2f(x), twice as tall."
           }
         },
         {
@@ -415,7 +421,8 @@
                 820,
                 330
               ]
-            ]
+            ],
+            "explain": "The lifted curve: the stretched graph moved up by d."
           }
         },
         {
@@ -428,7 +435,8 @@
             "y": 40,
             "tex": "y = 2f(x) + 1",
             "size": 32,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "After the lift: y = 2f(x) + 1."
           }
         },
         {
@@ -709,7 +717,8 @@
                 640,
                 400
               ]
-            ]
+            ],
+            "explain": "The shifted curve: f(x + 2) moves the graph left, not right."
           }
         },
         {
@@ -722,7 +731,8 @@
             "y": 150,
             "tex": "y = f(x + 2)",
             "size": 32,
-            "color": "#e07b00"
+            "color": "#e07b00",
+            "explain": "Inside the brackets: x + 2 shifts the graph left by 2."
           }
         },
         {
@@ -850,7 +860,8 @@
                 500,
                 400
               ]
-            ]
+            ],
+            "explain": "The squeezed curve: the factor 2 squashes it toward the new centre."
           }
         },
         {
@@ -863,7 +874,8 @@
             "y": 150,
             "tex": "y = f(2x + 2) = f(2(x + 1))",
             "size": 30,
-            "color": "#b00020"
+            "color": "#b00020",
+            "explain": "Rewritten as f(2(x + 1)): shift left 1, then squeeze by 2."
           }
         },
         {
@@ -934,7 +946,8 @@
             "x1": 480,
             "y1": 500,
             "x2": 480,
-            "y2": 40
+            "y2": 40,
+            "explain": "The vertical asymptote x = 0: the curve shoots up it but never touches."
           }
         },
         {
@@ -948,7 +961,8 @@
             "x1": 80,
             "y1": 280,
             "x2": 880,
-            "y2": 280
+            "y2": 280,
+            "explain": "The horizontal asymptote y = 0: the curve flattens onto it but never touches."
           }
         },
         {
@@ -1057,7 +1071,8 @@
                 781,
                 254
               ]
-            ]
+            ],
+            "explain": "The positive branch: x > 0, curving down toward the x-axis."
           }
         },
         {
@@ -1166,7 +1181,8 @@
                 179,
                 306
               ]
-            ]
+            ],
+            "explain": "The negative branch: x < 0, the mirror in the third quadrant."
           }
         },
         {
@@ -1179,7 +1195,8 @@
             "y": 90,
             "tex": "x = 0",
             "size": 28,
-            "color": "#b00020"
+            "color": "#b00020",
+            "explain": "The vertical asymptote's label: x = 0."
           }
         },
         {
@@ -1192,7 +1209,8 @@
             "y": 300,
             "tex": "y = 0",
             "size": 28,
-            "color": "#b00020"
+            "color": "#b00020",
+            "explain": "The horizontal asymptote's label: y = 0."
           }
         },
         {
@@ -1204,7 +1222,8 @@
             "x": 560,
             "y": 190,
             "tex": "y = \\frac{1}{x}",
-            "size": 36
+            "size": 36,
+            "explain": "The function: y = 1/x, the classic reciprocal."
           }
         },
         {
@@ -1387,7 +1406,8 @@
             "y": 80,
             "text": "Misconception:",
             "size": 34,
-            "color": "#b00020"
+            "color": "#b00020",
+            "explain": "Scene flag: a classic transformation slip follows."
           }
         },
         {
@@ -1500,7 +1520,8 @@
                 840,
                 400
               ]
-            ]
+            ],
+            "explain": "The wrong curve: shifted right, the trap this scene warns against."
           }
         },
         {
@@ -1513,7 +1534,8 @@
             "y": 160,
             "text": "shifted right ✗",
             "size": 26,
-            "color": "#b00020"
+            "color": "#b00020",
+            "explain": "The trap's label: shifting right is the mistake."
           }
         },
         {
@@ -1642,7 +1664,8 @@
                 480,
                 400
               ]
-            ]
+            ],
+            "explain": "The true curve: f(x + 3) shifts the graph LEFT."
           }
         },
         {
@@ -1655,7 +1678,8 @@
             "y": 160,
             "tex": "y = f(x + 3)\\ \\text{shifts left}",
             "size": 28,
-            "color": "#1f7a3a"
+            "color": "#1f7a3a",
+            "explain": "The rule: inside the brackets means the opposite direction."
           }
         },
         {
@@ -1667,7 +1691,8 @@
             "x": 120,
             "y": 506,
             "text": "root check: f(x+3) = 0 at x = −3, left of the original",
-            "size": 24
+            "size": 24,
+            "explain": "The root check: f(x+3) is 0 at x = -3, which sits left of the origin."
           }
         },
         {

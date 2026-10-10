@@ -28,7 +28,8 @@
             "h": 200,
             "fill": "none",
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The probability table: every outcome listed with its probability."
           }
         },
         {
@@ -42,7 +43,8 @@
             "x1": 120,
             "y1": 240,
             "x2": 840,
-            "y2": 240
+            "y2": 240,
+            "explain": "The divider: outcomes on top, their probabilities below."
           }
         },
         {
@@ -55,7 +57,8 @@
             "y": 220,
             "text": "x:            0           1           2",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The outcomes: X can be 0, 1, or 2."
           }
         },
         {
@@ -68,7 +71,8 @@
             "y": 320,
             "text": "P(X = x):   0.2        0.5        0.3",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The probabilities: 0.2, 0.5, and 0.3 for each outcome."
           }
         },
         {
@@ -80,7 +84,8 @@
             "x": 150,
             "y": 430,
             "tex": "\\\\sum P(X = x)",
-            "size": 36
+            "size": 36,
+            "explain": "The rule: every discrete distribution's probabilities sum to 1."
           }
         },
         {
@@ -94,7 +99,8 @@
             "r": 24,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The 0.2 probability chip: it travels into the sum."
           }
         },
         {
@@ -107,7 +113,8 @@
             "y": 510,
             "text": "0.2",
             "size": 28,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The chip's value: 0.2, the probability of X = 0."
           }
         },
         {
@@ -121,7 +128,8 @@
             "r": 24,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The 0.5 probability chip: it travels into the sum."
           }
         },
         {
@@ -134,7 +142,8 @@
             "y": 510,
             "text": "0.5",
             "size": 28,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The chip's value: 0.5, the probability of X = 1."
           }
         },
         {
@@ -148,7 +157,8 @@
             "r": 24,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The 0.3 probability chip: it travels into the sum."
           }
         },
         {
@@ -161,7 +171,8 @@
             "y": 510,
             "text": "0.3",
             "size": 28,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The chip's value: 0.3, the probability of X = 2."
           }
         },
         {
@@ -234,7 +245,8 @@
             "y": 442,
             "text": "= 1",
             "size": 36,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The check passes: 0.2 + 0.5 + 0.3 = 1."
           }
         },
         {
@@ -261,7 +273,8 @@
             "x1": 120,
             "y1": 440,
             "x2": 840,
-            "y2": 440
+            "y2": 440,
+            "explain": "The axis the distribution balances on."
           }
         },
         {
@@ -276,7 +289,8 @@
             "h": 60,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The 0-outcome bar: weight 0.2 at x = 0."
           }
         },
         {
@@ -291,7 +305,8 @@
             "h": 150,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The 1-outcome bar: weight 0.5 at x = 1, the heaviest."
           }
         },
         {
@@ -306,7 +321,8 @@
             "h": 90,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The 2-outcome bar: weight 0.3 at x = 2."
           }
         },
         {
@@ -318,7 +334,8 @@
             "x": 120,
             "y": 100,
             "tex": "E(X) = 0(0.2) + 1(0.5) + 2(0.3) = 1.1",
-            "size": 36
+            "size": 36,
+            "explain": "Expectation: the weighted average, 0(0.2) + 1(0.5) + 2(0.3) = 1.1."
           }
         },
         {
@@ -332,7 +349,8 @@
             "r": 10,
             "fill": "#f3c6cc",
             "stroke": "#b00020",
-            "width": 2
+            "width": 2,
+            "explain": "The probe: it slides along the axis hunting for the balance point."
           }
         },
         {
@@ -377,7 +395,8 @@
                 464,
                 476
               ]
-            ]
+            ],
+            "explain": "The fulcrum: placed exactly where the distribution balances, at 1.1."
           }
         },
         {
@@ -390,7 +409,8 @@
             "y": 478,
             "text": "fulcrum: E(X) = 1.1",
             "size": 26,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The fulcrum's position: E(X) = 1.1, the balance point."
           }
         },
         {
@@ -436,7 +456,8 @@
             "y": 472,
             "text": "0",
             "size": 26,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "0: the probability axis starts at no chance."
           }
         },
         {
@@ -449,7 +470,8 @@
             "y": 472,
             "text": "1",
             "size": 26,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "1: the probability axis ends at certainty."
           }
         },
         {
@@ -464,7 +486,8 @@
             "h": 60,
             "fill": "none",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "A trial slot: one of the 10 trials, waiting to be chosen."
           }
         },
         {
@@ -479,7 +502,8 @@
             "h": 60,
             "fill": "none",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "A trial slot: one of the 10 trials, waiting to be chosen."
           }
         },
         {
@@ -494,7 +518,8 @@
             "h": 60,
             "fill": "none",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "A trial slot: one of the 10 trials, waiting to be chosen."
           }
         },
         {
@@ -508,7 +533,8 @@
             "r": 16,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "One of the 3 successful trials."
           }
         },
         {
@@ -522,7 +548,8 @@
             "r": 16,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "Another of the 3 successful trials."
           }
         },
         {
@@ -536,7 +563,8 @@
             "r": 16,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The last of the 3 successful trials."
           }
         },
         {
@@ -549,7 +577,8 @@
             "y": 64,
             "text": "which 3 trials succeed?",
             "size": 26,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The counting question: which 3 of the 10 trials succeed?"
           }
         },
         {
@@ -591,7 +620,8 @@
             "x": 120,
             "y": 220,
             "tex": "P(X = 3) = \\\\binom{10}{3} (0.3)^{3} (0.7)^{7}",
-            "size": 36
+            "size": 36,
+            "explain": "The binomial formula: choose the 3 trials, then 0.3 cubed times 0.7 to the 7."
           }
         },
         {
@@ -606,7 +636,8 @@
             "h": 40,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The probability bar: it grows to the answer, about 0.267."
           }
         },
         {
@@ -628,7 +659,8 @@
             "y": 398,
             "text": "\u2248 0.267",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The answer: about 0.267."
           }
         },
         {
@@ -690,7 +722,8 @@
                 780,
                 450
               ]
-            ]
+            ],
+            "explain": "The normal curve: pinned down by its mean and standard deviation."
           }
         },
         {
@@ -704,7 +737,8 @@
             "x1": 480,
             "y1": 150,
             "x2": 480,
-            "y2": 450
+            "y2": 450,
+            "explain": "The mean: the curve's centre line."
           }
         },
         {
@@ -717,7 +751,8 @@
             "y": 90,
             "text": "\u03bc \u00b1 \u03c3: 68%     \u03bc \u00b1 2\u03c3: 95%     \u03bc \u00b1 3\u03c3: 99.7%",
             "size": 26,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The 68-95-99.7 rule: one, two, three standard deviations."
           }
         },
         {
@@ -732,7 +767,8 @@
             "h": 270,
             "fill": "#cfe8d4",
             "stroke": "#1f7a3a",
-            "width": 2
+            "width": 2,
+            "explain": "The shaded band: the area within k sigma of the mean."
           }
         },
         {
@@ -766,7 +802,8 @@
             "x1": 700,
             "y1": 160,
             "x2": 700,
-            "y2": 440
+            "y2": 440,
+            "explain": "The test marker: it slides into the band as the band widens."
           }
         },
         {
@@ -791,7 +828,8 @@
             "h": 90,
             "fill": "#f3c6cc",
             "stroke": "#b00020",
-            "width": 2
+            "width": 2,
+            "explain": "The right tail: beyond three sigma, where almost nothing lies."
           }
         },
         {
@@ -832,7 +870,8 @@
             "y": 110,
             "text": "Misconception:",
             "size": 32,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "Scene flag: a classic probability slip follows."
           }
         },
         {
@@ -846,7 +885,8 @@
             "r": 24,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The first head: H lands, probability 1/2."
           }
         },
         {
@@ -859,7 +899,8 @@
             "y": 231,
             "text": "H",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "Heads: the first toss came up H."
           }
         },
         {
@@ -873,7 +914,8 @@
             "r": 24,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The second head: another H, still 1/2 each toss."
           }
         },
         {
@@ -886,7 +928,8 @@
             "y": 231,
             "text": "H",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "Heads: the second toss came up H."
           }
         },
         {
@@ -900,7 +943,8 @@
             "r": 24,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The third head: the run grows, the coin does not remember."
           }
         },
         {
@@ -913,7 +957,8 @@
             "y": 231,
             "text": "H",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "Heads: the third toss came up H."
           }
         },
         {
@@ -927,7 +972,8 @@
             "r": 24,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The fourth head: five in a row feels due for tails, but is not."
           }
         },
         {
@@ -940,7 +986,8 @@
             "y": 231,
             "text": "H",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "Heads: the fourth toss came up H."
           }
         },
         {
@@ -954,7 +1001,8 @@
             "r": 24,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The fifth head: the streak is complete, tails is still not due."
           }
         },
         {
@@ -967,7 +1015,8 @@
             "y": 231,
             "text": "H",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "Heads: the fifth toss came up H."
           }
         },
         {
@@ -981,7 +1030,8 @@
             "x1": 600,
             "y1": 340,
             "x2": 820,
-            "y2": 340
+            "y2": 340,
+            "explain": "The memory needle: it never moves, however many heads land."
           }
         },
         {
@@ -994,7 +1044,8 @@
             "y": 310,
             "text": "needle fixed \u2014 P(H) = 1/2",
             "size": 24,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The needle stays fixed: every toss is still 1/2 for heads."
           }
         },
         {
@@ -1008,7 +1059,8 @@
             "r": 24,
             "fill": "#dbeafe",
             "stroke": "#1a56db",
-            "width": 2
+            "width": 2,
+            "explain": "The sixth coin: it travels in and lands, still 1/2 either way."
           }
         },
         {
@@ -1021,7 +1073,8 @@
             "y": 131,
             "text": "H",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The sixth toss: it can land H or T, each with probability 1/2."
           }
         },
         {
@@ -1054,7 +1107,8 @@
             "y": 420,
             "text": "no \u2014 P(H) = 1/2 on the next toss, every time",
             "size": 30,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The truth: no balancing-out; the next toss is 1/2 heads, every time."
           }
         },
         {
@@ -1066,7 +1120,8 @@
             "x": 120,
             "y": 470,
             "tex": "P(HHHHHH) = \\\\left(\\\\frac{1}{2}\\\\right)^{6} = \\\\frac{1}{64}",
-            "size": 36
+            "size": 36,
+            "explain": "Six heads in a row has probability 1/64: rare, but the coin never remembers."
           }
         },
         {
