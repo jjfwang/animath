@@ -443,7 +443,8 @@
             "x1": 120,
             "y1": 440,
             "x2": 840,
-            "y2": 440
+            "y2": 440,
+            "explain": "The x-axis: the number of successes in the binomial distribution."
           }
         },
         {

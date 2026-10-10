@@ -161,7 +161,8 @@
             "kind": "rect",
             "w": 660,
             "x": 150,
-            "y": 400
+            "y": 400,
+            "explain": "The metal surface: light below the threshold frequency ejects no electrons from it."
           }
         },
         {
@@ -322,7 +323,8 @@
             "kind": "rect",
             "w": 660,
             "x": 150,
-            "y": 400
+            "y": 400,
+            "explain": "The metal surface: each absorbed photon can release at most one electron."
           }
         },
         {
@@ -419,7 +421,8 @@
             "kind": "rect",
             "w": 660,
             "x": 150,
-            "y": 400
+            "y": 400,
+            "explain": "The metal surface: brighter light means more photons striking it each second."
           }
         },
         {
@@ -599,7 +602,8 @@
             "kind": "rect",
             "w": 660,
             "x": 150,
-            "y": 400
+            "y": 400,
+            "explain": "The metal surface: brighter light frees more electrons, but none leave faster."
           }
         },
         {

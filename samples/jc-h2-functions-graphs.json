@@ -479,7 +479,8 @@
             "x1": 80,
             "y1": 400,
             "x2": 880,
-            "y2": 400
+            "y2": 400,
+            "explain": "The x-axis: the horizontal baseline the transformation is read against."
           }
         },
         {
@@ -592,7 +593,8 @@
                 760,
                 400
               ]
-            ]
+            ],
+            "explain": "The curve y = f(x): the starting shape before the horizontal transformation."
           }
         },
         {
@@ -604,7 +606,8 @@
             "x": 620,
             "y": 190,
             "tex": "y = f(x)",
-            "size": 32
+            "size": 32,
+            "explain": "The label for the original curve, y = f(x)."
           }
         },
         {
@@ -918,7 +921,8 @@
             "x1": 80,
             "y1": 280,
             "x2": 880,
-            "y2": 280
+            "y2": 280,
+            "explain": "The x-axis: for a reciprocal curve it is the horizontal asymptote."
           }
         },
         {
@@ -932,7 +936,8 @@
             "x1": 480,
             "y1": 500,
             "x2": 480,
-            "y2": 40
+            "y2": 40,
+            "explain": "The y-axis: for a reciprocal curve it is the vertical asymptote."
           }
         },
         {
@@ -1266,7 +1271,8 @@
             "x1": 80,
             "y1": 400,
             "x2": 880,
-            "y2": 400
+            "y2": 400,
+            "explain": "The x-axis: the horizontal reference for the shift."
           }
         },
         {
@@ -1280,7 +1286,8 @@
             "x1": 480,
             "y1": 480,
             "x2": 480,
-            "y2": 120
+            "y2": 120,
+            "explain": "The y-axis: the vertical reference for the shift."
           }
         },
         {
@@ -1393,7 +1400,8 @@
                 660,
                 400
               ]
-            ]
+            ],
+            "explain": "The curve before the +c shift: watch which way it actually moves."
           }
         },
         {

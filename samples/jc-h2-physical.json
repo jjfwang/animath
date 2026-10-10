@@ -406,7 +406,8 @@
             "x1": 120,
             "y1": 60,
             "x2": 120,
-            "y2": 470
+            "y2": 470,
+            "explain": "The energy axis: enthalpy increases upward."
           }
         },
         {
@@ -420,7 +421,8 @@
             "x1": 120,
             "y1": 470,
             "x2": 900,
-            "y2": 470
+            "y2": 470,
+            "explain": "The reaction-progress axis: the reaction runs from left to right."
           }
         },
         {
@@ -432,7 +434,8 @@
             "size": 22,
             "text": "reaction progress →",
             "x": 560,
-            "y": 510
+            "y": 510,
+            "explain": "The label for the reaction-progress axis."
           }
         },
         {
@@ -444,7 +447,8 @@
             "size": 22,
             "text": "enthalpy",
             "x": 10,
-            "y": 60
+            "y": 60,
+            "explain": "The label for the enthalpy axis."
           }
         },
         {
@@ -458,7 +462,8 @@
             "x1": 160,
             "y1": 384,
             "x2": 300,
-            "y2": 384
+            "y2": 384,
+            "explain": "The reactants' energy level: the starting enthalpy of the reaction."
           }
         },
         {
@@ -470,7 +475,8 @@
             "size": 24,
             "text": "reactants",
             "x": 160,
-            "y": 414
+            "y": 414,
+            "explain": "The label marking the reactants' energy level."
           }
         },
         {
@@ -519,7 +525,8 @@
                 830,
                 228
               ]
-            ]
+            ],
+            "explain": "The enthalpy profile: it climbs over the transition state to the products."
           }
         },
         {
@@ -531,7 +538,8 @@
             "cx": 160,
             "cy": 384,
             "r": 10,
-            "fill": "#b00020"
+            "fill": "#b00020",
+            "explain": "The energy dot: it rides the profile from reactants to products."
           }
         },
         {
@@ -585,7 +593,8 @@
             "x1": 350,
             "y1": 376,
             "x2": 350,
-            "y2": 360
+            "y2": 360,
+            "explain": "The enthalpy-change arrow: products sit higher, so delta H is positive."
           }
         },
         {
@@ -609,7 +618,8 @@
             "x1": 700,
             "y1": 228,
             "x2": 840,
-            "y2": 228
+            "y2": 228,
+            "explain": "The products' energy level: higher than the reactants here."
           }
         },
         {
@@ -630,7 +640,8 @@
             "size": 24,
             "text": "products",
             "x": 712,
-            "y": 258
+            "y": 258,
+            "explain": "The label marking the products' energy level."
           }
         },
         {
@@ -691,7 +702,8 @@
             "size": 36,
             "tex": "\\Delta H > 0",
             "x": 372,
-            "y": 288
+            "y": 288,
+            "explain": "Delta H greater than zero: this reaction absorbs heat."
           }
         },
         {
@@ -703,7 +715,8 @@
             "size": 22,
             "text": "transition state",
             "x": 330,
-            "y": 112
+            "y": 112,
+            "explain": "The transition state: the energy peak the reaction must climb over."
           }
         },
         {
@@ -715,7 +728,8 @@
             "size": 26,
             "text": "heat is absorbed from the surroundings",
             "x": 160,
-            "y": 80
+            "y": 80,
+            "explain": "The takeaway: this reaction takes in heat from its surroundings."
           }
         },
         {
@@ -742,7 +756,8 @@
             "x1": 120,
             "y1": 60,
             "x2": 120,
-            "y2": 470
+            "y2": 470,
+            "explain": "The concentration axis: reactant concentration runs upward."
           }
         },
         {
@@ -756,7 +771,8 @@
             "x1": 120,
             "y1": 470,
             "x2": 900,
-            "y2": 470
+            "y2": 470,
+            "explain": "The time axis: the reaction runs from left to right."
           }
         },
         {
@@ -768,7 +784,8 @@
             "size": 22,
             "text": "reactant conc.",
             "x": 10,
-            "y": 40
+            "y": 40,
+            "explain": "The label for the reactant-concentration axis."
           }
         },
         {
@@ -780,7 +797,8 @@
             "size": 22,
             "text": "time",
             "x": 862,
-            "y": 510
+            "y": 510,
+            "explain": "The label for the time axis."
           }
         },
         {
@@ -1018,7 +1036,8 @@
             "x1": 120,
             "y1": 60,
             "x2": 120,
-            "y2": 470
+            "y2": 470,
+            "explain": "The fraction-of-molecules axis: how many molecules sit at each energy."
           }
         },
         {
@@ -1032,7 +1051,8 @@
             "x1": 120,
             "y1": 470,
             "x2": 900,
-            "y2": 470
+            "y2": 470,
+            "explain": "The kinetic-energy axis: molecular energy runs left to right."
           }
         },
         {
@@ -1044,7 +1064,8 @@
             "size": 22,
             "text": "kinetic energy",
             "x": 748,
-            "y": 452
+            "y": 452,
+            "explain": "The label for the kinetic-energy axis."
           }
         },
         {
@@ -1056,7 +1077,8 @@
             "size": 22,
             "text": "fraction of molecules",
             "x": 10,
-            "y": 40
+            "y": 40,
+            "explain": "The label for the fraction-of-molecules axis."
           }
         },
         {
@@ -1327,7 +1349,8 @@
             "size": 30,
             "tex": "E_a",
             "x": 690,
-            "y": 118
+            "y": 118,
+            "explain": "The activation energy: only molecules past this line can react."
           }
         },
         {
@@ -1665,7 +1688,8 @@
             "x1": 120,
             "y1": 430,
             "x2": 560,
-            "y2": 430
+            "y2": 430,
+            "explain": "The shared baseline: both bars are measured from the same rail."
           }
         },
         {

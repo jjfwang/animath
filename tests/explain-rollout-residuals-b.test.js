@@ -43,6 +43,27 @@ function findShape(spec, sceneId, shapeId) {
   return step.shape;
 }
 
+// Zero-missing-explains collector, keyed by (scene.id, shape.id).
+// Shape ids are only unique per scene: a bare-id seen-set masks cross-scene
+// reuse (issue #592 -- s1 defines yaxis WITH an explain, s2 defines yaxis
+// WITHOUT one, and the bare-id check stays green). Keying by scene keeps
+// every (scene, id) pair visible.
+function missingExplains(spec, exemptIds) {
+  const missing = [];
+  const seen = new Set();
+  for (const scene of spec.scenes) {
+    for (const step of scene.steps) {
+      const sh = step.shape;
+      if (!sh || !sh.id) continue;
+      const key = scene.id + '/' + sh.id;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      if (!sh.explain && !exemptIds.has(sh.id)) missing.push(scene.id + '/' + sh.id);
+    }
+  }
+  return missing;
+}
+
 // A point on/near the shape, per kind, for the tooltip anchor.
 function nearPoint(shape) {
   if (shape.kind === 'circle') return [shape.cx, shape.cy];
@@ -118,16 +139,7 @@ test('residuals-b: zero zero-explain shape ids outside the exempt scene titles',
   };
   for (const [file, ids] of Object.entries(exempt)) {
     const spec = loadSample(file);
-    const missing = [];
-    const seen = new Set();
-    for (const scene of spec.scenes) {
-      for (const step of scene.steps) {
-        const sh = step.shape;
-        if (!sh || !sh.id || seen.has(sh.id)) continue;
-        seen.add(sh.id);
-        if (!sh.explain && !ids.has(sh.id)) missing.push(scene.id + '/' + sh.id);
-      }
-    }
+    const missing = missingExplains(spec, ids);
     assert.deepEqual(missing, [], file + ' has no missing explains');
   }
 });
@@ -142,15 +154,20 @@ test('repo-wide: zero zero-explain shape ids across all samples', () => {
   const bad = [];
   for (const file of files) {
     const spec = loadSample(file);
-    const seen = new Set();
-    for (const scene of spec.scenes) {
-      for (const step of scene.steps) {
-        const sh = step.shape;
-        if (!sh || !sh.id || seen.has(sh.id)) continue;
-        seen.add(sh.id);
-        if (!sh.explain && !exempt.has(sh.id)) bad.push(file + ' ' + scene.id + '/' + sh.id);
-      }
-    }
+    for (const m of missingExplains(spec, exempt)) bad.push(file + ' ' + m);
   }
   assert.deepEqual(bad, [], 'no sample has a missing explain');
+});
+
+test('missingExplains keys by (scene, id): cross-scene reuse is not masked', () => {
+  // Regression for the #592 root cause: s1 defines yaxis WITH an explain and
+  // s2 defines yaxis WITHOUT one. Bare-id keying skips s2 and stays green;
+  // (scene, id) keying must report s2/yaxis.
+  const spec = {
+    scenes: [
+      { id: 's1', steps: [{ shape: { id: 'yaxis', kind: 'line', explain: 'explained in s1' } }] },
+      { id: 's2', steps: [{ shape: { id: 'yaxis', kind: 'line' } }] },
+    ],
+  };
+  assert.deepEqual(missingExplains(spec, new Set()), ['s2/yaxis']);
 });
