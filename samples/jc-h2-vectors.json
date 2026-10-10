@@ -17,6 +17,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
+            "explain": "The x-axis.",
             "id": "xAxis",
             "kind": "line",
             "stroke": "#1a1a1a",
@@ -31,6 +32,7 @@
           "at_ms": 800,
           "do": "show",
           "shape": {
+            "explain": "The y-axis.",
             "id": "yAxis",
             "kind": "line",
             "stroke": "#1a1a1a",
@@ -45,6 +47,7 @@
           "at_ms": 1600,
           "do": "show",
           "shape": {
+            "explain": "The vector a: 2 right and 3 up, drawn as an arrow.",
             "id": "vec",
             "kind": "arrow",
             "stroke": "#1f7a3a",
@@ -59,6 +62,7 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "explain": "The vector's name: a.",
             "id": "vecLab",
             "kind": "text",
             "size": 40,
@@ -71,6 +75,7 @@
           "at_ms": 3400,
           "do": "show",
           "shape": {
+            "explain": "The column vector: 2 over 3, recording right and up.",
             "color": "#1f7a3a",
             "id": "colVec",
             "kind": "latex",
@@ -84,6 +89,7 @@
           "at_ms": 4400,
           "do": "show",
           "shape": {
+            "explain": "The components in words: 2 right, 3 up.",
             "id": "compLab",
             "kind": "text",
             "size": 28,
@@ -147,6 +153,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
+            "explain": "Vector a: the first leg of the journey.",
             "id": "a",
             "kind": "arrow",
             "stroke": "#1f7a3a",
@@ -161,6 +168,7 @@
           "at_ms": 1400,
           "do": "show",
           "shape": {
+            "explain": "Vector b: it starts where a ends, tail to head.",
             "id": "b",
             "kind": "arrow",
             "stroke": "#1a56db",
@@ -175,6 +183,7 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "explain": "The label for vector a.",
             "id": "aLab",
             "kind": "text",
             "size": 36,
@@ -199,6 +208,7 @@
           "at_ms": 4400,
           "do": "show",
           "shape": {
+            "explain": "The label for vector b.",
             "id": "bLab",
             "kind": "text",
             "size": 36,
@@ -211,6 +221,7 @@
           "at_ms": 4800,
           "do": "show",
           "shape": {
+            "explain": "The sum: from the very first tail to the very last head.",
             "id": "sum",
             "kind": "arrow",
             "stroke": "#b00020",
@@ -236,6 +247,7 @@
           "at_ms": 6400,
           "do": "show",
           "shape": {
+            "explain": "The addition: a plus b, joined tail to head.",
             "color": "#b00020",
             "id": "sumEq",
             "kind": "latex",
@@ -296,6 +308,7 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
+            "explain": "Theta: the angle between the two vectors; the dot product needs it.",
             "id": "theta",
             "kind": "text",
             "size": 40,
@@ -308,6 +321,7 @@
           "at_ms": 3600,
           "do": "show",
           "shape": {
+            "explain": "The perpendicular drop: from the tip of b down onto a, casting the shadow.",
             "id": "proj",
             "kind": "line",
             "stroke": "#999999",
@@ -333,6 +347,7 @@
           "at_ms": 4600,
           "do": "show",
           "shape": {
+            "explain": "The dot product: the two lengths times cos theta.",
             "color": "#1f7a3a",
             "id": "dotEq",
             "kind": "latex",
@@ -346,6 +361,7 @@
           "at_ms": 5800,
           "do": "show",
           "shape": {
+            "explain": "The shadow: b's projection onto a, the length the dot product measures.",
             "id": "projLab",
             "kind": "text",
             "size": 26,
@@ -377,6 +393,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
+            "explain": "The line: one point plus one direction draws the whole thing.",
             "id": "lineL",
             "kind": "line",
             "stroke": "#1a1a1a",
@@ -391,6 +408,7 @@
           "at_ms": 1200,
           "do": "show",
           "shape": {
+            "explain": "The point a: the line's anchor, where lambda = 0.",
             "cx": 300,
             "cy": 341,
             "fill": "#1f7a3a",
@@ -403,6 +421,7 @@
           "at_ms": 2400,
           "do": "show",
           "shape": {
+            "explain": "The direction b: the arrow lambda scales to sweep the line.",
             "id": "dirB",
             "kind": "arrow",
             "stroke": "#1a56db",
@@ -417,6 +436,7 @@
           "at_ms": 3400,
           "do": "show",
           "shape": {
+            "explain": "The direction's name: b.",
             "id": "dirLab",
             "kind": "text",
             "size": 32,
@@ -429,6 +449,7 @@
           "at_ms": 4200,
           "do": "show",
           "shape": {
+            "explain": "The line equation: r = a + lambda b, lambda over every real number.",
             "color": "#1f7a3a",
             "id": "lineEq",
             "kind": "latex",
@@ -464,6 +485,7 @@
           "at_ms": 5200,
           "do": "show",
           "shape": {
+            "explain": "The front edge of the plane's drawn diamond.",
             "id": "pl1",
             "kind": "line",
             "stroke": "#999999",
@@ -478,6 +500,7 @@
           "at_ms": 5300,
           "do": "show",
           "shape": {
+            "explain": "The right edge of the plane's drawn diamond.",
             "id": "pl2",
             "kind": "line",
             "stroke": "#999999",
@@ -492,6 +515,7 @@
           "at_ms": 5400,
           "do": "show",
           "shape": {
+            "explain": "The back edge of the plane's drawn diamond.",
             "id": "pl3",
             "kind": "line",
             "stroke": "#999999",
@@ -506,6 +530,7 @@
           "at_ms": 5500,
           "do": "show",
           "shape": {
+            "explain": "The left edge of the plane's drawn diamond.",
             "id": "pl4",
             "kind": "line",
             "stroke": "#999999",
@@ -520,6 +545,7 @@
           "at_ms": 6200,
           "do": "show",
           "shape": {
+            "explain": "The normal vector: it stands perpendicular to the whole plane.",
             "id": "normal",
             "kind": "arrow",
             "stroke": "#b00020",
@@ -534,6 +560,7 @@
           "at_ms": 7000,
           "do": "show",
           "shape": {
+            "explain": "The normal's name: n.",
             "id": "nLab",
             "kind": "text",
             "size": 28,
@@ -565,6 +592,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
+            "explain": "Scene flag: a vector-identity slip follows.",
             "color": "#b00020",
             "id": "mis",
             "kind": "text",
@@ -578,6 +606,7 @@
           "at_ms": 1000,
           "do": "show",
           "shape": {
+            "explain": "The origin: position vectors are pinned here.",
             "cx": 200,
             "cy": 300,
             "fill": "#1a1a1a",
@@ -590,6 +619,7 @@
           "at_ms": 1800,
           "do": "show",
           "shape": {
+            "explain": "A position vector: pinned to the origin, its start fixed.",
             "id": "pos",
             "kind": "arrow",
             "stroke": "#1f7a3a",
@@ -604,6 +634,7 @@
           "at_ms": 2800,
           "do": "show",
           "shape": {
+            "explain": "The pinned kind: position vectors start at the origin.",
             "id": "posLab",
             "kind": "text",
             "size": 26,
@@ -616,6 +647,7 @@
           "at_ms": 4000,
           "do": "show",
           "shape": {
+            "explain": "A free vector: the same arrow slid elsewhere is the same vector.",
             "id": "dir",
             "kind": "arrow",
             "stroke": "#1a56db",
@@ -654,6 +686,7 @@
           "at_ms": 6000,
           "do": "show",
           "shape": {
+            "explain": "Recap: the dot product formula.",
             "color": "#1f7a3a",
             "id": "f1",
             "kind": "latex",
@@ -667,6 +700,7 @@
           "at_ms": 6800,
           "do": "show",
           "shape": {
+            "explain": "Recap: the line equation.",
             "color": "#1f7a3a",
             "id": "f2",
             "kind": "latex",
