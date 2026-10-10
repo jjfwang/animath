@@ -37,7 +37,8 @@
             "x": 110,
             "y": 118,
             "text": "cross out the multiples - keep 2, 3, 5",
-            "size": 18
+            "size": 18,
+            "explain": "How the sieve works: cross out the multiples, but keep 2, 3 and 5 themselves."
           }
         },
         {
@@ -52,7 +53,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 2: a prime, so it survives the sieve."
           }
         },
         {
@@ -64,7 +66,8 @@
             "x": 155,
             "y": 188,
             "text": "2",
-            "size": 26
+            "size": 26,
+            "explain": "2: a prime - it survives the sieve."
           }
         },
         {
@@ -79,7 +82,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 3: a prime, so it survives the sieve."
           }
         },
         {
@@ -91,7 +95,8 @@
             "x": 271,
             "y": 188,
             "text": "3",
-            "size": 26
+            "size": 26,
+            "explain": "3: a prime - it survives the sieve."
           }
         },
         {
@@ -106,7 +111,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 4: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -118,7 +124,8 @@
             "x": 387,
             "y": 188,
             "text": "4",
-            "size": 26
+            "size": 26,
+            "explain": "4: crossed out as a multiple of 2."
           }
         },
         {
@@ -133,7 +140,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 5: a prime, so it survives the sieve."
           }
         },
         {
@@ -145,7 +153,8 @@
             "x": 503,
             "y": 188,
             "text": "5",
-            "size": 26
+            "size": 26,
+            "explain": "5: a prime - it survives the sieve."
           }
         },
         {
@@ -160,7 +169,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 6: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -172,7 +182,8 @@
             "x": 619,
             "y": 188,
             "text": "6",
-            "size": 26
+            "size": 26,
+            "explain": "6: crossed out as a multiple of 2."
           }
         },
         {
@@ -187,7 +198,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 7: a prime, so it survives the sieve."
           }
         },
         {
@@ -199,7 +211,8 @@
             "x": 735,
             "y": 188,
             "text": "7",
-            "size": 26
+            "size": 26,
+            "explain": "7: a prime - it survives the sieve."
           }
         },
         {
@@ -214,7 +227,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 8: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -226,7 +240,8 @@
             "x": 155,
             "y": 256,
             "text": "8",
-            "size": 26
+            "size": 26,
+            "explain": "8: crossed out as a multiple of 2."
           }
         },
         {
@@ -241,7 +256,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 9: a multiple of 3, so the sieve crosses it out."
           }
         },
         {
@@ -253,7 +269,8 @@
             "x": 271,
             "y": 256,
             "text": "9",
-            "size": 26
+            "size": 26,
+            "explain": "9: crossed out as a multiple of 3."
           }
         },
         {
@@ -268,7 +285,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 10: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -280,7 +298,8 @@
             "x": 380,
             "y": 256,
             "text": "10",
-            "size": 26
+            "size": 26,
+            "explain": "10: crossed out as a multiple of 2."
           }
         },
         {
@@ -295,7 +314,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 11: a prime, so it survives the sieve."
           }
         },
         {
@@ -307,7 +327,8 @@
             "x": 496,
             "y": 256,
             "text": "11",
-            "size": 26
+            "size": 26,
+            "explain": "11: a prime - it survives the sieve."
           }
         },
         {
@@ -322,7 +343,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 12: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -334,7 +356,8 @@
             "x": 612,
             "y": 256,
             "text": "12",
-            "size": 26
+            "size": 26,
+            "explain": "12: crossed out as a multiple of 2."
           }
         },
         {
@@ -349,7 +372,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 13: a prime, so it survives the sieve."
           }
         },
         {
@@ -361,7 +385,8 @@
             "x": 728,
             "y": 256,
             "text": "13",
-            "size": 26
+            "size": 26,
+            "explain": "13: a prime - it survives the sieve."
           }
         },
         {
@@ -376,7 +401,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 14: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -388,7 +414,8 @@
             "x": 148,
             "y": 324,
             "text": "14",
-            "size": 26
+            "size": 26,
+            "explain": "14: crossed out as a multiple of 2."
           }
         },
         {
@@ -403,7 +430,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 15: a multiple of 3, so the sieve crosses it out."
           }
         },
         {
@@ -415,7 +443,8 @@
             "x": 264,
             "y": 324,
             "text": "15",
-            "size": 26
+            "size": 26,
+            "explain": "15: crossed out as a multiple of 3."
           }
         },
         {
@@ -430,7 +459,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 16: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -442,7 +472,8 @@
             "x": 380,
             "y": 324,
             "text": "16",
-            "size": 26
+            "size": 26,
+            "explain": "16: crossed out as a multiple of 2."
           }
         },
         {
@@ -457,7 +488,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 17: a prime, so it survives the sieve."
           }
         },
         {
@@ -469,7 +501,8 @@
             "x": 496,
             "y": 324,
             "text": "17",
-            "size": 26
+            "size": 26,
+            "explain": "17: a prime - it survives the sieve."
           }
         },
         {
@@ -484,7 +517,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 18: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -496,7 +530,8 @@
             "x": 612,
             "y": 324,
             "text": "18",
-            "size": 26
+            "size": 26,
+            "explain": "18: crossed out as a multiple of 2."
           }
         },
         {
@@ -511,7 +546,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 19: a prime, so it survives the sieve."
           }
         },
         {
@@ -523,7 +559,8 @@
             "x": 728,
             "y": 324,
             "text": "19",
-            "size": 26
+            "size": 26,
+            "explain": "19: a prime - it survives the sieve."
           }
         },
         {
@@ -538,7 +575,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 20: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -550,7 +588,8 @@
             "x": 148,
             "y": 392,
             "text": "20",
-            "size": 26
+            "size": 26,
+            "explain": "20: crossed out as a multiple of 2."
           }
         },
         {
@@ -565,7 +604,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 21: a multiple of 3, so the sieve crosses it out."
           }
         },
         {
@@ -577,7 +617,8 @@
             "x": 264,
             "y": 392,
             "text": "21",
-            "size": 26
+            "size": 26,
+            "explain": "21: crossed out as a multiple of 3."
           }
         },
         {
@@ -592,7 +633,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 22: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -604,7 +646,8 @@
             "x": 380,
             "y": 392,
             "text": "22",
-            "size": 26
+            "size": 26,
+            "explain": "22: crossed out as a multiple of 2."
           }
         },
         {
@@ -619,7 +662,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 23: a prime, so it survives the sieve."
           }
         },
         {
@@ -631,7 +675,8 @@
             "x": 496,
             "y": 392,
             "text": "23",
-            "size": 26
+            "size": 26,
+            "explain": "23: a prime - it survives the sieve."
           }
         },
         {
@@ -646,7 +691,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 24: a multiple of 2, so the sieve crosses it out."
           }
         },
         {
@@ -658,7 +704,8 @@
             "x": 612,
             "y": 392,
             "text": "24",
-            "size": 26
+            "size": 26,
+            "explain": "24: crossed out as a multiple of 2."
           }
         },
         {
@@ -673,7 +720,8 @@
             "h": 58,
             "fill": "#e3f2fd",
             "stroke": "#1976d2",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The cell for 25: a multiple of 5, so the sieve crosses it out."
           }
         },
         {
@@ -685,7 +733,8 @@
             "x": 728,
             "y": 392,
             "text": "25",
-            "size": 26
+            "size": 26,
+            "explain": "25: crossed out as a multiple of 5."
           }
         },
         {
@@ -697,7 +746,8 @@
             "x": 560,
             "y": 140,
             "text": "sieving multiples of 2",
-            "size": 22
+            "size": 22,
+            "explain": "Sieving multiples of 2: the mark crosses out every even number but 2."
           }
         },
         {
@@ -710,7 +760,8 @@
             "y": 194,
             "text": "✕",
             "size": 44,
-            "fill": "#e53935"
+            "fill": "#e53935",
+            "explain": "The crossing-out mark: it lands on every multiple."
           }
         },
         {
@@ -947,7 +998,8 @@
             "x": 560,
             "y": 140,
             "text": "sieving multiples of 3",
-            "size": 22
+            "size": 22,
+            "explain": "Sieving multiples of 3: 9, 15 and 21 fall (the even multiples are already gone)."
           }
         },
         {
@@ -1024,7 +1076,8 @@
             "x": 560,
             "y": 140,
             "text": "sieving multiples of 5",
-            "size": 22
+            "size": 22,
+            "explain": "Sieving multiples of 5: 25 falls; the rest are already crossed out."
           }
         },
         {
@@ -1066,7 +1119,8 @@
             "x": 560,
             "y": 140,
             "text": "the primes survive!",
-            "size": 22
+            "size": 22,
+            "explain": "The result: the numbers left standing are the primes."
           }
         },
         {
@@ -1152,7 +1206,8 @@
             "x": 80,
             "y": 185,
             "text": "2³",
-            "size": 30
+            "size": 30,
+            "explain": "Two cubed: three 2's multiplied together."
           }
         },
         {
@@ -1167,7 +1222,8 @@
             "h": 70,
             "fill": "#fff3e0",
             "stroke": "#ef6c00",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the three 2's making 2 cubed."
           }
         },
         {
@@ -1179,7 +1235,8 @@
             "x": 187,
             "y": 248,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-cubed group."
           }
         },
         {
@@ -1194,7 +1251,8 @@
             "h": 70,
             "fill": "#fff3e0",
             "stroke": "#ef6c00",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the three 2's making 2 cubed."
           }
         },
         {
@@ -1206,7 +1264,8 @@
             "x": 267,
             "y": 248,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-cubed group."
           }
         },
         {
@@ -1221,7 +1280,8 @@
             "h": 70,
             "fill": "#fff3e0",
             "stroke": "#ef6c00",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the three 2's making 2 cubed."
           }
         },
         {
@@ -1233,7 +1293,8 @@
             "x": 347,
             "y": 248,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-cubed group."
           }
         },
         {
@@ -1245,7 +1306,8 @@
             "x": 80,
             "y": 335,
             "text": "2⁴",
-            "size": 30
+            "size": 30,
+            "explain": "Two to the fourth: four 2's multiplied together."
           }
         },
         {
@@ -1260,7 +1322,8 @@
             "h": 70,
             "fill": "#e8f5e9",
             "stroke": "#2e7d32",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the four 2's making 2 to the fourth."
           }
         },
         {
@@ -1272,7 +1335,8 @@
             "x": 187,
             "y": 398,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-to-the-fourth group."
           }
         },
         {
@@ -1287,7 +1351,8 @@
             "h": 70,
             "fill": "#e8f5e9",
             "stroke": "#2e7d32",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the four 2's making 2 to the fourth."
           }
         },
         {
@@ -1299,7 +1364,8 @@
             "x": 267,
             "y": 398,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-to-the-fourth group."
           }
         },
         {
@@ -1314,7 +1380,8 @@
             "h": 70,
             "fill": "#e8f5e9",
             "stroke": "#2e7d32",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the four 2's making 2 to the fourth."
           }
         },
         {
@@ -1326,7 +1393,8 @@
             "x": 347,
             "y": 398,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-to-the-fourth group."
           }
         },
         {
@@ -1341,7 +1409,8 @@
             "h": 70,
             "fill": "#e8f5e9",
             "stroke": "#2e7d32",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "A chip for one of the four 2's making 2 to the fourth."
           }
         },
         {
@@ -1353,7 +1422,8 @@
             "x": 427,
             "y": 398,
             "text": "2",
-            "size": 30
+            "size": 30,
+            "explain": "One 2: part of the 2-to-the-fourth group."
           }
         },
         {
@@ -1365,7 +1435,8 @@
             "x": 500,
             "y": 315,
             "text": "×",
-            "size": 44
+            "size": 44,
+            "explain": "Times: the two groups multiply together."
           }
         },
         {
@@ -1377,7 +1448,8 @@
             "x": 560,
             "y": 315,
             "text": "=",
-            "size": 44
+            "size": 44,
+            "explain": "Equals: the joined 2's gather into the answer."
           }
         },
         {
@@ -1392,7 +1464,8 @@
             "h": 240,
             "fill": "#eceff1",
             "stroke": "#455a64",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The answer slot: every 2 lands here as it joins."
           }
         },
         {
@@ -1544,7 +1617,8 @@
             "x": 620,
             "y": 490,
             "text": "2⁷",
-            "size": 54
+            "size": 54,
+            "explain": "Two to the seventh: three 2's plus four 2's makes seven 2's."
           }
         },
         {
@@ -1556,7 +1630,8 @@
             "x": 730,
             "y": 488,
             "text": "seven 2's",
-            "size": 24
+            "size": 24,
+            "explain": "Seven 2's multiplied: that is why the exponents add."
           }
         }
       ]
@@ -1588,7 +1663,8 @@
             "x": 180,
             "y": 300,
             "text": "3",
-            "size": 56
+            "size": 56,
+            "explain": "The digit 3: it stays leading while the point travels."
           }
         },
         {
@@ -1600,7 +1676,8 @@
             "x": 270,
             "y": 300,
             "text": "6",
-            "size": 56
+            "size": 56,
+            "explain": "The digit 6: it becomes the first digit after the point."
           }
         },
         {
@@ -1612,7 +1689,8 @@
             "x": 360,
             "y": 300,
             "text": "0",
-            "size": 56
+            "size": 56,
+            "explain": "A trailing zero of 360000: it is absorbed into the power of ten."
           }
         },
         {
@@ -1624,7 +1702,8 @@
             "x": 450,
             "y": 300,
             "text": "0",
-            "size": 56
+            "size": 56,
+            "explain": "A trailing zero of 360000: it is absorbed into the power of ten."
           }
         },
         {
@@ -1636,7 +1715,8 @@
             "x": 540,
             "y": 300,
             "text": "0",
-            "size": 56
+            "size": 56,
+            "explain": "A trailing zero of 360000: it is absorbed into the power of ten."
           }
         },
         {
@@ -1648,7 +1728,8 @@
             "x": 630,
             "y": 300,
             "text": "0",
-            "size": 56
+            "size": 56,
+            "explain": "A trailing zero of 360000: it is absorbed into the power of ten."
           }
         },
         {
@@ -1660,7 +1741,8 @@
             "x": 180,
             "y": 380,
             "text": "watch the point travel left",
-            "size": 20
+            "size": 20,
+            "explain": "Watch the point travel left: each hop is one power of ten."
           }
         },
         {
@@ -1674,7 +1756,8 @@
             "r": 10,
             "fill": "#e53935",
             "stroke": "#b71c1c",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The travelling decimal point: it hops left, one digit per jump."
           }
         },
         {
@@ -1696,7 +1779,8 @@
             "x": 720,
             "y": 300,
             "text": "× 10¹",
-            "size": 40
+            "size": 40,
+            "explain": "One jump left: times ten to the power of 1."
           }
         },
         {
@@ -1723,7 +1807,8 @@
             "x": 720,
             "y": 300,
             "text": "× 10²",
-            "size": 40
+            "size": 40,
+            "explain": "One jump left: times ten to the power of 2."
           }
         },
         {
@@ -1750,7 +1835,8 @@
             "x": 720,
             "y": 300,
             "text": "× 10³",
-            "size": 40
+            "size": 40,
+            "explain": "One jump left: times ten to the power of 3."
           }
         },
         {
@@ -1777,7 +1863,8 @@
             "x": 720,
             "y": 300,
             "text": "× 10⁴",
-            "size": 40
+            "size": 40,
+            "explain": "One jump left: times ten to the power of 4."
           }
         },
         {
@@ -1804,7 +1891,8 @@
             "x": 720,
             "y": 300,
             "text": "× 10⁵",
-            "size": 40
+            "size": 40,
+            "explain": "One jump left: times ten to the power of 5."
           }
         },
         {
@@ -1861,7 +1949,8 @@
             "x": 300,
             "y": 300,
             "text": "3.6 × 10⁵",
-            "size": 60
+            "size": 60,
+            "explain": "Standard form: 3.6 times 10 to the power of 5."
           }
         }
       ]
@@ -1896,7 +1985,8 @@
             "h": 80,
             "fill": "#fff3e0",
             "stroke": "#ef6c00",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The 2-cubed chip: three 2's multiplied."
           }
         },
         {
@@ -1908,7 +1998,8 @@
             "x": 124,
             "y": 252,
             "text": "2³",
-            "size": 30
+            "size": 30,
+            "explain": "Two cubed: 2 times 2 times 2."
           }
         },
         {
@@ -1920,7 +2011,8 @@
             "x": 230,
             "y": 262,
             "text": "+",
-            "size": 40
+            "size": 40,
+            "explain": "Plus: this is addition, so the exponents must NOT be added."
           }
         },
         {
@@ -1935,7 +2027,8 @@
             "h": 80,
             "fill": "#e8f5e9",
             "stroke": "#2e7d32",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The 2-to-the-fourth chip: four 2's multiplied."
           }
         },
         {
@@ -1947,7 +2040,8 @@
             "x": 344,
             "y": 252,
             "text": "2⁴",
-            "size": 30
+            "size": 30,
+            "explain": "Two to the fourth: 2 times 2 times 2 times 2."
           }
         },
         {
@@ -1959,7 +2053,8 @@
             "x": 450,
             "y": 262,
             "text": "=",
-            "size": 40
+            "size": 40,
+            "explain": "Equals: the tempting ghost answer follows - then it gets struck out."
           }
         },
         {
@@ -2001,7 +2096,8 @@
             "x": 100,
             "y": 440,
             "text": "8",
-            "size": 44
+            "size": 44,
+            "explain": "2 cubed worked out: 8."
           }
         },
         {
@@ -2043,7 +2139,8 @@
             "x": 300,
             "y": 440,
             "text": "16",
-            "size": 44
+            "size": 44,
+            "explain": "2 to the fourth worked out: 16."
           }
         },
         {
@@ -2055,7 +2152,8 @@
             "x": 230,
             "y": 445,
             "text": "+",
-            "size": 40
+            "size": 40,
+            "explain": "Add the values: 8 plus 16."
           }
         },
         {
@@ -2067,7 +2165,8 @@
             "x": 470,
             "y": 445,
             "text": "=",
-            "size": 40
+            "size": 40,
+            "explain": "Equals: the correct sum."
           }
         },
         {
@@ -2109,7 +2208,8 @@
             "x": 560,
             "y": 445,
             "text": "24",
-            "size": 48
+            "size": 48,
+            "explain": "24: the true answer, 8 plus 16."
           }
         },
         {
@@ -2121,7 +2221,8 @@
             "x": 540,
             "y": 262,
             "text": "2⁷",
-            "size": 44
+            "size": 44,
+            "explain": "The ghost answer: 2 to the 7th - tempting for addition, but wrong."
           }
         },
         {
@@ -2134,7 +2235,8 @@
             "y": 262,
             "text": "✗",
             "size": 44,
-            "fill": "#e53935"
+            "fill": "#e53935",
+            "explain": "Struck out: the ghost answer is rejected."
           }
         },
         {
