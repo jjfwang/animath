@@ -27,7 +27,8 @@
             "x1": 120,
             "y1": 60,
             "x2": 120,
-            "y2": 470
+            "y2": 470,
+            "explain": "The enthalpy axis."
           }
         },
         {
@@ -41,7 +42,8 @@
             "x1": 120,
             "y1": 470,
             "x2": 900,
-            "y2": 470
+            "y2": 470,
+            "explain": "The reaction-progress axis."
           }
         },
         {
@@ -53,7 +55,8 @@
             "size": 22,
             "text": "reaction progress →",
             "x": 560,
-            "y": 510
+            "y": 510,
+            "explain": "Labels the x-axis: reaction progress."
           }
         },
         {
@@ -65,7 +68,8 @@
             "size": 22,
             "text": "enthalpy",
             "x": 10,
-            "y": 60
+            "y": 60,
+            "explain": "Labels the y-axis: enthalpy."
           }
         },
         {
@@ -79,7 +83,8 @@
             "x1": 160,
             "y1": 220,
             "x2": 300,
-            "y2": 220
+            "y2": 220,
+            "explain": "The reactants' energy level."
           }
         },
         {
@@ -91,7 +96,8 @@
             "size": 24,
             "text": "reactants",
             "x": 160,
-            "y": 250
+            "y": 250,
+            "explain": "Labels the level as reactants."
           }
         },
         {
@@ -140,7 +146,8 @@
                 830,
                 384
               ]
-            ]
+            ],
+            "explain": "The reaction profile: the path over the transition state."
           }
         },
         {
@@ -152,7 +159,8 @@
             "cx": 160,
             "cy": 220,
             "r": 10,
-            "fill": "#b00020"
+            "fill": "#b00020",
+            "explain": "An energy packet riding the profile."
           }
         },
         {
@@ -206,7 +214,8 @@
             "x1": 350,
             "y1": 228,
             "x2": 350,
-            "y2": 244
+            "y2": 244,
+            "explain": "The delta-H arrow: products sit below reactants."
           }
         },
         {
@@ -230,7 +239,8 @@
             "x1": 700,
             "y1": 384,
             "x2": 840,
-            "y2": 384
+            "y2": 384,
+            "explain": "The products' energy level."
           }
         },
         {
@@ -251,7 +261,8 @@
             "size": 24,
             "text": "products",
             "x": 712,
-            "y": 414
+            "y": 414,
+            "explain": "Labels the level as products."
           }
         },
         {
@@ -312,7 +323,8 @@
             "size": 36,
             "tex": "\\Delta H < 0",
             "x": 372,
-            "y": 288
+            "y": 288,
+            "explain": "Delta H < 0: the reaction gives out heat."
           }
         },
         {
@@ -326,7 +338,8 @@
             "x1": 300,
             "y1": 214,
             "x2": 300,
-            "y2": 152
+            "y2": 152,
+            "explain": "The activation-energy arrow: reactants up to the transition state."
           }
         },
         {
@@ -338,7 +351,8 @@
             "size": 22,
             "text": "transition state",
             "x": 268,
-            "y": 108
+            "y": 108,
+            "explain": "Labels the peak as the transition state."
           }
         },
         {
@@ -351,7 +365,8 @@
             "size": 30,
             "tex": "E_a",
             "x": 196,
-            "y": 172
+            "y": 172,
+            "explain": "Labels the barrier as activation energy Ea."
           }
         },
         {
@@ -363,7 +378,8 @@
             "size": 26,
             "text": "heat leaves the system",
             "x": 560,
-            "y": 100
+            "y": 100,
+            "explain": "The outcome: heat leaves the system."
           }
         },
         {
@@ -778,7 +794,8 @@
             "x1": 150,
             "y1": 160,
             "x2": 300,
-            "y2": 210
+            "y2": 210,
+            "explain": "One segment of the lower-temperature rate curve."
           }
         },
         {
@@ -792,7 +809,8 @@
             "x1": 300,
             "y1": 210,
             "x2": 450,
-            "y2": 275
+            "y2": 275,
+            "explain": "One segment of the lower-temperature rate curve."
           }
         },
         {
@@ -806,7 +824,8 @@
             "x1": 450,
             "y1": 275,
             "x2": 600,
-            "y2": 330
+            "y2": 330,
+            "explain": "One segment of the lower-temperature rate curve."
           }
         },
         {
@@ -820,7 +839,8 @@
             "x1": 600,
             "y1": 330,
             "x2": 750,
-            "y2": 370
+            "y2": 370,
+            "explain": "One segment of the lower-temperature rate curve."
           }
         },
         {
@@ -834,7 +854,8 @@
             "x1": 750,
             "y1": 370,
             "x2": 860,
-            "y2": 395
+            "y2": 395,
+            "explain": "One segment of the lower-temperature rate curve."
           }
         },
         {
@@ -847,7 +868,8 @@
             "size": 28,
             "tex": "T",
             "x": 614,
-            "y": 292
+            "y": 292,
+            "explain": "Labels the gentle curve as lower temperature."
           }
         },
         {
@@ -861,7 +883,8 @@
             "x1": 150,
             "y1": 160,
             "x2": 260,
-            "y2": 230
+            "y2": 230,
+            "explain": "One segment of the higher-temperature rate curve."
           }
         },
         {
@@ -875,7 +898,8 @@
             "x1": 260,
             "y1": 230,
             "x2": 380,
-            "y2": 310
+            "y2": 310,
+            "explain": "One segment of the higher-temperature rate curve."
           }
         },
         {
@@ -889,7 +913,8 @@
             "x1": 380,
             "y1": 310,
             "x2": 500,
-            "y2": 365
+            "y2": 365,
+            "explain": "One segment of the higher-temperature rate curve."
           }
         },
         {
@@ -903,7 +928,8 @@
             "x1": 500,
             "y1": 365,
             "x2": 620,
-            "y2": 400
+            "y2": 400,
+            "explain": "One segment of the higher-temperature rate curve."
           }
         },
         {
@@ -917,7 +943,8 @@
             "x1": 620,
             "y1": 400,
             "x2": 700,
-            "y2": 415
+            "y2": 415,
+            "explain": "One segment of the higher-temperature rate curve."
           }
         },
         {
@@ -930,7 +957,8 @@
             "size": 24,
             "text": "higher T (or catalyst) — steeper",
             "x": 470,
-            "y": 120
+            "y": 120,
+            "explain": "Legend: higher T (or a catalyst) gives the steeper curve."
           }
         },
         {
@@ -943,7 +971,8 @@
             "size": 24,
             "text": "lower T — gentler",
             "x": 470,
-            "y": 156
+            "y": 156,
+            "explain": "Legend: lower T gives the gentler curve."
           }
         },
         {
@@ -955,7 +984,8 @@
             "size": 32,
             "tex": "\\text{rate} = -\\frac{\\Delta[R]}{\\Delta t}",
             "x": 150,
-            "y": 368
+            "y": 368,
+            "explain": "Rate = -change in [R] over change in t."
           }
         },
         {
@@ -1075,7 +1105,8 @@
                 750,
                 445
               ]
-            ]
+            ],
+            "explain": "The Maxwell-Boltzmann curve at lower T."
           }
         },
         {
@@ -1088,7 +1119,8 @@
             "size": 28,
             "tex": "T",
             "x": 344,
-            "y": 206
+            "y": 206,
+            "explain": "Labels the T marker on the curve."
           }
         },
         {
@@ -1137,7 +1169,8 @@
                 750,
                 445
               ]
-            ]
+            ],
+            "explain": "The same curve, morphed to higher T: flatter and wider."
           }
         },
         {
@@ -1172,7 +1205,8 @@
                 680,
                 470
               ]
-            ]
+            ],
+            "explain": "The area past Ea: molecules with enough energy to react."
           }
         },
         {
@@ -1265,7 +1299,8 @@
             "size": 24,
             "text": "higher T",
             "x": 430,
-            "y": 272
+            "y": 272,
+            "explain": "Labels the higher-temperature curve."
           }
         },
         {
@@ -1279,7 +1314,8 @@
             "x1": 680,
             "y1": 150,
             "x2": 680,
-            "y2": 440
+            "y2": 440,
+            "explain": "The activation-energy line: the threshold."
           }
         },
         {
@@ -1303,7 +1339,8 @@
             "size": 24,
             "text": "only molecules past Ea can react",
             "x": 120,
-            "y": 512
+            "y": 512,
+            "explain": "The rule: only molecules past Ea can react."
           }
         },
         {
@@ -1334,7 +1371,8 @@
             "size": 36,
             "tex": "\\text{N}_2 + 3\\text{H}_2 \\rightleftharpoons 2\\text{NH}_3",
             "x": 250,
-            "y": 100
+            "y": 100,
+            "explain": "The Haber equilibrium: N2 + 3 H2 <-> 2 NH3."
           }
         },
         {
@@ -1346,7 +1384,8 @@
             "size": 32,
             "tex": "K_c = \\frac{[\\text{NH}_3]^2}{[\\text{N}_2][\\text{H}_2]^3}",
             "x": 250,
-            "y": 180
+            "y": 180,
+            "explain": "The equilibrium constant Kc expression."
           }
         },
         {
@@ -1360,7 +1399,8 @@
             "x1": 120,
             "y1": 470,
             "x2": 660,
-            "y2": 470
+            "y2": 470,
+            "explain": "The concentration rail the bars stand on."
           }
         },
         {
@@ -1373,7 +1413,8 @@
             "y": 410,
             "w": 110,
             "h": 60,
-            "fill": "#1a56db"
+            "fill": "#1a56db",
+            "explain": "The N2 concentration bar."
           }
         },
         {
@@ -1386,7 +1427,8 @@
             "y": 390,
             "w": 110,
             "h": 80,
-            "fill": "#6b7280"
+            "fill": "#6b7280",
+            "explain": "The H2 concentration bar."
           }
         },
         {
@@ -1399,7 +1441,8 @@
             "y": 430,
             "w": 110,
             "h": 40,
-            "fill": "#b00020"
+            "fill": "#b00020",
+            "explain": "The NH3 concentration bar."
           }
         },
         {
@@ -1411,7 +1454,8 @@
             "size": 24,
             "text": "N₂",
             "x": 180,
-            "y": 505
+            "y": 505,
+            "explain": "Labels the N2 bar."
           }
         },
         {
@@ -1423,7 +1467,8 @@
             "size": 24,
             "text": "H₂",
             "x": 340,
-            "y": 505
+            "y": 505,
+            "explain": "Labels the H2 bar."
           }
         },
         {
@@ -1435,7 +1480,8 @@
             "size": 24,
             "text": "NH₃",
             "x": 500,
-            "y": 505
+            "y": 505,
+            "explain": "Labels the NH3 bar."
           }
         },
         {
@@ -1447,7 +1493,8 @@
             "size": 26,
             "text": "add N₂ to the mixture",
             "x": 120,
-            "y": 300
+            "y": 300,
+            "explain": "The disturbance: add N2 to the mixture."
           }
         },
         {
@@ -1489,7 +1536,8 @@
             "size": 24,
             "text": "opposes it: shifts right, more NH₃ made",
             "x": 120,
-            "y": 250
+            "y": 250,
+            "explain": "The response: opposes it; shifts right, more NH3 made."
           }
         },
         {
@@ -1501,7 +1549,8 @@
             "size": 26,
             "text": "now raise the pressure (compress)",
             "x": 120,
-            "y": 340
+            "y": 340,
+            "explain": "The disturbance: raise the pressure (compress)."
           }
         },
         {
@@ -1548,7 +1597,8 @@
             "size": 24,
             "text": "opposes it: shifts to fewer gas moles → right",
             "x": 120,
-            "y": 250
+            "y": 250,
+            "explain": "The response: opposes it; shifts to fewer gas moles, to the right."
           }
         },
         {
@@ -1560,7 +1610,8 @@
             "size": 22,
             "text": "Kc itself only changes with temperature",
             "x": 120,
-            "y": 140
+            "y": 140,
+            "explain": "The catch: Kc itself only changes with temperature."
           }
         },
         {
@@ -1586,7 +1637,8 @@
             "size": 36,
             "text": "Misconception:",
             "x": 120,
-            "y": 120
+            "y": 120,
+            "explain": "Flags this scene as a misconception."
           }
         },
         {
@@ -1598,7 +1650,8 @@
             "size": 28,
             "text": "a catalyst shifts equilibrium toward the products",
             "x": 120,
-            "y": 180
+            "y": 180,
+            "explain": "The wrong claim: a catalyst shifts equilibrium toward the products."
           }
         },
         {
@@ -1625,7 +1678,8 @@
             "y": 370,
             "w": 100,
             "h": 60,
-            "fill": "#6b7280"
+            "fill": "#6b7280",
+            "explain": "The reactants bar."
           }
         },
         {
@@ -1638,7 +1692,8 @@
             "y": 370,
             "w": 100,
             "h": 60,
-            "fill": "#b00020"
+            "fill": "#b00020",
+            "explain": "The products bar."
           }
         },
         {
@@ -1650,7 +1705,8 @@
             "size": 24,
             "text": "reactants",
             "x": 180,
-            "y": 458
+            "y": 458,
+            "explain": "Labels the reactants bar."
           }
         },
         {
@@ -1662,7 +1718,8 @@
             "size": 24,
             "text": "products",
             "x": 360,
-            "y": 458
+            "y": 458,
+            "explain": "Labels the products bar."
           }
         },
         {
@@ -1676,7 +1733,8 @@
             "x1": 200,
             "y1": 300,
             "x2": 350,
-            "y2": 300
+            "y2": 300,
+            "explain": "The forward-rate arrow."
           }
         },
         {
@@ -1690,7 +1748,8 @@
             "x1": 760,
             "y1": 300,
             "x2": 610,
-            "y2": 300
+            "y2": 300,
+            "explain": "The reverse-rate arrow."
           }
         },
         {
@@ -1702,7 +1761,8 @@
             "size": 22,
             "text": "forward rate",
             "x": 200,
-            "y": 285
+            "y": 285,
+            "explain": "Labels the forward rate."
           }
         },
         {
@@ -1714,7 +1774,8 @@
             "size": 22,
             "text": "reverse rate",
             "x": 610,
-            "y": 285
+            "y": 285,
+            "explain": "Labels the reverse rate."
           }
         },
         {
@@ -1744,7 +1805,8 @@
             "size": 26,
             "text": "both rates ×k — the SAME factor",
             "x": 120,
-            "y": 240
+            "y": 240,
+            "explain": "The key: both rates rise by the SAME factor."
           }
         },
         {
@@ -1756,7 +1818,8 @@
             "size": 26,
             "text": "equilibrium position: unchanged",
             "x": 120,
-            "y": 500
+            "y": 500,
+            "explain": "The result: the equilibrium position is unchanged."
           }
         },
         {
@@ -1768,7 +1831,8 @@
             "size": 26,
             "text": "Kc: unchanged",
             "x": 620,
-            "y": 500
+            "y": 500,
+            "explain": "And Kc: unchanged."
           }
         },
         {

@@ -23,7 +23,8 @@
             "kind": "rect",
             "w": 660,
             "x": 150,
-            "y": 400
+            "y": 400,
+            "explain": "The metal plate: the target of the photons."
           }
         },
         {
@@ -35,7 +36,8 @@
             "fill": "#f59e0b",
             "id": "ph1",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "One photon arriving at the metal."
           }
         },
         {
@@ -47,7 +49,8 @@
             "fill": "#f59e0b",
             "id": "ph2",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "One photon arriving at the metal."
           }
         },
         {
@@ -59,7 +62,8 @@
             "fill": "#f59e0b",
             "id": "ph3",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "One photon arriving at the metal."
           }
         },
         {
@@ -71,7 +75,8 @@
             "fill": "#f59e0b",
             "id": "ph4",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "One photon arriving at the metal."
           }
         },
         {
@@ -123,7 +128,8 @@
             "size": 26,
             "text": "each photon carries energy hf",
             "x": 150,
-            "y": 480
+            "y": 480,
+            "explain": "The rule: each photon carries energy hf."
           }
         },
         {
@@ -167,7 +173,8 @@
             "fill": "#b00020",
             "id": "red1",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "A low-frequency photon: too weak on its own to eject."
           }
         },
         {
@@ -179,7 +186,8 @@
             "fill": "#b00020",
             "id": "red2",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "A low-frequency photon: too weak on its own to eject."
           }
         },
         {
@@ -211,7 +219,8 @@
             "size": 26,
             "text": "low frequency: no electrons escape, however many photons",
             "x": 150,
-            "y": 480
+            "y": 480,
+            "explain": "The point: below the threshold frequency, no electrons escape, however many photons."
           }
         },
         {
@@ -223,7 +232,8 @@
             "fill": "#7c3aed",
             "id": "vio1",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "A high-frequency photon: strong enough to eject."
           }
         },
         {
@@ -235,7 +245,8 @@
             "fill": "#7c3aed",
             "id": "vio2",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "A high-frequency photon: strong enough to eject."
           }
         },
         {
@@ -269,7 +280,8 @@
             "x1": 320,
             "x2": 320,
             "y1": 380,
-            "y2": 240
+            "y2": 240,
+            "explain": "An ejected electron arrow: up and out of the metal."
           }
         },
         {
@@ -283,7 +295,8 @@
             "x1": 480,
             "x2": 480,
             "y1": 380,
-            "y2": 240
+            "y2": 240,
+            "explain": "An ejected electron arrow: up and out of the metal."
           }
         },
         {
@@ -321,7 +334,8 @@
             "fill": "#7c3aed",
             "id": "ph",
             "kind": "circle",
-            "r": 12
+            "r": 12,
+            "explain": "The incoming photon."
           }
         },
         {
@@ -345,7 +359,8 @@
             "x1": 480,
             "x2": 480,
             "y1": 380,
-            "y2": 200
+            "y2": 200,
+            "explain": "The ejected electron's path arrow."
           }
         },
         {
@@ -358,7 +373,8 @@
             "size": 44,
             "tex": "hf = W + \\frac{1}{2}mv_{max}^2",
             "x": 150,
-            "y": 120
+            "y": 120,
+            "explain": "Einstein's photoelectric equation: hf = W + max electron KE."
           }
         },
         {
@@ -370,7 +386,8 @@
             "size": 22,
             "text": "photon energy = work function + max electron kinetic energy",
             "x": 150,
-            "y": 500
+            "y": 500,
+            "explain": "In words: photon energy = work function + max electron kinetic energy."
           }
         },
         {
@@ -414,7 +431,8 @@
             "fill": "#f59e0b",
             "id": "dimPh",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "One dim photon."
           }
         },
         {
@@ -438,7 +456,8 @@
             "x1": 300,
             "x2": 300,
             "y1": 380,
-            "y2": 220
+            "y2": 220,
+            "explain": "One electron ejected under dim light."
           }
         },
         {
@@ -450,7 +469,8 @@
             "fill": "#f59e0b",
             "id": "brPh1",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "Photons of the brighter beam: twice as many."
           }
         },
         {
@@ -462,7 +482,8 @@
             "fill": "#f59e0b",
             "id": "brPh2",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "Photons of the brighter beam: twice as many."
           }
         },
         {
@@ -496,7 +517,8 @@
             "x1": 540,
             "x2": 540,
             "y1": 380,
-            "y2": 220
+            "y2": 220,
+            "explain": "Electrons from the brighter beam: twice as many."
           }
         },
         {
@@ -510,7 +532,8 @@
             "x1": 640,
             "x2": 640,
             "y1": 380,
-            "y2": 220
+            "y2": 220,
+            "explain": "Electrons from the brighter beam: twice as many."
           }
         },
         {
@@ -522,7 +545,8 @@
             "size": 22,
             "text": "double the intensity → double the electrons, same speed each",
             "x": 150,
-            "y": 480
+            "y": 480,
+            "explain": "The rule: double the intensity gives double the electrons, same speed each."
           }
         },
         {
@@ -548,7 +572,8 @@
             "size": 36,
             "text": "Misconception:",
             "x": 120,
-            "y": 120
+            "y": 120,
+            "explain": "Flags this scene as a misconception."
           }
         },
         {
@@ -560,7 +585,8 @@
             "size": 28,
             "text": "brighter light makes electrons faster",
             "x": 120,
-            "y": 180
+            "y": 180,
+            "explain": "The wrong claim: brighter light makes electrons faster."
           }
         },
         {
@@ -585,7 +611,8 @@
             "fill": "#b00020",
             "id": "brightRed1",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "Bright low-frequency photons: still too weak each."
           }
         },
         {
@@ -597,7 +624,8 @@
             "fill": "#b00020",
             "id": "brightRed2",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "Bright low-frequency photons: still too weak each."
           }
         },
         {
@@ -631,7 +659,8 @@
             "x1": 340,
             "x2": 340,
             "y1": 380,
-            "y2": 310
+            "y2": 310,
+            "explain": "The slow electron from bright red light."
           }
         },
         {
@@ -643,7 +672,8 @@
             "fill": "#7c3aed",
             "id": "vioPh",
             "kind": "circle",
-            "r": 10
+            "r": 10,
+            "explain": "One violet photon: high frequency."
           }
         },
         {
@@ -667,7 +697,8 @@
             "x1": 640,
             "x2": 640,
             "y1": 380,
-            "y2": 200
+            "y2": 200,
+            "explain": "The fast electron from the violet photon."
           }
         },
         {
@@ -679,7 +710,8 @@
             "size": 26,
             "text": "speed comes from frequency — brightness only adds photons",
             "x": 120,
-            "y": 480
+            "y": 480,
+            "explain": "The correction: speed comes from frequency; brightness only adds photons."
           }
         },
         {
