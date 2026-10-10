@@ -111,7 +111,7 @@
           "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "labP",
+            "id": "labP", "explain": "Point P: the fixed point the secant closes in on.",
             "kind": "text",
             "x": 404,
             "y": 250,
@@ -151,7 +151,7 @@
           "at_ms": 1800,
           "do": "show",
           "shape": {
-            "id": "labSec",
+            "id": "labSec", "explain": "The secant label: the line through P and Q.",
             "kind": "text",
             "x": 556,
             "y": 200,
@@ -251,7 +251,7 @@
           "at_ms": 7600,
           "do": "show",
           "shape": {
-            "id": "labTan",
+            "id": "labTan", "explain": "The tangent label: its gradient is dy/dx.",
             "kind": "text",
             "x": 300,
             "y": 384,
@@ -528,7 +528,7 @@
           "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "labA",
+            "id": "labA", "explain": "The x label: the position of point A on the curve.",
             "kind": "text",
             "x": 336,
             "y": 348,
@@ -540,7 +540,7 @@
           "at_ms": 1700,
           "do": "show",
           "shape": {
-            "id": "ptB",
+            "id": "ptB", "explain": "Point B: it slides along the curve toward A as delta x shrinks.",
             "kind": "circle",
             "cx": 520,
             "cy": 258,
@@ -568,7 +568,7 @@
           "at_ms": 1700,
           "do": "show",
           "shape": {
-            "id": "labB",
+            "id": "labB", "explain": "The B label: point B sits at x plus delta x.",
             "kind": "text",
             "x": 560,
             "y": 210,
@@ -595,7 +595,7 @@
           "at_ms": 2400,
           "do": "show",
           "shape": {
-            "id": "labΔx",
+            "id": "labΔx", "explain": "Delta x: the shrinking horizontal gap between A and B.",
             "kind": "text",
             "x": 415,
             "y": 472,
@@ -622,7 +622,7 @@
           "at_ms": 3000,
           "do": "show",
           "shape": {
-            "id": "labΔy",
+            "id": "labΔy", "explain": "Delta y: the shrinking vertical gap between A and B.",
             "kind": "text",
             "x": 592,
             "y": 292,
