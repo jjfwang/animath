@@ -40,6 +40,7 @@ function nearPoint(shape) {
 const cases = [
   ['secondary-physics-energy.json', 's1', 'farrow'],
   ['secondary-physics-forces.json', 's1', 'block'],
+  ['secondary-physics-forces.json', 's3', 'pa1'], // reviewer fix-round regression: s3 pressure arrows carry explain
   ['secondary-physics-kinematics.json', 's1', 'athlete'],
   ['secondary-physics-waves.json', 's1', 'pdot'],
 ];
