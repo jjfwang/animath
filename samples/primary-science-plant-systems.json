@@ -19,7 +19,7 @@
           "shape": {
             "fill": "#8a6d4f",
             "h": 150,
-            "id": "soil",
+            "id": "soil", "explain": "The soil: where the roots grow. It holds water for the plant to drink.",
             "kind": "rect",
             "stroke": "#5c452e",
             "strokeWidth": 3,
@@ -33,7 +33,7 @@
           "do": "show",
           "shape": {
             "color": "#4a3524",
-            "id": "soilLabel",
+            "id": "soilLabel", "explain": "Label: Soil. The roots grow down into it.",
             "kind": "text",
             "size": 30,
             "text": "Soil",
@@ -45,7 +45,7 @@
           "at_ms": 600,
           "do": "show",
           "shape": {
-            "id": "stemBase",
+            "id": "stemBase", "explain": "The base of the stem: it stands in the soil, held steady by the roots.",
             "kind": "line",
             "stroke": "#4e8a3a",
             "width": 10,
@@ -59,7 +59,7 @@
           "at_ms": 900,
           "do": "show",
           "shape": {
-            "id": "root1",
+            "id": "root1", "explain": "A root: it grows down into the soil, holding the plant in place and drinking up water.",
             "kind": "line",
             "stroke": "#6b8f5e",
             "width": 6,
@@ -73,7 +73,7 @@
           "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "root2",
+            "id": "root2", "explain": "A root: it grows down into the soil, holding the plant in place and drinking up water.",
             "kind": "line",
             "stroke": "#6b8f5e",
             "width": 6,
@@ -87,7 +87,7 @@
           "at_ms": 1300,
           "do": "show",
           "shape": {
-            "id": "root3",
+            "id": "root3", "explain": "A root: it grows down into the soil, holding the plant in place and drinking up water.",
             "kind": "line",
             "stroke": "#6b8f5e",
             "width": 6,
@@ -102,7 +102,7 @@
           "do": "show",
           "shape": {
             "color": "#3c5e2a",
-            "id": "rootLabel",
+            "id": "rootLabel", "explain": "Label: Roots. They hold the plant and drink water.",
             "kind": "text",
             "size": 32,
             "text": "Roots",
@@ -117,7 +117,7 @@
             "cx": 420,
             "cy": 450,
             "fill": "#5a9bd4",
-            "id": "water1",
+            "id": "water1", "explain": "Water in the soil: the roots drink it up for the whole plant.",
             "kind": "circle",
             "r": 10
           }
@@ -155,7 +155,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "trunk",
+            "id": "trunk", "explain": "The stem: it holds the plant up so the leaves can reach the light.",
             "kind": "line",
             "stroke": "#7a5c3a",
             "width": 16,
@@ -169,7 +169,7 @@
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "id": "branchL",
+            "id": "branchL", "explain": "A branch: part of the stem that reaches out, carrying water up to the leaves.",
             "kind": "line",
             "stroke": "#7a5c3a",
             "width": 10,
@@ -183,7 +183,7 @@
           "at_ms": 700,
           "do": "show",
           "shape": {
-            "id": "branchR",
+            "id": "branchR", "explain": "A branch: part of the stem that reaches out, carrying water up to the leaves.",
             "kind": "line",
             "stroke": "#7a5c3a",
             "width": 10,
@@ -198,7 +198,7 @@
           "do": "show",
           "shape": {
             "color": "#4a3524",
-            "id": "stemLabel",
+            "id": "stemLabel", "explain": "Label: Stem. The lift and road of the plant.",
             "kind": "text",
             "size": 32,
             "text": "Stem",
@@ -210,7 +210,7 @@
           "at_ms": 1400,
           "do": "show",
           "shape": {
-            "id": "upArrow",
+            "id": "upArrow", "explain": "The arrow shows water travelling up the stem, from the roots to the leaves.",
             "kind": "arrow",
             "stroke": "#3a7bd5",
             "width": 8,
@@ -225,7 +225,7 @@
           "do": "show",
           "shape": {
             "color": "#123c7a",
-            "id": "upLabel",
+            "id": "upLabel", "explain": "Label: Water goes up. The stem is a road for water.",
             "kind": "text",
             "size": 28,
             "text": "Water goes up",
@@ -240,7 +240,7 @@
             "cx": 440,
             "cy": 400,
             "fill": "#5a9bd4",
-            "id": "waterUp",
+            "id": "waterUp", "explain": "Water travelling up the stem from the roots to the leaves.",
             "kind": "circle",
             "r": 11
           }
@@ -279,7 +279,7 @@
           "do": "show",
           "shape": {
             "fill": "#6fbf4a",
-            "id": "leaf1",
+            "id": "leaf1", "explain": "A leaf: it catches sunlight and uses it with water to make food for the plant.",
             "kind": "polygon",
             "points": [
               [
@@ -304,7 +304,7 @@
           "do": "show",
           "shape": {
             "fill": "#6fbf4a",
-            "id": "leaf2",
+            "id": "leaf2", "explain": "A leaf: it catches sunlight and uses it with water to make food for the plant.",
             "kind": "polygon",
             "points": [
               [
@@ -331,7 +331,7 @@
             "cx": 810,
             "cy": 90,
             "fill": "#ffdd55",
-            "id": "sun",
+            "id": "sun", "explain": "The sun: it gives the light the leaves need to make food.",
             "kind": "circle",
             "r": 50,
             "stroke": "#e6b800",
@@ -342,7 +342,7 @@
           "at_ms": 900,
           "do": "show",
           "shape": {
-            "id": "rays",
+            "id": "rays", "explain": "Sunlight travelling from the sun to the leaves. The leaves catch it.",
             "kind": "arrow",
             "stroke": "#e6b800",
             "width": 6,
@@ -357,7 +357,7 @@
           "do": "show",
           "shape": {
             "color": "#3f7a28",
-            "id": "leafLabel",
+            "id": "leafLabel", "explain": "Label: Leaves. They make the food of the plant.",
             "kind": "text",
             "size": 32,
             "text": "Leaves",
@@ -372,7 +372,7 @@
             "cx": 430,
             "cy": 130,
             "fill": "#ffd97a",
-            "id": "food",
+            "id": "food", "explain": "Food made by the leaves. The plant does not eat like we do: its leaves make it.",
             "kind": "circle",
             "r": 14
           }
@@ -410,7 +410,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "fstem",
+            "id": "fstem", "explain": "The stem of the flower: it holds the flower up, like the stem of a plant.",
             "kind": "line",
             "stroke": "#4e8a3a",
             "width": 8,
@@ -425,7 +425,7 @@
           "do": "show",
           "shape": {
             "fill": "#ff9ecb",
-            "id": "petal1",
+            "id": "petal1", "explain": "A petal: the colourful part of the flower. The flower looks like the finish, but it is not the end.",
             "kind": "polygon",
             "points": [
               [
@@ -450,7 +450,7 @@
           "do": "show",
           "shape": {
             "fill": "#ff9ecb",
-            "id": "petal2",
+            "id": "petal2", "explain": "A petal: the colourful part of the flower. The flower looks like the finish, but it is not the end.",
             "kind": "polygon",
             "points": [
               [
@@ -475,7 +475,7 @@
           "do": "show",
           "shape": {
             "fill": "#ff9ecb",
-            "id": "petal3",
+            "id": "petal3", "explain": "A petal: the colourful part of the flower. The flower looks like the finish, but it is not the end.",
             "kind": "polygon",
             "points": [
               [
@@ -502,7 +502,7 @@
             "cx": 480,
             "cy": 175,
             "fill": "#ffd23f",
-            "id": "centre",
+            "id": "centre", "explain": "The centre of the flower: this is where new seeds form, starting the life cycle again.",
             "kind": "circle",
             "r": 22,
             "stroke": "#d1a020",
@@ -514,7 +514,7 @@
           "do": "show",
           "shape": {
             "color": "#a04a70",
-            "id": "flowerLabel",
+            "id": "flowerLabel", "explain": "Label: Flower. New seeds form inside it.",
             "kind": "text",
             "size": 32,
             "text": "Flower",
@@ -529,7 +529,7 @@
             "cx": 480,
             "cy": 175,
             "fill": "#8a6d4f",
-            "id": "seed",
+            "id": "seed", "explain": "A new seed forming in the flower: the start of the next life cycle.",
             "kind": "circle",
             "r": 10
           }

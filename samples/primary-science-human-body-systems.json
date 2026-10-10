@@ -20,7 +20,7 @@
      "at_ms": 0,
      "do": "show",
      "shape": {
-      "id": "mouth",
+      "id": "mouth", "explain": "The mouth: where digestion starts. Teeth chew the food into small pieces so it can travel down the body.",
       "kind": "circle",
       "cx": 250,
       "cy": 120,
@@ -34,7 +34,7 @@
      "at_ms": 300,
      "do": "show",
      "shape": {
-      "id": "mouthLabel",
+      "id": "mouthLabel", "explain": "Label: Mouth. Digestion begins here.",
       "kind": "text",
       "x": 108,
       "y": 128,
@@ -47,7 +47,7 @@
      "at_ms": 600,
      "do": "show",
      "shape": {
-      "id": "stomach",
+      "id": "stomach", "explain": "The stomach: it mixes the chewed food, like a washing machine churning clothes.",
       "kind": "circle",
       "cx": 480,
       "cy": 260,
@@ -61,7 +61,7 @@
      "at_ms": 900,
      "do": "show",
      "shape": {
-      "id": "stomachLabel",
+      "id": "stomachLabel", "explain": "Label: Stomach. The food is mixed here.",
       "kind": "text",
       "x": 420,
       "y": 260,
@@ -74,7 +74,7 @@
      "at_ms": 1200,
      "do": "show",
      "shape": {
-      "id": "intestines",
+      "id": "intestines", "explain": "The intestines: a long tube where the body takes the good parts out of the food.",
       "kind": "rect",
       "x": 620,
       "y": 300,
@@ -89,7 +89,7 @@
      "at_ms": 1500,
      "do": "show",
      "shape": {
-      "id": "gutLabel",
+      "id": "gutLabel", "explain": "Label: Intestines. The good parts are taken out here.",
       "kind": "text",
       "x": 630,
       "y": 410,
@@ -102,7 +102,7 @@
      "at_ms": 1800,
      "do": "show",
      "shape": {
-      "id": "bite1",
+      "id": "bite1", "explain": "A piece of chewed food travelling down from the mouth to the stomach.",
       "kind": "circle",
       "cx": 250,
       "cy": 120,
@@ -129,7 +129,7 @@
      "at_ms": 3500,
      "do": "show",
      "shape": {
-      "id": "bite2",
+      "id": "bite2", "explain": "A piece of chewed food travelling down from the mouth to the stomach.",
       "kind": "circle",
       "cx": 250,
       "cy": 120,
@@ -156,7 +156,7 @@
      "at_ms": 5200,
      "do": "show",
      "shape": {
-      "id": "bite3",
+      "id": "bite3", "explain": "A piece of chewed food travelling down from the mouth to the stomach.",
       "kind": "circle",
       "cx": 250,
       "cy": 120,
@@ -183,7 +183,7 @@
      "at_ms": 6900,
      "do": "show",
      "shape": {
-      "id": "goodParts",
+      "id": "goodParts", "explain": "The good parts of the food: what the body keeps to give it energy.",
       "kind": "circle",
       "cx": 480,
       "cy": 260,
@@ -218,7 +218,7 @@
      "at_ms": 0,
      "do": "show",
      "shape": {
-      "id": "nose",
+      "id": "nose", "explain": "The nose: where air enters the body. Air travels from the nose down the windpipe.",
       "kind": "circle",
       "cx": 480,
       "cy": 100,
@@ -232,7 +232,7 @@
      "at_ms": 300,
      "do": "show",
      "shape": {
-      "id": "noseLabel",
+      "id": "noseLabel", "explain": "Label: Nose. Air comes in here.",
       "kind": "text",
       "x": 440,
       "y": 60,
@@ -245,7 +245,7 @@
      "at_ms": 600,
      "do": "show",
      "shape": {
-      "id": "lungL",
+      "id": "lungL", "explain": "A lung: it fills with air and grows bigger, then shrinks as air flows back out.",
       "kind": "circle",
       "cx": 380,
       "cy": 300,
@@ -259,7 +259,7 @@
      "at_ms": 800,
      "do": "show",
      "shape": {
-      "id": "lungR",
+      "id": "lungR", "explain": "A lung: it fills with air and grows bigger, then shrinks as air flows back out.",
       "kind": "circle",
       "cx": 580,
       "cy": 300,
@@ -273,7 +273,7 @@
      "at_ms": 1100,
      "do": "show",
      "shape": {
-      "id": "lungLabel",
+      "id": "lungLabel", "explain": "Label: Lungs. They fill with air and shrink again.",
       "kind": "text",
       "x": 430,
       "y": 420,
@@ -286,7 +286,7 @@
      "at_ms": 1400,
      "do": "show",
      "shape": {
-      "id": "windpipe",
+      "id": "windpipe", "explain": "The windpipe: the tube that carries air down from the nose into the lungs.",
       "kind": "arrow",
       "x1": 480,
       "y1": 130,
@@ -300,7 +300,7 @@
      "at_ms": 1700,
      "do": "show",
      "shape": {
-      "id": "airIn1",
+      "id": "airIn1", "explain": "Air travelling in: fresh air moving down the windpipe into the lungs.",
       "kind": "circle",
       "cx": 480,
       "cy": 110,
@@ -322,7 +322,7 @@
      "at_ms": 2300,
      "do": "show",
      "shape": {
-      "id": "airIn2",
+      "id": "airIn2", "explain": "Air travelling in: fresh air moving down the windpipe into the lungs.",
       "kind": "circle",
       "cx": 480,
       "cy": 110,
@@ -372,7 +372,7 @@
      "at_ms": 5500,
      "do": "show",
      "shape": {
-      "id": "airOut1",
+      "id": "airOut1", "explain": "Air travelling out: used air flowing back up and out of the body.",
       "kind": "circle",
       "cx": 380,
       "cy": 300,
@@ -394,7 +394,7 @@
      "at_ms": 6000,
      "do": "show",
      "shape": {
-      "id": "airOut2",
+      "id": "airOut2", "explain": "Air travelling out: used air flowing back up and out of the body.",
       "kind": "circle",
       "cx": 580,
       "cy": 300,
@@ -451,7 +451,7 @@
      "at_ms": 0,
      "do": "show",
      "shape": {
-      "id": "heart",
+      "id": "heart", "explain": "The heart: a pump that pushes blood out to the body and pulls it back again, round and round.",
       "kind": "circle",
       "cx": 480,
       "cy": 260,
@@ -465,7 +465,7 @@
      "at_ms": 300,
      "do": "show",
      "shape": {
-      "id": "heartLabel",
+      "id": "heartLabel", "explain": "Label: Heart. The pump that moves the blood.",
       "kind": "text",
       "x": 435,
       "y": 270,
@@ -478,7 +478,7 @@
      "at_ms": 600,
      "do": "show",
      "shape": {
-      "id": "vesselUp",
+      "id": "vesselUp", "explain": "A blood vessel: a tube carrying blood from the heart out to the body.",
       "kind": "arrow",
       "x1": 545,
       "y1": 260,
@@ -492,7 +492,7 @@
      "at_ms": 900,
      "do": "show",
      "shape": {
-      "id": "vesselDown",
+      "id": "vesselDown", "explain": "A blood vessel: a tube carrying blood back from the body to the heart.",
       "kind": "arrow",
       "x1": 260,
       "y1": 260,
@@ -506,7 +506,7 @@
      "at_ms": 1200,
      "do": "show",
      "shape": {
-      "id": "bodyLabel",
+      "id": "bodyLabel", "explain": "Label: To the body. The blood travels here, reaching every part.",
       "kind": "text",
       "x": 660,
       "y": 220,
@@ -530,7 +530,7 @@
      "at_ms": 1600,
      "do": "show",
      "shape": {
-      "id": "dropR",
+      "id": "dropR", "explain": "A drop of blood travelling out from the heart to the body.",
       "kind": "circle",
       "cx": 545,
       "cy": 260,
@@ -563,7 +563,7 @@
      "at_ms": 2200,
      "do": "show",
      "shape": {
-      "id": "dropB",
+      "id": "dropB", "explain": "A drop of blood travelling back to the heart. The same blood keeps going round.",
       "kind": "circle",
       "cx": 545,
       "cy": 260,
@@ -680,7 +680,7 @@
      "at_ms": 0,
      "do": "show",
      "shape": {
-      "id": "heartS4",
+      "id": "heartS4", "explain": "The heart: it pumps blood round in a loop. It does not use up the blood.",
       "kind": "circle",
       "cx": 300,
       "cy": 270,
@@ -694,7 +694,7 @@
      "at_ms": 300,
      "do": "show",
      "shape": {
-      "id": "heartS4Lbl",
+      "id": "heartS4Lbl", "explain": "Label: Heart.",
       "kind": "text",
       "x": 255,
       "y": 280,
@@ -707,7 +707,7 @@
      "at_ms": 600,
      "do": "show",
      "shape": {
-      "id": "bodyS4",
+      "id": "bodyS4", "explain": "The body: blood visits every part and comes back. Nothing gets used up.",
       "kind": "rect",
       "x": 560,
       "y": 170,
@@ -722,7 +722,7 @@
      "at_ms": 900,
      "do": "show",
      "shape": {
-      "id": "bodyS4Lbl",
+      "id": "bodyS4Lbl", "explain": "Label: Body.",
       "kind": "text",
       "x": 655,
       "y": 278,
@@ -735,7 +735,7 @@
      "at_ms": 1200,
      "do": "show",
      "shape": {
-      "id": "vesselOut",
+      "id": "vesselOut", "explain": "Blood flowing out from the heart to the body.",
       "kind": "arrow",
       "x1": 355,
       "y1": 270,
@@ -749,7 +749,7 @@
      "at_ms": 1500,
      "do": "show",
      "shape": {
-      "id": "vesselBack",
+      "id": "vesselBack", "explain": "Blood flowing back to the heart. It returns, so the loop never ends.",
       "kind": "arrow",
       "x1": 560,
       "y1": 310,
@@ -763,7 +763,7 @@
      "at_ms": 1900,
      "do": "show",
      "shape": {
-      "id": "wrongChip",
+      "id": "wrongChip", "explain": "The common mistake this scene warns about: thinking the heart uses up the blood. Blood is never used up.",
       "kind": "rect",
       "x": 230,
       "y": 36,
@@ -823,7 +823,7 @@
      "at_ms": 4200,
      "do": "show",
      "shape": {
-      "id": "dropFix",
+      "id": "dropFix", "explain": "A drop of blood travelling out and back: watch it return to the heart. Blood is never used up.",
       "kind": "circle",
       "cx": 300,
       "cy": 305,
@@ -855,7 +855,7 @@
      "at_ms": 7000,
      "do": "show",
      "shape": {
-      "id": "teamDig",
+      "id": "teamDig", "explain": "The digestive system: it gets the good parts from food and hands them to the blood.",
       "kind": "rect",
       "x": 80,
       "y": 430,
@@ -870,7 +870,7 @@
      "at_ms": 7100,
      "do": "show",
      "shape": {
-      "id": "teamDigT",
+      "id": "teamDigT", "explain": "Label: Digestive.",
       "kind": "text",
       "x": 139.0,
       "y": 471,
@@ -883,7 +883,7 @@
      "at_ms": 7300,
      "do": "show",
      "shape": {
-      "id": "teamResp",
+      "id": "teamResp", "explain": "The respiratory system: it brings fresh air into the blood through the lungs.",
       "kind": "rect",
       "x": 360,
       "y": 430,
@@ -898,7 +898,7 @@
      "at_ms": 7400,
      "do": "show",
      "shape": {
-      "id": "teamRespT",
+      "id": "teamRespT", "explain": "Label: Respiratory.",
       "kind": "text",
       "x": 405.5,
       "y": 471,
@@ -911,7 +911,7 @@
      "at_ms": 7600,
      "do": "show",
      "shape": {
-      "id": "teamCirc",
+      "id": "teamCirc", "explain": "The circulatory system: the heart and vessels that carry blood round the body.",
       "kind": "rect",
       "x": 640,
       "y": 430,
@@ -926,7 +926,7 @@
      "at_ms": 7700,
      "do": "show",
      "shape": {
-      "id": "teamCircT",
+      "id": "teamCircT", "explain": "Label: Circulatory.",
       "kind": "text",
       "x": 689.2,
       "y": 471,
@@ -939,7 +939,7 @@
      "at_ms": 7900,
      "do": "show",
      "shape": {
-      "id": "teamArr1",
+      "id": "teamArr1", "explain": "The arrow shows the systems working together as one team.",
       "kind": "arrow",
       "x1": 320,
       "y1": 462,
@@ -953,7 +953,7 @@
      "at_ms": 8000,
      "do": "show",
      "shape": {
-      "id": "teamArr2",
+      "id": "teamArr2", "explain": "The arrow shows the systems working together as one team.",
       "kind": "arrow",
       "x1": 600,
       "y1": 462,
