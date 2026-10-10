@@ -22,7 +22,8 @@
             "size": 40,
             "text": "Volume: how much space it takes",
             "x": 120,
-            "y": 90
+            "y": 90,
+            "explain": "The question: volume is how much space a shape takes."
           }
         },
         {
@@ -37,7 +38,8 @@
             "strokeWidth": 2,
             "w": 46,
             "x": 600,
-            "y": 283
+            "y": 283,
+            "explain": "The first unit cube: volume is counted in cubes like this one."
           }
         },
         {
@@ -59,7 +61,8 @@
             "size": 24,
             "text": "1",
             "x": 137,
-            "y": 294
+            "y": 294,
+            "explain": "The counter: this is cube 1."
           }
         },
         {
@@ -74,7 +77,8 @@
             "strokeWidth": 2,
             "w": 46,
             "x": 600,
-            "y": 283
+            "y": 283,
+            "explain": "The second unit cube: add one more to the count."
           }
         },
         {
@@ -96,7 +100,8 @@
             "size": 24,
             "text": "2",
             "x": 183,
-            "y": 294
+            "y": 294,
+            "explain": "The counter: this is cube 2."
           }
         },
         {
@@ -111,7 +116,8 @@
             "strokeWidth": 2,
             "w": 46,
             "x": 600,
-            "y": 283
+            "y": 283,
+            "explain": "The third unit cube: add one more to the count."
           }
         },
         {
@@ -133,7 +139,8 @@
             "size": 24,
             "text": "3",
             "x": 229,
-            "y": 294
+            "y": 294,
+            "explain": "The counter: this is cube 3."
           }
         },
         {
@@ -148,7 +155,8 @@
             "strokeWidth": 2,
             "w": 46,
             "x": 600,
-            "y": 283
+            "y": 283,
+            "explain": "The fourth unit cube: add one more to the count."
           }
         },
         {
@@ -170,7 +178,8 @@
             "size": 24,
             "text": "4",
             "x": 137,
-            "y": 340
+            "y": 340,
+            "explain": "The counter: this is cube 4."
           }
         },
         {
@@ -185,7 +194,8 @@
             "strokeWidth": 2,
             "w": 46,
             "x": 600,
-            "y": 283
+            "y": 283,
+            "explain": "The fifth unit cube: add one more to the count."
           }
         },
         {
@@ -207,7 +217,8 @@
             "size": 24,
             "text": "5",
             "x": 183,
-            "y": 340
+            "y": 340,
+            "explain": "The counter: this is cube 5."
           }
         },
         {
@@ -222,7 +233,8 @@
             "strokeWidth": 2,
             "w": 46,
             "x": 600,
-            "y": 283
+            "y": 283,
+            "explain": "The sixth unit cube: add one more to the count."
           }
         },
         {
@@ -244,7 +256,8 @@
             "size": 24,
             "text": "6",
             "x": 229,
-            "y": 340
+            "y": 340,
+            "explain": "The counter: this is cube 6."
           }
         },
         {
@@ -256,7 +269,8 @@
             "size": 34,
             "text": "volume = 6 unit cubes",
             "x": 420,
-            "y": 300
+            "y": 300,
+            "explain": "The result: the volume is 6 unit cubes."
           }
         },
         {
@@ -268,7 +282,8 @@
             "size": 28,
             "text": "volume counts the unit cubes that fill a shape",
             "x": 120,
-            "y": 480
+            "y": 480,
+            "explain": "The definition: volume counts the unit cubes that fill a shape."
           }
         },
         {
@@ -293,7 +308,8 @@
             "size": 40,
             "text": "Volume of a cuboid",
             "x": 120,
-            "y": 90
+            "y": 90,
+            "explain": "The question: the volume of a cuboid."
           }
         },
         {
@@ -305,7 +321,8 @@
             "size": 24,
             "text": "one layer = length × width; stack the layers for height",
             "x": 120,
-            "y": 130
+            "y": 130,
+            "explain": "The method: one layer is length times width, then stack for height."
           }
         },
         {
@@ -320,7 +337,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 120,
-            "y": 230
+            "y": 230,
+            "explain": "Bottom layer, row 1 of 3, column 1 of 4."
           }
         },
         {
@@ -335,7 +353,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 160,
-            "y": 230
+            "y": 230,
+            "explain": "Bottom layer, row 1 of 3, column 2 of 4."
           }
         },
         {
@@ -350,7 +369,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 200,
-            "y": 230
+            "y": 230,
+            "explain": "Bottom layer, row 1 of 3, column 3 of 4."
           }
         },
         {
@@ -365,7 +385,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 240,
-            "y": 230
+            "y": 230,
+            "explain": "Bottom layer, row 1 of 3, column 4 of 4."
           }
         },
         {
@@ -380,7 +401,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 120,
-            "y": 270
+            "y": 270,
+            "explain": "Bottom layer, row 2 of 3, column 1 of 4."
           }
         },
         {
@@ -395,7 +417,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 160,
-            "y": 270
+            "y": 270,
+            "explain": "Bottom layer, row 2 of 3, column 2 of 4."
           }
         },
         {
@@ -410,7 +433,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 200,
-            "y": 270
+            "y": 270,
+            "explain": "Bottom layer, row 2 of 3, column 3 of 4."
           }
         },
         {
@@ -425,7 +449,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 240,
-            "y": 270
+            "y": 270,
+            "explain": "Bottom layer, row 2 of 3, column 4 of 4."
           }
         },
         {
@@ -440,7 +465,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 120,
-            "y": 310
+            "y": 310,
+            "explain": "Bottom layer, row 3 of 3, column 1 of 4."
           }
         },
         {
@@ -455,7 +481,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 160,
-            "y": 310
+            "y": 310,
+            "explain": "Bottom layer, row 3 of 3, column 2 of 4."
           }
         },
         {
@@ -470,7 +497,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 200,
-            "y": 310
+            "y": 310,
+            "explain": "Bottom layer, row 3 of 3, column 3 of 4."
           }
         },
         {
@@ -485,7 +513,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 240,
-            "y": 310
+            "y": 310,
+            "explain": "Bottom layer, row 3 of 3, column 4 of 4."
           }
         },
         {
@@ -497,7 +526,8 @@
             "size": 28,
             "text": "bottom layer: 4 × 3 = 12 cubes",
             "x": 480,
-            "y": 260
+            "y": 260,
+            "explain": "One layer: 4 times 3 is 12 cubes."
           }
         },
         {
@@ -512,7 +542,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 172,
-            "y": 8
+            "y": 8,
+            "explain": "Top layer, row 1 of 3, column 1 of 4."
           }
         },
         {
@@ -527,7 +558,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 212,
-            "y": 8
+            "y": 8,
+            "explain": "Top layer, row 1 of 3, column 2 of 4."
           }
         },
         {
@@ -542,7 +574,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 252,
-            "y": 8
+            "y": 8,
+            "explain": "Top layer, row 1 of 3, column 3 of 4."
           }
         },
         {
@@ -557,7 +590,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 292,
-            "y": 8
+            "y": 8,
+            "explain": "Top layer, row 1 of 3, column 4 of 4."
           }
         },
         {
@@ -572,7 +606,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 172,
-            "y": 48
+            "y": 48,
+            "explain": "Top layer, row 2 of 3, column 1 of 4."
           }
         },
         {
@@ -587,7 +622,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 212,
-            "y": 48
+            "y": 48,
+            "explain": "Top layer, row 2 of 3, column 2 of 4."
           }
         },
         {
@@ -602,7 +638,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 252,
-            "y": 48
+            "y": 48,
+            "explain": "Top layer, row 2 of 3, column 3 of 4."
           }
         },
         {
@@ -617,7 +654,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 292,
-            "y": 48
+            "y": 48,
+            "explain": "Top layer, row 2 of 3, column 4 of 4."
           }
         },
         {
@@ -632,7 +670,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 172,
-            "y": 88
+            "y": 88,
+            "explain": "Top layer, row 3 of 3, column 1 of 4."
           }
         },
         {
@@ -647,7 +686,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 212,
-            "y": 88
+            "y": 88,
+            "explain": "Top layer, row 3 of 3, column 2 of 4."
           }
         },
         {
@@ -662,7 +702,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 252,
-            "y": 88
+            "y": 88,
+            "explain": "Top layer, row 3 of 3, column 3 of 4."
           }
         },
         {
@@ -677,7 +718,8 @@
             "strokeWidth": 2,
             "w": 40,
             "x": 292,
-            "y": 88
+            "y": 88,
+            "explain": "Top layer, row 3 of 3, column 4 of 4."
           }
         },
         {
@@ -809,7 +851,8 @@
             "size": 28,
             "text": "two layers stacked: 12 × 2",
             "x": 480,
-            "y": 305
+            "y": 305,
+            "explain": "Two layers stacked: 12 times 2."
           }
         },
         {
@@ -822,7 +865,8 @@
             "size": 34,
             "text": "volume = 4 × 3 × 2 = 24",
             "x": 480,
-            "y": 370
+            "y": 370,
+            "explain": "The answer: 4 times 3 times 2 is 24."
           }
         },
         {
@@ -834,7 +878,8 @@
             "size": 30,
             "text": "cuboid volume = length × width × height",
             "x": 120,
-            "y": 480
+            "y": 480,
+            "explain": "The formula: cuboid volume is length times width times height."
           }
         },
         {
@@ -865,7 +910,8 @@
             "size": 40,
             "text": "Measuring liquid: mL and L",
             "x": 120,
-            "y": 90
+            "y": 90,
+            "explain": "The question: measuring liquid in mL and L."
           }
         },
         {
@@ -880,7 +926,8 @@
             "strokeWidth": 2,
             "w": 150,
             "x": 150,
-            "y": 200
+            "y": 200,
+            "explain": "The first cup: it holds 500 millilitres."
           }
         },
         {
@@ -895,7 +942,8 @@
             "strokeWidth": 2,
             "w": 140,
             "x": 155,
-            "y": 425
+            "y": 425,
+            "explain": "The liquid level in the first cup."
           }
         },
         {
@@ -917,7 +965,8 @@
             "size": 30,
             "text": "500 mL",
             "x": 165,
-            "y": 470
+            "y": 470,
+            "explain": "The label: 500 millilitres, a small amount."
           }
         },
         {
@@ -932,7 +981,8 @@
             "strokeWidth": 2,
             "w": 150,
             "x": 480,
-            "y": 200
+            "y": 200,
+            "explain": "The second cup: it holds 1 litre."
           }
         },
         {
@@ -947,7 +997,8 @@
             "strokeWidth": 2,
             "w": 140,
             "x": 485,
-            "y": 425
+            "y": 425,
+            "explain": "The liquid level in the second cup."
           }
         },
         {
@@ -969,7 +1020,8 @@
             "size": 30,
             "text": "1 L",
             "x": 520,
-            "y": 470
+            "y": 470,
+            "explain": "The label: 1 litre, a bigger amount."
           }
         },
         {
@@ -982,7 +1034,8 @@
             "size": 36,
             "text": "1 L = 1000 mL",
             "x": 680,
-            "y": 300
+            "y": 300,
+            "explain": "The conversion: 1 litre equals 1000 millilitres."
           }
         },
         {
@@ -994,7 +1047,8 @@
             "size": 26,
             "text": "mL for small, L for big",
             "x": 640,
-            "y": 355
+            "y": 355,
+            "explain": "The rule of thumb: millilitres for small amounts, litres for big ones."
           }
         },
         {
@@ -1025,7 +1079,8 @@
             "size": 40,
             "text": "Watch out: taller ≠ more volume",
             "x": 120,
-            "y": 90
+            "y": 90,
+            "explain": "The trap: taller does not mean more volume."
           }
         },
         {
@@ -1040,7 +1095,8 @@
             "strokeWidth": 2,
             "w": 52,
             "x": 180,
-            "y": 200
+            "y": 200,
+            "explain": "Unit cube 1 of the 6: the same cube in both arrangements."
           }
         },
         {
@@ -1055,7 +1111,8 @@
             "strokeWidth": 2,
             "w": 52,
             "x": 232,
-            "y": 200
+            "y": 200,
+            "explain": "Unit cube 2 of the 6: the same cube in both arrangements."
           }
         },
         {
@@ -1070,7 +1127,8 @@
             "strokeWidth": 2,
             "w": 52,
             "x": 180,
-            "y": 252
+            "y": 252,
+            "explain": "Unit cube 3 of the 6: the same cube in both arrangements."
           }
         },
         {
@@ -1085,7 +1143,8 @@
             "strokeWidth": 2,
             "w": 52,
             "x": 232,
-            "y": 252
+            "y": 252,
+            "explain": "Unit cube 4 of the 6: the same cube in both arrangements."
           }
         },
         {
@@ -1100,7 +1159,8 @@
             "strokeWidth": 2,
             "w": 52,
             "x": 180,
-            "y": 304
+            "y": 304,
+            "explain": "Unit cube 5 of the 6: the same cube in both arrangements."
           }
         },
         {
@@ -1115,7 +1175,8 @@
             "strokeWidth": 2,
             "w": 52,
             "x": 232,
-            "y": 304
+            "y": 304,
+            "explain": "Unit cube 6 of the 6: the same cube in both arrangements."
           }
         },
         {
@@ -1127,7 +1188,8 @@
             "size": 28,
             "text": "6 cubes",
             "x": 186,
-            "y": 391
+            "y": 391,
+            "explain": "The tall stack: 6 cubes."
           }
         },
         {
@@ -1199,7 +1261,8 @@
             "size": 28,
             "text": "6 cubes",
             "x": 621,
-            "y": 347
+            "y": 347,
+            "explain": "The wide stack: still 6 cubes."
           }
         },
         {
@@ -1211,7 +1274,8 @@
             "size": 32,
             "text": "same 6 cubes — same volume",
             "x": 120,
-            "y": 445
+            "y": 445,
+            "explain": "The conclusion: the same 6 cubes mean the same volume."
           }
         },
         {
@@ -1223,7 +1287,8 @@
             "size": 26,
             "text": "shape does not change volume, the count does",
             "x": 120,
-            "y": 495
+            "y": 495,
+            "explain": "The lesson: the shape does not change volume, only the count does."
           }
         },
         {

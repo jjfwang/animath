@@ -25,7 +25,8 @@
       "x": 120,
       "y": 80,
       "text": "x can stand for any number",
-      "size": 40
+      "size": 40,
+      "explain": "The idea: x can stand for any number."
      }
     },
     {
@@ -40,7 +41,8 @@
       "h": 90,
       "fill": "#8b6f47",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A mystery box: x hides a number inside."
      }
     },
     {
@@ -55,7 +57,8 @@
       "h": 90,
       "fill": "#8b6f47",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A mystery box: x hides a number inside."
      }
     },
     {
@@ -70,7 +73,8 @@
       "h": 90,
       "fill": "#8b6f47",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A mystery box: x hides a number inside."
      }
     },
     {
@@ -84,7 +88,8 @@
       "r": 24,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The chip showing 5: it could be what x stands for."
      }
     },
     {
@@ -96,7 +101,8 @@
       "x": 217,
       "y": 163,
       "text": "5",
-      "size": 26
+      "size": 26,
+      "explain": "The value on the chip: 5."
      }
     },
     {
@@ -110,7 +116,8 @@
       "r": 24,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The chip showing 3: it could be what x stands for."
      }
     },
     {
@@ -122,7 +129,8 @@
       "x": 472,
       "y": 163,
       "text": "3",
-      "size": 26
+      "size": 26,
+      "explain": "The value on the chip: 3."
      }
     },
     {
@@ -136,7 +144,8 @@
       "r": 24,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The chip showing 8: it could be what x stands for."
      }
     },
     {
@@ -148,7 +157,8 @@
       "x": 727,
       "y": 163,
       "text": "8",
-      "size": 26
+      "size": 26,
+      "explain": "The value on the chip: 8."
      }
     },
     {
@@ -250,7 +260,8 @@
       "x": 210,
       "y": 251,
       "text": "?",
-      "size": 52
+      "size": 52,
+      "explain": "The unknown: x could be any number."
      }
     },
     {
@@ -262,7 +273,8 @@
       "x": 465,
       "y": 251,
       "text": "?",
-      "size": 52
+      "size": 52,
+      "explain": "The unknown: x could be any number."
      }
     },
     {
@@ -274,7 +286,8 @@
       "x": 720,
       "y": 251,
       "text": "?",
-      "size": 52
+      "size": 52,
+      "explain": "The unknown: x could be any number."
      }
     },
     {
@@ -286,7 +299,8 @@
       "x": 320,
       "y": 400,
       "text": "___ + 4 = 9",
-      "size": 48
+      "size": 48,
+      "explain": "The equation to fill in: blank plus 4 equals 9."
      }
     },
     {
@@ -299,7 +313,8 @@
       "y": 300,
       "text": "x",
       "size": 60,
-      "color": "#1f7a3a"
+      "color": "#1f7a3a",
+      "explain": "The letter x: it stands for the unknown number."
      }
     },
     {
@@ -334,7 +349,8 @@
       "x": 120,
       "y": 80,
       "text": "A balanced scale is an equation",
-      "size": 40
+      "size": 40,
+      "explain": "The idea: a balanced scale is an equation."
      }
     },
     {
@@ -348,7 +364,8 @@
       "x2": 480,
       "y2": 250,
       "stroke": "#1a1a1a",
-      "width": 6
+      "width": 6,
+      "explain": "The stand holding the balance beam."
      }
     },
     {
@@ -362,7 +379,8 @@
       "x2": 660,
       "y2": 243,
       "stroke": "#8b6f47",
-      "width": 14
+      "width": 14,
+      "explain": "The beam: level means both sides are equal."
      }
     },
     {
@@ -377,7 +395,8 @@
       "h": 16,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The left pan: it holds the x + 3 side."
      }
     },
     {
@@ -392,7 +411,8 @@
       "h": 16,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The right pan: it holds the 7 side."
      }
     },
     {
@@ -406,7 +426,8 @@
       "r": 22,
       "fill": "#f0c987",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A 5-chip on the right pan."
      }
     },
     {
@@ -418,7 +439,8 @@
       "x": 622,
       "y": 193,
       "text": "5",
-      "size": 26
+      "size": 26,
+      "explain": "The value: 5."
      }
     },
     {
@@ -504,7 +526,8 @@
       "r": 22,
       "fill": "#f0c987",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A 5-chip on the left pan."
      }
     },
     {
@@ -516,7 +539,8 @@
       "x": 322,
       "y": 193,
       "text": "5",
-      "size": 26
+      "size": 26,
+      "explain": "The value: 5."
      }
     },
     {
@@ -620,7 +644,8 @@
       "x": 290,
       "y": 360,
       "text": "x + 3",
-      "size": 36
+      "size": 36,
+      "explain": "The left side of the equation: x + 3."
      }
     },
     {
@@ -632,7 +657,8 @@
       "x": 590,
       "y": 360,
       "text": "7",
-      "size": 36
+      "size": 36,
+      "explain": "The right side of the equation: 7."
      }
     },
     {
@@ -657,7 +683,8 @@
       "x": 120,
       "y": 120,
       "text": "x + 5 = 8",
-      "size": 52
+      "size": 52,
+      "explain": "The equation to solve: x + 5 = 8."
      }
     },
     {
@@ -671,7 +698,8 @@
       "x2": 480,
       "y2": 250,
       "stroke": "#1a1a1a",
-      "width": 6
+      "width": 6,
+      "explain": "The stand holding the balance beam."
      }
     },
     {
@@ -685,7 +713,8 @@
       "x2": 660,
       "y2": 243,
       "stroke": "#8b6f47",
-      "width": 14
+      "width": 14,
+      "explain": "The beam: it stays level while we undo the plus 5."
      }
     },
     {
@@ -700,7 +729,8 @@
       "h": 16,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The left pan: it holds x plus 5 chips."
      }
     },
     {
@@ -715,7 +745,8 @@
       "h": 16,
       "fill": "#d9e8f5",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The right pan: it holds 8 chips."
      }
     },
     {
@@ -730,7 +761,8 @@
       "h": 44,
       "fill": "#f0d9a8",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The x box: the unknown we are solving for."
      }
     },
     {
@@ -742,7 +774,8 @@
       "x": 437,
       "y": 92,
       "text": "x",
-      "size": 32
+      "size": 32,
+      "explain": "The label: this box is x."
      }
     },
     {
@@ -776,7 +809,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A left-side chip: take it away to undo the plus 5."
      }
     },
     {
@@ -800,7 +834,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A left-side chip: take it away to undo the plus 5."
      }
     },
     {
@@ -824,7 +859,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A left-side chip: take it away to undo the plus 5."
      }
     },
     {
@@ -848,7 +884,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A left-side chip: take it away to undo the plus 5."
      }
     },
     {
@@ -872,7 +909,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A left-side chip: take it away to undo the plus 5."
      }
     },
     {
@@ -896,7 +934,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -920,7 +959,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -944,7 +984,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -968,7 +1009,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -992,7 +1034,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -1016,7 +1059,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -1040,7 +1084,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -1064,7 +1109,8 @@
       "r": 10,
       "fill": "#cfe3c0",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "A right-side chip: take one away to keep the balance."
      }
     },
     {
@@ -1237,7 +1283,8 @@
       "y": 460,
       "text": "x = 3",
       "size": 56,
-      "color": "#1f7a3a"
+      "color": "#1f7a3a",
+      "explain": "The solution: x equals 3."
      }
     },
     {
@@ -1265,7 +1312,8 @@
       "h": 60,
       "fill": "#fbe3e3",
       "stroke": "#b33",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "The wrong idea, boxed: that 3x + 2x cannot combine."
      }
     },
     {
@@ -1288,7 +1336,8 @@
       "y": 95,
       "text": "3x + 2x won't combine",
       "size": 30,
-      "color": "#b33"
+      "color": "#b33",
+      "explain": "The mistake: treating x as a label, so like terms cannot combine."
      }
     },
     {
@@ -1303,7 +1352,8 @@
       "h": 52,
       "fill": "#f0d9a8",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "One x-box: each box is the same number x."
      }
     },
     {
@@ -1315,7 +1365,8 @@
       "x": 167,
       "y": 291,
       "text": "x",
-      "size": 30
+      "size": 30,
+      "explain": "The label: this box is x."
      }
     },
     {
@@ -1330,7 +1381,8 @@
       "h": 52,
       "fill": "#f0d9a8",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "One x-box: each box is the same number x."
      }
     },
     {
@@ -1342,7 +1394,8 @@
       "x": 247,
       "y": 291,
       "text": "x",
-      "size": 30
+      "size": 30,
+      "explain": "The label: this box is x."
      }
     },
     {
@@ -1357,7 +1410,8 @@
       "h": 52,
       "fill": "#f0d9a8",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "One x-box: each box is the same number x."
      }
     },
     {
@@ -1369,7 +1423,8 @@
       "x": 327,
       "y": 291,
       "text": "x",
-      "size": 30
+      "size": 30,
+      "explain": "The label: this box is x."
      }
     },
     {
@@ -1384,7 +1439,8 @@
       "h": 52,
       "fill": "#f0d9a8",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "One x-box: each box is the same number x."
      }
     },
     {
@@ -1396,7 +1452,8 @@
       "x": 677,
       "y": 291,
       "text": "x",
-      "size": 30
+      "size": 30,
+      "explain": "The label: this box is x."
      }
     },
     {
@@ -1411,7 +1468,8 @@
       "h": 52,
       "fill": "#f0d9a8",
       "stroke": "#1a1a1a",
-      "strokeWidth": 2
+      "strokeWidth": 2,
+      "explain": "One x-box: each box is the same number x."
      }
     },
     {
@@ -1423,7 +1481,8 @@
       "x": 757,
       "y": 291,
       "text": "x",
-      "size": 30
+      "size": 30,
+      "explain": "The label: this box is x."
      }
     },
     {
@@ -1596,7 +1655,8 @@
       "y": 296,
       "text": "5x",
       "size": 64,
-      "color": "#1f7a3a"
+      "color": "#1f7a3a",
+      "explain": "The combination: five x-boxes make 5x."
      }
     },
     {
@@ -1608,7 +1668,8 @@
       "x": 120,
       "y": 420,
       "text": "x stands for a number: 3x + 2x is 5x",
-      "size": 28
+      "size": 28,
+      "explain": "The reason: x stands for a number, so 3x + 2x is 5x."
      }
     },
     {

@@ -25,7 +25,8 @@
             "text": "Name the angle: right, acute, obtuse",
             "x": 120,
             "y": 90,
-            "size": 44
+            "size": 44,
+            "explain": "The question: name the angle as right, acute, or obtuse."
           }
         },
         {
@@ -39,7 +40,8 @@
             "x2": 410,
             "y2": 400,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "One arm of the angle: the side every measurement starts from."
           }
         },
         {
@@ -53,7 +55,8 @@
             "x2": 330.0,
             "y2": 261.4,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The moving arm: it swings to set each angle size."
           }
         },
         {
@@ -122,7 +125,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The arc marking a 60-degree turn: under 90, so the angle is acute."
           }
         },
         {
@@ -134,7 +138,8 @@
             "text": "60° — acute",
             "x": 160,
             "y": 460,
-            "size": 30
+            "size": 30,
+            "explain": "The label: 60 degrees is smaller than a right angle, so it is acute."
           }
         },
         {
@@ -179,7 +184,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The square corner marking exactly 90 degrees: a right angle."
           }
         },
         {
@@ -191,7 +197,8 @@
             "text": "90° — right angle",
             "x": 140,
             "y": 460,
-            "size": 30
+            "size": 30,
+            "explain": "The label: 90 degrees is exactly a right angle."
           }
         },
         {
@@ -280,7 +287,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The arc marking a 120-degree turn: past 90, so the angle is obtuse."
           }
         },
         {
@@ -292,7 +300,8 @@
             "text": "120° — obtuse",
             "x": 155,
             "y": 460,
-            "size": 30
+            "size": 30,
+            "explain": "The label: 120 degrees is larger than a right angle, so it is obtuse."
           }
         },
         {
@@ -323,7 +332,8 @@
             "text": "Reading a protractor",
             "x": 120,
             "y": 90,
-            "size": 44
+            "size": 44,
+            "explain": "The question: read a protractor to measure an angle."
           }
         },
         {
@@ -335,7 +345,8 @@
             "text": "Put the centre dot on the vertex, the baseline on one arm.",
             "x": 120,
             "y": 130,
-            "size": 24
+            "size": 24,
+            "explain": "The setup rule: centre dot on the vertex, baseline along one arm."
           }
         },
         {
@@ -592,7 +603,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The protractor: a half-circle scale running 0 to 180 degrees."
           }
         },
         {
@@ -606,7 +618,8 @@
             "x2": 370,
             "y2": 400,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The protractor's baseline: line it up with one arm of the angle."
           }
         },
         {
@@ -620,7 +633,8 @@
             "x2": 355.0,
             "y2": 400.0,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 0-degree tick on the protractor scale."
           }
         },
         {
@@ -634,7 +648,8 @@
             "x2": 334.2,
             "y2": 322.5,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 30-degree tick on the protractor scale."
           }
         },
         {
@@ -648,7 +663,8 @@
             "x2": 277.5,
             "y2": 265.8,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 60-degree tick on the protractor scale."
           }
         },
         {
@@ -662,7 +678,8 @@
             "x2": 200.0,
             "y2": 245.0,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 90-degree tick on the protractor scale."
           }
         },
         {
@@ -676,7 +693,8 @@
             "x2": 122.5,
             "y2": 265.8,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 120-degree tick on the protractor scale."
           }
         },
         {
@@ -690,7 +708,8 @@
             "x2": 65.8,
             "y2": 322.5,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 150-degree tick on the protractor scale."
           }
         },
         {
@@ -704,7 +723,8 @@
             "x2": 45.0,
             "y2": 400.0,
             "stroke": "#1a1a1a",
-            "width": 2
+            "width": 2,
+            "explain": "The 180-degree tick on the protractor scale."
           }
         },
         {
@@ -717,7 +737,8 @@
             "x": 398,
             "y": 400,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 0 degrees."
           }
         },
         {
@@ -730,7 +751,8 @@
             "x": 371,
             "y": 301,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 30 degrees."
           }
         },
         {
@@ -743,7 +765,8 @@
             "x": 299,
             "y": 229,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 60 degrees."
           }
         },
         {
@@ -756,7 +779,8 @@
             "x": 200,
             "y": 202,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 90 degrees."
           }
         },
         {
@@ -769,7 +793,8 @@
             "x": 101,
             "y": 229,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 120 degrees."
           }
         },
         {
@@ -782,7 +807,8 @@
             "x": 29,
             "y": 301,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 150 degrees."
           }
         },
         {
@@ -795,7 +821,8 @@
             "x": 30,
             "y": 400,
             "size": 22,
-            "align": "middle"
+            "align": "middle",
+            "explain": "The scale label: 180 degrees."
           }
         },
         {
@@ -809,7 +836,8 @@
             "x2": 285.0,
             "y2": 252.8,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "The ray being measured: read where it crosses the scale."
           }
         },
         {
@@ -821,7 +849,8 @@
             "text": "the ray reads 60°",
             "x": 600,
             "y": 300,
-            "size": 30
+            "size": 30,
+            "explain": "The measured value on the scale: 60 degrees."
           }
         },
         {
@@ -848,7 +877,8 @@
             "text": "the ray reads 120°",
             "x": 600,
             "y": 300,
-            "size": 30
+            "size": 30,
+            "explain": "The measured value on the scale: 120 degrees."
           }
         },
         {
@@ -860,7 +890,8 @@
             "text": "read where the other arm crosses the scale",
             "x": 120,
             "y": 470,
-            "size": 26
+            "size": 26,
+            "explain": "The key step: read the number where the other arm crosses the scale."
           }
         },
         {
@@ -891,7 +922,8 @@
             "text": "Angles that add up",
             "x": 120,
             "y": 90,
-            "size": 44
+            "size": 44,
+            "explain": "The question: angles that add up."
           }
         },
         {
@@ -905,7 +937,8 @@
             "x2": 520,
             "y2": 300,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The straight line: angles sitting on it always add to 180 degrees."
           }
         },
         {
@@ -919,7 +952,8 @@
             "x2": 470,
             "y2": 300,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The splitting ray: it divides the straight line into two angles."
           }
         },
         {
@@ -998,7 +1032,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The arc marking the 70-degree angle."
           }
         },
         {
@@ -1010,7 +1045,8 @@
             "text": "70°",
             "x": 380,
             "y": 350,
-            "size": 26
+            "size": 26,
+            "explain": "One angle on the line: 70 degrees."
           }
         },
         {
@@ -1079,7 +1115,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The arc marking the 110-degree angle."
           }
         },
         {
@@ -1091,7 +1128,8 @@
             "text": "110°",
             "x": 200,
             "y": 350,
-            "size": 26
+            "size": 26,
+            "explain": "The other angle on the line: 110 degrees."
           }
         },
         {
@@ -1103,7 +1141,8 @@
             "text": "70° + 110° = 180°",
             "x": 580,
             "y": 300,
-            "size": 34
+            "size": 34,
+            "explain": "The number fact: 70 plus 110 equals 180 degrees."
           }
         },
         {
@@ -1115,7 +1154,8 @@
             "text": "two angles on a straight line make 180°",
             "x": 120,
             "y": 440,
-            "size": 28
+            "size": 28,
+            "explain": "The rule: two angles on a straight line make 180 degrees."
           }
         },
         {
@@ -1172,7 +1212,8 @@
             "text": "A full turn around one point",
             "x": 120,
             "y": 90,
-            "size": 40
+            "size": 40,
+            "explain": "The question: a full turn around one point."
           }
         },
         {
@@ -1184,7 +1225,8 @@
             "cx": 480,
             "cy": 300,
             "r": 6,
-            "fill": "#1a1a1a"
+            "fill": "#1a1a1a",
+            "explain": "The centre point that the full turn spins around."
           }
         },
         {
@@ -1198,7 +1240,8 @@
             "x2": 600,
             "y2": 300,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "The spinning arm: one full spin is 360 degrees."
           }
         },
         {
@@ -1250,7 +1293,8 @@
             "text": "a full turn = 360°",
             "x": 615,
             "y": 300,
-            "size": 32
+            "size": 32,
+            "explain": "The fact: a full turn around a point is 360 degrees."
           }
         },
         {
@@ -1275,7 +1319,8 @@
             "text": "Three corners of a triangle",
             "x": 120,
             "y": 90,
-            "size": 44
+            "size": 44,
+            "explain": "The question: the three corners of a triangle."
           }
         },
         {
@@ -1300,7 +1345,8 @@
             ],
             "fill": "#eaf2fb",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The triangle: its three corners are about to be torn off."
           }
         },
         {
@@ -1325,7 +1371,8 @@
             ],
             "fill": "#f5b041",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The torn-off corner A: it keeps its 56-degree angle."
           }
         },
         {
@@ -1350,7 +1397,8 @@
             ],
             "fill": "#82e0aa",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The torn-off corner B: it keeps its 56-degree angle."
           }
         },
         {
@@ -1375,7 +1423,8 @@
             ],
             "fill": "#85c1e9",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The torn-off corner C: it keeps its 68-degree angle."
           }
         },
         {
@@ -1387,7 +1436,8 @@
             "text": "56°",
             "x": 140,
             "y": 455,
-            "size": 26
+            "size": 26,
+            "explain": "Corner A measures 56 degrees."
           }
         },
         {
@@ -1399,7 +1449,8 @@
             "text": "56°",
             "x": 520,
             "y": 455,
-            "size": 26
+            "size": 26,
+            "explain": "Corner B measures 56 degrees."
           }
         },
         {
@@ -1411,7 +1462,8 @@
             "text": "68°",
             "x": 330,
             "y": 160,
-            "size": 26
+            "size": 26,
+            "explain": "Corner C measures 68 degrees."
           }
         },
         {
@@ -1423,7 +1475,8 @@
             "text": "56° + 56° + 68° = 180°",
             "x": 560,
             "y": 300,
-            "size": 32
+            "size": 32,
+            "explain": "The sum: 56 plus 56 plus 68 equals 180 degrees."
           }
         },
         {
@@ -1503,7 +1556,8 @@
             "x2": 780,
             "y2": 400,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The straight line the three corners are lined up on."
           }
         },
         {
@@ -1515,7 +1569,8 @@
             "text": "a straight line — 180°",
             "x": 600,
             "y": 455,
-            "size": 28
+            "size": 28,
+            "explain": "The conclusion: the corners fit a straight line, so 180 degrees."
           }
         },
         {
@@ -1582,7 +1637,8 @@
             "text": "Opposite corners of a parallelogram",
             "x": 120,
             "y": 90,
-            "size": 40
+            "size": 40,
+            "explain": "The question: opposite corners of a parallelogram."
           }
         },
         {
@@ -1611,7 +1667,8 @@
             ],
             "fill": "#eaf2fb",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The parallelogram: its opposite corners match."
           }
         },
         {
@@ -1625,7 +1682,8 @@
             "x2": 440,
             "y2": 360,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "Tick marks on the bottom-left angle: it matches the opposite corner."
           }
         },
         {
@@ -1639,7 +1697,8 @@
             "x2": 500,
             "y2": 240,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "Tick marks on the top-right angle: it matches the opposite corner."
           }
         },
         {
@@ -1653,7 +1712,8 @@
             "x2": 440,
             "y2": 360,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "A second set of tick marks: these two angles are a matched pair."
           }
         },
         {
@@ -1667,7 +1727,8 @@
             "x2": 500,
             "y2": 240,
             "stroke": "#c0392b",
-            "width": 4
+            "width": 4,
+            "explain": "A second set of tick marks: these two angles are a matched pair."
           }
         },
         {
@@ -1699,7 +1760,8 @@
             "text": "63°",
             "x": 292,
             "y": 398,
-            "size": 26
+            "size": 26,
+            "explain": "The bottom-left angle: 63 degrees."
           }
         },
         {
@@ -1711,7 +1773,8 @@
             "text": "63°",
             "x": 628,
             "y": 218,
-            "size": 26
+            "size": 26,
+            "explain": "The top-right angle: 63 degrees, matching its opposite."
           }
         },
         {
@@ -1723,7 +1786,8 @@
             "text": "opposite angles are equal",
             "x": 120,
             "y": 440,
-            "size": 28
+            "size": 28,
+            "explain": "The rule: opposite angles of a parallelogram are equal."
           }
         },
         {
@@ -1748,7 +1812,8 @@
             "text": "Watch out: longer arms ≠ bigger angle",
             "x": 120,
             "y": 90,
-            "size": 40
+            "size": 40,
+            "explain": "The trap: longer arms do not make a bigger angle."
           }
         },
         {
@@ -1762,7 +1827,8 @@
             "x2": 520,
             "y2": 380,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The shared arm: both angles open from this line."
           }
         },
         {
@@ -1776,7 +1842,8 @@
             "x2": 363.6,
             "y2": 316.4,
             "stroke": "#1a1a1a",
-            "width": 3
+            "width": 3,
+            "explain": "The short arm: 45 degrees from the shared arm."
           }
         },
         {
@@ -1829,7 +1896,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The arc marking the small angle: 45 degrees."
           }
         },
         {
@@ -1841,7 +1909,8 @@
             "text": "45°",
             "x": 255,
             "y": 430,
-            "size": 30
+            "size": 30,
+            "explain": "The label: the small angle is 45 degrees."
           }
         },
         {
@@ -1853,7 +1922,8 @@
             "text": "do longer arms make a bigger angle?",
             "x": 120,
             "y": 150,
-            "size": 28
+            "size": 28,
+            "explain": "The trap question: do longer arms make a bigger angle?"
           }
         },
         {
@@ -1921,7 +1991,8 @@
             ],
             "fill": "none",
             "stroke": "#1a1a1a",
-            "strokeWidth": 2
+            "strokeWidth": 2,
+            "explain": "The bigger arc: the same 45-degree turn drawn with longer arms."
           }
         },
         {
@@ -1933,7 +2004,8 @@
             "text": "no — still 45°",
             "x": 560,
             "y": 280,
-            "size": 32
+            "size": 32,
+            "explain": "The answer: no, the angle is still 45 degrees."
           }
         },
         {
