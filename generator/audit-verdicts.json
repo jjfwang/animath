@@ -367,5 +367,41 @@
     "verdict": "box-model-artifact",
     "evidence": "PIL (DejaVu Sans 28, anchor ls left+baseline per runs 402/404, FULL verbatim text 'owl' per run 412) verified 2026-10-09 on the current tree: label inks x621-665 y409-429 at (620,430); w4 arrow (700,310)->(350,410) width 3 (shaft plus player.js arrowhead hs=10+2w=16 at the (350,410) tip) inks x348-701 y308-412; 0 shared ink px, 79.1px min clearance (shaft at the label's x-range runs y~320-333). The audit's 478px^2 is the arrow's segment-bbox bottom band (y up to 412) grazing the label text box top -- pure bbox over-approximation; both shapes static, so the banded [5000-11000ms] band is pure coexistence. The label sits at the arrow's tail side by design; the flagged overlap is not real.",
     "date": "2026-10-09"
+  },
+  {
+    "file": "secondary-e-algebra.json",
+    "scene": "s2",
+    "label": "g1",
+    "shape": "grp2",
+    "verdict": "box-model-artifact",
+    "evidence": "Conservative latex box (height=size*1.2, top-left anchor) grazes grp2 top edge by ~3px; rendered glyphs sit ~50px above the box, visually clear. Issue #596 remediation triage 2026-10-11.",
+    "date": "2026-10-11"
+  },
+  {
+    "file": "secondary-e-algebra.json",
+    "scene": "s2",
+    "label": "chip2",
+    "shape": "grp2",
+    "verdict": "box-model-artifact",
+    "evidence": "Conservative latex box grazes grp2 edge at chip2 rest position; rendered '2' sits clear of the grouping box. Issue #596 remediation triage 2026-10-11.",
+    "date": "2026-10-11"
+  },
+  {
+    "file": "secondary-e-algebra.json",
+    "scene": "s2",
+    "label": "chip2",
+    "shape": "grp1",
+    "verdict": "box-model-artifact",
+    "evidence": "Conservative latex box grazes grp1 edge at chip2 rest position; rendered '2' sits clear of the grouping box. Issue #596 remediation triage 2026-10-11.",
+    "date": "2026-10-11"
+  },
+  {
+    "file": "secondary-e-algebra.json",
+    "scene": "s2",
+    "label": "chipy",
+    "shape": "grp2",
+    "verdict": "box-model-artifact",
+    "evidence": "Conservative latex box grazes grp2 edge at chipy rest position; rendered 'y' sits clear of the grouping box. Issue #596 remediation triage 2026-10-11.",
+    "date": "2026-10-11"
   }
 ]
