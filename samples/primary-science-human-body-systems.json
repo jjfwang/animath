@@ -778,7 +778,7 @@
      "at_ms": 2000,
      "do": "show",
      "shape": {
-      "id": "wrongText",
+      "id": "wrongText", "explain": "The trap statement: blood is never used up, it loops around the body.",
       "kind": "text",
       "x": 263.7,
       "y": 77,

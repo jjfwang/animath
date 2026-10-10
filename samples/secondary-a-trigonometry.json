@@ -137,7 +137,7 @@
           "at_ms": 3600,
           "do": "show",
           "shape": {
-            "id": "cosLab",
+            "id": "cosLab", "explain": "The cos label: the horizontal leg of the triangle on the unit circle.",
             "kind": "text",
             "x": 660,
             "y": 392,
@@ -149,7 +149,7 @@
           "at_ms": 3800,
           "do": "show",
           "shape": {
-            "id": "sinLab",
+            "id": "sinLab", "explain": "The sin label: the vertical leg of the triangle on the unit circle.",
             "kind": "text",
             "x": 505,
             "y": 400,
@@ -545,7 +545,7 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "leg4",
+            "id": "leg4", "explain": "Side b: length 4, the vertical leg of the 3-4-5 triangle.",
             "kind": "line",
             "x1": 100,
             "y1": 470,
@@ -559,7 +559,7 @@
           "at_ms": 2900,
           "do": "show",
           "shape": {
-            "id": "lab3",
+            "id": "lab3", "explain": "The side-a label: length 3, the horizontal leg.",
             "kind": "text",
             "x": 155,
             "y": 498,
@@ -571,7 +571,7 @@
           "at_ms": 3000,
           "do": "show",
           "shape": {
-            "id": "lab4",
+            "id": "lab4", "explain": "The side-b label: length 4, the vertical leg.",
             "kind": "text",
             "x": 76,
             "y": 412,
@@ -643,7 +643,7 @@
           "at_ms": 6200,
           "do": "show",
           "shape": {
-            "id": "wy",
+            "id": "wy", "explain": "The vertical axis: the wave's height.",
             "kind": "line",
             "x1": 600,
             "y1": 330,
@@ -722,7 +722,7 @@
           "at_ms": 6800,
           "do": "show",
           "shape": {
-            "id": "w4",
+            "id": "w4", "explain": "The original wave: a cos x plus b sin x, two waves added.",
             "kind": "polygon",
             "points": [
               [
@@ -830,7 +830,7 @@
           "at_ms": 7900,
           "do": "show",
           "shape": {
-            "id": "w2",
+            "id": "w2", "explain": "One segment of the merged wave: a single cosine of amplitude 5.",
             "kind": "polygon",
             "points": [
               [
@@ -863,7 +863,7 @@
           "at_ms": 8200,
           "do": "show",
           "shape": {
-            "id": "w3c",
+            "id": "w3c", "explain": "One segment of the merged wave: a single cosine of amplitude 5.",
             "kind": "polygon",
             "points": [
               [
@@ -1004,7 +1004,7 @@
           "at_ms": 2800,
           "do": "show",
           "shape": {
-            "id": "trueLab",
+            "id": "trueLab", "explain": "The true label: cos 60 degrees really is one half.",
             "kind": "text",
             "x": 596,
             "y": 290,
@@ -1054,7 +1054,7 @@
           "at_ms": 4700,
           "do": "show",
           "shape": {
-            "id": "badLab",
+            "id": "badLab", "explain": "The wrong label: cos 30 plus cos 30 is not cos 60.",
             "kind": "text",
             "x": 790,
             "y": 440,

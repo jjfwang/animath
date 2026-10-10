@@ -272,7 +272,7 @@
           "do": "show",
           "shape": {
             "color": "#212121",
-            "id": "spotLabel",
+            "id": "spotLabel", "explain": "The challenge question: the moth is hard to spot because it matches the bark.",
             "kind": "text",
             "size": 32,
             "text": "Can you see the moth?",
