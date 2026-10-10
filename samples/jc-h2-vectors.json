@@ -280,6 +280,7 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
+            "explain": "Vector a: the first arrow in the dot-product pair.",
             "id": "a",
             "kind": "arrow",
             "stroke": "#1f7a3a",
@@ -294,6 +295,7 @@
           "at_ms": 1400,
           "do": "show",
           "shape": {
+            "explain": "Vector b: the dot product measures how much of a points along b.",
             "id": "b",
             "kind": "arrow",
             "stroke": "#1a56db",
@@ -662,6 +664,7 @@
           "at_ms": 5000,
           "do": "show",
           "shape": {
+            "explain": "Direction vectors are free: the same arrow drawn anywhere is the same vector.",
             "id": "dirLab",
             "kind": "text",
             "size": 26,
