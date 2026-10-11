@@ -51,6 +51,14 @@
   .rubric .dim { color: #6b6455; white-space: nowrap; }
   .rubric .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .rubric .note { color: #6b6455; font-size: 13px; }
+  /* Geometry audit advisory (#614): warned-only findings on the generated
+     spec — a warm amber block so it reads as a suggestion, not an error. */
+  .geom { background: #fffdf4; border: 1px solid #e3c77e; border-radius: 12px;
+          padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .geom h3 { font-size: 15px; margin: 0 0 8px; }
+  .geom ul { margin: 0; padding-left: 20px; }
+  .geom li { margin: 3px 0; }
+  .geom .gk { color: #6b6455; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -105,6 +113,8 @@
   </div>
   <div class="rubric" id="rubricscore" role="region" aria-label="Teacher rubric score"
        tabindex="0" style="display:none"></div>
+  <div class="geom" id="geomwarn" role="status" aria-label="Geometry audit advisory"
+       style="display:none"></div>
   <div id="stage"></div>
   <div id="err"></div>
 
@@ -118,6 +128,9 @@
 <script src="../generator/build_prompt.js"></script>
 <script src="../generator/llm_client.js"></script>
 <script src="../generator/rubric.js"></script>
+<!-- Geometry audit (#614): text-vs-shape check surfaced as an advisory
+     warning on generated specs. Same guarded-global pattern as the rubric. -->
+<script src="../generator/geometry.js"></script>
 <script src="../player/validate.js"></script>
 <script src="../player/player.js"></script>
 <!-- Export WebM (#506): record the generated animation as a WebM video.
@@ -145,6 +158,7 @@
   var errEl = document.getElementById('err');
   var specBtns = document.getElementById('specbtns');
   var scoreEl = document.getElementById('rubricscore');
+  var geomEl = document.getElementById('geomwarn');
 
   // restore saved LLM settings
   try {
@@ -293,6 +307,7 @@
     errEl.innerHTML = '';
     specBtns.style.display = 'none';
     scoreEl.style.display = 'none';
+    geomEl.style.display = 'none';
     // export state tracks the current spec: clear it at generation start so a
     // failed validation leaves getSpec() null (demo.html pattern)
     lastSpec = null;
@@ -345,6 +360,27 @@
       scoreEl.style.display = '';
     }
 
+    // Geometry audit (#614): surface text-vs-shape findings as an ADVISORY
+    // warning next to the rubric panel — playback continues, nothing feeds
+    // the repair loop (owner decision delegated 2026-10-11). Only findings
+    // classified 'genuine' render; a clean audit leaves the block hidden.
+    function renderGeomAdvisory(classified) {
+      var esc = function (s) { return String(s).replace(/</g, '&lt;'); };
+      var genuine = classified.filter(function (c) { return c.verdict === 'genuine'; });
+      if (!genuine.length) { geomEl.style.display = 'none'; return; }
+      var items = genuine.map(function (c) {
+        var f = c.finding;
+        return '<li><span class="gk">' + esc(f.kind) + '</span>' +
+          (f.scene ? ' in ' + esc(f.scene) : '') + ': ' + esc(f.detail) + '</li>';
+      }).join('');
+      geomEl.innerHTML =
+        '<h3>Layout check: ' + genuine.length +
+        (genuine.length === 1 ? ' possible overlap' : ' possible overlaps') +
+        ' (advisory — playback continues)</h3>' +
+        '<ul>' + items + '</ul>';
+      geomEl.style.display = '';
+    }
+
     AnimathLLM.generateSpecWithRepair({
       baseUrl: baseUrlEl.value.trim(),
       apiKey: key,
@@ -364,6 +400,13 @@
       player.play();
       if (window.AnimathRubric && window.AnimathRubric.scoreSpec) {
         renderRubric(window.AnimathRubric.scoreSpec(spec));
+      }
+      // The call is guarded on the geometry global so the page stays unbroken
+      // if the script tag ever fails to load.
+      if (window.AnimathGeometry && window.AnimathGeometry.auditGeometry &&
+          window.AnimathGeometry.classifyFindings) {
+        renderGeomAdvisory(window.AnimathGeometry.classifyFindings(
+          spec, window.AnimathGeometry.auditGeometry(spec)));
       }
       setStatus('Playing: ' + spec.title);
       stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
