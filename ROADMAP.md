@@ -6,7 +6,7 @@ issue; items become GitHub issues (the umbrella is #1).
 ## P0 — Foundation (done, initial commit)
 
 - [x] `SPEC.md` v0.1 contract
-- [x] `SYLLABUS.md` topic taxonomy (primary / secondary / JC, math + science)
+- [x] `SYLLABUS.md` topic taxonomy (primary / secondary / JC, math + science, plus Primary Geography (PSLE) — the #644 proof subject; Languages/Literature out of scope)
 - [x] `PROMPTS.md` generator templates
 - [x] `player/`: SVG renderer, validator, demo page
 - [x] `generator/`: prompt builder + OpenAI-compatible client
@@ -16,7 +16,7 @@ issue; items become GitHub issues (the umbrella is #1).
 
 ## R-1 — Sample packs (loop priority: coverage across the syllabus)
 
-All five packs shipped: 69 hand-authored samples, 67/67 syllabus slugs covered.
+All five packs shipped: 72 hand-authored samples, 70/70 syllabus slugs covered — including the Primary geography proof set from #644 (erosion, plate-tectonics, weather-climate). Languages and Literature stay out of #644's scope.
 
 - [x] Primary math pack: decimals, percentage, ratio, area, speed
 - [x] Primary science pack: water cycle, human body systems, forces
