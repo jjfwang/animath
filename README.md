@@ -132,8 +132,8 @@ const { scoreSpec } = require('@jjfwang/animath/rubric');
 ```
 
 The generator modules are zero-dependency UMD, so they also work in
-browsers via script tag (`generator/charts.js` etc. expose the same names as
-globals). The player is DOM-based — load `player/player.css` and
+browsers via script tag, exposing namespaced globals (`AnimathCharts`,
+`AnimathGeometry`, `AnimathRubric`, `AnimathPrompt`, ...). The player is DOM-based — load `player/player.css` and
 `player/player.js` in the page and call `AnimathPlayer.mount(el, spec)`.
 `llm-client` needs your own OpenAI-compatible API key.
 
