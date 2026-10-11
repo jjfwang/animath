@@ -1,5 +1,5 @@
 {
-  "description": "Animated math and science problems for the Singapore syllabus - LLM-authored animation specs (generator) plus a zero-dependency browser player.",
+  "description": "Animated explanations for the Singapore syllabus - LLM-authored animation specs (generator) plus a zero-dependency browser player.",
   "engines": {
     "node": ">=16"
   },
