@@ -1297,15 +1297,15 @@ test631('issue #631: controls, keyboard, and filmstrip wiring', () => {
     g.pump(2000);
     assert631.equal(tlabel.textContent, '0:03 / 0:04', '1.5x speed advances the clock');
 
-    // Scrub input pauses and re-renders. NOTE: the handler calls pause()
-    // first, and pause()'s updateChrome() syncs the slider back to the
-    // clock before the handler reads it — so a synthetic drag value is
-    // clobbered and the re-render lands on the current clock position.
-    // (SPEC.md p85-86 says the scrubbed position should render; the
-    // pause-before-read makes that unreachable — flagged as a follow-up.)
+    // Scrub input pauses and re-renders at the dragged position. The handler
+    // captures scrub.value before pause() (pause()'s updateChrome() syncs
+    // the slider back to the clock), so the re-render lands on the dragged
+    // position per SPEC.md p85-86. Clock is at 0:03 of 0:04 here; the drag
+    // to 500/1000 lands at 2s.
+    scrub.value = '500';
     scrub.dispatch631('input', {});
     assert631.ok(btnPlay.innerHTML.indexOf('9654') !== -1, 'scrub leaves the player paused');
-    assert631.equal(tlabel.textContent, '0:03 / 0:04', 'scrub re-renders at the clock position');
+    assert631.equal(tlabel.textContent, '0:02 / 0:04', 'scrub re-renders at the dragged position');
 
     // Keyboard: space toggles, arrows move scenes, unmapped keys ignored,
     // and keys typed in an input are not shortcuts.
