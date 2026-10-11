@@ -12,6 +12,7 @@
     "./llm-client": "./generator/llm_client.js",
     "./misconceptions": "./generator/misconceptions.js",
     "./package.json": "./package.json",
+    "./embed": "./web/embed.js",
     "./player": "./player/player.js",
     "./player-validate": "./player/validate.js",
     "./rubric": "./generator/rubric.js"
@@ -19,6 +20,7 @@
   "files": [
     "generator/",
     "player/",
+    "web/embed.js",
     "README.md",
     "LICENSE",
     "PROMPTS.md",

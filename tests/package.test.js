@@ -19,6 +19,7 @@ const EXPECTED_APIS = {
   './misconceptions': ['MISCONCEPTIONS'],
   './llm-client': ['generateSpec'],
   './player': ['mount'],
+  './embed': ['mount'],
   './player-validate': ['validateSpec'],
 };
 
