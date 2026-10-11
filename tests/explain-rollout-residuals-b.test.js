@@ -17,7 +17,7 @@
  * The cases cover every nearPoint kind branch present in this batch: text,
  * line, rect, latex, circle, polygon, arrow (no sector in these files).
  * This file also carries the REPO-WIDE zero-missing-explains check across all
- * 69 samples - the check the per-batch ad-hoc reviewer scripts never ran, so
+ * 72 samples - the check the per-batch ad-hoc reviewer scripts never ran, so
  * this class of residual cannot recur.
  * Run: node --test "tests/*.test.js"
  */
@@ -150,7 +150,7 @@ test('repo-wide: zero zero-explain shape ids across all samples', () => {
   const files = fs.readdirSync(samplesDir)
     .filter((f) => f.endsWith('.json') && f !== 'index.json')
     .sort();
-  assert.equal(files.length, 69, '69 samples on disk');
+  assert.equal(files.length, 72, '72 samples on disk');
   const bad = [];
   for (const file of files) {
     const spec = loadSample(file);

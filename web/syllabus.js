@@ -32,6 +32,13 @@ window.ANIMATH_SYLLABUS = {
             { slug: 'forces-magnets', label: 'Forces & magnets' },
             { slug: 'adaptations', label: 'Adaptations' }
           ]
+        },
+        {
+          id: 'p-geog', label: 'Geography', subject: 'geography', topics: [
+            { slug: 'erosion', label: 'Erosion' },
+            { slug: 'plate-tectonics', label: 'Plate tectonics' },
+            { slug: 'weather-climate', label: 'Weather & climate' }
+          ]
         }
       ]
     },

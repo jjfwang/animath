@@ -15,7 +15,7 @@ implementation. If code and spec disagree, the code is wrong.
 | `animath` | string                            | spec version, currently `"0.1"`                    |
 | `title`   | string                            | human title, shown in the player header            |
 | `level`   | `"primary"` \| `"secondary"` \| `"jc"` |                                              |
-| `subject` | `"math"` \| `"science"`           |                                                    |
+| `subject` | `"math"` \| `"science"` \| `"geography"` |                             |
 | `topic`   | string                            | slug from `SYLLABUS.md`                            |
 | `kind`    | `"concept"` \| `"problem"`        | concept = explain an idea; problem = pose then solve |
 | `canvas`  | `{width, height}`                 | pixels; `960 × 540` recommended                    |

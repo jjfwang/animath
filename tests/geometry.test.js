@@ -230,9 +230,9 @@ test('auditSampleFile: backslash in filename is stripped to the basename', () =>
   assert.equal(f[0].file, 'ird.json');
 });
 
-test('auditAllSamples: full manifest — 69 samples, well-formed records', () => {
+test('auditAllSamples: full manifest — 72 samples, well-formed records', () => {
   const manifest = JSON.parse(fs.readFileSync(path.join(samplesDir, 'index.json'), 'utf8'));
-  assert.equal(manifest.length, 69);
+  assert.equal(manifest.length, 72);
   const findings = auditAllSamples(samplesDir);
   assert.ok(Array.isArray(findings));
   wellFormed(findings);
