@@ -954,8 +954,9 @@
     });
     scrub.addEventListener('input', function () {
       var scene = spec.scenes[state.sceneIdx];
+      var scrubbed = Number(scrub.value);
       pause();
-      renderSceneAt(state.sceneIdx, (Number(scrub.value) / 1000) * scene.duration_ms, true);
+      renderSceneAt(state.sceneIdx, (scrubbed / 1000) * scene.duration_ms, true);
     });
     speedSel.addEventListener('change', function () {
       state.speed = Number(speedSel.value);
