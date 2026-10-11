@@ -114,6 +114,32 @@ keyboard-accessible. On browsers without `MediaRecorder` (checked by `supportChe
 fail-closed with human-readable reasons), the button is disabled and shows the
 reason as a tooltip plus an "Export unavailable: <reason>" status message.
 
+## Install as a library
+
+Other projects can import the generator modules and the player directly:
+
+```sh
+npm install @jjfwang/animath
+# or straight from git, no registry needed:
+npm install github:jjfwang/animath
+```
+
+```js
+const { buildPrompts } = require('@jjfwang/animath/build-prompt');
+const charts = require('@jjfwang/animath/charts');
+const { auditGeometry } = require('@jjfwang/animath/geometry');
+const { scoreSpec } = require('@jjfwang/animath/rubric');
+```
+
+The generator modules are zero-dependency UMD, so they also work in
+browsers via script tag, exposing namespaced globals (`AnimathCharts`,
+`AnimathGeometry`, `AnimathRubric`, `AnimathPrompt`, ...). The player is DOM-based — load `player/player.css` and
+`player/player.js` in the page and call `AnimathPlayer.mount(el, spec)`.
+`llm-client` needs your own OpenAI-compatible API key.
+
+To publish a new version to the npm registry: `npm login`, bump
+`version` in `package.json`, then `npm publish --access public`.
+
 ## Singapore syllabus coverage
 
 Primary (PSLE) · Secondary (O/N-level, E-Math & A-Math, Physics / Chemistry /

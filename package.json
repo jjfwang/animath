@@ -1,0 +1,44 @@
+{
+  "description": "Animated math and science problems for the Singapore syllabus - LLM-authored animation specs (generator) plus a zero-dependency browser player.",
+  "engines": {
+    "node": ">=16"
+  },
+  "exports": {
+    ".": "./generator/build_prompt.js",
+    "./audit": "./generator/audit.js",
+    "./build-prompt": "./generator/build_prompt.js",
+    "./charts": "./generator/charts.js",
+    "./geometry": "./generator/geometry.js",
+    "./llm-client": "./generator/llm_client.js",
+    "./misconceptions": "./generator/misconceptions.js",
+    "./package.json": "./package.json",
+    "./player": "./player/player.js",
+    "./player-validate": "./player/validate.js",
+    "./rubric": "./generator/rubric.js"
+  },
+  "files": [
+    "generator/",
+    "player/",
+    "README.md",
+    "LICENSE",
+    "PROMPTS.md",
+    "SPEC.md"
+  ],
+  "keywords": [
+    "math",
+    "animation",
+    "education",
+    "singapore-syllabus",
+    "svg",
+    "llm"
+  ],
+  "license": "MIT",
+  "main": "./generator/build_prompt.js",
+  "name": "@jjfwang/animath",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jjfwang/animath.git"
+  },
+  "type": "commonjs",
+  "version": "0.1.0"
+}
