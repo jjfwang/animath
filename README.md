@@ -1,6 +1,6 @@
 # animath
 
-Animated math & science problems and concepts, generated on demand for the
+Animated problems and concepts across all school subjects, generated on demand for the
 Singapore syllabus — primary, secondary, and junior college.
 
 **The idea:** a student picks what they need (level → subject → topic, or just
@@ -166,8 +166,8 @@ To publish a new version to the npm registry: `npm login`, bump
 
 ## Singapore syllabus coverage
 
-Primary (PSLE) · Secondary (O/N-level, E-Math & A-Math, Physics / Chemistry /
-Biology) · JC (H2 Math / Physics / Chemistry / Biology). Full topic list with
+Primary (PSLE) · Secondary (O/N-level) · JC (H2) — all subjects. Today's topic
+list covers math and science; new subjects land per #644. Full topic list with
 slugs in `SYLLABUS.md`.
 
 ## Teacher rubric
