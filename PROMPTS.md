@@ -75,10 +75,12 @@ MECHANISM-FIRST — every scene must show the mechanism, not just tell it:
 
 The `{{MISCONCEPTION_LINE}}` slot is filled per topic by
 `generator/misconceptions.js` — an exact-slug or longest dash-boundary-prefix
-lookup into 67 entries across 5 slices (primary math/science, secondary
-math/science, H2), selecting the facet matching the builder's facet hint and
-degrading to the generic line ("show the classic wrong turn playing out visually, not just a caption saying it is wrong") when the topic
-does not resolve.
+lookup into 67 entries across 5 slices following the syllabus bands (Primary
+Math, Primary Science, Secondary Math, Secondary Science, H2), selecting the
+facet matching the builder's facet hint. New subjects add new slices (see the
+per-subject onboarding pattern, issue #668); topics outside the bank fall back
+to the generic line ("show the classic wrong turn playing out visually, not
+just a caption saying it is wrong") instead of resolving.
 
 ## User prompt
 

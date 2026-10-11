@@ -234,7 +234,7 @@
     return errors;
   }
 
-  return { validateSpec: validateSpec };
+  return { validateSpec: validateSpec, SUBJECTS: SUBJECTS };
 });
 
 /* ------------------------------------------------------------------
