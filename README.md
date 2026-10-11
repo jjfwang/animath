@@ -136,6 +136,17 @@ Invalid (non-object) input scores 0 with a reason and never throws. Works
 in the browser too — load `player/validate.js` and
 `generator/build_prompt.js` before it.
 
+In the generator web app (`web/index.html`) the rubric is wired into the
+page: the page loads `../generator/rubric.js` alongside the other generator
+scripts, and after `generateSpecWithRepair` resolves with a validated spec
+it calls `window.AnimathRubric.scoreSpec(spec)` — guarded, so the page stays
+unbroken if the script tag ever fails to load — and renders a compact score
+panel next to the player: the total (out of 120) plus the six dimension
+scores, each with its first note (`'no notes'` when a dimension recorded
+none). The panel is a keyboard-reachable region (`role="region"`,
+`tabindex="0"`), starts hidden, and hides again at the start of every
+generation.
+
 ## Geometry audit
 
 `generator/geometry.js` statically audits text geometry across a spec:
