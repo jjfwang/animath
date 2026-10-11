@@ -307,6 +307,42 @@ test('validator rejects LaTeX in text shapes', () => {
   assert.ok(problems.some((p) => p.includes('LaTeX')), 'expected a LaTeX rejection');
 });
 
+test('validator rejects a text shape with an invalid align value', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape.align = 'left';
+  const problems = validateSpec(spec);
+  assert.ok(problems.includes('scenes[0].steps[0].shape.align: must be start|middle|end'),
+    'expected an align error, got: ' + problems.join('; '));
+});
+
+test('validator rejects non-hex fill and stroke colors', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps[0].shape.fill = 'red';
+  spec.scenes[0].steps[0].shape.stroke = 'red';
+  const problems = validateSpec(spec);
+  assert.ok(problems.includes('scenes[0].steps[0].shape.fill: must be a CSS hex color or "none"'),
+    'expected a fill color error, got: ' + problems.join('; '));
+  assert.ok(problems.includes('scenes[0].steps[0].shape.stroke: must be a CSS hex color or "none"'),
+    'expected a stroke color error, got: ' + problems.join('; '));
+});
+
+test('validator rejects a scene with an empty steps array', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.scenes[0].steps = [];
+  const problems = validateSpec(spec);
+  assert.ok(problems.includes('scenes[0].steps: required non-empty array'),
+    'expected an empty-steps error, got: ' + problems.join('; '));
+});
+
+test('validator rejects a step with an unknown do verb', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  const atMs = spec.scenes[0].steps[0].at_ms;
+  spec.scenes[0].steps[0] = { at_ms: atMs, do: 'dance' };
+  const problems = validateSpec(spec);
+  assert.ok(problems.includes('scenes[0].steps[0].do: must be show|hide|move|emphasize|caption'),
+    'expected a do-verb error, got: ' + problems.join('; '));
+});
+
 test('validator accepts a valid latex shape', () => {
   const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
   spec.scenes[0].steps[0].shape = {
