@@ -167,7 +167,9 @@ To publish a new version to the npm registry: `npm login`, bump
 ## Singapore syllabus coverage
 
 Primary (PSLE) · Secondary (O/N-level) · JC (H2) — all subjects. Today's topic
-list covers math and science; new subjects land per #644. Full topic list with
+list covers math and science, plus Primary Geography (PSLE) — the first proof
+subject from #644, with erosion, plate-tectonics and weather-climate samples.
+Languages and Literature stay out of #644's scope. Full topic list with
 slugs in `SYLLABUS.md`.
 
 ## Teacher rubric
@@ -220,7 +222,7 @@ tolerance, and latex anchors are checked against the canvas (no width
 estimate — KaTeX width is not statically computable). Shapes moved by
 later `move` steps are audited at their show-time position (documented
 limitation). `auditAllSamples('samples')` runs the audit over all
-69 samples in `samples/index.json` and returns finding records
+72 samples in `samples/index.json` and returns finding records
 `{file, scene, kind, detail}`. Run the check (with coverage) via
 `node --test --experimental-test-coverage "tests/*.test.js"` — every line
 of the module is covered by `tests/geometry.test.js`.
