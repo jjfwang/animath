@@ -6,29 +6,31 @@
  * scores a generated spec before showing it to a student. Non-object input
  * scores 0 with a reason and never throws.
  *
- * MEASURED BANDS — computed live over the 69 hand-authored samples
- * (330 scenes, 3415 consecutive step gaps), not invented:
- * - Scene duration_ms: min 6000, max 12000, p5 6000, p95 11000
+ * MEASURED BANDS — computed live over the 72 hand-authored samples
+ * (342 scenes, 6832 consecutive step gaps) by
+ * generator/tooling/measure-rubric-bands.js (issue #663), not invented:
+ * - Scene duration_ms: min 6000, max 12000, p5 6000, p95 11500
  *   (SPEC.md allows 4000-12000). The rubric scores the tighter measured
  *   band 6000-12000; a spec inside the SPEC range but outside the measured
  *   band loses pacing points only.
- * - Step spacing (consecutive at_ms gaps, sorted): min 0, max 3700, p5 50,
- *   p95 1600. Any gap > 3700 loses pacing points.
- * - Scene count: 4-8 across the samples (SPEC.md allows 2-8).
+ * - Step spacing (consecutive at_ms gaps, sorted): min 0, max 3500, p5 0,
+ *   p95 1200. Any gap > 3500 loses pacing points.
+ * - Scene count: 3-8 across the samples (SPEC.md allows 2-8).
  * - Canvas: every sample is 960x540; specs without a canvas default to it.
- * - Captions: all 330 non-empty, 11-61 chars, p95 50. Bound: non-empty,
+ * - Captions: all 342 non-empty, 11-61 chars, p95 52. Bound: non-empty,
  *   at most 80 chars.
  * - Text char budget by rendered size (each tier sits above its measured
- *   maximum): size >= 48 -> 24 chars; 32-44 -> 70; 24-30 -> 100;
- *   <= 22 -> 60. Shapes without a numeric size are scored as size 24.
- *   latex shapes carry tex source, not rendered labels, so they get a
- *   separate looser budget of 150 chars.
+ *   maximum, rounded up to a round number): size >= 48 -> 24 chars;
+ *   32-44 -> 70; 24-30 -> 100; <= 22 -> 80 (measured max 72, from the
+ *   explain-tooltip batches). Shapes without a numeric size are scored as
+ *   size 24. latex shapes carry tex source, not rendered labels, so they
+ *   get a separate looser budget of 150 chars (measured max 144).
  *
  * PEDAGOGY HEURISTICS — documented as heuristics, owner-reversible:
  * - kind "problem" follows PROMPTS.md "state the problem -> plan -> solve
  *   -> box the answer": at least 3 scenes plus an answer beat in the final
  *   scene (caption/narration matching /\b(answer|solved|solution|boxed)\b/i,
- *   or an emphasize step there). Zero of the 69 samples are kind "problem",
+ *   or an emphasize step there). Zero of the 72 samples are kind "problem",
  *   so this check is untested against ground truth; concept specs are never
  *   failed on it.
  * - When the topic resolves through misconceptionFor() in
@@ -36,7 +38,7 @@
  *   holds only the data map, do not copy it), the spec should carry one
  *   wrong-turn marker beat, matched by
  *   /watch out|common mistake|many students|easy to think|\btrap\b|a mistake|
- *   wrong answer|tempting to/i over caption+narration. Measured: only 18/69
+ *   wrong answer|tempting to/i over caption+narration. Measured: 69/72
  *   exemplars match, so this sub-check is worth at most half the pedagogy
  *   dimension and is skipped when the topic does not resolve.
  * Skip-if-inapplicable: an inapplicable pedagogy sub-check is skipped and
@@ -48,7 +50,7 @@
  *   at least one move step; or staged build (>= 2 show steps of diagram
  *   shapes — rect/circle/line/arrow/polygon, not text/latex — whose
  *   axis-aligned bboxes intersect, ordered across consecutive at_ms beats);
- *   or staged transform (a hide of a diagram shape followed within 1600ms,
+ *   or staged transform (a hide of a diagram shape followed within 1200ms,
  *   the measured p95 consecutive step gap, by a show of a diagram shape
  *   whose bbox intersects the hidden shape's bbox). Which steps were
  *   counted is recorded in the dimension notes.
@@ -98,8 +100,8 @@
   var DIM_MAX = 20;
   var MIN_DURATION = 6000;   // measured band (SPEC.md allows 4000)
   var MAX_DURATION = 12000;  // measured band (== SPEC.md max)
-  var MAX_GAP = 3700;        // measured max consecutive step gap
-  var MAX_CAPTION = 80;      // measured max 61, p95 50
+  var MAX_GAP = 3500;        // measured max consecutive step gap
+  var MAX_CAPTION = 80;      // measured max 61, p95 52
   var DEFAULT_W = 960;
   var DEFAULT_H = 540;
   var LATEX_BUDGET = 150;    // tex source, not rendered label
@@ -123,12 +125,14 @@
   }
 
   // Char budget tier by rendered text size; non-numeric size -> size 24 tier.
+  // Budgets sit above the measured per-tier maxima (11/46/61/72), rounded
+  // up — re-derive with generator/tooling/measure-rubric-bands.js.
   function textBudget(size) {
     var s = (typeof size === 'number' && isFinite(size)) ? size : 24;
     if (s >= 48) return 24;
     if (s >= 32) return 70;
     if (s >= 24) return 100;
-    return 60;
+    return 80;
   }
 
   // --- dimension 1: contract validity ------------------------------------
@@ -346,7 +350,7 @@
   // a genuine state transition — move steps, a staged diagram build, or a
   // staged diagram rebuild. Owner-reversible.
 
-  var STAGE_MS = 1600; // measured p95 consecutive step gap
+  var STAGE_MS = 1200; // measured p95 consecutive step gap
 
   function num(x) {
     return (typeof x === 'number' && isFinite(x)) ? x : undefined;
@@ -503,5 +507,20 @@
     return { score: score, maxScore: maxScore, dimensions: dimensions };
   }
 
-  return { scoreSpec: scoreSpec };
+  return {
+    scoreSpec: scoreSpec,
+    // Measured-band constants, re-derived live from samples/*.json by
+    // generator/tooling/measure-rubric-bands.js (issue #663). Exported so
+    // tests/tooling-bands.test.js can lock them against the live corpus;
+    // the browser build keeps working — web/index.html only uses scoreSpec.
+    bands: {
+      MIN_DURATION: MIN_DURATION,
+      MAX_DURATION: MAX_DURATION,
+      MAX_GAP: MAX_GAP,
+      MAX_CAPTION: MAX_CAPTION,
+      LATEX_BUDGET: LATEX_BUDGET,
+      STAGE_MS: STAGE_MS
+    },
+    textBudget: textBudget
+  };
 });

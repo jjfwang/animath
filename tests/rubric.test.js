@@ -55,7 +55,7 @@ function brokenSpec() {
             'This heading is far too long for size 48 text and must fail the char budget')),
           // canvas: t1 is off-canvas (x 2000) and over budget (size>=48 -> 24)
           { at_ms: 5000, do: 'show', shape: textShape('t2', 10, 10, 24, 'ok') }
-          // pacing: gap 5000 > 3700; contract: at_ms >= duration_ms
+          // pacing: gap 5000 > 3500; contract: at_ms >= duration_ms
         ]
       },
       {
@@ -72,7 +72,7 @@ function brokenSpec() {
           // no id on this shape -> '?' label; off-canvas so the label appears in notes
           { at_ms: 400, do: 'show', shape: textShape(undefined, 2000, 50, 40, 'no id on this shape') },
           showShape('small', textShape('small', 50, 90, 18,
-            'this small text is longer than sixty characters so it fails its tier budget'), 500),
+            'this small text is deliberately far longer than eighty characters so it still fails its tier budget'), 500),
           showShape('nosize', textShape('nosize', 50, 130, undefined, 'default size text, fine'), 600),
           showShape('weirdsize', textShape('weirdsize', 50, 170, 'big', 'non-numeric size, also fine'), 700),
           showShape('notext', { id: 'notext', kind: 'text', x: 5, y: 5 }, 800), // no text field
@@ -317,7 +317,7 @@ test('mechanism density: hide followed by an intersecting show counts as rebuild
     showShape('r2', rectShape('r2', 400, 400, 80, 40), 2500)
   ]);
   const d2 = dimByName(scoreSpec(mechSpec([late])), 'mechanism density');
-  assert.equal(d2.score, 0, 'rebuild past the 1600ms window must not count');
+  assert.equal(d2.score, 0, 'rebuild past the 1200ms window must not count');
 
   // hiding an id that was never shown never throws
   const ghost = mkScene('s3', 'Ghost', 7000, [

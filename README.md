@@ -177,7 +177,7 @@ slugs in `SYLLABUS.md`.
 `generator/rubric.js` scores a generated spec 0-120 across six dimensions
 (20 points each): contract validity (`player/validate.js` clean), pacing
 (scene durations in the measured 6000-12000ms band, step gaps at most
-3700ms), captions (every scene non-empty, at most 80 chars), pedagogy
+3500ms), captions (every scene non-empty, at most 80 chars), pedagogy
 (worked-solution answer beat for kind `problem`; a wrong-turn marker beat
 when the topic resolves in the misconception library — both documented
 heuristics, skipped when inapplicable), canvas bounds (every shape

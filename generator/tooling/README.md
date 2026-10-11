@@ -121,7 +121,6 @@ does not rewrite the sample. Like `gen-render-snapshots.js` (issue
 its acceptance is review reading it against the test's consumption.
 
 ## regen-prompt-mirror.js (issue #620)
-
 Regenerates the PROMPTS.md "## System prompt" fenced block from the
 evaluated SYSTEM_TEMPLATE in `generator/build_prompt.js`, spliced in
 byte-for-byte. The block is locked to the template by
@@ -161,6 +160,55 @@ drifted block it restores byte-identity. The demonstrated acceptance is
 the covered suite plus review reading the script against the test's
 markers. Like the other scripts here, this is maintainer-side: it never
 runs as part of the app.
+
+## measure-rubric-bands.js (issue #663)
+
+Re-derives the "MEASURED BANDS" numbers documented in `generator/rubric.js`
+live from `samples/*.json` (except `index.json`) — the corpus the rubric's
+constants were fitted to. Re-run it whenever samples are added, removed, or
+edited, and update the rubric's comment and constants from its output when
+a band genuinely shifts.
+
+Requirements: Node, zero dependencies.
+
+What it does (from the repo root):
+
+    node generator/tooling/measure-rubric-bands.js
+
+1. Scans every sample: scene `duration_ms` values; consecutive `at_ms`
+   gaps per scene (numeric finite values sorted ascending, differenced —
+   the same construction `scorePacing` uses); scene counts; caption
+   lengths; per-size-tier text char maxima (a missing/non-numeric size is
+   scored as size 24, mirroring `textBudget`; only `show` steps are
+   scanned, like the canvas-bounds dimension); latex `tex` maxima; the
+   kind `"problem"` count; and the wrong-turn marker match rate over
+   topics that resolve via the shared `generator/build_prompt.js`
+   `misconceptionFor` lookup (the marker regex must stay byte-identical
+   to `WRONG_TURN_RE` in `generator/rubric.js`).
+2. Prints the derivation as JSON: `durationMs` / `stepGapMs` /
+   `sceneCount` / `captions` bands (min/max plus nearest-rank p5/p95),
+   `textTierMaxChars` per tier, `latexTexMaxChars`, `kindProblem`,
+   `topicsResolving`, `wrongTurnMatches`. Null bands on an empty corpus
+   (a samples dir holding only `index.json`) instead of a throw.
+
+Then re-run the suite: `node --test "tests/*.test.js"`. The lock test
+(`tests/tooling-bands.test.js`) requires the script's `measure()` directly
+(no subprocess) and asserts each rubric constant equals the live
+measurement (`MIN_DURATION`/`MAX_DURATION` vs the duration min/max,
+`MAX_GAP` vs the gap max, `STAGE_MS` vs the gap p95) and every char budget
+sits above its measured maximum; it also runs the CLI and asserts its
+JSON output matches `measure()` exactly, and exercises the script's
+guard branches (index.json / non-json exclusion, kind `"problem"`,
+sizeless text, a resolving-but-unmarked topic, an empty corpus) against
+temp fixture dirs. When a band shifts, update the "MEASURED BANDS"
+comment in `generator/rubric.js` and change only the constants the
+measurement genuinely moved — never the scoring-logic shape. The budgets
+are rounded up from the measured maxima (e.g. the `<=22` tier's measured
+max of 72 became a budget of 80).
+
+Round-trip guarantee: on an unchanged corpus the script prints the numbers
+already documented and the lock test passes; on a drifted corpus the lock
+test fails until the rubric is re-derived from the script's output.
 
 ## audit-verdicts.json — triage-verdict records (issue #495)
 
