@@ -143,9 +143,12 @@ Biology:
 ## Notes for the generator
 
 - `level` + `subject` on a spec are coarse (`primary|secondary|jc`,
-  `math|science`); the `topic` slug carries the precise syllabus point.
+  and `subject` per `SPEC.md` §subject and `player/validate.js` SUBJECTS —
+  currently `math|science|geography`); the `topic` slug carries the precise
+  syllabus point. When a new subject lands, update this line against those
+  sources; the syllabus.test.js SUBJECTS test fails otherwise.
 - The web UI groups topics by track (E-Math, Physics, …) for usability but
-  emits `subject: "math"` or `"science"` per `SPEC.md`.
+  emits the track's `subject` per `SPEC.md`.
 - New topics: add the slug here first, then teach the prompt builder about any
   level-specific wording. The validator only checks that `topic` is a
   non-empty string.

@@ -556,8 +556,21 @@ test('prompt builder fills slots and forbids LaTeX', () => {
   assert.ok(user.includes('adding unlike denominators'), 'user prompt must carry the focus');
 });
 
+test('prompt builder fails loudly on a missing subject (never a silent math)', () => {
+  assert.throws(
+    () => buildPrompts({ level: 'primary', topic: 'fractions' }),
+    /buildPrompts: subject is required/,
+    'buildPrompts must throw when opts.subject is missing instead of assuming math'
+  );
+  assert.throws(
+    () => buildPrompts({}),
+    /buildPrompts: subject is required/,
+    'an empty opts object must also throw'
+  );
+});
+
 test('system template documents the hardened move contract', () => {
-  const { system } = buildPrompts({});
+  const { system } = buildPrompts({ subject: 'math' });
   // (a) all seven moveable kinds on one line, latex included, polygon moveable
   assert.ok(system.includes('text | rect | circle | line | arrow | latex | polygon'),
     'system prompt must list all seven moveable kinds including latex and polygon');
@@ -603,7 +616,7 @@ test('player exports a pure per-field tween interpolator', () => {
 });
 
 test('system template requires mechanism-first animation', () => {
-  const { system } = buildPrompts({});
+  const { system } = buildPrompts({ subject: 'math' });
   assert.ok(system.includes('MECHANISM-FIRST'),
     'system prompt must include the MECHANISM-FIRST block');
   assert.ok(system.includes('state transition'),
