@@ -4,6 +4,8 @@ How animath turns a student's need into an animation spec. The prompt builder
 (`generator/build_prompt.js`) fills the `{{slots}}` below; the LLM must return
 **only** the JSON spec — no prose, no fences.
 
+Regenerate the "## System prompt" block with: node generator/tooling/regen-prompt-mirror.js — never hand-edit it.
+
 ## System prompt
 
 ```
