@@ -816,3 +816,536 @@ test634('issue #634: valid spec still mounts, via the global AnimathValidate loo
     else globalThis.AnimathValidate = prevValidate;
   }
 });
+
+/* Tests for issue #631 — player.js line coverage 77% -> 90%+.
+ * The #554 harness stubs addEventListener as a no-op, so DOM rendering
+ * paths (drawShape kinds, tweens, tooltip wiring, control/keyboard wiring,
+ * caption/hide/emphasize, fitLatex) were uncovered. This block extends the
+ * harness: the inert element records listeners per element (dispatch631
+ * replays synthetic events), records setAttribute attrs, and maintains
+ * parentNode/firstChild/children so hide-removal and clearScene work.
+ * No production code changes — tests only.
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test: test631 } = require('node:test');
+const assert631 = require('node:assert/strict');
+
+const player631 = require('../player/player.js');
+const { validateSpec: validateSpec631 } = require('../player/validate.js');
+
+function inertEl631(shared, tag) {
+  var listeners = {};
+  var el = {
+    tagName: tag || '',
+    className: '', textContent: '', innerHTML: '', value: '0',
+    style: {},
+    attrs: {},
+    parentNode: null, firstChild: null, children: [],
+    setAttribute: function (n, v) { el.attrs[n] = v; },
+    removeAttribute: function (n) { delete el.attrs[n]; },
+    getAttribute: function (n) { return el.attrs[n]; },
+    addEventListener: function (t, fn) { (listeners[t] = listeners[t] || []).push(fn); },
+    dispatch631: function (t, evt) {
+      (listeners[t] || []).forEach(function (fn) { fn(evt || {}); });
+    },
+    listenerCount631: function (t) { return (listeners[t] || []).length; },
+    appendChild: function (c) {
+      // DOM move semantics: appending a node that already has a parent
+      // reparents it (applyPos relies on this when rebuilding arrows).
+      var old = c.parentNode;
+      if (old && old !== el && typeof old.removeChild === 'function') old.removeChild(c);
+      if (old === el) {
+        var i = el.children.indexOf(c);
+        if (i !== -1) el.children.splice(i, 1);
+      }
+      el.children.push(c);
+      c.parentNode = el;
+      el.firstChild = el.children[0];
+      return c;
+    },
+    removeChild: function (c) {
+      var i = el.children.indexOf(c);
+      if (i !== -1) el.children.splice(i, 1);
+      c.parentNode = null;
+      el.firstChild = el.children[0] || null;
+      return c;
+    },
+    getBoundingClientRect: function () { return { left: 0, top: 0, width: 960, height: 540 }; },
+    querySelector: function (sel) { return shared[sel] || inertEl631(shared); }
+  };
+  return el;
+}
+
+function findByAttr631(created, name, val) {
+  return created.filter(function (e) { return e.attrs[name] === val; });
+}
+
+function findByClass631(created, cls) {
+  return created.filter(function (e) { return e.className === cls; });
+}
+
+// Last match: re-renders (seekScene/goScene) create fresh shape nodes, so
+// after navigation the live node is the most recently created one.
+function lastByAttr631(created, name, val) {
+  var m = findByAttr631(created, name, val);
+  return m[m.length - 1];
+}
+
+// Installs document/rAF/performance stubs (tracked element creation),
+// with optional reduced-motion matchMedia and a fake KaTeX. Returns
+// { pump, restore }.
+function globals631(shared, created, opts) {
+  opts = opts || {};
+  var rafQueue = [];
+  var rafById = {};
+  var rafId = 0;
+  var now = 1000;
+  var prev = {
+    document: global.document,
+    raf: global.requestAnimationFrame,
+    caf: global.cancelAnimationFrame,
+    perf: global.performance,
+    matchMedia: global.matchMedia,
+    katex: global.katex
+  };
+  global.document = {
+    createElement: function (tag) {
+      var e = inertEl631(shared, tag); created.push(e); return e;
+    },
+    createElementNS: function (ns, tag) {
+      var e = inertEl631(shared, tag); created.push(e); return e;
+    }
+  };
+  global.requestAnimationFrame = function (cb) {
+    rafId += 1; rafById[rafId] = cb; rafQueue.push(rafId); return rafId;
+  };
+  global.cancelAnimationFrame = function (id) {
+    delete rafById[id];
+    rafQueue = rafQueue.filter(function (x) { return x !== id; });
+  };
+  global.performance = { now: function () { return now; } };
+  if (opts.reducedMotion !== undefined) {
+    global.matchMedia = function () { return { matches: !!opts.reducedMotion }; };
+  }
+  if (opts.katex) global.katex = opts.katex;
+  return {
+    pump: function (advance) {
+      now += advance;
+      var ids = rafQueue;
+      rafQueue = [];
+      ids.forEach(function (id) {
+        var cb = rafById[id];
+        delete rafById[id];
+        if (cb) cb(now);
+      });
+    },
+    restore: function () {
+      global.document = prev.document;
+      global.requestAnimationFrame = prev.raf;
+      global.cancelAnimationFrame = prev.caf;
+      global.performance = prev.perf;
+      if (prev.matchMedia === undefined) delete global.matchMedia;
+      else global.matchMedia = prev.matchMedia;
+      if (prev.katex === undefined) delete global.katex;
+      else global.katex = prev.katex;
+    }
+  };
+}
+
+function baseSpec631(scenes) {
+  return {
+    animath: '0.1', title: 'coverage sweep', level: 'primary', subject: 'math',
+    topic: 'shapes', kind: 'concept', canvas: { width: 960, height: 540 },
+    scenes: scenes
+  };
+}
+
+// The validator requires 2..8 scenes; the second scene is a filler the
+// tests never navigate to (all pumps stay inside scene 0's duration).
+function fillerScene631(id) {
+  return {
+    id: id, caption: 'filler ' + id, narration: 'filler narr', duration_ms: 4000,
+    steps: [{ at_ms: 0, do: 'show', shape: { id: 'f-' + id, kind: 'rect', x: 5, y: 5, w: 20, h: 20 } }]
+  };
+}
+
+// One show step per drawShape kind (text, latex, rect, circle, line, arrow,
+// tapered arrow, polygon, sector), all instant (reducedMotion path).
+function sweepSpec631() {
+  return baseSpec631([{
+    id: 's1', caption: 'all kinds', narration: 'narr', duration_ms: 4000,
+    steps: [
+      { at_ms: 0, do: 'show', shape: { id: 't1', kind: 'text', x: 10, y: 20, text: 'hello' } },
+      { at_ms: 0, do: 'show', shape: { id: 'lx1', kind: 'latex', x: 40, y: 30, tex: '\\frac{1}{2}' } },
+      { at_ms: 0, do: 'show', shape: { id: 'r1', kind: 'rect', x: 10, y: 10, w: 100, h: 50 } },
+      { at_ms: 0, do: 'show', shape: { id: 'c1', kind: 'circle', cx: 200, cy: 100, r: 30 } },
+      { at_ms: 0, do: 'show', shape: { id: 'l1', kind: 'line', x1: 0, y1: 0, x2: 100, y2: 100, dash: '6 4' } },
+      { at_ms: 0, do: 'show', shape: { id: 'a1', kind: 'arrow', x1: 0, y1: 0, x2: 100, y2: 0 } },
+      { at_ms: 0, do: 'show', shape: { id: 'a2', kind: 'arrow', x1: 0, y1: 40, x2: 120, y2: 40, widths: [20, 6] } },
+      { at_ms: 0, do: 'show', shape: { id: 'p1', kind: 'polygon', points: [[0, 0], [120, 0], [60, 90]] } },
+      { at_ms: 0, do: 'show', shape: { id: 's1s', kind: 'sector', cx: 300, cy: 300, r: 50, startAngle: 0, endAngle: 90 } }
+    ]
+  }, fillerScene631('s2')]);
+}
+
+// Rect + arrow moves plus a latex fallback show (no KaTeX in node).
+function tweenSpec631() {
+  return baseSpec631([{
+    id: 's1', caption: 'tweens', narration: 'narr', duration_ms: 4000,
+    steps: [
+      { at_ms: 0, do: 'show', shape: { id: 'mv', kind: 'rect', x: 10, y: 10, w: 40, h: 40 } },
+      { at_ms: 0, do: 'show', shape: { id: 'ar', kind: 'arrow', x1: 0, y1: 0, x2: 60, y2: 0 } },
+      { at_ms: 0, do: 'show', shape: { id: 'lx', kind: 'latex', x: 10, y: 200, tex: 'x^2' } },
+      { at_ms: 200, do: 'move', target: 'mv', to: { x: 110, y: 60 }, dur_ms: 400 },
+      { at_ms: 200, do: 'move', target: 'ar', to: { x2: 160 }, dur_ms: 400 }
+    ]
+  }, fillerScene631('s2')]);
+}
+
+// caption/hide/emphasize: hide removes 'gone', emphasize on the hidden
+// target hits the missing-target break, emphasize on 'box' is instant.
+function cueSpec631() {
+  return baseSpec631([{
+    id: 's1', caption: 'scene cap', narration: 'narr', duration_ms: 4000,
+    steps: [
+      { at_ms: 0, do: 'show', shape: { id: 'box', kind: 'rect', x: 10, y: 10, w: 50, h: 50 } },
+      { at_ms: 0, do: 'show', shape: { id: 'gone', kind: 'circle', cx: 100, cy: 100, r: 20 } },
+      { at_ms: 0, do: 'caption', text: 'step caption wins' },
+      { at_ms: 100, do: 'hide', target: 'gone' },
+      { at_ms: 200, do: 'emphasize', target: 'gone' },
+      { at_ms: 300, do: 'emphasize', target: 'box' },
+      { at_ms: 350, do: 'move', target: 'box', to: { x: 200 }, dur_ms: 100 }
+    ]
+  }, fillerScene631('s2')]);
+}
+
+// Non-instant hide: fade via opacity then real-timer removal.
+function fadeSpec631() {
+  return baseSpec631([{
+    id: 's1', caption: 'fade', narration: 'narr', duration_ms: 4000,
+    steps: [
+      { at_ms: 0, do: 'show', shape: { id: 'box', kind: 'rect', x: 10, y: 10, w: 50, h: 50 } },
+      { at_ms: 200, do: 'hide', target: 'box' }
+    ]
+  }, fillerScene631('s2')]);
+}
+
+// Non-instant emphasize: pulse registered on the tick path.
+function pulseSpec631() {
+  return baseSpec631([{
+    id: 's1', caption: 'pulse', narration: 'narr', duration_ms: 4000,
+    steps: [
+      { at_ms: 0, do: 'show', shape: { id: 'box', kind: 'rect', x: 10, y: 10, w: 50, h: 50 } },
+      { at_ms: 100, do: 'emphasize', target: 'box', dur_ms: 300 }
+    ]
+  }, fillerScene631('s2')]);
+}
+
+// Tooltip: one explained shape, one inert shape.
+function tipSpec631() {
+  return baseSpec631([{
+    id: 's1', caption: 'tips', narration: 'narr', duration_ms: 4000,
+    steps: [
+      { at_ms: 0, do: 'show', shape: { id: 'tipbox', kind: 'rect', x: 10, y: 10, w: 50, h: 50, explain: 'A box, explained.' } },
+      { at_ms: 0, do: 'show', shape: { id: 'plain', kind: 'rect', x: 100, y: 10, w: 50, h: 50 } }
+    ]
+  }, fillerScene631('s2')]);
+}
+
+// Two scenes for the control/keyboard/strip sweep.
+function chromeSpec631() {
+  function scene(id) {
+    return {
+      id: id, caption: 'cap ' + id, narration: 'narr ' + id, duration_ms: 4000,
+      steps: [{ at_ms: 0, do: 'show', shape: { id: 'b-' + id, kind: 'rect', x: 10, y: 10, w: 50, h: 50 } }]
+    };
+  }
+  return baseSpec631([scene('s1'), scene('s2')]);
+}
+
+test631('issue #631: shape-kind sweep renders every drawShape kind instantly', () => {
+  var spec = sweepSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var g = globals631(shared, created, {
+    reducedMotion: true,
+    katex: { renderToString: function () { return '<span>x</span>'; } }
+  });
+  try {
+    var p = player631.mount(inertEl631(shared), spec);
+    var svg = created.filter(function (e) { return e.tagName === 'svg'; })[0];
+    assert631.equal(svg.children.length, 9, 'all nine kind steps appended a node');
+    ['t1', 'lx1', 'r1', 'c1', 'l1', 'a1', 'a2', 'p1', 's1s'].forEach(function (id) {
+      assert631.equal(findByAttr631(created, 'data-shape-id', id).length, 1,
+        'shape ' + id + ' recorded its data-shape-id');
+    });
+    // KaTeX present: latex took the foreignObject path and fitLatex ran.
+    var lx = findByAttr631(created, 'data-shape-id', 'lx1')[0];
+    assert631.equal(lx.tagName, 'foreignObject', 'latex rendered into a foreignObject');
+    assert631.equal(lx.attrs.width, 920, 'fitLatex sized the box to the available width');
+    assert631.ok(String(lx.children[0].style.transform).indexOf('scale(') === 0,
+      'fitLatex scaled the overflowing equation down');
+    // Arrows: plain shaft is line+head, tapered shaft is polygon+head.
+    assert631.equal(findByAttr631(created, 'data-shape-id', 'a1')[0].children.length, 2,
+      'plain arrow: shaft line + head polygon');
+    assert631.equal(findByAttr631(created, 'data-shape-id', 'a2')[0].children.length, 2,
+      'tapered arrow: shaft polygon + head polygon');
+    // Instant path: no rAF fade, opacity set synchronously.
+    assert631.equal(findByAttr631(created, 'data-shape-id', 'r1')[0].style.opacity, '1',
+      'instant show sets opacity without timers');
+    // Shapes without explain text stay inert: no tooltip listeners wired.
+    assert631.equal(findByAttr631(created, 'data-shape-id', 'r1')[0].listenerCount631('mouseenter'), 0,
+      'no explain text -> wireExplain early return, no listeners');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: move tweens register and complete through the tick loop', () => {
+  var spec = tweenSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var g = globals631(shared, created, {});
+  try {
+    var p = player631.mount(inertEl631(shared), spec);
+    var rectNode = findByAttr631(created, 'data-shape-id', 'mv')[0];
+    var arrowNode = findByAttr631(created, 'data-shape-id', 'ar')[0];
+    p.play();
+    g.pump(100);  // sceneTime 100
+    g.pump(150);  // sceneTime 250: both move steps fire, tweens registered
+    g.pump(200);  // sceneTime 450: p=0.5 mid-flight
+    var midX = rectNode.attrs.x;
+    assert631.ok(midX > 10 && midX < 110, 'mid-tween rect x interpolated, got ' + midX);
+    g.pump(200);  // sceneTime 650: tweens complete
+    assert631.equal(rectNode.attrs.x, 110, 'rect tween lands on the target x');
+    assert631.equal(rectNode.attrs.y, 60, 'rect tween lands on the target y');
+    assert631.equal(arrowNode.attrs.x2, 160, 'arrow tween lands on the target x2');
+    assert631.equal(arrowNode.children.length, 2,
+      'arrow applyPos rebuilt shaft+head children mid-tween');
+    // Latex without KaTeX: fallback text path, no foreignObject.
+    var lx = findByAttr631(created, 'data-shape-id', 'lx')[0];
+    assert631.equal(lx.tagName, 'text', 'latex falls back to a text node without KaTeX');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: caption, instant hide, and emphasize breaks', () => {
+  var spec = cueSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var g = globals631(shared, created, { reducedMotion: true });
+  try {
+    var p = player631.mount(inertEl631(shared), spec);
+    p.seekScene(0, 400);  // fire every step, all instant
+    var captionBar = findByClass631(created, 'ap-caption')[0];
+    assert631.equal(captionBar.textContent, 'step caption wins', 'caption step wins over the scene caption');
+    var goneNode = lastByAttr631(created, 'data-shape-id', 'gone');
+    var boxNode = lastByAttr631(created, 'data-shape-id', 'box');
+    var svg = created.filter(function (e) { return e.tagName === 'svg'; })[0];
+    assert631.equal(goneNode.parentNode, null, 'instant hide removed the node from the stage');
+    assert631.equal(svg.children.length, 1, 'only the surviving shape remains');
+    assert631.equal(svg.children[0], boxNode, 'the survivor is the unhidden shape');
+    assert631.equal(boxNode.parentNode, svg, 'survivor still parented to the stage');
+    assert631.equal(boxNode.attrs.x, 200, 'instant move applies the target position');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: non-instant hide fades then removes after a real timer', async () => {
+  var spec = fadeSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var g = globals631(shared, created, {});
+  try {
+    var p = player631.mount(inertEl631(shared), spec);
+    var boxNode = findByAttr631(created, 'data-shape-id', 'box')[0];
+    p.play();
+    g.pump(250);  // sceneTime 250: hide fires non-instant
+    assert631.equal(boxNode.style.opacity, '0', 'non-instant hide starts the fade');
+    assert631.ok(boxNode.parentNode !== null, 'node still parented during the fade');
+    await new Promise(function (r) { setTimeout(r, 450); });  // FADE_MS + 50 = 350
+    assert631.equal(boxNode.parentNode, null, 'fade timer removed the node');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: non-instant emphasize pulses through the tick loop', () => {
+  var spec = pulseSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var g = globals631(shared, created, {});
+  try {
+    var p = player631.mount(inertEl631(shared), spec);
+    var boxNode = findByAttr631(created, 'data-shape-id', 'box')[0];
+    p.play();
+    g.pump(150);  // sceneTime 150: emphasize fires, pulse registered
+    assert631.ok(String(boxNode.style.transform).indexOf('scale(') === 0,
+      'pulse loop sets a scale transform mid-pulse, got ' + boxNode.style.transform);
+    g.pump(900);  // past the 300ms pulse duration: pulse completes
+    assert631.equal(boxNode.style.transform, '', 'pulse completion clears the transform');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: tooltip shows and hides on hover, tap, and keyboard focus', () => {
+  var spec = tipSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var g = globals631(shared, created, { reducedMotion: true });
+  try {
+    var p = player631.mount(inertEl631(shared), spec);
+    var tipbox = findByAttr631(created, 'data-shape-id', 'tipbox')[0];
+    var plain = findByAttr631(created, 'data-shape-id', 'plain')[0];
+    var tip = findByClass631(created, 'ap-tooltip')[0];
+    assert631.equal(tipbox.listenerCount631('mouseenter'), 1, 'explained shape wires mouseenter');
+    assert631.equal(tipbox.attrs.tabindex, '0', 'explained shape is focusable');
+    assert631.equal(plain.listenerCount631('mouseenter'), 0, 'inert shape wires nothing');
+    tipbox.dispatch631('mouseenter', { clientX: 100, clientY: 100 });
+    assert631.equal(tip.style.display, 'block', 'hover shows the tooltip');
+    assert631.equal(tip.textContent, 'A box, explained.', 'tooltip carries the authored text');
+    assert631.equal(tip.style.left, '112px', 'tooltip anchored near the pointer');
+    tipbox.dispatch631('mouseleave', {});
+    assert631.equal(tip.style.display, 'none', 'mouseleave hides the tooltip');
+    tipbox.dispatch631('click', { clientX: 50, clientY: 50 });
+    assert631.equal(tip.style.display, 'block', 'tap shows the tooltip');
+    tipbox.dispatch631('blur', {});
+    tipbox.dispatch631('focus', {});
+    assert631.equal(tip.style.display, 'block', 'keyboard focus shows the tooltip');
+    assert631.equal(tip.style.top, '286px', 'focus anchors on the shape bbox');
+    tipbox.dispatch631('blur', {});
+    assert631.equal(tip.style.display, 'none', 'blur hides the tooltip');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: controls, keyboard, and filmstrip wiring', () => {
+  var spec = chromeSpec631();
+  assert631.deepEqual(validateSpec631(spec), [], 'fixture spec must validate clean');
+  var shared = {};
+  var created = [];
+  var btnPlay = inertEl631(shared);
+  var btnPrev = inertEl631(shared);
+  var btnNext = inertEl631(shared);
+  var btnRestart = inertEl631(shared);
+  var scrub = inertEl631(shared);
+  var tlabel = inertEl631(shared);
+  var speedSel = inertEl631(shared);
+  shared['[data-a="play"]'] = btnPlay;
+  shared['[data-a="prev"]'] = btnPrev;
+  shared['[data-a="next"]'] = btnNext;
+  shared['[data-a="restart"]'] = btnRestart;
+  shared['[data-a="scrub"]'] = scrub;
+  shared['[data-a="tlabel"]'] = tlabel;
+  shared['[data-a="speed"]'] = speedSel;
+  var g = globals631(shared, created, { reducedMotion: true });
+  try {
+    var container = inertEl631(shared);
+    var p = player631.mount(container, spec);
+    var sceneEvents = [];
+    p.on('scene', function (i) { sceneEvents.push(i); });
+    function stripBtn(i) {
+      return findByAttr631(created, 'data-scene', String(i))[0];
+    }
+
+    // Filmstrip starts with scene 0 marked current.
+    assert631.equal(stripBtn(0).attrs['aria-current'], 'true', 'strip marks scene 0 current at mount');
+
+    // Prev on scene 0 clamps (goScene(-1, 0) -> 0).
+    btnPrev.dispatch631('click', {});
+    assert631.deepEqual(sceneEvents, [0], 'prev on the first scene stays on scene 0');
+
+    // Play/pause toggle.
+    btnPlay.dispatch631('click', {});
+    assert631.ok(btnPlay.innerHTML.indexOf('10074') !== -1, 'click plays: pause glyph');
+    btnPlay.dispatch631('click', {});
+    assert631.ok(btnPlay.innerHTML.indexOf('9654') !== -1, 'click pauses: play glyph');
+
+    // Next/prev navigation.
+    btnNext.dispatch631('click', {});
+    assert631.deepEqual(sceneEvents, [0, 1], 'next jumps to scene 1');
+    assert631.equal(stripBtn(1).attrs['aria-current'], 'true', 'strip follows to scene 1');
+    assert631.equal(stripBtn(0).attrs['aria-current'], undefined, 'strip unmarks scene 0');
+    btnPrev.dispatch631('click', {});
+    assert631.deepEqual(sceneEvents, [0, 1, 0], 'prev jumps back to scene 0');
+
+    // Restart: back to scene 0 and playing.
+    btnRestart.dispatch631('click', {});
+    assert631.deepEqual(sceneEvents, [0, 1, 0, 0], 'restart jumps to scene 0');
+    assert631.ok(btnPlay.innerHTML.indexOf('10074') !== -1, 'restart resumes playback');
+
+    // Speed change takes effect on the tick clock.
+    speedSel.value = '1.5';
+    speedSel.dispatch631('change', {});
+    g.pump(2000);
+    assert631.equal(tlabel.textContent, '0:03 / 0:04', '1.5x speed advances the clock');
+
+    // Scrub input pauses and re-renders. NOTE: the handler calls pause()
+    // first, and pause()'s updateChrome() syncs the slider back to the
+    // clock before the handler reads it — so a synthetic drag value is
+    // clobbered and the re-render lands on the current clock position.
+    // (SPEC.md p85-86 says the scrubbed position should render; the
+    // pause-before-read makes that unreachable — flagged as a follow-up.)
+    scrub.dispatch631('input', {});
+    assert631.ok(btnPlay.innerHTML.indexOf('9654') !== -1, 'scrub leaves the player paused');
+    assert631.equal(tlabel.textContent, '0:03 / 0:04', 'scrub re-renders at the clock position');
+
+    // Keyboard: space toggles, arrows move scenes, unmapped keys ignored,
+    // and keys typed in an input are not shortcuts.
+    var noop = function () {};
+    container.dispatch631('keydown', { key: ' ', preventDefault: noop });
+    assert631.ok(btnPlay.innerHTML.indexOf('10074') !== -1, 'space plays');
+    container.dispatch631('keydown', { key: 'ArrowRight', preventDefault: noop });
+    assert631.deepEqual(sceneEvents, [0, 1, 0, 0, 1], 'arrow-right jumps to scene 1');
+    container.dispatch631('keydown', { key: 'ArrowLeft', preventDefault: noop });
+    assert631.deepEqual(sceneEvents, [0, 1, 0, 0, 1, 0], 'arrow-left jumps to scene 0');
+    container.dispatch631('keydown', { key: 'x', preventDefault: noop });
+    assert631.deepEqual(sceneEvents, [0, 1, 0, 0, 1, 0], 'unmapped key is ignored');
+    container.dispatch631('keydown', { key: ' ', target: { tagName: 'input' }, preventDefault: noop });
+    assert631.ok(btnPlay.innerHTML.indexOf('9654') !== -1,
+      'space typed in an input is not a shortcut');
+
+    // Filmstrip buttons jump through the same goScene closure.
+    stripBtn(1).dispatch631('click', {});
+    assert631.deepEqual(sceneEvents, [0, 1, 0, 0, 1, 0, 1], 'strip button jumps to its scene');
+    assert631.equal(stripBtn(1).attrs['aria-current'], 'true', 'strip marks scene 1 current');
+    p.destroy();
+  } finally {
+    g.restore();
+  }
+});
+
+test631('issue #631: fitLatex sizes to content and no-ops without a measurable div', () => {
+  function latexNode631(w, h) {
+    var div = inertEl631({});
+    div.getBoundingClientRect = function () { return { width: w, height: h }; };
+    var node = inertEl631({});
+    node.appendChild(div);
+    return { node: node, div: div };
+  }
+  var fit = latexNode631(400, 60);
+  player631.fitLatex(fit.node, 920);
+  assert631.equal(fit.node.attrs.width, 400, 'box sized to content when it fits');
+  assert631.equal(fit.node.attrs.height, 60, 'height sized to content when it fits');
+  assert631.equal(fit.div.style.transform, undefined, 'no scale transform when it fits');
+  var bare = inertEl631({});
+  player631.fitLatex(bare, 920);  // no firstChild: no-op, never throws
+  assert631.deepEqual(bare.attrs, {}, 'no attributes written without a measurable div');
+});
