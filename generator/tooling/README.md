@@ -78,6 +78,48 @@ regen script itself is not covered by the test suite (same precedent as
 change-fails/regen-passes loop plus review reading the script against the
 test's consumption.
 
+## regen-prompt-mirror.js (issue #620)
+
+Regenerates the PROMPTS.md "## System prompt" fenced block from the
+evaluated SYSTEM_TEMPLATE in `generator/build_prompt.js`, spliced in
+byte-for-byte. The block is locked to the template by
+`tests/prompt-mirror.test.js` (issue #618): if the template changes, the
+doc is regenerated from it — never hand-edited (issue #619's lock).
+
+Requirements: Node, zero dependencies.
+
+What it does (from the repo root):
+
+    node generator/tooling/regen-prompt-mirror.js
+
+1. Reads the evaluated SYSTEM_TEMPLATE (require from the repo root, no
+   deps) and locates the fenced block in PROMPTS.md between the exact
+   markers the prompt-mirror test parses (`## System prompt\n\n` + fence
+   ... first closing fence), so the script and the test agree on the
+   block boundaries.
+2. Splices the template in byte-for-byte — no added trailing newline,
+   no whitespace drift. The file is rewritten only when the block
+   changed; on a clean mirror the run is a no-op and prints one summary
+   line.
+3. Fails closed (non-zero exit, clear message) when the markers are
+   missing, or when the template itself contains a fence line (which
+   would make the block end ambiguous) — it never writes garbage.
+
+Then re-run the suite: `node --test "tests/*.test.js"`. The prompt-mirror
+tests assert the block stays byte-identical to the evaluated template and
+exercise the script itself: the pure replacement function
+`regenPromptMirror(doc, template)` (string-in/string-out) is covered for
+replace, idempotence, missing-marker, and fence-ambiguity cases, and the
+`run()`/`cli()` path is covered via temp-file round-trips — every new
+line is covered, unlike `gen-render-snapshots.js`, whose "not covered"
+precedent issue #620 explicitly overrides for this script.
+
+Round-trip guarantee: on a clean mirror the script is a no-op; on a
+drifted block it restores byte-identity. The demonstrated acceptance is
+the covered suite plus review reading the script against the test's
+markers. Like the other scripts here, this is maintainer-side: it never
+runs as part of the app.
+
 ## audit-verdicts.json — triage-verdict records (issue #495)
 
 `generator/audit-verdicts.json` records human-triage verdicts for genuine
