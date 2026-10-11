@@ -745,3 +745,74 @@ test554('issue #554: autoplay continues across a scene boundary, pauses only at 
     global.performance = prevPerf;
   }
 });
+
+/* Tests for issue #634 — mount() validates the spec and throws a clear error.
+ * (a) malformed spec throws naming the failing field; (b) version mismatch
+ * rejected naming animath; (c) valid spec still mounts (positive smoke, with
+ * the global AnimathValidate lookup branch covered via globalThis).
+ */
+'use strict';
+const { test: test634 } = require('node:test');
+const assert634 = require('node:assert/strict');
+
+const player634 = require('../player/player.js');
+
+function spec634(overrides) {
+  var spec = {
+    animath: '0.1', title: 'validate smoke', level: 'primary', subject: 'math',
+    topic: 'shapes', kind: 'concept', canvas: { width: 960, height: 540 },
+    scenes: [
+      { id: 's1', caption: 'cap', narration: 'narr', duration_ms: 4000,
+        steps: [{ at_ms: 0, do: 'show', shape: { id: 'b1', kind: 'rect', x: 10, y: 10, w: 100, h: 50 } }] },
+      { id: 's2', caption: 'cap2', narration: 'narr2', duration_ms: 4000,
+        steps: [{ at_ms: 0, do: 'show', shape: { id: 'b2', kind: 'rect', x: 20, y: 20, w: 100, h: 50 } }] }
+    ]
+  };
+  if (overrides) Object.keys(overrides).forEach(function (k) { spec[k] = overrides[k]; });
+  return spec;
+}
+
+test634('issue #634: mount() throws Error naming the failing field for a malformed spec', () => {
+  assert634.throws(
+    function () { player634.mount(inertEl554({}), {}); },
+    /canvas:/,
+    'malformed spec must throw naming the failing field (canvas)'
+  );
+});
+
+test634('issue #634: mount() rejects a version-mismatched spec naming animath', () => {
+  assert634.throws(
+    function () { player634.mount(inertEl554({}), spec634({ animath: '0.2' })); },
+    /animath:/,
+    'version mismatch must throw naming the animath field'
+  );
+});
+
+test634('issue #634: valid spec still mounts, via the global AnimathValidate lookup', () => {
+  var shared = {};
+  var prevDocument = global.document;
+  var prevRaf = global.requestAnimationFrame;
+  var prevCaf = global.cancelAnimationFrame;
+  var prevPerf = global.performance;
+  var prevValidate = globalThis.AnimathValidate;
+  global.document = {
+    createElement: function () { return inertEl554(shared); },
+    createElementNS: function () { return inertEl554(shared); }
+  };
+  global.requestAnimationFrame = function () { return 1; };
+  global.cancelAnimationFrame = function () {};
+  global.performance = { now: function () { return 0; } };
+  globalThis.AnimathValidate = require('../player/validate.js');
+  try {
+    var p = player634.mount(inertEl554(shared), spec634());
+    assert634.ok(p && typeof p.destroy === 'function', 'valid spec mounts via the global lookup');
+    p.destroy();
+  } finally {
+    global.document = prevDocument;
+    global.requestAnimationFrame = prevRaf;
+    global.cancelAnimationFrame = prevCaf;
+    global.performance = prevPerf;
+    if (prevValidate === undefined) delete globalThis.AnimathValidate;
+    else globalThis.AnimathValidate = prevValidate;
+  }
+});

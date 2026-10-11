@@ -9,6 +9,9 @@
  *   player.destroy();
  *
  * Node: require()able for smoke tests (no DOM touched until mount()).
+ *
+ * mount() validates the spec with player/validate.js and throws a clear Error
+ * (naming the failing field) on an invalid spec, before any DOM work.
  */
 (function (global) {
   'use strict';
@@ -583,6 +586,22 @@
   }
 
   function mount(container, spec) {
+    // Fail fast on a malformed spec: resolve the validator from the captured
+    // global (every browser page loads validate.js before player.js) or from
+    // the Node module, then reject invalid specs naming the failing field.
+    var validateFn = global.AnimathValidate ? global.AnimathValidate.validateSpec : null;
+    if (!validateFn && typeof require === 'function') {
+      validateFn = require('./validate.js').validateSpec;
+    }
+    if (!validateFn) {
+      throw new Error('animath player: player/validate.js is missing — ' +
+        'include it before player.js so specs can be validated');
+    }
+    var specErrors = validateFn(spec);
+    if (specErrors.length) {
+      throw new Error('invalid animath spec: ' + specErrors.join('; '));
+    }
+
     var W = spec.canvas.width, H = spec.canvas.height;
 
     container.innerHTML = '';
