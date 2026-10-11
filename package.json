@@ -21,6 +21,7 @@
     "generator/",
     "player/",
     "web/embed.js",
+    "web/embed.d.ts",
     "README.md",
     "LICENSE",
     "PROMPTS.md",
@@ -36,6 +37,7 @@
   ],
   "license": "MIT",
   "main": "./generator/build_prompt.js",
+  "types": "./generator/build_prompt.d.ts",
   "name": "@jjfwang/animath",
   "repository": {
     "type": "git",
