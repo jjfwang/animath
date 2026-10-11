@@ -90,3 +90,38 @@ new subject lands with zero surprise test failures:
    the allowed/required subject set from `player/validate.js` SUBJECTS — if the
    checklist above was followed in full, the suite is green. A failure message
    names the exact checklist step it maps to.
+
+### Slice pattern
+
+Checklist step 5 above says "add misconception entries" but not how to batch
+them. Use the **slice pattern**: land one self-contained slice per subject —
+a set of bank entries keyed on the samples' exact topic slugs, plus the header
+note in `generator/misconceptions.js`, plus the tests — rather than dribbling
+entries in one at a time. Each slice carries:
+
+- **Entries**: plain ASCII `wrongTurn` / `why` / `correctTurn` objects, keyed on
+  the short topic slugs `buildPrompts` receives (they match the samples' `topic`
+  fields). Facets are fine when a topic spans several (see issue #367) but
+  narrow topics stay plain.
+- **A header paragraph** at the top of `generator/misconceptions.js` in the
+  slices 1–5 format: the slice's issue ref, the topics, and the grounding
+  samples. When a sample has no explicit misconception beat, name the canonical
+  conflation the entry is grounded in instead (do not invent a sample beat).
+- **Bank tests** in `tests/misconceptions.test.js`: exact-slug resolution, the
+  key-prefix path (e.g. `erosion-coastal-cliffs` → `erosion`), the documented
+  key-prefix-only trap (e.g. `primary-geog-erosion` does not resolve),
+  and the grounding wording. Extend the seeded-slug list and its count, not
+  just the new keys.
+- **Rubric tests** in `tests/rubric.test.js` when the slice onboards a subject
+  that previously fell through the bank: a spec with a wrong-turn marker beat
+  must earn the full check (present + passing), and one without a beat must
+  fail it (proving the ruler changed, not skipped).
+
+Worked example: slice 6 (issue #668) — the three Geography topics
+`erosion`, `plate-tectonics`, `weather-climate`, grounded in
+`samples/primary-geog-erosion.json` s3 and
+`samples/primary-geog-plate-tectonics.json` s4, with `weather-climate`
+grounded in the canonical weather-vs-climate conflation because its sample
+has no explicit beat. That slice flipped geography onto the full
+wrong-turn-marker rubric check, which the bank tests and the two rubric
+tests now lock.

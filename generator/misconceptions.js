@@ -24,6 +24,17 @@
  * faceted (issue #371): its primary arrow-direction facet carries the
  * canonical H2 organic misconception, and the atom-motion facet is grounded
  * in the jc-h2-organic.json s7 misconception beat (in place since #166).
+ * Slice 6 (issue #668): the 3 Geography topics (erosion, plate-tectonics,
+ * weather-climate), grounded in the misconception beats of
+ * samples/primary-geog-erosion.json (s3: "Moving water and wind do the
+ * wearing") and samples/primary-geog-plate-tectonics.json (s4: "Plates
+ * creep, they never lurch"). primary-geog-weather-climate.json has no
+ * explicit misconception beat, so its entry is grounded in the canonical
+ * weather-vs-climate conflation ("today's weather is not the climate")
+ * instead. The file-style "primary-geog-*" slugs do not resolve (same
+ * key-prefix-only trap as the "jc-h2-*" slugs); callers pass the topic
+ * field. Slice 6 is the worked example of the per-subject slice pattern
+ * documented in CONTRIBUTING.md ("Slice pattern").
  *
  * Prefix note (slices 3-5): no key in the map is a prefix of another key,
  * so the longest-prefix ordering inside misconceptionFor() cannot be
@@ -446,6 +457,21 @@
       wrongTurn: 'Energy is recycled through the ecosystem.',
       why: 'The "cycle of life" language makes energy sound like it loops round forever.',
       correctTurn: 'Energy flows one way - sunlight in, heat out: what is recycled is matter - carbon, nitrogen and water.'
+    },
+    'erosion': {
+      wrongTurn: 'Rocks crumble on their own, with nothing doing the wearing.',
+      why: 'Solid rock looks permanent, so the wearing seems to happen by itself rather than through moving water or wind.',
+      correctTurn: 'Rocks do not crumble on their own: moving water and wind do the wearing, loosening and carrying the bits away.'
+    },
+    'plate-tectonics': {
+      wrongTurn: 'Plates lurch in sudden jolts, snapping into new positions.',
+      why: 'A sudden jolt is easier to picture than a creep no one can feel.',
+      correctTurn: 'Plates creep, they never lurch: about two centimetres a year, slower than your fingernails grow.'
+    },
+    'weather-climate': {
+      wrongTurn: 'A cold day today means the climate is getting colder.',
+      why: 'One day of weather feels like the whole climate, so a single day is read as the trend.',
+      correctTurn: 'Today\'s weather is not the climate: climate is the pattern of weather over many years, not one cold or hot day.'
     }
   };
 
