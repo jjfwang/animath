@@ -151,6 +151,10 @@
 
   // opts: {level, subject, topic, topicLabel, kind, focus, facet}
   function buildPrompts(opts) {
+    if (!opts.subject) {
+      throw new Error('buildPrompts: subject is required ' +
+        '(see CONTRIBUTING.md add-a-subject checklist)');
+    }
     var level = opts.level || 'primary';
     var system = fill(SYSTEM_TEMPLATE, {
       LEVEL_LABEL: LEVEL_LABELS[level] || level,
@@ -159,7 +163,7 @@
     });
     var user = [
       'Level: ' + level + ' (' + (LEVEL_LABELS[level] || level) + ')',
-      'Subject: ' + (opts.subject || 'math'),
+      'Subject: ' + opts.subject,
       'Topic: ' + (opts.topicLabel || opts.topic || '') + ' (' + (opts.topic || '') + ')',
       'Kind: ' + (opts.kind || 'concept'),
       'Student\'s focus: ' + (opts.focus || '(none given)'),

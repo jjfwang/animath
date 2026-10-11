@@ -1,7 +1,7 @@
 // TypeScript definitions for generator/build_prompt.js — animath prompt builder.
 export interface BuildPromptOptions {
   level?: string;
-  subject?: string;
+  subject: string;
   topic?: string;
   topicLabel?: string;
   kind?: string;
