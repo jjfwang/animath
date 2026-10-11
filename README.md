@@ -85,9 +85,12 @@ blocks for fetch.
 
 ## Export WebM
 
-Open any sample in `player/demo.html` and press the Export WebM button (`#exportbtn`,
-in the demo bar) to record the currently loaded animation as a WebM video file —
-handy for teachers embedding a clip in slides or worksheets.
+The Export WebM button (`#exportbtn`, with an `#exportstatus` status line,
+`aria-live="polite"`) is wired on three pages: `player/demo.html` (the demo
+bar — open any sample and press it), `web/index.html` (the generator app —
+exports the spec just generated), and `web/gallery.html` (the sample gallery —
+exports the currently mounted sample). It records the animation as a WebM
+video file — handy for teachers embedding a clip in slides or worksheets.
 
 The filename is `<slug>-YYYYMMDD-HHmmss.webm` (e.g.
 `primary-math-fractions-addition-20261009-101825.webm`), so repeated exports never
@@ -99,7 +102,11 @@ overwrite each other. Three modules do the work:
 - `player/export-record.js` — browser recording harness: rasterizes each frame to
   an offscreen canvas, feeds `canvas.captureStream()` into `MediaRecorder`
   (VP9 first, then VP8, then plain WebM), and resolves a WebM blob.
-- `player/export-ui.js` — wires the button to the harness on demo.html.
+- `player/export-ui.js` — button glue: `attachExportUI` attaches the export
+  controller to the page's button and status line (each page supplies
+  `getSpec`/`getSlug`); on `web/index.html` and `web/gallery.html` the call is
+  guarded on the export globals so the page stays unbroken if a script tag
+  ever fails to load.
 
 The export records the full scene sequence at normal playback pace — reduced-motion
 users receive the same complete video. The button is a native `<button>`, so it is
