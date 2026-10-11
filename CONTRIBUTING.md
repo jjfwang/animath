@@ -53,6 +53,8 @@ before review.
 - One branch per PR: `laowang/issue-<n>-<slug>` (or any `laowang/*` branch).
 - One issue = one PR = one merge. The PR body states `Closes #<n>`.
 - State the user-visible value in one line (`User value: …`).
+- Releases follow `RELEASING.md` (owner action; the registry publish needs
+  `npm login`).
 
 ## Hard rule
 
