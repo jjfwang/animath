@@ -20,7 +20,8 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "uc", "explain": "The unit circle: radius 1, so the hypotenuse is always 1.",
+            "id": "uc",
+            "explain": "The unit circle: radius 1, so the hypotenuse is always 1.",
             "kind": "circle",
             "cx": 640,
             "cy": 360,
@@ -34,7 +35,8 @@
           "at_ms": 200,
           "do": "show",
           "shape": {
-            "id": "xh", "explain": "The horizontal axis: the cosine direction.",
+            "id": "xh",
+            "explain": "The horizontal axis: the cosine direction.",
             "kind": "line",
             "x1": 520,
             "y1": 360,
@@ -48,7 +50,8 @@
           "at_ms": 400,
           "do": "show",
           "shape": {
-            "id": "xv", "explain": "The vertical axis: the sine direction.",
+            "id": "xv",
+            "explain": "The vertical axis: the sine direction.",
             "kind": "line",
             "x1": 640,
             "y1": 240,
@@ -62,7 +65,8 @@
           "at_ms": 800,
           "do": "show",
           "shape": {
-            "id": "probe", "explain": "The probe: the angle sweeps around the circle.",
+            "id": "probe",
+            "explain": "The probe: the angle sweeps around the circle.",
             "kind": "circle",
             "cx": 750,
             "cy": 360,
@@ -75,7 +79,8 @@
           "at_ms": 1000,
           "do": "show",
           "shape": {
-            "id": "rad", "explain": "The radius: the hypotenuse of the right triangle, always length 1.",
+            "id": "rad",
+            "explain": "The radius: the hypotenuse of the right triangle, always length 1.",
             "kind": "line",
             "x1": 640,
             "y1": 360,
@@ -109,7 +114,8 @@
           "at_ms": 3100,
           "do": "show",
           "shape": {
-            "id": "cosleg", "explain": "The horizontal leg: its length is cos of the angle.",
+            "id": "cosleg",
+            "explain": "The horizontal leg: its length is cos of the angle.",
             "kind": "line",
             "x1": 640,
             "y1": 360,
@@ -123,7 +129,8 @@
           "at_ms": 3400,
           "do": "show",
           "shape": {
-            "id": "sinleg", "explain": "The vertical leg: its length is sin of the angle.",
+            "id": "sinleg",
+            "explain": "The vertical leg: its length is sin of the angle.",
             "kind": "line",
             "x1": 724,
             "y1": 360,
@@ -137,7 +144,8 @@
           "at_ms": 3600,
           "do": "show",
           "shape": {
-            "id": "cosLab", "explain": "The cos label: the horizontal leg of the triangle on the unit circle.",
+            "id": "cosLab",
+            "explain": "The cos label: the horizontal leg of the triangle on the unit circle.",
             "kind": "text",
             "x": 660,
             "y": 392,
@@ -149,7 +157,8 @@
           "at_ms": 3800,
           "do": "show",
           "shape": {
-            "id": "sinLab", "explain": "The sin label: the vertical leg of the triangle on the unit circle.",
+            "id": "sinLab",
+            "explain": "The sin label: the vertical leg of the triangle on the unit circle.",
             "kind": "text",
             "x": 505,
             "y": 400,
@@ -201,7 +210,8 @@
           "at_ms": 5900,
           "do": "show",
           "shape": {
-            "id": "id1", "explain": "The identity: sin squared plus cos squared equals one.",
+            "id": "id1",
+            "explain": "The identity: sin squared plus cos squared equals one.",
             "kind": "latex",
             "tex": "\\sin^2 \\theta + \\cos^2 \\theta = 1",
             "x": 90,
@@ -214,7 +224,8 @@
           "at_ms": 6800,
           "do": "show",
           "shape": {
-            "id": "id2", "explain": "The identity: tan equals sin over cos.",
+            "id": "id2",
+            "explain": "The identity: tan equals sin over cos.",
             "kind": "latex",
             "tex": "\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}",
             "x": 90,
@@ -280,7 +291,8 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "sa", "explain": "The addition formula: sin of A plus B expands to sin A cos B plus cos A sin B.",
+            "id": "sa",
+            "explain": "The addition formula: sin of A plus B expands to sin A cos B plus cos A sin B.",
             "kind": "latex",
             "tex": "\\sin(A + B) = \\sin A \\cos B + \\cos A \\sin B",
             "x": 80,
@@ -293,13 +305,100 @@
           "at_ms": 900,
           "do": "show",
           "shape": {
-            "id": "e75", "explain": "The target: sin 75 degrees, split as sin of 45 plus 30.",
+            "id": "e75",
+            "explain": "The target: sin 75 degrees, split as sin of 45 plus 30.",
             "kind": "latex",
             "tex": "\\sin 75^{\\circ} = \\sin(45^{\\circ} + 30^{\\circ})",
             "x": 80,
             "y": 170,
             "size": 40,
             "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "uc2",
+            "explain": "A unit circle for the angle demo: radius 1, so the hypotenuse is 1.",
+            "kind": "circle",
+            "cx": 800,
+            "cy": 110,
+            "r": 65,
+            "fill": "none",
+            "stroke": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "rad45",
+            "explain": "The 45-degree direction on the unit circle.",
+            "kind": "line",
+            "x1": 800,
+            "y1": 110,
+            "x2": 846,
+            "y2": 64,
+            "stroke": "#888888"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "arc30",
+            "explain": "The extra 30 degrees: 45 plus 30 makes 75.",
+            "kind": "sector",
+            "cx": 800,
+            "cy": 110,
+            "r": 65,
+            "startAngle": -75,
+            "endAngle": -45,
+            "fill": "#dbe7ff",
+            "stroke": "none"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "lab45",
+            "explain": "45 degrees.",
+            "kind": "text",
+            "x": 868,
+            "y": 58,
+            "text": "45°",
+            "size": 18,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "lab75",
+            "explain": "75 degrees: the target angle.",
+            "kind": "text",
+            "x": 786,
+            "y": 32,
+            "text": "75°",
+            "size": 18,
+            "color": "#1a1a1a"
+          }
+        },
+        {
+          "at_ms": 900,
+          "do": "show",
+          "shape": {
+            "id": "lab30",
+            "explain": "The 30 degrees added to 45.",
+            "kind": "text",
+            "x": 810,
+            "y": 86,
+            "text": "30°",
+            "size": 16,
+            "color": "#1a56db"
           }
         },
         {
@@ -317,10 +416,35 @@
           }
         },
         {
+          "at_ms": 1800,
+          "do": "show",
+          "shape": {
+            "id": "sweepDot",
+            "explain": "The angle sweeping from 45 to 75 degrees.",
+            "kind": "circle",
+            "cx": 846,
+            "cy": 64,
+            "r": 7,
+            "fill": "#d62728",
+            "stroke": "none"
+          }
+        },
+        {
+          "at_ms": 1800,
+          "do": "move",
+          "target": "sweepDot",
+          "to": {
+            "cx": 817,
+            "cy": 47
+          },
+          "dur_ms": 900
+        },
+        {
           "at_ms": 2500,
           "do": "show",
           "shape": {
-            "id": "tv1", "explain": "The known value: sin 45 degrees is root 2 over 2.",
+            "id": "tv1",
+            "explain": "The known value: sin 45 degrees is root 2 over 2.",
             "kind": "latex",
             "tex": "\\sin 45^{\\circ} = \\frac{\\sqrt{2}}{2}",
             "x": 700,
@@ -333,7 +457,8 @@
           "at_ms": 2800,
           "do": "show",
           "shape": {
-            "id": "tv2", "explain": "The known value: cos 30 degrees is root 3 over 2.",
+            "id": "tv2",
+            "explain": "The known value: cos 30 degrees is root 3 over 2.",
             "kind": "latex",
             "tex": "\\cos 30^{\\circ} = \\frac{\\sqrt{3}}{2}",
             "x": 700,
@@ -346,7 +471,8 @@
           "at_ms": 3100,
           "do": "show",
           "shape": {
-            "id": "tv3", "explain": "The known value: cos 45 degrees is root 2 over 2.",
+            "id": "tv3",
+            "explain": "The known value: cos 45 degrees is root 2 over 2.",
             "kind": "latex",
             "tex": "\\cos 45^{\\circ} = \\frac{\\sqrt{2}}{2}",
             "x": 700,
@@ -359,7 +485,8 @@
           "at_ms": 3400,
           "do": "show",
           "shape": {
-            "id": "tv4", "explain": "The known value: sin 30 degrees is 1 over 2.",
+            "id": "tv4",
+            "explain": "The known value: sin 30 degrees is 1 over 2.",
             "kind": "latex",
             "tex": "\\sin 30^{\\circ} = \\frac{1}{2}",
             "x": 700,
@@ -432,7 +559,8 @@
           "at_ms": 6700,
           "do": "show",
           "shape": {
-            "id": "e2", "explain": "The substitution: the four known values multiplied out.",
+            "id": "e2",
+            "explain": "The substitution: the four known values multiplied out.",
             "kind": "latex",
             "tex": "= \\frac{\\sqrt{2}}{2} \\cdot \\frac{\\sqrt{3}}{2} + \\frac{\\sqrt{2}}{2} \\cdot \\frac{1}{2}",
             "x": 80,
@@ -445,7 +573,8 @@
           "at_ms": 7900,
           "do": "show",
           "shape": {
-            "id": "e3", "explain": "The simplification: root 6 plus root 2, all over 4.",
+            "id": "e3",
+            "explain": "The simplification: root 6 plus root 2, all over 4.",
             "kind": "latex",
             "tex": "= \\frac{\\sqrt{6} + \\sqrt{2}}{4}",
             "x": 80,
@@ -458,7 +587,8 @@
           "at_ms": 8800,
           "do": "show",
           "shape": {
-            "id": "chk", "explain": "The check: about 0.966, matching sin 75 degrees.",
+            "id": "chk",
+            "explain": "The check: about 0.966, matching sin 75 degrees.",
             "kind": "text",
             "x": 560,
             "y": 490,
@@ -492,7 +622,8 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "rf", "explain": "The R-formula: a cos x plus b sin x becomes R cos of x minus alpha.",
+            "id": "rf",
+            "explain": "The R-formula: a cos x plus b sin x becomes R cos of x minus alpha.",
             "kind": "latex",
             "tex": "a \\cos x + b \\sin x = R \\cos(x - \\alpha)",
             "x": 80,
@@ -505,7 +636,8 @@
           "at_ms": 900,
           "do": "show",
           "shape": {
-            "id": "def", "explain": "R is the amplitude: the square root of a squared plus b squared.",
+            "id": "def",
+            "explain": "R is the amplitude: the square root of a squared plus b squared.",
             "kind": "latex",
             "tex": "R = \\sqrt{a^2 + b^2}, \\quad \\tan \\alpha = b/a",
             "x": 80,
@@ -518,7 +650,8 @@
           "at_ms": 1700,
           "do": "show",
           "shape": {
-            "id": "q3", "explain": "The 3-4-5 triangle: R is 5, alpha is 53.1 degrees.",
+            "id": "q3",
+            "explain": "The 3-4-5 triangle: R is 5, alpha is 53.1 degrees.",
             "kind": "latex",
             "tex": "3 \\cos x + 4 \\sin x = \\, ?",
             "x": 80,
@@ -531,7 +664,8 @@
           "at_ms": 2400,
           "do": "show",
           "shape": {
-            "id": "leg3", "explain": "Side a: length 3.",
+            "id": "leg3",
+            "explain": "Side a: length 3.",
             "kind": "line",
             "x1": 100,
             "y1": 470,
@@ -545,7 +679,8 @@
           "at_ms": 2600,
           "do": "show",
           "shape": {
-            "id": "leg4", "explain": "Side b: length 4, the vertical leg of the 3-4-5 triangle.",
+            "id": "leg4",
+            "explain": "Side b: length 4, the vertical leg of the 3-4-5 triangle.",
             "kind": "line",
             "x1": 100,
             "y1": 470,
@@ -559,7 +694,8 @@
           "at_ms": 2900,
           "do": "show",
           "shape": {
-            "id": "lab3", "explain": "The side-a label: length 3, the horizontal leg.",
+            "id": "lab3",
+            "explain": "The side-a label: length 3, the horizontal leg.",
             "kind": "text",
             "x": 155,
             "y": 498,
@@ -571,7 +707,8 @@
           "at_ms": 3000,
           "do": "show",
           "shape": {
-            "id": "lab4", "explain": "The side-b label: length 4, the vertical leg.",
+            "id": "lab4",
+            "explain": "The side-b label: length 4, the vertical leg.",
             "kind": "text",
             "x": 76,
             "y": 412,
@@ -583,7 +720,8 @@
           "at_ms": 3200,
           "do": "show",
           "shape": {
-            "id": "triDot", "explain": "The right-angle marker: sides a and b are perpendicular.",
+            "id": "triDot",
+            "explain": "The right-angle marker: sides a and b are perpendicular.",
             "kind": "circle",
             "cx": 100,
             "cy": 470,
@@ -616,7 +754,8 @@
           "at_ms": 5200,
           "do": "show",
           "shape": {
-            "id": "R5", "explain": "R equals 5: the hypotenuse of the 3-4-5 triangle.",
+            "id": "R5",
+            "explain": "R equals 5: the hypotenuse of the 3-4-5 triangle.",
             "kind": "latex",
             "tex": "R = \\sqrt{3^2 + 4^2} = 5, \\quad \\alpha = 53.1^{\\circ}",
             "x": 80,
@@ -629,7 +768,8 @@
           "at_ms": 6100,
           "do": "show",
           "shape": {
-            "id": "wx", "explain": "The horizontal axis: the angle x.",
+            "id": "wx",
+            "explain": "The horizontal axis: the angle x.",
             "kind": "line",
             "x1": 590,
             "y1": 430,
@@ -643,7 +783,8 @@
           "at_ms": 6200,
           "do": "show",
           "shape": {
-            "id": "wy", "explain": "The vertical axis: the wave's height.",
+            "id": "wy",
+            "explain": "The vertical axis: the wave's height.",
             "kind": "line",
             "x1": 600,
             "y1": 330,
@@ -657,7 +798,8 @@
           "at_ms": 6500,
           "do": "show",
           "shape": {
-            "id": "w3", "explain": "The original wave: a cos x plus b sin x, two waves added.",
+            "id": "w3",
+            "explain": "The original wave: a cos x plus b sin x, two waves added.",
             "kind": "polygon",
             "points": [
               [
@@ -722,7 +864,8 @@
           "at_ms": 6800,
           "do": "show",
           "shape": {
-            "id": "w4", "explain": "The original wave: a cos x plus b sin x, two waves added.",
+            "id": "w4",
+            "explain": "The original wave: a cos x plus b sin x, two waves added.",
             "kind": "polygon",
             "points": [
               [
@@ -797,7 +940,8 @@
           "at_ms": 7600,
           "do": "show",
           "shape": {
-            "id": "w1", "explain": "The merged wave: one cosine of amplitude 5.",
+            "id": "w1",
+            "explain": "The merged wave: one cosine of amplitude 5.",
             "kind": "polygon",
             "points": [
               [
@@ -830,7 +974,8 @@
           "at_ms": 7900,
           "do": "show",
           "shape": {
-            "id": "w2", "explain": "One segment of the merged wave: a single cosine of amplitude 5.",
+            "id": "w2",
+            "explain": "One segment of the merged wave: a single cosine of amplitude 5.",
             "kind": "polygon",
             "points": [
               [
@@ -863,7 +1008,8 @@
           "at_ms": 8200,
           "do": "show",
           "shape": {
-            "id": "w3c", "explain": "One segment of the merged wave: a single cosine of amplitude 5.",
+            "id": "w3c",
+            "explain": "One segment of the merged wave: a single cosine of amplitude 5.",
             "kind": "polygon",
             "points": [
               [
@@ -896,7 +1042,8 @@
           "at_ms": 8600,
           "do": "show",
           "shape": {
-            "id": "maxLab", "explain": "The maximum: R, equal to 5.",
+            "id": "maxLab",
+            "explain": "The maximum: R, equal to 5.",
             "kind": "text",
             "x": 520,
             "y": 300,
@@ -908,7 +1055,8 @@
           "at_ms": 8700,
           "do": "show",
           "shape": {
-            "id": "minLab", "explain": "The minimum: negative R, equal to negative 5.",
+            "id": "minLab",
+            "explain": "The minimum: negative R, equal to negative 5.",
             "kind": "text",
             "x": 480,
             "y": 532,
@@ -940,7 +1088,8 @@
           "at_ms": 9800,
           "do": "show",
           "shape": {
-            "id": "res", "explain": "The result: one cosine of amplitude 5 and period 360 degrees.",
+            "id": "res",
+            "explain": "The result: one cosine of amplitude 5 and period 360 degrees.",
             "kind": "latex",
             "tex": "3 \\cos x + 4 \\sin x = 5 \\cos(x - 53.1^{\\circ})",
             "x": 70,
@@ -966,7 +1115,8 @@
           "at_ms": 0,
           "do": "show",
           "shape": {
-            "id": "wrong", "explain": "The trap: cos of A plus B does not split into cos A plus cos B.",
+            "id": "wrong",
+            "explain": "The trap: cos of A plus B does not split into cos A plus cos B.",
             "kind": "latex",
             "tex": "\\cos(A + B) \\neq \\cos A + \\cos B",
             "x": 80,
@@ -979,7 +1129,8 @@
           "at_ms": 1100,
           "do": "show",
           "shape": {
-            "id": "trap", "explain": "The trap warning: compute the sum first, then the cosine.",
+            "id": "trap",
+            "explain": "The trap warning: compute the sum first, then the cosine.",
             "kind": "text",
             "x": 80,
             "y": 190,
@@ -991,7 +1142,8 @@
           "at_ms": 2000,
           "do": "show",
           "shape": {
-            "id": "eg", "explain": "The numbers: cos 60 degrees is one half.",
+            "id": "eg",
+            "explain": "The numbers: cos 60 degrees is one half.",
             "kind": "latex",
             "tex": "\\cos 60^{\\circ} = 0.5",
             "x": 80,
@@ -1004,7 +1156,8 @@
           "at_ms": 2800,
           "do": "show",
           "shape": {
-            "id": "trueLab", "explain": "The true label: cos 60 degrees really is one half.",
+            "id": "trueLab",
+            "explain": "The true label: cos 60 degrees really is one half.",
             "kind": "text",
             "x": 596,
             "y": 290,
@@ -1041,7 +1194,8 @@
           "at_ms": 3900,
           "do": "show",
           "shape": {
-            "id": "bad", "explain": "The wrong answer: cos 30 plus cos 30 is root 3, about 1.73.",
+            "id": "bad",
+            "explain": "The wrong answer: cos 30 plus cos 30 is root 3, about 1.73.",
             "kind": "latex",
             "tex": "\\cos 30^{\\circ} + \\cos 30^{\\circ} = \\sqrt{3} \\approx 1.73",
             "x": 80,
@@ -1054,7 +1208,8 @@
           "at_ms": 4700,
           "do": "show",
           "shape": {
-            "id": "badLab", "explain": "The wrong label: cos 30 plus cos 30 is not cos 60.",
+            "id": "badLab",
+            "explain": "The wrong label: cos 30 plus cos 30 is not cos 60.",
             "kind": "text",
             "x": 790,
             "y": 440,
@@ -1091,7 +1246,8 @@
           "at_ms": 6400,
           "do": "show",
           "shape": {
-            "id": "neq", "explain": "Not equal: the wrong bar towers over the true one.",
+            "id": "neq",
+            "explain": "Not equal: the wrong bar towers over the true one.",
             "kind": "latex",
             "tex": "0.5 \\neq 1.73 \\;\\Rightarrow\\; \\text{split fails}",
             "x": 80,

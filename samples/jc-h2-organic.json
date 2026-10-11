@@ -110,24 +110,100 @@
           }
         },
         {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "methC",
+            "kind": "circle",
+            "cx": 620,
+            "cy": 340,
+            "r": 20,
+            "fill": "#1a1a1a",
+            "stroke": "none",
+            "explain": "Methane's carbon atom: the demo starts from methane."
+          }
+        },
+        {
+          "at_ms": 3000,
+          "do": "show",
+          "shape": {
+            "id": "methLab",
+            "kind": "text",
+            "x": 596,
+            "y": 388,
+            "text": "methane",
+            "size": 22,
+            "color": "#1a1a1a",
+            "explain": "Methane, CH4: one carbon with four hydrogens."
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "unitC",
+            "kind": "circle",
+            "cx": 700,
+            "cy": 260,
+            "r": 20,
+            "fill": "none",
+            "stroke": "#c0392b",
+            "strokeWidth": 3,
+            "explain": "The CH2 unit, about to fly in and extend the chain."
+          }
+        },
+        {
+          "at_ms": 3100,
+          "do": "show",
+          "shape": {
+            "id": "unitLab",
+            "kind": "text",
+            "x": 732,
+            "y": 268,
+            "text": "CH2 unit",
+            "size": 20,
+            "color": "#c0392b",
+            "explain": "The repeating unit of the alkane series."
+          }
+        },
+        {
           "at_ms": 3800,
           "do": "move",
-          "target": "fgUnit",
+          "target": "unitC",
           "to": {
-            "x": 640,
-            "y": 275
+            "cx": 668,
+            "cy": 340
           },
           "dur_ms": 800
         },
         {
           "at_ms": 4800,
-          "do": "move",
-          "target": "fgUnit",
-          "to": {
-            "x": 640,
-            "y": 335
-          },
-          "dur_ms": 800
+          "do": "show",
+          "shape": {
+            "id": "bond",
+            "kind": "line",
+            "x1": 638,
+            "y1": 340,
+            "x2": 650,
+            "y2": 340,
+            "stroke": "#1a1a1a",
+            "width": 4,
+            "explain": "A new carbon-carbon bond: methane plus CH2 becomes ethane."
+          }
+        },
+        {
+          "at_ms": 4800,
+          "do": "show",
+          "shape": {
+            "id": "ethLab",
+            "kind": "text",
+            "x": 596,
+            "y": 420,
+            "text": "ethane: C2H6",
+            "size": 24,
+            "color": "#1f7a3a",
+            "explain": "Ethane, C2H6: one CH2 longer than methane."
+          }
         },
         {
           "at_ms": 5800,
