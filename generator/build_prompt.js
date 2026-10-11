@@ -39,7 +39,7 @@
 
   var GENERIC_MISCONCEPTION_LINE =
     '- Address exactly one common misconception for the topic, visually\n' +
-    '  (e.g. show why 1/2 + 1/4 is NOT 2/6).';
+    '  (e.g. show the classic wrong turn playing out visually, not just a caption saying it is wrong).';
 
   // Pure lookup: exact short-slug match first, then the longest key that is a
   // dash-boundary prefix of the slug (e.g. "fractions-addition" -> "fractions").
@@ -92,7 +92,7 @@
     '4. Step verbs: show | hide | move | emphasize | caption.',
     '5. Shape kinds: text | rect | circle | line | arrow | polygon | latex. Every shape',
     '   needs a unique id within its scene. Coordinates are canvas pixels,',
-    '   origin top-left. Colors are CSS hex. (latex: math rendered with KaTeX —',
+    '   origin top-left. Colors are CSS hex. (latex: formal/symbolic notation rendered with KaTeX —',
     '   write plain LaTeX in its "tex" field, e.g. "a^2 + b^2 = c^2".)',
     '6. move supports text | rect | circle | line | arrow | latex | polygon.',
     '   Every move step needs a numeric dur_ms (milliseconds). to must carry',
@@ -101,8 +101,8 @@
     '   array of [x,y] pairs, same length as the shape\'s points) — plus',
     '   w/h for rect and r for circle (size fields allowed, alone or with',
     '   position fields). hide/move/emphasize targets must be shown earlier in the SAME scene.',
-    '7. Math notation: prefer the latex shape kind where unicode math breaks',
-    '   down (fractions, stacked notation, algebra); text shapes stay UNICODE',
+    '7. Formal notation: prefer the latex shape kind where unicode symbols break',
+    '   down (fractions, stacked notation, algebra, chemical formulae, annotated diagrams); text shapes stay UNICODE',
     '   ONLY — NEVER LaTeX backslash commands inside text, like \\frac, \\sqrt, \\times.',
     '8. Keep scenes visually uncluttered: max ~8 shapes visible at once. Prefer',
     '   building a diagram step by step over dumping it whole.',

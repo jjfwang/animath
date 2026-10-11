@@ -161,7 +161,7 @@ test('buildPrompts injects the seeded entry text for a seeded slug', () => {
 
 test('buildPrompts keeps the generic line for an unknown slug', () => {
   const p = Prompt.buildPrompts({ level: 'primary', subject: 'math', topic: 'pythagoras', kind: 'concept' });
-  assert.ok(p.system.indexOf('1/2 + 1/4 is NOT 2/6') !== -1,
+  assert.ok(p.system.indexOf('show the classic wrong turn playing out visually') !== -1,
     'system prompt must keep the generic misconception line for unknown slugs');
 });
 
