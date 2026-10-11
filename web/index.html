@@ -37,6 +37,17 @@
     border: 1px solid #d8d2c4; background: #fff; cursor: pointer; }
   .demo-link { font-size: 14px; margin-top: 24px; color: #6b6455; }
   .demo-link a { color: #2b5cb8; }
+  /* Teacher rubric score panel (#111, wired in by #598): compact, next to the
+     player; tabindex makes it keyboard-reachable per the UI/UX bar. */
+  .rubric { background: #fff; border: 1px solid #e2ddd2; border-radius: 12px;
+            padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .rubric:focus { outline: 2px solid #2b5cb8; outline-offset: 2px; }
+  .rubric h3 { font-size: 15px; margin: 0 0 8px; }
+  .rubric table { border-collapse: collapse; width: 100%; max-width: 640px; }
+  .rubric td { padding: 3px 8px 3px 0; vertical-align: top; }
+  .rubric .dim { color: #6b6455; white-space: nowrap; }
+  .rubric .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .rubric .note { color: #6b6455; font-size: 13px; }
 </style>
 </head>
 <body>
@@ -87,6 +98,8 @@
     <button id="copybtn">Copy spec JSON</button>
     <button id="dlbtn">Download spec JSON</button>
   </div>
+  <div class="rubric" id="rubricscore" role="region" aria-label="Teacher rubric score"
+       tabindex="0" style="display:none"></div>
   <div id="stage"></div>
   <div id="err"></div>
 
@@ -99,6 +112,7 @@
 <script src="../generator/misconceptions.js"></script>
 <script src="../generator/build_prompt.js"></script>
 <script src="../generator/llm_client.js"></script>
+<script src="../generator/rubric.js"></script>
 <script src="../player/validate.js"></script>
 <script src="../player/player.js"></script>
 <script>
@@ -118,6 +132,7 @@
   var stageEl = document.getElementById('stage');
   var errEl = document.getElementById('err');
   var specBtns = document.getElementById('specbtns');
+  var scoreEl = document.getElementById('rubricscore');
 
   // restore saved LLM settings
   try {
@@ -249,6 +264,7 @@
   genBtn.addEventListener('click', function () {
     errEl.innerHTML = '';
     specBtns.style.display = 'none';
+    scoreEl.style.display = 'none';
     var key = keyEl.value.trim();
     if (!key) { setStatus('Paste your API key first.', true); return; }
     try {
@@ -279,6 +295,23 @@
         problems.map(function (p) { return String(p).replace(/</g, '&lt;'); }).join('\n') + '</div>';
     }
 
+    // Teacher rubric (#111): score the generated spec before the student sees
+    // it, and show total + the six dimension scores with one short note each.
+    // The call is guarded on the rubric global so the page stays unbroken if
+    // the script tag ever fails to load.
+    function renderRubric(result) {
+      var rows = result.dimensions.map(function (d) {
+        var note = (d.notes && d.notes.length) ? d.notes[0] : 'no notes';
+        return '<tr><td class="dim">' + String(d.name).replace(/</g, '&lt;') + '</td>' +
+          '<td class="num">' + d.score + '/' + d.max + '</td>' +
+          '<td class="note">' + String(note).replace(/</g, '&lt;') + '</td></tr>';
+      }).join('');
+      scoreEl.innerHTML =
+        '<h3>Teacher rubric score: ' + result.score + '/' + result.maxScore + '</h3>' +
+        '<table><tbody>' + rows + '</tbody></table>';
+      scoreEl.style.display = '';
+    }
+
     AnimathLLM.generateSpecWithRepair({
       baseUrl: baseUrlEl.value.trim(),
       apiKey: key,
@@ -294,6 +327,9 @@
       if (player) player.destroy();
       player = AnimathPlayer.mount(stageEl, spec);
       player.play();
+      if (window.AnimathRubric && window.AnimathRubric.scoreSpec) {
+        renderRubric(window.AnimathRubric.scoreSpec(spec));
+      }
       setStatus('Playing: ' + spec.title);
       stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }).catch(function (e) {
