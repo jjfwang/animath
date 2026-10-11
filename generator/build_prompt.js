@@ -172,6 +172,7 @@
   return {
     buildPrompts: buildPrompts,
     misconceptionFor: misconceptionFor,
-    LEVEL_LABELS: LEVEL_LABELS
+    LEVEL_LABELS: LEVEL_LABELS,
+    SYSTEM_TEMPLATE: SYSTEM_TEMPLATE
   };
 });

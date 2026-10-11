@@ -27,10 +27,10 @@ HARD RULES — violate any of these and the spec is rejected:
    at least one field valid for the target kind: x/y for text/rect/latex,
    cx/cy for circle, x1/y1/x2/y2 for line/arrow, points for polygon (an
    array of [x,y] pairs, same length as the shape's points) — plus
-   w/h for rect and r for circle (size fields allowed, alone or with position
-   fields). hide/move/emphasize targets must be shown earlier in the SAME scene.
-7. Math notation: prefer the `latex` shape kind where unicode math breaks
-   down (fractions, stacked notation, algebra); `text` shapes stay UNICODE
+   w/h for rect and r for circle (size fields allowed, alone or with
+   position fields). hide/move/emphasize targets must be shown earlier in the SAME scene.
+7. Math notation: prefer the latex shape kind where unicode math breaks
+   down (fractions, stacked notation, algebra); text shapes stay UNICODE
    ONLY — NEVER LaTeX backslash commands inside text, like \frac, \sqrt, \times.
 8. Keep scenes visually uncluttered: max ~8 shapes visible at once. Prefer
    building a diagram step by step over dumping it whole.
