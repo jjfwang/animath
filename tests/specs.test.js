@@ -7,7 +7,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { validateSpec } = require('../player/validate.js');
+const { validateSpec, SUBJECTS } = require('../player/validate.js');
 const { buildPrompts } = require('../generator/build_prompt.js');
 const { extractJson, generateSpecWithRepair } = require('../generator/llm_client.js');
 
@@ -284,12 +284,16 @@ test('jc-h2-thermal and jc-h2-quantum cover kinetic theory and the photoelectric
   }
 });
 
-test('samples cover math and science across levels', () => {
+test('every validator subject has sample coverage across levels', () => {
   const specs = sampleFiles.map((f) =>
     JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8')));
   const subjects = new Set(specs.map((s) => s.subject));
+  // The subject enum is open (issue #644): derive the required set from the
+  // validator, so a new subject cannot ship without a sample covering it.
+  for (const subject of SUBJECTS) {
+    assert.ok(subjects.has(subject), 'no sample covers the "' + subject + '" subject');
+  }
   const levels = new Set(specs.map((s) => s.level));
-  assert.ok(subjects.has('math') && subjects.has('science'), 'samples should cover math and science');
   assert.ok(levels.has('primary') && levels.has('secondary'), 'samples should span levels');
 });
 
