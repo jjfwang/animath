@@ -119,10 +119,12 @@ reason as a tooltip plus an "Export unavailable: <reason>" status message.
 Other projects can import the generator modules and the player directly:
 
 ```sh
-npm install github:jjfwang/animath
-# once the package is published to the registry:
 npm install @jjfwang/animath
 ```
+
+The first published line is `0.2.0-beta.0` — track the beta channel with
+`npm install @jjfwang/animath@beta`, or install from source with
+`npm install github:jjfwang/animath`.
 
 ```js
 const { buildPrompts } = require('@jjfwang/animath/build-prompt');
