@@ -78,6 +78,48 @@ regen script itself is not covered by the test suite (same precedent as
 change-fails/regen-passes loop plus review reading the script against the
 test's consumption.
 
+## build-data-graphs-charts.js (issue #610)
+
+Provenance for the chart geometry baked into
+`samples/primary-math-data-graphs.json`: the chart toolkit
+`generator/charts.js` ships with its first adopted consumers in that
+sample. This script replays the toolkit calls for the literal inputs and
+prints the resulting descriptor fragments, so the baked values are
+auditable without reading the compacted sample JSON.
+
+Requirements: Node, zero dependencies.
+
+What it does (from the repo root):
+
+    node generator/tooling/build-data-graphs-charts.js
+
+1. Prints the s1 favourite-fruit pie descriptors: `pieSectors` output for
+   the 6/3/3 vote split, pie centred at (300,330) with radius 150
+   (startAngle 0 = east, clockwise), emitted as the `wApples`,
+   `wBananas`, `wGrapes` sector shapes.
+2. Prints the s3 favourite-sport bar descriptors: `barLayout` move-to
+   targets for the soccer/badminton/swimming values on the
+   x=135/y=280/w=360/h=130 plot rect (gap 5/12 verbatim); the chart
+   geometry lives in the move-step `to` targets — the static rects are
+   the h=0 initial state.
+3. Prints the s4 shop-B sales axis ticks: `axisTicks(0, 200, 3)` yields
+   [0,100,200], carried by the `t0B`/`t100B`/`t200B` text labels. The s4
+   axis-A ticks ([0,25,50]) stay hand-authored — `axisTicks(0, 50, n)`
+   cannot reproduce them without a visual change (issue #610 scope
+   exclusion).
+
+Then re-run the suite: `node --test "tests/*.test.js"`. The adoption
+test (`tests/charts-adoption.test.js`) asserts the same equality
+independently of this script — it requires `generator/charts.js`
+directly and compares the toolkit outputs against the in-sample
+descriptors, so a drifted sample fails the test even if the script
+prints the wrong values.
+
+Honest limits: the script prints descriptor fragments to stdout — it
+does not rewrite the sample. Like `gen-render-snapshots.js` (issue
+#519 precedent), the script itself is not covered by the test suite;
+its acceptance is review reading it against the test's consumption.
+
 ## regen-prompt-mirror.js (issue #620)
 
 Regenerates the PROMPTS.md "## System prompt" fenced block from the
