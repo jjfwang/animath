@@ -32,9 +32,12 @@
   #genbtn:disabled { background: #9db4dd; cursor: wait; }
   #status { margin: 12px 0; font-size: 15px; min-height: 22px; }
   #status.err { color: #8a1f1f; }
-  .specbtns { display: flex; gap: 8px; margin: 12px 0; }
+  .specbtns { display: flex; gap: 8px; margin: 12px 0; flex-wrap: wrap; }
   .specbtns button { font-size: 14px; padding: 7px 14px; border-radius: 8px;
     border: 1px solid #d8d2c4; background: #fff; cursor: pointer; }
+  /* Export WebM (#506): status line next to the export button, announced to
+     assistive tech like demo.html's #exportstatus. */
+  #exportstatus { font-size: 14px; color: #6b6455; align-self: center; }
   .demo-link { font-size: 14px; margin-top: 24px; color: #6b6455; }
   .demo-link a { color: #2b5cb8; }
   /* Teacher rubric score panel (#111, wired in by #598): compact, next to the
@@ -97,6 +100,8 @@
   <div class="specbtns" id="specbtns" style="display:none">
     <button id="copybtn">Copy spec JSON</button>
     <button id="dlbtn">Download spec JSON</button>
+    <button id="exportbtn" type="button">Export WebM</button>
+    <span id="exportstatus" aria-live="polite"></span>
   </div>
   <div class="rubric" id="rubricscore" role="region" aria-label="Teacher rubric score"
        tabindex="0" style="display:none"></div>
@@ -115,6 +120,13 @@
 <script src="../generator/rubric.js"></script>
 <script src="../player/validate.js"></script>
 <script src="../player/player.js"></script>
+<!-- Export WebM (#506): record the generated animation as a WebM video.
+     Same globals as player/demo.html; export-ui.js carries its own
+     MediaRecorder feature detection (disabled control with a reason when
+     unsupported). -->
+<script src="../player/export-frames.js"></script>
+<script src="../player/export-record.js"></script>
+<script src="../player/export-ui.js"></script>
 <script>
 (function () {
   var S = window.ANIMATH_SYLLABUS;
@@ -255,6 +267,22 @@
 
   var player = null;
   var lastSpec = null;
+  var lastSlug = 'animath';
+
+  // Export WebM (#506): one clearly-labeled button + status line that records
+  // the generated animation as a WebM video from this page. Guarded on the
+  // export globals so the page stays unbroken if a script tag ever fails to
+  // load — same attach pattern as player/demo.html. MediaRecorder support is
+  // detected inside export-ui.js (disabled control with a reason when
+  // unsupported); nothing is re-detected here.
+  var exportUI = null;
+  if (window.AnimathExportUI && window.AnimathExportRecord) {
+    exportUI = window.AnimathExportUI.attachExportUI(document, window, window.AnimathExportRecord, {
+      getSpec: function () { return lastSpec; },
+      getSlug: function () { return lastSlug; }
+    });
+    exportUI.refresh();
+  }
 
   function setStatus(msg, isErr) {
     statusEl.textContent = msg;
@@ -265,6 +293,11 @@
     errEl.innerHTML = '';
     specBtns.style.display = 'none';
     scoreEl.style.display = 'none';
+    // export state tracks the current spec: clear it at generation start so a
+    // failed validation leaves getSpec() null (demo.html pattern)
+    lastSpec = null;
+    lastSlug = 'animath';
+    if (exportUI) exportUI.refresh();
     var key = keyEl.value.trim();
     if (!key) { setStatus('Paste your API key first.', true); return; }
     try {
@@ -323,7 +356,9 @@
     }).then(function (spec) {
       // generateSpecWithRepair only resolves with a spec that validated clean
       lastSpec = spec;
+      lastSlug = topicSel.value || 'animath';
       specBtns.style.display = 'flex';
+      if (exportUI) exportUI.refresh();
       if (player) player.destroy();
       player = AnimathPlayer.mount(stageEl, spec);
       player.play();
@@ -334,6 +369,10 @@
       stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }).catch(function (e) {
       var problems = e.problems || [e.message];
+      // failed validation: keep export disabled — getSpec() returns null
+      lastSpec = null;
+      lastSlug = 'animath';
+      if (exportUI) exportUI.refresh();
       setStatus('Generation failed: the model could not produce a valid spec (' +
         problems.length + ' problem(s)).', true);
       showProblems(problems);
