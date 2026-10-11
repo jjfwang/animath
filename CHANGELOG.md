@@ -10,6 +10,31 @@ version section when the release ships.
 
 ## [Unreleased]
 
+### Added
+
+- End-to-end add-a-subject checklist in CONTRIBUTING.md covering the SPEC.md
+  subject enum, `player/validate.js` SUBJECTS, the SYLLABUS.md section, the
+  web/syllabus.js track, the generator misconception-bank entries, and the
+  hand-authored sample + `samples/index.json` registration (issue #669).
+- Misconception bank gains Slice 6: geography (erosion, plate-tectonics,
+  weather-climate, grounded in the samples' misconception beats) plus the
+  documented per-subject slice pattern; geography specs now earn the full
+  wrong-turn-marker rubric check instead of the skip (issue #668).
+
+### Changed
+
+- README "Install as a library" leads with the live registry command
+  (`npm install @jjfwang/animath`), notes the beta pin
+  (`npm install @jjfwang/animath@beta`), and keeps the git source fallback in
+  one sentence; pending "once published" language removed (issue #666).
+- User-facing language made subject-neutral: the package.json description and
+  the web/index.html title and tagline (issue #670).
+- `player/validate.js` exports SUBJECTS as the single source of truth for the
+  allowed subject set; `tests/specs.test.js` now requires every validator
+  subject to have sample coverage across levels (issue #671).
+- `generator/build_prompt.js` throws visibly on a missing subject instead of
+  silently defaulting to 'math' (issue #669).
+
 ## [0.2.0-beta.0] - 2026-10-12
 
 First registry beta of the animath library (`@jjfwang/animath`), published
