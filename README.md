@@ -119,9 +119,9 @@ reason as a tooltip plus an "Export unavailable: <reason>" status message.
 Other projects can import the generator modules and the player directly:
 
 ```sh
-npm install @jjfwang/animath
-# or straight from git, no registry needed:
 npm install github:jjfwang/animath
+# once the package is published to the registry:
+npm install @jjfwang/animath
 ```
 
 ```js
