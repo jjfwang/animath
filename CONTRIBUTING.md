@@ -108,7 +108,8 @@ entries in one at a time. Each slice carries:
   samples. When a sample has no explicit misconception beat, name the canonical
   conflation the entry is grounded in instead (do not invent a sample beat).
 - **Bank tests** in `tests/misconceptions.test.js`: exact-slug resolution, the
-  file-style long-slug prefix path (e.g. `primary-geog-erosion` → `erosion`),
+  key-prefix path (e.g. `erosion-coastal-cliffs` → `erosion`), the documented
+  key-prefix-only trap (e.g. `primary-geog-erosion` does not resolve),
   and the grounding wording. Extend the seeded-slug list and its count, not
   just the new keys.
 - **Rubric tests** in `tests/rubric.test.js` when the slice onboards a subject
