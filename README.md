@@ -129,6 +129,17 @@ const { buildPrompts } = require('@jjfwang/animath/build-prompt');
 const charts = require('@jjfwang/animath/charts');
 const { auditGeometry } = require('@jjfwang/animath/geometry');
 const { scoreSpec } = require('@jjfwang/animath/rubric');
+const { validateSpec } = require('@jjfwang/animath/player-validate');
+const { mount } = require('@jjfwang/animath/player');
+```
+
+Validate a spec before mounting it — `validateSpec` returns an array of
+error strings (empty = valid):
+
+```js
+const problems = validateSpec(spec);
+if (problems.length) throw new Error('invalid animath spec: ' + problems.join('; '));
+mount(el, spec); // el is a DOM element; mount re-validates and throws too
 ```
 
 ESM consumers use default-import interop — the package ships CJS+UMD, so Node's
