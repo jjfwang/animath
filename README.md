@@ -230,6 +230,22 @@ so they work in the browser too, and return spec-ready descriptors that
 `player/validate.js` accepts unchanged — `tests/charts.test.js` covers
 every line including the empty/negative/degenerate edge cases.
 
+Generator side: `generator/build_prompt.js` carries a chart-construction
+instruction in the system prompt (after the explain-tooltips block, so the
+numbered hard rules are untouched): pie slices as first-class `"sector"`
+descriptors (`{cx, cy, r, startAngle, endAngle}`, one per value, with
+value-proportional sweeps — angles in degrees, 0 is east, positive is
+clockwise); bar charts as `"rect"` descriptors growing up from a visible
+zero baseline; axes with `"nice"` tick values (1/2/2.5/5/10 steps) and a
+few labeled tick marks; number lines as a baseline with tick marks and
+centered text labels; area under a curve as a `"polygon"` whose points
+close back to the axis baseline; chart grids as thin `"line"` descriptors
+at the tick positions, drawn behind the data. `PROMPTS.md` mirrors the
+instruction in its "System prompt" block, and `tests/charts-prompt.test.js`
+locks the prompt content (the instruction phrases are present for every
+level and kind, seeded topics keep it, and no `{{...}}` placeholder
+survives the fill).
+
 ## Circuit symbols
 
 `docs/circuit-symbols.md` standardizes circuit-diagram symbols for
