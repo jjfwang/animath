@@ -131,6 +131,19 @@ const { auditGeometry } = require('@jjfwang/animath/geometry');
 const { scoreSpec } = require('@jjfwang/animath/rubric');
 ```
 
+ESM consumers use default-import interop — the package ships CJS+UMD, so Node's
+ESM loader does not detect named exports (`import { pieSectors }` throws).
+Verified on Node 24 (issue #637):
+
+```js
+import charts from '@jjfwang/animath/charts';
+const { pieSectors } = charts;
+const sectors = pieSectors(480, 320, 200, [30, 50, 20]); // three sector descriptors
+```
+
+The snippet above is `tests/fixtures/esm-charts-entry.mjs`, exercised verbatim by
+`tests/esm-charts.test.js`.
+
 The generator modules are zero-dependency UMD, so they also work in
 browsers via script tag, exposing namespaced globals (`AnimathCharts`,
 `AnimathGeometry`, `AnimathRubric`, `AnimathPrompt`, ...). The player is DOM-based — load `player/player.css` and

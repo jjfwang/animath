@@ -10,6 +10,13 @@ version section when the release ships.
 
 ## [Unreleased]
 
+### Added
+
+- README "Install as a library" documents the ESM consumption pattern
+  (default-import interop for the CJS+UMD charts entry; named imports are not
+  detected by Node's ESM loader). `tests/esm-charts.test.js` runs a real ESM
+  script importing the charts entry to prove the documented pattern works.
+
 ## [0.1.0] - 2026-10-11
 
 The initial library release: animath becomes an installable npm package
