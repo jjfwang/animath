@@ -47,9 +47,13 @@ const H2_SLUGS = [
   'h2-ecology'
 ];
 
-const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS, SECONDARY_MATH_SLUGS, SECONDARY_SCIENCE_SLUGS, H2_SLUGS);
+const GEOGRAPHY_SLUGS = [
+  'erosion', 'plate-tectonics', 'weather-climate'
+];
 
-test('MISCONCEPTIONS holds exactly the 67 seeded topic slugs (12 Primary Math + 8 Primary Science + 14 Secondary Math + 14 Secondary Science + 19 H2)', () => {
+const SEEDED_SLUGS = PRIMARY_MATH_SLUGS.concat(PRIMARY_SCIENCE_SLUGS, SECONDARY_MATH_SLUGS, SECONDARY_SCIENCE_SLUGS, H2_SLUGS, GEOGRAPHY_SLUGS);
+
+test('MISCONCEPTIONS holds exactly the 70 seeded topic slugs (12 Primary Math + 8 Primary Science + 14 Secondary Math + 14 Secondary Science + 19 H2 + 3 Geography)', () => {
   assert.deepStrictEqual(Object.keys(MISCONCEPTIONS).sort(), SEEDED_SLUGS.slice().sort());
 });
 
@@ -112,6 +116,38 @@ test('misconceptionFor resolves the slice-5 H2 slugs exactly', () => {
     assert.strictEqual(Prompt.misconceptionFor(slug), expected,
       'exact lookup for ' + slug + ' must resolve to its entry (primary facet)');
   }
+});
+
+test('misconceptionFor resolves the slice-6 geography slugs exactly', () => {
+  for (const slug of GEOGRAPHY_SLUGS) {
+    assert.strictEqual(Prompt.misconceptionFor(slug), MISCONCEPTIONS[slug],
+      'exact lookup for ' + slug + ' must resolve to its entry');
+  }
+});
+
+test('misconceptionFor resolves slice-6 longer slugs via longest prefix', () => {
+  assert.strictEqual(Prompt.misconceptionFor('erosion-coastal-cliffs'), MISCONCEPTIONS['erosion']);
+  assert.strictEqual(Prompt.misconceptionFor('plate-tectonics-subduction-zone'), MISCONCEPTIONS['plate-tectonics']);
+  assert.strictEqual(Prompt.misconceptionFor('weather-climate-seasons'), MISCONCEPTIONS['weather-climate']);
+});
+
+test('file-prefixed geography slugs do not resolve (Run-105-class trap)', () => {
+  // the lookup is key-prefix only: the 'primary-geog-' file prefix sits in
+  // front of the key, so 'primary-geog-erosion' falls to the generic line —
+  // same documented trap as the 'jc-h2-*' slugs. Callers pass the topic
+  // field ('erosion'), which resolves exactly.
+  assert.strictEqual(Prompt.misconceptionFor('primary-geog-erosion'), null);
+  assert.strictEqual(Prompt.misconceptionFor('primary-geog-plate-tectonics'), null);
+  assert.strictEqual(Prompt.misconceptionFor('primary-geog-weather-climate'), null);
+});
+
+test('slice-6 entries carry their sample grounding wording', () => {
+  assert.ok(MISCONCEPTIONS['erosion'].correctTurn.indexOf('moving water and wind do the wearing') !== -1,
+    'erosion correctTurn must carry the primary-geog-erosion.json s3 wording');
+  assert.ok(MISCONCEPTIONS['plate-tectonics'].correctTurn.indexOf('Plates creep, they never lurch') !== -1,
+    'plate-tectonics correctTurn must carry the primary-geog-plate-tectonics.json s4 wording');
+  assert.ok(MISCONCEPTIONS['weather-climate'].correctTurn.indexOf('weather is not the climate') !== -1,
+    'weather-climate correctTurn must carry the canonical weather-vs-climate conflation wording');
 });
 
 test('misconceptionFor resolves slice-4 file-style slugs via longest prefix', () => {

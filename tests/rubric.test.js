@@ -210,6 +210,38 @@ test('unresolvable-topic spec skips the wrong-turn sub-check', () => {
   assert.equal(r.maxScore, 100, 'maxScore adjusts when pedagogy is fully skipped');
 });
 
+test('geography topic now resolves: marker check applies and passes with a marker beat', () => {
+  const spec = {
+    animath: '0.1', title: 'Erosion', level: 'primary', subject: 'geography',
+    topic: 'erosion', kind: 'concept',
+    canvas: { width: 960, height: 540 },
+    scenes: [mkScene('s1', 'Watch out: rocks do not crumble on their own', 7000,
+      [showShape('t1', textShape('t1', 10, 10, 24, 'hi'))])]
+  };
+  const ped = dimByName(scoreSpec(spec), 'pedagogy');
+  assert.equal(ped.max, 20, 'geography topics now earn the full-length marker check');
+  assert.equal(ped.score, 20, 'marker beat must pass: ' + JSON.stringify(ped.notes));
+  assert.ok(ped.notes.some((n) => n.includes('marker beat present')),
+    'notes record the present marker beat');
+});
+
+test('geography topic now resolves: marker check fails (not skipped) with no marker beat', () => {
+  const spec = {
+    animath: '0.1', title: 'Weather vs climate', level: 'primary', subject: 'geography',
+    topic: 'weather-climate', kind: 'concept',
+    canvas: { width: 960, height: 540 },
+    scenes: [mkScene('s1', 'A sunny day in Singapore', 7000,
+      [showShape('t1', textShape('t1', 10, 10, 24, 'hi'))])]
+  };
+  const ped = dimByName(scoreSpec(spec), 'pedagogy');
+  assert.equal(ped.max, 20, 'geography topics now earn the full-length marker check');
+  assert.equal(ped.score, 0, 'missing marker beat must fail, not skip');
+  assert.ok(ped.notes.some((n) => n.includes('wrong-turn marker')),
+    'notes name the marker failure');
+  assert.ok(!ped.notes.some((n) => n.includes('wrong-turn marker: skipped')),
+    'the marker check must no longer be recorded as skipped for a banked topic');
+});
+
 test('empty scenes score 0 on pacing/captions/canvas without throwing', () => {
   const spec = {
     animath: '0.1', title: 'T', level: 'primary', subject: 'math',
