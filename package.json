@@ -23,6 +23,7 @@
     "web/embed.js",
     "web/embed.d.ts",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE",
     "PROMPTS.md",
     "SPEC.md"
