@@ -10,6 +10,15 @@ version section when the release ships.
 
 ## [Unreleased]
 
+## [0.2.0-beta.0] - 2026-10-12
+
+First registry beta of the animath library (`@jjfwang/animath`), published
+under the `beta` dist-tag. Ships everything on main since 0.1.0: the
+subject-agnostic generator prompt, Geography as a first-class subject (3
+mechanism-first samples, 72 samples / 70 syllabus slugs total), the
+measure-rubric-bands tooling, the scrub-slider fix, and the completed
+test-coverage programme (1015 tests, ~99.9% lines).
+
 ### Added
 
 - README "Install as a library" documents the ESM consumption pattern
