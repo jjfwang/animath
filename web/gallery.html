@@ -34,12 +34,30 @@
     border: 1px solid #e2ddd2; border-radius: 8px; background: #fff; }
   .filters input { flex: 1 1 220px; }
   #no-results { color: #6b6455; font-size: 14px; }
+  /* Export WebM (#506): one control for the currently playing sample. The
+     button restyles when disabled (no sample mounted yet, or MediaRecorder
+     unsupported) — the reason rides on the button title via export-ui.js. */
+  .exportbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    margin-bottom: 12px; }
+  .exportbar button { font-size: 14px; font-weight: 700; padding: 8px 18px;
+    border: none; border-radius: 8px; background: #2b5cb8; color: #fff;
+    cursor: pointer; }
+  .exportbar button:disabled { background: #b9b3a6; cursor: not-allowed; }
+  #exportstatus { font-size: 14px; color: #6b6455; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Sample gallery</h1>
   <p class="tag">Hand-authored animations — no API key needed. Press Play on any card.</p>
+  <!-- Export WebM (#506): one control for the currently playing sample — the
+       active player lives in whichever card was last played. export-ui.js
+       carries its own MediaRecorder feature detection (disabled control with
+       a reason when unsupported). -->
+  <div class="exportbar">
+    <button id="exportbtn" type="button">Export WebM</button>
+    <span id="exportstatus" aria-live="polite"></span>
+  </div>
   <div id="err"></div>
   <div class="filters">
     <input id="q" type="search" placeholder="Search title, topic, filename" aria-label="Search samples">
@@ -62,6 +80,13 @@
 </div>
 <script src="../player/validate.js"></script>
 <script src="../player/player.js"></script>
+<!-- Export WebM (#506): record the playing animation as a WebM video.
+     Same globals as player/demo.html; export-ui.js carries its own
+     MediaRecorder feature detection (disabled control with a reason when
+     unsupported). -->
+<script src="../player/export-frames.js"></script>
+<script src="../player/export-record.js"></script>
+<script src="../player/export-ui.js"></script>
 <script src="gallery.js"></script>
 <script>
 (function () {
@@ -69,6 +94,8 @@
   var errBox = document.getElementById('err');
   var activePlayer = null;
   var activeStage = null;
+  var activeSpec = null;
+  var activeSlug = 'animath';
   var items = [];
   var kwInput = document.getElementById('q');
   var levelSel = document.getElementById('level');
@@ -93,6 +120,21 @@
   kwInput.addEventListener('input', onFilter);
   levelSel.addEventListener('change', onFilter);
   subjectSel.addEventListener('change', onFilter);
+
+  // Export WebM (#506): one clearly-labeled button + status line that records
+  // the currently mounted sample as a WebM video from this page. Guarded on
+  // the export globals so the page stays unbroken if a script tag ever fails
+  // to load — same attach pattern as player/demo.html and web/index.html.
+  // MediaRecorder support is detected inside export-ui.js (disabled control
+  // with a reason when unsupported); nothing is re-detected here.
+  var exportUI = null;
+  if (window.AnimathExportUI && window.AnimathExportRecord) {
+    exportUI = window.AnimathExportUI.attachExportUI(document, window, window.AnimathExportRecord, {
+      getSpec: function () { return activeSpec; },
+      getSlug: function () { return activeSlug; }
+    });
+    exportUI.refresh();
+  }
 
   function showError(msg) {
     errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
@@ -149,8 +191,16 @@
         if (activePlayer) { activePlayer.destroy(); }
         activePlayer = null;
         if (activeStage) { activeStage.innerHTML = ''; activeStage = null; }
+        // export state tracks the mounted spec: clear it before mounting so a
+        // failed mount leaves getSpec() null (web/index.html pattern)
+        activeSpec = null;
+        activeSlug = 'animath';
+        if (exportUI) exportUI.refresh();
         activePlayer = AnimathPlayer.mount(stage, spec);
         activeStage = stage;
+        activeSpec = spec;
+        activeSlug = String(file).replace(/\.json$/, '') || 'animath';
+        if (exportUI) exportUI.refresh();
         activePlayer.play();
       });
       var raw = document.createElement('a');
