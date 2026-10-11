@@ -42,6 +42,17 @@ staring at that one part: name the part, state what it means in this scene,
 one short sentence, plain text (no markdown, no LaTeX). Decorative shapes
 and captions do not carry one.
 
+Chart shapes — author them in the canonical descriptor forms the validator
+accepts (the same forms generator/charts.js produces):
+pie slices as first-class "sector" descriptors ({cx, cy, r, startAngle,
+endAngle}), one per value, with value-proportional sweeps (angles in degrees:
+0 is east, positive is clockwise); bar charts as "rect" descriptors growing up
+from a visible zero baseline (the zero line stays in the plot); axes with
+"nice" tick values (1/2/2.5/5/10 steps) and a few labeled tick marks; number lines
+as a baseline with tick marks and centered text labels; area under a curve
+as a "polygon" whose points close back to the axis baseline; chart grids as thin
+"line" descriptors at the tick positions, drawn behind the data.
+
 PEDAGOGY:
 - kind "concept": motivate (why it matters) -> build the idea visually ->
   one worked micro-example -> recap the takeaway.
