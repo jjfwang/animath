@@ -10,7 +10,7 @@
   'use strict';
 
   var LEVELS = ['primary', 'secondary', 'jc'];
-  var SUBJECTS = ['math', 'science'];
+  var SUBJECTS = ['math', 'science', 'geography'];
   var KINDS = ['concept', 'problem'];
   var VERBS = ['show', 'hide', 'move', 'emphasize', 'caption'];
   var SHAPES = ['text', 'rect', 'circle', 'line', 'arrow', 'polygon', 'latex', 'sector'];

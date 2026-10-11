@@ -67,5 +67,8 @@
   "primary-math-whole-numbers.json",
   "primary-math-algebra-intro.json",
   "primary-math-geometry-angles.json",
-  "primary-math-volume.json"
+  "primary-math-volume.json",
+  "primary-geog-erosion.json",
+  "primary-geog-plate-tectonics.json",
+  "primary-geog-weather-climate.json"
 ]

@@ -34,6 +34,14 @@ MOE syllabus bands: Primary (PSLE), Secondary (O/N-level), Junior College
 | `forces-magnets` | Forces, friction, magnets |
 | `adaptations` | Adaptations and man-made environment interactions |
 
+## Primary — Geography (PSLE)
+
+| slug | topic |
+|---|---|
+| `erosion` | Erosion: how wind and water wear away rock |
+| `plate-tectonics` | Plate tectonics: plates moving and colliding |
+| `weather-climate` | Weather and climate: heat, wind and rain |
+
 ## Secondary — Mathematics
 
 E-Math:
