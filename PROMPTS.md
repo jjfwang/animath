@@ -77,7 +77,7 @@ The `{{MISCONCEPTION_LINE}}` slot is filled per topic by
 `generator/misconceptions.js` — an exact-slug or longest dash-boundary-prefix
 lookup into 67 entries across 5 slices (primary math/science, secondary
 math/science, H2), selecting the facet matching the builder's facet hint and
-degrading to the generic line ("show why 1/2 + 1/4 is NOT 2/6") when the topic
+degrading to the generic line ("show the classic wrong turn playing out visually, not just a caption saying it is wrong") when the topic
 does not resolve.
 
 ## User prompt
