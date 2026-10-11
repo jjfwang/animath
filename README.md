@@ -202,6 +202,19 @@ genuine. Known limitation: bands are 100ms samples, so a sub-100ms graze
 between samples is invisible to the audit and the classifier alike, and flight
 intervals come only from the spec's own move steps (scripted motion).
 
+The generator web app (`web/index.html`) runs the audit on every generated
+spec: the page loads `../generator/geometry.js` — the browser-loadable UMD
+build (`window.AnimathGeometry`, exporting `auditGeometry` and
+`classifyFindings`) — right after `generator/rubric.js`, and once
+`generateSpecWithRepair` resolves with a validated spec, the success path runs
+`auditGeometry` + `classifyFindings` on it and renders any findings classified
+`genuine` as an amber advisory warning block (`#geomwarn`, `role="status"`)
+between the rubric score panel and the player stage. The call is guarded on
+`window.AnimathGeometry`, so the page stays unbroken if the script fails to
+load; the player mounts and plays before the audit runs, and findings are
+advisory-only — they never block playback and never feed the spec-repair loop
+(owner decision delegated 2026-10-11, reversible).
+
 ## Chart toolkit
 
 `generator/charts.js` standardizes chart construction across samples and
