@@ -43,7 +43,7 @@ All five packs shipped: 69 hand-authored samples, 67/67 syllabus slugs covered.
 - [x] Embed API: `AnimathEmbed.mount(container, specOrSlug, opts)` for iframe use in lessons — issue #97
 - [ ] Aceceed live-teaching pilot: generate an explainer mid-lesson from the
       tutor's whiteboard context (owner activity — real learners needed)
-- [x] Teacher rubric: 5-dimension quality check teachers run on generations — issue #111
+- [x] Teacher rubric: 6-dimension (0-120) quality score for generated specs, surfaced in the generator web app score panel — issue #111
 
 ## R-5 — Quality & docs
 
