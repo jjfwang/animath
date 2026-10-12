@@ -12,6 +12,12 @@ version section when the release ships.
 
 ### Added
 
+- Package exports map gains the `@jjfwang/animath/audit-samples` require
+  subpath (`auditSampleFile` / `auditAllSamples`, from
+  `generator/tooling/audit-samples.js`): the module already shipped in the
+  tarball with a hand-authored `.d.ts` sibling, and is now reachable by its
+  subpath name (issue #726).
+
 - Package exports map gains three require subpaths for the WebM-export
   modules — `@jjfwang/animath/export-frames`, `@jjfwang/animath/export-record`
   and `@jjfwang/animath/export-ui`: all three already shipped in the tarball
