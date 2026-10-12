@@ -382,17 +382,17 @@ test('latex backslashes are allowed in tex but still rejected in text', () => {
 
 test('katexAvailable detects a KaTeX API object', () => {
   const player = require('../player/player.js');
-  assert.equal(player.katexAvailable(undefined), false, 'absent katex');
-  assert.equal(player.katexAvailable(null), false, 'null katex');
-  assert.equal(player.katexAvailable({}), false, 'katex without renderToString');
-  assert.equal(player.katexAvailable({ renderToString: () => '' }), true, 'katex with renderToString');
+  assert.equal(player.internals.katexAvailable(undefined), false, 'absent katex');
+  assert.equal(player.internals.katexAvailable(null), false, 'null katex');
+  assert.equal(player.internals.katexAvailable({}), false, 'katex without renderToString');
+  assert.equal(player.internals.katexAvailable({ renderToString: () => '' }), true, 'katex with renderToString');
 });
 
 test('latexFallbackText approximates common LaTeX as unicode', () => {
   const player = require('../player/player.js');
-  assert.equal(player.latexFallbackText('a^2 + b^2 = c^2'), 'a² + b² = c²');
-  assert.equal(player.latexFallbackText('\\frac{1}{2} + \\sqrt{x}'), '1/2 + √(x)');
-  assert.equal(player.latexFallbackText('\\pi \\times \\theta \\approx 2'), 'π × θ ≈ 2');
+  assert.equal(player.internals.latexFallbackText('a^2 + b^2 = c^2'), 'a² + b² = c²');
+  assert.equal(player.internals.latexFallbackText('\\frac{1}{2} + \\sqrt{x}'), '1/2 + √(x)');
+  assert.equal(player.internals.latexFallbackText('\\pi \\times \\theta \\approx 2'), 'π × θ ≈ 2');
 });
 
 test('validator rejects a move targeting an unshown shape', () => {
@@ -597,21 +597,21 @@ test('system template documents the hardened move contract', () => {
 
 test('player exports a pure per-field tween interpolator', () => {
   const player = require('../player/player.js');
-  assert.equal(typeof player.interpFields, 'function', 'interpFields must be exported');
+  assert.equal(typeof player.internals.interpFields, 'function', 'interpFields must be exported');
   // Mid-tween linearity on size fields.
-  assert.equal(player.interpFields({ w: 40 }, { w: 80 }, 0.5).w, 60,
+  assert.equal(player.internals.interpFields({ w: 40 }, { w: 80 }, 0.5).w, 60,
     'rect w 40->80 at p=0.5 must be 60');
-  assert.equal(player.interpFields({ r: 10 }, { r: 20 }, 0.5).r, 15,
+  assert.equal(player.internals.interpFields({ r: 10 }, { r: 20 }, 0.5).r, 15,
     'circle r 10->20 at p=0.5 must be 15');
   // Position-only from/to behaves as before.
-  assert.deepEqual(player.interpFields({ x: 0, y: 0 }, { x: 100, y: 50 }, 0.5),
+  assert.deepEqual(player.internals.interpFields({ x: 0, y: 0 }, { x: 100, y: 50 }, 0.5),
     { x: 50, y: 25 });
   // A to-field with no starting value in from is skipped (no NaN tween).
-  assert.deepEqual(player.interpFields({}, { w: 80 }, 0.5), {});
+  assert.deepEqual(player.internals.interpFields({}, { w: 80 }, 0.5), {});
   // Endpoints hold: p=0 returns from, p=1 returns to for shared fields.
-  assert.deepEqual(player.interpFields({ w: 40, x: 0 }, { w: 80, x: 100 }, 0),
+  assert.deepEqual(player.internals.interpFields({ w: 40, x: 0 }, { w: 80, x: 100 }, 0),
     { w: 40, x: 0 });
-  assert.deepEqual(player.interpFields({ w: 40, x: 0 }, { w: 80, x: 100 }, 1),
+  assert.deepEqual(player.internals.interpFields({ w: 40, x: 0 }, { w: 80, x: 100 }, 1),
     { w: 80, x: 100 });
 });
 
@@ -730,53 +730,53 @@ test('player.js loads without a DOM', () => {
 test('keyAction maps Space to toggle, including the legacy Spacebar key', () => {
   const player = require('../player/player.js');
   const div = { tagName: 'DIV' };
-  assert.equal(player.keyAction({ key: ' ', target: div }), 'toggle');
-  assert.equal(player.keyAction({ key: 'Spacebar', target: div }), 'toggle');
+  assert.equal(player.internals.keyAction({ key: ' ', target: div }), 'toggle');
+  assert.equal(player.internals.keyAction({ key: 'Spacebar', target: div }), 'toggle');
   // no target at all (unit-fake event) still maps
-  assert.equal(player.keyAction({ key: ' ' }), 'toggle');
+  assert.equal(player.internals.keyAction({ key: ' ' }), 'toggle');
 });
 
 test('keyAction maps arrow keys to prev/next', () => {
   const player = require('../player/player.js');
   const div = { tagName: 'DIV' };
-  assert.equal(player.keyAction({ key: 'ArrowLeft', target: div }), 'prev');
-  assert.equal(player.keyAction({ key: 'ArrowRight', target: div }), 'next');
+  assert.equal(player.internals.keyAction({ key: 'ArrowLeft', target: div }), 'prev');
+  assert.equal(player.internals.keyAction({ key: 'ArrowRight', target: div }), 'next');
 });
 
 test('keyAction ignores unmapped keys and typing contexts', () => {
   const player = require('../player/player.js');
   const div = { tagName: 'DIV' };
-  assert.equal(player.keyAction({ key: 'Enter', target: div }), null);
-  assert.equal(player.keyAction({ key: 'a', target: div }), null);
-  assert.equal(player.keyAction({ key: undefined, target: div }), null);
+  assert.equal(player.internals.keyAction({ key: 'Enter', target: div }), null);
+  assert.equal(player.internals.keyAction({ key: 'a', target: div }), null);
+  assert.equal(player.internals.keyAction({ key: undefined, target: div }), null);
   // input-focus ignore: Space on a typing target is null even though
   // Space maps to toggle elsewhere (tagName compared case-insensitively)
   for (const tag of ['INPUT', 'TEXTAREA', 'SELECT']) {
-    assert.equal(player.keyAction({ key: ' ', target: { tagName: tag } }), null,
+    assert.equal(player.internals.keyAction({ key: ' ', target: { tagName: tag } }), null,
       tag + ' target must ignore Space');
-    assert.equal(player.keyAction({ key: ' ', target: { tagName: tag.toLowerCase() } }), null,
+    assert.equal(player.internals.keyAction({ key: ' ', target: { tagName: tag.toLowerCase() } }), null,
       tag.toLowerCase() + ' target must ignore Space');
   }
   // arrow keys on typing targets are also ignored
-  assert.equal(player.keyAction({ key: 'ArrowLeft', target: { tagName: 'INPUT' } }), null);
+  assert.equal(player.internals.keyAction({ key: 'ArrowLeft', target: { tagName: 'INPUT' } }), null);
 });
 
 test('prefersReducedMotion honors an injected matcher', () => {
   const player = require('../player/player.js');
   const on = (q) => { assert.equal(q, '(prefers-reduced-motion: reduce)'); return { matches: true }; };
   const off = () => ({ matches: false });
-  assert.equal(player.prefersReducedMotion(on), true, 'matches:true chooses the instant path');
-  assert.equal(player.prefersReducedMotion(off), false, 'matches:false keeps animation');
+  assert.equal(player.internals.prefersReducedMotion(on), true, 'matches:true chooses the instant path');
+  assert.equal(player.internals.prefersReducedMotion(off), false, 'matches:false keeps animation');
   // degenerate environments never throw and never trigger the instant path
-  assert.equal(player.prefersReducedMotion(null), false);
-  assert.equal(player.prefersReducedMotion(undefined), false);
-  assert.equal(player.prefersReducedMotion('not-a-function'), false);
-  assert.equal(player.prefersReducedMotion(() => { throw new Error('odd env'); }), false);
+  assert.equal(player.internals.prefersReducedMotion(null), false);
+  assert.equal(player.internals.prefersReducedMotion(undefined), false);
+  assert.equal(player.internals.prefersReducedMotion('not-a-function'), false);
+  assert.equal(player.internals.prefersReducedMotion(() => { throw new Error('odd env'); }), false);
 });
 
 test('stripLabels returns one 1-based label per scene built from the caption', () => {
   const player = require('../player/player.js');
-  assert.deepEqual(player.stripLabels([
+  assert.deepEqual(player.internals.stripLabels([
     { id: 's1', caption: 'Meet the 3-4-5 triangle' },
     { id: 's2', caption: 'Read off sin, cos, tan' },
     { id: 's3', caption: 'Sine rule in action' },
@@ -786,18 +786,18 @@ test('stripLabels returns one 1-based label per scene built from the caption', (
 test('stripLabels truncates long captions at the 28-char limit', () => {
   const player = require('../player/player.js');
   const long = 'A caption that is far longer than twenty-eight characters';
-  const labels = player.stripLabels([{ id: 's1', caption: long }]);
+  const labels = player.internals.stripLabels([{ id: 's1', caption: long }]);
   assert.equal(labels.length, 1);
   // 28 chars of caption plus the ellipsis, still 1-based with the prefix
   assert.equal(labels[0], '1 · ' + long.slice(0, 28) + '…');
   // exactly 28 chars is not truncated
-  const exact = player.stripLabels([{ id: 's1', caption: 'x'.repeat(28) }]);
+  const exact = player.internals.stripLabels([{ id: 's1', caption: 'x'.repeat(28) }]);
   assert.equal(exact[0], '1 · ' + 'x'.repeat(28), '28 chars is the limit, not over it');
 });
 
 test('stripLabels falls back to the scene id when the caption is empty', () => {
   const player = require('../player/player.js');
-  assert.deepEqual(player.stripLabels([
+  assert.deepEqual(player.internals.stripLabels([
     { id: 's1', caption: '' },
     { id: 's2', caption: null },
     { id: 's3' },
@@ -806,7 +806,7 @@ test('stripLabels falls back to the scene id when the caption is empty', () => {
 
 test('stripLabels tolerates empty and missing ids', () => {
   const player = require('../player/player.js');
-  const labels = player.stripLabels([{ id: 's1' }, {}, { id: '' }, null, undefined]);
+  const labels = player.internals.stripLabels([{ id: 's1' }, {}, { id: '' }, null, undefined]);
   // one label per scene even when the id is unusable
   assert.equal(labels.length, 5);
   // the label part is never the raw index: "1 · s1", not "0"
@@ -818,45 +818,45 @@ test('stripLabels tolerates empty and missing ids', () => {
   assert.ok(labels[3].startsWith('4 · '), 'null scene tolerated: ' + labels[3]);
   assert.ok(labels[4].startsWith('5 · '), 'undefined scene tolerated: ' + labels[4]);
   // degenerate inputs yield an empty label list
-  assert.deepEqual(player.stripLabels(null), []);
-  assert.deepEqual(player.stripLabels(undefined), []);
-  assert.deepEqual(player.stripLabels([]), []);
+  assert.deepEqual(player.internals.stripLabels(null), []);
+  assert.deepEqual(player.internals.stripLabels(undefined), []);
+  assert.deepEqual(player.internals.stripLabels([]), []);
 });
 
 test('stripAria carries the full untruncated caption', () => {
   const player = require('../player/player.js');
   const long = 'A caption that is far longer than twenty-eight characters';
-  assert.equal(player.stripAria(2, { id: 's3', caption: long }),
+  assert.equal(player.internals.stripAria(2, { id: 's3', caption: long }),
     'Go to scene 3: ' + long, 'aria keeps the full caption, no truncation');
-  assert.equal(player.stripAria(0, { id: 's1', caption: 'Meet the 3-4-5 triangle' }),
+  assert.equal(player.internals.stripAria(0, { id: 's1', caption: 'Meet the 3-4-5 triangle' }),
     'Go to scene 1: Meet the 3-4-5 triangle');
-  assert.equal(player.stripAria(1, { id: 's2' }), 'Go to scene 2',
+  assert.equal(player.internals.stripAria(1, { id: 's2' }), 'Go to scene 2',
     'no caption means a plain scene label, never the internal id');
-  assert.equal(player.stripAria(0, null), 'Go to scene 1');
+  assert.equal(player.internals.stripAria(0, null), 'Go to scene 1');
 });
 
 test('fullCaption returns the trimmed caption or empty string', () => {
   const player = require('../player/player.js');
-  assert.equal(player.fullCaption({ caption: '  Meet the 3-4-5 triangle  ' }), 'Meet the 3-4-5 triangle');
-  assert.equal(player.fullCaption({ caption: '' }), '');
-  assert.equal(player.fullCaption({ caption: null }), '');
-  assert.equal(player.fullCaption({}), '');
-  assert.equal(player.fullCaption(null), '');
-  assert.equal(player.fullCaption(undefined), '');
+  assert.equal(player.internals.fullCaption({ caption: '  Meet the 3-4-5 triangle  ' }), 'Meet the 3-4-5 triangle');
+  assert.equal(player.internals.fullCaption({ caption: '' }), '');
+  assert.equal(player.internals.fullCaption({ caption: null }), '');
+  assert.equal(player.internals.fullCaption({}), '');
+  assert.equal(player.internals.fullCaption(null), '');
+  assert.equal(player.internals.fullCaption(undefined), '');
 });
 
 test('stripLabels is exported alongside the other pure helpers', () => {
   const player = require('../player/player.js');
-  assert.equal(typeof player.stripLabels, 'function');
-  assert.equal(typeof player.stripAria, 'function');
-  assert.equal(typeof player.fullCaption, 'function');
-  assert.equal(typeof player.keyAction, 'function');
-  assert.equal(typeof player.prefersReducedMotion, 'function');
+  assert.equal(typeof player.internals.stripLabels, 'function');
+  assert.equal(typeof player.internals.stripAria, 'function');
+  assert.equal(typeof player.internals.fullCaption, 'function');
+  assert.equal(typeof player.internals.keyAction, 'function');
+  assert.equal(typeof player.internals.prefersReducedMotion, 'function');
 });
 
 test('controlButtons lists the chrome affordances with restart last', () => {
   const player = require('../player/player.js');
-  const buttons = player.controlButtons();
+  const buttons = player.internals.controlButtons();
   assert.deepEqual(buttons.map((b) => b.action), ['prev', 'play', 'next', 'restart'],
     'chrome order must stay prev, play, next, then the new restart button');
   buttons.forEach((b) => {
@@ -866,7 +866,7 @@ test('controlButtons lists the chrome affordances with restart last', () => {
 
 test('controlButtons restart affordance carries the replay affordance', () => {
   const player = require('../player/player.js');
-  const restart = player.controlButtons().filter((b) => b.action === 'restart')[0];
+  const restart = player.internals.controlButtons().filter((b) => b.action === 'restart')[0];
   assert.ok(restart, 'a restart button must exist in the chrome');
   assert.equal(restart.title, 'Restart from the beginning');
   assert.ok(restart.glyph.indexOf('&#8635;') !== -1, 'restart glyph must be the replay arrow entity');
@@ -874,17 +874,17 @@ test('controlButtons restart affordance carries the replay affordance', () => {
 
 test('controlButtons is exported alongside the other pure helpers', () => {
   const player = require('../player/player.js');
-  assert.equal(typeof player.controlButtons, 'function');
+  assert.equal(typeof player.internals.controlButtons, 'function');
 });
 
 test('latexFit keeps the natural size when the equation fits the stage', () => {
   const player = require('../player/player.js');
-  assert.deepEqual(player.latexFit(320.4, 58.1, 860), { width: 321, height: 59, scale: 1 });
+  assert.deepEqual(player.internals.latexFit(320.4, 58.1, 860), { width: 321, height: 59, scale: 1 });
 });
 
 test('latexFit scales the equation down when it would overflow the stage', () => {
   const player = require('../player/player.js');
-  const fit = player.latexFit(1200, 60, 860);
+  const fit = player.internals.latexFit(1200, 60, 860);
   assert.equal(fit.width, 860);
   assert.equal(fit.height, 43, 'ceil(60 * 860/1200)');
   assert.ok(Math.abs(fit.scale - 860 / 1200) < 1e-9, 'scale factor must be avail/width');
@@ -892,8 +892,8 @@ test('latexFit scales the equation down when it would overflow the stage', () =>
 
 test('latexFit clamps degenerate measurements to a 1px box', () => {
   const player = require('../player/player.js');
-  assert.deepEqual(player.latexFit(0, -5, 0), { width: 1, height: 1, scale: 1 });
-  assert.deepEqual(player.latexFit(860, 40, 860), { width: 860, height: 40, scale: 1 }, 'exact fit keeps scale 1');
+  assert.deepEqual(player.internals.latexFit(0, -5, 0), { width: 1, height: 1, scale: 1 });
+  assert.deepEqual(player.internals.latexFit(860, 40, 860), { width: 860, height: 40, scale: 1 }, 'exact fit keeps scale 1');
 });
 
 test('fitLatex sizes the foreignObject to the measured equation when it fits', () => {
@@ -903,7 +903,7 @@ test('fitLatex sizes the foreignObject to the measured equation when it fits', (
     firstChild: { getBoundingClientRect: () => ({ width: 320.4, height: 58.1 }), style: {} },
     setAttribute: (k, v) => { attrs[k] = v; }
   };
-  player.fitLatex(node, 860);
+  player.internals.fitLatex(node, 860);
   assert.equal(attrs.width, 321);
   assert.equal(attrs.height, 59);
   assert.equal(node.firstChild.style.transform, undefined, 'no scale transform when the equation fits');
@@ -914,7 +914,7 @@ test('fitLatex scales the equation down to the available width when it overflows
   const attrs = {};
   const div = { getBoundingClientRect: () => ({ width: 1200, height: 60 }), style: {} };
   const node = { firstChild: div, setAttribute: (k, v) => { attrs[k] = v; } };
-  player.fitLatex(node, 860);
+  player.internals.fitLatex(node, 860);
   assert.equal(attrs.width, 860);
   assert.equal(attrs.height, 43);
   assert.ok(div.style.transform.startsWith('scale('), 'equation must be scaled, not clipped');
@@ -924,15 +924,15 @@ test('fitLatex scales the equation down to the available width when it overflows
 test('fitLatex no-ops without a measurable equation div', () => {
   const player = require('../player/player.js');
   const boom = () => { throw new Error('setAttribute must not run without a measured div'); };
-  player.fitLatex(null, 860);
-  player.fitLatex({ firstChild: null, setAttribute: boom }, 860);
-  player.fitLatex({ firstChild: {}, setAttribute: boom }, 860);
+  player.internals.fitLatex(null, 860);
+  player.internals.fitLatex({ firstChild: null, setAttribute: boom }, 860);
+  player.internals.fitLatex({ firstChild: {}, setAttribute: boom }, 860);
 });
 
 test('latexFit and fitLatex are exported alongside the other pure helpers', () => {
   const player = require('../player/player.js');
-  assert.equal(typeof player.latexFit, 'function');
-  assert.equal(typeof player.fitLatex, 'function');
+  assert.equal(typeof player.internals.latexFit, 'function');
+  assert.equal(typeof player.internals.fitLatex, 'function');
 });
 
 /* Sector shape validation (issue #155): cx, cy, r (positive), startAngle,

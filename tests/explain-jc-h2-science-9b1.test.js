@@ -78,13 +78,13 @@ cases.forEach(([file, sceneId, shapeId]) => {
     for (const ch of shape.explain) {
       assert.ok(ch.codePointAt(0) < 128, 'ASCII only: ' + shapeId);
     }
-    assert.equal(player.explainText(shape), shape.explain);
+    assert.equal(player.internals.explainText(shape), shape.explain);
   });
 
   test(file + ' ' + shapeId + ': tipPoint clamps inside the 960x540 stage', () => {
     const shape = findShape(loadSample(file), sceneId, shapeId);
     const [px, py] = nearPoint(shape);
-    const tip = player.tipPoint(px, py, 960, 540);
+    const tip = player.internals.tipPoint(px, py, 960, 540);
     assert.ok(tip.x >= 0 && tip.x <= 960, 'tip x inside stage: ' + tip.x);
     assert.ok(tip.y >= 0 && tip.y <= 540, 'tip y inside stage: ' + tip.y);
   });
