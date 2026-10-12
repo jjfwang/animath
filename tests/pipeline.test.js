@@ -260,3 +260,32 @@ test('browser globals path: pipeline runs off window globals (web/index.html scr
   assert.ok(calls[1].user.indexOf('evaporation') !== -1,
     'transitions flowed from the unpack global into the author prompt');
 });
+
+test('full pipeline attaches the misconception beat to the named transition before authoring', async () => {
+  // OPTS uses topic 'water-cycle' and the stub unpack returns an
+  // evaporation transition, so the author user prompt must name the
+  // evaporation scene as the one where the wrong turn plays out.
+  const { calls, callChat } = stubChat((system, user) =>
+    isUnpackCall(user) ? TRANSITIONS_TEXT : GOOD_TEXT);
+  const spec = await PIPELINE.generateAnimation(OPTS, { callChat, validate });
+  assert.deepEqual(spec, GOOD_SPEC);
+  assert.ok(calls[1].user.indexOf('Play out this wrong turn VISUALLY in the "evaporation" scene') !== -1,
+    'the author user prompt must name the misconceived transition');
+  assert.ok(calls[1].user.indexOf('Wrong turn: Water disappears for good once it evaporates.') !== -1,
+    'the author user prompt must carry the water-cycle wrong turn');
+});
+
+test('full pipeline skips attachment on the degraded no-transitions path', async () => {
+  // A throwing unpack degrades to null; attachMisconceptions must never
+  // run on null and the author prompt keeps the topic-wide generic line.
+  const unknownOpts = Object.assign({}, OPTS, { topic: 'pythagoras' });
+  const { calls, callChat } = stubChat((system, user) => {
+    if (isUnpackCall(user)) throw new Error('model exploded');
+    return GOOD_TEXT;
+  });
+  await PIPELINE.generateAnimation(unknownOpts, { callChat, validate });
+  assert.ok(calls[1].system.indexOf('TRANSITION SCENES') === -1,
+    'degraded author prompt has no transition-scenes block');
+  assert.ok(calls[1].user.indexOf('Play out this wrong turn VISUALLY') === -1,
+    'degraded author prompt carries no per-transition beat');
+});

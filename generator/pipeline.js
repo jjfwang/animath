@@ -181,6 +181,13 @@
     }
 
     return unpackStage().then(function (transitions) {
+      // Slice 6 (issue #695): attach the bank's wrong-turn beat to the
+      // transition where it happens before authoring, so buildPrompts can
+      // name the misconceived scene. The degraded null path (no
+      // transitions) is untouched — attachMisconceptions never sees it.
+      if (transitions) {
+        transitions = SIBLINGS.unpack.attachMisconceptions(transitions, opts.topic);
+      }
       var prompts = SIBLINGS.prompt.buildPrompts({
         level: opts.level,
         subject: opts.subject,

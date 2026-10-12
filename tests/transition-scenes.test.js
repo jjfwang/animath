@@ -13,6 +13,8 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 
 const Prompt = require('../generator/build_prompt.js');
+const Unpack = require('../generator/unpack.js');
+const { MISCONCEPTIONS } = require('../generator/misconceptions.js');
 
 // The four water-cycle transitions (slice 1, issue #685 unpack output).
 const WATER_CYCLE = [
@@ -154,4 +156,45 @@ test('2 and 8 transitions are accepted (boundary counts)', () => {
   assert.ok(out.user.indexOf('8. collection') !== -1, '8 transitions must be accepted');
   assert.ok(out.system.indexOf('one scene per transition') !== -1,
     'system must carry the transition instructions at the boundary counts');
+});
+
+// --- Per-transition misconception beats (issue #695) ---
+
+test('an annotated transition names the misconceived scene in the user block', () => {
+  const annotated = Unpack.attachMisconceptions(WATER_CYCLE, 'water-cycle');
+  const user = Prompt.buildPrompts(waterCycleOpts(annotated)).user;
+  const beat = MISCONCEPTIONS['water-cycle'];
+  assert.ok(user.indexOf('Play out this wrong turn VISUALLY in the "evaporation" scene') !== -1,
+    'the user block must name evaporation as the scene where the wrong turn plays out');
+  assert.ok(user.indexOf('Wrong turn: ' + beat.wrongTurn) !== -1,
+    'the user block must carry the wrong turn text');
+  assert.ok(user.indexOf('Why students slip: ' + beat.why) !== -1,
+    'the user block must carry the why text');
+  assert.ok(user.indexOf('Show the correct turn: ' + beat.correctTurn) !== -1,
+    'the user block must carry the correct turn text');
+  // The annotation lands right after the evaporation transition line,
+  // before the condensation line — i.e. inside the evaporation scene.
+  const evapLine = user.indexOf('1. evaporation:');
+  const condLine = user.indexOf('2. condensation:');
+  const beatLine = user.indexOf('Play out this wrong turn VISUALLY');
+  assert.ok(beatLine > evapLine && beatLine < condLine,
+    'the beat annotation must sit inside the evaporation scene entry');
+});
+
+test('transitions without a beat keep the user block byte-identical to before', () => {
+  const plain = waterCycleOpts(WATER_CYCLE).transitions;
+  const user = Prompt.buildPrompts(waterCycleOpts(plain)).user;
+  assert.strictEqual(user.indexOf('Play out this wrong turn VISUALLY'), -1,
+    'no annotation lines appear when no transition carries a misconception');
+  assert.ok(user.indexOf('1. evaporation: "liquid water" -> "water vapour" (driver: the sun\'s heat)') !== -1,
+    'the plain transition line format is unchanged');
+});
+
+test('the topic-wide misconception line is untouched by transition annotation', () => {
+  // The PEDAGOGY misconception line (misconceptionLine) still injects the
+  // water-cycle beat topic-wide; the transition annotation is additive.
+  const system = Prompt.buildPrompts(waterCycleOpts(
+    Unpack.attachMisconceptions(WATER_CYCLE, 'water-cycle'))).system;
+  assert.ok(system.indexOf('Common wrong turn: ' + MISCONCEPTIONS['water-cycle'].wrongTurn) !== -1,
+    'the system misconception line must stay byte-identical in content');
 });

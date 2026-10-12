@@ -5,6 +5,10 @@ export interface MisconceptionBeat {
   wrongTurn: string;
   why: string;
   correctTurn: string;
+  // Optional: names the unpack transition where this wrong turn plays out
+  // (issue #695); set only when the grounding sample scene maps the beat
+  // unambiguously to one transition (e.g. water-cycle -> 'evaporation').
+  transition?: string;
 }
 // A faceted entry spans multiple syllabus facets (e.g. bio-nutrition):
 // `primary` names the facet bare-topic lookups resolve to, `facets` maps
