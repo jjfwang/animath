@@ -16,6 +16,17 @@ export type AnimathSpecDocument = Record<string, unknown>;
 export function generateSpec(
   opts: GenerateSpecOptions
 ): Promise<AnimathSpecDocument>;
+export interface RawChatConnection {
+  baseUrl: string;
+apiKey: <redacted>
+  model: string;
+}
+/** One raw chat-completions round trip; resolves with the raw response text. */
+export function rawChat(
+  system: string,
+  user: string,
+  conn: RawChatConnection
+): Promise<string>;
 export type SpecValidator = (
   spec: AnimathSpecDocument
 ) => string[] | Promise<string[]>;

@@ -78,8 +78,8 @@ test('app audits only when the geometry global is present', () => {
 });
 
 test('app runs the audit on the generated spec in the success path', () => {
-  // the generation-success path is the .then() after generateSpecWithRepair
-  const successStart = html.indexOf('generateSpecWithRepair({');
+  // the generation-success path is the .then() after generateAnimation
+  const successStart = html.indexOf('AnimathPipeline.generateAnimation(');
   const auditCall = html.indexOf('window.AnimathGeometry.auditGeometry(spec)', successStart);
   assert.ok(successStart >= 0 && auditCall > successStart,
     'the audit must run in the generation-success path, on the validated spec');
@@ -88,7 +88,7 @@ test('app runs the audit on the generated spec in the success path', () => {
 });
 
 test('audit findings never block playback or feed the repair loop', () => {
-  const successStart = html.indexOf('generateSpecWithRepair({');
+  const successStart = html.indexOf('AnimathPipeline.generateAnimation(');
   const mountPos = html.indexOf('AnimathPlayer.mount(stageEl, spec)', successStart);
   const auditPos = html.indexOf('window.AnimathGeometry.auditGeometry(spec)', successStart);
   assert.ok(mountPos > successStart && auditPos > mountPos,
@@ -99,9 +99,9 @@ test('audit findings never block playback or feed the repair loop', () => {
   assert.ok(!html.includes('if (genuine.length)') &&
     !html.includes('findings.length') ,
     'no generation-path branch may gate on the findings count');
-  // the repair entry (llm_client.js repair loop input) is validateSpec only
-  assert.ok(!html.match(/generateSpecWithRepair\(\{[^}]*auditGeometry/s),
-    'the audit must not be fed into generateSpecWithRepair — advisory only');
+  // the repair entry (pipeline repair loop input) is validateSpec only
+  assert.ok(!html.match(/generateAnimation\([^)]*auditGeometry/s),
+    'the audit must not be fed into generateAnimation — advisory only');
 });
 
 test('advisory block resets when a new generation starts', () => {

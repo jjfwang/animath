@@ -79,6 +79,23 @@
     return attemptOnce(opts).then(extractJson);
   }
 
+  // rawChat(system, user, {baseUrl, apiKey, model}) -> Promise<string>
+  // One raw chat-completions round trip (same 400->plain retry as
+  // attemptOnce), resolving with the raw response text. Thin adapter so the
+  // engine pipeline (generator/pipeline.js deps.callChat) and the web app
+  // can reuse the transport without generateSpec's JSON parsing.
+  function rawChat(system, user, conn) {
+    conn = conn || {};
+    if (!conn.apiKey) return Promise.reject(new Error('API key is required'));
+    return attemptOnce({
+      baseUrl: conn.baseUrl,
+      apiKey: conn.apiKey,
+      model: conn.model,
+      system: system,
+      user: user
+    });
+  }
+
   // opts: same as generateSpec, plus optional maxRepairs (default 3).
   // validate: function (spec) -> array of error strings (injected so the
   // client stays testable in Node without the browser global).
@@ -186,5 +203,5 @@
   };
   var DEFAULT_PRESET = 'openai';
 
-  return { generateSpec: generateSpec, generateSpecWithRepair: generateSpecWithRepair, extractJson: extractJson, PRESETS: PRESETS, DEFAULT_PRESET: DEFAULT_PRESET };
+  return { generateSpec: generateSpec, generateSpecWithRepair: generateSpecWithRepair, rawChat: rawChat, extractJson: extractJson, PRESETS: PRESETS, DEFAULT_PRESET: DEFAULT_PRESET };
 });
