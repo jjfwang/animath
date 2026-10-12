@@ -997,7 +997,10 @@
     };
   }
 
-  var api = { mount: mount, version: '0.2.0-beta.0', katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr, taperShaft: taperShaft, isWidths: isWidths, explainText: explainText, tipPoint: tipPoint };
+  // Public API surface (issue #707): exactly { mount, version, internals }.
+  // Everything else is an internal helper, reachable at player.internals.
+  var internals = { katexAvailable: katexAvailable, latexFallbackText: latexFallbackText, latexFit: latexFit, fitLatex: fitLatex, stripLabels: stripLabels, stripAria: stripAria, fullCaption: fullCaption, keyAction: keyAction, controlButtons: controlButtons, shortcutHint: shortcutHint, prefersReducedMotion: prefersReducedMotion, interpFields: interpFields, applyPos: applyPos, sectorPath: sectorPath, dashAttr: dashAttr, taperShaft: taperShaft, isWidths: isWidths, explainText: explainText, tipPoint: tipPoint };
+  var api = { mount: mount, version: '0.2.0-beta.0', internals: internals };
   global.AnimathPlayer = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof window !== 'undefined' ? window : globalThis);

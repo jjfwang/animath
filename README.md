@@ -222,6 +222,8 @@ The generator modules are zero-dependency UMD, so they also work in
 browsers via script tag, exposing namespaced globals (`AnimathCharts`,
 `AnimathGeometry`, `AnimathRubric`, `AnimathPrompt`, ...). The player is DOM-based — load `player/player.css` and
 `player/player.js` in the page and call `AnimathPlayer.mount(el, spec)`.
+The player's public surface is `mount` and `version` only; internal helpers
+live behind `AnimathPlayer.internals`.
 `llm-client` needs your own OpenAI-compatible API key.
 
 To publish a new version to the npm registry: `npm login`, bump

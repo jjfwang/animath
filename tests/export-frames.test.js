@@ -105,7 +105,7 @@ test('tapered arrow reuses the player taperShaft path', () => {
   var shape = { id: 'a2', kind: 'arrow', x1: 0, y1: 0, x2: 100, y2: 0,
     stroke: '#00f', widths: [6, 2] };
   var out = xf.shapeMarkup(shape);
-  var expected = player.taperShaft(shape, 6, 2, 14); // hs = 10 + 2*headWidth
+  var expected = player.internals.taperShaft(shape, 6, 2, 14); // hs = 10 + 2*headWidth
   assert.ok(out.includes('<polygon points="' + expected + '" fill="#00f"/>'),
     'tapered shaft via taperShaft, got: ' + out);
   assert.ok(!out.includes('<line x1'), 'no line shaft on a tapered arrow');

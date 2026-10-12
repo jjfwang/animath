@@ -96,7 +96,7 @@
         // KaTeX needs a DOM, so this contract always takes the player's
         // no-KaTeX fallback path (identical to what the player renders when
         // the CDN is unavailable).
-        return textMarkup(shape, player.latexFallbackText(shape.tex));
+        return textMarkup(shape, player.internals.latexFallbackText(shape.tex));
       case 'rect':
         return '<rect' + attrs([
           ['x', shape.x], ['y', shape.y],
@@ -113,12 +113,12 @@
           ['stroke', shape.stroke || '#1a1a1a'],
           ['stroke-width', shape.width || 3],
           ['stroke-linecap', 'round'],
-          ['stroke-dasharray', player.dashAttr(shape)],
+          ['stroke-dasharray', player.internals.dashAttr(shape)],
           ['data-shape-id', shape.id]
         ]) + '/>';
       case 'arrow': {
         var w = shape.width || 3;
-        var hasTaper = player.isWidths(shape.widths);
+        var hasTaper = player.internals.isWidths(shape.widths);
         var wh = hasTaper ? shape.widths[1] : w;
         var hs = 10 + wh * 2;
         var shaft;
@@ -126,7 +126,7 @@
           // Tapered shaft: dash does not apply to a filled polygon
           // (documented in SPEC.md, mirrored from drawShape).
           shaft = '<polygon' + attrs([
-            ['points', player.taperShaft(shape, shape.widths[0], shape.widths[1], hs)],
+            ['points', player.internals.taperShaft(shape, shape.widths[0], shape.widths[1], hs)],
             ['fill', shape.stroke || '#1a1a1a']
           ]) + '/>';
         } else {
@@ -135,7 +135,7 @@
             ['stroke', shape.stroke || '#1a1a1a'],
             ['stroke-width', w],
             ['stroke-linecap', 'round'],
-            ['stroke-dasharray', player.dashAttr(shape)]
+            ['stroke-dasharray', player.internals.dashAttr(shape)]
           ]) + '/>';
         }
         return '<g' + attrs([['data-shape-id', shape.id]]) + '>' +
@@ -152,7 +152,7 @@
       }
       case 'sector':
         return '<path' + attrs([
-          ['d', player.sectorPath(shape)]
+          ['d', player.internals.sectorPath(shape)]
         ].concat(baseAttrs(shape), [['data-shape-id', shape.id]])) + '/>';
       default:
         throw new Error('unknown shape kind: ' + shape.kind);
@@ -196,7 +196,7 @@
           if (!rec) break;
           var dur = step.dur_ms || 800;
           var p = Math.min(1, (ms - step.at_ms) / dur);
-          var pos = player.interpFields(rec, step.to, p);
+          var pos = player.internals.interpFields(rec, step.to, p);
           for (var f in pos) rec[f] = pos[f];
           break;
         }

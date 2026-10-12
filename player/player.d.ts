@@ -36,31 +36,34 @@ export interface PlayerController {
 }
 export function mount(container: PlayerContainer, spec: AnimathSpec): PlayerController;
 export const version: string;
-export function katexAvailable(katex: unknown): boolean;
-export function latexFallbackText(tex: string): string;
 export interface LatexFit {
   width: number;
   height: number;
   scale: number;
 }
-export function latexFit(contentW: number, contentH: number, availW: number): LatexFit;
-export function fitLatex(node: unknown, availW: number): unknown;
-export function stripLabels(scenes: unknown): unknown;
-export function stripAria(index: number, scene: unknown): unknown;
-export function fullCaption(scene: unknown): string;
-export function keyAction(eventLike: unknown): string | null;
-export function controlButtons(): unknown[];
-export function shortcutHint(): string;
-export function prefersReducedMotion(matcher: unknown): boolean;
-export function interpFields(from: unknown, to: unknown, p: number): unknown;
-export function applyPos(node: unknown, shape: unknown, pos: unknown): void;
-export function sectorPath(shape: unknown): string;
-export function dashAttr(shape: unknown): unknown;
-export function taperShaft(shape: unknown, wt: number, wh: number, headSize: number): unknown;
-export function isWidths(x: unknown): boolean;
-export function explainText(shape: unknown): string;
 export interface TipPoint {
   x: number;
   y: number;
 }
-export function tipPoint(px: number, py: number, stageW: number, stageH: number): TipPoint;
+/** @internal */ export interface PlayerInternals {
+/** @internal */ katexAvailable(katex: unknown): boolean;
+/** @internal */ latexFallbackText(tex: string): string;
+/** @internal */ latexFit(contentW: number, contentH: number, availW: number): LatexFit;
+/** @internal */ fitLatex(node: unknown, availW: number): unknown;
+/** @internal */ stripLabels(scenes: unknown): unknown;
+/** @internal */ stripAria(index: number, scene: unknown): unknown;
+/** @internal */ fullCaption(scene: unknown): string;
+/** @internal */ keyAction(eventLike: unknown): string | null;
+/** @internal */ controlButtons(): unknown[];
+/** @internal */ shortcutHint(): string;
+/** @internal */ prefersReducedMotion(matcher: unknown): boolean;
+/** @internal */ interpFields(from: unknown, to: unknown, p: number): unknown;
+/** @internal */ applyPos(node: unknown, shape: unknown, pos: unknown): void;
+/** @internal */ sectorPath(shape: unknown): string;
+/** @internal */ dashAttr(shape: unknown): unknown;
+/** @internal */ taperShaft(shape: unknown, wt: number, wh: number, headSize: number): unknown;
+/** @internal */ isWidths(x: unknown): boolean;
+/** @internal */ explainText(shape: unknown): string;
+/** @internal */ tipPoint(px: number, py: number, stageW: number, stageH: number): TipPoint;
+}
+/** @internal */ export const internals: PlayerInternals;
