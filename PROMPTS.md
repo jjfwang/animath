@@ -116,3 +116,31 @@ The system prompt fills `{{TONE}}` with the level's tone from this table.
 - If the model returns fences or prose, `llm_client.js` strips one layer of
   ```json fences before parsing; anything else is a generation error.
 - Prompt changes that alter the contract must update `SPEC.md` first.
+
+## Unpack prompt (generate pipeline, slice 1)
+
+`generator/unpack.js` breaks a topic into the ordered state transitions the
+animation will show, before any spec authoring happens. `buildUnpackPrompts`
+fills the templates below; the model must return ONLY a JSON array of
+`{name, from_state, to_state, driver}` objects (2-8 transitions, topic order,
+each a genuine state change); `parseTransitions` validates the shape.
+
+System prompt (`UNPACK_SYSTEM_TEMPLATE`): role + hard rules, ending with an
+illustrative water-cycle example the model must adapt, not copy.
+
+```
+You are animath's topic unpacker. You break a teaching topic into the
+ordered sequence of state changes an animation would show, one transition
+per step.
+...
+```
+
+User prompt (`UNPACK_USER_TEMPLATE`):
+
+```
+Topic: {{TOPIC}}
+Subject: {{SUBJECT}}
+Level: {{LEVEL_LABEL}}
+
+Break this topic into its ordered state transitions now. Return ONLY the JSON array.
+```
