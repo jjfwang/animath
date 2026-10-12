@@ -19,6 +19,23 @@ version section when the release ships.
   of one scene per transition. The validator now accepts 1..8 scenes
   (SPEC.md updated).
 
+- Generator unpack layer (`generator/unpack.js`): a topic is unpacked into
+  ordered state transitions before authoring, so the generated scenes follow
+  the topic's actual mechanism instead of a free-form draft (issue #685).
+- Taste transfer in the author prompt: a trimmed hand-authored water-cycle
+  exemplar plus five quality gates (label placement in clear space, per-scene
+  caption, explain fields on key parts, emphasize on the mechanism beat, the
+  misconception wrong turn played out visually) — bringing generated specs up
+  to the hand-authored quality bar (issue #691).
+- End-to-end generate pipeline (`generator/pipeline.js`): runs the
+  unpack -> author -> repair stages automatically — one entry point that takes
+  a topic and returns a validated animation spec; the web UI is unchanged
+  (issue #693).
+- Per-transition misconception beats: misconception-bank entries can name the
+  unpack transition where the wrong turn plays out (matched against transition
+  names), so the wrong-turn beat lands on its own transition's scene instead
+  of anywhere in the spec (issue #695).
+
 - End-to-end add-a-subject checklist in CONTRIBUTING.md covering the SPEC.md
   subject enum, `player/validate.js` SUBJECTS, the SYLLABUS.md section, the
   web/syllabus.js track, the generator misconception-bank entries, and the
@@ -44,6 +61,11 @@ version section when the release ships.
 - Gallery subject filter options now derive from `player/validate.js` SUBJECTS
   (Geography selectable in the sample gallery; hardcoded Math/Science options
   retained as fallback) (issue #679).
+- `generator/build_prompt.js` accepts `opts.transitions`: one generated scene
+  per unpacked transition, listed as numbered lines in the user message;
+  absent or empty transitions leave the output byte-identical (issue #687).
+- Repair loop default cap raised from 2 to 3 passes, locked in with tests
+  (issue #689).
 
 ## [0.2.0-beta.0] - 2026-10-12
 
