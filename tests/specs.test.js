@@ -721,7 +721,10 @@ test('generateSpecWithRepair treats a non-JSON repair turn as a failed attempt',
 test('player.js loads without a DOM', () => {
   const player = require('../player/player.js');
   assert.equal(typeof player.mount, 'function');
-  assert.equal(player.version, '0.1');
+  // issue #706: the version literal is regenerated from package.json by
+  // generator/tooling/regen-version.js — never hand-typed here.
+  const pkg = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8'));
+  assert.equal(player.version, pkg.version);
 });
 
 test('keyAction maps Space to toggle, including the legacy Spacebar key', () => {

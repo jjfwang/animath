@@ -71,6 +71,12 @@ version section when the release ships.
 - `generator/build_prompt.js` accepts `opts.transitions`: one generated scene
   per unpacked transition, listed as numbered lines in the user message;
   absent or empty transitions leave the output byte-identical (issue #687).
+- `player.version` and the web embed's `version` now derive from the
+  `package.json` version (single source of truth) via the new
+  `node generator/tooling/regen-version.js`, locked by `tests/version.test.js`
+  — both were hardcoded `0.1` while the package was at `0.2.0-beta.0`
+  (issue #706). The `0.1` in `player/validate.js` is the animath spec format
+  version and is intentionally unchanged.
 - Repair loop default cap raised from 2 to 3 passes, locked in with tests
   (issue #689).
 
