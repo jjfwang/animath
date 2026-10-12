@@ -235,3 +235,15 @@ test('validator still rejects nine scenes', () => {
   assert.ok(problems.some((p) => p.indexOf('1..8 scenes') !== -1),
     'nine scenes must be rejected, got: ' + problems.join('; '));
 });
+
+test('author hard rule allows a single holistic scene', () => {
+  const system = Prompt.buildPrompts({
+    level: 'primary', subject: 'science', topic: 'water-cycle',
+    topicLabel: 'Water cycle', kind: 'concept',
+    transitions: WATER_CYCLE, shape: 'cycle'
+  }).system;
+  assert.ok(system.indexOf('scenes (1 to 8') !== -1,
+    'hard rule must allow 1..8 scenes for holistic staging');
+  assert.ok(system.indexOf('scenes (2 to 8)') === -1,
+    'hard rule must no longer demand at least 2 scenes');
+});
