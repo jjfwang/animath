@@ -331,3 +331,36 @@ test('default cap repairs a spec on the third repair turn (within cap)', async (
   assert.strictEqual(calls.length, 4);
   assert.deepStrictEqual(progress, [[1, 3], [2, 3], [3, 3]]);
 });
+
+// --- rawChat: thin raw-text adapter for the generate pipeline --------------
+
+test('rawChat resolves with the raw response text (no JSON parsing)', async () => {
+  stubFetch(() => jsonOk('some raw text, not JSON'));
+  const text = await LLM.rawChat('sys', 'usr', {
+    baseUrl: 'https://api.test/v1',
+    apiKey: 'k',
+    model: 'm-test'
+  });
+  assert.strictEqual(text, 'some raw text, not JSON');
+  assert.strictEqual(calls.length, 1);
+  const body = bodyOf(calls[0]);
+  assert.strictEqual(body.messages[0].content, 'sys');
+  assert.strictEqual(body.messages[1].content, 'usr');
+  assert.strictEqual(body.model, 'm-test');
+});
+
+test('rawChat keeps the 400 -> plain retry', async () => {
+  stubFetch((i) => i === 0 ? httpFail(400, 'json mode rejected') : jsonOk('plain ok'));
+  const text = await LLM.rawChat('sys', 'usr', OPTS);
+  assert.strictEqual(text, 'plain ok');
+  assert.strictEqual(calls.length, 2, 'one json-mode attempt, one plain retry');
+  assert.ok(!bodyOf(calls[1]).response_format, 'the retry drops response_format');
+});
+
+test('rawChat rejects without an API key', async () => {
+  await assert.rejects(() => LLM.rawChat('sys', 'usr', { baseUrl: 'b', model: 'm' }),
+    /API key is required/);
+  await assert.rejects(() => LLM.rawChat('sys', 'usr'),
+    /API key is required/);
+  assert.strictEqual(calls.length, 0, 'no fetch without a key');
+});

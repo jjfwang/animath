@@ -125,8 +125,12 @@
 
 <script src="syllabus.js"></script>
 <script src="../generator/misconceptions.js"></script>
+<!-- Topic unpack (#685): state transitions the engine feeds the author step -->
+<script src="../generator/unpack.js"></script>
 <script src="../generator/build_prompt.js"></script>
 <script src="../generator/llm_client.js"></script>
+<!-- Generate pipeline (#693): automatic unpack -> author -> repair in the engine -->
+<script src="../generator/pipeline.js"></script>
 <script src="../generator/rubric.js"></script>
 <!-- Geometry audit (#614): text-vs-shape check surfaced as an advisory
      warning on generated specs. Same guarded-global pattern as the rubric. -->
@@ -324,18 +328,8 @@
     var tr = currentTrack();
     var topicOpt = topicSel.options[topicSel.selectedIndex];
     var kind = document.querySelector('input[name="kind"]:checked').value;
-    var prompts = AnimathPrompt.buildPrompts({
-      level: levelSel.value,
-      subject: tr.subject,
-      topic: topicSel.value,
-      topicLabel: topicOpt.textContent,
-      kind: kind,
-      focus: focusEl.value.trim(),
-      facet: facetField.style.display === 'none' ? null : facetSel.value
-    });
 
     genBtn.disabled = true;
-    setStatus('Asking the model to author your animation…');
 
     // validator errors render into #err here and on repair failure — same path
     function showProblems(problems) {
@@ -381,16 +375,35 @@
       geomEl.style.display = '';
     }
 
-    AnimathLLM.generateSpecWithRepair({
-      baseUrl: baseUrlEl.value.trim(),
-      apiKey: key,
-      model: modelEl.value.trim(),
-      system: prompts.system,
-      user: prompts.user
-    }, AnimathValidate.validateSpec, function (n, max) {
-      setStatus('Repairing attempt ' + n + ' of ' + max + '…');
+    // Automatic generate pipeline (#693): unpack -> author -> repair runs
+    // inside the engine with no new UI — the only user-visible change is
+    // the unpack status line. callChat adapts the AnimathLLM transport
+    // (same baseUrl/apiKey/model call shape as before) to the pipeline's
+    // model-agnostic deps.
+    AnimathPipeline.generateAnimation({
+      level: levelSel.value,
+      subject: tr.subject,
+      topic: topicSel.value,
+      topicLabel: topicOpt.textContent,
+      kind: kind,
+      focus: focusEl.value.trim(),
+      facet: facetField.style.display === 'none' ? null : facetSel.value
+    }, {
+      callChat: function (system, user) {
+        return AnimathLLM.rawChat(system, user, {
+          baseUrl: baseUrlEl.value.trim(),
+          apiKey: key,
+          model: modelEl.value.trim()
+        });
+      },
+      validate: AnimathValidate.validateSpec,
+      onProgress: function (stage, n, max) {
+        if (stage === 'unpack') setStatus('Unpacking the topic into its state transitions…');
+        else if (stage === 'author') setStatus('Asking the model to author your animation…');
+        else if (stage === 'repair') setStatus('Repairing attempt ' + n + ' of ' + max + '…');
+      }
     }).then(function (spec) {
-      // generateSpecWithRepair only resolves with a spec that validated clean
+      // generateAnimation only resolves with a spec that validated clean
       lastSpec = spec;
       lastSlug = topicSel.value || 'animath';
       specBtns.style.display = 'flex';
