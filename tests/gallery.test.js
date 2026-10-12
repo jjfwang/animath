@@ -171,3 +171,53 @@ test('formatMeta tolerates missing or partial fields', () => {
   assert.equal(AnimathGallery.formatMeta({ level: 'primary', scenes: [{ duration_ms: 5000 }, {}] }),
     'primary · 2 scenes · 5s');
 });
+
+/* issue #679: subject filter options built from AnimathValidate.SUBJECTS */
+
+test('buildSubjectOptions maps enum values to value/label descriptors in order', () => {
+  assert.deepEqual(AnimathGallery.buildSubjectOptions(['math', 'science', 'geography']), [
+    { value: 'math', label: 'Math' },
+    { value: 'science', label: 'Science' },
+    { value: 'geography', label: 'Geography' }
+  ]);
+});
+
+test('buildSubjectOptions falls back to math+science when input is missing', () => {
+  const expected = [
+    { value: 'math', label: 'Math' },
+    { value: 'science', label: 'Science' }
+  ];
+  assert.deepEqual(AnimathGallery.buildSubjectOptions(undefined), expected);
+  assert.deepEqual(AnimathGallery.buildSubjectOptions(null), expected);
+  assert.deepEqual(AnimathGallery.buildSubjectOptions('math'), expected);
+  assert.deepEqual(AnimathGallery.buildSubjectOptions({}), expected);
+});
+
+test('buildSubjectOptions capitalizes arbitrary enum values', () => {
+  assert.deepEqual(AnimathGallery.buildSubjectOptions(['literature', 'chemistry']), [
+    { value: 'literature', label: 'Literature' },
+    { value: 'chemistry', label: 'Chemistry' }
+  ]);
+});
+
+test('buildSubjectOptions does not mutate the input array', () => {
+  const subjects = ['math', 'geography'];
+  AnimathGallery.buildSubjectOptions(subjects);
+  assert.deepEqual(subjects, ['math', 'geography']);
+});
+
+test('geography filter returns exactly the three geography samples', () => {
+  const items = [
+    { title: 'Erosion', topic: 'erosion', filename: 'primary-geog-erosion.json', level: 'primary', subject: 'geography' },
+    { title: 'Plate Tectonics', topic: 'plates', filename: 'primary-geog-plate-tectonics.json', level: 'primary', subject: 'geography' },
+    { title: 'Weather and Climate', topic: 'weather', filename: 'primary-geog-weather-climate.json', level: 'primary', subject: 'geography' },
+    { title: 'Adding Fractions', topic: 'fractions', filename: 'primary-math-fractions-addition.json', level: 'primary', subject: 'math' },
+    { title: 'Photosynthesis', topic: 'plants', filename: 'primary-science-photosynthesis.json', level: 'primary', subject: 'science' }
+  ];
+  const got = AnimathGallery.filterSamples(items, { subject: 'geography' });
+  assert.deepEqual(got.map((i) => i.filename), [
+    'primary-geog-erosion.json',
+    'primary-geog-plate-tectonics.json',
+    'primary-geog-weather-climate.json'
+  ]);
+});
