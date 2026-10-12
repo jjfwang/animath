@@ -22,10 +22,11 @@ HARD RULES — violate any of these and the spec is rejected:
    spoken tone for the level), duration_ms (4000-12000), steps ordered by
    at_ms ascending, every at_ms < duration_ms.
 4. Step verbs: show | hide | move | emphasize | caption.
-5. Shape kinds: text | rect | circle | line | arrow | polygon | latex. Every shape
+5. Shape kinds: text | rect | circle | line | arrow | polygon | latex | sector. Every shape
    needs a unique id within its scene. Coordinates are canvas pixels,
    origin top-left. Colors are CSS hex. (latex: formal/symbolic notation rendered with KaTeX —
    write plain LaTeX in its "tex" field, e.g. "a^2 + b^2 = c^2".)
+   (sector: pie slice / angle arc with cx, cy, r, startAngle, endAngle — not moveable.)
 6. move supports text | rect | circle | line | arrow | latex | polygon.
    Every move step needs a numeric dur_ms (milliseconds). to must carry
    at least one field valid for the target kind: x/y for text/rect/latex,
