@@ -1,9 +1,14 @@
-#!/usr/bin/env node
-/* animath geometry audit CLI (issue #365).
+/* animath geometry audit runner (issue #365; CLI entry split into
+ * generator/tooling/audit-cli.js by issue #709).
  *
- * Runs the static geometry audit (auditGeometry) and the time-sampled audit
- * (auditGeometrySampled) from generator/geometry.js over sample files and
- * reports findings with their time bands.
+ * Programmatic runner behind the geometry audit: runs the static geometry
+ * audit (auditGeometry) and the time-sampled audit (auditGeometrySampled)
+ * from generator/geometry.js over sample files and reports findings with
+ * their time bands. This module exports only the programmatic API (run,
+ * auditFile, formatFinding, loadTriageVerdicts, parseCollideIds,
+ * triageMatch) for tests and the loop; argument parsing, usage text, and
+ * the require.main guard (the only pieces that touch process.exit/stdout)
+ * live in the CLI entry point.
  *
  * CLASSIFICATION (issues #382, #384): every overlap finding is passed
  * through classifyFindings (generator/geometry.js), which marks it
@@ -37,59 +42,14 @@
  *   1 — one or more genuine findings
  *   2 — usage error, unreadable file, or bad triage-verdicts file
  *
- * Usage:
- *   node generator/audit.js <file...> [--dir <samples-dir>]
- *   node generator/audit.js --all [--dir <samples-dir>]
- *
- * The module exports its pieces for tests; only the require.main guard
- * touches process.exit/stdout.
+ * Developer entry point:
+ *   node generator/tooling/audit-cli.js <file...> [--dir <samples-dir>]
+ *   node generator/tooling/audit-cli.js --all [--dir <samples-dir>]
  */
 'use strict';
 
 var path = require('path');
 var audits = require('./geometry.js');
-
-function usage() {
-  return [
-    'Usage:',
-    '  node generator/audit.js <file...> [--dir <samples-dir>]',
-    '  node generator/audit.js --all [--dir <samples-dir>]',
-    '',
-    'Exit codes: 0 clean, 1 findings, 2 usage/file error.'
-  ].join('\n');
-}
-
-// argv (without node/script) -> { files, all, dir, error }
-function parseArgs(argv) {
-  var out = { files: [], all: false, dir: 'samples', error: null };
-  var i = 0;
-  while (i < argv.length) {
-    var a = argv[i];
-    if (a === '--all') {
-      out.all = true;
-    } else if (a === '--dir') {
-      i++;
-      if (i >= argv.length || !argv[i] || argv[i].charAt(0) === '-') {
-        out.error = '--dir needs a directory argument';
-        return out;
-      }
-      out.dir = argv[i];
-    } else if (a === '--help' || a === '-h') {
-      out.error = 'help';
-      return out;
-    } else if (a.charAt(0) === '-') {
-      out.error = 'unknown flag: ' + a;
-      return out;
-    } else {
-      out.files.push(a);
-    }
-    i++;
-  }
-  if (!out.all && out.files.length === 0 && !out.error) {
-    out.error = 'no input files; pass <file...> or --all';
-  }
-  return out;
-}
 
 function readJson(file) {
   // Node-only: reads the spec file from disk.
@@ -290,29 +250,11 @@ function run(opts) {
   return { output: sections.join('\n'), code: genuine > 0 ? 1 : 0, findingCount: total };
 }
 
-function main(argv) {
-  var opts = parseArgs(argv);
-  if (opts.error) {
-    var code = opts.error === 'help' ? 0 : 2;
-    return { output: (code === 0 ? usage() : 'error: ' + opts.error + '\n\n' + usage()), code: code, findingCount: 0 };
-  }
-  return run(opts);
-}
-
 module.exports = {
-  parseArgs: parseArgs,
   auditFile: auditFile,
   formatFinding: formatFinding,
   loadTriageVerdicts: loadTriageVerdicts,
   parseCollideIds: parseCollideIds,
   triageMatch: triageMatch,
-  run: run,
-  main: main,
-  usage: usage
+  run: run
 };
-
-if (require.main === module) {
-  var result = main(process.argv.slice(2));
-  process.stdout.write(result.output + '\n');
-  process.exit(result.code);
-}

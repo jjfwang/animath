@@ -284,13 +284,14 @@ and checked for canvas overflow, every pair of text boxes is checked for overlap
 tolerance, and latex anchors are checked against the canvas (no width
 estimate — KaTeX width is not statically computable). Shapes moved by
 later `move` steps are audited at their show-time position (documented
-limitation). `auditAllSamples('samples')` runs the audit over all
+limitation). From `generator/tooling/audit-samples.js`, `auditAllSamples('samples')`
+runs the audit over all
 72 samples in `samples/index.json` and returns finding records
 `{file, scene, kind, detail}`. Run the check (with coverage) via
 `node --test --experimental-test-coverage "tests/*.test.js"` — every line
 of the module is covered by `tests/geometry.test.js`.
 
-The runnable developer entry point is `node generator/audit.js`:
+The runnable developer entry point is `node generator/tooling/audit-cli.js`:
 `--all` (or `<file...>` paths) runs the static and time-sampled audits and
 prints up to four finding sections in order — `genuine findings:`,
 `triage-verified findings:`, `intentional-motion findings:`,

@@ -1,13 +1,7 @@
-// TypeScript definitions for generator/audit.js — headless sample-audit CLI
-// (Node only). Exported functions stay importable for tests and the loop.
-export interface AuditCliArgs {
-  files: string[];
-  all: boolean;
-  dir: string;
-  error: string | null;
-}
-export function usage(): string;
-export function parseArgs(argv: string[]): AuditCliArgs;
+// TypeScript definitions for generator/audit.js — the programmatic geometry
+// audit runner (Node only; the CLI entry lives at
+// generator/tooling/audit-cli.js). Exported functions stay importable for
+// tests and the loop.
 export interface AuditFileResult {
   file: string;
   spec: Record<string, unknown> | null;
@@ -37,4 +31,3 @@ export interface AuditRunResult {
   findingCount: number;
 }
 export function run(opts: AuditRunOptions): AuditRunResult;
-export function main(argv: string[]): AuditRunResult;

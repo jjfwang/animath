@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- CLI machinery split out of the library modules (issue #709): the geometry
+  audit CLI entry (usage, `parseArgs`, `main`, the `require.main` guard) moves
+  from `generator/audit.js` to `generator/tooling/audit-cli.js` — run it via
+  `node generator/tooling/audit-cli.js`; the Node-only sample walkers
+  `auditSampleFile`/`auditAllSamples` move from `generator/geometry.js` to
+  `generator/tooling/audit-samples.js`. The library subpaths now export only
+  programmatic APIs, with hand-authored `.d.ts` files for the two new tooling
+  modules, and the exports map gains `@jjfwang/animath/audit-cli`.
+
 - Package exports map gains two require subpaths — `@jjfwang/animath/pipeline`
   (the end-to-end generate pipeline, `generateAnimation`, issue #693) and
   `@jjfwang/animath/unpack` (the unpack layer, `unpackTopic`, issue #685):
