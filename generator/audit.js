@@ -46,7 +46,6 @@
  */
 'use strict';
 
-var fs = require('fs');
 var path = require('path');
 var audits = require('./geometry.js');
 
@@ -93,6 +92,8 @@ function parseArgs(argv) {
 }
 
 function readJson(file) {
+  // Node-only: reads the spec file from disk.
+  var fs = require('fs');
   try {
     return { spec: JSON.parse(fs.readFileSync(file, 'utf8')), error: null };
   } catch (e) {
@@ -101,6 +102,8 @@ function readJson(file) {
 }
 
 function manifestFiles(dir) {
+  // Node-only: reads the samples manifest from disk.
+  var fs = require('fs');
   try {
     var manifest = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'));
     if (!Array.isArray(manifest)) return { files: [], error: 'bad manifest in ' + dir };
@@ -136,6 +139,8 @@ var triageVerdictsPath = path.join(__dirname, 'audit-verdicts.json');
 
 // -> { records, error }. Fail-closed: any structural problem is an error.
 function loadTriageVerdicts(file) {
+  // Node-only: reads the triage-verdicts file from disk.
+  var fs = require('fs');
   var p = file || triageVerdictsPath;
   var raw;
   try {

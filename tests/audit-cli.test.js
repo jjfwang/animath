@@ -495,3 +495,35 @@ test('run: default verdicts path is the shipped audit-verdicts.json', () => {
   const [g2] = genuineCount(r2.output);
   assert.equal(t1, g2 - g1); // every triaged line came off genuine, nothing else moved
 });
+
+/* fs-free loading (issue #708): audit.js must load in a bundler-style
+ * environment where 'fs' cannot be required, and only the Node-only
+ * functions may fail there. */
+
+test('module loads with fs unavailable; Node-only functions fail clearly', () => {
+  const Module = require('node:module');
+  const auditPath = require.resolve('../generator/audit.js');
+  delete require.cache[auditPath];
+  const originalLoad = Module._load;
+  Module._load = function (request, parent, isMain) {
+    if (request === 'fs') {
+      const err = new Error("Cannot find module 'fs' (lazy-require in Node-only functions)");
+      err.code = 'MODULE_NOT_FOUND';
+      throw err;
+    }
+    return originalLoad.call(this, request, parent, isMain);
+  };
+  try {
+    const audit = require('../generator/audit.js');
+    // pure functions work without fs
+    assert.match(audit.usage(), /Usage/);
+    assert.equal(audit.parseArgs(['--help']).error, 'help');
+    assert.match(audit.formatFinding({ file: 'f', scene: 's', kind: 'k', detail: 'd' }), /^f s k d$/);
+    // Node-only functions fail with a clear fs error, not a load-time crash
+    assert.throws(() => audit.auditFile('x.json'), /Cannot find module 'fs'/);
+    assert.throws(() => audit.loadTriageVerdicts('x.json'), /Cannot find module 'fs'/);
+  } finally {
+    Module._load = originalLoad;
+    delete require.cache[auditPath];
+  }
+});
