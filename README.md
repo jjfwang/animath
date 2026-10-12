@@ -133,6 +133,8 @@ const { auditGeometry } = require('@jjfwang/animath/geometry');
 const { scoreSpec } = require('@jjfwang/animath/rubric');
 const { validateSpec } = require('@jjfwang/animath/player-validate');
 const { mount } = require('@jjfwang/animath/player');
+const { generateAnimation } = require('@jjfwang/animath/pipeline');
+const { unpackTopic } = require('@jjfwang/animath/unpack');
 ```
 
 Validate a spec before mounting it — `validateSpec` returns an array of
@@ -142,6 +144,65 @@ error strings (empty = valid):
 const problems = validateSpec(spec);
 if (problems.length) throw new Error('invalid animath spec: ' + problems.join('; '));
 mount(el, spec); // el is a DOM element; mount re-validates and throws too
+```
+
+### Generate an animation end-to-end
+
+The headline API is `@jjfwang/animath/pipeline`: it unpacks a topic into its
+state transitions, authors a spec, and repairs it until it validates — prompt
+in, animation out. You bring the LLM as `callChat` (any OpenAI-compatible
+chat-completions endpoint); validation runs through your `validate` dep:
+
+<!-- README_PIPELINE_EXAMPLE -->
+```js
+const { generateAnimation } = require('@jjfwang/animath/pipeline');
+const { validateSpec } = require('@jjfwang/animath/player-validate');
+
+// Your LLM, your key: callChat posts (system, user) to an OpenAI-compatible
+// endpoint and resolves the assistant's raw text.
+async function callChat(system, user) {
+  const res = await fetch('https://api.example.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + process.env.ANIMATH_API_KEY
+    },
+    body: JSON.stringify({
+      model: 'example-model',
+      messages: [{ role: 'system', content: system }, { role: 'user', content: user }]
+    })
+  });
+  const data = await res.json();
+  return data.choices[0].message.content;
+}
+
+async function main() {
+  return generateAnimation(
+    { topic: 'water-cycle', topicLabel: 'Water cycle', level: 'primary', subject: 'science' },
+    { callChat, validate: validateSpec }
+  );
+}
+
+module.exports = { callChat, main };
+```
+<!-- /README_PIPELINE_EXAMPLE -->
+
+`main()` resolves with a spec that passed `validateSpec` — the repair loop
+retries up to 3 times before failing. This snippet is
+`tests/readme-pipeline-example.test.js`'s input: the test extracts it from this
+README and runs it end to end against a stubbed `fetch`, so the docs cannot
+drift from the real API.
+
+Prefer the raw unpack layer? `unpackTopic` returns just the state transitions
+(no authoring) — `callChat` receives the `{ system, user }` prompt pair:
+
+```js
+const { unpackTopic } = require('@jjfwang/animath/unpack');
+const transitions = await unpackTopic(
+  'water-cycle',
+  { level: 'primary', subject: 'science' },
+  (prompts) => callChat(prompts.system, prompts.user)
+);
 ```
 
 ESM consumers use default-import interop — the package ships CJS+UMD, so Node's
