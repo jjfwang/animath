@@ -78,6 +78,82 @@
       '  Show the correct turn: ' + m.correctTurn;
   }
 
+  // Slice 4 (issue #691) — taste transfer: the hand-authored
+  // samples/primary-science-water-cycle.json embedded as a trimmed few-shot
+  // exemplar of good output (7.5KB source -> under 3KB here). TRIM RULE
+  // (applied by hand when authoring this constant, not at runtime): keep
+  // scene ids, captions verbatim, and per step the verb plus the shape
+  // id/kind with ONE anchor coordinate set (cx/cy, x/y, x1/y1/x2/y2, or
+  // points), the text content of text shapes, move/emphasize targets with
+  // the key field of `to`, caption-step text, and every explain field
+  // verbatim (they are the point). Drop narration, duration_ms, at_ms /
+  // dur_ms timings, style fields (fill, stroke, strokeWidth, size, color,
+  // width), duplicate sibling instances (arrow2, drop2, dropB/C, c1/c3,
+  // rain1/3 collapse to the one representative), redundant coordinate
+  // detail (rect w/h, circle r), and show-step shape ids that no later
+  // step in the excerpt references as a move/emphasize target. Kept as a
+  // JS object literal and compacted with JSON.stringify so the module
+  // works unchanged in the browser (web/index.html loads this file via a
+  // script tag) and in Node — no Node-only APIs at top level.
+  var WATER_CYCLE_EXEMPLAR_OBJ = { scenes: [
+    { id: 's1', caption: 'Evaporation: water rises as vapour', steps: [
+      { do: 'show', shape: { kind: 'circle', cx: 810, cy: 100 },
+        explain: 'The sun: its heat warms the sea and lifts the water.' },
+      { do: 'show', shape: { kind: 'rect', x: 60, y: 400 },
+        explain: 'The sea: the sun heats it and water rises as vapour.' },
+      { do: 'show', shape: { kind: 'text', x: 90, y: 470, text: 'Sea' },
+        explain: 'Label: Sea. Water leaves the sea as vapour.' },
+      { do: 'show', shape: { kind: 'arrow', x1: 300, y1: 380, x2: 300, y2: 320 },
+        explain: 'Evaporation: heat lifts the water up into the air.' },
+      { do: 'show', shape: { id: 'drop1', kind: 'circle', cx: 300, cy: 330 },
+        explain: 'A water drop: it rises as invisible vapour.' },
+      { do: 'move', target: 'drop1', to: { cy: 190 } },
+      { do: 'show', shape: { kind: 'text', x: 120, y: 120, text: 'Heat rises the water up' },
+        explain: 'Note: heat rises the water up into the air.' },
+      { do: 'caption', text: 'The water did not disappear - it became invisible vapour' }
+    ] },
+    { id: 's2', caption: 'Condensation: vapour becomes cloud', steps: [
+      { do: 'show', shape: { kind: 'text', x: 120, y: 80, text: 'Cold air' },
+        explain: 'Label: Cold air. High up, the air is cold.' },
+      { do: 'show', shape: { id: 'dropA', kind: 'circle', cx: 380, cy: 150 },
+        explain: 'A tiny drop: cooled vapour turning back into water.' },
+      { do: 'move', target: 'dropA', to: { cx: 430, cy: 250 } },
+      { do: 'show', shape: { id: 'c2', kind: 'circle', cx: 480, cy: 240 },
+        explain: 'A cloud: tiny drops joined together.' },
+      { do: 'emphasize', target: 'c2' },
+      { do: 'caption', text: 'Tiny drops join together - a cloud is born' }
+    ] },
+    { id: 's3', caption: 'Precipitation: water falls as rain', steps: [
+      { do: 'show', shape: { id: 'c2', kind: 'circle', cx: 480, cy: 160 },
+        explain: 'A cloud: its drops are getting bigger and heavier.' },
+      { do: 'show', shape: { id: 'rain2', kind: 'arrow', x1: 480, y1: 240, x2: 480, y2: 290 },
+        explain: 'Rain: drops too heavy to float fall down.' },
+      { do: 'move', target: 'rain2', to: { y1: 400 } },
+      { do: 'show', shape: { kind: 'text', x: 620, y: 440, text: 'Rain' },
+        explain: 'Label: Rain. Heavy drops falling from the cloud.' },
+      { do: 'caption', text: 'Heavy drops fall - we call this precipitation' }
+    ] },
+    { id: 's4', caption: 'Watch out: water is not gone for good once it evaporates', steps: [
+      { do: 'show', shape: { kind: 'polygon', points: [[150, 420], [280, 160], [410, 420]] },
+        explain: 'The mountain: rain falls high up and runs downhill.' },
+      { do: 'show', shape: { id: 'sea', kind: 'rect', x: 560, y: 400 },
+        explain: 'The sea: rain returns here, and the cycle starts again.' },
+      { do: 'show', shape: { kind: 'arrow', x1: 300, y1: 220, x2: 420, y2: 380 },
+        explain: 'The river: it carries the water back to the sea.' },
+      { do: 'show', shape: { id: 'flow', kind: 'circle', cx: 300, cy: 220 },
+        explain: 'Flowing water: it runs down to the sea.' },
+      { do: 'move', target: 'flow', to: { cx: 520, cy: 430 } },
+      { do: 'emphasize', target: 'sea' },
+      { do: 'caption', text: 'The cycle never ends - round and round it goes' }
+    ] }
+  ] };
+  var WATER_CYCLE_EXEMPLAR = JSON.stringify(WATER_CYCLE_EXEMPLAR_OBJ)
+    // Keep the built system prompt free of "}}" (tests/charts-prompt.test.js
+    // and tests/explain-prompt.test.js assert no {{ }} placeholder survives
+    // the fill): JSON whitespace is insignificant, so separate adjacent
+    // closing braces with a space. The 3KB budget below counts this form.
+    .split('}}').join('} }');
+
   var SYSTEM_TEMPLATE = [
     'You are animath\'s animation author. You write short animated explainers for',
     'Singapore students as JSON documents following the animath spec v0.1.',
@@ -140,7 +216,27 @@
     '  construction; emphasize for attention without state change.',
     '{{MISCONCEPTION_LINE}}',
     '- Narration reads aloud naturally to a {{LEVEL_LABEL}} student. Tone: {{TONE}}.',
-    '  No jargon above the level. Short sentences.'
+    '  No jargon above the level. Short sentences.',
+    '',
+    'QUALITY GATES — what separates a hand-authored sample from a sloppy one:',
+    '- Label placement is a first-class gate: no text shape may overlap any other shape.',
+    '- Put every label in clear space and check its footprint against all other',
+    '  shapes in the scene; when a label would collide, move it to clear space.',
+    '- Every scene carries a caption (<= 60 chars). When the animation follows state',
+    '  transitions, the caption names the phase being watched.',
+    '- Key chart/diagram parts carry an "explain" field wherever the part invites',
+    '  it (the explain instruction above stands: name the part, one short sentence).',
+    '- Use "emphasize" on the mechanism beat of each scene — the step where the',
+    '  mechanism lands gets the emphasis, not the setup.',
+    '- A misconception wrong turn must play out VISUALLY in the scene where the',
+    '  wrong turn happens (with transitions: the scene matching the misconceived',
+    '  transition) — never as a caption merely saying it is wrong.',
+    '',
+    'WORKED EXAMPLE — hand-authored water-cycle sample, trimmed to the essentials',
+    '(captions name the phases, labels sit in clear space, key parts carry explain,',
+    '"emphasize" hits the mechanism beat, the wrong turn plays out visually in the',
+    'scene where it happens). Match this quality bar:',
+    WATER_CYCLE_EXEMPLAR
   ].join('\n');
 
   function fill(template, vars) {
@@ -258,6 +354,7 @@
     buildPrompts: buildPrompts,
     misconceptionFor: misconceptionFor,
     LEVEL_LABELS: LEVEL_LABELS,
-    SYSTEM_TEMPLATE: SYSTEM_TEMPLATE
+    SYSTEM_TEMPLATE: SYSTEM_TEMPLATE,
+    WATER_CYCLE_EXEMPLAR: WATER_CYCLE_EXEMPLAR
   };
 });

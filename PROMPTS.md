@@ -71,6 +71,26 @@ MECHANISM-FIRST — every scene must show the mechanism, not just tell it:
 {{MISCONCEPTION_LINE}}
 - Narration reads aloud naturally to a {{LEVEL_LABEL}} student. Tone: {{TONE}}.
   No jargon above the level. Short sentences.
+
+QUALITY GATES — what separates a hand-authored sample from a sloppy one:
+- Label placement is a first-class gate: no text shape may overlap any other shape.
+- Put every label in clear space and check its footprint against all other
+  shapes in the scene; when a label would collide, move it to clear space.
+- Every scene carries a caption (<= 60 chars). When the animation follows state
+  transitions, the caption names the phase being watched.
+- Key chart/diagram parts carry an "explain" field wherever the part invites
+  it (the explain instruction above stands: name the part, one short sentence).
+- Use "emphasize" on the mechanism beat of each scene — the step where the
+  mechanism lands gets the emphasis, not the setup.
+- A misconception wrong turn must play out VISUALLY in the scene where the
+  wrong turn happens (with transitions: the scene matching the misconceived
+  transition) — never as a caption merely saying it is wrong.
+
+WORKED EXAMPLE — hand-authored water-cycle sample, trimmed to the essentials
+(captions name the phases, labels sit in clear space, key parts carry explain,
+"emphasize" hits the mechanism beat, the wrong turn plays out visually in the
+scene where it happens). Match this quality bar:
+{"scenes":[{"id":"s1","caption":"Evaporation: water rises as vapour","steps":[{"do":"show","shape":{"kind":"circle","cx":810,"cy":100},"explain":"The sun: its heat warms the sea and lifts the water."},{"do":"show","shape":{"kind":"rect","x":60,"y":400},"explain":"The sea: the sun heats it and water rises as vapour."},{"do":"show","shape":{"kind":"text","x":90,"y":470,"text":"Sea"},"explain":"Label: Sea. Water leaves the sea as vapour."},{"do":"show","shape":{"kind":"arrow","x1":300,"y1":380,"x2":300,"y2":320},"explain":"Evaporation: heat lifts the water up into the air."},{"do":"show","shape":{"id":"drop1","kind":"circle","cx":300,"cy":330},"explain":"A water drop: it rises as invisible vapour."},{"do":"move","target":"drop1","to":{"cy":190} },{"do":"show","shape":{"kind":"text","x":120,"y":120,"text":"Heat rises the water up"},"explain":"Note: heat rises the water up into the air."},{"do":"caption","text":"The water did not disappear - it became invisible vapour"}]},{"id":"s2","caption":"Condensation: vapour becomes cloud","steps":[{"do":"show","shape":{"kind":"text","x":120,"y":80,"text":"Cold air"},"explain":"Label: Cold air. High up, the air is cold."},{"do":"show","shape":{"id":"dropA","kind":"circle","cx":380,"cy":150},"explain":"A tiny drop: cooled vapour turning back into water."},{"do":"move","target":"dropA","to":{"cx":430,"cy":250} },{"do":"show","shape":{"id":"c2","kind":"circle","cx":480,"cy":240},"explain":"A cloud: tiny drops joined together."},{"do":"emphasize","target":"c2"},{"do":"caption","text":"Tiny drops join together - a cloud is born"}]},{"id":"s3","caption":"Precipitation: water falls as rain","steps":[{"do":"show","shape":{"id":"c2","kind":"circle","cx":480,"cy":160},"explain":"A cloud: its drops are getting bigger and heavier."},{"do":"show","shape":{"id":"rain2","kind":"arrow","x1":480,"y1":240,"x2":480,"y2":290},"explain":"Rain: drops too heavy to float fall down."},{"do":"move","target":"rain2","to":{"y1":400} },{"do":"show","shape":{"kind":"text","x":620,"y":440,"text":"Rain"},"explain":"Label: Rain. Heavy drops falling from the cloud."},{"do":"caption","text":"Heavy drops fall - we call this precipitation"}]},{"id":"s4","caption":"Watch out: water is not gone for good once it evaporates","steps":[{"do":"show","shape":{"kind":"polygon","points":[[150,420],[280,160],[410,420]]},"explain":"The mountain: rain falls high up and runs downhill."},{"do":"show","shape":{"id":"sea","kind":"rect","x":560,"y":400},"explain":"The sea: rain returns here, and the cycle starts again."},{"do":"show","shape":{"kind":"arrow","x1":300,"y1":220,"x2":420,"y2":380},"explain":"The river: it carries the water back to the sea."},{"do":"show","shape":{"id":"flow","kind":"circle","cx":300,"cy":220},"explain":"Flowing water: it runs down to the sea."},{"do":"move","target":"flow","to":{"cx":520,"cy":430} },{"do":"emphasize","target":"sea"},{"do":"caption","text":"The cycle never ends - round and round it goes"}]}]}
 ```
 
 The `{{MISCONCEPTION_LINE}}` slot is filled per topic by
