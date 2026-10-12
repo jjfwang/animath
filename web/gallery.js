@@ -62,9 +62,23 @@
     return parts.join(' · ');
   }
 
+  // Subject-filter option descriptors for the gallery page: given an array
+  // of subject enum strings, returns [{value, label}] in input order with
+  // the label's first letter capitalized. Missing or non-array input falls
+  // back to the math+science set so the page stays functional when the
+  // validator script tag failed to load. Pure and DOM-free.
+  function buildSubjectOptions(subjects) {
+    var list = Array.isArray(subjects) ? subjects : ['math', 'science'];
+    return list.map(function (s) {
+      var v = String(s);
+      return { value: v, label: v.charAt(0).toUpperCase() + v.slice(1) };
+    });
+  }
+
   var api = {
     filterSamples: filterSamples,
     formatMeta: formatMeta,
+    buildSubjectOptions: buildSubjectOptions,
     version: '0.1'
   };
   global.AnimathGallery = api;

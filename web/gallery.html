@@ -69,8 +69,8 @@
     </select>
     <select id="subject" aria-label="Filter by subject">
       <option value="">All subjects</option>
-      <option value="math">Math</option>
-      <option value="science">Science</option>
+      <!-- issue #679: subject options are populated from
+           AnimathValidate.SUBJECTS by the inline script below -->
     </select>
   </div>
   <p id="no-results" hidden>No samples match your filters.</p>
@@ -120,6 +120,21 @@
   kwInput.addEventListener('input', onFilter);
   levelSel.addEventListener('change', onFilter);
   subjectSel.addEventListener('change', onFilter);
+
+  // Subject filter options (issue #679): built from the validator's
+  // SUBJECTS enum so newly added subjects (e.g. geography) appear without
+  // touching this page's markup. Falls back to math/science when the
+  // validator script tag failed to load. Re-applied once so the page has
+  // no stale state from the empty select.
+  AnimathGallery.buildSubjectOptions(
+    window.AnimathValidate && window.AnimathValidate.SUBJECTS
+  ).forEach(function (opt) {
+    var el = document.createElement('option');
+    el.value = opt.value;
+    el.textContent = opt.label;
+    subjectSel.appendChild(el);
+  });
+  onFilter();
 
   // Export WebM (#506): one clearly-labeled button + status line that records
   // the currently mounted sample as a WebM video from this page. Guarded on
