@@ -961,7 +961,7 @@ function baseSpec631(scenes) {
   };
 }
 
-// The validator requires 2..8 scenes; the second scene is a filler the
+// The validator allows 1..8 scenes; the second scene here is a filler the
 // tests never navigate to (all pumps stay inside scene 0's duration).
 function fillerScene631(id) {
   return {

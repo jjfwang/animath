@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- Staging strategy in the generate pipeline: the unpacker classifies a
+  topic's shape (sequence, cycle, or system) and the author prompt stages
+  scenes accordingly — a cycle (e.g. the water cycle) is staged as ONE
+  holistic scene showing the whole loop at once with animated flows, instead
+  of one scene per transition. The validator now accepts 1..8 scenes
+  (SPEC.md updated).
+
 - End-to-end add-a-subject checklist in CONTRIBUTING.md covering the SPEC.md
   subject enum, `player/validate.js` SUBJECTS, the SYLLABUS.md section, the
   web/syllabus.js track, the generator misconception-bank entries, and the

@@ -161,7 +161,9 @@
     'HARD RULES — violate any of these and the spec is rejected:',
     '1. Return ONLY the JSON document. No markdown fences, no commentary.',
     '2. Top-level fields, exactly: animath ("0.1"), title, level, subject, topic,',
-    '   kind, canvas ({width:960, height:540}), scenes (2 to 8).',
+    '   kind, canvas ({width:960, height:540}), scenes (1 to 8 — 1 scene is',
+    '   the holistic staging for a cycle or system topic, where the whole',
+    '   loop or system is visible at once).',
     '3. Each scene: id (unique), caption (<= 60 chars), narration (1-2 sentences,',
     '   spoken tone for the level), duration_ms (4000-12000), steps ordered by',
     '   at_ms ascending, every at_ms < duration_ms.',
@@ -268,6 +270,59 @@
     '   name so the viewer knows which phase of the process they are watching.'
   ].join('\n');
 
+  // Staging strategy (owner direction 2026-10-12): the unpacked shape
+  // decides how transitions become scenes. "sequence" keeps the original
+  // one-scene-per-transition mapping. "cycle" stages the whole loop in ONE
+  // holistic scene — the looping itself is the concept, so every phase must
+  // be visible at once, connected by animated flows. "system" stages
+  // interacting parts in one scene where relationships carry the teaching.
+  var STAGING_CYCLE_BLOCK = [
+    '',
+    '',
+    'CYCLE STAGING — the topic has been unpacked as a CYCLE: the last state',
+    'feeds back into the first, and the looping itself is the concept. Author',
+    'ONE single holistic scene that shows the entire loop at once:',
+    '1. Every phase of the cycle is visible simultaneously, laid out as a',
+    '   closed loop on the canvas (e.g. sun -> sea -> vapour -> cloud -> rain',
+    '   -> river -> sea). The viewer must see the whole cycle in one frame —',
+    '   never split phases across scenes where the return path disappears.',
+    '2. Animate FLOWS along the loop: move steps carry a marker (a droplet,',
+    '   a parcel of water) around the full cycle path so the circulation is',
+    '   visible, not just the phases sitting still.',
+    '3. Label each phase in place, next to its part of the loop. One caption',
+    '   names the whole cycle.',
+    '4. The drivers stay visible acting on their phase (heat on the water,',
+    '   gravity on the falling rain).',
+    '5. If a transition carries a misconception beat, play that wrong turn',
+    '   out VISUALLY at its phase of the loop — never as a caption merely',
+    '   saying it is wrong.'
+  ].join('\n');
+
+  var STAGING_SYSTEM_BLOCK = [
+    '',
+    '',
+    'SYSTEM STAGING — the topic has been unpacked as a SYSTEM: interacting',
+    'parts present at the same time. Author ONE single holistic scene:',
+    '1. Show ALL parts simultaneously, laid out so their relationships are',
+    '   visible — the interaction between parts is the mechanism, not a',
+    '   sequence of steps.',
+    '2. Animate the interactions: move steps show what passes or pushes',
+    '   between parts (signals, flows, forces).',
+    '3. Label each part in place. One caption names the system and what it does.',
+    '4. If a transition carries a misconception beat, play that wrong turn',
+    '   out VISUALLY at the relevant part — never as a caption merely',
+    '   saying it is wrong.'
+  ].join('\n');
+
+  function validateShape(shape) {
+    if (shape === undefined || shape === null) return 'sequence';
+    if (['sequence', 'cycle', 'system'].indexOf(shape) < 0) {
+      throw new Error('buildPrompts: opts.shape must be one of ' +
+        'sequence, cycle, system — got ' + JSON.stringify(shape));
+    }
+    return shape;
+  }
+
   function validatePromptTransition(t, index) {
     if (!t || typeof t !== 'object' || Array.isArray(t)) {
       throw new Error('buildPrompts: opts.transitions[' + index + '] must be ' +
@@ -320,11 +375,16 @@
     return out;
   }
 
-  function transitionsUserBlock(transitions) {
+  function transitionsUserBlock(staged) {
+    var transitions = staged.transitions;
+    var shape = validateShape(staged.shape);
     var lines = [
       '',
       '',
-      'Ordered state transitions — author EXACTLY one scene per transition, in this order:'
+      shape === 'sequence'
+        ? 'Ordered state transitions — author EXACTLY one scene per transition, in this order:'
+        : 'Ordered state transitions — stage them as one holistic ' + shape +
+          ' scene (see the staging rules above), in this loop order:'
     ];
     for (var i = 0; i < transitions.length; i++) {
       var t = transitions[i];
@@ -345,7 +405,9 @@
     return lines.join('\n');
   }
 
-  // opts: {level, subject, topic, topicLabel, kind, focus, facet, transitions}
+  // opts: {level, subject, topic, topicLabel, kind, focus, facet, transitions, shape}
+  // shape is one of sequence (default), cycle, system — the unpacker's
+  // staging classification. It only applies when transitions are present.
   function buildPrompts(opts) {
     if (!opts.subject) {
       throw new Error('buildPrompts: subject is required ' +
@@ -353,12 +415,16 @@
     }
     var level = opts.level || 'primary';
     var transitions = normalizeTransitions(opts.transitions);
+    var shape = validateShape(opts.shape);
     var system = fill(SYSTEM_TEMPLATE, {
       LEVEL_LABEL: LEVEL_LABELS[level] || level,
       TONE: LEVEL_TONE[level] || LEVEL_TONE.secondary,
       MISCONCEPTION_LINE: misconceptionLine(opts.topic, opts.facet)
     });
-    if (transitions) system += TRANSITION_SYSTEM_BLOCK;
+    if (transitions) {
+      system += shape === 'sequence' ? TRANSITION_SYSTEM_BLOCK
+        : shape === 'cycle' ? STAGING_CYCLE_BLOCK : STAGING_SYSTEM_BLOCK;
+    }
     var user = [
       'Level: ' + level + ' (' + (LEVEL_LABELS[level] || level) + ')',
       'Subject: ' + opts.subject,
@@ -368,7 +434,7 @@
       '',
       'Write the animation spec JSON now. ' + (KIND_GUIDANCE[opts.kind] || KIND_GUIDANCE.concept)
     ].join('\n');
-    if (transitions) user += transitionsUserBlock(transitions);
+    if (transitions) user += transitionsUserBlock({ shape: shape, transitions: transitions });
     return { system: system, user: user };
   }
 

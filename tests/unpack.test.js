@@ -102,7 +102,9 @@ test('built prompts carry the unpack rules and no placeholder survives', () => {
     subject: 'science', level: 'primary'
   });
   for (const phrase of [
-    'Return ONLY a JSON array',
+    'Return ONLY a JSON object',
+    '"shape"',
+    '"transitions"',
     'from_state',
     'to_state',
     '"driver"',

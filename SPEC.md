@@ -19,7 +19,7 @@ implementation. If code and spec disagree, the code is wrong.
 | `topic`   | string                            | slug from `SYLLABUS.md`                            |
 | `kind`    | `"concept"` \| `"problem"`        | concept = explain an idea; problem = pose then solve |
 | `canvas`  | `{width, height}`                 | pixels; `960 × 540` recommended                    |
-| `scenes`  | Scene[2..8]                       | played in order                                    |
+| `scenes`  | Scene[1..8]                       | played in order (1 scene = holistic cycle/system staging) |
 
 ## Scene
 

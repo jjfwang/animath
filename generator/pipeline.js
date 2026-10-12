@@ -105,7 +105,7 @@
       return Promise.resolve(prompts).then(function (p) {
         return deps.callChat(p.system, p.user);
       }).then(function (text) {
-        try { return SIBLINGS.unpack.parseTransitions(text); }
+        try { return SIBLINGS.unpack.parseUnpackResponse(text); }
         catch (e) { return null; }
       }, function () { return null; });
     }
@@ -180,11 +180,15 @@
       });
     }
 
-    return unpackStage().then(function (transitions) {
+    return unpackStage().then(function (staged) {
       // Slice 6 (issue #695): attach the bank's wrong-turn beat to the
       // transition where it happens before authoring, so buildPrompts can
       // name the misconceived scene. The degraded null path (no
       // transitions) is untouched — attachMisconceptions never sees it.
+      // Staging (owner direction 2026-10-12): the unpacked shape
+      // (sequence/cycle/system) decides the scene layout.
+      var transitions = staged ? staged.transitions : null;
+      var shape = staged ? staged.shape : undefined;
       if (transitions) {
         transitions = SIBLINGS.unpack.attachMisconceptions(transitions, opts.topic);
       }
@@ -196,7 +200,8 @@
         kind: opts.kind,
         focus: opts.focus,
         facet: opts.facet,
-        transitions: transitions
+        transitions: transitions,
+        shape: shape
       });
       return authorStage(prompts);
     });
