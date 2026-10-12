@@ -42,6 +42,23 @@ test('system prompt carries the chart-construction instruction', () => {
   }
 });
 
+test('hard rule 5 lists sector as a shape kind with its fields', () => {
+  const system = systemFor('primary', 'concept');
+  const start = system.indexOf('5. Shape kinds:');
+  const end = system.indexOf('6. move supports');
+  assert.ok(start !== -1 && end !== -1 && end > start,
+    'system prompt must carry hard rules 5 and 6 in order');
+  const rule5 = system.slice(start, end);
+  for (const phrase of [
+    'latex | sector',
+    'cx, cy, r, startAngle, endAngle',
+    'not moveable'
+  ]) {
+    assert.ok(rule5.indexOf(phrase) !== -1,
+      'hard rule 5 must describe the sector kind: missing "' + phrase + '"');
+  }
+});
+
 test('chart instruction is present for every level and kind', () => {
   for (const level of ['primary', 'secondary', 'jc']) {
     for (const kind of ['concept', 'problem']) {
