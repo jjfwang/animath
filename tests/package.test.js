@@ -21,6 +21,17 @@ const EXPECTED_APIS = {
   './player': ['mount'],
   './embed': ['mount'],
   './player-validate': ['validateSpec'],
+  './pipeline': ['generateAnimation'],
+  './unpack': [
+    'buildUnpackPrompts',
+    'parseTransitions',
+    'unpackTopic',
+    'parseUnpackResponse',
+    'attachMisconceptions',
+    'SHAPES',
+    'UNPACK_SYSTEM_TEMPLATE',
+    'UNPACK_USER_TEMPLATE',
+  ],
 };
 
 test('package.json has a name, version and exports map', () => {

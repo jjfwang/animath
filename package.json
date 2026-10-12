@@ -15,7 +15,9 @@
     "./embed": "./web/embed.js",
     "./player": "./player/player.js",
     "./player-validate": "./player/validate.js",
-    "./rubric": "./generator/rubric.js"
+    "./rubric": "./generator/rubric.js",
+    "./pipeline": "./generator/pipeline.js",
+    "./unpack": "./generator/unpack.js"
   },
   "files": [
     "generator/",

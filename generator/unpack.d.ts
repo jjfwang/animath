@@ -40,5 +40,15 @@ export function attachMisconceptions(
   transitions: UnpackTransition[],
   topicSlug: string
 ): MisconceivedTransition[];
+// Full unpack parse: accepts the object form {shape, transitions} or the
+// legacy bare array (staged as 'sequence'). Throws a descriptive Error on
+// malformed input (issue #701).
+export interface UnpackResponse {
+  shape: string;
+  transitions: UnpackTransition[];
+}
+export function parseUnpackResponse(text: string): UnpackResponse;
+// The recognized animation shapes (issue #698): 'sequence', 'cycle', 'system'.
+export const SHAPES: string[];
 export const UNPACK_SYSTEM_TEMPLATE: string;
 export const UNPACK_USER_TEMPLATE: string;
