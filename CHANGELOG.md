@@ -86,6 +86,14 @@ version section when the release ships.
   — both were hardcoded `0.1` while the package was at `0.2.0-beta.0`
   (issue #706). The `0.1` in `player/validate.js` is the animath spec format
   version and is intentionally unchanged.
+- Player public API narrowed: `player/player.js` now exports exactly
+  `mount`, `version`, and `internals` — the 19 former top-level helper
+  exports remain reachable via `player.internals` and are marked internal
+  in `player/player.d.ts`, so consumers should depend only on
+  `mount`/`version` (issue #707).
+- `generator/audit.js` no longer requires `fs` at module load: the three
+  Node-only functions (`readJson`, `manifestFiles`, `loadTriageVerdicts`)
+  lazy-require it, so the module loads in browser bundles (issue #708).
 - Repair loop default cap raised from 2 to 3 passes, locked in with tests
   (issue #689).
 
