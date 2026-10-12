@@ -685,15 +685,16 @@ test('generateSpecWithRepair feeds the invalid spec and errors back on repair', 
   }
 });
 
-test('generateSpecWithRepair rejects after maxRepairs with the final errors', async () => {
+test('generateSpecWithRepair rejects after the default 3 repair turns with the final errors', async () => {
   const errors = ['title: missing'];
   const stub = stubFetch(['{"animath":"0.1"}']);
   try {
     await assert.rejects(
       generateSpecWithRepair(repairOpts, () => errors),
-      (e) => e.message.includes('title: missing')
+      (e) => e.message.includes('title: missing') &&
+        e.message.includes('after 3 repair attempt(s)')
     );
-    assert.equal(stub.calls(), 3, 'expected exactly 3 fetch calls, got ' + stub.calls());
+    assert.equal(stub.calls(), 4, 'expected exactly 4 fetch calls (first attempt + 3 repairs), got ' + stub.calls());
   } finally {
     stub.restore();
   }

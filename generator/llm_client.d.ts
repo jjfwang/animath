@@ -8,6 +8,7 @@ export interface GenerateSpecOptions {
   model: string;
   system: string;
   user: string;
+  /** Number of repair turns after the first attempt. Default 3; 0 means no repairs. */
   maxRepairs?: number;
 }
 // The parsed animath animation spec the model returned.
