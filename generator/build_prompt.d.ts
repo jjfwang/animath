@@ -31,3 +31,6 @@ export function misconceptionFor(
 ): MisconceptionEntry | null;
 export const LEVEL_LABELS: { [level: string]: string };
 export const SYSTEM_TEMPLATE: string;
+// Trimmed water-cycle exemplar (issue #691): compact JSON string of the
+// hand-authored samples/primary-science-water-cycle.json, under 3KB.
+export const WATER_CYCLE_EXEMPLAR: string;
