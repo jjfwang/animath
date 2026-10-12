@@ -120,8 +120,11 @@
     if (!spec.canvas || !isNum(spec.canvas.width) || !isNum(spec.canvas.height)) {
       errors.push('canvas: required {width,height} numbers');
     }
-    if (!Array.isArray(spec.scenes) || spec.scenes.length < 2 || spec.scenes.length > 8) {
-      errors.push('scenes: required array of 2..8 scenes');
+    // 1..8 scenes: a single holistic scene is legitimate staging for a
+    // cycle or system topic (owner direction 2026-10-12) — the whole loop
+    // or system is visible at once, so splitting it would hide the concept.
+    if (!Array.isArray(spec.scenes) || spec.scenes.length < 1 || spec.scenes.length > 8) {
+      errors.push('scenes: required array of 1..8 scenes');
       return errors;
     }
     var sceneIds = {};

@@ -25,6 +25,14 @@
 
   var TRANSITION_FIELDS = ['name', 'from_state', 'to_state', 'driver'];
 
+  // Staging shapes: how the unpacked transitions should be laid out as
+  // scenes. The shape is the unpacker's answer to "what kind of mechanism
+  // is this?" — sequence (ordered steps, nothing returns), cycle (the last
+  // state feeds back into the first; the looping itself is the concept),
+  // system (interacting parts present at the same time; relationships
+  // matter more than order).
+  var SHAPES = ['sequence', 'cycle', 'system'];
+
   // Slice 6 (issue #695): per-transition misconception beats. The bank
   // (generator/misconceptions.js) loads via the same guarded require /
   // browser-global pattern build_prompt.js uses (web/index.html loads
@@ -110,11 +118,23 @@
   var UNPACK_SYSTEM_TEMPLATE = [
     'You are animath\'s topic unpacker. You break a teaching topic into the',
     'ordered sequence of state changes an animation would show, one transition',
-    'per step.',
+    'per step, and you classify the topic\'s staging shape.',
     '',
-    'Return ONLY a JSON array. No markdown fences, no commentary, no surrounding prose.',
+    'Return ONLY a JSON object with exactly two keys: "shape" and',
+    '"transitions". No markdown fences, no commentary, no surrounding prose.',
     '',
-    'Each array item is an object with exactly these string fields:',
+    '"shape" is one of "sequence", "cycle", or "system":',
+    '- "sequence": ordered steps where each leads to the next and nothing',
+    '  returns (e.g. long division, adding fractions).',
+    '- "cycle": the last state feeds back into the first — a closed loop where',
+    '  the looping itself is the concept (e.g. the water cycle, the carbon',
+    '  cycle). Choose "cycle" whenever the end of the process restarts it.',
+    '- "system": interacting parts present at the same time, where the',
+    '  relationships between parts matter more than any order',
+    '  (e.g. the human body, an electric circuit).',
+    '',
+    '"transitions" is a JSON array. Each array item is an object with exactly',
+    'these string fields:',
     '- "name": short label for the transition (e.g. "evaporation")',
     '- "from_state": the state before this transition',
     '- "to_state": the state after this transition',
@@ -129,14 +149,19 @@
     '   above the level. One driver per transition.',
     '4. The "to_state" of one transition should lead naturally into the next',
     '   "from_state", so the chain reads as one continuous mechanism.',
+    '5. For a "cycle", the last transition\'s "to_state" must feed back into',
+    '   the first transition\'s "from_state" — the loop must close.',
     '',
     'Example (do not copy; adapt to the actual topic):',
-    '[',
-    '  {"name": "evaporation", "from_state": "liquid water", "to_state": "water vapour", "driver": "the sun\'s heat"},',
-    '  {"name": "condensation", "from_state": "water vapour", "to_state": "liquid droplets", "driver": "cooling"},',
-    '  {"name": "precipitation", "from_state": "droplets", "to_state": "falling water", "driver": "gravity"},',
-    '  {"name": "collection", "from_state": "fallen water", "to_state": "gathered seas and rivers", "driver": "gravity"}',
-    ']'
+    '{',
+    '  "shape": "cycle",',
+    '  "transitions": [',
+    '    {"name": "evaporation", "from_state": "liquid water", "to_state": "water vapour", "driver": "the sun\'s heat"},',
+    '    {"name": "condensation", "from_state": "water vapour", "to_state": "liquid droplets", "driver": "cooling"},',
+    '    {"name": "precipitation", "from_state": "droplets", "to_state": "falling water", "driver": "gravity"},',
+    '    {"name": "collection", "from_state": "fallen water", "to_state": "gathered seas and rivers", "driver": "gravity"}',
+    '  ]',
+    '}'
   ].join('\n');
 
   var UNPACK_USER_TEMPLATE = [
@@ -144,7 +169,9 @@
     'Subject: {{SUBJECT}}',
     'Level: {{LEVEL_LABEL}}',
     '',
-    'Break this topic into its ordered state transitions now. Return ONLY the JSON array.'
+    'Break this topic into its ordered state transitions now. Classify its',
+    'staging shape ("sequence", "cycle", or "system") and return ONLY the',
+    'JSON object {"shape": ..., "transitions": [...]}.'
   ].join('\n');
 
   function fill(template, vars) {
@@ -210,19 +237,30 @@
     return { system: system, user: user };
   }
 
-  // Extracts and validates the ordered transition list from raw model text.
-  // Throws a descriptive Error on malformed input.
-  function parseTransitions(text) {
-    if (typeof text !== 'string' || !text.trim()) {
-      throw new Error('parseTransitions: expected non-empty model response text');
+  // Brace-scan fallback for the object form: slice the first { ... last }
+  // and parse it, so prose-wrapped model output still parses. Throws when
+  // the text does not contain, or fails to parse as, a JSON object.
+  function extractJsonObject(text) {
+    var start = text.indexOf('{');
+    var end = text.lastIndexOf('}');
+    if (start < 0 || end <= start) {
+      throw new Error('parseUnpackResponse: response contained no JSON object');
     }
-    var cleaned = stripFences(text);
-    var parsed;
-    try {
-      parsed = JSON.parse(cleaned);
-    } catch (e) {
-      parsed = extractJsonArray(cleaned);
+    return JSON.parse(text.slice(start, end + 1));
+  }
+
+  function validateShape(shape) {
+    if (SHAPES.indexOf(shape) < 0) {
+      throw new Error('parseUnpackResponse: "shape" must be one of ' +
+        SHAPES.join(', ') + ', got ' + JSON.stringify(shape));
     }
+    return shape;
+  }
+
+  // Shared transition-array validation: 2-8 transitions, each a
+  // {name, from_state, to_state, driver} object. Error messages keep the
+  // parseTransitions: prefix so existing callers' diagnostics are unchanged.
+  function normalizeTransitionArray(parsed) {
     if (!Array.isArray(parsed)) {
       throw new Error('parseTransitions: response must be a JSON array of transitions');
     }
@@ -235,6 +273,59 @@
       out.push(validateTransition(parsed[i], i));
     }
     return out;
+  }
+
+  // Extracts and validates the ordered transition list from raw model text.
+  // Accepts the legacy bare array and the newer {"shape","transitions"}
+  // object form (returning just the transitions). Throws a descriptive
+  // Error on malformed input.
+  function parseTransitions(text) {
+    if (typeof text !== 'string' || !text.trim()) {
+      throw new Error('parseTransitions: expected non-empty model response text');
+    }
+    var cleaned = stripFences(text);
+    var parsed;
+    try {
+      parsed = JSON.parse(cleaned);
+    } catch (e) {
+      parsed = extractJsonArray(cleaned);
+    }
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed) &&
+        parsed.transitions !== undefined) {
+      parsed = parsed.transitions;
+    }
+    return normalizeTransitionArray(parsed);
+  }
+
+  // Full unpack parse: returns {shape, transitions}. Accepts the object
+  // form {"shape","transitions"} and the legacy bare array (which stages
+  // as "sequence" — the pre-shape behavior). Throws a descriptive Error
+  // on malformed input.
+  function parseUnpackResponse(text) {
+    if (typeof text !== 'string' || !text.trim()) {
+      throw new Error('parseUnpackResponse: expected non-empty model response text');
+    }
+    var cleaned = stripFences(text);
+    var parsed;
+    try {
+      parsed = JSON.parse(cleaned);
+    } catch (e) {
+      try {
+        parsed = extractJsonObject(cleaned);
+      } catch (e2) {
+        parsed = extractJsonArray(cleaned);
+      }
+    }
+    if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+      if (parsed.transitions === undefined) {
+        throw new Error('parseUnpackResponse: object form needs a "transitions" array');
+      }
+      return {
+        shape: validateShape(parsed.shape),
+        transitions: normalizeTransitionArray(parsed.transitions)
+      };
+    }
+    return { shape: 'sequence', transitions: normalizeTransitionArray(parsed) };
   }
 
   // Model-agnostic entry point: builds the prompts, hands them to the
@@ -258,7 +349,9 @@
     buildUnpackPrompts: buildUnpackPrompts,
     parseTransitions: parseTransitions,
     unpackTopic: unpackTopic,
+    parseUnpackResponse: parseUnpackResponse,
     attachMisconceptions: attachMisconceptions,
+    SHAPES: SHAPES,
     UNPACK_SYSTEM_TEMPLATE: UNPACK_SYSTEM_TEMPLATE,
     UNPACK_USER_TEMPLATE: UNPACK_USER_TEMPLATE
   };
