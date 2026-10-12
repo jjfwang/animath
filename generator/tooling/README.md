@@ -161,6 +161,45 @@ the covered suite plus review reading the script against the test's
 markers. Like the other scripts here, this is maintainer-side: it never
 runs as part of the app.
 
+## regen-version.js (issue #706)
+
+Regenerates the hardcoded `version` literals in the UMD exports of
+`player/player.js` and `web/embed.js` from the `package.json` version. A
+runtime `require('../package.json')` is impossible in the browser and the
+repo has a zero-build-step rule, so the version is baked in by this
+maintainer-side script and locked by `tests/version.test.js` — if either
+export drifts from `package.json`, the suite fails.
+
+Requirements: Node, zero dependencies.
+
+What it does (from the repo root):
+
+    node generator/tooling/regen-version.js
+
+1. Reads the `version` from `package.json`.
+2. In each of `player/player.js` and `web/embed.js`, replaces the single
+   `version: '<literal>'` in the exported api object with
+   `version: '<package.json version>'`. A file is rewritten only when its
+   literal changed; on a clean mirror the run is a no-op and prints one
+   summary line.
+3. Fails closed (non-zero exit, clear message) when a source has no version
+   literal, has more than one (ambiguous which is the export), or the
+   version is empty, not a string, or contains a quote or backslash.
+
+Then re-run the suite: `node --test "tests/*.test.js"`. The version tests
+assert both runtime exports equal `pkg.version` and exercise the script
+itself: the pure replacement function `regenVersion(src, version)`
+(string-in/string-out) is covered for replace, idempotence, missing,
+ambiguous, and invalid-version cases, and the `run()`/`cli()`/`launch()`
+paths are covered via temp-file round-trips — every new line is covered,
+following the issue #620 precedent set by `regen-prompt-mirror.js`.
+
+Release procedure: bump `package.json`, run this script, run the suite, and
+commit the regenerated literals — never hand-edit them.
+
+Scope note: the `0.1` enforced by `player/validate.js` is the animath spec
+format version, not the package version, and is intentionally untouched.
+
 ## measure-rubric-bands.js (issue #663)
 
 Re-derives the "MEASURED BANDS" numbers documented in `generator/rubric.js`
