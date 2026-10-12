@@ -9,8 +9,12 @@
 'use strict';
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
+const vm = require('node:vm');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const Unpack = require('../generator/unpack.js');
+const { MISCONCEPTIONS } = require('../generator/misconceptions.js');
 
 // Canned model response: fenced JSON, exercises the fence-stripping path.
 const WATER_CYCLE_TEXT = [
@@ -268,4 +272,132 @@ test('module exposes all three helpers and both templates', () => {
   assert.equal(typeof Unpack.unpackTopic, 'function');
   assert.equal(typeof Unpack.UNPACK_SYSTEM_TEMPLATE, 'string');
   assert.equal(typeof Unpack.UNPACK_USER_TEMPLATE, 'string');
+});
+
+// --- attachMisconceptions (issue #695) ---
+
+test('attachMisconceptions annotates the water-cycle evaporation transition only', () => {
+  const before = JSON.stringify(WATER_CYCLE_EXPECTED);
+  const out = Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, 'water-cycle');
+  assert.notStrictEqual(out, WATER_CYCLE_EXPECTED,
+    'a match returns a new array, never the input reference');
+  assert.equal(JSON.stringify(WATER_CYCLE_EXPECTED), before,
+    'the input array is never mutated');
+  const names = out.map(t => t.name);
+  assert.deepStrictEqual(names, ['evaporation', 'condensation', 'precipitation', 'collection']);
+  const beat = out[0].misconception;
+  assert.ok(beat, 'the evaporation transition carries the misconception beat');
+  const entry = MISCONCEPTIONS['water-cycle'];
+  assert.deepStrictEqual(beat, {
+    wrongTurn: entry.wrongTurn,
+    why: entry.why,
+    correctTurn: entry.correctTurn
+  });
+  for (const t of out.slice(1)) {
+    assert.strictEqual(t.misconception, undefined,
+      'transition ' + t.name + ' must carry no misconception beat');
+  }
+  // The unannotated transitions keep their four plain fields, nothing more.
+  assert.deepStrictEqual(Object.keys(out[1]).sort(),
+    ['driver', 'from_state', 'name', 'to_state']);
+});
+
+test('attachMisconceptions matches transition names case-insensitively after trimming', () => {
+  const odd = [
+    { name: '  EVAPORATION ', from_state: 'a', to_state: 'b', driver: 'c' },
+    { name: 'condensation', from_state: 'b', to_state: 'c', driver: 'd' }
+  ];
+  const out = Unpack.attachMisconceptions(odd, 'water-cycle');
+  assert.notStrictEqual(out, odd);
+  assert.ok(out[0].misconception, 'padded/cased names still match the entry transition');
+  assert.strictEqual(out[1].misconception, undefined);
+  assert.equal(out[0].name, '  EVAPORATION ',
+    'the matched transition keeps its original name spelling');
+});
+
+test('attachMisconceptions returns the input unchanged for an unknown topic slug', () => {
+  const out = Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, 'pythagoras');
+  assert.strictEqual(out, WATER_CYCLE_EXPECTED);
+});
+
+test('attachMisconceptions returns the input unchanged for missing or non-string slugs', () => {
+  assert.strictEqual(Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, ''), WATER_CYCLE_EXPECTED);
+  assert.strictEqual(Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, undefined), WATER_CYCLE_EXPECTED);
+  assert.strictEqual(Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, null), WATER_CYCLE_EXPECTED);
+});
+
+test('attachMisconceptions returns the input unchanged when the entry has no transition field', () => {
+  // 'fractions' is a seeded plain entry with no transition annotation.
+  const out = Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, 'fractions');
+  assert.strictEqual(out, WATER_CYCLE_EXPECTED);
+});
+
+test('attachMisconceptions returns the input unchanged when no transition name matches', () => {
+  const noEvaporation = WATER_CYCLE_EXPECTED.slice(1);
+  const out = Unpack.attachMisconceptions(noEvaporation, 'water-cycle');
+  assert.strictEqual(out, noEvaporation);
+});
+
+test('attachMisconceptions resolves longer file-style slugs via the longest prefix', () => {
+  const out = Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, 'water-cycle-coastal-drip');
+  assert.notStrictEqual(out, WATER_CYCLE_EXPECTED);
+  assert.ok(out[0].misconception, 'prefix resolution still finds the water-cycle entry');
+});
+
+test('attachMisconceptions resolves faceted entries through the primary facet', () => {
+  // 'bio-nutrition' is faceted with no transition field anywhere, so the
+  // beat resolution runs (primary facet) and the input is unchanged.
+  const out = Unpack.attachMisconceptions(WATER_CYCLE_EXPECTED, 'bio-nutrition');
+  assert.strictEqual(out, WATER_CYCLE_EXPECTED);
+});
+
+test('attachMisconceptions passes non-array input straight through', () => {
+  assert.strictEqual(Unpack.attachMisconceptions(null, 'water-cycle'), null);
+  assert.strictEqual(Unpack.attachMisconceptions('nope', 'water-cycle'), 'nope');
+});
+
+test('attachMisconceptions module exposes the new helper', () => {
+  assert.equal(typeof Unpack.attachMisconceptions, 'function');
+});
+
+// The bank loader in unpack.js mirrors build_prompt.js's guarded pattern:
+// browser-global fallback when module/require are absent, {} when the
+// require fails. Both are exercised through a vm sandbox so the coverage
+// run sees every loader line.
+test('browser globals path: attachMisconceptions resolves the bank off the global', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'generator', 'unpack.js'), 'utf8');
+  const sandbox = {
+    AnimathMisconceptions: require('../generator/misconceptions.js')
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(src, sandbox, { filename: 'unpack-browser-globals.js' });
+  const unpack = sandbox.AnimathUnpack;
+  assert.ok(unpack && typeof unpack.attachMisconceptions === 'function',
+    'UMD sets the browser global');
+  const out = unpack.attachMisconceptions([
+    { name: 'evaporation', from_state: 'a', to_state: 'b', driver: 'c' },
+    { name: 'condensation', from_state: 'b', to_state: 'c', driver: 'd' }
+  ], 'water-cycle');
+  assert.ok(out[0].misconception, 'bank resolves through the browser global');
+  assert.ok(out[0].misconception.wrongTurn.indexOf('evaporates') !== -1);
+  assert.strictEqual(out[1].misconception, undefined);
+});
+
+test('a failing bank require degrades attachMisconceptions to unchanged input', () => {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'generator', 'unpack.js'), 'utf8');
+  const sandbox = {
+    module: { exports: {} },
+    require: function () { throw new Error('bank unavailable'); }
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(src, sandbox, { filename: 'unpack-bank-failure.js' });
+  // The sandboxed module took the Node export branch, so the API sits on
+  // the sandbox's own module.exports rather than a browser global.
+  const unpack = sandbox.module.exports;
+  const input = [
+    { name: 'evaporation', from_state: 'a', to_state: 'b', driver: 'c' },
+    { name: 'condensation', from_state: 'b', to_state: 'c', driver: 'd' }
+  ];
+  assert.strictEqual(unpack.attachMisconceptions(input, 'water-cycle'), input,
+    'with no bank the transitions pass through unchanged instead of failing');
 });

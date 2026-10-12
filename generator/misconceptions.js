@@ -67,6 +67,13 @@
  * build_prompt.js takes an optional facet hint; unknown hints fall back to
  * the primary facet. Entries without `facets` behave exactly as before.
  *
+ * Per-transition attachment (issue #695): an entry may carry `transition`,
+ * naming the unpack transition where the wrong turn plays out (matched
+ * case-insensitively against transition names by attachMisconceptions()
+ * in generator/unpack.js). Only entries whose grounding sample scene maps
+ * the beat unambiguously to one transition carry it (conservative:
+ * currently only water-cycle -> 'evaporation').
+ *
  * Works in browser and Node.
  */
 (function (global, factory) {
@@ -157,7 +164,11 @@
     'water-cycle': {
       wrongTurn: 'Water disappears for good once it evaporates.',
       why: 'The water turns invisible as vapour, so it looks like it has gone away.',
-      correctTurn: 'It is still there as invisible vapour; cooled into clouds it falls back as rain and returns to the sea.'
+      correctTurn: 'It is still there as invisible vapour; cooled into clouds it falls back as rain and returns to the sea.',
+      // Slice 6 (issue #695): the wrong turn plays out in the evaporation
+      // scene (samples/primary-science-water-cycle.json s1/s4), so the
+      // engine attaches this beat to the evaporation transition.
+      transition: 'evaporation'
     },
     'energy-forms': {
       wrongTurn: 'Energy is used up, like fuel disappearing from a tank.',

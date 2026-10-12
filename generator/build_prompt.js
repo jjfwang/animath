@@ -283,6 +283,17 @@
       }
       out[field] = value.trim();
     }
+    // Slice 6 (issue #695): a transition annotated by
+    // attachMisconceptions() carries the misconception beat for the scene
+    // where the wrong turn plays out. It rides through normalization so
+    // the user block can name the misconceived transition.
+    if (t.misconception && typeof t.misconception === 'object' && !Array.isArray(t.misconception)) {
+      out.misconception = {
+        wrongTurn: t.misconception.wrongTurn,
+        why: t.misconception.why,
+        correctTurn: t.misconception.correctTurn
+      };
+    }
     return out;
   }
 
@@ -319,6 +330,17 @@
       var t = transitions[i];
       lines.push((i + 1) + '. ' + t.name + ': "' + t.from_state + '" -> "' +
         t.to_state + '" (driver: ' + t.driver + ')');
+      // Slice 6 (issue #695): name the transition whose scene plays out
+      // the wrong turn visually, so the author beats it into the right
+      // scene instead of the misconception line floating topic-wide.
+      if (t.misconception) {
+        var m = t.misconception;
+        lines.push('   * Play out this wrong turn VISUALLY in the "' + t.name +
+          '" scene above, never as a caption merely saying it is wrong:');
+        lines.push('     Wrong turn: ' + m.wrongTurn);
+        lines.push('     Why students slip: ' + m.why);
+        lines.push('     Show the correct turn: ' + m.correctTurn);
+      }
     }
     return lines.join('\n');
   }

@@ -25,6 +25,88 @@
 
   var TRANSITION_FIELDS = ['name', 'from_state', 'to_state', 'driver'];
 
+  // Slice 6 (issue #695): per-transition misconception beats. The bank
+  // (generator/misconceptions.js) loads via the same guarded require /
+  // browser-global pattern build_prompt.js uses (web/index.html loads
+  // misconceptions.js before unpack.js); a missing bank degrades to no
+  // attachment instead of failing. The lookup below mirrors
+  // build_prompt.js's misconceptionFor (exact slug, then longest
+  // dash-boundary prefix; faceted entries resolve the primary facet) so
+  // the two stay aligned — copied, not imported, to avoid a browser-global
+  // load-order tangle.
+  var MISCONCEPTIONS = (function () {
+    if (typeof module !== 'undefined' && module.exports && typeof require !== 'undefined') {
+      try { return require('./misconceptions.js').MISCONCEPTIONS || {}; } catch (e) { return {}; }
+    }
+    var g = (typeof window !== 'undefined' ? window : globalThis);
+    return (g.AnimathMisconceptions && g.AnimathMisconceptions.MISCONCEPTIONS) || {};
+  })();
+
+  function misconceptionEntryFor(topicSlug) {
+    if (!topicSlug || typeof topicSlug !== 'string') return null;
+    var entry = null;
+    if (MISCONCEPTIONS[topicSlug]) entry = MISCONCEPTIONS[topicSlug];
+    else {
+      var best = null;
+      var keys = Object.keys(MISCONCEPTIONS);
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i];
+        if (topicSlug.indexOf(k + '-') === 0 && (best === null || k.length > best.length)) {
+          best = k;
+        }
+      }
+      if (best !== null) entry = MISCONCEPTIONS[best];
+    }
+    if (!entry) return null;
+    // Faceted entries (issue #367): bare lookups resolve the primary facet.
+    if (!entry.facets) return entry;
+    var primary = (entry.primary && entry.facets[entry.primary]) ? entry.primary : Object.keys(entry.facets)[0];
+    return entry.facets[primary];
+  }
+
+  // Attaches the bank's wrong-turn beat to the transition where it
+  // happens: the resolved entry's `transition` field is matched
+  // case-insensitively against the trimmed transition names. Returns a
+  // NEW array with the matching transition carrying
+  // misconception: {wrongTurn, why, correctTurn}; the input is never
+  // mutated. No entry, no `transition` field, or no matching transition
+  // name -> the input array is returned unchanged.
+  function attachMisconceptions(transitions, topicSlug) {
+    if (!Array.isArray(transitions)) return transitions;
+    var entry = misconceptionEntryFor(topicSlug);
+    if (!entry) return transitions;
+    var target = (typeof entry.transition === 'string') ? entry.transition.trim().toLowerCase() : '';
+    if (!target) return transitions;
+    var hit = false;
+    for (var i = 0; i < transitions.length; i++) {
+      var t = transitions[i];
+      if (t && typeof t.name === 'string' && t.name.trim().toLowerCase() === target) {
+        hit = true;
+        break;
+      }
+    }
+    if (!hit) return transitions;
+    var out = [];
+    for (var j = 0; j < transitions.length; j++) {
+      var u = transitions[j];
+      if (u && typeof u.name === 'string' && u.name.trim().toLowerCase() === target) {
+        var copy = {};
+        for (var key in u) {
+          if (Object.prototype.hasOwnProperty.call(u, key)) copy[key] = u[key];
+        }
+        copy.misconception = {
+          wrongTurn: entry.wrongTurn,
+          why: entry.why,
+          correctTurn: entry.correctTurn
+        };
+        out.push(copy);
+      } else {
+        out.push(u);
+      }
+    }
+    return out;
+  }
+
   var UNPACK_SYSTEM_TEMPLATE = [
     'You are animath\'s topic unpacker. You break a teaching topic into the',
     'ordered sequence of state changes an animation would show, one transition',
@@ -176,6 +258,7 @@
     buildUnpackPrompts: buildUnpackPrompts,
     parseTransitions: parseTransitions,
     unpackTopic: unpackTopic,
+    attachMisconceptions: attachMisconceptions,
     UNPACK_SYSTEM_TEMPLATE: UNPACK_SYSTEM_TEMPLATE,
     UNPACK_USER_TEMPLATE: UNPACK_USER_TEMPLATE
   };
