@@ -12,6 +12,12 @@ version section when the release ships.
 
 ### Added
 
+- Package exports map gains three require subpaths for the WebM-export
+  modules — `@jjfwang/animath/export-frames`, `@jjfwang/animath/export-record`
+  and `@jjfwang/animath/export-ui`: all three already shipped in the tarball
+  and are documented in the README and SPEC.md, and are now reachable by their
+  subpath names, each with a hand-authored `.d.ts` sibling (issue #722).
+
 - CLI machinery split out of the library modules (issue #709): the geometry
   audit CLI entry (usage, `parseArgs`, `main`, the `require.main` guard) moves
   from `generator/audit.js` to `generator/tooling/audit-cli.js` — run it via
