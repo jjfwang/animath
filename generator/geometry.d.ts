@@ -1,6 +1,7 @@
 // TypeScript definitions for generator/geometry.js — static geometry audit.
-// Core (auditGeometry) works in browser and Node; auditSampleFile /
-// auditAllSamples are Node-only (they require('fs') over samples/index.json).
+// Core (auditGeometry) works in browser and Node; the Node-only
+// file-walking helpers auditSampleFile / auditAllSamples live in
+// generator/tooling/audit-samples.js (they require('fs')).
 export interface GeometryFinding {
   file: string;
   scene: string;
@@ -34,5 +35,3 @@ export function classifyFindings(
   spec: Record<string, unknown>,
   findings: GeometryFinding[]
 ): ClassifiedFinding[];
-export function auditSampleFile(path: string): GeometryFinding[];
-export function auditAllSamples(dir?: string): GeometryFinding[];

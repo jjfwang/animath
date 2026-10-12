@@ -8,7 +8,8 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const { auditGeometry, auditGeometrySampled, classifyFindings, auditSampleFile, auditAllSamples, estimateTextWidth, textBox } = require('../generator/geometry.js');
+const { auditGeometry, auditGeometrySampled, classifyFindings, estimateTextWidth, textBox } = require('../generator/geometry.js');
+const { auditSampleFile, auditAllSamples } = require('../generator/tooling/audit-samples.js');
 
 const samplesDir = path.join(__dirname, '..', 'samples');
 

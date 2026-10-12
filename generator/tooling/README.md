@@ -279,7 +279,7 @@ variants still load it.
 
 Adding a record (workflow): new records only via issue -> PR -> review, each
 citing the triage evidence (what was inspected, what was seen). Only record a
-finding that current `node generator/audit.js --all` still lists as genuine —
+finding that current `node generator/tooling/audit-cli.js --all` still lists as genuine —
 a seed that no longer surfaces gets no record. Removing a record (or editing
 its key fields) makes the line genuine again on the next run.
 

@@ -90,9 +90,10 @@
  * moving shape's rest position stays a manual-triage call, and it counts
  * as genuine when found.
  *
- * auditSampleFile(path) and auditAllSamples(dir) are Node-only helpers over
- * samples/index.json (they require('fs')); the core auditGeometry works in
- * browser and Node (no DOM, no deps).
+ * The Node-only file-walking helpers auditSampleFile(path) and
+ * auditAllSamples(dir) live in generator/tooling/audit-samples.js (they
+ * require('fs')); the core auditGeometry works in browser and Node
+ * (no DOM, no deps).
  */
 (function (global, factory) {
   var api = factory();
@@ -1194,44 +1195,6 @@
     });
   }
 
-  function baseName(p) {
-    var s = String(p);
-    var i = Math.max(s.lastIndexOf('/'), s.lastIndexOf('\\'));
-    return i < 0 ? s : s.slice(i + 1);
-  }
-
-  // Node-only: audit one sample file by path. Unreadable/invalid files
-  // yield [] rather than throwing.
-  function auditSampleFile(path) {
-    var fs = require('fs');
-    try {
-      var parsed = JSON.parse(fs.readFileSync(path, 'utf8'));
-      return auditGeometry(parsed, baseName(path));
-    } catch (ignore) {
-      return [];
-    }
-  }
-
-  // Node-only: audit every file listed in <dir>/index.json (default
-  // 'samples'). Malformed manifests yield [] rather than throwing.
-  function auditAllSamples(dir) {
-    var fs = require('fs');
-    var base = (typeof dir === 'string' && dir.length > 0) ? dir : 'samples';
-    var manifest;
-    try {
-      manifest = JSON.parse(fs.readFileSync(base + '/index.json', 'utf8'));
-    } catch (ignore) {
-      return [];
-    }
-    if (!Array.isArray(manifest)) return [];
-    var out = [];
-    manifest.forEach(function (name) {
-      if (typeof name !== 'string' || name.length === 0) return;
-      Array.prototype.push.apply(out, auditSampleFile(base + '/' + name));
-    });
-    return out;
-  }
-
   return {
     auditGeometry: auditGeometry,
     // Estimated label width in px for a text string at a font size, using
@@ -1242,8 +1205,6 @@
     // the content-aware ascent directly against PIL-measured ink tops.
     textBox: textBox,
     auditGeometrySampled: auditGeometrySampled,
-    classifyFindings: classifyFindings,
-    auditSampleFile: auditSampleFile,
-    auditAllSamples: auditAllSamples
+    classifyFindings: classifyFindings
   };
 });

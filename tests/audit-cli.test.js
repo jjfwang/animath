@@ -1,5 +1,6 @@
-/* Tests for generator/audit.js — geometry audit CLI (issue #365).
- * Run: node --test "tests/*.test.js"
+/* Tests for generator/tooling/audit-cli.js (the CLI entry) and
+ * generator/audit.js (the programmatic runner) — geometry audit CLI
+ * (issue #365). Run: node --test "tests/*.test.js"
  */
 'use strict';
 const { test } = require('node:test');
@@ -9,7 +10,8 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const cli = require('../generator/audit.js');
+const cli = require('../generator/tooling/audit-cli.js');
+const audit = require('../generator/audit.js');
 
 const repoRoot = path.join(__dirname, '..');
 
@@ -161,7 +163,7 @@ test('main: explicit files resolve against --dir', () => {
 });
 
 test('require.main guard: real CLI invocation exits and prints', () => {
-  const out = child.spawnSync(process.execPath, [path.join(repoRoot, 'generator', 'audit.js'), '--help'], { encoding: 'utf8' });
+  const out = child.spawnSync(process.execPath, [path.join(repoRoot, 'generator', 'tooling', 'audit-cli.js'), '--help'], { encoding: 'utf8' });
   assert.equal(out.status, 0);
   assert.match(out.stdout, /Usage/);
 });
@@ -169,12 +171,12 @@ test('require.main guard: real CLI invocation exits and prints', () => {
 test('auditFile: record shape and formatFinding', () => {
   const dir = tmpDir();
   const f = writeSpec(dir, 'fall.json', fallingSpec());
-  const r = cli.auditFile(f);
+  const r = audit.auditFile(f);
   assert.equal(r.error, null);
   assert.equal(r.findings.length, 1);
-  const line = cli.formatFinding(r.findings[0]);
+  const line = audit.formatFinding(r.findings[0]);
   assert.match(line, /^fall\.json s1 text-shape-overlap /);
-  const missing = cli.auditFile(path.join(dir, 'nope.json'));
+  const missing = audit.auditFile(path.join(dir, 'nope.json'));
   assert.ok(missing.error);
   assert.deepEqual(missing.findings, []);
 });
@@ -268,23 +270,23 @@ function writeVerdicts(dir, records) {
 test('loadTriageVerdicts: valid file loads records', () => {
   const dir = tmpDir();
   const p = writeVerdicts(dir, [verdictRecord()]);
-  const r = cli.loadTriageVerdicts(p);
+  const r = audit.loadTriageVerdicts(p);
   assert.equal(r.error, null);
   assert.equal(r.records.length, 1);
   assert.equal(r.records[0].verdict, 'deliberate-placement');
 });
 
 test('loadTriageVerdicts: fail-closed on unreadable, unparsable, non-array', () => {
-  const missing = cli.loadTriageVerdicts(path.join(tmpDir(), 'nope.json'));
+  const missing = audit.loadTriageVerdicts(path.join(tmpDir(), 'nope.json'));
   assert.match(missing.error, /cannot read triage verdicts/);
   assert.deepEqual(missing.records, []);
   const dir = tmpDir();
   const bad = path.join(dir, 'verdicts.json');
   fs.writeFileSync(bad, '{not json');
-  assert.match(cli.loadTriageVerdicts(bad).error, /cannot parse triage verdicts/);
+  assert.match(audit.loadTriageVerdicts(bad).error, /cannot parse triage verdicts/);
   const arr = path.join(dir, 'verdicts2.json');
   fs.writeFileSync(arr, '{"a":1}');
-  assert.match(cli.loadTriageVerdicts(arr).error, /must be an array/);
+  assert.match(audit.loadTriageVerdicts(arr).error, /must be an array/);
 });
 
 test('loadTriageVerdicts: fail-closed on malformed records and unknown verdicts', () => {
@@ -299,32 +301,32 @@ test('loadTriageVerdicts: fail-closed on malformed records and unknown verdicts'
   ];
   cases.forEach(([records, re]) => {
     const p = writeVerdicts(dir, records);
-    assert.match(cli.loadTriageVerdicts(p).error, re);
+    assert.match(audit.loadTriageVerdicts(p).error, re);
   });
 });
 
 test('parseCollideIds: parses collides-with and overlaps ids, rejects other phrasing', () => {
-  assert.deepEqual(cli.parseCollideIds('cap collides with box (100px^2 intersection)'),
+  assert.deepEqual(audit.parseCollideIds('cap collides with box (100px^2 intersection)'),
     { label: 'cap', shape: 'box' });
-  assert.deepEqual(cli.parseCollideIds('cap collides with box [600-9000ms]'),
+  assert.deepEqual(audit.parseCollideIds('cap collides with box [600-9000ms]'),
     { label: 'cap', shape: 'box' });
   // issue #529: text-vs-text / shape-vs-shape "overlaps" phrasing triages too
-  assert.deepEqual(cli.parseCollideIds('eq overlaps letter (100px^2 intersection)'),
+  assert.deepEqual(audit.parseCollideIds('eq overlaps letter (100px^2 intersection)'),
     { label: 'eq', shape: 'letter' });
-  assert.deepEqual(cli.parseCollideIds('eq overlaps letter [600-9000ms]'),
+  assert.deepEqual(audit.parseCollideIds('eq overlaps letter [600-9000ms]'),
     { label: 'eq', shape: 'letter' });
-  assert.equal(cli.parseCollideIds('overflow wrongL: text box extends outside'), null);
+  assert.equal(audit.parseCollideIds('overflow wrongL: text box extends outside'), null);
   // issue #545: overflow findings triage-match with the canvas as the shape
-  assert.deepEqual(cli.parseCollideIds('wrongL: text box extends outside the 960x540 canvas'),
+  assert.deepEqual(audit.parseCollideIds('wrongL: text box extends outside the 960x540 canvas'),
     { label: 'wrongL', shape: 'canvas' });
-  assert.equal(cli.parseCollideIds('eq: latex anchor outside the 960x540 canvas'), null);
+  assert.equal(audit.parseCollideIds('eq: latex anchor outside the 960x540 canvas'), null);
 });
 
 test('run: recorded genuine pair moves off genuine into triage-verified', () => {
   const dir = tmpDir();
   const f = writeSpec(dir, 'overlap.json', overlapSpec());
   const v = writeVerdicts(dir, [verdictRecord()]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 0); // no genuine left
   assert.equal(r.findingCount, 2); // static + sampled, both triaged
   assert.match(r.output, /triage-verified findings:/);
@@ -354,7 +356,7 @@ test('run: overlaps-phrased pair triages via record (issue #529)', () => {
   const v = writeVerdicts(dir, [Object.assign(verdictRecord(), {
     file: 'textoverlap.json', label: 'eq', shape: 'letter'
   })]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 0); // no genuine left
   assert.equal(r.findingCount, 2); // static + sampled, both triaged
   assert.match(r.output, /triage-verified findings:/);
@@ -368,7 +370,7 @@ test('run: unrecorded overlaps-phrased pair stays genuine', () => {
   const dir = tmpDir();
   const f = writeSpec(dir, 'textoverlap.json', textOverlapSpec());
   const v = writeVerdicts(dir, [verdictRecord({ label: 'other', shape: 'letter', file: 'textoverlap.json' })]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 1);
   assert.match(r.output, /genuine findings:/);
   assert.match(r.output, /eq overlaps letter/);
@@ -396,7 +398,7 @@ test('run: overflow finding triages via record with canvas shape (issue #545)', 
     file: 'overflow.json', scene: 's1', label: 'far', shape: 'canvas',
     verdict: 'box-model-artifact'
   })]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 0); // no genuine left
   assert.equal(r.findingCount, 1); // single overflow note, triaged
   assert.match(r.output, /triage-verified findings:/);
@@ -410,7 +412,7 @@ test('run: unrecorded overflow stays genuine', () => {
   const dir = tmpDir();
   const f = writeSpec(dir, 'overflow.json', overflowSpec());
   const v = writeVerdicts(dir, [verdictRecord({ label: 'other', shape: 'canvas', file: 'overflow.json' })]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 1);
   assert.match(r.output, /genuine findings:/);
   assert.match(r.output, /far: text box extends outside/);
@@ -437,7 +439,7 @@ test('run: latex-anchor overflow never triage-matches (issue #545)', () => {
     file: 'lxoverflow.json', scene: 's1', label: 'lx', shape: 'canvas',
     verdict: 'box-model-artifact'
   })]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 1); // stays genuine: the phrasing is not triage-matchable
   assert.match(r.output, /lx: latex anchor outside the 960x540 canvas/);
   assert.doesNotMatch(r.output, /triage-verified findings:/);
@@ -447,7 +449,7 @@ test('run: unrecorded genuine stays genuine', () => {
   const dir = tmpDir();
   const f = writeSpec(dir, 'overlap.json', overlapSpec());
   const v = writeVerdicts(dir, [verdictRecord({ label: 'other' })]);
-  const r = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
+  const r = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v });
   assert.equal(r.code, 1);
   assert.match(r.output, /genuine findings:/);
   assert.doesNotMatch(r.output, /triage-verified findings:/);
@@ -458,18 +460,18 @@ test('run: malformed verdicts file and unknown verdict exit 2', () => {
   const f = writeSpec(dir, 'overlap.json', overlapSpec());
   const bad = path.join(dir, 'bad.json');
   fs.writeFileSync(bad, '{not json');
-  const r1 = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: bad });
+  const r1 = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: bad });
   assert.equal(r1.code, 2);
   assert.match(r1.output, /cannot parse triage verdicts/);
   const v2 = writeVerdicts(dir, [verdictRecord({ verdict: 'bogus' })]);
-  const r2 = cli.run({ files: [f], all: false, dir: 'samples', verdictsFile: v2 });
+  const r2 = audit.run({ files: [f], all: false, dir: 'samples', verdictsFile: v2 });
   assert.equal(r2.code, 2);
   assert.match(r2.output, /unknown verdict "bogus"/);
 });
 
 test('run: default verdicts path is the shipped audit-verdicts.json', () => {
   // every shipped record still matches a current genuine finding
-  const r = cli.run({ files: [], all: true, dir: path.join(repoRoot, 'samples') });
+  const r = audit.run({ files: [], all: true, dir: path.join(repoRoot, 'samples') });
   const records = JSON.parse(fs.readFileSync(
     path.join(repoRoot, 'generator', 'audit-verdicts.json'), 'utf8'));
   assert.ok(records.length > 0);
@@ -485,7 +487,7 @@ test('run: default verdicts path is the shipped audit-verdicts.json', () => {
     assert.match(triage, re);
   });
   // genuine count drops by exactly the number of triaged lines
-  const r2 = cli.run({ files: [], all: true, dir: path.join(repoRoot, 'samples'),
+  const r2 = audit.run({ files: [], all: true, dir: path.join(repoRoot, 'samples'),
     verdictsFile: writeVerdicts(tmpDir(), []) });
   const genuineCount = out => {
     const m = /(\d+) genuine, (\d+) triage-verified/.exec(out);
@@ -496,13 +498,15 @@ test('run: default verdicts path is the shipped audit-verdicts.json', () => {
   assert.equal(t1, g2 - g1); // every triaged line came off genuine, nothing else moved
 });
 
-/* fs-free loading (issue #708): audit.js must load in a bundler-style
- * environment where 'fs' cannot be required, and only the Node-only
- * functions may fail there. */
+/* fs-free loading (issue #708): audit.js and tooling/audit-cli.js must load
+ * in a bundler-style environment where 'fs' cannot be required, and only
+ * the Node-only functions may fail there. */
 
-test('module loads with fs unavailable; Node-only functions fail clearly', () => {
+test('modules load with fs unavailable; Node-only functions fail clearly', () => {
   const Module = require('node:module');
+  const cliPath = require.resolve('../generator/tooling/audit-cli.js');
   const auditPath = require.resolve('../generator/audit.js');
+  delete require.cache[cliPath];
   delete require.cache[auditPath];
   const originalLoad = Module._load;
   Module._load = function (request, parent, isMain) {
@@ -514,16 +518,19 @@ test('module loads with fs unavailable; Node-only functions fail clearly', () =>
     return originalLoad.call(this, request, parent, isMain);
   };
   try {
-    const audit = require('../generator/audit.js');
-    // pure functions work without fs
-    assert.match(audit.usage(), /Usage/);
-    assert.equal(audit.parseArgs(['--help']).error, 'help');
-    assert.match(audit.formatFinding({ file: 'f', scene: 's', kind: 'k', detail: 'd' }), /^f s k d$/);
+    const cliNoFs = require('../generator/tooling/audit-cli.js');
+    const auditNoFs = require('../generator/audit.js');
+    // pure CLI functions work without fs
+    assert.match(cliNoFs.usage(), /Usage/);
+    assert.equal(cliNoFs.parseArgs(['--help']).error, 'help');
+    // pure runner functions work without fs
+    assert.match(auditNoFs.formatFinding({ file: 'f', scene: 's', kind: 'k', detail: 'd' }), /^f s k d$/);
     // Node-only functions fail with a clear fs error, not a load-time crash
-    assert.throws(() => audit.auditFile('x.json'), /Cannot find module 'fs'/);
-    assert.throws(() => audit.loadTriageVerdicts('x.json'), /Cannot find module 'fs'/);
+    assert.throws(() => auditNoFs.auditFile('x.json'), /Cannot find module 'fs'/);
+    assert.throws(() => auditNoFs.loadTriageVerdicts('x.json'), /Cannot find module 'fs'/);
   } finally {
     Module._load = originalLoad;
+    delete require.cache[cliPath];
     delete require.cache[auditPath];
   }
 });
