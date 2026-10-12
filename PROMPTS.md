@@ -144,3 +144,17 @@ Level: {{LEVEL_LABEL}}
 
 Break this topic into its ordered state transitions now. Return ONLY the JSON array.
 ```
+
+## Transition scenes (generate pipeline, slice 2)
+
+`buildPrompts` in `generator/build_prompt.js` accepts an optional
+`opts.transitions` array: the `{name, from_state, to_state, driver}` list from
+`parseTransitions`. When present, the system prompt gains a TRANSITION SCENES
+block — author exactly one scene per transition in the given order, each
+scene's move step IS the state change (from_state -> to_state), the driver
+shown acting (not just captioned), each scene caption naming the phase — and
+the user message lists the transitions as numbered lines so the model works
+from the data. When `opts.transitions` is absent or empty the prompts are
+byte-identical to the pre-slice-2 output. Malformed input (not an array, a
+count outside 2-8, an entry missing a non-empty name/from_state/to_state/
+driver) throws a descriptive Error.

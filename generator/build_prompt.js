@@ -149,18 +149,98 @@
     });
   }
 
-  // opts: {level, subject, topic, topicLabel, kind, focus, facet}
+  // Generate pipeline slice 2 (issue #687): the unpacked transitions are
+  // wired into the authoring prompt so each transition becomes exactly one
+  // scene. Same 2-8 bounds as generator/unpack.js.
+  var MIN_PROMPT_TRANSITIONS = 2;
+  var MAX_PROMPT_TRANSITIONS = 8;
+  var TRANSITION_FIELDS = ['name', 'from_state', 'to_state', 'driver'];
+
+  var TRANSITION_SYSTEM_BLOCK = [
+    '',
+    '',
+    'TRANSITION SCENES — the topic has been unpacked into an ordered list of',
+    'state transitions (see the user message for the full data). Author EXACTLY',
+    'one scene per transition, in the given order:',
+    '1. Each scene\'s move step IS the state change: show the from_state visibly',
+    '   transforming into the to_state with a move step — the transition is',
+    '   the scene\'s mechanism, not something a caption describes.',
+    '2. The transition\'s driver must be visible in the scene: show the driver',
+    '   acting on the subject (e.g. heat rays warming the water, gravity',
+    '   pulling droplets down), not just named in a caption.',
+    '3. Each scene caption names the phase: the caption states the transition',
+    '   name so the viewer knows which phase of the process they are watching.'
+  ].join('\n');
+
+  function validatePromptTransition(t, index) {
+    if (!t || typeof t !== 'object' || Array.isArray(t)) {
+      throw new Error('buildPrompts: opts.transitions[' + index + '] must be ' +
+        'an object with non-empty name, from_state, to_state, driver');
+    }
+    var out = {};
+    for (var i = 0; i < TRANSITION_FIELDS.length; i++) {
+      var field = TRANSITION_FIELDS[i];
+      var value = t[field];
+      if (typeof value !== 'string' || !value.trim()) {
+        throw new Error('buildPrompts: opts.transitions[' + index + '].' +
+          field + ' must be a non-empty string');
+      }
+      out[field] = value.trim();
+    }
+    return out;
+  }
+
+  // Normalizes opts.transitions to a trimmed list, or null when absent or
+  // empty (so prompts are byte-identical to the pre-slice-2 behavior).
+  // Throws a descriptive Error on any other malformed input.
+  function normalizeTransitions(transitions) {
+    if (transitions === undefined || transitions === null) return null;
+    if (!Array.isArray(transitions)) {
+      throw new Error('buildPrompts: opts.transitions must be an array of ' +
+        '{name, from_state, to_state, driver}, got ' + typeof transitions);
+    }
+    if (transitions.length === 0) return null;
+    if (transitions.length < MIN_PROMPT_TRANSITIONS ||
+        transitions.length > MAX_PROMPT_TRANSITIONS) {
+      throw new Error('buildPrompts: opts.transitions must hold ' +
+        MIN_PROMPT_TRANSITIONS + '-' + MAX_PROMPT_TRANSITIONS +
+        ' transitions, got ' + transitions.length);
+    }
+    var out = [];
+    for (var i = 0; i < transitions.length; i++) {
+      out.push(validatePromptTransition(transitions[i], i));
+    }
+    return out;
+  }
+
+  function transitionsUserBlock(transitions) {
+    var lines = [
+      '',
+      '',
+      'Ordered state transitions — author EXACTLY one scene per transition, in this order:'
+    ];
+    for (var i = 0; i < transitions.length; i++) {
+      var t = transitions[i];
+      lines.push((i + 1) + '. ' + t.name + ': "' + t.from_state + '" -> "' +
+        t.to_state + '" (driver: ' + t.driver + ')');
+    }
+    return lines.join('\n');
+  }
+
+  // opts: {level, subject, topic, topicLabel, kind, focus, facet, transitions}
   function buildPrompts(opts) {
     if (!opts.subject) {
       throw new Error('buildPrompts: subject is required ' +
         '(see CONTRIBUTING.md add-a-subject checklist)');
     }
     var level = opts.level || 'primary';
+    var transitions = normalizeTransitions(opts.transitions);
     var system = fill(SYSTEM_TEMPLATE, {
       LEVEL_LABEL: LEVEL_LABELS[level] || level,
       TONE: LEVEL_TONE[level] || LEVEL_TONE.secondary,
       MISCONCEPTION_LINE: misconceptionLine(opts.topic, opts.facet)
     });
+    if (transitions) system += TRANSITION_SYSTEM_BLOCK;
     var user = [
       'Level: ' + level + ' (' + (LEVEL_LABELS[level] || level) + ')',
       'Subject: ' + opts.subject,
@@ -170,6 +250,7 @@
       '',
       'Write the animation spec JSON now. ' + (KIND_GUIDANCE[opts.kind] || KIND_GUIDANCE.concept)
     ].join('\n');
+    if (transitions) user += transitionsUserBlock(transitions);
     return { system: system, user: user };
   }
 
