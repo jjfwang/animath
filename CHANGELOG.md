@@ -34,6 +34,9 @@ version section when the release ships.
   subject to have sample coverage across levels (issue #671).
 - `generator/build_prompt.js` throws visibly on a missing subject instead of
   silently defaulting to 'math' (issue #669).
+- Gallery subject filter options now derive from `player/validate.js` SUBJECTS
+  (Geography selectable in the sample gallery; hardcoded Math/Science options
+  retained as fallback) (issue #679).
 
 ## [0.2.0-beta.0] - 2026-10-12
 
