@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- Package exports map gains two require subpaths — `@jjfwang/animath/pipeline`
+  (the end-to-end generate pipeline, `generateAnimation`, issue #693) and
+  `@jjfwang/animath/unpack` (the unpack layer, `unpackTopic`, issue #685):
+  both modules already shipped in the tarball with hand-authored `.d.ts`
+  siblings, and are now reachable by their documented subpath names
+  (issue #701).
+
 - Staging strategy in the generate pipeline: the unpacker classifies a
   topic's shape (sequence, cycle, or system) and the author prompt stages
   scenes accordingly — a cycle (e.g. the water cycle) is staged as ONE
