@@ -297,3 +297,37 @@ test('maxRepairs: 0 rejects straight after the first failed attempt', async () =
   assert.strictEqual(calls.length, 1, 'no repair fetch with maxRepairs 0');
   assert.deepStrictEqual(progress, [], 'onProgress never fires with maxRepairs 0');
 });
+
+// --- default cap (3 repair turns) -------------------------------------------
+
+test('default maxRepairs is 3: persistent problems surface the full error list after the cap', async () => {
+  stubFetch(() => jsonOk(JSON.stringify({ id: 'bad' })));
+  const progress = [];
+  const err = await LLM.generateSpecWithRepair(
+    OPTS,
+    () => ['p1', 'p2'],
+    (n, max) => progress.push([n, max])).then(
+    () => { throw new Error('should have rejected'); },
+    (e) => e);
+  assert.match(err.message, /still invalid after 3 repair attempt\(s\): p1 \| p2/);
+  assert.deepStrictEqual(err.problems, ['p1', 'p2'],
+    'the full last error list must ride on the rejection');
+  assert.strictEqual(calls.length, 4,
+    'first attempt + 3 repair turns, then reject');
+  assert.deepStrictEqual(progress, [[1, 3], [2, 3], [3, 3]],
+    'onProgress reports the 3-turn cap as the max');
+});
+
+test('default cap repairs a spec on the third repair turn (within cap)', async () => {
+  const texts = [JSON.stringify({ id: 'bad1' }), JSON.stringify({ id: 'bad2' }),
+    JSON.stringify({ id: 'bad3' }), SPEC_TEXT];
+  stubFetch((i) => jsonOk(texts[i]));
+  let seen = 0;
+  const validate = (spec) => (++seen <= 3 ? ['problem on ' + spec.id] : []);
+  const progress = [];
+  const spec = await LLM.generateSpecWithRepair(
+    OPTS, validate, (n, max) => progress.push([n, max]));
+  assert.deepStrictEqual(spec, SPEC);
+  assert.strictEqual(calls.length, 4);
+  assert.deepStrictEqual(progress, [[1, 3], [2, 3], [3, 3]]);
+});

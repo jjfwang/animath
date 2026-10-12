@@ -79,7 +79,7 @@
     return attemptOnce(opts).then(extractJson);
   }
 
-  // opts: same as generateSpec, plus optional maxRepairs (default 2).
+  // opts: same as generateSpec, plus optional maxRepairs (default 3).
   // validate: function (spec) -> array of error strings (injected so the
   // client stays testable in Node without the browser global).
   // onProgress: optional function (attemptNumber, maxRepairs) called before
@@ -91,7 +91,7 @@
     if (typeof validate !== 'function') {
       return Promise.reject(new Error('a validator function is required'));
     }
-    var maxRepairs = (opts.maxRepairs != null) ? opts.maxRepairs : 2;
+    var maxRepairs = (opts.maxRepairs != null) ? opts.maxRepairs : 3;
 
     // Parse one LLM response and run the validator. A response that is not
     // valid JSON counts as a failed attempt (not an early blow-up): the next
