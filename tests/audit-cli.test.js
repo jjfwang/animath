@@ -498,11 +498,12 @@ test('run: default verdicts path is the shipped audit-verdicts.json', () => {
   assert.equal(t1, g2 - g1); // every triaged line came off genuine, nothing else moved
 });
 
-/* fs-free loading (issue #708): audit.js and tooling/audit-cli.js must load
- * in a bundler-style environment where 'fs' cannot be required, and only
- * the Node-only functions may fail there. */
+/* fs/path-free loading (issues #708, #718): audit.js and
+ * tooling/audit-cli.js must load in a bundler-style environment where
+ * neither 'fs' nor 'path' can be required, and only the Node-only
+ * functions may fail there. */
 
-test('modules load with fs unavailable; Node-only functions fail clearly', () => {
+test('modules load with fs and path unavailable; Node-only functions fail clearly', () => {
   const Module = require('node:module');
   const cliPath = require.resolve('../generator/tooling/audit-cli.js');
   const auditPath = require.resolve('../generator/audit.js');
@@ -510,8 +511,9 @@ test('modules load with fs unavailable; Node-only functions fail clearly', () =>
   delete require.cache[auditPath];
   const originalLoad = Module._load;
   Module._load = function (request, parent, isMain) {
-    if (request === 'fs') {
-      const err = new Error("Cannot find module 'fs' (lazy-require in Node-only functions)");
+    if (request === 'fs' || request === 'path') {
+      const err = new Error("Cannot find module '" + request +
+        "' (lazy-require in Node-only functions)");
       err.code = 'MODULE_NOT_FOUND';
       throw err;
     }
@@ -520,14 +522,31 @@ test('modules load with fs unavailable; Node-only functions fail clearly', () =>
   try {
     const cliNoFs = require('../generator/tooling/audit-cli.js');
     const auditNoFs = require('../generator/audit.js');
-    // pure CLI functions work without fs
+    // pure CLI functions work without fs/path
     assert.match(cliNoFs.usage(), /Usage/);
     assert.equal(cliNoFs.parseArgs(['--help']).error, 'help');
-    // pure runner functions work without fs
+    // pure runner functions work without fs/path
     assert.match(auditNoFs.formatFinding({ file: 'f', scene: 's', kind: 'k', detail: 'd' }), /^f s k d$/);
-    // Node-only functions fail with a clear fs error, not a load-time crash
-    assert.throws(() => auditNoFs.auditFile('x.json'), /Cannot find module 'fs'/);
-    assert.throws(() => auditNoFs.loadTriageVerdicts('x.json'), /Cannot find module 'fs'/);
+    assert.deepEqual(auditNoFs.parseCollideIds('a collides with b'),
+      { label: 'a', shape: 'b' });
+    // triageMatch is pure and separator-tolerant (issue #718): a record and
+    // a finding name the same file with different separators and still match
+    const finding = { file: 'samples/a.json', scene: 's1', detail: 'cap collides with box' };
+    const winRecord = verdictRecord({ file: 'other\\a.json' });
+    assert.equal(auditNoFs.triageMatch([winRecord], finding), winRecord);
+    assert.ok(auditNoFs.triageMatch([verdictRecord({ file: 'samples/a.json' })],
+      { file: 'other\\a.json', scene: 's1', detail: 'cap collides with box' }));
+    // trailing separators are stripped before the basename comparison
+    assert.ok(auditNoFs.triageMatch([verdictRecord({ file: 'samples/a.json/' })],
+      { file: 'a.json', scene: 's1', detail: 'cap collides with box' }));
+    // a different basename never matches
+    assert.equal(auditNoFs.triageMatch([verdictRecord({ file: 'samples/b.json' })], finding),
+      null);
+    // Node-only functions fail with a clear missing-builtin error, not a
+    // load-time crash (fs is required before path, so either may surface)
+    assert.throws(() => auditNoFs.auditFile('x.json'), /Cannot find module '(fs|path)'/);
+    assert.throws(() => auditNoFs.loadTriageVerdicts(), /Cannot find module '(fs|path)'/);
+    assert.throws(() => auditNoFs.loadTriageVerdicts('x.json'), /Cannot find module '(fs|path)'/);
   } finally {
     Module._load = originalLoad;
     delete require.cache[cliPath];

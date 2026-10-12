@@ -48,8 +48,18 @@
  */
 'use strict';
 
-var path = require('path');
 var audits = require('./geometry.js');
+
+// Pure, separator-tolerant basename: matches the Node basename builtin
+// for the file strings the audit produces (relative/posix paths, bare
+// filenames) while also tolerating backslash separators, so this module
+// loads in a browser bundle where that builtin cannot be required
+// (issue #708/#718).
+function basenameOf(s) {
+  var t = String(s).replace(/[/\\]+$/, '');
+  var idx = Math.max(t.lastIndexOf('/'), t.lastIndexOf('\\'));
+  return idx === -1 ? t : t.slice(idx + 1);
+}
 
 function readJson(file) {
   // Node-only: reads the spec file from disk.
@@ -64,6 +74,7 @@ function readJson(file) {
 function manifestFiles(dir) {
   // Node-only: reads the samples manifest from disk.
   var fs = require('fs');
+  var path = require('path');
   try {
     var manifest = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'));
     if (!Array.isArray(manifest)) return { files: [], error: 'bad manifest in ' + dir };
@@ -82,7 +93,7 @@ function manifestFiles(dir) {
 function auditFile(file) {
   var read = readJson(file);
   if (read.error) return { file: file, spec: null, findings: [], error: read.error };
-  var label = path.basename(file);
+  var label = basenameOf(file);
   var findings = [];
   Array.prototype.push.apply(findings, audits.auditGeometry(read.spec, label));
   Array.prototype.push.apply(findings, audits.auditGeometrySampled(read.spec, label));
@@ -94,14 +105,19 @@ function formatFinding(f) {
 }
 
 // Triage-verdict records live next to audit.js so --dir variants still load
-// them; exported for test injection via run's opts.verdictsFile.
-var triageVerdictsPath = path.join(__dirname, 'audit-verdicts.json');
+// them; exported for test injection via run's opts.verdictsFile. The default
+// location is computed lazily inside loadTriageVerdicts so loading this
+// module never touches the Node-only builtins (issue #708/#718).
 
 // -> { records, error }. Fail-closed: any structural problem is an error.
 function loadTriageVerdicts(file) {
   // Node-only: reads the triage-verdicts file from disk.
   var fs = require('fs');
-  var p = file || triageVerdictsPath;
+  var p = file;
+  if (!p) {
+    var path = require('path');
+    p = path.join(__dirname, 'audit-verdicts.json');
+  }
   var raw;
   try {
     raw = fs.readFileSync(p, 'utf8');
@@ -164,10 +180,10 @@ function parseCollideIds(detail) {
 function triageMatch(records, finding) {
   var ids = parseCollideIds(finding.detail);
   if (!ids) return null;
-  var file = path.basename(finding.file);
+  var file = basenameOf(finding.file);
   for (var i = 0; i < records.length; i++) {
     var r = records[i];
-    if (path.basename(r.file) === file && r.scene === finding.scene &&
+    if (basenameOf(r.file) === file && r.scene === finding.scene &&
         r.label === ids.label && r.shape === ids.shape) {
       return r;
     }
@@ -208,7 +224,8 @@ function run(opts) {
     if (m.error) return { output: m.error, code: 2, findingCount: 0 };
     files = m.files;
   } else if (opts.dir !== 'samples') {
-    // resolve relative file args against --dir
+    // resolve relative file args against --dir (Node-only path use)
+    var path = require('path');
     files = files.map(function (f) { return path.join(opts.dir, f); });
   }
   var genuineLines = [];
