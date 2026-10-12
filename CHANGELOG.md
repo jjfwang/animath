@@ -91,9 +91,13 @@ version section when the release ships.
   exports remain reachable via `player.internals` and are marked internal
   in `player/player.d.ts`, so consumers should depend only on
   `mount`/`version` (issue #707).
-- `generator/audit.js` no longer requires `fs` at module load: the three
-  Node-only functions (`readJson`, `manifestFiles`, `loadTriageVerdicts`)
-  lazy-require it, so the module loads in browser bundles (issue #708).
+- `generator/audit.js` no longer requires `fs` or `path` at module load
+  and no longer touches `__dirname` at load time: the Node-only functions
+  (`readJson`, `manifestFiles`, `loadTriageVerdicts`, and the CLI `run`
+  path) lazy-require the builtins they need, the triage-verdicts default
+  path is computed lazily inside `loadTriageVerdicts`, and a pure
+  separator-tolerant `basenameOf` replaces `path.basename` in the pure
+  helpers, so the module loads in browser bundles (issues #708, #718).
 - Repair loop default cap raised from 2 to 3 passes, locked in with tests
   (issue #689).
 
