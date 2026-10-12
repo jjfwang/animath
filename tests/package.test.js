@@ -16,6 +16,7 @@ const EXPECTED_APIS = {
   './geometry': ['auditGeometry'],
   './rubric': ['scoreSpec'],
   './audit': ['auditFile'],
+  './audit-samples': ['auditSampleFile', 'auditAllSamples'],
   './misconceptions': ['MISCONCEPTIONS'],
   './llm-client': ['generateSpec'],
   './player': ['mount'],

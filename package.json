@@ -7,6 +7,7 @@
     ".": "./generator/build_prompt.js",
     "./audit": "./generator/audit.js",
     "./audit-cli": "./generator/tooling/audit-cli.js",
+    "./audit-samples": "./generator/tooling/audit-samples.js",
     "./build-prompt": "./generator/build_prompt.js",
     "./charts": "./generator/charts.js",
     "./geometry": "./generator/geometry.js",
