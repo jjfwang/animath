@@ -75,6 +75,9 @@ version section when the release ships.
 
 ### Changed
 
+- Package `engines.node` floor rises from Node 16 to Node 18, because the
+  `llm-client` subpath uses the global `fetch` (Node 18+); Node 16 consumers
+  of that subpath previously hit "fetch is not defined" (issue #735).
 - README "Install as a library" leads with the live registry command
   (`npm install @jjfwang/animath`), notes the beta pin
   (`npm install @jjfwang/animath@beta`), and keeps the git source fallback in

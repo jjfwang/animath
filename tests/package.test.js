@@ -54,6 +54,12 @@ test('every exports entry resolves to an existing file', () => {
   }
 });
 
+test('engines floor matches the llm-client Node 18+ requirement', () => {
+  assert.equal(pkg.engines.node, '>=18');
+  const dts = fs.readFileSync(path.join(ROOT, 'generator', 'llm_client.d.ts'), 'utf8');
+  assert.ok(dts.includes('Node 18+'), 'llm_client.d.ts header states Node 18+');
+});
+
 test('every JS export loads in Node and exposes its API', () => {
   for (const [subpath, apiNames] of Object.entries(EXPECTED_APIS)) {
     const target = pkg.exports[subpath];
