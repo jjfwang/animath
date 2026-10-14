@@ -64,16 +64,19 @@ Workflows permission and will reject them. Docs, templates, and other
 
 ## Adding a new subject
 
-Subjects are a scattered enum: `SPEC.md`, `player/validate.js`, `SYLLABUS.md`,
-`web/syllabus.js`, `generator/misconceptions.js`, and `samples/` all name
-them independently. Follow this checklist end to end — in this order — so a
-new subject lands with zero surprise test failures:
+This checklist applies only to adding a syllabus-covered subject (picker
+track, coverage, gallery). The validator accepts any non-empty subject
+string, so package consumers need no checklist to use a new subject.
+Syllabus-covered subjects are named across `SPEC.md`, `player/validate.js`,
+`SYLLABUS.md`, `web/syllabus.js`, `generator/misconceptions.js`, and
+`samples/` independently. Follow this checklist end to end — in this order —
+so a new syllabus-covered subject lands with zero surprise test failures:
 
 1. **`SPEC.md` first.** Add the subject to the `subject` enum table. SPEC is
    the highest authority: if code and spec disagree, the code is wrong.
-2. **`player/validate.js` SUBJECTS** (line 13). Append the subject; the
-   validator's set is the single source of truth the taxonomy tests derive
-   from.
+2. **`player/validate.js` SUBJECTS**. Append the subject; SUBJECTS is the
+   syllabus-known list for gallery/coverage, not the validator's allowed
+   set and not a single source of truth.
 3. **`SYLLABUS.md`.** Add a section with the new subject's topic tables, and
    update the "Notes for the generator" line against `SPEC.md` §subject and
    SUBJECTS so it names the current set again.
@@ -84,12 +87,14 @@ new subject lands with zero surprise test failures:
    topics. Optional: a generic line is the fallback, but a subject without
    entries reads hollow.
 6. **A hand-authored sample.** Add at least one spec with the new subject and
-   register it in `samples/index.json`. This is required: the per-subject
-   sample-coverage test locks every SUBJECTS subject to ≥1 sample.
-7. **Run the suite.** `tests/syllabus.test.js` and `tests/specs.test.js` derive
-   the allowed/required subject set from `player/validate.js` SUBJECTS — if the
-   checklist above was followed in full, the suite is green. A failure message
-   names the exact checklist step it maps to.
+   register it in `samples/index.json`. This is required for a
+   syllabus-covered subject: the per-subject sample-coverage test locks
+   every syllabus subject (derived from SYLLABUS.md headings) to ≥1 sample.
+7. **Run the suite.** `tests/syllabus.test.js` checks picker tracks against
+   the syllabus-known SUBJECTS list, and `tests/specs.test.js` derives the
+   required sample-coverage set from SYLLABUS.md headings — if the checklist
+   above was followed in full, the suite is green. A failure message names
+   the exact checklist step it maps to.
 
 ### Slice pattern
 

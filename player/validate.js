@@ -10,6 +10,8 @@
   'use strict';
 
   var LEVELS = ['primary', 'secondary', 'jc'];
+  // SUBJECTS is the syllabus-known list, used for gallery/coverage — NOT
+  // an admission list: validateSpec accepts any non-empty subject string.
   var SUBJECTS = ['math', 'science', 'geography'];
   var KINDS = ['concept', 'problem'];
   var VERBS = ['show', 'hide', 'move', 'emphasize', 'caption'];
@@ -114,7 +116,7 @@
     if (spec.animath !== '0.1') errors.push('animath: must be "0.1"');
     if (typeof spec.title !== 'string' || !spec.title.trim()) errors.push('title: required non-empty string');
     if (LEVELS.indexOf(spec.level) === -1) errors.push('level: must be ' + LEVELS.join('|'));
-    if (SUBJECTS.indexOf(spec.subject) === -1) errors.push('subject: must be ' + SUBJECTS.join('|'));
+    if (typeof spec.subject !== 'string' || !spec.subject.trim()) errors.push('subject: required non-empty string');
     if (typeof spec.topic !== 'string' || !spec.topic.trim()) errors.push('topic: required non-empty slug string');
     if (KINDS.indexOf(spec.kind) === -1) errors.push('kind: must be ' + KINDS.join('|'));
     if (!spec.canvas || !isNum(spec.canvas.width) || !isNum(spec.canvas.height)) {
