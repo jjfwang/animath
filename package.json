@@ -1,7 +1,7 @@
 {
   "description": "Animated explanations for the Singapore syllabus - LLM-authored animation specs (generator) plus a zero-dependency browser player.",
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "exports": {
     ".": "./generator/build_prompt.js",
