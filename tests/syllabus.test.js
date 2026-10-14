@@ -93,17 +93,17 @@ test('SYLLABUS.md and web/syllabus.js hold the same 70 topic slugs, 1:1', () => 
 
   for (const subject of subjects) {
     assert.ok(SUBJECTS.indexOf(subject) !== -1,
-      'every track subject must be one of ' + SUBJECTS.join('|') +
-      ' (player/validate.js SUBJECTS); a new subject must follow the ' +
+      'every track subject must be syllabus-known (one of ' + SUBJECTS.join('|') +
+      ' in player/validate.js SUBJECTS); a new syllabus-covered subject must follow the ' +
       'add-a-subject checklist in CONTRIBUTING.md. Got: ' + String(subject));
   }
 
   // Symmetric with specs.test.js's per-subject sample-coverage lock: adding a
-  // subject to SUBJECTS without a picker track would leave the web UI with no
-  // way to pick it — a silent gap. Same fix: follow the checklist.
+  // syllabus-known subject to SUBJECTS without a picker track would leave the
+  // web UI with no way to pick it — a silent gap. Same fix: follow the checklist.
   for (const subject of SUBJECTS) {
     assert.ok(subjects.indexOf(subject) !== -1,
-      'SUBJECTS subject ' + JSON.stringify(subject) + ' has no track in ' +
+      'syllabus-known SUBJECTS subject ' + JSON.stringify(subject) + ' has no track in ' +
       'web/syllabus.js (add-a-subject checklist in CONTRIBUTING.md)');
   }
 });

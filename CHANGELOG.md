@@ -75,6 +75,11 @@ version section when the release ships.
 
 ### Changed
 
+- Validator no longer hard-codes the admitted subject set: `validateSpec`
+  now accepts any non-empty `subject` string (SPEC.md updated), so library
+  consumers can generate animations for any school subject, not only
+  math/science/geography. `SUBJECTS` remains exported as the syllabus-known
+  list for gallery/coverage (issue #734).
 - Package `engines.node` floor rises from Node 16 to Node 18, because the
   `llm-client` subpath uses the global `fetch` (Node 18+); Node 16 consumers
   of that subpath previously hit "fetch is not defined" (issue #735).

@@ -7,7 +7,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { validateSpec, SUBJECTS } = require('../player/validate.js');
+const { validateSpec } = require('../player/validate.js');
 const { buildPrompts } = require('../generator/build_prompt.js');
 const { extractJson, generateSpecWithRepair } = require('../generator/llm_client.js');
 
@@ -284,17 +284,46 @@ test('jc-h2-thermal and jc-h2-quantum cover kinetic theory and the photoelectric
   }
 });
 
-test('every validator subject has sample coverage across levels', () => {
+test('every syllabus subject has sample coverage across levels', () => {
   const specs = sampleFiles.map((f) =>
     JSON.parse(fs.readFileSync(path.join(samplesDir, f), 'utf8')));
   const subjects = new Set(specs.map((s) => s.subject));
-  // The subject enum is open (issue #644): derive the required set from the
-  // validator, so a new subject cannot ship without a sample covering it.
-  for (const subject of SUBJECTS) {
+  // This replaces the validator enum as the source of the required set:
+  // validateSpec now accepts any non-empty subject string (issue #734), so
+  // the required coverage set is derived from SYLLABUS.md section headings
+  // (## Primary|Secondary — <Name>) instead. JC H2 subheads add no new
+  // subject.
+  const syllabusMd = fs.readFileSync(path.join(__dirname, '..', 'SYLLABUS.md'), 'utf8');
+  const nameToSubject = { Mathematics: 'math', Science: 'science', Geography: 'geography' };
+  const required = new Set();
+  for (const line of syllabusMd.split('\n')) {
+    const m = /^## (?:Primary|Secondary) — ([A-Za-z]+)/.exec(line);
+    if (m && nameToSubject[m[1]]) required.add(nameToSubject[m[1]]);
+  }
+  assert.ok(required.size > 0, 'expected at least one syllabus subject heading in SYLLABUS.md');
+  for (const subject of required) {
     assert.ok(subjects.has(subject), 'no sample covers the "' + subject + '" subject');
   }
   const levels = new Set(specs.map((s) => s.level));
   assert.ok(levels.has('primary') && levels.has('secondary'), 'samples should span levels');
+});
+
+test('validator accepts a subject outside the syllabus-known list', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.subject = 'history';
+  assert.deepEqual(validateSpec(spec), [],
+    'a non-empty subject such as history must validate with zero errors');
+});
+
+test('validator rejects an empty or missing subject', () => {
+  const spec = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  spec.subject = '';
+  assert.ok(validateSpec(spec).includes('subject: required non-empty string'),
+    'expected the exact subject error for an empty subject');
+  const spec2 = JSON.parse(fs.readFileSync(path.join(samplesDir, fixtureFile), 'utf8'));
+  delete spec2.subject;
+  assert.ok(validateSpec(spec2).includes('subject: required non-empty string'),
+    'expected the exact subject error for a missing subject');
 });
 
 test('validator rejects a spec with no title', () => {
