@@ -26,7 +26,7 @@ const EXPECTED_APIS = {
   './export-record': ['buildFramePlan', 'defaultExportName', 'preferredMimeTypes', 'pickMimeType', 'supportCheck', 'recordSpec'],
   './export-ui': ['EXPORT_FPS', 'createExportController', 'attachExportUI'],
   './embed': ['mount'],
-  './player-validate': ['validateSpec', 'validateSlides', 'validateWorksheet', 'validateExitTicket'],
+  './player-validate': ['validateSpec', 'validateSlides', 'validateWorksheet', 'validateExitTicket', 'validateNotes', 'validateScript'],
   './pipeline': ['generateAnimation', 'generateSlides', 'generateWorksheet', 'generateExitTicket'],
   './slides': ['generateAnimation', 'generateSlides', 'generateWorksheet', 'generateExitTicket'],
   './worksheet': ['generateAnimation', 'generateSlides', 'generateWorksheet', 'generateExitTicket'],

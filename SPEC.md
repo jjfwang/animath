@@ -274,6 +274,68 @@ string, and `correct` marks the right answer — exactly one choice in a
 multiple-choice question must carry `correct: true`; every other choice
 omits `correct` or sets it to `false`.
 
+## Student notes spec
+
+Student notes are the study-material companion to an animation spec: a
+short set of notes a student reads before or after a lesson.
+`validateNotes` in `player/validate.js` enforces this contract and
+returns a `string[]` of errors, exactly like `validateSpec` (empty =
+valid).
+
+Notes fields:
+
+| field            | type       | notes                                  |
+|------------------|------------|----------------------------------------|
+| `title`          | string     | required non-empty                     |
+| `level`          | `"primary"` \| `"secondary"` \| `"jc"` |                                        |
+| `subject`        | string     | required non-empty — any school subject, not restricted to the syllabus-known list |
+| `topic`          | string     | required non-empty                     |
+| `objectives`     | string[]   | required non-empty array; every entry a non-empty string |
+| `definitions`    | Definition[] | required array of at least 1 definition |
+| `mechanismSteps` | string[]   | required non-empty array; every entry a non-empty string |
+| `workedExample`  | string     | required non-empty |
+| `trap`           | object     | required; see below |
+
+A `Definition` is an object `{term, meaning}`: both `term` and
+`meaning` are required non-empty strings.
+
+The `trap` is an object `{misconception, explanation}`: both
+`misconception` and `explanation` are required non-empty strings. The
+misconception names the common wrong turn for this topic, and the
+explanation states why it is wrong and what to do instead.
+
+## Teacher script spec
+
+A teacher script is the delivery companion to an animation spec: a
+timed sequence of segments a teacher follows while teaching a topic.
+`validateScript` in `player/validate.js` enforces this contract and
+returns a `string[]` of errors, exactly like `validateSpec` (empty =
+valid).
+
+Script fields:
+
+| field      | type      | notes                                  |
+|------------|-----------|----------------------------------------|
+| `title`    | string    | required non-empty                     |
+| `level`    | `"primary"` \| `"secondary"` \| `"jc"` |                                        |
+| `subject`  | string    | required non-empty — any school subject, not restricted to the syllabus-known list |
+| `topic`    | string    | required non-empty                     |
+| `segments` | Segment[] | required non-empty array               |
+
+Segment fields:
+
+| field       | type     | notes |
+|-------------|----------|-------|
+| `minutes`   | number   | required positive number |
+| `say`       | string   | required non-empty — what the teacher says |
+| `cue`       | string   | optional; must be a non-empty string when present |
+| `questions` | string[] | optional; must be an array when present, every entry a non-empty string |
+| `watchFor`  | string   | optional; must be a non-empty string when present — the student response or misconception to watch for |
+
+Total timing: the `minutes` values of all segments must sum to
+5..120 minutes (inclusive). The total is only evaluated when every
+segment has a positive numeric `minutes` value.
+
 ## Validation
 
 `player/validate.js` is the reference validator. `node --test "tests/*.test.js"`
