@@ -398,6 +398,27 @@ const pack = await generateLessonPack(
 // pack.animation / .slides / .worksheet / .notes / .exitTicket / .script
 ```
 
+#### Generate a pack by syllabus id
+
+`generateLessonPackForSyllabus` (exported from `@jjfwang/teachkit/lesson-pack`
+and `@jjfwang/teachkit/pipeline`) takes a syllabus id instead of the
+topic/level/subject options: either the composite `level/track/slug`
+form or a bare topic slug. The id is resolved against the embedded
+taxonomy (`@jjfwang/teachkit/syllabus` exports `SYLLABUS` and
+`resolveSyllabusTopic`), an unknown or malformed id rejects before any
+LLM call, and any explicit option you pass still wins over the resolved
+values. The pack shares its cache entry with a direct
+`generateLessonPack` call carrying the resolved topic, level, and
+subject verbatim:
+
+```js
+const { generateLessonPackForSyllabus } = require('@jjfwang/teachkit/lesson-pack');
+const pack = await generateLessonPackForSyllabus('primary/p-sci/water-cycle', {}, { callChat });
+// pack.manifest.slug === 'water-cycle-primary-science'
+const same = await generateLessonPackForSyllabus('water-cycle', {}, { callChat });
+// same === pack (bare slug resolves to the same topic, cache hit)
+```
+
 Prefer the raw unpack layer? `unpackTopic` returns just the state transitions
 (no authoring) — `callChat` receives the `{ system, user }` prompt pair:
 

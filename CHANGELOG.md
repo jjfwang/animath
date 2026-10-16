@@ -12,6 +12,17 @@ version section when the release ships.
 
 ### Added
 
+- Syllabus-keyed lesson-pack API (`generator/syllabus.js`, subpath
+  `@jjfwang/teachkit/syllabus`; `generateLessonPackForSyllabus` on
+  `generator/pipeline.js`): the taxonomy is embedded in the generator as
+  `SYLLABUS` (locked 1:1 against `SYLLABUS.md` and `web/syllabus.js` by
+  test) with a `resolveSyllabusTopic` resolver accepting a bare topic
+  slug or the composite `level/track/slug` form and throwing on
+  unknown, malformed, or ambiguous ids; `generateLessonPackForSyllabus`
+  resolves the id first (rejecting before any LLM call on failure),
+  overlays any explicit options, and shares the pack cache with direct
+  `generateLessonPack` calls using the resolved values (issue #770).
+
 - Lesson-pack orchestration (`generator/pipeline.js`, subpaths
   `@jjfwang/teachkit/notes`, `@jjfwang/teachkit/script`, and
   `@jjfwang/teachkit/lesson-pack`; prompt builders via
