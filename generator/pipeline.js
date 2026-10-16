@@ -18,6 +18,14 @@
  * build_slides_prompt.js and validation runs through validateSlides
  * (deps.validateSlides, else deps.validate, else the built-in
  * player/validate.js validateSlides).
+ *
+ * generateWorksheet and generateExitTicket (issue #760) are siblings of
+ * generateSlides: the same unpack stage and repair discipline, but the
+ * author prompts come from build_worksheet_prompt.js /
+ * build_exit_ticket_prompt.js and validation runs through
+ * validateWorksheet / validateExitTicket (deps.validateWorksheet /
+ * deps.validateExitTicket, else deps.validate, else the built-in
+ * player/validate.js validators).
  */
 (function (global, factory) {
   var api = factory();
@@ -37,6 +45,8 @@
         unpack: require('./unpack.js'),
         prompt: require('./build_prompt.js'),
         slidesPrompt: require('./build_slides_prompt.js'),
+        worksheetPrompt: require('./build_worksheet_prompt.js'),
+        exitTicketPrompt: require('./build_exit_ticket_prompt.js'),
         validate: require('../player/validate.js')
       };
     }
@@ -45,6 +55,8 @@
       unpack: g.AnimathUnpack,
       prompt: g.AnimathPrompt,
       slidesPrompt: g.AnimathSlidesPrompt,
+      worksheetPrompt: g.AnimathWorksheetPrompt,
+      exitTicketPrompt: g.AnimathExitTicketPrompt,
       validate: g.AnimathValidate
     };
   })();
@@ -67,6 +79,20 @@
     invalidLabel: 'The invalid slide deck you returned:',
     returnLine: 'Return ONLY the corrected slide deck as a single JSON object. No prose, no code fences.',
     rejectLabel: 'Slide deck'
+  };
+  var WORKSHEET_KIND = {
+    notJsonProblem: 'The response was not valid JSON. Return ONLY the corrected worksheet as JSON.',
+    repairHeader: 'Your previous response did not produce a valid worksheet. It had these problems:',
+    invalidLabel: 'The invalid worksheet you returned:',
+    returnLine: 'Return ONLY the corrected worksheet as a single JSON object. No prose, no code fences.',
+    rejectLabel: 'Worksheet'
+  };
+  var EXIT_TICKET_KIND = {
+    notJsonProblem: 'The response was not valid JSON. Return ONLY the corrected exit ticket as JSON.',
+    repairHeader: 'Your previous response did not produce a valid exit ticket. It had these problems:',
+    invalidLabel: 'The invalid exit ticket you returned:',
+    returnLine: 'Return ONLY the corrected exit ticket as a single JSON object. No prose, no code fences.',
+    rejectLabel: 'Exit ticket'
   };
 
   function stripFences(text) {
@@ -204,6 +230,24 @@
     return null;
   }
 
+  function resolveWorksheetValidator(deps) {
+    if (typeof deps.validateWorksheet === 'function') return deps.validateWorksheet;
+    if (typeof deps.validate === 'function') return deps.validate;
+    if (SIBLINGS.validate && typeof SIBLINGS.validate.validateWorksheet === 'function') {
+      return SIBLINGS.validate.validateWorksheet;
+    } /* node:coverage ignore next */
+    return null;
+  }
+
+  function resolveExitTicketValidator(deps) {
+    if (typeof deps.validateExitTicket === 'function') return deps.validateExitTicket;
+    if (typeof deps.validate === 'function') return deps.validate;
+    if (SIBLINGS.validate && typeof SIBLINGS.validate.validateExitTicket === 'function') {
+      return SIBLINGS.validate.validateExitTicket;
+    } /* node:coverage ignore next */
+    return null;
+  }
+
   // opts:
   //   {topic, topicLabel, level, subject, kind, focus, facet, maxRepairs}
   //   (the buildPrompts option set; topic/subject required; maxRepairs
@@ -308,5 +352,101 @@
     });
   }
 
-  return { generateAnimation: generateAnimation, generateSlides: generateSlides };
+  // opts:
+  //   {topic, topicLabel, level, subject, workedExample, maxRepairs}
+  //   (the buildWorksheetPrompts option set; topic/subject required;
+  //   maxRepairs defaults to 3, 0 disables repair).
+  // deps:
+  //   {callChat(system, user) -> Promise<string>  (caller-supplied LLM call),
+  //    validateWorksheet?(worksheet) -> string[] | Promise<string[]>,
+  //    validate?(worksheet) -> string[] | Promise<string[]>  (fallback validator),
+  //    onProgress?(stage, n, max)}  stages: 'unpack', 'author', 'repair'.
+  //
+  // Resolves with the first worksheet that validates clean against
+  // validateWorksheet; rejects with an Error carrying err.problems when
+  // every attempt failed. The unpack step degrades exactly like
+  // generateSlides: a failed unpack authors WITHOUT transitions.
+  function generateWorksheet(opts, deps) {
+    opts = opts || {};
+    deps = deps || {};
+    if (typeof deps.callChat !== 'function') {
+      return Promise.reject(new Error('generateWorksheet: deps.callChat(system, user) ' +
+        'must be a function returning a Promise of the raw response text'));
+    }
+    var validateFn = resolveWorksheetValidator(deps);
+    /* node:coverage ignore next 5 */
+    if (!validateFn) {
+      return Promise.reject(new Error('generateWorksheet: deps.validateWorksheet(spec) ' +
+        'must be a function returning the problem list (or supply deps.validate, ' +
+        'or load player/validate.js so validateWorksheet is available)'));
+    }
+    var progress = makeProgress(deps);
+    var maxRepairs = (opts.maxRepairs != null) ? opts.maxRepairs : DEFAULT_MAX_REPAIRS;
+
+    return unpackStage(deps, progress, opts).then(function (staged) {
+      var transitions = staged ? staged.transitions : null;
+      if (transitions) {
+        transitions = SIBLINGS.unpack.attachMisconceptions(transitions, opts.topic);
+      }
+      var prompts = SIBLINGS.worksheetPrompt.buildWorksheetPrompts({
+        topic: opts.topic,
+        topicLabel: opts.topicLabel,
+        level: opts.level,
+        subject: opts.subject,
+        transitions: transitions,
+        workedExample: opts.workedExample
+      });
+      return authorAndRepair(deps, progress, maxRepairs, prompts, validateFn, WORKSHEET_KIND);
+    });
+  }
+
+  // opts:
+  //   {topic, topicLabel, level, subject, workedExample, maxRepairs}
+  //   (the buildExitTicketPrompts option set; topic/subject required;
+  //   maxRepairs defaults to 3, 0 disables repair).
+  // deps:
+  //   {callChat(system, user) -> Promise<string>  (caller-supplied LLM call),
+  //    validateExitTicket?(ticket) -> string[] | Promise<string[]>,
+  //    validate?(ticket) -> string[] | Promise<string[]>  (fallback validator),
+  //    onProgress?(stage, n, max)}  stages: 'unpack', 'author', 'repair'.
+  //
+  // Resolves with the first exit ticket that validates clean against
+  // validateExitTicket; rejects with an Error carrying err.problems when
+  // every attempt failed. The unpack step degrades exactly like
+  // generateSlides: a failed unpack authors WITHOUT transitions.
+  function generateExitTicket(opts, deps) {
+    opts = opts || {};
+    deps = deps || {};
+    if (typeof deps.callChat !== 'function') {
+      return Promise.reject(new Error('generateExitTicket: deps.callChat(system, user) ' +
+        'must be a function returning a Promise of the raw response text'));
+    }
+    var validateFn = resolveExitTicketValidator(deps);
+    /* node:coverage ignore next 5 */
+    if (!validateFn) {
+      return Promise.reject(new Error('generateExitTicket: deps.validateExitTicket(spec) ' +
+        'must be a function returning the problem list (or supply deps.validate, ' +
+        'or load player/validate.js so validateExitTicket is available)'));
+    }
+    var progress = makeProgress(deps);
+    var maxRepairs = (opts.maxRepairs != null) ? opts.maxRepairs : DEFAULT_MAX_REPAIRS;
+
+    return unpackStage(deps, progress, opts).then(function (staged) {
+      var transitions = staged ? staged.transitions : null;
+      if (transitions) {
+        transitions = SIBLINGS.unpack.attachMisconceptions(transitions, opts.topic);
+      }
+      var prompts = SIBLINGS.exitTicketPrompt.buildExitTicketPrompts({
+        topic: opts.topic,
+        topicLabel: opts.topicLabel,
+        level: opts.level,
+        subject: opts.subject,
+        transitions: transitions,
+        workedExample: opts.workedExample
+      });
+      return authorAndRepair(deps, progress, maxRepairs, prompts, validateFn, EXIT_TICKET_KIND);
+    });
+  }
+
+  return { generateAnimation: generateAnimation, generateSlides: generateSlides, generateWorksheet: generateWorksheet, generateExitTicket: generateExitTicket };
 });

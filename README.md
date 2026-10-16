@@ -251,6 +251,78 @@ const { system, user } = buildSlidePrompts({
 });
 ```
 
+### Generate a worksheet end-to-end
+
+`generateWorksheet` is the worksheet sibling of `generateAnimation`: it runs
+the same unpack → author → repair stages, but authors a practice worksheet
+(multiple-choice and short-answer questions with misconception-built
+distractors and a per-question explanation answer key) and repairs it
+against `validateWorksheet` until it validates. It is exported from both
+`@jjfwang/teachkit/pipeline` and the dedicated
+`@jjfwang/teachkit/worksheet` subpath (the same pipeline module):
+
+```js
+const { generateWorksheet } = require('@jjfwang/teachkit/worksheet');
+// callChat is the same caller-supplied LLM call as the pipeline example
+// above. deps.validateWorksheet is optional — when it and deps.validate
+// are both omitted, the built-in validateWorksheet from
+// @jjfwang/teachkit/player-validate is used.
+const worksheet = await generateWorksheet(
+  { topic: 'water-cycle', topicLabel: 'Water cycle', level: 'primary', subject: 'science' },
+  { callChat }
+);
+```
+
+`worksheet` resolves as a worksheet document that passed
+`validateWorksheet` — the repair loop retries up to 3 times before failing.
+Need just the worksheet author prompts (no pipeline)?
+`@jjfwang/teachkit/worksheet-prompt` exports `buildWorksheetPrompts`, the
+prompt builder `generateWorksheet` drives:
+
+```js
+const { buildWorksheetPrompts } = require('@jjfwang/teachkit/worksheet-prompt');
+const { system, user } = buildWorksheetPrompts({
+  topic: 'water-cycle', topicLabel: 'Water cycle',
+  level: 'primary', subject: 'science'
+});
+```
+
+### Generate an exit ticket end-to-end
+
+`generateExitTicket` is the exit-ticket sibling of `generateAnimation`: it
+runs the same unpack → author → repair stages, but authors a short
+end-of-lesson exit ticket (exactly 3-5 questions, per-answer feedback keyed
+to the misconception) and repairs it against `validateExitTicket` until it
+validates. It is exported from both `@jjfwang/teachkit/pipeline` and the
+dedicated `@jjfwang/teachkit/exit-ticket` subpath (the same pipeline
+module):
+
+```js
+const { generateExitTicket } = require('@jjfwang/teachkit/exit-ticket');
+// callChat is the same caller-supplied LLM call as the pipeline example
+// above. deps.validateExitTicket is optional — when it and deps.validate
+// are both omitted, the built-in validateExitTicket from
+// @jjfwang/teachkit/player-validate is used.
+const ticket = await generateExitTicket(
+  { topic: 'water-cycle', topicLabel: 'Water cycle', level: 'primary', subject: 'science' },
+  { callChat }
+);
+```
+
+`ticket` resolves as an exit-ticket document that passed
+`validateExitTicket` — the repair loop retries up to 3 times before failing.
+Need just the exit-ticket author prompts (no pipeline)?
+`@jjfwang/teachkit/exit-ticket-prompt` exports `buildExitTicketPrompts`,
+the prompt builder `generateExitTicket` drives:
+
+```js
+const { buildExitTicketPrompts } = require('@jjfwang/teachkit/exit-ticket-prompt');
+const { system, user } = buildExitTicketPrompts({
+  topic: 'water-cycle', topicLabel: 'Water cycle',
+  level: 'primary', subject: 'science'
+});
+```
+
 Prefer the raw unpack layer? `unpackTopic` returns just the state transitions
 (no authoring) — `callChat` receives the `{ system, user }` prompt pair:
 
