@@ -342,6 +342,62 @@ const { system, user } = buildExitTicketPrompts({
 });
 ```
 
+### Generate student notes and a teacher script end-to-end
+
+`generateNotes` and `generateScript` are the notes and script siblings of
+`generateAnimation`: they run the same unpack -> author -> repair stages,
+but author student notes (objectives, term/meaning definitions, ordered
+mechanism steps, a worked example, and a trap naming the misconception)
+and a teacher script (ordered segments with minute timings, say text, and
+optional cue, questions, and watch-for notes), repairing against
+`validateNotes` / `validateScript` until they validate. Each is exported
+from both `@jjfwang/teachkit/pipeline` and a dedicated subpath (the same
+pipeline module): `@jjfwang/teachkit/notes` and
+`@jjfwang/teachkit/script`. Need just the author prompts (no pipeline)?
+`@jjfwang/teachkit/notes-prompt` exports `buildNotesPrompts` and
+`@jjfwang/teachkit/script-prompt` exports `buildScriptPrompts`:
+
+```js
+const { generateNotes } = require('@jjfwang/teachkit/notes');
+// callChat is the same caller-supplied LLM call as the pipeline example
+// above. deps.validateNotes is optional — when it and deps.validate are
+// both omitted, the built-in validateNotes from
+// @jjfwang/teachkit/player-validate is used.
+const notes = await generateNotes(
+  { topic: 'water-cycle', topicLabel: 'Water cycle', level: 'primary', subject: 'science' },
+  { callChat }
+);
+```
+
+### Generate a full lesson pack
+
+`generateLessonPack` (subpath `@jjfwang/teachkit/lesson-pack`) runs ONE
+shared unpack stage, then authors all six materials from that single
+unpack — the animation spec, slide deck, worksheet, student notes, exit
+ticket, and teacher script — each through its existing builder,
+validator, and repair discipline, so the whole pack shares one worked
+example and one misconception set. A material that exhausts its repair
+cap rejects the pack with that material named on `err.material`. The
+resolved pack carries a `manifest` naming the topic slug (derived
+deterministically from topic + level + subject: lowercase, runs of
+non-alphanumeric characters collapsed to single hyphens), level, subject,
+and generator version, plus the list of material keys present. Packs are
+cached in memory by slug: a second call with the same slug resolves the
+cached pack with no further LLM calls, `opts.force: true` regenerates
+and replaces the cached entry, and the exported `clearPackCache()`
+empties the cache. Generate a pack once before a session and reuse it
+every session:
+
+```js
+const { generateLessonPack } = require('@jjfwang/teachkit/lesson-pack');
+const pack = await generateLessonPack(
+  { topic: 'The Water Cycle', level: 'Primary Science', subject: 'Science' },
+  { callChat }
+);
+// pack.manifest.slug === 'the-water-cycle-primary-science-science'
+// pack.animation / .slides / .worksheet / .notes / .exitTicket / .script
+```
+
 Prefer the raw unpack layer? `unpackTopic` returns just the state transitions
 (no authoring) — `callChat` receives the `{ system, user }` prompt pair:
 

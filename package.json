@@ -34,7 +34,12 @@
     "./exit-ticket-prompt": "./generator/build_exit_ticket_prompt.js",
     "./worksheet": "./generator/pipeline.js",
     "./exit-ticket": "./generator/pipeline.js",
-    "./unpack": "./generator/unpack.js"
+    "./unpack": "./generator/unpack.js",
+    "./notes-prompt": "./generator/build_notes_prompt.js",
+    "./script-prompt": "./generator/build_script_prompt.js",
+    "./notes": "./generator/pipeline.js",
+    "./script": "./generator/pipeline.js",
+    "./lesson-pack": "./generator/pipeline.js"
   },
   "files": [
     "generator/",
