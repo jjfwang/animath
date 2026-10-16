@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animath lesson pack demo</title>
+<link rel="stylesheet" href="player.css">
+<link rel="stylesheet" href="presenter.css">
+<link rel="stylesheet" href="printable.css">
+<!-- KaTeX (pinned) for latex shapes; the player falls back to plain text when
+     the CDN is unreachable (file:// or offline). -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
+<style>
+  body { margin: 0; padding: 16px; background: #f6f3ec; }
+  .demo-bar { max-width: 980px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .demo-bar .hint { font-size: 13px; color: #6b6455; }
+  .demo-bar button { border: 1px solid #d8d2c4; background: #fff; border-radius: 8px; padding: 6px 12px; font-size: 15px; cursor: pointer; }
+  .demo-bar button:hover { background: #f4f0e6; }
+  .pack-manifest { max-width: 980px; margin: 0 auto 16px; background: #fff; border: 1px solid #d8d2c4; border-radius: 8px; padding: 12px 16px; }
+  .pack-manifest h1 { margin: 0 0 8px; font-size: 20px; }
+  .pack-manifest dl { display: flex; gap: 8px 20px; flex-wrap: wrap; margin: 0 0 8px; font-size: 14px; }
+  .pack-manifest dt { font-weight: bold; }
+  .pack-manifest dd { margin: 0; }
+  .pack-materials { display: flex; gap: 6px; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+  .pack-materials li { border: 1px solid #d8d2c4; border-radius: 999px; padding: 2px 10px; font-size: 13px; background: #f6f3ec; }
+  .pack-section { max-width: 980px; margin: 0 auto 24px; }
+  .pack-section h2 { font-size: 17px; margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<header class="pack-manifest" id="pack-manifest">
+  <h1>Lesson pack: The water cycle</h1>
+  <dl>
+    <dt>Slug</dt><dd>water-cycle-primary-science</dd>
+    <dt>Level</dt><dd>primary</dd>
+    <dt>Subject</dt><dd>science</dd>
+  </dl>
+  <ul class="pack-materials">
+    <li>animation</li>
+    <li>slides</li>
+    <li>worksheet</li>
+    <li>notes</li>
+    <li>exitTicket</li>
+    <li>script</li>
+  </ul>
+</header>
+<div class="demo-bar">
+  <span class="hint">Lesson pack demo: all six gold materials for the water cycle on one page — the animation, the slide deck, and the printable worksheet, exit ticket, student notes, and teacher script. The teacher sections start on a new page when printed.</span>
+  <button type="button" id="toggle-teacher" class="pr-screen-only">Hide teacher keys</button>
+</div>
+<section class="pack-section" id="animation-section">
+  <h2>Animation</h2>
+  <div id="anim-stage"></div>
+</section>
+<section class="pack-section" id="slides-section">
+  <h2>Slides</h2>
+  <div id="slides-stage"></div>
+</section>
+<section class="pack-section" id="printables-section">
+  <h2>Printables</h2>
+  <div id="print-stage"></div>
+</section>
+<div id="err"></div>
+<script src="validate.js"></script>
+<script src="player.js"></script>
+<script src="presenter.js"></script>
+<script src="printable.js"></script>
+<script>
+(function () {
+  var animContainer = document.getElementById('anim-stage');
+  var slidesContainer = document.getElementById('slides-stage');
+  var printStage = document.getElementById('print-stage');
+  var errBox = document.getElementById('err');
+  var toggleBtn = document.querySelector('#toggle-teacher');
+  var animUrl = '../samples/primary-science-water-cycle.json';
+  var deckUrl = '../samples/decks/primary-science-water-cycle.json';
+  var worksheetUrl = '../samples/worksheets/primary-science-water-cycle.json';
+  var notesUrl = '../samples/notes/primary-science-water-cycle.json';
+  var ticketUrl = '../samples/tickets/primary-science-water-cycle.json';
+  var scriptUrl = '../samples/scripts/primary-science-water-cycle.json';
+
+  function showError(msg) {
+    errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
+  }
+
+  toggleBtn.addEventListener('click', function () {
+    var keys = printStage.querySelectorAll('.pr-teacher');
+    var hide = keys.length && keys[0].style.display !== 'none';
+    keys.forEach(function (el) { el.style.display = hide ? 'none' : ''; });
+    toggleBtn.textContent = hide ? 'Show teacher keys' : 'Hide teacher keys';
+  });
+
+  Promise.all([
+    fetch(animUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + animUrl);
+      return r.json();
+    }),
+    fetch(deckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + deckUrl);
+      return r.json();
+    }),
+    fetch(worksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + worksheetUrl);
+      return r.json();
+    }),
+    fetch(notesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + notesUrl);
+      return r.json();
+    }),
+    fetch(ticketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + ticketUrl);
+      return r.json();
+    }),
+    fetch(scriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + scriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var animSpec = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var notes = pack[3];
+    var ticket = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(animSpec)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('Lesson pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    var player = AnimathPlayer.mount(animContainer, animSpec);
+    player.play();
+    AnimathSlidesPresenter.attachPresenter(document, slidesContainer, deck, { animSpec: animSpec });
+    printStage.innerHTML =
+      AnimathPrintable.renderWorksheet(worksheet) +
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet) +
+      AnimathPrintable.renderExitTicket(ticket) +
+      AnimathPrintable.renderExitTicketAnswerKey(ticket) +
+      AnimathPrintable.renderNotes(notes) +
+      AnimathPrintable.renderScript(script);
+  }).catch(function (e) {
+    showError(e);
+  });
+})();
+</script>
+</body>
+</html>

@@ -12,6 +12,14 @@ version section when the release ships.
 
 ### Added
 
+- Lesson-pack web demo (`player/pack-demo.html`): one page showing a
+  full lesson pack — all six gold materials for the water cycle
+  (animation, slides, worksheet, notes, exit ticket, and script)
+  rendered via the shipped player, slide presenter, and printable
+  renderers under a pack manifest header naming the slug, level,
+  subject, and six material keys, with all six materials validated
+  before any rendering and teacher keys toggleable (issue #772).
+
 - Syllabus-keyed lesson-pack API (`generator/syllabus.js`, subpath
   `@jjfwang/teachkit/syllabus`; `generateLessonPackForSyllabus` on
   `generator/pipeline.js`): the taxonomy is embedded in the generator as
