@@ -21,6 +21,12 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('../samples/notes/primary-science-water-cycle.json'));
     assert.ok(demo.includes('../samples/tickets/primary-science-water-cycle.json'));
     assert.ok(demo.includes('../samples/scripts/primary-science-water-cycle.json'));
+    assert.ok(demo.includes('../samples/primary-math-fractions-addition.json'));
+    assert.ok(demo.includes('../samples/decks/primary-math-fractions-addition.json'));
+    assert.ok(demo.includes('../samples/worksheets/primary-math-fractions-addition.json'));
+    assert.ok(demo.includes('../samples/notes/primary-math-fractions-addition.json'));
+    assert.ok(demo.includes('../samples/tickets/primary-math-fractions-addition.json'));
+    assert.ok(demo.includes('../samples/scripts/primary-math-fractions-addition.json'));
     assert.ok(demo.includes('Promise.all'));
   });
 
@@ -38,12 +44,29 @@ describe('pack demo page', () => {
     assert.ok(demo.indexOf('AnimathValidate.validateNotes') < demo.indexOf('AnimathPrintable.renderNotes'));
     assert.ok(demo.indexOf('AnimathValidate.validateScript') < demo.indexOf('AnimathPrintable.renderScript'));
     assert.ok(demo.includes('failed validation:'));
+    assert.ok(demo.indexOf('AnimathValidate.validateSpec') < demo.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(demo.indexOf('AnimathValidate.validateSlides') < demo.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(demo.indexOf('AnimathValidate.validateWorksheet') < demo.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(demo.indexOf('AnimathValidate.validateExitTicket') < demo.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(demo.indexOf('AnimathValidate.validateNotes') < demo.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(demo.indexOf('AnimathValidate.validateScript') < demo.lastIndexOf('AnimathPrintable.renderScript'));
+    const fractionsStart = demo.indexOf('fractionsAnimUrl');
+    assert.ok(fractionsStart > -1);
+    const fractionsBlock = demo.slice(fractionsStart);
+    assert.ok(fractionsBlock.indexOf('AnimathValidate.validateSpec') < fractionsBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(fractionsBlock.indexOf('AnimathValidate.validateSlides') < fractionsBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(fractionsBlock.indexOf('AnimathValidate.validateWorksheet') < fractionsBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(fractionsBlock.indexOf('AnimathValidate.validateExitTicket') < fractionsBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(fractionsBlock.indexOf('AnimathValidate.validateNotes') < fractionsBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(fractionsBlock.indexOf('AnimathValidate.validateScript') < fractionsBlock.lastIndexOf('AnimathPrintable.renderScript'));
   });
 
   test('manifest header names the slug, level, subject and six material keys', () => {
     assert.ok(demo.includes('water-cycle-primary-science'));
+    assert.ok(demo.includes('fractions-primary-math'));
     assert.ok(demo.includes('primary'));
     assert.ok(demo.includes('science'));
+    assert.ok(demo.includes('math'));
     assert.ok(demo.includes('animation'));
     assert.ok(demo.includes('slides'));
     assert.ok(demo.includes('worksheet'));

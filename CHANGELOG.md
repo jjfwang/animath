@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Fractions lesson pack in the pack demo (`player/pack-demo.html`): the
+  primary-math fractions-addition gold pack now appears on the same
+  demo page as the water-cycle pack, with its own manifest header
+  (slug `fractions-primary-math`, level primary, subject math),
+  stacked animation, slides, and printables sections, all six
+  materials validated before any rendering for that pack, and the
+  shared teacher-keys toggle covering both packs' print stages
+  (issue #778).
+
 - Gold lesson pack for a second subject (`samples/decks/primary-math-fractions-addition.json`,
   `samples/worksheets/primary-math-fractions-addition.json`,
   `samples/tickets/primary-math-fractions-addition.json`,
