@@ -239,7 +239,93 @@
     return errors;
   }
 
-  return { validateSpec: validateSpec, SUBJECTS: SUBJECTS };
+  var SLIDE_KINDS = ['title', 'objective', 'hook', 'concept', 'mechanism', 'example', 'practice', 'exit-ticket'];
+
+  // A slide visual is valid in exactly two forms (SPEC.md "Slide spec"):
+  // a non-empty animation scene id string, or a descriptor object with a
+  // non-empty sceneId and/or a shape kind from SHAPES. When both fields
+  // are present, both must be valid. Anything else is a dangling
+  // reference. Scene-id resolution is NOT attempted here.
+  function isValidSlideVisual(v) {
+    if (typeof v === 'string') return v.trim().length > 0;
+    if (!v || typeof v !== 'object' || Array.isArray(v)) return false;
+    var hasSceneId = typeof v.sceneId === 'string' && v.sceneId.trim().length > 0;
+    var hasKind = SHAPES.indexOf(v.kind) !== -1;
+    if (v.sceneId !== undefined && !hasSceneId) return false;
+    if (v.kind !== undefined && !hasKind) return false;
+    return hasSceneId || hasKind;
+  }
+
+  // Slide-deck validator (SPEC.md "Slide spec"): same contract as
+  // validateSpec — returns an array of error strings; empty means valid.
+  function validateSlides(spec) {
+    var errors = [];
+    if (!spec || typeof spec !== 'object') return ['spec: must be an object'];
+    if (typeof spec.title !== 'string' || !spec.title.trim()) errors.push('title: required non-empty string');
+    if (LEVELS.indexOf(spec.level) === -1) errors.push('level: must be ' + LEVELS.join('|'));
+    // Subject is any non-empty string (like validateSpec) — NOT checked
+    // against SUBJECTS, which is only the syllabus-known list.
+    if (typeof spec.subject !== 'string' || !spec.subject.trim()) errors.push('subject: required non-empty string');
+    if (typeof spec.topic !== 'string' || !spec.topic.trim()) errors.push('topic: required non-empty string');
+    if (!Array.isArray(spec.slides) || spec.slides.length === 0) {
+      errors.push('slides: required non-empty array');
+      return errors;
+    }
+    var kinds = [];   // valid kind per slide index, null when absent/invalid
+    spec.slides.forEach(function (slide, i) {
+      var w = 'slides[' + i + ']';
+      if (!slide || typeof slide !== 'object') { errors.push(w + ': must be an object'); kinds.push(null); return; }
+      if (SLIDE_KINDS.indexOf(slide.kind) === -1) {
+        errors.push(w + '.kind: must be ' + SLIDE_KINDS.join('|'));
+        kinds.push(null);
+      } else {
+        kinds.push(slide.kind);
+      }
+      var hasHeading = typeof slide.heading === 'string' && slide.heading.trim().length > 0;
+      if (slide.heading !== undefined && !hasHeading) {
+        errors.push(w + '.heading: must be a non-empty string when present');
+      }
+      var hasBullets = Array.isArray(slide.bullets) && slide.bullets.length >= 1;
+      if (slide.bullets !== undefined) {
+        if (!Array.isArray(slide.bullets)) {
+          errors.push(w + '.bullets: must be an array when present');
+        } else {
+          slide.bullets.forEach(function (b, j) {
+            if (typeof b !== 'string' || !b.trim()) {
+              errors.push(w + '.bullets[' + j + ']: required non-empty string');
+            }
+          });
+        }
+      }
+      if (!hasHeading && !hasBullets) errors.push(w + ': must have a heading or non-empty bullets');
+      if (slide.notes !== undefined && typeof slide.notes !== 'string') {
+        errors.push(w + '.notes: must be a string when present');
+      }
+      if (slide.visual !== undefined && !isValidSlideVisual(slide.visual)) {
+        errors.push(w + '.visual: dangling visual reference — must be a non-empty scene id string or a descriptor with a non-empty sceneId or a shape kind');
+      }
+    });
+    // Ordering, over slides with a valid kind only.
+    if (kinds.indexOf('title') === -1) errors.push('slides: missing a title slide');
+    else if (kinds[0] !== 'title') errors.push('slides[0].kind: title slide must be first');
+    if (kinds.indexOf('exit-ticket') === -1) errors.push('slides: missing an exit-ticket slide');
+    else if (kinds[kinds.length - 1] !== 'exit-ticket') {
+      errors.push('slides[' + (kinds.length - 1) + '].kind: exit-ticket slide must be last');
+    }
+    var objIdx = kinds.indexOf('objective');
+    if (objIdx !== -1) {
+      var cmIdx = -1;
+      for (var k = 0; k < kinds.length; k++) {
+        if (kinds[k] === 'concept' || kinds[k] === 'mechanism') { cmIdx = k; break; }
+      }
+      if (cmIdx !== -1 && objIdx > cmIdx) {
+        errors.push('slides: objective slide must come before concept/mechanism slides');
+      }
+    }
+    return errors;
+  }
+
+  return { validateSpec: validateSpec, validateSlides: validateSlides, SUBJECTS: SUBJECTS };
 });
 
 /* ------------------------------------------------------------------

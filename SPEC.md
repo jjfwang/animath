@@ -167,6 +167,47 @@ Two kinds of on-screen math:
   The validator still rejects backslash sequences like `\frac` inside
   `text` — those belong in `tex`, never in `text`.
 
+## Slide spec
+
+A slide deck is the teaching-material companion to an animation spec: an
+ordered set of slides for presenting a topic before or alongside the
+animation. `validateSlides` in `player/validate.js` enforces this contract
+and returns a `string[]` of errors, exactly like `validateSpec` (empty =
+valid).
+
+Deck fields:
+
+| field     | type                                   | notes                                  |
+|-----------|----------------------------------------|----------------------------------------|
+| `title`   | string                                 | required non-empty                     |
+| `level`   | `"primary"` \| `"secondary"` \| `"jc"` |                                        |
+| `subject` | string                                 | required non-empty — any school subject, not restricted to the syllabus-known list |
+| `topic`   | string                                 | required non-empty                     |
+| `slides`  | Slide[]                                | required non-empty array               |
+
+Slide fields:
+
+| field     | type   | notes |
+|-----------|--------|-------|
+| `kind`    | string | required, one of `title` \| `objective` \| `hook` \| `concept` \| `mechanism` \| `example` \| `practice` \| `exit-ticket` |
+| `heading` | string | optional; a slide must have a heading or non-empty `bullets` (or both) |
+| `bullets` | string[] | optional; every entry a non-empty string |
+| `notes`   | string | optional speaker notes; must be a string when present (empty allowed) |
+| `visual`  | string \| object | optional; see below |
+
+A `visual` is valid in exactly two forms: (a) a non-empty string — an
+animation scene id; or (b) a descriptor object with a non-empty `sceneId`
+and/or a `kind` naming a shape kind from the Shapes section (when both
+fields are present, both must be valid). Anything else — `null`, a number,
+an array, an empty string, `{}`, an empty `sceneId` with no valid `kind`,
+an unknown `kind` with no valid `sceneId` — is a **dangling visual
+reference** and is rejected.
+
+Ordering rules: a `title` slide is required and must be first; an
+`exit-ticket` slide is required and must be last; an `objective` slide is
+not required, but when one is present it must come before the first
+`concept` or `mechanism` slide. No other ordering constraints apply.
+
 ## Validation
 
 `player/validate.js` is the reference validator. `node --test "tests/*.test.js"`
