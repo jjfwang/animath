@@ -56,6 +56,7 @@
         exitTicketPrompt: require('./build_exit_ticket_prompt.js'),
         notesPrompt: require('./build_notes_prompt.js'),
         scriptPrompt: require('./build_script_prompt.js'),
+        syllabus: require('./syllabus.js'),
         validate: require('../player/validate.js')
       };
     }
@@ -68,6 +69,7 @@
       exitTicketPrompt: g.AnimathExitTicketPrompt,
       notesPrompt: g.AnimathNotesPrompt,
       scriptPrompt: g.AnimathScriptPrompt,
+      syllabus: g.AnimathSyllabus,
       validate: g.AnimathValidate
     };
   })();
@@ -730,5 +732,34 @@
     });
   }
 
-  return { generateAnimation: generateAnimation, generateSlides: generateSlides, generateWorksheet: generateWorksheet, generateExitTicket: generateExitTicket, generateNotes: generateNotes, generateScript: generateScript, generateLessonPack: generateLessonPack, clearPackCache: clearPackCache };
+  // generateLessonPackForSyllabus (issue #770): the syllabus-keyed entry
+  // point. Resolves id (bare slug or level/track/slug) via
+  // generator/syllabus.js first — an unknown, malformed, or ambiguous id
+  // rejects (never throws synchronously) before any deps/callChat check
+  // or LLM call. The resolved topic/topicLabel/level/subject seed the
+  // opts; every own key of opts whose value is not undefined overlays
+  // them (explicit opts win), then generateLessonPack runs as usual, so
+  // the pack shares its cache entry with a direct generateLessonPack
+  // call carrying the resolved values verbatim.
+  function generateLessonPackForSyllabus(id, opts, deps) {
+    var resolved;
+    try {
+      resolved = SIBLINGS.syllabus.resolveSyllabusTopic(id);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+    var merged = {
+      topic: resolved.topic,
+      topicLabel: resolved.topicLabel,
+      level: resolved.level,
+      subject: resolved.subject
+    };
+    var src = opts || {};
+    Object.keys(src).forEach(function (key) {
+      if (src[key] !== undefined) merged[key] = src[key];
+    });
+    return generateLessonPack(merged, deps);
+  }
+
+  return { generateAnimation: generateAnimation, generateSlides: generateSlides, generateWorksheet: generateWorksheet, generateExitTicket: generateExitTicket, generateNotes: generateNotes, generateScript: generateScript, generateLessonPack: generateLessonPack, generateLessonPackForSyllabus: generateLessonPackForSyllabus, clearPackCache: clearPackCache };
 });

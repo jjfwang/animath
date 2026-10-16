@@ -27,6 +27,7 @@
     "./printable": "./player/printable.js",
     "./player-validate": "./player/validate.js",
     "./rubric": "./generator/rubric.js",
+    "./syllabus": "./generator/syllabus.js",
     "./pipeline": "./generator/pipeline.js",
     "./slides": "./generator/pipeline.js",
     "./slides-prompt": "./generator/build_slides_prompt.js",

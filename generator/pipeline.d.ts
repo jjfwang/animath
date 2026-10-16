@@ -223,5 +223,21 @@ export function generateLessonPack(
   opts: GenerateLessonPackOptions,
   deps: GenerateLessonPackDeps
 ): Promise<LessonPackResult>;
+// generateLessonPackForSyllabus (issue #770): the syllabus-keyed entry
+// point. topic/topicLabel/level/subject are all optional here — they
+// are resolved from the syllabus id (bare slug or level/track/slug),
+// and any explicitly supplied value wins over the resolved one.
+export interface GenerateLessonPackForSyllabusOptions
+  extends Omit<GenerateLessonPackOptions, 'topic' | 'subject'> {
+  topic?: string;
+  topicLabel?: string;
+  level?: string;
+  subject?: string;
+}
+export function generateLessonPackForSyllabus(
+  id: string,
+  opts?: GenerateLessonPackForSyllabusOptions,
+  deps: GenerateLessonPackDeps
+): Promise<LessonPackResult>;
 /** Clear the in-memory lesson-pack cache (issue #768). */
 export function clearPackCache(): void;
