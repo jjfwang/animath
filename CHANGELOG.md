@@ -10,6 +10,15 @@ version section when the release ships.
 
 ## [Unreleased]
 
+## [0.2.0-beta.1] - 2026-10-16
+
+Second registry beta of the animath library (`@jjfwang/animath`), published
+under the `beta` dist-tag. Ships the generation engine on top of the beta.0
+library surface: the automatic unpack -> author -> repair pipeline with
+holistic staging for cycles and systems, the completed 19-subpath exports
+map, the narrowed player public API, and the subject-generic validator
+(any non-empty subject string, no hard-coded subject set).
+
 ### Added
 
 - Package test scripts: `npm test` and `npm run test:coverage` now wrap the documented test-gate commands (`node --test "tests/*.test.js"` and the same command with `--experimental-test-coverage`), so consumers no longer need to memorize the raw commands from CONTRIBUTING.md (issue #738).

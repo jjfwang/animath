@@ -66,7 +66,7 @@
     mount: mount,
     applyDefaults: applyDefaults,
     resolveSampleUrl: resolveSampleUrl,
-    version: '0.2.0-beta.0'
+    version: '0.2.0-beta.1'
   };
   global.AnimathEmbed = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
