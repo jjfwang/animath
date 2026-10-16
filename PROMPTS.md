@@ -181,3 +181,16 @@ from the data. When `opts.transitions` is absent or empty the prompts are
 byte-identical to the pre-slice-2 output. Malformed input (not an array, a
 count outside 2-8, an entry missing a non-empty name/from_state/to_state/
 driver) throws a descriptive Error.
+
+## Slide prompt
+
+`generator/build_slides_prompt.js` builds slide-deck prompts with
+`buildSlidePrompts(opts)` - the slide companion to `buildPrompts` above -
+filling `SLIDE_SYSTEM_TEMPLATE` (level label and tone slots, in the style
+of the animation builder) and embedding the trimmed hand-authored
+water-cycle gold deck as `WATER_CYCLE_DECK_EXEMPLAR`. Decks follow the
+slide structure - title first, objective before concept/mechanism, one
+mechanism slide per unpack transition in order, exit-ticket last - and
+the topic misconception is placed on the practice and exit-ticket slides,
+where students act on it; speaker notes script what the teacher says and
+never repeat the slide bullets.
