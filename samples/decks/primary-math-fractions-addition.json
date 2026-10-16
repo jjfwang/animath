@@ -1,0 +1,111 @@
+{
+  "level": "primary",
+  "slides": [
+    {
+      "bullets": [
+        "How to add fractions whose pieces are not the same size"
+      ],
+      "heading": "Adding fractions: 1/2 + 1/4",
+      "kind": "title",
+      "notes": "Welcome everyone in and say: today we are going to add one half and one quarter, and by the end you will be able to explain exactly why the answer is three quarters."
+    },
+    {
+      "bullets": [
+        "Convert halves into quarters so every piece is the same size",
+        "Add fractions with the same bottom number and explain why the bottom number stays"
+      ],
+      "heading": "What we will learn",
+      "kind": "objective",
+      "notes": "Read the two goals aloud slowly and tell the class: keep these in mind, because our exit ticket at the end will ask you to do exactly these two things."
+    },
+    {
+      "bullets": [
+        "You eat half a pizza at lunch, then a quarter of the same pizza after school",
+        "How much pizza did you eat altogether - and why is the answer not two sixths?"
+      ],
+      "heading": "Half a pizza, then a quarter more",
+      "kind": "hook",
+      "notes": "Ask for a show of hands and take two or three guesses without judging them yet; say: hold on to your idea, because the size of the pieces is the key to the whole lesson."
+    },
+    {
+      "bullets": [
+        "The bottom number, the denominator, names the piece size: halves are bigger pieces than quarters",
+        "Fractions can only be added directly when their pieces are the same size",
+        "Changing 1/2 into 2/4 changes the pieces, never the amount"
+      ],
+      "heading": "Same-size pieces can be added",
+      "kind": "concept",
+      "notes": "Say this part slowly, because it is the big idea of the whole lesson: the denominator is not a number to add - it names how big each piece is, and pieces must match before we count them."
+    },
+    {
+      "bullets": [
+        "One bar shows 1/2 shaded blue and another shows 1/4 shaded green",
+        "A quarter fits inside a half exactly twice"
+      ],
+      "heading": "Adding fractions",
+      "kind": "mechanism",
+      "notes": "Point at the animation and narrate what is happening: watch how the green quarter slides into the blue half - it fits exactly twice, and that fit is what lets us convert.",
+      "visual": "s1"
+    },
+    {
+      "bullets": [
+        "Split the half into two quarters: 1/2 = 2/4",
+        "Now every piece in the sum is a quarter"
+      ],
+      "heading": "Make the pieces the same size",
+      "kind": "mechanism",
+      "notes": "Tell them to watch the blade cut the half in two: nothing was added or taken away, the same amount is just wearing smaller pieces, so now both fractions speak quarters.",
+      "visual": "s2"
+    },
+    {
+      "bullets": [
+        "Count the quarters: 2/4 + 1/4 = 3/4",
+        "The bottom number stays 4 because the piece size never changed"
+      ],
+      "heading": "Count the quarters",
+      "kind": "mechanism",
+      "notes": "Count the three quarter pieces aloud with the class, one, two, three quarters; say: we added the tops because they count the pieces, and the bottom stayed 4 because the pieces stayed quarters.",
+      "visual": "s3"
+    },
+    {
+      "bullets": [
+        "Tempting wrong turn: Adding tops and bottoms: 1/2 + 1/4 = 2/6.",
+        "The bottom number names the piece size, so it cannot be added like the tops"
+      ],
+      "heading": "Watch out: 1/2 + 1/4 is not 2/6",
+      "kind": "mechanism",
+      "notes": "Name the trap out loud before anyone falls into it: adding the bottoms pretends the pieces changed size into sixths, but no sixth was ever cut - the pieces stayed quarters all along.",
+      "visual": "s4"
+    },
+    {
+      "bullets": [
+        "Step 1: convert the half into quarters, 1/2 = 2/4",
+        "Step 2: add the tops and keep the bottom, 2/4 + 1/4 = 3/4"
+      ],
+      "heading": "Worked example: 1/2 + 1/4",
+      "kind": "example",
+      "notes": "Talk through the two steps slowly and name each one as you write it; say: notice the amount never changed in step 1, we only re-cut the same half into smaller pieces."
+    },
+    {
+      "bullets": [
+        "Work out 1/2 + 1/4 with the bar cards: convert first, then count the quarters",
+        "Careful - a classmate writes Adding tops and bottoms: 1/2 + 1/4 = 2/6. Explain to them why that is wrong"
+      ],
+      "heading": "Your turn: convert, then count",
+      "kind": "practice",
+      "notes": "Give pairs two minutes with the bar cards, then cold-call one pair and press them on the trap: if the bottoms really added, what size would the pieces be, and did anyone ever cut sixths?"
+    },
+    {
+      "bullets": [
+        "Write out 1/2 + 1/4 in two steps and give the answer",
+        "Finish this sentence and defend it: 1/2 + 1/4 is not 2/6, because ..."
+      ],
+      "heading": "Exit ticket: show what you know",
+      "kind": "exit-ticket",
+      "notes": "Collect these before anyone leaves and say: I am looking for the words piece size in your last answer - if you can explain why the bottom number cannot be added, you have cracked today's lesson."
+    }
+  ],
+  "subject": "math",
+  "title": "Adding fractions: 1/2 + 1/4",
+  "topic": "fractions"
+}

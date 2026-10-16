@@ -1,0 +1,57 @@
+{
+  "level": "primary",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 5,
+      "questions": [
+        "What is 1/2 + 1/4?",
+        "Are halves and quarters the same size of piece?"
+      ],
+      "say": "You eat half a pizza at lunch, then a quarter of the same pizza after school. How much pizza did you eat altogether? Tell your partner what you think - there are no wrong answers yet.",
+      "watchFor": "Adding tops and bottoms: 1/2 + 1/4 = 2/6. Listen for students who add the tops and the bottoms straight away. Do not correct it yet; note who holds it, because the conversion segment confronts exactly this beat."
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "questions": [
+        "How many quarters fit inside a half?",
+        "What is 1/2 written in quarters?"
+      ],
+      "say": "Watch the animation: a quarter fits inside a half exactly twice. If we split the half down the middle, it becomes two quarters - 1/2 = 2/4. The amount never changed; only the pieces got smaller. Now every piece in our sum is a quarter, and quarters can be counted together.",
+      "watchFor": "Students who write 1/2 = 1/4 when converting. Stress: re-cutting makes more pieces, not fewer - the top number must grow as the pieces shrink."
+    },
+    {
+      "cue": "s3",
+      "minutes": 7,
+      "questions": [
+        "What is 2/4 + 1/4?",
+        "Why does the bottom number stay 4?"
+      ],
+      "say": "Now count the quarters with me: two quarters from the half, plus one more quarter, makes three quarters. 2/4 + 1/4 = 3/4. We added the tops because they count the pieces. The bottom number stayed 4 because the piece size never changed - it only names how big each piece is."
+    },
+    {
+      "cue": "s4",
+      "minutes": 5,
+      "questions": [
+        "What goes wrong if we add the bottoms too?",
+        "Did anyone ever cut the bar into sixths?"
+      ],
+      "say": "Here is the trap, and we are going to spring it on purpose. Adding the tops and the bottoms gives 2/6 - but look at the bar: nobody ever cut it into sixths. The pieces stayed quarters, so the bottom number stays 4. Open your student notes handout at the trap section and read the correct turn aloud with me.",
+      "watchFor": "Students who still defend 2/6. Send them back to the bar: ask them to point at a sixth. There is none - the pieces on the bar are quarters."
+    },
+    {
+      "cue": "worksheet",
+      "minutes": 5,
+      "questions": [
+        "Talk me through question 1: what did you convert first?",
+        "How will you explain the 2/6 trap on the exit ticket?"
+      ],
+      "say": "Work through the worksheet in pairs: convert first, then count the quarters. When you finish, swap with another pair and check their working against your student notes. Last, the exit ticket - on your own, no talking - and remember: if you can say why the bottom number cannot be added, you have cracked today's lesson.",
+      "watchFor": "Pairs who answer the worksheet questions without writing the conversion step. The conversion is the lesson: require 1/2 = 2/4 in the working before any answer is accepted."
+    }
+  ],
+  "subject": "math",
+  "title": "Adding fractions: 1/2 + 1/4",
+  "topic": "fractions"
+}

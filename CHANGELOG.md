@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a second subject (`samples/decks/primary-math-fractions-addition.json`,
+  `samples/worksheets/primary-math-fractions-addition.json`,
+  `samples/tickets/primary-math-fractions-addition.json`,
+  `samples/notes/primary-math-fractions-addition.json`, and
+  `samples/scripts/primary-math-fractions-addition.json`): hand-authored
+  primary-math fractions-addition gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the water-cycle golds, keyed to the fractions
+  animation scenes s1-s4 and the bank `fractions` misconception
+  (adding tops and bottoms: 1/2 + 1/4 = 2/6), guarded by a dedicated
+  test file (issue #776).
+
 - Lesson-pack web demo (`player/pack-demo.html`): one page showing a
   full lesson pack — all six gold materials for the water cycle
   (animation, slides, worksheet, notes, exit ticket, and script)
