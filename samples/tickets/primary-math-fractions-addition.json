@@ -1,0 +1,60 @@
+{
+  "level": "primary",
+  "questions": [
+    {
+      "choices": [
+        {
+          "text": "2/6"
+        },
+        {
+          "correct": true,
+          "text": "3/4"
+        },
+        {
+          "text": "2/4"
+        }
+      ],
+      "feedback": "If you picked '2/6', that is the adding-tops-and-bottoms trap: Adding tops and bottoms: 1/2 + 1/4 = 2/6. Reteach point: the denominator names the piece size - convert 1/2 to 2/4 first, then add the tops to get 3/4.",
+      "id": "q1",
+      "kind": "multiple-choice",
+      "misconception": "Adding tops and bottoms: 1/2 + 1/4 = 2/6.",
+      "prompt": "What is 1/2 + 1/4?"
+    },
+    {
+      "answer": "2/4",
+      "feedback": "A quarter fits inside a half exactly twice, so 1/2 = 2/4. If you wrote 1/4, you kept the top number unchanged - converting changes both numbers: the pieces halve in size, so there are twice as many.",
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "Write 1/2 as quarters."
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "The piece size never changed - the pieces stayed quarters"
+        },
+        {
+          "text": "Bottom numbers can never be added in any sum"
+        },
+        {
+          "text": "4 is the bigger bottom number, so it wins"
+        }
+      ],
+      "feedback": "The bottom number stays 4 because it only names the piece size, and the pieces stayed quarters from start to finish. The bottom number is kept because the size it names is unchanged, not because of a rule about bigger numbers.",
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "In 2/4 + 1/4 = 3/4, why does the bottom number stay 4?"
+    },
+    {
+      "answer": "Adding the bottoms would pretend the pieces had changed into sixths, but the pieces stayed quarters: the denominator names the piece size, so 1/2 + 1/4 = 2/4 + 1/4 = 3/4, not 2/6.",
+      "feedback": "A strong answer names the piece size: the denominator tells you how big each piece is, and that never changed. An answer that only says 'you just do not add bottoms' means the piece-size idea has not landed and the denominator needs reteaching first next lesson.",
+      "id": "q4",
+      "kind": "short-answer",
+      "misconception": "Adding tops and bottoms: 1/2 + 1/4 = 2/6.",
+      "prompt": "In one sentence: why is 1/2 + 1/4 not 2/6?"
+    }
+  ],
+  "subject": "math",
+  "title": "Adding fractions: 1/2 + 1/4 Exit Ticket",
+  "topic": "fractions"
+}
