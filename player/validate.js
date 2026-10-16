@@ -325,7 +325,98 @@
     return errors;
   }
 
-  return { validateSpec: validateSpec, validateSlides: validateSlides, SUBJECTS: SUBJECTS };
+  var QUESTION_KINDS = ['multiple-choice', 'short-answer'];
+
+  // Header shared by the worksheet and exit-ticket contracts (SPEC.md):
+  // identical checks to validateSlides — subject is any non-empty string,
+  // NOT checked against SUBJECTS.
+  function checkMaterialHeader(spec, errors) {
+    if (typeof spec.title !== 'string' || !spec.title.trim()) errors.push('title: required non-empty string');
+    if (LEVELS.indexOf(spec.level) === -1) errors.push('level: must be ' + LEVELS.join('|'));
+    if (typeof spec.subject !== 'string' || !spec.subject.trim()) errors.push('subject: required non-empty string');
+    if (typeof spec.topic !== 'string' || !spec.topic.trim()) errors.push('topic: required non-empty string');
+  }
+
+  // One worksheet / exit-ticket question (SPEC.md "Question"): the kind
+  // decides which answer field is required — choices with exactly one
+  // correct: true for multiple-choice, a non-empty answer for
+  // short-answer. explanation (worksheet answer key), feedback
+  // (exit-ticket per-answer feedback) and misconception are optional and
+  // validated non-empty only where present.
+  function checkQuestion(question, errors, i, seenIds) {
+    var p = 'questions[' + i + ']';
+    if (!question || typeof question !== 'object') { errors.push(p + ': must be an object'); return; }
+    if (typeof question.id !== 'string' || !question.id.trim()) {
+      errors.push(p + '.id: required non-empty string');
+    } else if (seenIds[question.id]) {
+      errors.push(p + '.id: duplicate question id "' + question.id + '"');
+    } else {
+      seenIds[question.id] = true;
+    }
+    if (typeof question.prompt !== 'string' || !question.prompt.trim()) {
+      errors.push(p + '.prompt: required non-empty string');
+    }
+    ['explanation', 'feedback', 'misconception'].forEach(function (f) {
+      if (question[f] !== undefined && (typeof question[f] !== 'string' || !question[f].trim())) {
+        errors.push(p + '.' + f + ': must be a non-empty string when present');
+      }
+    });
+    if (QUESTION_KINDS.indexOf(question.kind) === -1) {
+      errors.push(p + '.kind: must be ' + QUESTION_KINDS.join('|'));
+      return;
+    }
+    if (question.kind === 'multiple-choice') {
+      if (!Array.isArray(question.choices) || question.choices.length < 2) {
+        errors.push(p + '.choices: required array of at least 2 choices');
+        return;
+      }
+      var correctCount = 0;
+      question.choices.forEach(function (choice, j) {
+        var c = p + '.choices[' + j + ']';
+        if (!choice || typeof choice !== 'object') { errors.push(c + ': must be an object'); return; }
+        if (typeof choice.text !== 'string' || !choice.text.trim()) {
+          errors.push(c + '.text: required non-empty string');
+        }
+        if (choice.correct === true) correctCount++;
+      });
+      if (correctCount !== 1) {
+        errors.push(p + '.choices: exactly one choice must be marked correct');
+      }
+    } else if (typeof question.answer !== 'string' || !question.answer.trim()) {
+      errors.push(p + '.answer: required non-empty string');
+    }
+  }
+
+  // Shared worksheet / exit-ticket validator: the two contracts differ
+  // only in the question-count bounds.
+  function validateMaterial(spec, min, max, rangeError) {
+    var errors = [];
+    if (!spec || typeof spec !== 'object') return ['spec: must be an object'];
+    checkMaterialHeader(spec, errors);
+    if (!Array.isArray(spec.questions) || spec.questions.length < min || spec.questions.length > max) {
+      errors.push(rangeError);
+      return errors;
+    }
+    var seenIds = {};
+    spec.questions.forEach(function (question, i) {
+      checkQuestion(question, errors, i, seenIds);
+    });
+    return errors;
+  }
+
+  // Worksheet validator (SPEC.md "Worksheet spec"): at least 1 question;
+  // the answer key is the per-question explanation / misconception fields.
+  function validateWorksheet(spec) {
+    return validateMaterial(spec, 1, Infinity, 'questions: required array of 1 or more questions');
+  }
+
+  // Exit-ticket validator (SPEC.md "Exit ticket spec"): 3..5 questions;
+  // per-answer feedback is keyed to misconceptions on each question.
+  function validateExitTicket(spec) {
+    return validateMaterial(spec, 3, 5, 'questions: required array of 3..5 questions');
+  }
+
+  return { validateSpec: validateSpec, validateSlides: validateSlides, validateWorksheet: validateWorksheet, validateExitTicket: validateExitTicket, SUBJECTS: SUBJECTS };
 });
 
 /* ------------------------------------------------------------------
