@@ -20,6 +20,7 @@ const EXPECTED_APIS = {
   './misconceptions': ['MISCONCEPTIONS'],
   './llm-client': ['generateSpec'],
   './player': ['mount'],
+  './presenter': ['createPresenter', 'resolveVisual', 'printViews', 'keyAction', 'attachPresenter'],
   './export-frames': ['version', 'shapeMarkup', 'sceneShapes', 'renderFrame', 'frameMs', 'sceneFrameCount'],
   './export-record': ['buildFramePlan', 'defaultExportName', 'preferredMimeTypes', 'pickMimeType', 'supportCheck', 'recordSpec'],
   './export-ui': ['EXPORT_FPS', 'createExportController', 'attachExportUI'],

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animath slide presenter demo</title>
+<link rel="stylesheet" href="player.css">
+<link rel="stylesheet" href="presenter.css">
+<!-- KaTeX (pinned) for latex shapes; the player falls back to plain text when
+     the CDN is unreachable (file:// or offline). -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" defer></script>
+<style>
+  body { margin: 0; padding: 16px; background: #f6f3ec; }
+  .demo-bar { max-width: 980px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .demo-bar .hint { font-size: 13px; color: #6b6455; }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span class="hint">Slide deck demo. Add ?deck=path/to.json to load your own deck. Keyboard shortcuts: left/right arrows and space move between slides. Speaker notes stay hidden until the Notes button is pressed, and never appear in print.</span>
+</div>
+<div id="stage"></div>
+<div id="err"></div>
+<script src="validate.js"></script>
+<script src="player.js"></script>
+<script src="presenter.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var stage = document.getElementById('stage');
+  var errBox = document.getElementById('err');
+  var deckUrl = params.get('deck') || '../samples/decks/primary-science-water-cycle.json';
+  var animUrl = '../samples/primary-science-water-cycle.json';
+
+  function showError(msg) {
+    errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
+  }
+
+  Promise.all([
+    fetch(deckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + deckUrl);
+      return r.json();
+    }),
+    fetch(animUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + animUrl);
+      return r.json();
+    })
+  ]).then(function (pair) {
+    var deck = pair[0];
+    var animSpec = pair[1];
+    var problems = AnimathValidate.validateSlides(deck);
+    if (problems.length) {
+      showError('Deck failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathSlidesPresenter.attachPresenter(document, stage, deck, { animSpec: animSpec });
+  }).catch(function (e) {
+    showError(e);
+  });
+})();
+</script>
+</body>
+</html>
