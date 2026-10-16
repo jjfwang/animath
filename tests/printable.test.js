@@ -15,6 +15,8 @@ const validate = require('../player/validate.js');
 const ROOT = path.join(__dirname, '..');
 const worksheet = JSON.parse(fs.readFileSync(path.join(ROOT, 'samples/worksheets/primary-science-water-cycle.json'), 'utf8'));
 const ticket = JSON.parse(fs.readFileSync(path.join(ROOT, 'samples/tickets/primary-science-water-cycle.json'), 'utf8'));
+const notes = JSON.parse(fs.readFileSync(path.join(ROOT, 'samples/notes/primary-science-water-cycle.json'), 'utf8'));
+const script = JSON.parse(fs.readFileSync(path.join(ROOT, 'samples/scripts/primary-science-water-cycle.json'), 'utf8'));
 
 function teacherOnlyStrings(spec) {
   const out = [];
@@ -240,6 +242,185 @@ describe('validation and validator resolution', () => {
   });
 });
 
+describe('notes and script gold samples', () => {
+  test('both gold samples validate with zero errors', () => {
+    assert.deepEqual(validate.validateNotes(notes), []);
+    assert.deepEqual(validate.validateScript(script), []);
+  });
+
+  test('notes and script renders are non-empty and carry title, topic and subject', () => {
+    for (const [html, spec] of [
+      [printable.renderNotes(notes), notes],
+      [printable.renderScript(script), script],
+    ]) {
+      assert.ok(html.length > 0);
+      assert.ok(html.includes(spec.title), 'title present');
+      assert.ok(html.includes(spec.topic), 'topic present');
+      assert.ok(html.includes(spec.subject), 'subject present');
+    }
+    const notesHtml = printable.renderNotes(notes);
+    assert.ok(notesHtml.includes('pr-sheet pr-notes'));
+    assert.ok(notesHtml.includes('Student notes'));
+    assert.ok(notesHtml.includes('pr-objectives'));
+    assert.ok(notesHtml.includes('pr-definitions'));
+    assert.ok(notesHtml.includes('pr-mechanism-steps'));
+    assert.ok(notesHtml.includes('pr-worked-example'));
+    assert.ok(notesHtml.includes('pr-trap'));
+    const scriptHtml = printable.renderScript(script);
+    assert.ok(scriptHtml.includes('pr-sheet pr-script'));
+    assert.ok(scriptHtml.includes('Teacher script'));
+    assert.ok(scriptHtml.includes('pr-segments'));
+  });
+
+  test('notes render contains every objective, definition, step, worked example and trap', () => {
+    const html = printable.renderNotes(notes);
+    for (const o of notes.objectives) assert.ok(html.includes(o), 'objective present');
+    for (const d of notes.definitions) {
+      assert.ok(html.includes(d.term), 'term present: ' + d.term);
+      assert.ok(html.includes(d.meaning), 'meaning present: ' + d.term);
+    }
+    for (const s of notes.mechanismSteps) assert.ok(html.includes(s), 'step present');
+    assert.ok(html.includes(notes.workedExample), 'worked example present');
+    assert.ok(html.includes(notes.trap.misconception), 'trap misconception present');
+    assert.ok(html.includes(notes.trap.explanation), 'trap explanation present');
+  });
+
+  test('script render contains every segment and the summed total of 30 minutes', () => {
+    const html = printable.renderScript(script);
+    assert.ok(html.includes('Total: 30 minutes'), 'total line pinned');
+    for (const seg of script.segments) {
+      assert.ok(html.includes(seg.say), 'say present');
+      assert.ok(html.includes(seg.minutes + ' minutes'), 'minutes present');
+      if (seg.cue) assert.ok(html.includes('Cue: ' + seg.cue), 'cue present');
+      if (seg.questions) for (const q of seg.questions) assert.ok(html.includes(q), 'question present');
+      if (seg.watchFor) assert.ok(html.includes('Watch for: ' + seg.watchFor), 'watchFor present');
+    }
+  });
+});
+
+describe('notes and script hostile and optional branches', () => {
+  test('hostile notes spec renders escaped with no raw script tag', () => {
+    const hostile = {
+      title: 'Evil <script>alert("x")</script> & Co',
+      level: 'primary', subject: 'science & "tech"', topic: 'water-cycle',
+      objectives: ['Learn <b>this</b> & "that"'],
+      definitions: [{ term: '<script>term()</script>', meaning: 'Means <i>stuff</i> & things' }],
+      mechanismSteps: ['Step <script>one</script> & done'],
+      workedExample: 'Example <script>alert(2)</script> & "quoted"',
+      trap: { misconception: 'Bad <idea> & co', explanation: 'Wrong because <script>alert(3)</script>' },
+    };
+    const html = printable.renderNotes(hostile);
+    assert.ok(!html.includes('<script'), 'no raw script tag');
+    assert.ok(html.includes('&lt;script&gt;'), 'script escaped');
+    assert.ok(html.includes('&amp;'), 'ampersand escaped');
+    assert.ok(html.includes('&quot;'), 'quote escaped');
+    assert.ok(html.includes('&lt;script&gt;alert(3)&lt;/script&gt;'), 'trap explanation escaped');
+  });
+
+  test('hostile script spec renders escaped with no raw script tag', () => {
+    const hostile = {
+      title: 'Evil <script>alert("x")</script> & Co',
+      level: 'primary', subject: 'science', topic: 'water-cycle',
+      segments: [
+        {
+          minutes: 10, say: 'Say <script>alert(1)</script> & "go"',
+          cue: '<b>cue</b> & co', questions: ['Ask <i>this</i>?'],
+          watchFor: 'Watch <script>bad()</script> & co',
+        },
+      ],
+    };
+    const html = printable.renderScript(hostile);
+    assert.ok(!html.includes('<script'), 'no raw script tag');
+    assert.ok(html.includes('&lt;script&gt;'), 'script escaped');
+    assert.ok(html.includes('&amp;'), 'ampersand escaped');
+    assert.ok(html.includes('&quot;'), 'quote escaped');
+    assert.ok(html.includes('Total: 10 minutes'), 'total present');
+  });
+
+  test('notes with and without instructions renders', () => {
+    const base = {
+      title: 'Plain Notes', level: 'primary', subject: 'math', topic: 'fractions',
+      objectives: ['Add fractions'], definitions: [{ term: 'Half', meaning: 'One of two equal parts' }],
+      mechanismSteps: ['Find a common denominator'], workedExample: '1/2 + 1/2 = 1',
+      trap: { misconception: 'Add the denominators', explanation: 'Denominators name the part size' },
+    };
+    const plain = printable.renderNotes(base);
+    assert.ok(!plain.includes('pr-instructions'));
+    const withInstr = printable.renderNotes(Object.assign({}, base, { instructions: 'Read before the lesson.' }));
+    assert.ok(withInstr.includes('Read before the lesson.'));
+    assert.ok(withInstr.includes('pr-instructions'));
+  });
+
+  test('script bare segment renders without cue, questions or watchFor', () => {
+    const spec = {
+      title: 'Bare Script', level: 'secondary', subject: 'math', topic: 'algebra',
+      segments: [{ minutes: 10, say: 'Just talk.' }],
+    };
+    const html = printable.renderScript(spec);
+    assert.ok(html.includes('Just talk.'));
+    assert.ok(html.includes('Total: 10 minutes'));
+    assert.ok(!html.includes('pr-cue'));
+    assert.ok(!html.includes('pr-segment-questions'));
+    assert.ok(!html.includes('pr-watch-for'));
+  });
+
+  test('script full segment renders cue, questions and watchFor', () => {
+    const spec = {
+      title: 'Full Script', level: 'secondary', subject: 'math', topic: 'algebra',
+      segments: [{ minutes: 15, say: 'Explain it.', cue: 'board', questions: ['Why?'], watchFor: 'Sign errors' }],
+    };
+    const html = printable.renderScript(spec);
+    assert.ok(html.includes('Cue: board'));
+    assert.ok(html.includes('pr-segment-questions'));
+    assert.ok(html.includes('Why?'));
+    assert.ok(html.includes('Watch for: Sign errors'));
+  });
+});
+
+describe('notes and script validation and validator resolution', () => {
+  test('invalid specs throw with the invalid notes / script prefix', () => {
+    assert.throws(() => printable.renderNotes({}), /invalid notes:/);
+    assert.throws(() => printable.renderNotes(null), /invalid notes:/);
+    assert.throws(() => printable.renderScript({}), /invalid script:/);
+    assert.throws(() => printable.renderScript(null), /invalid script:/);
+  });
+
+  test('validator resolves through the AnimathValidate global when present', () => {
+    globalThis.AnimathValidate = validate;
+    try {
+      assert.ok(printable.renderNotes(notes).includes(notes.title));
+      assert.ok(printable.renderScript(script).includes(script.title));
+    } finally {
+      delete globalThis.AnimathValidate;
+    }
+  });
+
+  test('a global validator without the functions throws the missing-validator error', () => {
+    globalThis.AnimathValidate = {};
+    try {
+      assert.throws(() => printable.renderNotes(notes), /animath printable: player\/validate\.js is missing/);
+      assert.throws(() => printable.renderScript(script), /animath printable: player\/validate\.js is missing/);
+    } finally {
+      delete globalThis.AnimathValidate;
+    }
+  });
+});
+
+describe('printable demo page', () => {
+  const demo = fs.readFileSync(path.join(ROOT, 'player', 'printable-demo.html'), 'utf8');
+
+  test('demo fetches and validates notes and script before rendering them', () => {
+    assert.ok(demo.includes('samples/notes/primary-science-water-cycle.json'));
+    assert.ok(demo.includes('samples/scripts/primary-science-water-cycle.json'));
+    assert.ok(demo.includes('AnimathValidate.validateNotes'));
+    assert.ok(demo.includes('AnimathValidate.validateScript'));
+    assert.ok(demo.includes('AnimathPrintable.renderNotes'));
+    assert.ok(demo.includes('AnimathPrintable.renderScript'));
+    assert.ok(demo.indexOf('AnimathValidate.validateNotes') < demo.indexOf('AnimathPrintable.renderNotes'));
+    assert.ok(demo.indexOf('AnimathValidate.validateScript') < demo.indexOf('AnimathPrintable.renderScript'));
+  });
+});
+
 describe('printable.css print rules', () => {
   const css = fs.readFileSync(path.join(ROOT, 'player', 'printable.css'), 'utf8');
 
@@ -250,5 +431,11 @@ describe('printable.css print rules', () => {
 
   test('teacher sections start on a new printed page', () => {
     assert.ok(/\.pr-teacher\s*\{\s*break-before:\s*page/.test(css));
+  });
+
+  test('notes and script classes are styled', () => {
+    for (const cls of ['pr-objectives', 'pr-definitions', 'pr-term', 'pr-meaning', 'pr-mechanism-steps', 'pr-worked-example', 'pr-trap', 'pr-total-minutes', 'pr-segments', 'pr-segment', 'pr-cue', 'pr-watch-for']) {
+      assert.ok(css.includes('.' + cls), 'css covers .' + cls);
+    }
   });
 });

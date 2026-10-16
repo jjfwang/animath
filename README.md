@@ -135,6 +135,25 @@ controls are hidden and the teacher key starts on a fresh page. Every
 render validates the spec first and throws on errors.
 `player/printable-demo.html` shows both gold samples rendered end to end.
 
+The same module renders student notes and a teacher script from their
+specs (see `SPEC.md` "Student notes spec" / "Teacher script spec"):
+
+```js
+const { renderNotes, renderScript } = require('@jjfwang/teachkit/printable');
+
+const notesHtml = renderNotes(notesSpec); // objectives, definitions, mechanism steps, worked example, trap
+const scriptHtml = renderScript(scriptSpec); // timed segments with the summed total, cues, questions, watch-fors
+```
+
+`renderNotes` prints the objectives, the definition list, the ordered
+mechanism steps, the worked example, and the trap (the misconception
+plus why it is wrong). `renderScript` prints each timed segment in
+order with a total-minutes line summed from the segments, showing the
+cue, questions, and watch-for note only when a segment carries them.
+Both validate first and throw on an invalid spec, and the demo page
+renders the water-cycle notes and script gold samples alongside the
+worksheet and exit ticket.
+
 ## Install as a library
 
 Other projects can import the generator modules and the player directly:
