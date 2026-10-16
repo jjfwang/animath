@@ -208,6 +208,72 @@ Ordering rules: a `title` slide is required and must be first; an
 not required, but when one is present it must come before the first
 `concept` or `mechanism` slide. No other ordering constraints apply.
 
+## Worksheet spec
+
+A worksheet is the practice-material companion to an animation spec: an
+ordered set of questions a student answers on paper or in class, with an
+answer key for the teacher. `validateWorksheet` in `player/validate.js`
+enforces this contract and returns a `string[]` of errors, exactly like
+`validateSpec` (empty = valid).
+
+Worksheet fields:
+
+| field       | type       | notes                                  |
+|-------------|------------|----------------------------------------|
+| `title`     | string     | required non-empty                     |
+| `level`     | `"primary"` \| `"secondary"` \| `"jc"` |                                        |
+| `subject`   | string     | required non-empty — any school subject, not restricted to the syllabus-known list |
+| `topic`     | string     | required non-empty                     |
+| `questions` | Question[] | required array of at least 1 question  |
+
+The worksheet answer key is the set of per-question `explanation` fields
+(see the Question table below): the explanation for a question states why
+its answer is correct, and it may name the misconception it addresses via
+the question's `misconception` field.
+
+## Exit ticket spec
+
+An exit ticket is the short end-of-lesson check for a topic: a small set
+of questions whose answers tell the teacher what to reteach next lesson.
+`validateExitTicket` in `player/validate.js` enforces this contract and
+returns a `string[]` of errors, exactly like `validateSpec` (empty =
+valid).
+
+Exit ticket fields:
+
+| field       | type       | notes                                  |
+|-------------|------------|----------------------------------------|
+| `title`     | string     | required non-empty                     |
+| `level`     | `"primary"` \| `"secondary"` \| `"jc"` |                                        |
+| `subject`   | string     | required non-empty — any school subject, not restricted to the syllabus-known list |
+| `topic`     | string     | required non-empty                     |
+| `questions` | Question[] | required array of 3 to 5 questions     |
+
+Exit-ticket feedback is the per-question `feedback` field (see the
+Question table below): feedback is written per answer, telling the student
+what their answer shows, and it is keyed to a misconception via the
+question's `misconception` field when the answer reveals one.
+
+## Question (worksheet and exit ticket)
+
+Worksheet and exit-ticket questions share one shape:
+
+| field           | type    | notes |
+|-----------------|---------|-------|
+| `id`            | string  | required non-empty; unique within the document |
+| `prompt`        | string  | required non-empty — the question text |
+| `kind`          | `"multiple-choice"` \| `"short-answer"` | required |
+| `choices`       | Choice[] | multiple-choice only: required array of at least 2 choices |
+| `answer`        | string  | short-answer only: required non-empty — the expected answer |
+| `explanation`   | string  | optional; the worksheet answer-key explanation — must be a non-empty string when present |
+| `feedback`      | string  | optional; the exit-ticket per-answer feedback — must be a non-empty string when present |
+| `misconception` | string  | optional; names the misconception the `explanation` or `feedback` addresses — must be a non-empty string when present |
+
+A `Choice` is an object `{text, correct}`: `text` is a required non-empty
+string, and `correct` marks the right answer — exactly one choice in a
+multiple-choice question must carry `correct: true`; every other choice
+omits `correct` or sets it to `false`.
+
 ## Validation
 
 `player/validate.js` is the reference validator. `node --test "tests/*.test.js"`
