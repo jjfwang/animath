@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Printable worksheet and exit-ticket renderer (`player/printable.js`,
+  subpath `@jjfwang/teachkit/printable`): `renderWorksheet` /
+  `renderExitTicket` produce student sheets (prompts and choice texts
+  only — teacher content is structurally absent, not flagged off) and
+  `renderWorksheetAnswerKey` / `renderExitTicketAnswerKey` produce the
+  teacher keys (correct answers, explanations, feedback, misconceptions).
+  Every render validates first and throws on an invalid spec; all spec
+  text is HTML-escaped. Ships with `player/printable.css` (teacher key
+  starts a new printed page), a hand-authored `player/printable.d.ts`,
+  and `player/printable-demo.html` rendering both gold samples
+  (issue #758).
+
 - Worksheet and exit-ticket prompt builders (`generator/build_worksheet_prompt.js`
   `buildWorksheetPrompts` and `generator/build_exit_ticket_prompt.js`
   `buildExitTicketPrompts`, each with a hand-authored `.d.ts` sibling):
