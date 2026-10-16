@@ -1,0 +1,214 @@
+/* animath generateScript pipeline tests — zero network.
+ * Guards generator/pipeline.js generateScript (issue #768): the teacher
+ * script sibling of generateSlides — same unpack -> author -> repair
+ * stages, author prompts from build_script_prompt.js, validation through
+ * validateScript (deps.validateScript, else deps.validate, else the
+ * built-in player/validate.js validateScript). No LLM calls leave the
+ * process; deps.callChat is stubbed throughout.
+ * Run: node --test "tests/*.test.js"
+ */
+'use strict';
+const { test } = require('node:test');
+const assert = require('node:assert/strict');
+const vm = require('node:vm');
+const fs = require('node:fs');
+const path = require('node:path');
+
+const PIPELINE = require('../generator/pipeline.js');
+const { validateScript } = require('../player/validate.js');
+
+const GOLD_PATH = path.join(__dirname, '..', 'samples', 'scripts', 'primary-science-water-cycle.json');
+const GOLD_DOC = JSON.parse(fs.readFileSync(GOLD_PATH, 'utf8'));
+const GOLD_TEXT = JSON.stringify(GOLD_DOC);
+
+const TRANSITIONS = [
+  { name: 'evaporation', from_state: 'liquid water', to_state: 'water vapour', driver: "the sun's heat" },
+  { name: 'condensation', from_state: 'water vapour', to_state: 'liquid droplets', driver: 'cooling' }
+];
+const TRANSITIONS_TEXT = JSON.stringify(TRANSITIONS);
+
+const OPTS = {
+  topic: 'water-cycle',
+  topicLabel: 'Water cycle',
+  level: 'primary',
+  subject: 'science'
+};
+
+function isUnpackCall(system) {
+  return system.indexOf('topic unpacker') !== -1;
+}
+function isScriptCall(system) {
+  return system.indexOf('script author') !== -1;
+}
+
+function stubChat(handler) {
+  const calls = [];
+  const callChat = (system, user) => {
+    calls.push({ system, user });
+    return Promise.resolve(handler(system, user, calls.length - 1));
+  };
+  return { calls, callChat };
+}
+
+function progressRecorder() {
+  const events = [];
+  return {
+    events,
+    onProgress: (stage, n, max) => { events.push([stage, n, max]); }
+  };
+}
+
+test('happy path: built-in validateScript default resolves the gold script', async () => {
+  const workedExample = 'Example: trace one drop from sea to cloud to rain to sea.';
+  const { calls, callChat } = stubChat((system) =>
+    isUnpackCall(system) ? TRANSITIONS_TEXT : GOLD_TEXT);
+  const rec = progressRecorder();
+  const doc = await PIPELINE.generateScript(
+    { ...OPTS, workedExample },
+    { callChat, onProgress: rec.onProgress });
+  assert.deepEqual(doc, GOLD_DOC);
+  assert.equal(calls.length, 2, 'one unpack call + one author call, no repairs');
+  assert.ok(isScriptCall(calls[1].system), 'author call uses the script author prompt');
+  assert.deepEqual(rec.events, [['unpack', 1, 1], ['author', 1, 1]]);
+});
+
+test('repair: non-JSON first response is repaired with script wording', async () => {
+  let authorCalls = 0;
+  const { calls, callChat } = stubChat((system) => {
+    if (isUnpackCall(system)) return TRANSITIONS_TEXT;
+    authorCalls += 1;
+    return authorCalls === 1 ? 'oops, not JSON at all' : GOLD_TEXT;
+  });
+  const rec = progressRecorder();
+  const doc = await PIPELINE.generateScript(OPTS, {
+    callChat, onProgress: rec.onProgress
+  });
+  assert.deepEqual(doc, GOLD_DOC);
+  assert.equal(calls.length, 3, 'unpack + author + one repair');
+  assert.ok(calls[2].user.indexOf('did not produce a valid teacher script') !== -1,
+    'repair prompt carries the script wording');
+  assert.ok(calls[2].user.indexOf(
+    'The response was not valid JSON. Return ONLY the corrected teacher script as JSON.') !== -1,
+    'repair prompt carries the not-valid-JSON problem');
+  assert.ok(calls[2].user.indexOf('Return ONLY the corrected teacher script as a single JSON object.') !== -1,
+    'repair prompt asks for the corrected teacher script');
+  assert.deepEqual(rec.events, [['unpack', 1, 1], ['author', 1, 1], ['repair', 1, 3]]);
+});
+
+test('exhaustion: always-invalid script reject with validateScript problems', async () => {
+  const { calls, callChat } = stubChat((system) =>
+    isUnpackCall(system) ? TRANSITIONS_TEXT : '{}');
+  await assert.rejects(
+    () => PIPELINE.generateScript({ ...OPTS, maxRepairs: 1 }, { callChat }),
+    (err) => {
+      assert.ok(err instanceof Error);
+      assert.match(err.message, /Teacher script still invalid after 1 repair attempt/);
+      assert.ok(Array.isArray(err.problems) && err.problems.length > 0,
+        'err.problems is a non-empty array');
+      assert.deepEqual(err.problems, validateScript({}),
+        'err.problems comes from validateScript');
+      return true;
+    });
+  assert.equal(calls.length, 3, 'unpack + author + 1 repair');
+});
+
+test('missing deps: no callChat rejects naming callChat', async () => {
+  await assert.rejects(() => PIPELINE.generateScript(OPTS), /callChat/);
+  await assert.rejects(() => PIPELINE.generateScript(OPTS, {}), /callChat/);
+});
+
+test('deps.validateScript is honoured over the built-in validator', async () => {
+  const seen = [];
+  const validateScriptSpy = (doc) => { seen.push(doc); return []; };
+  const minimal = { title: 'Minimal script' };
+  const { callChat } = stubChat((system) =>
+    isUnpackCall(system) ? TRANSITIONS_TEXT : JSON.stringify(minimal));
+  const doc = await PIPELINE.generateScript(OPTS, {
+    callChat, validateScript: validateScriptSpy
+  });
+  assert.deepEqual(doc, minimal);
+  assert.deepEqual(seen, [minimal], 'the custom validateScript received the authored script');
+});
+
+test('a custom validateScript returning problems drives the repair loop', async () => {
+  let validations = 0;
+  const validateScriptSpy = () => {
+    validations += 1;
+    return validations === 1 ? ['custom problem: script too thin'] : [];
+  };
+  const minimal = { title: 'Minimal script' };
+  const { calls, callChat } = stubChat((system) =>
+    isUnpackCall(system) ? TRANSITIONS_TEXT : JSON.stringify(minimal));
+  const rec = progressRecorder();
+  const doc = await PIPELINE.generateScript(OPTS, {
+    callChat, validateScript: validateScriptSpy, onProgress: rec.onProgress
+  });
+  assert.deepEqual(doc, minimal);
+  assert.equal(validations, 2, 'validator ran on the author attempt and the repair attempt');
+  assert.equal(calls.length, 3, 'unpack + author + one repair');
+  assert.ok(calls[2].user.indexOf('custom problem: script too thin') !== -1,
+    'repair prompt carries the custom validator problem');
+  assert.deepEqual(rec.events, [['unpack', 1, 1], ['author', 1, 1], ['repair', 1, 3]]);
+});
+
+test('deps.validate is the fallback when validateScript is not supplied', async () => {
+  const seen = [];
+  const validateSpy = (doc) => { seen.push(doc); return []; };
+  const minimal = { title: 'Minimal script' };
+  const { callChat } = stubChat((system) =>
+    isUnpackCall(system) ? TRANSITIONS_TEXT : JSON.stringify(minimal));
+  const doc = await PIPELINE.generateScript(OPTS, {
+    callChat, validate: validateSpy
+  });
+  assert.deepEqual(doc, minimal);
+  assert.deepEqual(seen, [minimal], 'deps.validate received the authored script');
+});
+
+test('degraded unpack: a rejecting unpack call still resolves valid script', async () => {
+  const calls = [];
+  const callChat = (system, user) => {
+    calls.push({ system, user });
+    if (isUnpackCall(system)) return Promise.reject(new Error('network down'));
+    return Promise.resolve(GOLD_TEXT);
+  };
+  const rec = progressRecorder();
+  const doc = await PIPELINE.generateScript(OPTS, {
+    callChat, onProgress: rec.onProgress
+  });
+  assert.deepEqual(doc, GOLD_DOC);
+  assert.equal(calls.length, 2, 'failed unpack + one author call, no repairs');
+  assert.deepEqual(rec.events, [['unpack', 1, 1], ['author', 1, 1]]);
+});
+
+function browserSandbox(extra) {
+  const src = fs.readFileSync(path.join(__dirname, '..', 'generator', 'pipeline.js'), 'utf8');
+  const sandbox = {
+    AnimathUnpack: require('../generator/unpack.js'),
+    AnimathPrompt: require('../generator/build_prompt.js'),
+    AnimathSlidesPrompt: require('../generator/build_slides_prompt.js'),
+    AnimathWorksheetPrompt: require('../generator/build_worksheet_prompt.js'),
+    AnimathExitTicketPrompt: require('../generator/build_exit_ticket_prompt.js'),
+    AnimathNotesPrompt: require('../generator/build_script_prompt.js'),
+    AnimathScriptPrompt: require('../generator/build_script_prompt.js'),
+    ...extra
+  };
+  vm.createContext(sandbox);
+  vm.runInContext(src, sandbox, { filename: 'pipeline-script-browser.js' });
+  return sandbox;
+}
+
+test('browser globals path: no validator global rejects naming validateScript', async () => {
+  const sandbox = browserSandbox({});
+  const { callChat } = stubChat(() => GOLD_TEXT);
+  await assert.rejects(
+    () => sandbox.AnimathPipeline.generateScript(OPTS, { callChat }),
+    /validateScript/);
+});
+
+test('browser globals path: generateScript runs off window globals', async () => {
+  const sandbox = browserSandbox({ AnimathValidate: require('../player/validate.js') });
+  const { callChat } = stubChat((system) =>
+    isUnpackCall(system) ? TRANSITIONS_TEXT : GOLD_TEXT);
+  const doc = await sandbox.AnimathPipeline.generateScript(OPTS, { callChat });
+  assert.equal(JSON.stringify(doc), JSON.stringify(GOLD_DOC));
+});

@@ -12,6 +12,20 @@ version section when the release ships.
 
 ### Added
 
+- Lesson-pack orchestration (`generator/pipeline.js`, subpaths
+  `@jjfwang/teachkit/notes`, `@jjfwang/teachkit/script`, and
+  `@jjfwang/teachkit/lesson-pack`; prompt builders via
+  `@jjfwang/teachkit/notes-prompt` and `@jjfwang/teachkit/script-prompt`):
+  `generateNotes` and `generateScript` join the pipeline as the notes
+  and script siblings of `generateWorksheet` / `generateExitTicket`
+  (shared unpack, `validateNotes` / `validateScript` repair discipline),
+  and `generateLessonPack` runs one shared unpack and authors all six
+  materials from it — animation, slides, worksheet, student notes, exit
+  ticket, teacher script — resolving with a pack manifest (topic slug,
+  level, subject, generator version, material keys) and an in-memory
+  slug cache: repeat calls make no further LLM calls, `opts.force`
+  regenerates, and `clearPackCache()` empties the cache (issue #768).
+
 - Printable student-notes and teacher-script renderer (`player/printable.js`,
   subpath `@jjfwang/teachkit/printable`): `renderNotes` prints a notes
   spec (objectives, definitions as term/meaning pairs, mechanism steps
