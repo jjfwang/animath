@@ -194,3 +194,35 @@ mechanism slide per unpack transition in order, exit-ticket last - and
 the topic misconception is placed on the practice and exit-ticket slides,
 where students act on it; speaker notes script what the teacher says and
 never repeat the slide bullets.
+
+## Worksheet prompt
+
+`generator/build_worksheet_prompt.js` builds worksheet prompts with
+`buildWorksheetPrompts(opts)` - the worksheet companion to
+`buildSlidePrompts` above - filling `WORKSHEET_SYSTEM_TEMPLATE` (level
+label and tone slots, in the style of the slide builder) and embedding
+the trimmed hand-authored water-cycle gold worksheet as
+`WATER_CYCLE_WORKSHEET_EXEMPLAR`. Worksheets follow the worksheet spec -
+title, level, subject, topic, questions - with the shared question
+shape: multiple-choice questions carry at least 2 choices with exactly
+one correct, short-answer questions carry an expected answer,
+distractors are built from the named misconception, and the answer key
+is a per-question `explanation` on every question naming the
+misconception each wrong option encodes, with the question's
+`misconception` field set where it targets one. The gold worksheet
+lives at `samples/worksheets/primary-science-water-cycle.json`.
+
+## Exit ticket prompt
+
+`generator/build_exit_ticket_prompt.js` builds exit-ticket prompts with
+`buildExitTicketPrompts(opts)` - the exit-ticket companion to
+`buildSlidePrompts` above - filling `EXIT_TICKET_SYSTEM_TEMPLATE`
+(level label and tone slots, in the style of the slide builder) and
+embedding the trimmed hand-authored water-cycle gold exit ticket as
+`WATER_CYCLE_TICKET_EXEMPLAR`. Exit tickets follow the exit-ticket
+spec - title, level, subject, topic, and exactly 3-5 questions in the
+shared question shape - with a per-answer `feedback` field on every
+question keyed to the misconception (the question's `misconception`
+field), in a quick formative tone: short, end-of-lesson questions whose
+answers tell the teacher what to reteach. The gold exit ticket lives at
+`samples/tickets/primary-science-water-cycle.json`.

@@ -12,6 +12,17 @@ version section when the release ships.
 
 ### Added
 
+- Worksheet and exit-ticket prompt builders (`generator/build_worksheet_prompt.js`
+  `buildWorksheetPrompts` and `generator/build_exit_ticket_prompt.js`
+  `buildExitTicketPrompts`, each with a hand-authored `.d.ts` sibling):
+  slide-style builders that author practice worksheets (misconception-built
+  distractors, a per-question `explanation` answer key) and short formative
+  exit tickets (exactly 3-5 questions, per-answer `feedback` keyed to the
+  misconception), each embedding a trimmed water-cycle exemplar. Gold
+  samples ship at `samples/worksheets/primary-science-water-cycle.json`
+  and `samples/tickets/primary-science-water-cycle.json` (issue #756).
+
+
 - End-to-end slide-deck generation in the pipeline (`generator/pipeline.js`):
   `generateSlides` runs the same unpack -> author -> repair stages as
   `generateAnimation`, but authors a teaching slide deck via
