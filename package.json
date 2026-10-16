@@ -3,6 +3,10 @@
   "engines": {
     "node": ">=18"
   },
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"tests/*.test.js\""
+  },
   "exports": {
     ".": "./generator/build_prompt.js",
     "./audit": "./generator/audit.js",
