@@ -416,7 +416,119 @@
     return validateMaterial(spec, 3, 5, 'questions: required array of 3..5 questions');
   }
 
-  return { validateSpec: validateSpec, validateSlides: validateSlides, validateWorksheet: validateWorksheet, validateExitTicket: validateExitTicket, SUBJECTS: SUBJECTS };
+  // Student notes validator (SPEC.md "Student notes spec"): study notes
+  // for a topic -- objectives, definitions, mechanism steps, a worked
+  // example, and the trap (misconception plus explanation).
+  function validateNotes(spec) {
+    var errors = [];
+    if (!spec || typeof spec !== 'object') return ['spec: must be an object'];
+    checkMaterialHeader(spec, errors);
+    if (!Array.isArray(spec.objectives) || spec.objectives.length === 0) {
+      errors.push('objectives: required non-empty array');
+    } else {
+      spec.objectives.forEach(function (objective, i) {
+        if (typeof objective !== 'string' || !objective.trim()) {
+          errors.push('objectives[' + i + ']: required non-empty string');
+        }
+      });
+    }
+    if (!Array.isArray(spec.definitions) || spec.definitions.length === 0) {
+      errors.push('definitions: required array of at least 1 definition');
+    } else {
+      spec.definitions.forEach(function (definition, i) {
+        var p = 'definitions[' + i + ']';
+        if (!definition || typeof definition !== 'object') {
+          errors.push(p + ': must be an object');
+          return;
+        }
+        if (typeof definition.term !== 'string' || !definition.term.trim()) {
+          errors.push(p + '.term: required non-empty string');
+        }
+        if (typeof definition.meaning !== 'string' || !definition.meaning.trim()) {
+          errors.push(p + '.meaning: required non-empty string');
+        }
+      });
+    }
+    if (!Array.isArray(spec.mechanismSteps) || spec.mechanismSteps.length === 0) {
+      errors.push('mechanismSteps: required non-empty array');
+    } else {
+      spec.mechanismSteps.forEach(function (step, i) {
+        if (typeof step !== 'string' || !step.trim()) {
+          errors.push('mechanismSteps[' + i + ']: required non-empty string');
+        }
+      });
+    }
+    if (typeof spec.workedExample !== 'string' || !spec.workedExample.trim()) {
+      errors.push('workedExample: required non-empty string');
+    }
+    if (!spec.trap || typeof spec.trap !== 'object') {
+      errors.push('trap: required object');
+    } else {
+      if (typeof spec.trap.misconception !== 'string' || !spec.trap.misconception.trim()) {
+        errors.push('trap.misconception: required non-empty string');
+      }
+      if (typeof spec.trap.explanation !== 'string' || !spec.trap.explanation.trim()) {
+        errors.push('trap.explanation: required non-empty string');
+      }
+    }
+    return errors;
+  }
+
+  // Teacher script validator (SPEC.md "Teacher script spec"): a timed
+  // delivery script -- segments with minutes, what to say, and optional
+  // cue, questions, and watchFor fields. Total timing must be 5..120
+  // minutes when every segment has a valid minutes value.
+  function validateScript(spec) {
+    var errors = [];
+    if (!spec || typeof spec !== 'object') return ['spec: must be an object'];
+    checkMaterialHeader(spec, errors);
+    if (!Array.isArray(spec.segments) || spec.segments.length === 0) {
+      errors.push('segments: required non-empty array');
+      return errors;
+    }
+    var allMinutesValid = true;
+    var totalMinutes = 0;
+    spec.segments.forEach(function (segment, i) {
+      var p = 'segments[' + i + ']';
+      if (!segment || typeof segment !== 'object') {
+        errors.push(p + ': must be an object');
+        allMinutesValid = false;
+        return;
+      }
+      if (!isNum(segment.minutes) || segment.minutes <= 0) {
+        errors.push(p + '.minutes: required positive number');
+        allMinutesValid = false;
+      } else {
+        totalMinutes += segment.minutes;
+      }
+      if (typeof segment.say !== 'string' || !segment.say.trim()) {
+        errors.push(p + '.say: required non-empty string');
+      }
+      if (segment.cue !== undefined && (typeof segment.cue !== 'string' || !segment.cue.trim())) {
+        errors.push(p + '.cue: must be a non-empty string when present');
+      }
+      if (segment.questions !== undefined) {
+        if (!Array.isArray(segment.questions)) {
+          errors.push(p + '.questions: must be an array when present');
+        } else {
+          segment.questions.forEach(function (question, j) {
+            if (typeof question !== 'string' || !question.trim()) {
+              errors.push(p + '.questions[' + j + ']: required non-empty string');
+            }
+          });
+        }
+      }
+      if (segment.watchFor !== undefined && (typeof segment.watchFor !== 'string' || !segment.watchFor.trim())) {
+        errors.push(p + '.watchFor: must be a non-empty string when present');
+      }
+    });
+    if (allMinutesValid && (totalMinutes < 5 || totalMinutes > 120)) {
+      errors.push('segments: total timing must be 5..120 minutes');
+    }
+    return errors;
+  }
+
+  return { validateSpec: validateSpec, validateSlides: validateSlides, validateWorksheet: validateWorksheet, validateExitTicket: validateExitTicket, validateNotes: validateNotes, validateScript: validateScript, SUBJECTS: SUBJECTS };
 });
 
 /* ------------------------------------------------------------------

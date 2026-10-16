@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Student notes and teacher script spec contracts and validators
+  (`validateNotes` and `validateScript` in `player/validate.js`, with
+  declarations in `player/validate.d.ts`): SPEC.md gains "Student notes
+  spec" and "Teacher script spec" sections pinning the notes shape
+  (objectives, definitions, mechanism steps, worked example, trap) and
+  the script shape (timed segments with optional cue, questions, and
+  watchFor fields, total timing 5..120 minutes), both sharing the
+  material-header conventions (issue #762).
+
 - End-to-end worksheet and exit-ticket generation in the pipeline
   (`generator/pipeline.js`): `generateWorksheet` and `generateExitTicket`
   run the same unpack -> author -> repair stages as `generateSlides`,
