@@ -27,6 +27,8 @@
     "./player-validate": "./player/validate.js",
     "./rubric": "./generator/rubric.js",
     "./pipeline": "./generator/pipeline.js",
+    "./slides": "./generator/pipeline.js",
+    "./slides-prompt": "./generator/build_slides_prompt.js",
     "./unpack": "./generator/unpack.js"
   },
   "files": [

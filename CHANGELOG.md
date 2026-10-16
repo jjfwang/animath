@@ -10,6 +10,20 @@ version section when the release ships.
 
 ## [Unreleased]
 
+### Added
+
+- End-to-end slide-deck generation in the pipeline (`generator/pipeline.js`):
+  `generateSlides` runs the same unpack -> author -> repair stages as
+  `generateAnimation`, but authors a teaching slide deck via
+  `buildSlidePrompts` and repairs it against `validateSlides`
+  (`deps.validateSlides`, else `deps.validate`, else the built-in
+  `player/validate.js` validator). The exports map gains two subpaths:
+  `@jjfwang/animath/slides` (the pipeline module under a slides-named
+  subpath, exposing `generateAnimation` and `generateSlides`) and
+  `@jjfwang/animath/slides-prompt` (`buildSlidePrompts` from
+  `generator/build_slides_prompt.js`); `@jjfwang/animath/pipeline` now also
+  exposes `generateSlides` (issue #747).
+
 ## [0.2.0-beta.1] - 2026-10-16
 
 Second registry beta of the animath library (`@jjfwang/animath`), published
