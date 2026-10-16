@@ -1,7 +1,7 @@
 /* README pipeline example drift test (issue #705) — zero network.
  * Guards the drift filed as #705: the README "Install as a library" section
- * documents @jjfwang/animath/pipeline (generateAnimation, the prompt-in
- * animation-out API) and @jjfwang/animath/unpack (unpackTopic) as a worked
+ * documents @jjfwang/teachkit/pipeline (generateAnimation, the prompt-in
+ * animation-out API) and @jjfwang/teachkit/unpack (unpackTopic) as a worked
  * example. This test extracts that fenced example from README.md VERBATIM and
  * runs it end to end with a stubbed fetch, so the docs cannot drift from the
  * real API. The real validateSpec runs as the pipeline's validate dep.
@@ -67,7 +67,7 @@ function loadExample(code) {
 
 test('README pipeline example is present and extracts cleanly', () => {
   const code = extractExample();
-  assert.ok(code.indexOf("require('@jjfwang/animath/pipeline')") !== -1, 'requires the pipeline subpath');
+  assert.ok(code.indexOf("require('@jjfwang/teachkit/pipeline')") !== -1, 'requires the pipeline subpath');
   assert.ok(code.indexOf('validate: validateSpec') !== -1, 'wires the real validator as the validate dep');
 });
 
@@ -84,6 +84,6 @@ test('README pipeline example runs end to end with a stubbed fetch', async () =>
 });
 
 test('README documents the unpack subpath alongside the other subpaths', () => {
-  assert.ok(README.indexOf("require('@jjfwang/animath/unpack')") !== -1, 'unpack subpath listed');
+  assert.ok(README.indexOf("require('@jjfwang/teachkit/unpack')") !== -1, 'unpack subpath listed');
   assert.ok(README.indexOf('unpackTopic') !== -1, 'unpackTopic mentioned');
 });

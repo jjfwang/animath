@@ -1,6 +1,6 @@
 # Generator Prompt Templates
 
-How animath turns a student's need into an animation spec. The prompt builder
+How teachkit turns a student's need into an animation spec. The prompt builder
 (`generator/build_prompt.js`) fills the `{{slots}}` below; the LLM must return
 **only** the JSON spec — no prose, no fences.
 

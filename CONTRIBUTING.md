@@ -1,4 +1,4 @@
-# Contributing to animath
+# Contributing to teachkit
 
 This repo is developed in small, reviewed slices (one issue → one PR → review → merge).
 Contributions follow the same contract.

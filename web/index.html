@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>animath — animated explanations for the Singapore syllabus</title>
+<title>teachkit — animated explanations for the Singapore syllabus</title>
 <link rel="stylesheet" href="../player/player.css">
 <!-- KaTeX (pinned) for latex shapes; the player falls back to plain text when
      the CDN is unreachable (file:// or offline). -->
@@ -63,7 +63,7 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>animath</h1>
+  <h1>teachkit</h1>
   <p class="tag">Animated explanations for the Singapore syllabus — generated on demand.</p>
 
   <div class="card">
@@ -99,7 +99,7 @@
         <input id="apikey" type="password" placeholder="sk-…" autocomplete="off"></div>
     </div>
     <p class="privacy">Your key is stored only in this browser's localStorage and sent
-      only to the base URL above — never to animath or anywhere else.</p>
+      only to the base URL above — never to teachkit or anywhere else.</p>
   </div>
 
   <button id="genbtn">Generate animation</button>
@@ -166,9 +166,9 @@
 
   // restore saved LLM settings
   try {
-    if (localStorage.getItem('animath.baseUrl')) baseUrlEl.value = localStorage.getItem('animath.baseUrl');
-    if (localStorage.getItem('animath.model')) modelEl.value = localStorage.getItem('animath.model');
-    if (localStorage.getItem('animath.key')) keyEl.value = localStorage.getItem('animath.key');
+    if (localStorage.getItem('teachkit.baseUrl')) baseUrlEl.value = localStorage.getItem('teachkit.baseUrl');
+    if (localStorage.getItem('teachkit.model')) modelEl.value = localStorage.getItem('teachkit.model');
+    if (localStorage.getItem('teachkit.key')) keyEl.value = localStorage.getItem('teachkit.key');
   } catch (e) { /* private mode */ }
 
   // Provider presets (generator/llm_client.js). The select is populated from
@@ -209,11 +209,11 @@
     applyKeyHint(presetSel.value);
     if (presetSel.value === 'ollama') {
       keyEl.value = '';
-      try { localStorage.removeItem('animath.key'); } catch (e) { /* private mode */ }
+      try { localStorage.removeItem('teachkit.key'); } catch (e) { /* private mode */ }
     }
     try {
-      localStorage.setItem('animath.baseUrl', baseUrlEl.value.trim());
-      localStorage.setItem('animath.model', modelEl.value.trim());
+      localStorage.setItem('teachkit.baseUrl', baseUrlEl.value.trim());
+      localStorage.setItem('teachkit.model', modelEl.value.trim());
     } catch (e) { /* private mode */ }
     if (presetSel.value === 'ollama') {
       setStatus('Ollama preset: no key needed, it runs on your machine. Generate still asks for a key field — any text works; it never leaves localhost.');
@@ -320,9 +320,9 @@
     var key = keyEl.value.trim();
     if (!key) { setStatus('Paste your API key first.', true); return; }
     try {
-      localStorage.setItem('animath.baseUrl', baseUrlEl.value.trim());
-      localStorage.setItem('animath.model', modelEl.value.trim());
-      localStorage.setItem('animath.key', key);
+      localStorage.setItem('teachkit.baseUrl', baseUrlEl.value.trim());
+      localStorage.setItem('teachkit.model', modelEl.value.trim());
+      localStorage.setItem('teachkit.key', key);
     } catch (e) { /* private mode */ }
 
     var tr = currentTrack();

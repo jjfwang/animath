@@ -18,11 +18,19 @@ version section when the release ships.
   `buildSlidePrompts` and repairs it against `validateSlides`
   (`deps.validateSlides`, else `deps.validate`, else the built-in
   `player/validate.js` validator). The exports map gains two subpaths:
-  `@jjfwang/animath/slides` (the pipeline module under a slides-named
+  `@jjfwang/teachkit/slides` (the pipeline module under a slides-named
   subpath, exposing `generateAnimation` and `generateSlides`) and
-  `@jjfwang/animath/slides-prompt` (`buildSlidePrompts` from
-  `generator/build_slides_prompt.js`); `@jjfwang/animath/pipeline` now also
+  `@jjfwang/teachkit/slides-prompt` (`buildSlidePrompts` from
+  `generator/build_slides_prompt.js`); `@jjfwang/teachkit/pipeline` now also
   exposes `generateSlides` (issue #747).
+
+### Changed
+
+- Package renamed `@jjfwang/animath` -> `@jjfwang/teachkit` and the
+  repository URL moved to github.com/jjfwang/teachkit, following the repo
+  rename (issue #749). The spec-format key `"animath": "0.1"` and the
+  `Animath*` browser globals are unchanged. npm publish of the new name
+  and deprecation of the old name happen at the next release cut.
 
 ## [0.2.0-beta.1] - 2026-10-16
 

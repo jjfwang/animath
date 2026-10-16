@@ -1,4 +1,4 @@
-# animath Animation Spec — v0.1
+# teachkit Animation Spec — v0.1
 
 The spec is the contract between the **generator** (the LLM) and the
 **player**. A spec is a JSON document describing a short animated explainer:

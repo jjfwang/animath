@@ -53,10 +53,10 @@
   "license": "MIT",
   "main": "./generator/build_prompt.js",
   "types": "./generator/build_prompt.d.ts",
-  "name": "@jjfwang/animath",
+  "name": "@jjfwang/teachkit",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jjfwang/animath.git"
+    "url": "https://github.com/jjfwang/teachkit.git"
   },
   "type": "commonjs",
   "version": "0.2.0-beta.1"
