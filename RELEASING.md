@@ -2,8 +2,9 @@
 
 Release checklist for `@jjfwang/animath`. The registry publish step is an
 owner action (needs `npm login` on the releasing machine); everything else is
-plain git/npm. No tags or GitHub Releases exist yet — the first run of this
-checklist ships the first release.
+plain git/npm. The first release has shipped: `0.2.0-beta.0`, published to
+npm on 2026-10-11 under tag `v0.2.0-beta.0`, with a matching GitHub Release
+("0.2.0-beta.0 (beta)"). This checklist now describes the NEXT release.
 
 ## Prerequisites
 
@@ -30,15 +31,22 @@ checklist ships the first release.
 5. **GitHub Release.** Create a release from tag `vX.Y.Z`; the release notes
    are the new `CHANGELOG.md` version section, copied verbatim.
 6. **Publish.** `npm publish --access public` (the scoped name needs
-   `--access public`; owner action — requires `npm login`).
+   `--access public`; owner action — requires `npm login`). For a
+   prerelease (e.g. a beta), publish under its dist-tag instead —
+   `npm publish --tag beta --access public` — so `latest` keeps pointing
+   at the current stable line; that is how `0.2.0-beta.0` shipped.
 7. **Verify from the registry.** `npm view @jjfwang/animath version` must
    print `X.Y.Z`; then in a fresh temp dir run
    `npm install @jjfwang/animath` and confirm
    `node -e "require('@jjfwang/animath')"` loads, plus an ESM smoke test of
    the documented import pattern for the charts entry
    (`import charts from '@jjfwang/animath/charts'`; see README
-   "Install as a library").
-8. **Docs follow-up.** Once the registry route works, update README
-   "Install as a library" to lead with `npm install @jjfwang/animath` —
-   it currently leads with the `github:` fallback and marks the registry
-   route pending.
+   "Install as a library"). For a prerelease, verify the dist-tag instead:
+   `npm view @jjfwang/animath@beta version` must print the prerelease
+   version, and consumers track the prerelease line with
+   `npm install @jjfwang/animath@beta`.
+8. **Docs follow-up.** Done for the first release (2026-10-11): README
+   "Install as a library" leads with `npm install @jjfwang/animath` and
+   names `0.2.0-beta.0` as the first published line. For later releases,
+   update that section only if the install route or the named current
+   line changes.

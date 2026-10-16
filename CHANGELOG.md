@@ -77,6 +77,12 @@ version section when the release ships.
 
 ### Changed
 
+- RELEASING.md no longer claims no release exists: it records the first
+  release (`0.2.0-beta.0`, published 2026-10-11, tag `v0.2.0-beta.0`) as
+  shipped, marks the README registry-install follow-up (Step 8) done, and
+  documents the prerelease dist-tag wrinkle in the publish/verify steps
+  (`npm publish --tag beta`; consumers track with
+  `npm install @jjfwang/animath@beta`) (issue #740).
 - Validator no longer hard-codes the admitted subject set: `validateSpec`
   now accepts any non-empty `subject` string (SPEC.md updated), so library
   consumers can generate animations for any school subject, not only
