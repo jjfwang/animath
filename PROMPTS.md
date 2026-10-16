@@ -226,3 +226,34 @@ question keyed to the misconception (the question's `misconception`
 field), in a quick formative tone: short, end-of-lesson questions whose
 answers tell the teacher what to reteach. The gold exit ticket lives at
 `samples/tickets/primary-science-water-cycle.json`.
+
+## Notes prompt
+
+`generator/build_notes_prompt.js` builds student-notes prompts with
+`buildNotesPrompts(opts)` - the notes companion to
+`buildSlidePrompts` above - filling `NOTES_SYSTEM_TEMPLATE`
+(level label and tone slots, in the style of the slide builder) and
+embedding the trimmed hand-authored water-cycle gold notes as
+`WATER_CYCLE_NOTES_EXEMPLAR`. Notes follow the student notes spec -
+title, level, subject, topic, objectives, definitions, mechanismSteps,
+workedExample, trap - with definitions as `{term, meaning}` objects
+built from the key vocabulary, exactly one mechanismStep per unpack
+transition in order, and the trap as a `{misconception, explanation}`
+object naming the misconception beat and why it is wrong, in a
+student-facing one-page tone with no teacher-only language. The gold
+notes live at `samples/notes/primary-science-water-cycle.json`.
+
+## Script prompt
+
+`generator/build_script_prompt.js` builds teacher-script prompts with
+`buildScriptPrompts(opts)` - the script companion to
+`buildSlidePrompts` above - filling `SCRIPT_SYSTEM_TEMPLATE`
+(level label and tone slots, in the style of the slide builder) and
+embedding the trimmed hand-authored water-cycle gold script as
+`WATER_CYCLE_SCRIPT_EXEMPLAR`. Scripts follow the teacher script
+spec - title, level, subject, topic, segments - with each segment
+carrying `minutes` (a positive number) and `say`, plus optional `cue`
+(a scene id or a material), `questions`, and `watchFor` keyed to the
+misconception; the segments cover the unpack transitions in order and
+the segment minutes sum to 5-120. The gold script lives at
+`samples/scripts/primary-science-water-cycle.json`.

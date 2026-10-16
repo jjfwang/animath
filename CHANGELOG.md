@@ -12,6 +12,17 @@ version section when the release ships.
 
 ### Added
 
+- Student notes and teacher script prompt builders (`generator/build_notes_prompt.js`
+  `buildNotesPrompts` and `generator/build_script_prompt.js`
+  `buildScriptPrompts`, each with a hand-authored `.d.ts` sibling):
+  slide-style builders that author student notes (definitions from the
+  key vocabulary, one mechanism step per transition, the trap naming
+  the misconception) and timed teacher scripts (segments whose minutes
+  sum to 5-120, cues naming scene ids or materials, `watchFor` keyed
+  to the misconception), each embedding a trimmed water-cycle
+  exemplar. Gold samples ship at `samples/notes/primary-science-water-cycle.json`
+  and `samples/scripts/primary-science-water-cycle.json` (issue #764).
+
 - Student notes and teacher script spec contracts and validators
   (`validateNotes` and `validateScript` in `player/validate.js`, with
   declarations in `player/validate.d.ts`): SPEC.md gains "Student notes
