@@ -25,8 +25,10 @@ const EXPECTED_APIS = {
   './export-record': ['buildFramePlan', 'defaultExportName', 'preferredMimeTypes', 'pickMimeType', 'supportCheck', 'recordSpec'],
   './export-ui': ['EXPORT_FPS', 'createExportController', 'attachExportUI'],
   './embed': ['mount'],
-  './player-validate': ['validateSpec'],
-  './pipeline': ['generateAnimation'],
+  './player-validate': ['validateSpec', 'validateSlides'],
+  './pipeline': ['generateAnimation', 'generateSlides'],
+  './slides': ['generateAnimation', 'generateSlides'],
+  './slides-prompt': ['buildSlidePrompts', 'SLIDE_SYSTEM_TEMPLATE', 'WATER_CYCLE_DECK_EXEMPLAR'],
   './unpack': [
     'buildUnpackPrompts',
     'parseTransitions',

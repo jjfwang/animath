@@ -135,6 +135,8 @@ const { validateSpec } = require('@jjfwang/animath/player-validate');
 const { mount } = require('@jjfwang/animath/player');
 const { generateAnimation } = require('@jjfwang/animath/pipeline');
 const { unpackTopic } = require('@jjfwang/animath/unpack');
+const { generateSlides } = require('@jjfwang/animath/slides');
+const { buildSlidePrompts } = require('@jjfwang/animath/slides-prompt');
 ```
 
 Validate a spec before mounting it — `validateSpec` returns an array of
@@ -192,6 +194,41 @@ retries up to 3 times before failing. This snippet is
 `tests/readme-pipeline-example.test.js`'s input: the test extracts it from this
 README and runs it end to end against a stubbed `fetch`, so the docs cannot
 drift from the real API.
+
+### Generate a slide deck end-to-end
+
+`generateSlides` is the slide-deck sibling of `generateAnimation`: it runs
+the same unpack → author → repair stages, but authors a teaching slide deck
+(title, objective, hook, concept, mechanism, example, practice, exit-ticket)
+and repairs it against `validateSlides` until it validates. It is exported
+from both `@jjfwang/animath/pipeline` and the dedicated
+`@jjfwang/animath/slides` subpath (the same pipeline module, per the
+`./presenter` precedent of a dedicated subpath):
+
+```js
+const { generateSlides } = require('@jjfwang/animath/slides');
+// callChat is the same caller-supplied LLM call as the pipeline example
+// above. deps.validateSlides is optional — when it and deps.validate are
+// both omitted, the built-in validateSlides from
+// @jjfwang/animath/player-validate is used.
+const deck = await generateSlides(
+  { topic: 'water-cycle', topicLabel: 'Water cycle', level: 'primary', subject: 'science' },
+  { callChat }
+);
+```
+
+`deck` resolves as a slide-deck document that passed `validateSlides` — the
+repair loop retries up to 3 times before failing. Need just the slide author
+prompts (no pipeline)? `@jjfwang/animath/slides-prompt` exports
+`buildSlidePrompts`, the prompt builder `generateSlides` drives:
+
+```js
+const { buildSlidePrompts } = require('@jjfwang/animath/slides-prompt');
+const { system, user } = buildSlidePrompts({
+  topic: 'water-cycle', topicLabel: 'Water cycle',
+  level: 'primary', subject: 'science'
+});
+```
 
 Prefer the raw unpack layer? `unpackTopic` returns just the state transitions
 (no authoring) — `callChat` receives the `{ system, user }` prompt pair:
