@@ -1,0 +1,75 @@
+/* animath slide presenter chrome (issue #746) */
+.sp-screen {
+  max-width: 980px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a1a;
+  background: #fdfcf8;
+  border: 1px solid #d8d2c4;
+  border-radius: 12px;
+  padding: 24px;
+}
+.sp-heading {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+.sp-bullets {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  padding-left: 24px;
+}
+.sp-visual {
+  margin: 0 0 16px;
+}
+.sp-visual-diagram {
+  border: 1px dashed #d8d2c4;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  color: #6b6455;
+  background: #fff;
+}
+.sp-counter {
+  font-size: 13px;
+  color: #6b6455;
+  font-variant-numeric: tabular-nums;
+}
+.sp-controls {
+  max-width: 980px;
+  margin: 12px auto 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+.sp-controls button {
+  border: 1px solid #d8d2c4;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.sp-controls button:hover { background: #f4f0e6; }
+.sp-controls button:disabled { opacity: 0.5; cursor: not-allowed; }
+.sp-notes {
+  max-width: 980px;
+  margin: 12px auto 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #4a4438;
+  white-space: pre-wrap;
+}
+.sp-print { display: none; }
+
+/* Print handout: one slide per page, controls and speaker notes hidden,
+ * and the print-only section (built from printViews, notes always null)
+ * is the only thing that prints. */
+@media print {
+  .sp-screen, .sp-controls, .sp-notes { display: none; }
+  .sp-print { display: block; }
+  .sp-print-slide { break-after: page; }
+}
