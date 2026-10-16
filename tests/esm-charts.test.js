@@ -27,7 +27,7 @@ test('the ESM fixture matches the README-documented snippet', () => {
   const fs = require('node:fs');
   const fixtureSrc = fs.readFileSync(FIXTURE, 'utf8');
   assert.ok(
-    fixtureSrc.includes("import charts from '@jjfwang/animath/charts';"),
+    fixtureSrc.includes("import charts from '@jjfwang/teachkit/charts';"),
     'fixture uses the README default-import line',
   );
   assert.ok(

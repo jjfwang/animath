@@ -2,7 +2,7 @@
 // The package is CJS+UMD, so ESM consumers import the default export and
 // destructure. Named imports are NOT supported: the UMD factory-return shape
 // is opaque to Node's named-export detection (import { pieSectors } throws).
-import charts from '@jjfwang/animath/charts';
+import charts from '@jjfwang/teachkit/charts';
 
 const { pieSectors } = charts;
 const sectors = pieSectors(480, 320, 200, [30, 50, 20]);

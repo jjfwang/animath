@@ -1,6 +1,6 @@
-# Releasing animath
+# Releasing teachkit
 
-Release checklist for `@jjfwang/animath`. The registry publish step is an
+Release checklist for `@jjfwang/teachkit`. The registry publish step is an
 owner action (needs `npm login` on the releasing machine); everything else is
 plain git/npm. The first release has shipped: `0.2.0-beta.0`, published to
 npm on 2026-10-11 under tag `v0.2.0-beta.0`, with a matching GitHub Release
@@ -35,18 +35,18 @@ npm on 2026-10-11 under tag `v0.2.0-beta.0`, with a matching GitHub Release
    prerelease (e.g. a beta), publish under its dist-tag instead —
    `npm publish --tag beta --access public` — so `latest` keeps pointing
    at the current stable line; that is how `0.2.0-beta.0` shipped.
-7. **Verify from the registry.** `npm view @jjfwang/animath version` must
+7. **Verify from the registry.** `npm view @jjfwang/teachkit version` must
    print `X.Y.Z`; then in a fresh temp dir run
-   `npm install @jjfwang/animath` and confirm
-   `node -e "require('@jjfwang/animath')"` loads, plus an ESM smoke test of
+   `npm install @jjfwang/teachkit` and confirm
+   `node -e "require('@jjfwang/teachkit')"` loads, plus an ESM smoke test of
    the documented import pattern for the charts entry
-   (`import charts from '@jjfwang/animath/charts'`; see README
+   (`import charts from '@jjfwang/teachkit/charts'`; see README
    "Install as a library"). For a prerelease, verify the dist-tag instead:
-   `npm view @jjfwang/animath@beta version` must print the prerelease
+   `npm view @jjfwang/teachkit@beta version` must print the prerelease
    version, and consumers track the prerelease line with
-   `npm install @jjfwang/animath@beta`.
+   `npm install @jjfwang/teachkit@beta`.
 8. **Docs follow-up.** Done for the first release (2026-10-11): README
-   "Install as a library" leads with `npm install @jjfwang/animath` and
+   "Install as a library" leads with `npm install @jjfwang/teachkit` and
    names `0.2.0-beta.0` as the first published line. For later releases,
    update that section only if the install route or the named current
    line changes.

@@ -49,6 +49,11 @@ test('package.json has a name, version and exports map', () => {
   assert.ok(pkg.files.includes('player/'), 'player/ ships');
 });
 
+test('package identity is the teachkit rename (issue #749)', () => {
+  assert.equal(pkg.name, '@jjfwang/teachkit');
+  assert.equal(pkg.repository.url, 'https://github.com/jjfwang/teachkit.git');
+});
+
 test('every exports entry resolves to an existing file', () => {
   for (const [subpath, target] of Object.entries(pkg.exports)) {
     if (subpath === './package.json') continue;

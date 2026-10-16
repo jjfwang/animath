@@ -1,6 +1,6 @@
 # Singapore Syllabus Topic Map
 
-The topic taxonomy for animath's picker and generator prompts, following the
+The topic taxonomy for teachkit's picker and generator prompts, following the
 MOE syllabus bands: Primary (PSLE), Secondary (O/N-level), Junior College
 (H2). Slugs are stable identifiers used in specs' `topic` field.
 

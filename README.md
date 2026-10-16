@@ -1,10 +1,10 @@
-# animath
+# teachkit
 
 Animated problems and concepts across all school subjects, generated on demand for the
 Singapore syllabus — primary, secondary, and junior college.
 
 **The idea:** a student picks what they need (level → subject → topic, or just
-types a question). animath asks an LLM to produce an *animation spec* — a small
+types a question). teachkit asks an LLM to produce an *animation spec* — a small
 JSON document describing scenes, shapes, motion, and narration — and the
 built-in player renders it as a playable animation right in the browser. No
 video files, no render farm: the animation is data, generated fresh per need.
@@ -78,7 +78,7 @@ topic slug in a host page with one call:
 ```
 
 Copy the snippet into your page, adjusting the script paths so they point at
-your animath checkout, and optionally pass `{ baseUrl: '/samples', autoplay: true }`.
+your teachkit checkout, and optionally pass `{ baseUrl: '/samples', autoplay: true }`.
 Like the gallery, embedding fetches the sample JSON over HTTP — serve your
 site with e.g. `python3 -m http.server` rather than `file://`, which Chrome
 blocks for fetch.
@@ -119,24 +119,24 @@ reason as a tooltip plus an "Export unavailable: <reason>" status message.
 Other projects can import the generator modules and the player directly:
 
 ```sh
-npm install @jjfwang/animath
+npm install @jjfwang/teachkit
 ```
 
 The first published line is `0.2.0-beta.0` — track the beta channel with
-`npm install @jjfwang/animath@beta`, or install from source with
-`npm install github:jjfwang/animath`.
+`npm install @jjfwang/teachkit@beta`, or install from source with
+`npm install github:jjfwang/teachkit`.
 
 ```js
-const { buildPrompts } = require('@jjfwang/animath/build-prompt');
-const charts = require('@jjfwang/animath/charts');
-const { auditGeometry } = require('@jjfwang/animath/geometry');
-const { scoreSpec } = require('@jjfwang/animath/rubric');
-const { validateSpec } = require('@jjfwang/animath/player-validate');
-const { mount } = require('@jjfwang/animath/player');
-const { generateAnimation } = require('@jjfwang/animath/pipeline');
-const { unpackTopic } = require('@jjfwang/animath/unpack');
-const { generateSlides } = require('@jjfwang/animath/slides');
-const { buildSlidePrompts } = require('@jjfwang/animath/slides-prompt');
+const { buildPrompts } = require('@jjfwang/teachkit/build-prompt');
+const charts = require('@jjfwang/teachkit/charts');
+const { auditGeometry } = require('@jjfwang/teachkit/geometry');
+const { scoreSpec } = require('@jjfwang/teachkit/rubric');
+const { validateSpec } = require('@jjfwang/teachkit/player-validate');
+const { mount } = require('@jjfwang/teachkit/player');
+const { generateAnimation } = require('@jjfwang/teachkit/pipeline');
+const { unpackTopic } = require('@jjfwang/teachkit/unpack');
+const { generateSlides } = require('@jjfwang/teachkit/slides');
+const { buildSlidePrompts } = require('@jjfwang/teachkit/slides-prompt');
 ```
 
 Validate a spec before mounting it — `validateSpec` returns an array of
@@ -150,15 +150,15 @@ mount(el, spec); // el is a DOM element; mount re-validates and throws too
 
 ### Generate an animation end-to-end
 
-The headline API is `@jjfwang/animath/pipeline`: it unpacks a topic into its
+The headline API is `@jjfwang/teachkit/pipeline`: it unpacks a topic into its
 state transitions, authors a spec, and repairs it until it validates — prompt
 in, animation out. You bring the LLM as `callChat` (any OpenAI-compatible
 chat-completions endpoint); validation runs through your `validate` dep:
 
 <!-- README_PIPELINE_EXAMPLE -->
 ```js
-const { generateAnimation } = require('@jjfwang/animath/pipeline');
-const { validateSpec } = require('@jjfwang/animath/player-validate');
+const { generateAnimation } = require('@jjfwang/teachkit/pipeline');
+const { validateSpec } = require('@jjfwang/teachkit/player-validate');
 
 // Your LLM, your key: callChat posts (system, user) to an OpenAI-compatible
 // endpoint and resolves the assistant's raw text.
@@ -201,16 +201,16 @@ drift from the real API.
 the same unpack → author → repair stages, but authors a teaching slide deck
 (title, objective, hook, concept, mechanism, example, practice, exit-ticket)
 and repairs it against `validateSlides` until it validates. It is exported
-from both `@jjfwang/animath/pipeline` and the dedicated
-`@jjfwang/animath/slides` subpath (the same pipeline module, per the
+from both `@jjfwang/teachkit/pipeline` and the dedicated
+`@jjfwang/teachkit/slides` subpath (the same pipeline module, per the
 `./presenter` precedent of a dedicated subpath):
 
 ```js
-const { generateSlides } = require('@jjfwang/animath/slides');
+const { generateSlides } = require('@jjfwang/teachkit/slides');
 // callChat is the same caller-supplied LLM call as the pipeline example
 // above. deps.validateSlides is optional — when it and deps.validate are
 // both omitted, the built-in validateSlides from
-// @jjfwang/animath/player-validate is used.
+// @jjfwang/teachkit/player-validate is used.
 const deck = await generateSlides(
   { topic: 'water-cycle', topicLabel: 'Water cycle', level: 'primary', subject: 'science' },
   { callChat }
@@ -219,11 +219,11 @@ const deck = await generateSlides(
 
 `deck` resolves as a slide-deck document that passed `validateSlides` — the
 repair loop retries up to 3 times before failing. Need just the slide author
-prompts (no pipeline)? `@jjfwang/animath/slides-prompt` exports
+prompts (no pipeline)? `@jjfwang/teachkit/slides-prompt` exports
 `buildSlidePrompts`, the prompt builder `generateSlides` drives:
 
 ```js
-const { buildSlidePrompts } = require('@jjfwang/animath/slides-prompt');
+const { buildSlidePrompts } = require('@jjfwang/teachkit/slides-prompt');
 const { system, user } = buildSlidePrompts({
   topic: 'water-cycle', topicLabel: 'Water cycle',
   level: 'primary', subject: 'science'
@@ -234,7 +234,7 @@ Prefer the raw unpack layer? `unpackTopic` returns just the state transitions
 (no authoring) — `callChat` receives the `{ system, user }` prompt pair:
 
 ```js
-const { unpackTopic } = require('@jjfwang/animath/unpack');
+const { unpackTopic } = require('@jjfwang/teachkit/unpack');
 const transitions = await unpackTopic(
   'water-cycle',
   { level: 'primary', subject: 'science' },
@@ -247,7 +247,7 @@ ESM loader does not detect named exports (`import { pieSectors }` throws).
 Verified on Node 24 (issue #637):
 
 ```js
-import charts from '@jjfwang/animath/charts';
+import charts from '@jjfwang/teachkit/charts';
 const { pieSectors } = charts;
 const sectors = pieSectors(480, 320, 200, [30, 50, 20]); // three sector descriptors
 ```
