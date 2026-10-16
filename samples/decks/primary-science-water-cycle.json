@@ -1,0 +1,112 @@
+{
+  "level": "primary",
+  "slides": [
+    {
+      "bullets": [
+        "How one drop of water travels round and round"
+      ],
+      "heading": "The Water Cycle",
+      "kind": "title",
+      "notes": "Welcome everyone in and say: today we are going to follow a single drop of water on a journey that never ends, and by the end you will be able to tell its whole story."
+    },
+    {
+      "bullets": [
+        "Name the four stages of the water cycle in order",
+        "Explain what makes the water change at each stage"
+      ],
+      "heading": "What we will learn",
+      "kind": "objective",
+      "notes": "Read the two goals aloud slowly and tell the class: keep these in mind, because our exit ticket at the end will ask you to do exactly these two things."
+    },
+    {
+      "bullets": [
+        "This morning there was a puddle outside the classroom",
+        "By recess it was gone - where did the water go?"
+      ],
+      "heading": "Where did the puddle go?",
+      "kind": "hook",
+      "notes": "Ask for a show of hands and take two or three guesses without judging them yet; say: hold on to your idea, because the answer is the first stage of our cycle."
+    },
+    {
+      "bullets": [
+        "Liquid water can become an invisible gas called water vapour",
+        "Water vapour can cool back into liquid water",
+        "The same water goes round and round in a cycle"
+      ],
+      "heading": "Water changes state, it never vanishes",
+      "kind": "concept",
+      "notes": "Say this part slowly, because it is the big idea of the whole lesson: the water changes its form, liquid to gas and back again, but the amount of water stays the same."
+    },
+    {
+      "bullets": [
+        "The sun heats the sea, lakes and puddles",
+        "Warmed water rises into the air as invisible water vapour"
+      ],
+      "heading": "Evaporation: the sun lifts the water",
+      "kind": "mechanism",
+      "notes": "Point at the animation and narrate what is happening: watch the drops rise as the sun warms the sea - that rising is evaporation, and the water is still there, just invisible.",
+      "visual": "s1"
+    },
+    {
+      "bullets": [
+        "High up, the air is cold",
+        "Water vapour cools and turns back into tiny liquid drops",
+        "The tiny drops gather together as a cloud"
+      ],
+      "heading": "Condensation: vapour becomes a cloud",
+      "kind": "mechanism",
+      "notes": "Tell them to imagine breathing on a cold mirror: the mist that appears is the same trick - vapour cooling back into tiny drops, and a cloud is billions of those drops together.",
+      "visual": "s2"
+    },
+    {
+      "bullets": [
+        "The drops join and grow bigger and heavier",
+        "When they are too heavy to float, gravity pulls them down as rain"
+      ],
+      "heading": "Precipitation: water falls back down",
+      "kind": "mechanism",
+      "notes": "Ask the class what pulls the rain down, then confirm it: gravity wins once the drops grow too heavy, and scientists give falling water the special name precipitation.",
+      "visual": "s3"
+    },
+    {
+      "bullets": [
+        "Rain runs off the land into streams and rivers",
+        "Rivers carry the water back to the sea, ready to start again"
+      ],
+      "heading": "Collection: water gathers again",
+      "kind": "mechanism",
+      "notes": "Trace the river with your finger as you say: downhill all the way, back to the sea - and tomorrow the sun will lift that very same water again, because the cycle never stops.",
+      "visual": "s4"
+    },
+    {
+      "bullets": [
+        "A drop in the sea is warmed by the sun and evaporates",
+        "It cools into a cloud, falls as rain on a hill, then flows down a river back to the sea"
+      ],
+      "heading": "Worked example: trace one drop",
+      "kind": "example",
+      "notes": "Talk through the journey step by step and name each stage as the drop reaches it; say: notice the drop is never created or destroyed, it only changes form and place."
+    },
+    {
+      "bullets": [
+        "Arrange the four stage cards in the order the water travels",
+        "Careful - a classmate says the water disappears for good once it evaporates; explain to them why that is wrong"
+      ],
+      "heading": "Your turn: put the cycle in order",
+      "kind": "practice",
+      "notes": "Give pairs two minutes with the cards, then cold-call one pair and press them on the trap: if the water had really disappeared when it evaporated, where would rain come from?"
+    },
+    {
+      "bullets": [
+        "Write the four stages in order and one sentence on what drives each change",
+        "Finish this sentence and defend it: water does not disappear for good once it evaporates, because ..."
+      ],
+      "heading": "Exit ticket: show what you know",
+      "kind": "exit-ticket",
+      "notes": "Collect these before anyone leaves and say: I am looking for the word vapour in your last answer - if you can explain where the water hides after it evaporates, you have cracked today's lesson."
+    }
+  ],
+  "subject": "science",
+  "title": "The Water Cycle",
+  "topic": "water-cycle"
+}
