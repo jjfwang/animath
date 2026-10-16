@@ -45,8 +45,24 @@
     <li>script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="fractions-manifest">
+  <h1>Lesson pack: Adding fractions</h1>
+  <dl>
+    <dt>Slug</dt><dd>fractions-primary-math</dd>
+    <dt>Level</dt><dd>primary</dd>
+    <dt>Subject</dt><dd>math</dd>
+  </dl>
+  <ul class="pack-materials">
+    <li>animation</li>
+    <li>slides</li>
+    <li>worksheet</li>
+    <li>notes</li>
+    <li>exitTicket</li>
+    <li>script</li>
+  </ul>
+</header>
 <div class="demo-bar">
-  <span class="hint">Lesson pack demo: all six gold materials for the water cycle on one page — the animation, the slide deck, and the printable worksheet, exit ticket, student notes, and teacher script. The teacher sections start on a new page when printed.</span>
+  <span class="hint">Lesson pack demo: all six gold materials for the water cycle and for fractions addition on one page — for each pack, the animation, the slide deck, and the printable worksheet, exit ticket, student notes, and teacher script. The teacher sections start on a new page when printed.</span>
   <button type="button" id="toggle-teacher" class="pr-screen-only">Hide teacher keys</button>
 </div>
 <section class="pack-section" id="animation-section">
@@ -60,6 +76,18 @@
 <section class="pack-section" id="printables-section">
   <h2>Printables</h2>
   <div id="print-stage"></div>
+</section>
+<section class="pack-section" id="fractions-animation-section">
+  <h2>Fractions animation</h2>
+  <div id="fractions-anim-stage"></div>
+</section>
+<section class="pack-section" id="fractions-slides-section">
+  <h2>Fractions slides</h2>
+  <div id="fractions-slides-stage"></div>
+</section>
+<section class="pack-section" id="fractions-printables-section">
+  <h2>Fractions printables</h2>
+  <div id="fractions-print-stage"></div>
 </section>
 <div id="err"></div>
 <script src="validate.js"></script>
@@ -85,7 +113,11 @@
   }
 
   toggleBtn.addEventListener('click', function () {
-    var keys = printStage.querySelectorAll('.pr-teacher');
+    var fractionsPrintStage = document.getElementById('fractions-print-stage');
+    var keys = Array.prototype.slice.call(printStage.querySelectorAll('.pr-teacher'));
+    if (fractionsPrintStage) {
+      keys = keys.concat(Array.prototype.slice.call(fractionsPrintStage.querySelectorAll('.pr-teacher')));
+    }
     var hide = keys.length && keys[0].style.display !== 'none';
     keys.forEach(function (el) { el.style.display = hide ? 'none' : ''; });
     toggleBtn.textContent = hide ? 'Show teacher keys' : 'Hide teacher keys';
@@ -143,6 +175,80 @@
       AnimathPrintable.renderExitTicketAnswerKey(ticket) +
       AnimathPrintable.renderNotes(notes) +
       AnimathPrintable.renderScript(script);
+  }).catch(function (e) {
+    showError(e);
+  });
+})();
+</script>
+<script>
+(function () {
+  var fractionsAnimContainer = document.getElementById('fractions-anim-stage');
+  var fractionsSlidesContainer = document.getElementById('fractions-slides-stage');
+  var fractionsPrintStage = document.getElementById('fractions-print-stage');
+  var fractionsErrBox = document.getElementById('err');
+  var fractionsAnimUrl = '../samples/primary-math-fractions-addition.json';
+  var fractionsDeckUrl = '../samples/decks/primary-math-fractions-addition.json';
+  var fractionsWorksheetUrl = '../samples/worksheets/primary-math-fractions-addition.json';
+  var fractionsNotesUrl = '../samples/notes/primary-math-fractions-addition.json';
+  var fractionsTicketUrl = '../samples/tickets/primary-math-fractions-addition.json';
+  var fractionsScriptUrl = '../samples/scripts/primary-math-fractions-addition.json';
+
+  function showError(msg) {
+    fractionsErrBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
+  }
+
+  Promise.all([
+    fetch(fractionsAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + fractionsAnimUrl);
+      return r.json();
+    }),
+    fetch(fractionsDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + fractionsDeckUrl);
+      return r.json();
+    }),
+    fetch(fractionsWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + fractionsWorksheetUrl);
+      return r.json();
+    }),
+    fetch(fractionsNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + fractionsNotesUrl);
+      return r.json();
+    }),
+    fetch(fractionsTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + fractionsTicketUrl);
+      return r.json();
+    }),
+    fetch(fractionsScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + fractionsScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var fractionsAnim = pack[0];
+    var fractionsDeck = pack[1];
+    var fractionsWorksheet = pack[2];
+    var fractionsNotes = pack[3];
+    var fractionsTicket = pack[4];
+    var fractionsScript = pack[5];
+    var problems = AnimathValidate.validateSpec(fractionsAnim)
+      .concat(AnimathValidate.validateSlides(fractionsDeck))
+      .concat(AnimathValidate.validateWorksheet(fractionsWorksheet))
+      .concat(AnimathValidate.validateExitTicket(fractionsTicket))
+      .concat(AnimathValidate.validateNotes(fractionsNotes))
+      .concat(AnimathValidate.validateScript(fractionsScript));
+    if (problems.length) {
+      showError('Lesson pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    var player = AnimathPlayer.mount(fractionsAnimContainer, fractionsAnim);
+    player.play();
+    AnimathSlidesPresenter.attachPresenter(document, fractionsSlidesContainer, fractionsDeck, { animSpec: fractionsAnim });
+    fractionsPrintStage.innerHTML =
+      AnimathPrintable.renderWorksheet(fractionsWorksheet) +
+      AnimathPrintable.renderWorksheetAnswerKey(fractionsWorksheet) +
+      AnimathPrintable.renderExitTicket(fractionsTicket) +
+      AnimathPrintable.renderExitTicketAnswerKey(fractionsTicket) +
+      AnimathPrintable.renderNotes(fractionsNotes) +
+      AnimathPrintable.renderScript(fractionsScript);
   }).catch(function (e) {
     showError(e);
   });

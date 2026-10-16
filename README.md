@@ -134,9 +134,10 @@ The exit-ticket pair works the same way (`renderExitTicket` /
 controls are hidden and the teacher key starts on a fresh page. Every
 render validates the spec first and throws on errors.
 `player/printable-demo.html` shows both gold samples rendered end to end.
-`player/pack-demo.html` shows a full lesson pack on one page — all six
-gold materials for the water cycle (animation, slides, worksheet, notes,
-exit ticket, and script) under a pack manifest header.
+`player/pack-demo.html` shows full lesson packs on one page — all six
+gold materials for the water cycle and for fractions addition
+(animation, slides, worksheet, notes, exit ticket, and script), each
+under its own pack manifest header.
 
 The same module renders student notes and a teacher script from their
 specs (see `SPEC.md` "Student notes spec" / "Teacher script spec"):
