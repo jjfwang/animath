@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>animath printable worksheet + exit ticket demo</title>
+<title>animath printable worksheet + exit ticket + notes + script demo</title>
 <link rel="stylesheet" href="player.css">
 <link rel="stylesheet" href="printable.css">
 <style>
@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="demo-bar">
-  <span class="hint">Printable demo: student sheets and teacher answer keys for the water-cycle worksheet and exit ticket. The teacher sections start on a new page when printed.</span>
+  <span class="hint">Printable demo: student sheets and teacher answer keys for the water-cycle worksheet and exit ticket, plus student notes and the teacher script. The teacher sections start on a new page when printed.</span>
   <button type="button" id="toggle-teacher" class="pr-screen-only">Hide teacher keys</button>
 </div>
 <div id="stage"></div>
@@ -30,6 +30,8 @@
   var toggleBtn = document.getElementById('toggle-teacher');
   var worksheetUrl = '../samples/worksheets/primary-science-water-cycle.json';
   var ticketUrl = '../samples/tickets/primary-science-water-cycle.json';
+  var notesUrl = '../samples/notes/primary-science-water-cycle.json';
+  var scriptUrl = '../samples/scripts/primary-science-water-cycle.json';
 
   function showError(msg) {
     errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
@@ -50,12 +52,24 @@
     fetch(ticketUrl).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + ticketUrl);
       return r.json();
+    }),
+    fetch(notesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + notesUrl);
+      return r.json();
+    }),
+    fetch(scriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + scriptUrl);
+      return r.json();
     })
   ]).then(function (pair) {
     var worksheet = pair[0];
     var ticket = pair[1];
+    var notes = pair[2];
+    var script = pair[3];
     var problems = AnimathValidate.validateWorksheet(worksheet)
-      .concat(AnimathValidate.validateExitTicket(ticket));
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
     if (problems.length) {
       showError('Sample failed validation:\n' + problems.join('\n'));
       return;
@@ -64,7 +78,9 @@
       AnimathPrintable.renderWorksheet(worksheet) +
       AnimathPrintable.renderWorksheetAnswerKey(worksheet) +
       AnimathPrintable.renderExitTicket(ticket) +
-      AnimathPrintable.renderExitTicketAnswerKey(ticket);
+      AnimathPrintable.renderExitTicketAnswerKey(ticket) +
+      AnimathPrintable.renderNotes(notes) +
+      AnimathPrintable.renderScript(script);
   }).catch(function (e) {
     showError(e);
   });

@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- Printable student-notes and teacher-script renderer (`player/printable.js`,
+  subpath `@jjfwang/teachkit/printable`): `renderNotes` prints a notes
+  spec (objectives, definitions as term/meaning pairs, mechanism steps
+  as an ordered list, worked example, and the trap section) and
+  `renderScript` prints a teacher script (a total-minutes line summed
+  from the segments, then each segment with its minutes, say text, and
+  cue, questions, and watch-for note only when present). Every render
+  validates first via `validateNotes` / `validateScript` and throws on
+  an invalid spec; all spec text is HTML-escaped. Ships with
+  `pr-` styles in `player/printable.css`, declarations in
+  `player/printable.d.ts`, and `player/printable-demo.html` rendering
+  the water-cycle notes and script gold samples (issue #766).
+
 - Student notes and teacher script prompt builders (`generator/build_notes_prompt.js`
   `buildNotesPrompts` and `generator/build_script_prompt.js`
   `buildScriptPrompts`, each with a hand-authored `.d.ts` sibling):
