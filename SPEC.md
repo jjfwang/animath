@@ -336,6 +336,63 @@ Total timing: the `minutes` values of all segments must sum to
 5..120 minutes (inclusive). The total is only evaluated when every
 segment has a positive numeric `minutes` value.
 
+## Lesson pack spec
+
+A lesson pack is the bundle `generateLessonPack` in
+`generator/pipeline.js` returns for one topic: all six teaching
+materials for the topic, authored together so they agree with each
+other. `generateLessonPackForSyllabus` is the syllabus-keyed entry
+point to the same contract (see Cache below).
+
+Pack shape: an object with exactly the keys `manifest`, `animation`,
+`slides`, `worksheet`, `notes`, `exitTicket`, `script`. Each material
+value is a spec that validates clean against its own section of this
+document: `animation` via `validateSpec`, `slides` via
+`validateSlides`, `worksheet` via `validateWorksheet`, `notes` via
+`validateNotes`, `exitTicket` via `validateExitTicket`, and `script`
+via `validateScript`.
+
+Manifest shape: `manifest` has exactly the keys `slug`, `topic`,
+`level`, `subject`, `version`, `materials`.
+
+- `slug` is derived deterministically from the call's `topic`,
+  `level`, and `subject` options, in that order. Each part is
+  trimmed, lowercased, every run of non-alphanumeric characters is
+  collapsed to a single hyphen, and edge hyphens are stripped; empty
+  parts are dropped and the remaining parts are joined with hyphens.
+  If every part is empty the slug is `untitled`.
+- `topic`, `level`, and `subject` echo the resolved call options.
+- `version` is the generator (package) version in Node, and the
+  string `unknown` in the browser, where no package version is
+  available.
+- `materials` is exactly the six material keys in pack order:
+  `animation`, `slides`, `worksheet`, `notes`, `exitTicket`,
+  `script`.
+
+Shared unpack: one shared unpack stage authors all six materials, so
+the whole pack shares one set of transitions (with the topic's
+misconceptions attached), one worked example, and one misconception
+set. Materials are authored sequentially in pack order.
+
+Failure semantics: a missing `deps.callChat`, or a missing validator
+for any material, rejects before any authoring happens. Each material
+is authored through its builder, validator, and repair loop (repair
+cap `opts.maxRepairs`, default 3); a material that exhausts its
+repair cap rejects the whole pack, and the rejection error carries
+`err.material` naming the failed material key and `err.problems`
+holding that material's validator problems.
+
+Cache: packs are cached in memory by manifest slug. A repeat call
+whose slug is already cached resolves the cached pack object with
+zero further LLM calls, unless `opts.force` is `true`, which
+regenerates the pack and replaces the cached entry. The exported
+`clearPackCache` empties the cache. `generateLessonPackForSyllabus`
+resolves its syllabus id first — an unresolvable id rejects before
+any LLM call — then merges the resolved `topic`, `topicLabel`,
+`level`, and `subject` under any explicit non-undefined options, and
+delegates to `generateLessonPack`, so a syllabus-keyed call and the
+equivalent direct call share one cache entry.
+
 ## Validation
 
 `player/validate.js` is the reference validator. `node --test "tests/*.test.js"`

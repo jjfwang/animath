@@ -135,6 +135,15 @@ version section when the release ships.
   `Animath*` browser globals are unchanged. npm publish of the new name
   and deprecation of the old name happen at the next release cut.
 
+### Documentation
+
+- SPEC.md gains a Lesson pack spec section pinning the shipped
+  `generateLessonPack` / `generateLessonPackForSyllabus` contract:
+  pack and manifest shape, the deterministic slug derivation and
+  version rule, shared-unpack consistency, failure semantics
+  (`err.material` / `err.problems`), and the in-memory slug cache
+  semantics (issue #774).
+
 ## [0.2.0-beta.1] - 2026-10-16
 
 Second registry beta of the animath library (`@jjfwang/animath`), published
