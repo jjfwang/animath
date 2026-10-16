@@ -114,6 +114,27 @@ keyboard-accessible. On browsers without `MediaRecorder` (checked by `supportChe
 fail-closed with human-readable reasons), the button is disabled and shows the
 reason as a tooltip plus an "Export unavailable: <reason>" status message.
 
+## Printable worksheets and exit tickets
+
+`player/printable.js` renders a worksheet or exit-ticket spec (see
+`SPEC.md`) to a printable HTML string — a student sheet plus a separate
+teacher answer key, so teacher content can never leak onto the student
+page:
+
+```js
+const { renderWorksheet, renderWorksheetAnswerKey, renderExitTicket, renderExitTicketAnswerKey } = require('@jjfwang/teachkit/printable');
+
+const studentHtml = renderWorksheet(worksheetSpec); // prompts and choices only
+const teacherHtml = renderWorksheetAnswerKey(worksheetSpec); // answers, explanations, misconceptions
+```
+
+The exit-ticket pair works the same way (`renderExitTicket` /
+`renderExitTicketAnswerKey`, with per-answer feedback in the key). Link
+`player/printable.css` for the sheet styling — in print, screen-only
+controls are hidden and the teacher key starts on a fresh page. Every
+render validates the spec first and throws on errors.
+`player/printable-demo.html` shows both gold samples rendered end to end.
+
 ## Install as a library
 
 Other projects can import the generator modules and the player directly:

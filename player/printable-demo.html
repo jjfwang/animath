@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>animath printable worksheet + exit ticket demo</title>
+<link rel="stylesheet" href="player.css">
+<link rel="stylesheet" href="printable.css">
+<style>
+  body { margin: 0; padding: 16px; background: #f6f3ec; }
+  .demo-bar { max-width: 820px; margin: 0 auto 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .demo-bar .hint { font-size: 13px; color: #6b6455; }
+  .demo-bar button { border: 1px solid #d8d2c4; background: #fff; border-radius: 8px; padding: 6px 12px; font-size: 15px; cursor: pointer; }
+  .demo-bar button:hover { background: #f4f0e6; }
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span class="hint">Printable demo: student sheets and teacher answer keys for the water-cycle worksheet and exit ticket. The teacher sections start on a new page when printed.</span>
+  <button type="button" id="toggle-teacher" class="pr-screen-only">Hide teacher keys</button>
+</div>
+<div id="stage"></div>
+<div id="err"></div>
+<script src="validate.js"></script>
+<script src="printable.js"></script>
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  var errBox = document.getElementById('err');
+  var toggleBtn = document.getElementById('toggle-teacher');
+  var worksheetUrl = '../samples/worksheets/primary-science-water-cycle.json';
+  var ticketUrl = '../samples/tickets/primary-science-water-cycle.json';
+
+  function showError(msg) {
+    errBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
+  }
+
+  toggleBtn.addEventListener('click', function () {
+    var keys = stage.querySelectorAll('.pr-teacher');
+    var hide = keys.length && keys[0].style.display !== 'none';
+    keys.forEach(function (el) { el.style.display = hide ? 'none' : ''; });
+    toggleBtn.textContent = hide ? 'Show teacher keys' : 'Hide teacher keys';
+  });
+
+  Promise.all([
+    fetch(worksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + worksheetUrl);
+      return r.json();
+    }),
+    fetch(ticketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + ticketUrl);
+      return r.json();
+    })
+  ]).then(function (pair) {
+    var worksheet = pair[0];
+    var ticket = pair[1];
+    var problems = AnimathValidate.validateWorksheet(worksheet)
+      .concat(AnimathValidate.validateExitTicket(ticket));
+    if (problems.length) {
+      showError('Sample failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    stage.innerHTML =
+      AnimathPrintable.renderWorksheet(worksheet) +
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet) +
+      AnimathPrintable.renderExitTicket(ticket) +
+      AnimathPrintable.renderExitTicketAnswerKey(ticket);
+  }).catch(function (e) {
+    showError(e);
+  });
+})();
+</script>
+</body>
+</html>
