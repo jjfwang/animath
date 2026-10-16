@@ -12,6 +12,8 @@ version section when the release ships.
 
 ### Added
 
+- Package test scripts: `npm test` and `npm run test:coverage` now wrap the documented test-gate commands (`node --test "tests/*.test.js"` and the same command with `--experimental-test-coverage`), so consumers no longer need to memorize the raw commands from CONTRIBUTING.md (issue #738).
+
 - Package exports map gains the `@jjfwang/animath/audit-samples` require
   subpath (`auditSampleFile` / `auditAllSamples`, from
   `generator/tooling/audit-samples.js`): the module already shipped in the

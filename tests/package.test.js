@@ -60,6 +60,11 @@ test('engines floor matches the llm-client Node 18+ requirement', () => {
   assert.ok(dts.includes('Node 18+'), 'llm_client.d.ts header states Node 18+');
 });
 
+test('package.json test scripts wrap the documented test-gate commands', () => {
+  assert.equal(pkg.scripts.test, 'node --test "tests/*.test.js"');
+  assert.equal(pkg.scripts['test:coverage'], 'node --test --experimental-test-coverage "tests/*.test.js"');
+});
+
 test('every JS export loads in Node and exposes its API', () => {
   for (const [subpath, apiNames] of Object.entries(EXPECTED_APIS)) {
     const target = pkg.exports[subpath];
