@@ -12,6 +12,20 @@ version section when the release ships.
 
 ### Added
 
+- End-to-end worksheet and exit-ticket generation in the pipeline
+  (`generator/pipeline.js`): `generateWorksheet` and `generateExitTicket`
+  run the same unpack -> author -> repair stages as `generateSlides`,
+  authoring via `buildWorksheetPrompts` / `buildExitTicketPrompts` and
+  repairing against `validateWorksheet` / `validateExitTicket`
+  (`deps.validateWorksheet` / `deps.validateExitTicket`, else
+  `deps.validate`, else the built-in `player/validate.js` validators).
+  The exports map gains four subpaths: `@jjfwang/teachkit/worksheet` and
+  `@jjfwang/teachkit/exit-ticket` (the pipeline module under
+  material-named subpaths) and `@jjfwang/teachkit/worksheet-prompt` and
+  `@jjfwang/teachkit/exit-ticket-prompt` (the prompt builders);
+  `@jjfwang/teachkit/pipeline` now also exposes `generateWorksheet` and
+  `generateExitTicket` (issue #760).
+
 - Printable worksheet and exit-ticket renderer (`player/printable.js`,
   subpath `@jjfwang/teachkit/printable`): `renderWorksheet` /
   `renderExitTicket` produce student sheets (prompts and choice texts

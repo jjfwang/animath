@@ -30,6 +30,10 @@
     "./pipeline": "./generator/pipeline.js",
     "./slides": "./generator/pipeline.js",
     "./slides-prompt": "./generator/build_slides_prompt.js",
+    "./worksheet-prompt": "./generator/build_worksheet_prompt.js",
+    "./exit-ticket-prompt": "./generator/build_exit_ticket_prompt.js",
+    "./worksheet": "./generator/pipeline.js",
+    "./exit-ticket": "./generator/pipeline.js",
     "./unpack": "./generator/unpack.js"
   },
   "files": [
