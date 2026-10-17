@@ -12,6 +12,16 @@ version section when the release ships.
 
 ### Added
 
+- Lesson-pack generation mode in the web app (`web/index.html`): a
+  mode selector next to the Generate button (animation stays the
+  default) runs the pipeline's `generateLessonPack` for the picked
+  level / subject / topic with the per-material validators, mounts and
+  plays the pack's animation, shows a pack manifest naming the slug,
+  topic, level, subject, and all six material keys, and offers the
+  slides, worksheet, notes, exit ticket, and script as
+  `<slug>-<key>.json` downloads of the exact generated material
+  objects (issue #780).
+
 - Fractions lesson pack in the pack demo (`player/pack-demo.html`): the
   primary-math fractions-addition gold pack now appears on the same
   demo page as the water-cycle pack, with its own manifest header
