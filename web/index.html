@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>teachkit — animated explanations for the Singapore syllabus</title>
 <link rel="stylesheet" href="../player/player.css">
+<link rel="stylesheet" href="../player/presenter.css">
+<link rel="stylesheet" href="../player/printable.css">
 <!-- KaTeX (pinned) for latex shapes; the player falls back to plain text when
      the CDN is unreachable (file:// or offline). -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
@@ -131,6 +133,9 @@
     <button id="packdl-exitTicket" type="button">Download exit ticket JSON</button>
     <button id="packdl-script" type="button">Download script JSON</button>
   </div>
+  <button id="toggle-teacher" type="button" class="pr-screen-only" style="display:none">Show teacher keys</button>
+  <div id="packslides"></div>
+  <div id="packprint"></div>
   <div class="rubric" id="rubricscore" role="region" aria-label="Teacher rubric score"
        tabindex="0" style="display:none"></div>
   <div class="geom" id="geomwarn" role="status" aria-label="Geometry audit advisory"
@@ -167,6 +172,12 @@
 <script src="../generator/geometry.js"></script>
 <script src="../player/validate.js"></script>
 <script src="../player/player.js"></script>
+<!-- Lesson-pack in-app rendering (#782): slide presenter + printable
+     renderers for the generated pack materials. printable.js validates
+     internally via the AnimathValidate globals, so validate.js (above)
+     must load first. -->
+<script src="../player/presenter.js"></script>
+<script src="../player/printable.js"></script>
 <!-- Export WebM (#506): record the generated animation as a WebM video.
      Same globals as player/demo.html; export-ui.js carries its own
      MediaRecorder feature detection (disabled control with a reason when
@@ -195,6 +206,9 @@
   var geomEl = document.getElementById('geomwarn');
   var packManifestEl = document.getElementById('packmanifest');
   var packDownloadsEl = document.getElementById('packdownloads');
+  var packSlidesEl = document.getElementById('packslides');
+  var packPrintEl = document.getElementById('packprint');
+  var toggleTeacherBtn = document.getElementById('toggle-teacher');
 
   // restore saved LLM settings
   try {
@@ -356,6 +370,10 @@
     packManifestEl.innerHTML = '';
     packManifestEl.style.display = 'none';
     packDownloadsEl.style.display = 'none';
+    packSlidesEl.innerHTML = '';
+    packPrintEl.innerHTML = '';
+    toggleTeacherBtn.style.display = 'none';
+    toggleTeacherBtn.textContent = 'Show teacher keys';
     if (exportUI) exportUI.refresh();
     var key = keyEl.value.trim();
     if (!key) { setStatus('Paste your API key first.', true); return; }
@@ -433,6 +451,39 @@
       packDownloadsEl.style.display = 'flex';
     }
 
+    // Lesson-pack in-app rendering (#782): render the pack's slide deck
+    // with the presenter and its four printable materials with the
+    // printable renderers, in-page — the JSON downloads stay available.
+    // Validation-before-render is inherent: generateLessonPack only
+    // resolves a pack whose materials all validated, and each printable
+    // render* asserts validity itself and throws on an invalid spec; a
+    // throw here routes through the status/problems error path instead
+    // of breaking the page. The teacher answer keys carry the pr-teacher
+    // class from the renderer root and start hidden (display none), so
+    // no answer-key content appears in the default student view; the
+    // toggle below reveals them.
+    function renderPackMaterials(pack) {
+      try {
+        if (window.AnimathSlidesPresenter && window.AnimathSlidesPresenter.attachPresenter) {
+          window.AnimathSlidesPresenter.attachPresenter(document, packSlidesEl, pack.slides, { animSpec: pack.animation });
+        }
+        packPrintEl.innerHTML =
+          AnimathPrintable.renderWorksheet(pack.worksheet) +
+          AnimathPrintable.renderWorksheetAnswerKey(pack.worksheet) +
+          AnimathPrintable.renderExitTicket(pack.exitTicket) +
+          AnimathPrintable.renderExitTicketAnswerKey(pack.exitTicket) +
+          AnimathPrintable.renderNotes(pack.notes) +
+          AnimathPrintable.renderScript(pack.script);
+        var keys = packPrintEl.querySelectorAll('.pr-teacher');
+        for (var i = 0; i < keys.length; i++) keys[i].style.display = 'none';
+        toggleTeacherBtn.textContent = 'Show teacher keys';
+        toggleTeacherBtn.style.display = '';
+      } catch (e) {
+        setStatus('Lesson pack materials could not be rendered: ' + e.message, true);
+        showProblems([e.message]);
+      }
+    }
+
     // Lesson-pack mode (#780): when the pack radio is selected, generate the
     // whole pack through the pipeline's direct entry (not the syllabus-keyed
     // one, whose bare-slug resolution can be ambiguous and would override
@@ -490,6 +541,7 @@
             pack.animation, window.AnimathGeometry.auditGeometry(pack.animation)));
         }
         renderPackManifest(pack);
+        renderPackMaterials(pack);
         setStatus('Playing: ' + pack.animation.title);
         stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }).catch(function (e) {
@@ -569,6 +621,16 @@
     }).then(function () {
       genBtn.disabled = false;
     });
+  });
+
+  // Teacher-keys toggle (#782): show/hide every .pr-teacher element in
+  // the pack print stage — the pack-demo.html pattern. Keys start hidden
+  // (renderPackMaterials sets display none), so the first click reveals.
+  toggleTeacherBtn.addEventListener('click', function () {
+    var keys = packPrintEl.querySelectorAll('.pr-teacher');
+    var hide = keys.length && keys[0].style.display !== 'none';
+    for (var i = 0; i < keys.length; i++) keys[i].style.display = hide ? 'none' : '';
+    toggleTeacherBtn.textContent = hide ? 'Show teacher keys' : 'Hide teacher keys';
   });
 
   document.getElementById('copybtn').addEventListener('click', function () {

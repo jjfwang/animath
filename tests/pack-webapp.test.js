@@ -163,6 +163,124 @@ test('generation start clears pack state and failures route through the status/p
     'the pack catch must leave no pack behind');
 });
 
+const PLAYER_CSS_TAG = '<link rel="stylesheet" href="../player/player.css">';
+const PRESENTER_CSS_TAG = '<link rel="stylesheet" href="../player/presenter.css">';
+const PRINTABLE_CSS_TAG = '<link rel="stylesheet" href="../player/printable.css">';
+const PLAYER_JS_TAG = '<script src="../player/player.js"></script>';
+const PRESENTER_JS_TAG = '<script src="../player/presenter.js"></script>';
+const PRINTABLE_JS_TAG = '<script src="../player/printable.js"></script>';
+const EXPORT_JS_TAG = '<script src="../player/export-frames.js"></script>';
+
+const renderFnPos = html.indexOf('function renderPackMaterials(pack) {');
+const renderFn = renderFnPos >= 0 ? html.slice(renderFnPos, renderFnPos + 2500) : '';
+
+test('presenter and printable stylesheets load after player.css, presenter before printable (#782)', () => {
+  const playerCssPos = html.indexOf(PLAYER_CSS_TAG);
+  const presenterCssPos = html.indexOf(PRESENTER_CSS_TAG);
+  const printableCssPos = html.indexOf(PRINTABLE_CSS_TAG);
+  assert.ok(playerCssPos >= 0, 'the player.css link must be present');
+  assert.ok(presenterCssPos > playerCssPos,
+    'presenter.css must load after player.css (pack-demo link order)');
+  assert.ok(printableCssPos > presenterCssPos,
+    'printable.css must load after presenter.css (pack-demo link order)');
+});
+
+test('presenter and printable scripts load after player.js and before the export scripts (#782)', () => {
+  const playerJsPos = html.indexOf(PLAYER_JS_TAG);
+  const presenterJsPos = html.indexOf(PRESENTER_JS_TAG);
+  const printableJsPos = html.indexOf(PRINTABLE_JS_TAG);
+  const exportJsPos = html.indexOf(EXPORT_JS_TAG);
+  assert.ok(playerJsPos >= 0, 'the player.js tag must be present');
+  assert.ok(presenterJsPos > playerJsPos,
+    'presenter.js must load after player.js');
+  assert.ok(printableJsPos > presenterJsPos,
+    'printable.js must load after presenter.js');
+  assert.ok(exportJsPos > printableJsPos,
+    'presenter.js and printable.js must load before the export scripts');
+});
+
+test('pack render containers and the teacher toggle exist in the pack UI area (#782)', () => {
+  assert.ok(html.includes('id="packslides"'),
+    'web/index.html must contain the #packslides container for the deck');
+  assert.ok(html.includes('id="packprint"'),
+    'web/index.html must contain the #packprint stage for the printable materials');
+  assert.ok(html.includes('id="toggle-teacher"'),
+    'web/index.html must contain the #toggle-teacher button');
+  assert.ok(html.includes('class="pr-screen-only"'),
+    'the teacher toggle must carry the pr-screen-only class (pack-demo style)');
+  const downloadsPos = html.indexOf('id="packdownloads"');
+  assert.ok(html.indexOf('id="packslides"') > downloadsPos &&
+            html.indexOf('id="packprint"') > downloadsPos &&
+            html.indexOf('id="toggle-teacher"') > downloadsPos,
+    'the render containers and toggle must sit in the pack UI area near #packmanifest / #packdownloads');
+});
+
+test('renderPackMaterials runs in the pack success path right after renderPackManifest (#782)', () => {
+  assert.ok(renderFnPos >= 0, 'web/index.html must define renderPackMaterials(pack)');
+  const manifestCallPos = packCall.indexOf('renderPackManifest(pack);');
+  const materialsCallPos = packCall.indexOf('renderPackMaterials(pack);');
+  assert.ok(manifestCallPos >= 0, 'the pack success path must call renderPackManifest(pack)');
+  assert.ok(materialsCallPos > manifestCallPos,
+    'the pack success path must call renderPackMaterials(pack) after renderPackManifest(pack)');
+});
+
+test('renderPackMaterials attaches the deck presenter with the pack animation (#782)', () => {
+  assert.ok(renderFn.includes('AnimathSlidesPresenter.attachPresenter(document, packSlidesEl, pack.slides, { animSpec: pack.animation })'),
+    'the deck must render via attachPresenter(document, container, pack.slides, { animSpec: pack.animation })');
+});
+
+test('renderPackMaterials renders all six printable outputs, student renders first (#782)', () => {
+  const calls = [
+    'AnimathPrintable.renderWorksheet(pack.worksheet)',
+    'AnimathPrintable.renderWorksheetAnswerKey(pack.worksheet)',
+    'AnimathPrintable.renderExitTicket(pack.exitTicket)',
+    'AnimathPrintable.renderExitTicketAnswerKey(pack.exitTicket)',
+    'AnimathPrintable.renderNotes(pack.notes)',
+    'AnimathPrintable.renderScript(pack.script)'
+  ];
+  let prev = -1;
+  for (const call of calls) {
+    const pos = renderFn.indexOf(call);
+    assert.ok(pos > prev,
+      'the print stage must concatenate the printable renders in order: ' + call);
+    prev = pos;
+  }
+  assert.ok(renderFn.includes('packPrintEl.innerHTML ='),
+    'the six renders must land in the print stage innerHTML');
+});
+
+test('teacher keys are hidden by default and the toggle flips .pr-teacher display (#782)', () => {
+  assert.ok(renderFn.includes("packPrintEl.querySelectorAll('.pr-teacher')"),
+    'renderPackMaterials must address the .pr-teacher elements in the print stage');
+  assert.ok(renderFn.includes("keys[i].style.display = 'none';"),
+    'answer keys must be display none after render — no key content in the default student view');
+  assert.ok(renderFn.includes("toggleTeacherBtn.textContent = 'Show teacher keys';"),
+    'the toggle must start in the Show teacher keys state');
+  const togglePos = html.indexOf("toggleTeacherBtn.addEventListener('click'");
+  assert.ok(togglePos >= 0, 'the toggle button must carry a click handler');
+  const toggle = html.slice(togglePos, togglePos + 700);
+  assert.ok(toggle.includes("packPrintEl.querySelectorAll('.pr-teacher')"),
+    'the toggle must query the .pr-teacher elements inside the print stage');
+  assert.ok(toggle.includes("keys[i].style.display = hide ? 'none' : '';"),
+    'the toggle must flip .pr-teacher display between none and empty');
+  assert.ok(toggle.includes("hide ? 'Show teacher keys' : 'Hide teacher keys'"),
+    'the toggle must flip its label between Show and Hide teacher keys');
+});
+
+test('rendering failures route through the status/problems error path (#782)', () => {
+  assert.ok(renderFn.includes('try {'),
+    'renderPackMaterials must guard the rendering in a try block');
+  assert.ok(renderFn.includes('showProblems([e.message]);'),
+    'a render throw must render through showProblems');
+  assert.ok(renderFn.includes("setStatus('Lesson pack materials could not be rendered: ' + e.message, true);"),
+    'a render throw must report through setStatus as an error');
+});
+
+test('JSON downloads remain alongside the in-page rendering (#782)', () => {
+  assert.ok(html.includes("var PACK_DOWNLOAD_KEYS = ['slides', 'worksheet', 'notes', 'exitTicket', 'script'];"),
+    'PACK_DOWNLOAD_KEYS must be unchanged — downloads remain');
+});
+
 test('README and CHANGELOG document the pack mode', () => {
   assert.ok(readme.includes('lesson-pack mode') && readme.includes('web/index.html'),
     'README Quickstart prose must name lesson-pack mode in web/index.html');
@@ -170,4 +288,6 @@ test('README and CHANGELOG document the pack mode', () => {
     changelog.indexOf('\n## [', changelog.indexOf('## [Unreleased]') + 1));
   assert.ok(unreleased.includes('Lesson-pack generation mode in the web app'),
     'CHANGELOG [Unreleased] Added must carry the pack-mode bullet');
+  assert.ok(unreleased.includes('In-app lesson-pack rendering in the web app'),
+    'CHANGELOG [Unreleased] Added must carry the #782 in-app rendering bullet');
 });
