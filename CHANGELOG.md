@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Secondary-chemistry chem-mole lesson pack in the pack demo (`player/pack-demo.html`): the
+  secondary science chem-mole gold pack now appears on the same
+  demo page as the water-cycle, fractions, waves, complex, trigonometry, thermal, photosynthesis and erosion packs, with its own
+  manifest header (slug `chem-mole-secondary-science`, level
+  secondary, subject science), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all nine packs' print stages (issue #822).
+
 - Gold lesson pack for a secondary-chemistry topic (`samples/decks/secondary-science-chem-mole.json`,
   `samples/worksheets/secondary-science-chem-mole.json`,
   `samples/tickets/secondary-science-chem-mole.json`,

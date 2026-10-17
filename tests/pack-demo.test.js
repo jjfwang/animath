@@ -106,7 +106,7 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('.pr-teacher'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
     assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
   });
 
   test('complex manifest header names the slug, level, subject and six material keys', () => {
@@ -184,7 +184,7 @@ describe('pack demo page', () => {
     assert.ok(trigBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(trigBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -233,7 +233,7 @@ describe('pack demo page', () => {
     assert.ok(thermalBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(thermalBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -281,7 +281,7 @@ describe('pack demo page', () => {
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -329,7 +329,55 @@ describe('pack demo page', () => {
     assert.ok(erosionBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(erosionBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
+  });
+
+  test('chem-mole manifest header names the slug, level, subject and six material keys', () => {
+    const start = demo.indexOf('id="chem-mole-manifest"');
+    assert.ok(start > -1);
+    const manifest = demo.slice(start, demo.indexOf('</header>', start));
+    assert.ok(manifest.includes('id="chem-mole-manifest"'));
+    assert.ok(manifest.includes('<code>chem-mole-secondary-science</code>'));
+    assert.ok(manifest.includes('level secondary'));
+    assert.ok(manifest.includes('subject science'));
+    assert.ok(manifest.includes('<code>animation</code>'));
+    assert.ok(manifest.includes('<code>slides</code>'));
+    assert.ok(manifest.includes('<code>worksheet</code>'));
+    assert.ok(manifest.includes('<code>exitTicket</code>'));
+    assert.ok(manifest.includes('exit ticket'));
+    assert.ok(manifest.includes('<code>notes</code>'));
+    assert.ok(manifest.includes('student notes'));
+    assert.ok(manifest.includes('<code>script</code>'));
+    assert.ok(manifest.includes('teacher script'));
+  });
+
+  test('chem-mole pack sections and all six sample paths are present', () => {
+    assert.ok(demo.includes('id="chem-mole-player"'));
+    assert.ok(demo.includes('id="chem-mole-presenter"'));
+    assert.ok(demo.includes('id="chem-mole-print"'));
+    assert.ok(demo.includes('../samples/secondary-science-chem-mole.json'));
+    assert.ok(demo.includes('../samples/decks/secondary-science-chem-mole.json'));
+    assert.ok(demo.includes('../samples/worksheets/secondary-science-chem-mole.json'));
+    assert.ok(demo.includes('../samples/tickets/secondary-science-chem-mole.json'));
+    assert.ok(demo.includes('../samples/notes/secondary-science-chem-mole.json'));
+    assert.ok(demo.includes('../samples/scripts/secondary-science-chem-mole.json'));
+  });
+
+  test('chem-mole block validates all six materials before rendering and renders both answer keys', () => {
+    const chemMoleStart = demo.indexOf('chemMoleAnimUrl');
+    assert.ok(chemMoleStart > -1);
+    const chemMoleBlock = demo.slice(chemMoleStart);
+    assert.ok(chemMoleBlock.indexOf('AnimathValidate.validateSpec') < chemMoleBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(chemMoleBlock.indexOf('AnimathValidate.validateSlides') < chemMoleBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(chemMoleBlock.indexOf('AnimathValidate.validateWorksheet') < chemMoleBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(chemMoleBlock.indexOf('AnimathValidate.validateExitTicket') < chemMoleBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(chemMoleBlock.indexOf('AnimathValidate.validateNotes') < chemMoleBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(chemMoleBlock.indexOf('AnimathValidate.validateScript') < chemMoleBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    assert.ok(chemMoleBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
+    assert.ok(chemMoleBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
+    assert.ok(demo.includes("document.querySelector('#chem-mole-print .pr-stage') || document.querySelector('#chem-mole-print')"));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
