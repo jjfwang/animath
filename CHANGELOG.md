@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- Secondary A-Math binomial theorem lesson pack in the pack demo
+  (`player/pack-demo.html`): the secondary A-Math binomial theorem
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six secondary-a-binomial materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  binomial-manifest header (slug
+  `a-binomial-secondary-math`, level secondary, subject
+  math), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all twelve packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #836).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-binomial.json`,
   `samples/worksheets/secondary-a-binomial.json`,
   `samples/tickets/secondary-a-binomial.json`,

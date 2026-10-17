@@ -217,6 +217,23 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="binomial-manifest">
+  <h1>Lesson pack: A-Math binomial theorem: Pascal coefficients, the general term and the freshman's dream trap</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>a-binomial-secondary-math</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>math</dd>
+  </dl>
+  <p>level secondary · subject math</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -349,6 +366,18 @@
   <h2>Integration printables</h2>
   <div id="integration-print"></div>
 </section>
+<section class="pack-section" id="binomial-animation">
+  <h2>Binomial theorem animation</h2>
+  <div id="binomial-player"></div>
+</section>
+<section class="pack-section" id="binomial-slides">
+  <h2>Binomial theorem slides</h2>
+  <div id="binomial-presenter"></div>
+</section>
+<section class="pack-section" id="binomial-printables">
+  <h2>Binomial theorem printables</h2>
+  <div id="binomial-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -383,8 +412,9 @@
     var chemMolePrintStage = document.querySelector('#chem-mole-print .pr-stage') || document.querySelector('#chem-mole-print');
     var differentiationPrintStage = document.querySelector('#differentiation-print .pr-stage') || document.querySelector('#differentiation-print');
     var integrationPrintStage = document.querySelector('#integration-print .pr-stage') || document.querySelector('#integration-print');
+    var binomialPrintStage = document.querySelector('#binomial-print .pr-stage') || document.querySelector('#binomial-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -1148,6 +1178,79 @@
     ].join('');
   }).catch(function (err) {
     errBox.textContent = 'Integration pack failed to load: ' + err.message;
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('binomial-presenter');
+  var binomialPrint = document.getElementById('binomial-print');
+  var errBox = document.getElementById('err');
+  var binomialAnimUrl = '../samples/secondary-a-binomial.json';
+  var binomialDeckUrl = '../samples/decks/secondary-a-binomial.json';
+  var binomialWorksheetUrl = '../samples/worksheets/secondary-a-binomial.json';
+  var binomialTicketUrl = '../samples/tickets/secondary-a-binomial.json';
+  var binomialNotesUrl = '../samples/notes/secondary-a-binomial.json';
+  var binomialScriptUrl = '../samples/scripts/secondary-a-binomial.json';
+
+  function showError(msg) {
+    errBox.textContent = String(msg);
+  }
+
+  Promise.all([
+    fetch(binomialAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + binomialAnimUrl);
+      return r.json();
+    }),
+    fetch(binomialDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + binomialDeckUrl);
+      return r.json();
+    }),
+    fetch(binomialWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + binomialWorksheetUrl);
+      return r.json();
+    }),
+    fetch(binomialTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + binomialTicketUrl);
+      return r.json();
+    }),
+    fetch(binomialNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + binomialNotesUrl);
+      return r.json();
+    }),
+    fetch(binomialScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + binomialScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('Binomial pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('binomial-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    binomialPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    showError('Binomial pack failed to load: ' + err.message);
   });
 })();
 </script>
