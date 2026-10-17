@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 probability gold lesson pack: five hand-authored gold
+  samples for h2-probability in
+  samples/decks|worksheets|tickets|notes|scripts/jc-h2-probability.json,
+  keyed to the jc-h2-probability animation scenes and built around
+  the misconception that after five heads in a row, tails is due
+  (issue #871).
+
 - JC H2 integration lesson pack in the pack demo
   (`player/pack-demo.html`): the JC H2 integration
   gold lesson pack now appears on the same demo page as the other packs,
