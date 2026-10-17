@@ -1,0 +1,86 @@
+{
+  "level": "secondary",
+  "questions": [
+    {
+      "choices": [
+        {
+          "text": "a^2 + b^2"
+        },
+        {
+          "text": "a^2 + ab + b^2"
+        },
+        {
+          "correct": true,
+          "text": "a^2 + 2ab + b^2"
+        },
+        {
+          "text": "2a^2 + 2b^2"
+        }
+      ],
+      "explanation": "The trap claim is: (a + b)^2 = a^2 + b^2. In fact The missing middle term 2ab is the whole trap: (1 + 2)^2 is 9, not 5. The full expansion is (a + b)^2 = a^2 + 2ab + b^2.",
+      "id": "q1",
+      "kind": "multiple-choice",
+      "misconception": "(a + b)^2 = a^2 + b^2.",
+      "prompt": "A student expands (a + b)^2. Which expansion is correct?"
+    },
+    {
+      "choices": [
+        {
+          "text": "4"
+        },
+        {
+          "correct": true,
+          "text": "24"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "12"
+        }
+      ],
+      "explanation": "The x^2 term is C(4, 2) x^2 (2)^2 = 6 x 4 x^2 = 24x^2, so the coefficient is 24: row 4 of Pascal's triangle is 1, 4, 6, 4, 1.",
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "What is the coefficient of x^2 in the expansion of (x + 2)^4?"
+    },
+    {
+      "answer": "16x^4 - 96x^3 + 216x^2 - 216x + 81",
+      "explanation": "Each term is C(4, r) (2x)^(4 - r) (-3)^r with coefficients 1, 4, 6, 4, 1: 16x^4, -96x^3, 216x^2, -216x and 81, so (2x - 3)^4 = 16x^4 - 96x^3 + 216x^2 - 216x + 81.",
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "Expand (2x - 3)^4 in full."
+    },
+    {
+      "answer": "Row 5 is 1, 5, 10, 10, 5, 1, so (a + b)^5 has coefficients 1, 5, 10, 10, 5, 1.",
+      "explanation": "Each entry of a new row is the sum of the two entries above it in row 4 (1, 4, 6, 4, 1), giving 1, 5, 10, 10, 5, 1.",
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "Write down row 5 of Pascal's triangle and use it to state the coefficients of (a + b)^5."
+    },
+    {
+      "choices": [
+        {
+          "text": "C(n, r) a^r b^(n - r)"
+        },
+        {
+          "text": "C(n, r) a^n b^n"
+        },
+        {
+          "correct": true,
+          "text": "C(n, r) a^(n - r) b^r"
+        },
+        {
+          "text": "n a^(n - r) b^r"
+        }
+      ],
+      "explanation": "The general term is C(n, r) a^(n - r) b^r: the powers of a fall from n as r rises, the powers of b rise to match, and the two powers always add to n.",
+      "id": "q5",
+      "kind": "multiple-choice",
+      "prompt": "The general term of (a + b)^n, term r + 1, is which expression?"
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math binomial: Pascal's triangle and the (a+b)^n expansion",
+  "topic": "a-binomial"
+}

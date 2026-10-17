@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-binomial.json`,
+  `samples/worksheets/secondary-a-binomial.json`,
+  `samples/tickets/secondary-a-binomial.json`,
+  `samples/notes/secondary-a-binomial.json`, and
+  `samples/scripts/secondary-a-binomial.json`): hand-authored
+  secondary A-Math binomial theorem gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the integration golds, keyed to the binomial
+  animation scenes s1-s4 and the bank `a-binomial` misconception
+  ((a + b)^2 = a^2 + b^2.),
+  guarded by a dedicated test file (issue #834).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-integration.json`,
   `samples/worksheets/secondary-a-integration.json`,
   `samples/tickets/secondary-a-integration.json`,

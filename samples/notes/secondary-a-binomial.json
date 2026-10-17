@@ -1,0 +1,44 @@
+{
+  "definitions": [
+    {
+      "meaning": "The triangular array whose row n lists the coefficients of (a + b)^n; each entry is the sum of the two entries above it, and the edges are all 1.",
+      "term": "Pascal's triangle"
+    },
+    {
+      "meaning": "C(n, r) = n! / (r! (n - r)!): the coefficient of the term a^(n - r) b^r in (a + b)^n, also read from row n of Pascal's triangle.",
+      "term": "Binomial coefficient"
+    },
+    {
+      "meaning": "The rule (a + b)^n = the sum over r from 0 to n of C(n, r) a^(n - r) b^r, giving every term of the expansion at once.",
+      "term": "Binomial theorem"
+    },
+    {
+      "meaning": "Term r + 1 of (a + b)^n, namely C(n, r) a^(n - r) b^r, used to find one chosen term - such as the coefficient of x^2 - without expanding everything.",
+      "term": "General term"
+    },
+    {
+      "meaning": "The expanded sum produced by the binomial theorem, with n + 1 terms whose powers of a fall from n to 0 while the powers of b rise from 0 to n.",
+      "term": "Binomial expansion"
+    }
+  ],
+  "level": "secondary",
+  "mechanismSteps": [
+    "Pascal's triangle: the coefficients of (a + b)^n - build each row by adding the two entries above, so row 4 is 1, 4, 6, 4, 1.",
+    "(a + b)^n, term by term - term r + 1 is C(n, r) a^(n - r) b^r: the power of a falls by one each term while the power of b rises by one.",
+    "Worked: expanding (2x - 3)^4 - apply the general term with b = -3 in brackets, so odd powers of (-3) are negative and the signs of the terms alternate.",
+    "Misconception: the power does not distribute - (a + b)^2 splits into a^2, two a-by-b rectangles and b^2 in the area picture, never into a^2 + b^2 alone."
+  ],
+  "objectives": [
+    "Read row n of Pascal's triangle as the coefficients of (a + b)^n",
+    "Expand a binomial with the binomial theorem and the general term C(n, r) a^(n - r) b^r",
+    "Expand a binomial with a negative second term, keeping the negative part in brackets so the signs alternate"
+  ],
+  "subject": "math",
+  "title": "A-Math binomial: Pascal's triangle and the (a+b)^n expansion",
+  "topic": "a-binomial",
+  "trap": {
+    "explanation": "The slip: The power is distributed over the sum and the middle term is dropped. The fix: The missing middle term 2ab is the whole trap: (1 + 2)^2 is 9, not 5. So (a + b)^2 = a^2 + 2ab + b^2, with the middle term 2ab always present.",
+    "misconception": "(a + b)^2 = a^2 + b^2."
+  },
+  "workedExample": "Expand step by step (s3): expanding (2x - 3)^4. Step 1: coefficients 1, 4, 6, 4, 1 from row 4 of Pascal's triangle. Step 2: build each term as C(4, r) (2x)^(4 - r) (-3)^r: 1(2x)^4 = 16x^4, 4(2x)^3(-3) = -96x^3, 6(2x)^2(-3)^2 = 216x^2, 4(2x)(-3)^3 = -216x, 1(-3)^4 = 81. Step 3: add the terms: (2x - 3)^4 = 16x^4 - 96x^3 + 216x^2 - 216x + 81. Note the alternating signs: they come from the powers of (-3), which is why the -3 must stay in brackets."
+}
