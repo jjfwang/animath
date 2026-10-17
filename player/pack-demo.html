@@ -81,6 +81,23 @@
   <span class="hint">Lesson pack demo: all six gold materials for the water cycle, for fractions addition, and for waves on one page — for each pack, the animation, the slide deck, and the printable worksheet, exit ticket, student notes, and teacher script. The teacher sections start on a new page when printed.</span>
   <button type="button" id="toggle-teacher" class="pr-screen-only">Hide teacher keys</button>
 </div>
+<header class="pack-manifest" id="complex-manifest">
+  <h1>Lesson pack: JC H2 complex numbers: the Argand diagram</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>h2-complex-jc-math</code></dd>
+    <dt>Level</dt><dd>jc</dd>
+    <dt>Subject</dt><dd>math</dd>
+  </dl>
+  <p>level jc · subject math</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -117,6 +134,18 @@
   <h2>Waves printables</h2>
   <div id="waves-print-stage"></div>
 </section>
+<section class="pack-section" id="complex-animation">
+  <h2>Complex numbers animation</h2>
+  <div id="complex-player"></div>
+</section>
+<section class="pack-section" id="complex-slides">
+  <h2>Complex numbers slides</h2>
+  <div id="complex-presenter"></div>
+</section>
+<section class="pack-section" id="complex-printables">
+  <h2>Complex numbers printables</h2>
+  <div id="complex-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -143,13 +172,13 @@
   toggleBtn.addEventListener('click', function () {
     var fractionsPrintStage = document.getElementById('fractions-print-stage');
     var wavesPrintStage = document.getElementById('waves-print-stage');
-    var keys = Array.prototype.slice.call(printStage.querySelectorAll('.pr-teacher'));
-    if (fractionsPrintStage) {
-      keys = keys.concat(Array.prototype.slice.call(fractionsPrintStage.querySelectorAll('.pr-teacher')));
-    }
-    if (wavesPrintStage) {
-      keys = keys.concat(Array.prototype.slice.call(wavesPrintStage.querySelectorAll('.pr-teacher')));
-    }
+    var complexPrintStage = document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print');
+    var keys = [];
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage].forEach(function (stage) {
+      if (stage) {
+        keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
+      }
+    });
     var hide = keys.length && keys[0].style.display !== 'none';
     keys.forEach(function (el) { el.style.display = hide ? 'none' : ''; });
     toggleBtn.textContent = hide ? 'Show teacher keys' : 'Hide teacher keys';
@@ -357,6 +386,75 @@
       AnimathPrintable.renderScript(wavesScript);
   }).catch(function (e) {
     showError(e);
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('complex-presenter');
+  var complexPrint = document.getElementById('complex-print');
+  var errBox = document.getElementById('err');
+  var complexAnimUrl = '../samples/jc-h2-complex.json';
+  var complexDeckUrl = '../samples/decks/jc-h2-complex.json';
+  var complexWorksheetUrl = '../samples/worksheets/jc-h2-complex.json';
+  var complexTicketUrl = '../samples/tickets/jc-h2-complex.json';
+  var complexNotesUrl = '../samples/notes/jc-h2-complex.json';
+  var complexScriptUrl = '../samples/scripts/jc-h2-complex.json';
+
+  Promise.all([
+    fetch(complexAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + complexAnimUrl);
+      return r.json();
+    }),
+    fetch(complexDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + complexDeckUrl);
+      return r.json();
+    }),
+    fetch(complexWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + complexWorksheetUrl);
+      return r.json();
+    }),
+    fetch(complexTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + complexTicketUrl);
+      return r.json();
+    }),
+    fetch(complexNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + complexNotesUrl);
+      return r.json();
+    }),
+    fetch(complexScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + complexScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      errBox.textContent = 'Complex pack failed validation:\n' + problems.join('\n');
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('complex-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    complexPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    errBox.textContent = 'Complex pack failed to load: ' + err.message;
   });
 })();
 </script>

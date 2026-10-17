@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- JC complex numbers lesson pack in the pack demo (`player/pack-demo.html`): the
+  JC math complex-numbers gold pack now appears on the same
+  demo page as the water-cycle, fractions and waves packs, with its own
+  manifest header (slug `h2-complex-jc-math`, level
+  jc, subject math), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all four packs' print stages (issue #790).
+
 - Gold lesson pack for a JC topic (`samples/decks/jc-h2-complex.json`,
   `samples/worksheets/jc-h2-complex.json`,
   `samples/tickets/jc-h2-complex.json`,

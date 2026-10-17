@@ -104,6 +104,40 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('#toggle-teacher'));
     assert.ok(demo.includes('id="toggle-teacher"'));
     assert.ok(demo.includes('.pr-teacher'));
+    assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
+    assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage]'));
+  });
+
+  test('complex manifest header names the slug, level, subject and six material keys', () => {
+    const start = demo.indexOf('id="complex-manifest"');
+    assert.ok(start > -1);
+    const manifest = demo.slice(start, demo.indexOf('</header>', start));
+    assert.ok(manifest.includes('id="complex-manifest"'));
+    assert.ok(manifest.includes('<code>h2-complex-jc-math</code>'));
+    assert.ok(manifest.includes('level jc'));
+    assert.ok(manifest.includes('subject math'));
+    assert.ok(manifest.includes('<code>animation</code>'));
+    assert.ok(manifest.includes('<code>slides</code>'));
+    assert.ok(manifest.includes('<code>worksheet</code>'));
+    assert.ok(manifest.includes('<code>exitTicket</code>'));
+    assert.ok(manifest.includes('exit ticket'));
+    assert.ok(manifest.includes('<code>notes</code>'));
+    assert.ok(manifest.includes('student notes'));
+    assert.ok(manifest.includes('<code>script</code>'));
+    assert.ok(manifest.includes('teacher script'));
+  });
+
+  test('complex pack sections and all six sample paths are present', () => {
+    assert.ok(demo.includes('id="complex-player"'));
+    assert.ok(demo.includes('id="complex-presenter"'));
+    assert.ok(demo.includes('id="complex-print"'));
+    assert.ok(demo.includes('../samples/jc-h2-complex.json'));
+    assert.ok(demo.includes('../samples/decks/jc-h2-complex.json'));
+    assert.ok(demo.includes('../samples/worksheets/jc-h2-complex.json'));
+    assert.ok(demo.includes('../samples/tickets/jc-h2-complex.json'));
+    assert.ok(demo.includes('../samples/notes/jc-h2-complex.json'));
+    assert.ok(demo.includes('../samples/scripts/jc-h2-complex.json'));
   });
 
   test('every local script src referenced exists on disk under player/', () => {
