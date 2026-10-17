@@ -41,7 +41,8 @@
     "./notes": "./generator/pipeline.js",
     "./script": "./generator/pipeline.js",
     "./lesson-pack": "./generator/pipeline.js",
-    "./interactive": "./player/interactive.js"
+    "./interactive": "./player/interactive.js",
+    "./simulations": "./player/simulation-kit.js"
   },
   "files": [
     "generator/",

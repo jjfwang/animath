@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teachkit Multi-Subject Interactive Simulations</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#f4f7fb;color:#163b52}
+main{max-width:960px;margin:24px auto;padding:12px}
+label{font-weight:650}
+select,button,input{font:inherit}
+select{max-width:100%;padding:9px;border-radius:9px;border:1px solid #c4d4dd}
+.tki-simulation{background:white;border:1px solid #d6e4ec;border-radius:16px;padding:20px;display:grid;gap:12px}
+.tki-simulation h2{margin:0}
+.tki-simulation>div:nth-child(2) svg{width:100%;height:auto;display:block}
+.tki-simulation>div:nth-child(4){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tki-simulation>div:nth-child(4)>div{display:grid;gap:6px}
+.tki-simulation>div:nth-child(4) input{width:100%;accent-color:#277ea8}
+.tki-simulation>div:nth-child(5){display:flex;flex-wrap:wrap;gap:8px}
+.tki-simulation button{padding:8px 12px;background:#ebf4f9;border:1px solid #b8d3e4;border-radius:8px;cursor:pointer}
+.tki-simulation fieldset{display:flex;flex-wrap:wrap;gap:8px;border:1px solid #dae5ea;border-radius:8px}
+.tki-simulation fieldset legend{font-weight:650}
+.tki-simulation fieldset p{width:100%}
+.tki-simulation p{line-height:1.55}
+.tki-simulation button:focus-visible,.tki-simulation input:focus-visible{outline:3px solid #e8ad3b;outline-offset:2px}
+@media(max-width:650px){.tki-simulation{padding:12px}.tki-simulation>div:nth-child(4){grid-template-columns:1fr}.tki-simulation fieldset{display:grid}.tki-simulation button{text-align:left}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style></head><body><main>
+<h1>Explore and explain</h1><p>Choose a syllabus sample. Predict, change a parameter, observe and explain.</p>
+<label for="model">Lesson model</label>
+<select id="model"><option value="secondary-water-cycle">Secondary Science: water cycle</option>
+<option value="primary-fractions">Primary Math: fraction bars</option>
+<option value="secondary-motion">Secondary Physics: uniform motion</option></select>
+<p id="status" role="status"></p><div id="stage"></div></main>
+<script src="simulation-kit.js"></script>
+<script>
+(function(){
+var select=document.getElementById('model'),stage=document.getElementById('stage'),status=document.getElementById('status'),session=null;
+function load(){var id=select.value;status.textContent='Loading '+id+'…';
+fetch('../samples/simulations/'+id+'.json').then(function(r){if(!r.ok)throw Error('Lesson unavailable');return r.json();})
+.then(function(spec){if(select.value!==id)return;if(session)session.destroy();session=TeachkitSimulations.mount(stage,spec);
+window.teachkitTutor=session;status.textContent='Use the controls and teaching beats to explore.';})
+.catch(function(e){status.textContent='Unable to load: '+e.message;});}
+select.addEventListener('change',load);load();
+})();
+</script></body></html>

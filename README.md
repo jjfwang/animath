@@ -701,3 +701,14 @@ The library API does not currently store events or authorize live tutor
 commands; the host must provide session storage and access control.
 The complete design and future phases are in
 [`docs/INTERACTIVE_TEACHING_ROADMAP.md`](docs/INTERACTIVE_TEACHING_ROADMAP.md).
+
+### Registered multi-subject simulation engine
+
+Use `@jjfwang/teachkit/simulations` in Node or the standalone browser script
+`player/simulation-kit.js`. There are three vetted models with deterministic
+parameters and visualizations (water cycle, fraction bars, uniform motion).
+Open [the multi-subject demo](player/simulation-demo.html) to explore the three
+gold samples and drive the returned controller with tutor commands. See
+[SPEC.md](SPEC.md) for the strict versioned contract. This feature is
+experimental; generic model expressions and arbitrary AI-generated code are
+**not** accepted.

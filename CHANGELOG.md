@@ -12,6 +12,9 @@ version section when the release ships.
 
 ### Added
 
+- Multi-subject interactive simulation registry with strict validated models for
+  water cycle, fraction bars and constant-speed motion, plus gold samples (#799).
+
 - Experimental interactive Secondary Science water-cycle pilot with a validated
   reactive model, tutor commands, accessible controls, teaching beats,
   comprehension checks and deterministic event history (#797).
