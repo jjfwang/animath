@@ -1,5 +1,5 @@
 /** Experimental zero-dependency registered simulation engine (version 0.2). */
-export type SimulationModel = 'water-cycle' | 'fraction-bars' | 'uniform-motion';
+export type SimulationModel = 'water-cycle' | 'fraction-bars' | 'uniform-motion' | 'ohms-law' | 'ideal-gas' | 'quadratic-curve' | 'transpiration' | 'erosion';
 export type SimulationActor = 'student' | 'tutor';
 export interface SimulationParameter {
   id: string; label: string; min: number; max: number; step: number; default: number;

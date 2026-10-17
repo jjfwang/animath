@@ -1,0 +1,53 @@
+{
+  "simulation": "0.2",
+  "model": "erosion",
+  "title": "Primary Geography — How Waves Erode Rock",
+  "level": "primary",
+  "subject": "geography",
+  "topic": "erosion",
+  "disclaimer": "Illustrative conceptual activity score only, not a measured erosion rate; actual geology, time and wave exposure vary.",
+  "parameters": [
+    {
+      "id": "waterEnergy",
+      "label": "Wave energy",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "id": "rockResistance",
+      "label": "Resistance of exposed rock",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 50
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict what happens when stronger waves strike weaker rock."
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "narration": "Increase wave energy or lower rock resistance to compare the conceptual rate of erosion."
+    },
+    {
+      "id": "explain",
+      "label": "Explain",
+      "narration": "Moving water and transported particles can wear rock; hardness and jointing affect how quickly erosion occurs."
+    }
+  ],
+  "check": {
+    "question": "All else comparable, which coastal rock erodes faster?",
+    "options": [
+      "Weakly resistant rock under stronger waves.",
+      "Very resistant rock under gentle waves."
+    ],
+    "correctIndex": 0,
+    "explanation": "Wave energy and rock resistance both affect how rapidly material is worn away."
+  }
+}

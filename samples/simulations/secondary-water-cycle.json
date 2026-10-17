@@ -1,8 +1,8 @@
 {
   "simulation": "0.2",
   "model": "water-cycle",
-  "title": "Water cycle — mechanism and conditions",
-  "level": "secondary",
+  "title": "Primary Science — Water Cycle Mechanisms",
+  "level": "primary",
   "subject": "science",
   "topic": "water-cycle",
   "disclaimer": "Conceptual activity illustration only, not a weather forecast. 0–100 controls are not measured rates.",

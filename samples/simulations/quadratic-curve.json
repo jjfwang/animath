@@ -1,0 +1,62 @@
+{
+  "simulation": "0.2",
+  "model": "quadratic-curve",
+  "title": "JC H2 Mathematics — Quadratic Graph Transformations",
+  "level": "jc",
+  "subject": "math",
+  "topic": "h2-functions-graphs",
+  "disclaimer": "A graph of y = a(x−h)² + k with a non-zero. Viewport clips steep curves; plotted scale is illustrative.",
+  "parameters": [
+    {
+      "id": "a",
+      "label": "Quadratic coefficient a",
+      "min": -3,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "id": "h",
+      "label": "Horizontal vertex shift h",
+      "min": -3,
+      "max": 3,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "id": "k",
+      "label": "Vertical vertex shift k",
+      "min": -5,
+      "max": 5,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict what changing the sign of a does to the parabola."
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "narration": "Changing h translates the vertex horizontally, k shifts it vertically, and a changes curvature."
+    },
+    {
+      "id": "explain",
+      "label": "Explain",
+      "narration": "The vertex is (h,k) in the form y=a(x−h)²+k; a cannot be zero."
+    }
+  ],
+  "check": {
+    "question": "For y = 2(x−3)²+1, where is the vertex?",
+    "options": [
+      "(3,1)",
+      "(−3,1)",
+      "(2,3)"
+    ],
+    "correctIndex": 0,
+    "explanation": "The completed-square form shows the vertex directly: (h,k) = (3,1)."
+  }
+}

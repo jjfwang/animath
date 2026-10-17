@@ -8,10 +8,10 @@ const storeApi=require('../generator/approved-assets.js');
 const sim=require('../player/simulation-kit.js');
 const spec=JSON.parse(fs.readFileSync(path.join(__dirname,'../samples/simulations/secondary-water-cycle.json'),'utf8'));
 const anchors=JSON.parse(fs.readFileSync(path.join(__dirname,'../samples/simulations/water-cycle-anchor-map.json'),'utf8'));
-const ctx={curriculum:'sg-moe',curriculumRevision:'2026',level:'secondary',track:'o-level',
+const ctx={curriculum:'sg-moe',curriculumRevision:'2026',level:'primary',track:'psle',
   subject:'science',topic:'water-cycle',locale:'en-sg',objectivesHash:'water-p1',
   difficulty:'core',promptVersion:'v1',engineVersion:'sim0.2'};
-const blueprint={syllabusId:'sg-moe/2026/secondary/science/water-cycle',
+const blueprint={syllabusId:'sg-moe/2026/primary/science/water-cycle',
   objectives:['Identify the conditions for evaporation, condensation and rainfall.']};
 const approved={agent:async()=>({status:'approve',reviewerId:'external-reviewer',
   confidence:0.96,findings:[],checks:{scientific:'pass',curriculum:'pass',pedagogy:'pass',accessibility:'pass'}})};

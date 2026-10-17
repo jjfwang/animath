@@ -51,3 +51,14 @@ All five packs shipped: 72 hand-authored samples, 70/70 syllabus slugs covered �
 - [x] CONTRIBUTING.md and issue templates — issue #125
 - [x] Gallery page: all samples playable without an API key — issue #5
 - [x] Static geometry audit: text overflow + label overlap check (generator/geometry.js) — issue #117
+
+## Interactive teaching expansion (experimental, 2026-10-17)
+
+The static `animath:0.1` player and 70 canonical syllabus topics remain valid.
+The additive interactive work is tracked in #797 (pilot), #799 (registered
+models), #800 (tutor/voice/slide anchor contract), #801 (agent/human
+prepublication quality gate), #802 (versioned approved assets), and #803
+(subject expansion). See `docs/INTERACTIVE_TEACHING_ROADMAP.md` and
+`docs/INTERACTIVE_CAPABILITY_MATRIX.md`. This is not marked production-ready
+until full CI/coverage/browser verification, host storage and independent
+review pass. Current **reactive** gold-syllabus coverage is 8 of 70 topics.

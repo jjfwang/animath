@@ -8,7 +8,22 @@
   var ids = {
     'water-cycle': ['solar','cooling','growth'],
     'fraction-bars': ['numerator','denominator'],
-    'uniform-motion': ['speed','time']
+    'uniform-motion': ['speed','time'],
+    'ohms-law': ['voltage','resistance'],
+    'ideal-gas': ['temperatureK','volumeL'],
+    'quadratic-curve': ['a','h','k'],
+    'transpiration': ['light','wind','humidity'],
+    'erosion': ['waterEnergy','rockResistance']
+  };
+  var syllabus = {
+    'water-cycle': ['primary','science','water-cycle'],
+    'fraction-bars': ['primary','math','fractions'],
+    'uniform-motion': ['secondary','physics','phys-kinematics'],
+    'ohms-law': ['secondary','physics','phys-electricity'],
+    'ideal-gas': ['jc','science','h2-thermal'],
+    'quadratic-curve': ['jc','math','h2-functions-graphs'],
+    'transpiration': ['primary','science','plant-systems'],
+    'erosion': ['primary','geography','erosion']
   };
   var models = Object.freeze(Object.keys(ids));
   function obj(x) { return x !== null && typeof x === 'object' && !Array.isArray(x); }
@@ -21,6 +36,7 @@
     if (spec.simulation !== '0.2') err.push('simulation version must be 0.2');
     if (!Object.prototype.hasOwnProperty.call(ids,spec.model)) err.push('unknown registered model');
     if (!text(spec.title,120) || !text(spec.level,40) || !text(spec.subject,40) || !text(spec.topic,90)) err.push('missing/bad syllabus identity');
+    if (syllabus[spec.model] && [spec.level,spec.subject,spec.topic].join('/')!==syllabus[spec.model].join('/')) err.push('registered model syllabus mismatch');
     if (!text(spec.disclaimer,400)) err.push('missing model limitation');
     if (!Array.isArray(spec.parameters) || spec.parameters.length !== (ids[spec.model] || []).length) err.push('invalid parameter count');
     else {
@@ -55,6 +71,14 @@
         d.max > 12 || n.max > d.max || !Number.isInteger(n.step) || !Number.isInteger(d.step))) err.push('fraction parameter invariant');
     }
     if (spec.model === 'water-cycle' && !/not.*forecast|not.*prediction/i.test(spec.disclaimer)) err.push('water cycle must disclose non-forecast limitation');
+    if (spec.model==='quadratic-curve' && spec.parameters && spec.parameters.some(function(x){return x.id==='a' && x.default===0;}))
+      err.push('quadratic coefficient a must be non-zero');
+    if (spec.model==='ohms-law' && spec.parameters && spec.parameters.some(function(x){return x.id==='resistance' && x.min<=0;}))
+      err.push('resistance must be strictly positive');
+    if (spec.model==='ideal-gas' && spec.parameters && spec.parameters.some(function(x){return (x.id==='temperatureK'||x.id==='volumeL') && x.min<=0;}))
+      err.push('ideal gas requires positive absolute temperature and volume');
+    if (['transpiration','erosion'].indexOf(spec.model)>=0 && !/conceptual|illustrative/i.test(spec.disclaimer))
+      err.push('qualitative model must disclose illustrative-only semantics');
     return err;
   }
   function validated(spec) {
@@ -73,6 +97,28 @@
       if (!Number.isInteger(p.denominator) || p.denominator < 1 || !Number.isInteger(p.numerator) ||
         p.numerator < 0 || p.numerator > p.denominator) throw new Error('invalid fraction');
       return { numerator:p.numerator, denominator:p.denominator, fraction:p.numerator/p.denominator };
+    }
+    if (model==='ohms-law') {
+      if(p.resistance<=0 || p.voltage<0)throw new Error('invalid circuit');
+      return {voltage:p.voltage,resistance:p.resistance,current:p.voltage/p.resistance,power:p.voltage*p.voltage/p.resistance};
+    }
+    if(model==='ideal-gas'){
+      if(p.temperatureK<=0 || p.volumeL<=0)throw new Error('ideal gas requires Kelvin and positive volume');
+      return {temperatureK:p.temperatureK,volumeL:p.volumeL,pressureKPa:8.314*p.temperatureK/p.volumeL};
+    }
+    if(model==='quadratic-curve'){
+      if(p.a===0)throw new Error('quadratic a cannot be zero');
+      return {a:p.a,h:p.h,k:p.k,vertexX:p.h,vertexY:p.k,yIntercept:p.a*p.h*p.h+p.k};
+    }
+    if(model==='transpiration'){
+      if(p.light<0||p.light>100||p.wind<0||p.wind>100||p.humidity<0||p.humidity>100)
+        throw new Error('invalid conceptual control');
+      return {activity:Math.min(100,Math.round(p.light*0.4+p.wind*0.4+(100-p.humidity)*0.2))};
+    }
+    if(model==='erosion'){
+      if(p.waterEnergy<0||p.waterEnergy>100||p.rockResistance<0||p.rockResistance>100)
+        throw new Error('invalid conceptual control');
+      return {activity:Math.round(p.waterEnergy*(100-p.rockResistance)/100)};
     }
     if (p.speed < 0 || p.time < 0) throw new Error('invalid motion');
     return {speed:p.speed, time:p.time, distance:p.speed*p.time};
@@ -152,6 +198,37 @@
         '<text x="90" y="85" font-size="25" fill="'+c+'">Distance = speed × time</text>'+
         '<text x="90" y="130" font-size="26" fill="'+c+'">'+p.speed+' m/s × '+p.time+' s = '+out.distance+' m</text>'+
         '<text x="90" y="300" font-size="18" fill="'+c+'">Scale is illustrative (1000 m maximum shown).</text>';
+    } else if(spec.model==='ohms-law'){
+      body='<path d="M145 75 H600 V260 H145 Z" stroke="'+c+'" stroke-width="5" fill="none"/>'+
+        '<rect x="345" y="56" width="105" height="38" rx="6" fill="#E5A648" stroke="'+c+'" stroke-width="3"/>'+
+        '<path d="M130 160 H160 M140 142 V178 M153 148 V172" stroke="'+c+'" stroke-width="4"/>'+
+        '<text x="90" y="310" font-size="22" fill="'+c+'">I = V / R = '+out.current.toFixed(2)+' A</text>'+
+        '<text x="345" y="47" font-size="19" fill="'+c+'">Resistor '+p.resistance+' Ω</text>'+
+        '<text x="26" y="205" font-size="19" fill="'+c+'">'+p.voltage+' V</text>';
+    } else if(spec.model==='ideal-gas'){
+      var w=80+p.volumeL*39,pressure=out.pressureKPa;
+      body='<rect x="105" y="75" width="'+w+'" height="175" fill="#D7EAF4" stroke="'+c+'" stroke-width="4"/>'+
+        '<circle cx="135" cy="112" r="9" fill="'+fill+'"/><circle cx="171" cy="194" r="9" fill="'+fill+'"/>'+
+        '<circle cx="194" cy="136" r="9" fill="'+fill+'"/>'+
+        '<text x="90" y="42" font-size="21" fill="'+c+'">Ideal gas: PV = nRT (n = 1 mol)</text>'+
+        '<text x="90" y="292" font-size="22" fill="'+c+'">'+p.temperatureK+' K, '+p.volumeL+' L → '+pressure.toFixed(1)+' kPa</text>';
+    } else if(spec.model==='quadratic-curve'){
+      var points=[];
+      for(var xval=-9;xval<=9;xval+=0.2){
+        var yval=p.a*(xval-p.h)*(xval-p.h)+p.k;
+        points.push((points.length?'L':'M')+(370+xval*27).toFixed(1)+' '+(190-yval*10).toFixed(1));
+      }
+      body='<path d="M80 190 H660 M370 15 V340" stroke="#9BAFBB" stroke-width="2"/>'+
+        '<path d="'+points.join(' ')+'" fill="none" stroke="'+fill+'" stroke-width="4"/>'+
+        '<circle cx="'+(370+p.h*27)+'" cy="'+(190-p.k*10)+'" r="9" fill="#E4A447"/>'+
+        '<text x="85" y="42" font-size="24" fill="'+c+'">y = '+p.a+'(x - '+p.h+')² + '+p.k+'</text>'+
+        '<text x="90" y="322" font-size="19" fill="'+c+'">Vertex ('+p.h+', '+p.k+')</text>';
+    } else if(spec.model==='transpiration'||spec.model==='erosion'){
+      var v=out.activity,label=spec.model==='erosion'?'Erosion activity':'Transpiration activity';
+      body='<text x="85" y="80" font-size="26" fill="'+c+'">'+label+' (conceptual)</text>'+
+        '<rect x="85" y="130" width="560" height="82" fill="#E1EAF0" rx="12"/>'+
+        '<rect x="85" y="130" width="'+(v*5.6)+'" height="82" fill="'+fill+'" rx="12"/>'+
+        '<text x="85" y="260" font-size="26" fill="'+c+'">'+v+' of 100 illustrative units</text>';
     } else {
       var labels=['Evaporation','Condensation','Precipitation','Collection'];
       var props=['evaporation','condensation','precipitation','collection'];

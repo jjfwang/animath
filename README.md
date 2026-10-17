@@ -705,7 +705,7 @@ The complete design and future phases are in
 ### Registered multi-subject simulation engine
 
 Use `@jjfwang/teachkit/simulations` in Node or the standalone browser script
-`player/simulation-kit.js`. There are three vetted models with deterministic
+`player/simulation-kit.js`. There are eight registered models with deterministic
 parameters and visualizations (water cycle, fraction bars, uniform motion).
 Open [the multi-subject demo](player/simulation-demo.html) to explore the three
 gold samples and drive the returned controller with tutor commands. See
@@ -762,6 +762,46 @@ production, inject S3/RDS/DynamoDB-backed storage and transactional CAS;
 **the shipped in-memory test adapter is not durable**. All authorization and
 reviewer identity checks must happen on the server. Never use student-identifying
 data in shared content paths.
+
+
+### Pre-generate, approve, store, then replay one interactive lesson
+
+`@jjfwang/teachkit/interactive-service` wires the preparation and live
+interfaces into one safe library boundary:
+
+```js
+const service = require('@jjfwang/teachkit/interactive-service');
+const result = await service.prepareAndPublish({
+  spec, blueprint, context, store: durableAdapter,
+  reviewers: {agent: externalAgentReviewer, human: approvedHumanQueue},
+  materials: {'anchors.json': JSON.stringify(beatAnchors), 'notes.md': notes}
+});
+if (result.status !== 'published') return result; // human_required or rejected
+// Later, before the live session, load ONLY the previously approved revision.
+const {controller, bridge, destroy} = await service.mountApproved({
+  store: durableAdapter, context, container: stageElement
+});
+bridge?.command({sequence:1,type:'play',beatId:'observe'});
+// End of lesson: destroy(); host also persists authorized event records.
+```
+
+`prepareAndPublish` runs review **before publication**. `mountApproved`
+loads and hashes the stored manifest/spec, then mounts a synchronous,
+deterministic simulation and an optional tutor bridge from `anchors.json`.
+It does not require LLM inference or generation while students manipulate
+controls. The host must supply authenticated real reviewers, authorized
+commands, secure object storage and real slide/voice playback.
+
+### Interactive coverage by syllabus
+
+See the [reactive learning capability matrix](docs/INTERACTIVE_CAPABILITY_MATRIX.md):
+8 registered interactive gold models for 8 distinct syllabus topics, spanning
+Primary, Secondary and JC; the older fixed animation engine still covers
+all 70 canonical syllabus topic slugs. Not every topic has a reactive model.
+New demos include circuits, ideal gas, quadratic transformations,
+transpiration and erosion. Use
+`node generator/tooling/benchmark-interactive.js` for repeatable **Node-only**
+per-beat model+SVG generation timing; real device paint/load must be tested separately.
 
 
 ### Pre-generate, approve, store, then replay one interactive lesson

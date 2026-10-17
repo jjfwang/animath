@@ -59,7 +59,9 @@
     "CHANGELOG.md",
     "LICENSE",
     "PROMPTS.md",
-    "SPEC.md"
+    "SPEC.md",
+    "samples/simulations/",
+    "samples/interactive/"
   ],
   "keywords": [
     "math",
