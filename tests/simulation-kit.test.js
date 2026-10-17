@@ -85,3 +85,11 @@ test('renderer rejects untrusted state and recomputes outputs', () => {
   a.throws(()=>core.svgFor(samples[2],{...state,model:'unknown'}),/invalid visualization state/);
   a.throws(()=>core.svgFor(samples[2],{...state,beat:'bogus'}),/invalid visualization state/);
 });
+
+test('exposed spec is a defensive copy, not mutable session validation state', () => {
+  const s=core.createSession(samples[1]);
+  s.spec.parameters.find((p)=>p.id==='numerator').min=-1000;
+  s.spec.check.correctIndex=99;
+  a.throws(()=>s.setParameter('numerator',-1),/invalid parameter/);
+  a.equal(s.answer(samples[1].check.correctIndex).detail.correct,true);
+});
