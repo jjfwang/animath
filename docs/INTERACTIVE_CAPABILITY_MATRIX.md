@@ -53,3 +53,22 @@ Start with eight approved exemplars under feature gating, and keep the existing 
 ## Implementation tracking
 
 P1 pilot #797, reusable engine #799, tutor bridge #800, review gate #801, durable artifact store #802, subject expansion #803. All require final real Node/CI/browser verification and independent review before being called production-ready.
+
+## Interactive test and benchmark commands
+
+From a Node 18+ checkout, run:
+
+```sh
+npm run test:interactive       # all nine interactive-specific test suites
+npm test                       # entire repository regression suite
+npm run test:coverage          # entire suite with Node coverage reporting
+npm run bench:interactive      # local model+SVG computation only
+node --check player/interactive.js
+node --check player/simulation-kit.js
+node --check player/tutor-bridge.js
+node --check generator/interactive-review.js
+node --check generator/approved-assets.js
+node --check generator/interactive-service.js
+```
+
+Browser approval requires rendering the demo pages at small-phone and desktop sizes, verifying keyboard/focus/VoiceOver/TalkBack and reduced-motion, and testing speech interruption in the actual Aceceed host. No Node benchmark or mocked reviewer substitutes for those tests.
