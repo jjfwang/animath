@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a JC topic (`samples/decks/jc-h2-vectors.json`,
+  `samples/worksheets/jc-h2-vectors.json`,
+  `samples/tickets/jc-h2-vectors.json`,
+  `samples/notes/jc-h2-vectors.json`, and
+  `samples/scripts/jc-h2-vectors.json`): hand-authored
+  JC H2 vectors gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the complex numbers golds, keyed to the vectors
+  animation scenes s1-s5 and the bank `h2-vectors` misconception
+  (Moving a vector to a new start point changes it.),
+  guarded by a dedicated test file `tests/gold-vectors-pack.test.js` (issue #850).
+
 - Secondary A-Math trigonometry lesson pack in the pack demo
   (`player/pack-demo.html`): the secondary A-Math trigonometry
   gold lesson pack now appears on the same demo page as the other packs,
