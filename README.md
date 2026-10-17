@@ -730,3 +730,18 @@ repetitive automatic question loop. See
 session history, authorize remote commands, or connect to Aceceed. The host
 performs voice playback and slides presentation using the emitted beat IDs;
 Teachkit controls the low-latency deterministic state contract only.
+
+### Prepublication independent review (interactive assets)
+
+`@jjfwang/teachkit/interactive-review` validates the trusted renderer's SVG,
+strict simulation schema and teaching assertions **before** an asset can be
+approved. `reviewAsset(spec,svg,validator,blueprint,{agent,human})` calls an
+**injected external agent reviewer** and returns `approved`, `rejected` or
+`human_required`. Automatic approval requires no deterministic errors, an
+agent report covering scientific/curriculum/pedagogy/accessibility, confidence
+at least 0.85, and zero findings. Reviewer unavailability, ambiguity or low
+confidence escalates to a human rather than granting approval. Scientifically
+failed reviews are rejected rather than overridden. Host controls LLM access,
+reviewer independence/identity and human authorization. No agent runs in the
+interactive playback loop. The gate does **not** replace pixel screenshot
+validation; those checks require an external browser runner.

@@ -555,3 +555,16 @@ Checkpoints pause the bridge; after two unsuccessful responses the bridge
 reports `needsAdaptation` instead of automatically repeating a question.
 The host authorizes remote commands and drives real audio/slides. This is a
 pure event-state synchronization **contract**, not an audio synthesis service.
+
+## Interactive prepublication review contract
+
+`generator/interactive-review.js` requires deterministic validation, SVG
+safety and a lesson blueprint with an exact `syllabusId` and objectives.
+An external reviewer must return `status` (approve/revise/uncertain),
+`reviewerId`, 0–1 `confidence`, `findings`, and four explicit check statuses:
+scientific, curriculum, pedagogy and accessibility (pass/fail/uncertain).
+An agent report is **not trusted** unless these fields validate. Automatic
+approval requires agent `approve`, confidence >=0.85, all checks pass and
+zero findings. Provider failure/uncertainty returns `human_required`.
+The host authenticates reviewers; this library never calls an LLM while a
+student manipulates a visualization. See #801.
