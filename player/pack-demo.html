@@ -132,6 +132,23 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="photosynthesis-manifest">
+  <h1>Lesson pack: Photosynthesis: how plants make food</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>bio-nutrition-secondary-science</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>science</dd>
+  </dl>
+  <p>level secondary · subject science</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -204,6 +221,18 @@
   <h2>Thermal physics printables</h2>
   <div id="thermal-print"></div>
 </section>
+<section class="pack-section" id="photosynthesis-animation">
+  <h2>Photosynthesis animation</h2>
+  <div id="photosynthesis-player"></div>
+</section>
+<section class="pack-section" id="photosynthesis-slides">
+  <h2>Photosynthesis slides</h2>
+  <div id="photosynthesis-presenter"></div>
+</section>
+<section class="pack-section" id="photosynthesis-printables">
+  <h2>Photosynthesis printables</h2>
+  <div id="photosynthesis-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -233,8 +262,9 @@
     var complexPrintStage = document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print');
     var trigPrintStage = document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print');
     var thermalPrintStage = document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print');
+    var photosynthesisPrintStage = document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -653,6 +683,75 @@
     ].join('');
   }).catch(function (err) {
     errBox.textContent = 'Thermal pack failed to load: ' + err.message;
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('photosynthesis-presenter');
+  var photosynthesisPrint = document.getElementById('photosynthesis-print');
+  var errBox = document.getElementById('err');
+  var photosynthesisAnimUrl = '../samples/secondary-science-photosynthesis.json';
+  var photosynthesisDeckUrl = '../samples/decks/secondary-science-photosynthesis.json';
+  var photosynthesisWorksheetUrl = '../samples/worksheets/secondary-science-photosynthesis.json';
+  var photosynthesisTicketUrl = '../samples/tickets/secondary-science-photosynthesis.json';
+  var photosynthesisNotesUrl = '../samples/notes/secondary-science-photosynthesis.json';
+  var photosynthesisScriptUrl = '../samples/scripts/secondary-science-photosynthesis.json';
+
+  Promise.all([
+    fetch(photosynthesisAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + photosynthesisAnimUrl);
+      return r.json();
+    }),
+    fetch(photosynthesisDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + photosynthesisDeckUrl);
+      return r.json();
+    }),
+    fetch(photosynthesisWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + photosynthesisWorksheetUrl);
+      return r.json();
+    }),
+    fetch(photosynthesisTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + photosynthesisTicketUrl);
+      return r.json();
+    }),
+    fetch(photosynthesisNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + photosynthesisNotesUrl);
+      return r.json();
+    }),
+    fetch(photosynthesisScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + photosynthesisScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      errBox.textContent = 'Photosynthesis pack failed validation:\n' + problems.join('\n');
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('photosynthesis-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    photosynthesisPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    errBox.textContent = 'Photosynthesis pack failed to load: ' + err.message;
   });
 })();
 </script>
