@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary-chemistry topic (`samples/decks/secondary-science-chem-mole.json`,
+  `samples/worksheets/secondary-science-chem-mole.json`,
+  `samples/tickets/secondary-science-chem-mole.json`,
+  `samples/notes/secondary-science-chem-mole.json`, and
+  `samples/scripts/secondary-science-chem-mole.json`): hand-authored
+  secondary science mole-concept gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the erosion golds, keyed to the chem-mole
+  animation scenes s1-s4 and the bank `chem-mole` misconception
+  (One mole of anything weighs the same.),
+  guarded by a dedicated test file (issue #820).
+
 - Primary-geography erosion lesson pack in the pack demo (`player/pack-demo.html`): the
   primary geography erosion gold pack now appears on the same
   demo page as the water-cycle, fractions, waves, complex, trigonometry, thermal and photosynthesis packs, with its own
