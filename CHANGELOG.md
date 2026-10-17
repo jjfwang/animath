@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- Secondary A-Math trigonometry lesson pack in the pack demo
+  (`player/pack-demo.html`): the secondary A-Math trigonometry
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six secondary-a-trigonometry materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  trigonometry-a-manifest header (slug
+  `a-trigonometry-secondary-math`, level secondary, subject
+  math, topic `a-trigonometry`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all fifteen packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #848).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-trigonometry.json`,
   `samples/worksheets/secondary-a-trigonometry.json`,
   `samples/tickets/secondary-a-trigonometry.json`,

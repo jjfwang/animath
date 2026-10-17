@@ -151,7 +151,8 @@ for JC thermal physics, for secondary photosynthesis, for primary-geography eros
 and for secondary chem-mole, and for secondary A-Math differentiation,
 and for secondary A-Math integration, and for secondary A-Math binomial theorem,
 and for secondary A-Math kinematics,
-and for secondary A-Math quadratic functions
+and for secondary A-Math quadratic functions,
+and for secondary A-Math trigonometry
 (animation, slides, worksheet, notes, exit ticket, and script), each
 under its own pack manifest header.
 
