@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-integration.json`,
+  `samples/worksheets/secondary-a-integration.json`,
+  `samples/tickets/secondary-a-integration.json`,
+  `samples/notes/secondary-a-integration.json`, and
+  `samples/scripts/secondary-a-integration.json`): hand-authored
+  secondary A-Math integration gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the differentiation golds, keyed to the integration
+  animation scenes s1-s4 and the bank `a-integration` misconception
+  (The integral of 2x is x^2.),
+  guarded by a dedicated test file (issue #830).
+
 - Secondary A-Math differentiation lesson pack in the pack demo
   (`player/pack-demo.html`): the secondary A-Math differentiation
   gold pack now appears on the same demo page as the other packs,
