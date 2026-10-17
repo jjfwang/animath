@@ -145,8 +145,8 @@ controls are hidden and the teacher key starts on a fresh page. Every
 render validates the spec first and throws on errors.
 `player/printable-demo.html` shows both gold samples rendered end to end.
 `player/pack-demo.html` shows full lesson packs on one page — all six
-gold materials for the water cycle and for fractions addition
-(animation, slides, worksheet, notes, exit ticket, and script), each
+gold materials for the water cycle, for fractions addition, and for
+waves (animation, slides, worksheet, notes, exit ticket, and script), each
 under its own pack manifest header.
 
 The same module renders student notes and a teacher script from their

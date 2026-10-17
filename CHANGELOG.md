@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Waves lesson pack in the pack demo (`player/pack-demo.html`): the
+  secondary science waves gold pack now appears on the same
+  demo page as the water-cycle and fractions packs, with its own
+  manifest header (slug `phys-waves-secondary-science`, level
+  secondary, subject science), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all three packs' print stages (issue #786).
+
 - Gold lesson pack for a secondary topic (`samples/decks/secondary-physics-waves.json`,
   `samples/worksheets/secondary-physics-waves.json`,
   `samples/tickets/secondary-physics-waves.json`,
