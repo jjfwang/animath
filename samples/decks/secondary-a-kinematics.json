@@ -1,0 +1,111 @@
+{
+  "level": "secondary",
+  "slides": [
+    {
+      "bullets": [
+        "Two graphs can describe the same journey - but each graph answers a different question"
+      ],
+      "heading": "A-Math kinematics: reading motion from s–t and v–t graphs",
+      "kind": "title",
+      "notes": "Welcome everyone in and say: today we read displacement-time and velocity-time graphs for the same motion, find velocity from a gradient, find displacement from an area, meet the SUVAT pair, and expose the trap of reading a straight s-t graph as acceleration."
+    },
+    {
+      "bullets": [
+        "Read the velocity of a motion as the gradient of its s-t graph and the displacement as the area under its v-t graph",
+        "Use the SUVAT pair v = u + at and s = ut + (1/2)at^2 for motion with constant acceleration"
+      ],
+      "heading": "What we will learn",
+      "kind": "objective",
+      "notes": "Read the two goals aloud slowly and tell the class: keep these in mind, because our exit ticket at the end will ask you to do exactly these things, including spotting the straight-line gradient trap."
+    },
+    {
+      "bullets": [
+        "A car moves in a straight line and its journey is drawn twice: once as s against t, once as v against t",
+        "The s-t line climbs steadily while the v-t line sits flat - so is the car speeding up, or not?"
+      ],
+      "heading": "One journey, two graphs - which one tells the speed?",
+      "kind": "hook",
+      "notes": "Ask the class to vote: is this car speeding up? Take two or three answers, then point out that the two graphs describe one motion, and each must be read on its own terms."
+    },
+    {
+      "bullets": [
+        "The gradient of an s-t graph is the velocity: gradient = change in displacement divided by change in time",
+        "The area under a v-t graph is the displacement: each thin strip is velocity times a small time step",
+        "For constant acceleration, v = u + at and s = ut + (1/2)at^2 link velocity, displacement, acceleration and time"
+      ],
+      "heading": "Gradient and area: the two readings",
+      "kind": "concept",
+      "notes": "Say this slowly, because it is the big idea of the whole lesson: a graph gives up its meaning through its gradient or its area - gradient of s-t is velocity, gradient of v-t is acceleration, area under v-t is displacement."
+    },
+    {
+      "bullets": [
+        "The s-t line is straight: displacement grows evenly, so the motion is uniform",
+        "The v-t line is flat at the same time: the speed never changes, so the velocity is constant"
+      ],
+      "heading": "Two graphs, one motion",
+      "kind": "mechanism",
+      "notes": "Point at the animation and narrate: watch the two dots move together - the climbing dot on the s-t graph and the level dot on the v-t graph are the same journey.",
+      "visual": "s1"
+    },
+    {
+      "bullets": [
+        "Pick two points on the s-t graph and build the gradient triangle: rise in displacement over run in time",
+        "For the points (0, 10) and (6, 40) the gradient is (40 - 10)/(6 - 0) = 5, so the velocity is 5 m/s"
+      ],
+      "heading": "Gradient of the s–t graph is the velocity",
+      "kind": "mechanism",
+      "notes": "Follow the probe as it builds the gradient triangle and name each leg: the run is the time between the points, the rise is the change in displacement, and rise over run is the velocity.",
+      "visual": "s2"
+    },
+    {
+      "bullets": [
+        "Each thin rectangle under the v-t curve is velocity times a small time step - a small distance",
+        "Stacking the rectangles fills the area under the curve, and that total area is the displacement"
+      ],
+      "heading": "Area under the v–t graph is the displacement",
+      "kind": "mechanism",
+      "notes": "Watch the sweep lay down one thin rectangle at a time: speed times a small time is a small distance, and the stacked rectangles are the displacement - displacement is the integral of velocity.",
+      "visual": "s3"
+    },
+    {
+      "bullets": [
+        "Under constant acceleration a, velocity is v = u + at and displacement is s = ut + (1/2)at^2",
+        "The trap claim is: A straight s-t graph means constant acceleration."
+      ],
+      "heading": "The SUVAT pair — and the gradient trap",
+      "kind": "mechanism",
+      "notes": "Name the trap out loud before anyone falls into it: a straight s-t graph has constant gradient, the gradient of s-t is velocity, so the velocity is constant and the acceleration is zero.",
+      "visual": "s4"
+    },
+    {
+      "bullets": [
+        "Step 1: read two points on the s-t line: (0, 10) and (6, 40)",
+        "Step 2: gradient = (40 - 10)/(6 - 0) = 5, so the velocity is 5 m/s, constant along the whole line"
+      ],
+      "heading": "Worked example: velocity from an s-t gradient",
+      "kind": "example",
+      "notes": "Talk through the two steps slowly: pick points that are easy to read, form rise over run, and attach the unit metres per second to the answer."
+    },
+    {
+      "bullets": [
+        "Find the velocity from the s-t graph provided and the displacement from the area under the v-t graph provided",
+        "Careful - a classmate claims: A straight s-t graph means constant acceleration. Explain to them what a straight s-t graph really says about the velocity and the acceleration"
+      ],
+      "heading": "Your turn: read the graphs, then check the trap",
+      "kind": "practice",
+      "notes": "Give pairs three minutes, then cold-call two pairs: listen for the trap - A straight s-t graph means constant acceleration. The fix is: The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration."
+    },
+    {
+      "bullets": [
+        "On your own: state the velocity shown by a straight s-t graph through (0, 10) and (6, 40)",
+        "Watch out for the trap one last time: A straight s-t graph means constant acceleration. Say what the gradient of the s-t graph actually measures"
+      ],
+      "heading": "Exit ticket: prove it before you leave",
+      "kind": "exit-ticket",
+      "notes": "Close by reminding the class of the trap - A straight s-t graph means constant acceleration. - and the fix: The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration. Collect the tickets as they leave and check who still reads a straight s-t line as acceleration."
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math kinematics: reading motion from s–t and v–t graphs",
+  "topic": "a-kinematics"
+}

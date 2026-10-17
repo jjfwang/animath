@@ -1,0 +1,65 @@
+{
+  "level": "secondary",
+  "questions": [
+    {
+      "choices": [
+        {
+          "text": "Constant and non-zero"
+        },
+        {
+          "correct": true,
+          "text": "Zero, because the velocity is constant"
+        },
+        {
+          "text": "Increasing"
+        },
+        {
+          "text": "Equal to the gradient of the s-t graph"
+        }
+      ],
+      "feedback": "If you read the straight line as speeding up, that is the trap: A straight s-t graph means constant acceleration. Reteach point: The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration.",
+      "id": "q1",
+      "kind": "multiple-choice",
+      "misconception": "A straight s-t graph means constant acceleration.",
+      "prompt": "An s-t graph is a straight line. What is the acceleration of the motion?"
+    },
+    {
+      "answer": "The velocity is the gradient of the s-t graph: the change in displacement divided by the change in time between two points on the line.",
+      "feedback": "A strong answer names the gradient of the s-t graph and rise over run. An answer that reads off a single displacement value with no division by time is incomplete.",
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "In one sentence, explain how to find the velocity from an s-t graph."
+    },
+    {
+      "choices": [
+        {
+          "text": "30 m/s"
+        },
+        {
+          "text": "6 m/s"
+        },
+        {
+          "correct": true,
+          "text": "5 m/s"
+        },
+        {
+          "text": "50 m/s"
+        }
+      ],
+      "feedback": "Gradient = (40 - 10)/(6 - 0) = 5, so the velocity is 5 m/s. If you answered 30 m/s, you found the rise but forgot to divide by the run.",
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "An s-t graph passes through (0, 10) and (6, 40). What is the velocity?"
+    },
+    {
+      "answer": "The area under a v-t graph is the displacement; here it is 5 x 6 = 30 m.",
+      "feedback": "The area under the v-t graph is the displacement. For the flat line the area is a rectangle, 5 m/s times 6 s, giving 30 m.",
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "State what the area under a v-t graph represents, and what it equals for a flat v-t line at 5 m/s lasting 6 s."
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math kinematics: reading motion from s–t and v–t graphs Exit Ticket",
+  "topic": "a-kinematics"
+}

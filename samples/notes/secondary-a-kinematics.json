@@ -1,0 +1,44 @@
+{
+  "definitions": [
+    {
+      "meaning": "A graph of displacement s against time t for a motion; its gradient at any moment is the velocity.",
+      "term": "Displacement-time graph"
+    },
+    {
+      "meaning": "The rate of change of displacement with time, read from an s-t graph as its gradient: change in displacement divided by change in time.",
+      "term": "Velocity"
+    },
+    {
+      "meaning": "Rise over run between two points on a graph: on an s-t graph the gradient is the velocity, and on a v-t graph the gradient is the acceleration.",
+      "term": "Gradient"
+    },
+    {
+      "meaning": "The rate of change of velocity with time, read from a v-t graph as its gradient; a straight s-t graph has zero acceleration because its velocity is constant.",
+      "term": "Acceleration"
+    },
+    {
+      "meaning": "A graph of velocity v against time t for a motion; the area under it is the displacement and its gradient is the acceleration.",
+      "term": "Velocity-time graph"
+    }
+  ],
+  "level": "secondary",
+  "mechanismSteps": [
+    "Two graphs, one motion - a straight s-t line and a flat v-t line describe the same uniform journey.",
+    "Gradient of the s–t graph is the velocity - build the gradient triangle between two points: rise in displacement over run in time.",
+    "Area under the v–t graph is the displacement - each thin rectangle is velocity times a small time step, and the stacked area is the displacement.",
+    "The SUVAT pair — and the gradient trap - v = u + at and s = ut + (1/2)at^2 for constant acceleration, and a straight s-t graph means constant velocity, not acceleration."
+  ],
+  "objectives": [
+    "Read the velocity of a motion as the gradient of its displacement-time graph",
+    "Find the displacement of a motion as the area under its velocity-time graph",
+    "Apply the SUVAT pair v = u + at and s = ut + (1/2)at^2 to motion with constant acceleration"
+  ],
+  "subject": "math",
+  "title": "A-Math kinematics: reading motion from s–t and v–t graphs",
+  "topic": "a-kinematics",
+  "trap": {
+    "explanation": "The slip: Straight-line growth reads as speeding up. The fix: The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration. So a straight s-t graph shows uniform motion with zero acceleration.",
+    "misconception": "A straight s-t graph means constant acceleration."
+  },
+  "workedExample": "Work step by step (s2): the gradient of the s-t graph is the velocity. Step 1: read two points on the line: (0, 10) and (6, 40), displacement in metres and time in seconds. Step 2: form the gradient: (40 - 10)/(6 - 0) = 5. Step 3: attach the unit: the velocity is 5 m/s. Because the s-t graph is a straight line, this gradient is the same between any two points, so the velocity is 5 m/s throughout the motion."
+}
