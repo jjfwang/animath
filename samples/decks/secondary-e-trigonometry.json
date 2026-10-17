@@ -1,0 +1,111 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "e-trigonometry",
+  "title": "E-Math trigonometry: ratios and the sine rule",
+  "slides": [
+    {
+      "kind": "title",
+      "heading": "E-Math trigonometry: ratios and the sine rule",
+      "bullets": [
+        "How to name the sides of a right-angled triangle, read the SOH CAH TOA card, and use the sine rule"
+      ],
+      "notes": "Welcome everyone in and say: today we meet the 3-4-5 triangle, build the full SOH CAH TOA card, use the sine rule on a triangle with no right angle, and learn to spot the tangent trap before it costs marks."
+    },
+    {
+      "kind": "objective",
+      "heading": "What we will learn",
+      "bullets": [
+        "Name the opposite, adjacent and hypotenuse for an angle and find sin, cos and tan",
+        "Use the sine rule to find an unknown side in any triangle"
+      ],
+      "notes": "Read the two goals aloud slowly and tell the class: keep these in mind, because our exit ticket at the end will ask you to do exactly these two things."
+    },
+    {
+      "kind": "hook",
+      "heading": "The triangle with sides 3, 4 and 5",
+      "bullets": [
+        "A right-angled triangle has short sides 3 and 4 - what is the longest side?",
+        "Three ratios hide in this one triangle: can you find all three?"
+      ],
+      "notes": "Ask for a show of hands and take two or three guesses without judging them yet; say: hold on to your idea, because naming the sides correctly is the key to the whole lesson."
+    },
+    {
+      "kind": "concept",
+      "heading": "Naming the sides comes first",
+      "bullets": [
+        "The hypotenuse is the longest side, across from the right angle",
+        "The opposite side is across from the angle theta; the adjacent side sits next to theta",
+        "Every ratio is two of these sides divided: sine, cosine and tangent each pick a different pair"
+      ],
+      "notes": "Say this part slowly, because it is the big idea of the whole lesson: the ratio names only mean something once you have named the sides from the angle you are working with."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "Meet the 3-4-5 triangle",
+      "bullets": [
+        "Opposite = 3, adjacent = 4, hypotenuse = 5",
+        "Sine is opposite over hypotenuse: sin theta = 3/5 = 0.6"
+      ],
+      "notes": "Point at the animation and narrate what is happening: watch the dot walk the three sides so you can name each one, then watch the sine equation appear - opposite over hypotenuse.",
+      "visual": "s1"
+    },
+    {
+      "kind": "mechanism",
+      "heading": "Cosine and tangent join the card",
+      "bullets": [
+        "Cosine is adjacent over hypotenuse: cos theta = 4/5 = 0.8",
+        "Tangent is opposite over adjacent: tan theta = 3/4 = 0.75 - read the card as SOH CAH TOA"
+      ],
+      "notes": "Tell them to watch the card fill in line by line: SOH for sine, CAH for cosine, TOA for tangent. Point at the tangent line longest - it is the one the trap targets.",
+      "visual": "s2"
+    },
+    {
+      "kind": "mechanism",
+      "heading": "The sine rule for any triangle",
+      "bullets": [
+        "The sine rule links each side with the sine of its opposite angle: a / sin A = b / sin B",
+        "With a = 4, A = 30 degrees and B = 60 degrees, b comes out to about 6.93"
+      ],
+      "notes": "Name the shift out loud: no right angle here, so SOH CAH TOA cannot help directly - the sine rule pairs each side with its opposite angle instead.",
+      "visual": "s3"
+    },
+    {
+      "kind": "mechanism",
+      "heading": "A common mistake: do not flip tangent",
+      "bullets": [
+        "Tempting wrong turn: tan = adjacent / opposite.",
+        "The flipped ratio gives 4/3 = 1.33, taller than the whole - TOA says tan is opposite over adjacent, 3/4 = 0.75"
+      ],
+      "notes": "Name the trap out loud before anyone falls into it: opposite and adjacent swap places under pressure, so always read TOA before writing the tangent ratio.",
+      "visual": "s4"
+    },
+    {
+      "kind": "example",
+      "heading": "Worked example: finding side b with the sine rule",
+      "bullets": [
+        "Step 1: write the rule with the known pair: 4 / sin 30 degrees = b / sin 60 degrees",
+        "Step 2: b = (4 x 0.8660) / 0.5, so b is about 6.93"
+      ],
+      "notes": "Talk through the two steps slowly and name each one as you write it; say: notice the known side and its opposite angle stay paired together in the rule."
+    },
+    {
+      "kind": "practice",
+      "heading": "Your turn: ratios, then correct",
+      "bullets": [
+        "For the 3-4-5 triangle, write down sin theta, cos theta and tan theta from the side names",
+        "Careful - a classmate writes tan = adjacent / opposite. Explain to them why that is wrong, using TOA and the 3-4-5 triangle"
+      ],
+      "notes": "Give pairs two minutes, then cold-call one pair and press them on the trap: if tangent really were adjacent over opposite, would tan theta be 3/4 or 4/3 for this triangle?"
+    },
+    {
+      "kind": "exit-ticket",
+      "heading": "Exit ticket: show what you know",
+      "bullets": [
+        "Find a side with the sine rule, showing the paired substitution",
+        "Explain why this claim is wrong: tan = adjacent / opposite."
+      ],
+      "notes": "Collect these before anyone leaves and say: I am looking for the words opposite over adjacent in your last answer - if you can explain why TOA fixes the tangent, you have cracked today's lesson."
+    }
+  ]
+}

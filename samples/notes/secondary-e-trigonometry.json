@@ -1,0 +1,52 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "e-trigonometry",
+  "title": "E-Math trigonometry: ratios and the sine rule",
+  "objectives": [
+    "Name the opposite, adjacent and hypotenuse for an angle in a right-angled triangle",
+    "Use SOH CAH TOA to find sine, cosine and tangent ratios",
+    "Use the sine rule to find an unknown side in any triangle"
+  ],
+  "definitions": [
+    {
+      "term": "Sine",
+      "meaning": "The ratio opposite over hypotenuse for an angle in a right-angled triangle: in the 3-4-5 triangle, sin theta = 3/5 = 0.6 (the SOH part of the card)."
+    },
+    {
+      "term": "Cosine",
+      "meaning": "The ratio adjacent over hypotenuse for an angle in a right-angled triangle: in the 3-4-5 triangle, cos theta = 4/5 = 0.8 (the CAH part of the card)."
+    },
+    {
+      "term": "Tangent",
+      "meaning": "The ratio opposite over adjacent for an angle in a right-angled triangle: in the 3-4-5 triangle, tan theta = 3/4 = 0.75 (the TOA part of the card)."
+    },
+    {
+      "term": "Hypotenuse",
+      "meaning": "The longest side of a right-angled triangle, across from the right angle: length 5 in the 3-4-5 triangle."
+    },
+    {
+      "term": "Opposite",
+      "meaning": "The side across from the angle you are working with: length 3 for angle theta in the 3-4-5 triangle."
+    },
+    {
+      "term": "Adjacent",
+      "meaning": "The side next to the angle you are working with, other than the hypotenuse: length 4 for angle theta in the 3-4-5 triangle."
+    },
+    {
+      "term": "Sine rule",
+      "meaning": "The rule a / sin A = b / sin B, linking each side of any triangle with the sine of its opposite angle, used when there is no right angle."
+    }
+  ],
+  "mechanismSteps": [
+    "Meet the 3-4-5 triangle: name the sides from angle theta first - opposite = 3, adjacent = 4, hypotenuse = 5 - then sine is opposite over hypotenuse, sin theta = 3/5 = 0.6.",
+    "Cosine and tangent join the card: cos theta = 4/5 = 0.8 (adjacent over hypotenuse) and tan theta = 3/4 = 0.75 (opposite over adjacent) - read the whole card as SOH CAH TOA.",
+    "The sine rule for any triangle: a / sin A = b / sin B pairs each side with its opposite angle, so with a = 4, A = 30 degrees and B = 60 degrees, b comes out to about 6.93.",
+    "A common mistake: do not flip tangent: the flipped ratio 4/3 = 1.33 is taller than the whole, while the correct TOA ratio 3/4 = 0.75 sits properly inside it."
+  ],
+  "workedExample": "Use the sine rule to find side b. In the triangle, side a = 4 is opposite angle A = 30 degrees, and angle B = 60 degrees. Write the rule: a / sin A = b / sin B, so 4 / sin 30 degrees = b / sin 60 degrees. Rearrange: b = (4 x sin 60 degrees) / sin 30 degrees = (4 x 0.8660) / 0.5 = 6.928, so b is about 6.93. Check: the side opposite the larger angle (60 degrees) is longer than the side opposite 30 degrees, and 6.93 is greater than 4, so the size makes sense.",
+  "trap": {
+    "misconception": "tan = adjacent / opposite.",
+    "explanation": "Opposite and adjacent swap places under pressure. Always read TOA: tan is opposite over adjacent. For the 3-4-5 triangle that means tan theta = 3/4 = 0.75, never 4/3."
+  }
+}

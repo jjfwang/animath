@@ -1,0 +1,57 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "e-trigonometry",
+  "title": "E-Math trigonometry: ratios and the sine rule",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 6,
+      "say": "Meet the 3-4-5 triangle. Watch the dot walk the three sides: the side across from angle theta is the opposite, length 3; the side next to theta is the adjacent, length 4; the longest side is the hypotenuse, length 5. Sine is opposite over hypotenuse, so sin theta is 3 over 5 - 0.6. Tell your partner: how did you know which side was which?",
+      "questions": [
+        "Which side is the hypotenuse, and how can you tell at a glance?",
+        "What two sides make the sine ratio?"
+      ],
+      "watchFor": "Students who name the sides from the right angle instead of from theta. The opposite and adjacent labels belong to the angle you are working with - move the angle and the labels move too."
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "say": "Now cosine and tangent join the card. Cosine is adjacent over hypotenuse: 4 over 5, or 0.8. Tangent is opposite over adjacent: 3 over 4, or 0.75. Read the whole card with me: SOH, CAH, TOA - sine opposite hypotenuse, cosine adjacent hypotenuse, tangent opposite adjacent.",
+      "questions": [
+        "Which ratio never uses the hypotenuse?",
+        "How do we read the card to get tangent right every time?"
+      ],
+      "watchFor": "tan = adjacent / opposite. Listen for students who flip tangent when they say the card quickly. Slow the chant down and point at TOA: opposite first, adjacent second."
+    },
+    {
+      "cue": "s3",
+      "minutes": 8,
+      "say": "This triangle has no right angle, so the card cannot help directly. The sine rule pairs each side with the sine of its opposite angle: a over sin A equals b over sin B. Our known pair is a = 4 with A = 30 degrees, so b = (4 x 0.8660) / 0.5, about 6.93. Open your student notes at the worked example and follow the pairing.",
+      "questions": [
+        "Which side pairs with angle A in the rule?",
+        "Why is b longer than a in this triangle?"
+      ]
+    },
+    {
+      "cue": "s4",
+      "minutes": 5,
+      "say": "Here is the trap, and we are going to spring it on purpose. The flipped tangent gives 4 over 3 - 1.33, taller than the whole. The correct TOA ratio gives 3 over 4 - 0.75, a proper part of the whole. Read the trap section of your student notes aloud with me, then check your worksheet answers against it.",
+      "questions": [
+        "What does the size of 4/3 tell you before you even check the card?",
+        "Which word in TOA tells you the top of the tangent ratio?"
+      ],
+      "watchFor": "tan = adjacent / opposite. Watch for the flip returning under time pressure in the practice questions. Send students back to the bar picture: a tangent of 1.33 for this triangle must be wrong."
+    },
+    {
+      "cue": "worksheet",
+      "minutes": 5,
+      "say": "Work through the worksheet in pairs: name the sides first, then read the card, then calculate. When you finish, swap with another pair and check their working against your student notes. Last, the exit ticket - on your own, no talking - and remember: if you can say why TOA puts the opposite on top, you have cracked today's lesson.",
+      "questions": [
+        "Talk me through the sine rule question: what did you pair first?",
+        "How will you correct the flipped tangent claim on the exit ticket?"
+      ],
+      "watchFor": "Pairs who write a ratio before naming the sides. Naming comes first: require opposite, adjacent and hypotenuse labels on the diagram before any ratio is accepted."
+    }
+  ]
+}
