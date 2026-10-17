@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 integration gold lesson pack: five hand-authored gold
+  samples for h2-integration in
+  samples/decks|worksheets|tickets|notes|scripts/jc-h2-integration.json,
+  keyed to the jc-h2-integration animation scenes and built around
+  the misconception that a definite integral still needs the +C in
+  the answer (issue #867).
+
 - JC H2 differentiation gold lesson pack: five hand-authored gold
   samples for h2-differentiation in
   samples/decks|worksheets|tickets|notes|scripts/jc-h2-differentiation.json,
