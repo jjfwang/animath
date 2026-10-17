@@ -1,0 +1,86 @@
+{
+  "level": "secondary",
+  "questions": [
+    {
+      "choices": [
+        {
+          "text": "The acceleration is constant and non-zero"
+        },
+        {
+          "text": "The displacement is zero"
+        },
+        {
+          "correct": true,
+          "text": "The velocity is constant, so the acceleration is zero"
+        },
+        {
+          "text": "The velocity is increasing"
+        }
+      ],
+      "explanation": "The trap claim is: A straight s-t graph means constant acceleration. In fact The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration. The gradient is the same everywhere on a straight line, so the velocity never changes.",
+      "id": "q1",
+      "kind": "multiple-choice",
+      "misconception": "A straight s-t graph means constant acceleration.",
+      "prompt": "An s-t graph is a straight line climbing steadily. What does that straight line say about the motion?"
+    },
+    {
+      "choices": [
+        {
+          "text": "30 m/s"
+        },
+        {
+          "correct": true,
+          "text": "5 m/s"
+        },
+        {
+          "text": "6 m/s"
+        },
+        {
+          "text": "50 m/s"
+        }
+      ],
+      "explanation": "Velocity is the gradient of the s-t graph: (40 - 10)/(6 - 0) = 5, so the velocity is 5 m/s.",
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "An s-t graph passes through (0, 10) and (6, 40). What is the velocity?"
+    },
+    {
+      "answer": "The displacement is the area under the v-t graph: 5 x 6 = 30 m.",
+      "explanation": "Displacement is the area under the v-t graph. The area is a rectangle of height 5 m/s and width 6 s, so the displacement is 30 m.",
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "A v-t graph is a flat line at 5 m/s from t = 0 to t = 6 s. Find the displacement over these 6 seconds."
+    },
+    {
+      "answer": "v = u + at = 0 + 3 x 4 = 12 m/s, and s = ut + (1/2)at^2 = 0 + (1/2)(3)(4^2) = 24 m.",
+      "explanation": "With u = 0, a = 3 and t = 4: v = u + at gives 12 m/s, and s = ut + (1/2)at^2 gives (1/2) x 3 x 16 = 24 m.",
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "A body starts from rest and accelerates uniformly at 3 m/s^2 for 4 s. Use the SUVAT pair to find its final velocity and its displacement."
+    },
+    {
+      "choices": [
+        {
+          "text": "Acceleration"
+        },
+        {
+          "text": "Velocity"
+        },
+        {
+          "correct": true,
+          "text": "Displacement"
+        },
+        {
+          "text": "Time"
+        }
+      ],
+      "explanation": "Each thin strip under the v-t curve is velocity times a small time step, a small distance, so the total area under the v-t graph is the displacement.",
+      "id": "q5",
+      "kind": "multiple-choice",
+      "prompt": "Which quantity is given by the area under a v-t graph?"
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math kinematics: reading motion from s–t and v–t graphs",
+  "topic": "a-kinematics"
+}

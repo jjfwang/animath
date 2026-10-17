@@ -1,0 +1,53 @@
+{
+  "level": "secondary",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 6,
+      "questions": [
+        "What does the climbing dot on the s-t graph and the level dot on the v-t graph each show?",
+        "Do the two graphs agree about whether the speed changes?"
+      ],
+      "say": "Start with one journey drawn twice. On the left, displacement against time climbs in a straight line; on the right, velocity against time sits flat. Both graphs describe the same car: displacement grows evenly because the speed never changes. Keep both graphs in view - the whole lesson is reading each one on its own terms."
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "questions": [
+        "Which two points did we read off the s-t graph, and what are the rise and the run?",
+        "Why does rise over run on an s-t graph give a velocity, units included?"
+      ],
+      "say": "Now read the s-t graph for a number. Pick two points, (0, 10) and (6, 40), and build the gradient triangle: the run is 6 seconds, the rise is 30 metres, and the gradient is (40 - 10)/(6 - 0) = 5. Metres divided by seconds is a velocity, so the gradient of the s-t graph is the velocity: 5 m/s."
+    },
+    {
+      "cue": "s3",
+      "minutes": 8,
+      "questions": [
+        "What does one thin rectangle under the v-t curve represent?",
+        "What does the total area under the v-t graph give?"
+      ],
+      "say": "Turn to the v-t graph and ask what lives underneath it. Each thin rectangle is a velocity times a small time step - a small distance. Watch the sweep stack the rectangles until they fill the area under the curve: that total area is the displacement, which is why displacement is the integral of velocity."
+    },
+    {
+      "cue": "s4",
+      "minutes": 7,
+      "questions": [
+        "Which SUVAT equation finds v when u, a and t are known?",
+        "A straight s-t graph has constant gradient - gradient of what, and so what is the acceleration?"
+      ],
+      "say": "For motion with constant acceleration, two equations do the heavy lifting: v = u + at and s = ut + (1/2)at^2. Then spring the trap on purpose: the s-t graph here is straight, its gradient is constant - but the gradient of s-t is velocity, so the velocity is constant and the acceleration is zero."
+    },
+    {
+      "minutes": 9,
+      "questions": [
+        "How do you find a displacement from a v-t graph?",
+        "What does the gradient of an s-t graph measure?"
+      ],
+      "say": "Now work through the worksheet in pairs, checking each answer against the gradient and area sections of your student notes. Last, the exit ticket - on your own, no talking - and remember: gradient of s-t is velocity, area under v-t is displacement.",
+      "watchFor": "A straight s-t graph means constant acceleration. Listen for students who read a straight s-t line as speeding up. Send them back to the gradient: The gradient of s-t is velocity: a straight s-t graph has constant velocity and zero acceleration."
+    }
+  ],
+  "subject": "math",
+  "title": "A-Math kinematics: reading motion from s–t and v–t graphs",
+  "topic": "a-kinematics"
+}
