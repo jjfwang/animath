@@ -252,6 +252,24 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="quadratic-manifest">
+  <h1>Lesson pack: A-Math quadratics: completing the square, discriminant and inequalities</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>a-quadratic-functions-secondary-math</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>math</dd>
+    <dt>Topic</dt><dd><code>a-quadratic-functions</code></dd>
+  </dl>
+  <p>level secondary · subject math</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -408,6 +426,18 @@
   <h2>Kinematics printables</h2>
   <div id="kinematics-print"></div>
 </section>
+<section class="pack-section" id="quadratic-animation">
+  <h2>Quadratic functions animation</h2>
+  <div id="quadratic-player"></div>
+</section>
+<section class="pack-section" id="quadratic-slides">
+  <h2>Quadratic functions slides</h2>
+  <div id="quadratic-presenter"></div>
+</section>
+<section class="pack-section" id="quadratic-printables">
+  <h2>Quadratic functions printables</h2>
+  <div id="quadratic-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -444,8 +474,9 @@
     var integrationPrintStage = document.querySelector('#integration-print .pr-stage') || document.querySelector('#integration-print');
     var binomialPrintStage = document.querySelector('#binomial-print .pr-stage') || document.querySelector('#binomial-print');
     var kinematicsPrintStage = document.querySelector('#kinematics-print .pr-stage') || document.querySelector('#kinematics-print');
+    var quadraticPrintStage = document.querySelector('#quadratic-print .pr-stage') || document.querySelector('#quadratic-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -1355,6 +1386,79 @@
     ].join('');
   }).catch(function (err) {
     showError('Kinematics pack failed to load: ' + err.message);
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('quadratic-presenter');
+  var quadraticPrint = document.getElementById('quadratic-print');
+  var errBox = document.getElementById('err');
+  var quadraticAnimUrl = '../samples/secondary-a-quadratic-functions.json';
+  var quadraticDeckUrl = '../samples/decks/secondary-a-quadratic-functions.json';
+  var quadraticWorksheetUrl = '../samples/worksheets/secondary-a-quadratic-functions.json';
+  var quadraticTicketUrl = '../samples/tickets/secondary-a-quadratic-functions.json';
+  var quadraticNotesUrl = '../samples/notes/secondary-a-quadratic-functions.json';
+  var quadraticScriptUrl = '../samples/scripts/secondary-a-quadratic-functions.json';
+
+  function showError(msg) {
+    errBox.textContent = String(msg);
+  }
+
+  Promise.all([
+    fetch(quadraticAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + quadraticAnimUrl);
+      return r.json();
+    }),
+    fetch(quadraticDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + quadraticDeckUrl);
+      return r.json();
+    }),
+    fetch(quadraticWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + quadraticWorksheetUrl);
+      return r.json();
+    }),
+    fetch(quadraticTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + quadraticTicketUrl);
+      return r.json();
+    }),
+    fetch(quadraticNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + quadraticNotesUrl);
+      return r.json();
+    }),
+    fetch(quadraticScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + quadraticScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('Quadratic functions pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('quadratic-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    quadraticPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    showError('Quadratic functions pack failed to load: ' + err.message);
   });
 })();
 </script>

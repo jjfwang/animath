@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- Secondary A-Math quadratic functions lesson pack in the pack demo
+  (`player/pack-demo.html`): the secondary A-Math quadratic functions
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six secondary-a-quadratic-functions materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  quadratic-manifest header (slug
+  `a-quadratic-functions-secondary-math`, level secondary, subject
+  math, topic `a-quadratic-functions`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all fourteen packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #844).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-quadratic-functions.json`,
   `samples/worksheets/secondary-a-quadratic-functions.json`,
   `samples/tickets/secondary-a-quadratic-functions.json`,
