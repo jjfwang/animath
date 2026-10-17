@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary-math topic (`samples/decks/secondary-e-trigonometry.json`,
+  `samples/worksheets/secondary-e-trigonometry.json`,
+  `samples/tickets/secondary-e-trigonometry.json`,
+  `samples/notes/secondary-e-trigonometry.json`, and
+  `samples/scripts/secondary-e-trigonometry.json`): hand-authored
+  secondary E-Math trigonometry gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the waves golds, keyed to the trigonometry
+  animation scenes s1-s4 and the bank `e-trigonometry` misconception
+  (tan = adjacent / opposite.), guarded by a dedicated
+  test file (issue #792).
+
 - JC complex numbers lesson pack in the pack demo (`player/pack-demo.html`): the
   JC math complex-numbers gold pack now appears on the same
   demo page as the water-cycle, fractions and waves packs, with its own

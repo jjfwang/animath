@@ -1,0 +1,86 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "e-trigonometry",
+  "title": "E-Math trigonometry: ratios and the sine rule",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "In the 3-4-5 triangle, angle theta has opposite side 3 and hypotenuse 5. What is sin theta?",
+      "choices": [
+        {
+          "text": "4/5"
+        },
+        {
+          "correct": true,
+          "text": "3/5"
+        },
+        {
+          "text": "3/4"
+        },
+        {
+          "text": "5/3"
+        }
+      ],
+      "explanation": "Sine is opposite over hypotenuse (SOH): sin theta = 3/5 = 0.6. The choice 4/5 is cosine, and 3/4 is tangent - naming the sides first tells you which ratio you need."
+    },
+    {
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "For the same 3-4-5 triangle, what is tan theta?",
+      "choices": [
+        {
+          "text": "4/3"
+        },
+        {
+          "text": "3/5"
+        },
+        {
+          "correct": true,
+          "text": "3/4"
+        },
+        {
+          "text": "4/5"
+        }
+      ],
+      "explanation": "Tangent is opposite over adjacent (TOA): tan theta = 3/4 = 0.75. Watch out for the misconception: tan = adjacent / opposite. That flipped ratio gives 4/3, which uses the adjacent side on top by mistake.",
+      "misconception": "tan = adjacent / opposite."
+    },
+    {
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "Write out the SOH CAH TOA card in full, and use it to state cos theta for the 3-4-5 triangle.",
+      "answer": "SOH: sin = opposite / hypotenuse. CAH: cos = adjacent / hypotenuse. TOA: tan = opposite / adjacent. So cos theta = 4/5 = 0.8.",
+      "explanation": "The card pairs each ratio with its two sides: SOH gives sin = 3/5, CAH gives cos = 4/5, TOA gives tan = 3/4. Reading the card in order stops the sides from swapping."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "In triangle ABC, side a = 4 is opposite angle A = 30 degrees, and angle B = 60 degrees. Use the sine rule to find side b, showing your working.",
+      "answer": "a / sin A = b / sin B, so 4 / sin 30 degrees = b / sin 60 degrees. Then b = (4 x sin 60 degrees) / sin 30 degrees = (4 x 0.8660) / 0.5, so b is about 6.93.",
+      "explanation": "The sine rule pairs each side with the sine of its opposite angle. Substitute the known pair first (a = 4 with A = 30 degrees), then rearrange for b: (4 x 0.8660) / 0.5 is about 6.93."
+    },
+    {
+      "id": "q5",
+      "kind": "multiple-choice",
+      "prompt": "A triangle has no right angle. Which rule finds an unknown side from a known side and two known angles?",
+      "choices": [
+        {
+          "text": "SOH CAH TOA on the whole triangle"
+        },
+        {
+          "correct": true,
+          "text": "The sine rule: a / sin A = b / sin B"
+        },
+        {
+          "text": "Pythagoras on the longest side"
+        },
+        {
+          "text": "Tangent as adjacent over opposite"
+        }
+      ],
+      "explanation": "With no right angle, SOH CAH TOA does not apply directly to the whole triangle. The sine rule links each side with the sine of its opposite angle, so a known side-angle pair unlocks the unknown side."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "e-trigonometry",
+  "title": "E-Math trigonometry: ratios and the sine rule Exit Ticket",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "For the 3-4-5 triangle, what is tan theta?",
+      "choices": [
+        {
+          "text": "4/3"
+        },
+        {
+          "correct": true,
+          "text": "3/4"
+        },
+        {
+          "text": "3/5"
+        }
+      ],
+      "feedback": "If you picked 4/3, that is the trap: tan = adjacent / opposite. Reteach point: TOA - tan is opposite over adjacent, so for the 3-4-5 triangle tan theta = 3/4 = 0.75, with the opposite side 3 on top and the adjacent side 4 underneath.",
+      "misconception": "tan = adjacent / opposite."
+    },
+    {
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "State sin theta and cos theta for the 3-4-5 triangle.",
+      "answer": "sin theta = 3/5 = 0.6 and cos theta = 4/5 = 0.8.",
+      "feedback": "Sine is opposite over hypotenuse (3/5) and cosine is adjacent over hypotenuse (4/5). Both share the hypotenuse 5 as the denominator - if either answer used 4 as the denominator, that ratio was tangent, not sine or cosine."
+    },
+    {
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "Which statement correctly reads the TOA part of the card?",
+      "choices": [
+        {
+          "correct": true,
+          "text": "tan = opposite / adjacent"
+        },
+        {
+          "text": "tan = adjacent / hypotenuse"
+        },
+        {
+          "text": "tan = hypotenuse / opposite"
+        }
+      ],
+      "feedback": "TOA stands for tan = opposite / adjacent. The other options mix in the hypotenuse, which never appears in the tangent ratio at all."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "In one or two sentences: why does the sine rule work for a triangle with no right angle when SOH CAH TOA does not?",
+      "answer": "The sine rule links each side with the sine of its opposite angle, so it needs no right angle - a known side and its opposite angle form a complete pair that unlocks the other sides.",
+      "feedback": "A strong answer names the pairing: each side sits over the sine of its opposite angle. An answer that only says 'use the formula' without the side-angle pairing means the pairing idea needs reteaching first next lesson."
+    }
+  ]
+}
