@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 differentiation gold lesson pack: five hand-authored gold
+  samples for h2-differentiation in
+  samples/decks|worksheets|tickets|notes|scripts/jc-h2-differentiation.json,
+  keyed to the jc-h2-differentiation animation scenes and built
+  around the misconception that dy/dx is a fraction whose d symbols
+  cancel (issue #863).
+
 - JC H2 sequences and series lesson pack in the pack demo
   (`player/pack-demo.html`): the JC H2 sequences and series
   gold lesson pack now appears on the same demo page as the other packs,
