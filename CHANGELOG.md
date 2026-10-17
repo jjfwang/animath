@@ -21,6 +21,19 @@ version section when the release ships.
   rendering for that pack, and the shared teacher-keys toggle
   covering all six packs' print stages (issue #805).
 
+- Gold lesson pack for a secondary-science topic (`samples/decks/secondary-science-photosynthesis.json`,
+  `samples/worksheets/secondary-science-photosynthesis.json`,
+  `samples/tickets/secondary-science-photosynthesis.json`,
+  `samples/notes/secondary-science-photosynthesis.json`, and
+  `samples/scripts/secondary-science-photosynthesis.json`): hand-authored
+  secondary science photosynthesis gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the thermal golds, keyed to the photosynthesis
+  animation scenes s1-s5 and the bank `bio-nutrition` photosynthesis-facet
+  misconception
+  (The oxygen released in photosynthesis comes from carbon dioxide.),
+  guarded by a dedicated test file (issue #807).
+
 - Gold lesson pack for a JC science topic (`samples/decks/jc-h2-thermal.json`,
   `samples/worksheets/jc-h2-thermal.json`,
   `samples/tickets/jc-h2-thermal.json`,
