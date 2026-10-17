@@ -126,8 +126,19 @@
       destroy:function(){dead=true;observers=[];} };
   }
   function svgFor(spec,state) {
-    validated(spec);
-    var out=state.output, p=state.parameters, body='', c='#144E70', fill='#67A5D8';
+    var doc=validated(spec);
+    if (!obj(state) || state.model!==doc.model || !obj(state.parameters) ||
+      !doc.beats.some(function(b){return b.id===state.beat;}))
+      throw new Error('invalid visualization state');
+    var p={};
+    doc.parameters.forEach(function(param){
+      var value=state.parameters[param.id];
+      if (!finite(value) || value<param.min || value>param.max ||
+        !Number.isInteger((value-param.min)/param.step))
+        throw new Error('invalid visualization parameter '+param.id);
+      p[param.id]=value;
+    });
+    var out=calculate(doc.model,p), body='', c='#144E70', fill='#67A5D8';
     if (spec.model==='fraction-bars') {
       var n=p.numerator,d=p.denominator,w=540/d;
       body='<text x="85" y="60" font-size="26" fill="'+c+'">'+n+' of '+d+' equal parts</text>';
