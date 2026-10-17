@@ -1,0 +1,111 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-quadratic-functions",
+  "title": "A-Math quadratics: completing the square, discriminant and inequalities",
+  "slides": [
+    {
+      "kind": "title",
+      "heading": "A-Math quadratics: completing the square, discriminant and inequalities",
+      "bullets": [
+        "Quadratics three ways: complete the square, read the discriminant, and solve inequalities on a number line"
+      ],
+      "notes": "Welcome everyone in and say: today we complete the square as area, use the discriminant to decide the roots, solve a quadratic inequality on a number line, and expose the trap of reading no real roots as no solution."
+    },
+    {
+      "kind": "objective",
+      "heading": "What we will learn",
+      "bullets": [
+        "Complete the square for x^2 + 6x by adding the missing corner 9",
+        "Use D = b^2 - 4ac to decide the roots and solve x^2 - 4 > 0 on a number line"
+      ],
+      "notes": "Read the two goals aloud slowly and tell the class: keep these in mind, because our exit ticket at the end will ask you to do exactly these things, including spotting the negative discriminant trap."
+    },
+    {
+      "kind": "hook",
+      "heading": "One expression, three questions",
+      "bullets": [
+        "x^2 + 6x can be drawn as area - so what is missing to make it a perfect square?",
+        "And if a discriminant comes out negative, has the equation really got no answer at all?"
+      ],
+      "notes": "Ask the class to vote: what must be added to x^2 + 6x to complete the square? Take two or three answers, then point out that today the picture, the discriminant and the number line each answer a different question."
+    },
+    {
+      "kind": "concept",
+      "heading": "Three tools for quadratics",
+      "bullets": [
+        "Completing the square rewrites x^2 + 6x as (x + 3)^2 - 9 by adding the missing corner",
+        "The discriminant D = b^2 - 4ac decides the roots: positive, zero or negative",
+        "For an inequality, find the roots first, then test each region of the number line"
+      ],
+      "notes": "Say this slowly, because it is the big idea of the whole lesson: the area picture completes the square, the sign of D tells the root story, and the roots split the number line into regions to test."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "Completing the square, as area",
+      "visual": "s1",
+      "bullets": [
+        "Take x^2 + 6x as area: an x-by-x square plus two 3-by-x strips, because half of 6 is 3",
+        "The missing corner is 3^2 = 9, so x^2 + 6x + 9 = (x+3)^2"
+      ],
+      "notes": "Point at the animation and narrate: watch one strip slide below the square, then the missing three-by-three corner of area 9 slides in to complete the square."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "The discriminant decides the roots",
+      "visual": "s2",
+      "bullets": [
+        "For ax^2 + bx + c, the discriminant is D = b^2 - 4ac",
+        "D > 0 gives two real roots, D = 0 gives one repeated root, D < 0 gives no real roots"
+      ],
+      "notes": "Follow the parabola as it sinks: above the axis is D negative, touching is D zero, crossing twice is D positive - the sign of D is the whole story."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "Quadratic inequalities on a number line",
+      "visual": "s3",
+      "bullets": [
+        "For x^2 - 4 > 0 the roots are x = -2 and x = 2, splitting the line into three regions",
+        "Testing each region gives the solution x < -2 or x > 2"
+      ],
+      "notes": "Watch the test probe travel the number line: x = -3 passes, x = 0 fails, x = 3 passes, so the two outer regions light up as the solution."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "A common mistake: a negative discriminant means no solution",
+      "visual": "s4",
+      "bullets": [
+        "For x^2 + 1 = 0, D = -4, so there are no real roots",
+        "The trap claim is: A negative discriminant means the equation has no solution."
+      ],
+      "notes": "Name the trap out loud before anyone falls into it: no real roots is not no solution - the equation x^2 + 1 = 0 still has the two complex roots x = +/-i."
+    },
+    {
+      "kind": "example",
+      "heading": "Worked example: completing the square",
+      "bullets": [
+        "Step 1: halve the coefficient of x: half of 6 is 3, and the missing corner is 3^2 = 9",
+        "Step 2: x^2 + 6x + 9 = (x+3)^2, so x^2 + 6x = (x + 3)^2 - 9"
+      ],
+      "notes": "Talk through the two steps slowly: split 6x into two 3x strips, slide one below, and the corner that completes the square is 3 squared, which is 9."
+    },
+    {
+      "kind": "practice",
+      "heading": "Your turn: quadratics, then check the trap",
+      "bullets": [
+        "Complete the square for x^2 + 6x and solve x^2 - 4 > 0 on a number line",
+        "Careful - a classmate claims: A negative discriminant means the equation has no solution. Explain to them what a negative discriminant really says"
+      ],
+      "notes": "Give pairs three minutes, then cold-call two pairs: listen for the trap - A negative discriminant means the equation has no solution. The fix is: No real roots is not no solution: the equation still has two complex roots."
+    },
+    {
+      "kind": "exit-ticket",
+      "heading": "Exit ticket: prove it before you leave",
+      "bullets": [
+        "On your own: state the discriminant of x^2 + 1 = 0 and what it says about the roots",
+        "Watch out for the trap one last time: A negative discriminant means the equation has no solution. Say what the roots of x^2 + 1 = 0 actually are"
+      ],
+      "notes": "Close by reminding the class of the trap - A negative discriminant means the equation has no solution. - and the fix: No real roots is not no solution: the equation still has two complex roots. Collect the tickets as they leave and check who still reads no real roots as no solution."
+    }
+  ]
+}

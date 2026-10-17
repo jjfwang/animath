@@ -1,0 +1,53 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-quadratic-functions",
+  "title": "A-Math quadratics: completing the square, discriminant and inequalities",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 7,
+      "questions": [
+        "Half of 6 is what, and what area is the missing corner?",
+        "How does the area picture show x^2 + 6x + 9 = (x+3)^2?"
+      ],
+      "say": "Start with x^2 + 6x drawn as area: an x-by-x square with two strips. Half of 6 is 3, so each strip is 3-by-x. Slide one strip below the square and look at the gap: a 3-by-3 corner, area 9. Fill it in and the shape is one big square, (x + 3) by (x + 3): completing the square is literally completing a square."
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "questions": [
+        "What are the three cases for the sign of D, and what does each say about the roots?",
+        "For x^2 + 1 = 0, what is D?"
+      ],
+      "say": "Now the discriminant. For ax^2 + bx + c, D = b^2 - 4ac, and its sign is the whole story. Watch the parabola sink: above the axis D is negative and there are no real roots, touching gives D = 0 and one repeated root, crossing twice gives D positive and two real roots."
+    },
+    {
+      "cue": "s3",
+      "minutes": 8,
+      "questions": [
+        "Which values split the number line for x^2 - 4 > 0, and why?",
+        "What does the test at x = 0 tell you about the middle region?"
+      ],
+      "say": "Turn to the inequality x^2 - 4 > 0. Roots first: x = -2 and x = 2 split the line into three regions. Travel with the probe and test: x = -3 passes, x = 0 fails, x = 3 passes. Only the outer regions work, so the solution is x < -2 or x > 2."
+    },
+    {
+      "cue": "s4",
+      "minutes": 7,
+      "questions": [
+        "For x^2 + 1 = 0, the discriminant is -4 - so what are the roots?",
+        "What one word in 'no real roots' does the trap ignore?"
+      ],
+      "say": "Spring the trap on purpose with x^2 + 1 = 0, where D = -4. The curve never touches the real axis, so there are no real roots - but read the word real. The roots have left the real line: x = i and x = -i, two complex roots."
+    },
+    {
+      "minutes": 9,
+      "questions": [
+        "How do you complete the square for x^2 + 6x?",
+        "What does the sign of the discriminant tell you?"
+      ],
+      "say": "Now work through the worksheet in pairs, checking each answer against the completing the square and discriminant sections of your student notes. Last, the exit ticket - on your own, no talking - and remember: roots first, then test each region, and no real roots is not no solution.",
+      "watchFor": "A negative discriminant means the equation has no solution. Listen for students who read D < 0 as no answer at all. Send them back to the word real: No real roots is not no solution: the equation still has two complex roots."
+    }
+  ]
+}

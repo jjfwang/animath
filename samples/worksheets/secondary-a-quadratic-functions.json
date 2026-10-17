@@ -1,0 +1,86 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-quadratic-functions",
+  "title": "A-Math quadratics: completing the square, discriminant and inequalities",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "A quadratic equation has discriminant D = -4. What does that say about its roots?",
+      "choices": [
+        {
+          "text": "The equation has no solution at all"
+        },
+        {
+          "text": "The equation has one repeated real root"
+        },
+        {
+          "correct": true,
+          "text": "The equation has no real roots, but two complex roots"
+        },
+        {
+          "text": "The equation has two real roots"
+        }
+      ],
+      "misconception": "A negative discriminant means the equation has no solution.",
+      "explanation": "The trap claim is: A negative discriminant means the equation has no solution. In fact No real roots is not no solution: the equation still has two complex roots. A negative discriminant rules out real roots only."
+    },
+    {
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "What must be added to x^2 + 6x to complete the square?",
+      "choices": [
+        {
+          "text": "36"
+        },
+        {
+          "correct": true,
+          "text": "9"
+        },
+        {
+          "text": "6"
+        },
+        {
+          "text": "3"
+        }
+      ],
+      "explanation": "Half of 6 is 3, and the missing corner is 3^2 = 9, so x^2 + 6x + 9 = (x+3)^2."
+    },
+    {
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "For x^2 - 5x + 6 = 0, calculate the discriminant D = b^2 - 4ac and state how many real roots the equation has.",
+      "answer": "D = 25 - 24 = 1, which is positive, so the equation has two real roots.",
+      "explanation": "With a = 1, b = -5 and c = 6, D = b^2 - 4ac = 25 - 24 = 1. A positive discriminant means two real roots."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "Solve the inequality x^2 - 4 > 0.",
+      "answer": "x < -2 or x > 2.",
+      "explanation": "The roots of x^2 - 4 = 0 are x = -2 and x = 2. Testing x = -3 gives 5 > 0 (true), x = 0 gives -4 > 0 (false) and x = 3 gives 5 > 0 (true), so the solution is x < -2 or x > 2."
+    },
+    {
+      "id": "q5",
+      "kind": "multiple-choice",
+      "prompt": "Which expression is x^2 + 6x rewritten by completing the square?",
+      "choices": [
+        {
+          "text": "(x + 6)^2 - 36"
+        },
+        {
+          "text": "(x + 3)^2 + 9"
+        },
+        {
+          "correct": true,
+          "text": "(x + 3)^2 - 9"
+        },
+        {
+          "text": "(x - 3)^2 - 9"
+        }
+      ],
+      "explanation": "Completing the square gives x^2 + 6x + 9 = (x+3)^2, so x^2 + 6x = (x + 3)^2 - 9."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-quadratic-functions",
+  "title": "A-Math quadratics: completing the square, discriminant and inequalities",
+  "objectives": [
+    "Complete the square for a quadratic such as x^2 + 6x using the area picture",
+    "Use the discriminant D = b^2 - 4ac to decide how many real roots a quadratic has",
+    "Solve a quadratic inequality by finding the roots and testing each region of the number line"
+  ],
+  "definitions": [
+    {
+      "term": "Discriminant",
+      "meaning": "For ax^2 + bx + c, the quantity D = b^2 - 4ac; its sign decides the roots: positive gives two real roots, zero gives one repeated root, negative gives no real roots."
+    },
+    {
+      "term": "Completing the square",
+      "meaning": "Rewriting a quadratic as a perfect square plus a constant by adding the missing corner: for x^2 + 6x, half of 6 is 3 and the missing corner is 3^2 = 9."
+    },
+    {
+      "term": "Root",
+      "meaning": "A value of x that makes the quadratic equal to zero; on the graph it is where the parabola crosses or touches the x-axis, and a negative discriminant still leaves two complex roots."
+    },
+    {
+      "term": "Quadratic inequality",
+      "meaning": "An inequality such as x^2 - 4 > 0, solved by finding the roots that split the number line into regions and testing a value in each region."
+    },
+    {
+      "term": "Complex root",
+      "meaning": "A root involving i, where i^2 = -1; a quadratic with a negative discriminant has two complex roots, such as x = i and x = -i for x^2 + 1 = 0."
+    }
+  ],
+  "mechanismSteps": [
+    "Completing the square, as area - x^2 + 6x is an x-by-x square plus two 3-by-x strips, and the missing 3-by-3 corner of area 9 completes the square.",
+    "The discriminant decides the roots - D = b^2 - 4ac: positive means two crossings, zero means one touch, negative means the curve misses the real axis.",
+    "Quadratic inequalities on a number line - find the roots -2 and 2 for x^2 - 4 > 0, then test each region to get x < -2 or x > 2.",
+    "A common mistake: a negative discriminant means no solution - no real roots is not no solution, because the two roots are complex."
+  ],
+  "workedExample": "Work step by step (s1): completing the square for x^2 + 6x. Step 1: draw x^2 + 6x as area, an x-by-x square with two 3-by-x strips, because half of 6 is 3. Step 2: the missing corner is 3^2 = 9. Step 3: fill it in: x^2 + 6x + 9 = (x+3)^2. So x^2 + 6x = (x + 3)^2 - 9.",
+  "trap": {
+    "misconception": "A negative discriminant means the equation has no solution.",
+    "explanation": "The slip: No real roots is read as no solutions at all. The fix: No real roots is not no solution: the equation still has two complex roots. For x^2 + 1 = 0, D = -4 and the roots are x = i and x = -i."
+  }
+}
