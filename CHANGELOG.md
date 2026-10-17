@@ -12,6 +12,9 @@ version section when the release ships.
 
 ### Added
 
+- Tutor synchronization adapter for visual beats, presentation slide IDs, speech cues,
+  checkpoint interruption/recovery and ordered controller commands (#800).
+
 - Multi-subject interactive simulation registry with strict validated models for
   water cycle, fraction bars and constant-speed motion, plus gold samples (#799).
 

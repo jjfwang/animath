@@ -22,6 +22,7 @@ const EXPECTED_APIS = {
   './player': ['mount'],
   './interactive': ['validate', 'evaluate', 'createSession', 'svgFor', 'mount'],
   './simulations': ['models', 'validate', 'calculate', 'createSession', 'svgFor', 'mount'],
+  './tutor-bridge': ['createTutorBridge'],
   './presenter': ['createPresenter', 'resolveVisual', 'printViews', 'keyAction', 'attachPresenter'],
   './printable': ['renderWorksheet', 'renderWorksheetAnswerKey', 'renderExitTicket', 'renderExitTicketAnswerKey', 'renderNotes', 'renderScript', 'escapeHtml'],
   './export-frames': ['version', 'shapeMarkup', 'sceneShapes', 'renderFrame', 'frameMs', 'sceneFrameCount'],

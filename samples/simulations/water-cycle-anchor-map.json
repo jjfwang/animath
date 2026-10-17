@@ -1,0 +1,17 @@
+[
+  {
+    "beatId": "predict",
+    "slideId": "water-cycle/predict",
+    "speechCue": "water-cycle/wc-01"
+  },
+  {
+    "beatId": "observe",
+    "slideId": "water-cycle/observe",
+    "speechCue": "water-cycle/wc-02"
+  },
+  {
+    "beatId": "explain",
+    "slideId": "water-cycle/explain",
+    "speechCue": "water-cycle/wc-03"
+  }
+]

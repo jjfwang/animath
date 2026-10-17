@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teachkit Tutor Beat Synchronization Pilot</title>
+<style>body{font-family:system-ui,sans-serif;background:#f3f7f9;color:#153951;margin:0}main{max-width:980px;margin:20px auto;padding:15px}#controls{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}button{font:inherit;padding:10px 14px;border:1px solid #adc7d9;border-radius:8px;background:white;cursor:pointer}button:focus-visible{outline:3px solid #dfa643;outline-offset:2px}.panel{background:white;border:1px solid #dae6ed;padding:12px;border-radius:10px;line-height:1.7}svg{max-width:100%;height:auto}</style>
+</head><body><main><h1>Tutor / slides / voice cue test harness</h1>
+<p>Simulates tutor-driven visual beat changes. Real speech playback and session authentication belong to the host.</p>
+<div id="controls"><button id="next">Next teaching beat</button><button id="interrupt">Interrupt</button>
+<button id="resume">Resume</button><button id="ask">Ask checkpoint</button>
+<button id="wrong">Submit wrong answer</button><button id="correct">Submit correct answer</button></div>
+<div id="summary" class="panel" role="status" aria-live="polite"></div>
+<div id="visual" class="panel"></div></main>
+<script src="simulation-kit.js"></script><script src="tutor-bridge.js"></script>
+<script>
+(function(){
+var preview=document.getElementById('visual'),display=document.getElementById('summary'),seq=0,idx=0;
+Promise.all([fetch('../samples/simulations/secondary-water-cycle.json'),fetch('../samples/simulations/water-cycle-anchor-map.json')])
+.then(function(rs){if(!rs.every(function(r){return r.ok;}))throw Error('Could not load pilot samples');return Promise.all(rs.map(function(r){return r.json();}));})
+.then(function(data){
+var model=TeachkitSimulations.createSession(data[0]),map=data[1],bridge=TeachkitTutorBridge.createTutorBridge(model,map);
+function render(){var state=bridge.state();preview.innerHTML=TeachkitSimulations.svgFor(data[0],state.visual);
+display.textContent='Slide: '+state.slideId+' | Voice cue: '+state.speechCue+' | Beat: '+state.beatId+
+' | Voice elapsed: '+state.speechPosition+' ms | Paused: '+state.paused+
+' | Checkpoint: '+state.questionPending+' | Adaptation recommended: '+state.needsAdaptation;}
+bridge.on(render);render();
+function cmd(c){try{bridge.command(Object.assign({sequence:++seq},c));}
+catch(e){seq--;display.textContent='Command rejected: '+e.message;}}
+document.getElementById('next').addEventListener('click',function(){idx=(idx+1)%map.length;cmd({type:'play',beatId:map[idx].beatId});});
+document.getElementById('interrupt').addEventListener('click',function(){cmd({type:'interrupt'});});
+document.getElementById('resume').addEventListener('click',function(){cmd({type:'resume'});});
+document.getElementById('ask').addEventListener('click',function(){cmd({type:'ask'});});
+document.getElementById('wrong').addEventListener('click',function(){try{bridge.answer(1);}catch(e){display.textContent=e.message;}});
+document.getElementById('correct').addEventListener('click',function(){try{bridge.answer(0);}catch(e){display.textContent=e.message;}});
+}).catch(function(e){display.textContent='Error: '+e.message;});
+})();
+</script></body></html>

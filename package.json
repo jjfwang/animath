@@ -42,7 +42,8 @@
     "./script": "./generator/pipeline.js",
     "./lesson-pack": "./generator/pipeline.js",
     "./interactive": "./player/interactive.js",
-    "./simulations": "./player/simulation-kit.js"
+    "./simulations": "./player/simulation-kit.js",
+    "./tutor-bridge": "./player/tutor-bridge.js"
   },
   "files": [
     "generator/",
