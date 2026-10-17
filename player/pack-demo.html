@@ -396,6 +396,24 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="statistics-jc-manifest">
+  <h1>Lesson pack: JC H2 statistics: sampling distributions, hypothesis testing, error types</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>h2-statistics-jc-math</code></dd>
+    <dt>Level</dt><dd>jc</dd>
+    <dt>Subject</dt><dd>math</dd>
+    <dt>Topic</dt><dd><code>h2-statistics</code></dd>
+  </dl>
+  <p>topic h2-statistics · level jc · subject math · deck jc-h2-statistics</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -655,6 +673,19 @@
   <h2>JC H2 probability printables</h2>
   <div id="probability-jc-printables-stage"></div>
 </section>
+<section class="pack-section" id="statistics-jc-animation">
+  <h2>JC H2 statistics animation</h2>
+  <div id="statistics-jc-stage"></div>
+  <div id="statistics-jc-captions"></div>
+</section>
+<section class="pack-section" id="statistics-jc-slides">
+  <h2>JC H2 statistics slides</h2>
+  <div id="statistics-jc-slides-stage"></div>
+</section>
+<section class="pack-section" id="statistics-jc-printables">
+  <h2>JC H2 statistics printables</h2>
+  <div id="statistics-jc-printables-stage"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -699,8 +730,9 @@
     var differentiationJcPrintStage = document.querySelector('#differentiation-jc-printables-stage .pr-stage') || document.querySelector('#differentiation-jc-printables-stage');
     var integrationJcPrintStage = document.querySelector('#integration-jc-printables-stage .pr-stage') || document.querySelector('#integration-jc-printables-stage');
     var probabilityJcPrintStage = document.querySelector('#probability-jc-printables-stage .pr-stage') || document.querySelector('#probability-jc-printables-stage');
+    var statisticsJcPrintStage = document.querySelector('#statistics-jc-printables-stage .pr-stage') || document.querySelector('#statistics-jc-printables-stage');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage, differentiationJcPrintStage, integrationJcPrintStage, probabilityJcPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage, differentiationJcPrintStage, integrationJcPrintStage, probabilityJcPrintStage, statisticsJcPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -2194,6 +2226,78 @@
     ].join('');
   }).catch(function (err) {
     showError('JC H2 probability pack failed to load: ' + err.message);
+  });
+})();
+<script>
+(function () {
+  var presenter = document.getElementById('statistics-jc-slides-stage');
+  var statisticsJcPrint = document.getElementById('statistics-jc-printables-stage');
+  var errBox = document.getElementById('err');
+  var statisticsJcAnimUrl = '../samples/jc-h2-statistics.json';
+  var statisticsJcDeckUrl = '../samples/decks/jc-h2-statistics.json';
+  var statisticsJcWorksheetUrl = '../samples/worksheets/jc-h2-statistics.json';
+  var statisticsJcTicketUrl = '../samples/tickets/jc-h2-statistics.json';
+  var statisticsJcNotesUrl = '../samples/notes/jc-h2-statistics.json';
+  var statisticsJcScriptUrl = '../samples/scripts/jc-h2-statistics.json';
+
+  function showError(msg) {
+    errBox.textContent = String(msg);
+  }
+
+  Promise.all([
+    fetch(statisticsJcAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + statisticsJcAnimUrl);
+      return r.json();
+    }),
+    fetch(statisticsJcDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + statisticsJcDeckUrl);
+      return r.json();
+    }),
+    fetch(statisticsJcWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + statisticsJcWorksheetUrl);
+      return r.json();
+    }),
+    fetch(statisticsJcTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + statisticsJcTicketUrl);
+      return r.json();
+    }),
+    fetch(statisticsJcNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + statisticsJcNotesUrl);
+      return r.json();
+    }),
+    fetch(statisticsJcScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + statisticsJcScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('JC H2 statistics pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('statistics-jc-stage'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    statisticsJcPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    showError('JC H2 statistics pack failed to load: ' + err.message);
   });
 })();
 </script>

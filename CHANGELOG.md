@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 statistics lesson pack in the pack demo
+  (`player/pack-demo.html`): the JC H2 statistics
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six jc-h2-statistics materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  statistics-jc-manifest header (slug
+  `h2-statistics-jc-math`, level jc, subject
+  math, topic `h2-statistics`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all twenty-two packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #877).
+
 - JC H2 statistics gold lesson pack: five hand-authored gold
   samples for h2-statistics in
   samples/decks|worksheets|tickets|notes|scripts/jc-h2-statistics.json,
