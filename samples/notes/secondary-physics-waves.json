@@ -1,0 +1,44 @@
+{
+  "definitions": [
+    {
+      "meaning": "A disturbance that carries energy from place to place without carrying matter with it: the particles vibrate in place while the energy moves on.",
+      "term": "Wave"
+    },
+    {
+      "meaning": "A wave whose vibration is across the direction of travel, like light: a particle on the wave bobs up and down while the wave races sideways.",
+      "term": "Transverse wave"
+    },
+    {
+      "meaning": "A wave whose vibration is along the direction of travel, like sound: the particles bunch together and spread apart as the wave passes.",
+      "term": "Longitudinal wave"
+    },
+    {
+      "meaning": "How many full waves pass a point each second, measured in hertz (Hz): a frequency of 170 Hz means 170 waves per second.",
+      "term": "Frequency"
+    },
+    {
+      "meaning": "The length of one full wave, from one crest to the next, measured in metres: the sound wave in this lesson has a wavelength of 2 m.",
+      "term": "Wavelength"
+    }
+  ],
+  "level": "secondary",
+  "mechanismSteps": [
+    "Light and sound are different kinds of waves: light is transverse, so a particle bobs across the direction of travel, while sound is longitudinal, so the particles bunch and spread along the direction of travel.",
+    "Wave speed equals frequency times wavelength: for any wave, v = f x wavelength - for sound in air, 340 m/s = 170 Hz x 2 m.",
+    "A common mistake: we see lightning before we hear thunder: reject the claim that sound outruns light - light is far faster, so the flash arrives first and the thunder follows seconds later.",
+    "What the wave examples have in common: every wave carries energy while its particles only vibrate in place, and speed, frequency and wavelength always obey v = f x wavelength."
+  ],
+  "objectives": [
+    "Tell transverse and longitudinal waves apart and give light and sound as the examples",
+    "Define the key vocabulary of waves: wave, transverse wave, longitudinal wave, frequency and wavelength",
+    "Use the wave equation v = f x wavelength to find a speed, a frequency or a wavelength"
+  ],
+  "subject": "science",
+  "title": "Waves: light, sound and the wave equation",
+  "topic": "phys-waves",
+  "trap": {
+    "explanation": "A thunderclap feels so powerful that it seems to arrive before the flash. Light is far faster: the lightning flash arrives first and the thunder follows. That is why, in a storm, you always see the flash before you hear the thunder.",
+    "misconception": "Sound travels faster than light."
+  },
+  "workedExample": "Work out the wavelength of a sound wave in air. The wave travels at v = 340 m/s and vibrates at f = 170 Hz. Use the wave equation v = f x wavelength, rearranged to wavelength = v / f = 340 / 170 = 2 m. Check: 170 Hz x 2 m = 340 m/s, so the wavelength is 2 m."
+}

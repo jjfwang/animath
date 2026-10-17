@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary topic (`samples/decks/secondary-physics-waves.json`,
+  `samples/worksheets/secondary-physics-waves.json`,
+  `samples/tickets/secondary-physics-waves.json`,
+  `samples/notes/secondary-physics-waves.json`, and
+  `samples/scripts/secondary-physics-waves.json`): hand-authored
+  secondary science waves gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the fractions golds, keyed to the waves
+  animation scenes s1-s4 and the bank `phys-waves` misconception
+  (Sound travels faster than light.), guarded by a dedicated
+  test file (issue #784).
+
 - In-app lesson-pack rendering in the web app (`web/index.html`): pack
   mode now renders the generated slide deck in-page via the slide
   presenter and the worksheet, student notes, exit ticket, and teacher
