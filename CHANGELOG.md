@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a JC topic (`samples/decks/jc-h2-sequences.json`,
+  `samples/worksheets/jc-h2-sequences.json`,
+  `samples/tickets/jc-h2-sequences.json`,
+  `samples/notes/jc-h2-sequences.json`, and
+  `samples/scripts/jc-h2-sequences.json`): hand-authored
+  JC H2 sequences and series gold samples for all five materials -
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script - mirroring the vectors golds, keyed to the sequences
+  animation scenes s1-s5 and the bank `h2-sequences` primary
+  formula-slip misconception
+  (u_10 needs ten jumps of d, so u_n = u_1 + n*d.),
+  guarded by a dedicated test file `tests/gold-sequences-pack.test.js` (issue #858).
+
 - Gold lesson pack for a JC topic (`samples/decks/jc-h2-functions-graphs.json`,
   `samples/worksheets/jc-h2-functions-graphs.json`,
   `samples/tickets/jc-h2-functions-graphs.json`,
