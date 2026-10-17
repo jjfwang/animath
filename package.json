@@ -23,6 +23,7 @@
     "./export-record": "./player/export-record.js",
     "./export-ui": "./player/export-ui.js",
     "./player": "./player/player.js",
+    "./interactive": "./player/interactive.js",
     "./presenter": "./player/presenter.js",
     "./printable": "./player/printable.js",
     "./player-validate": "./player/validate.js",
