@@ -45,7 +45,10 @@
     "./simulations": "./player/simulation-kit.js",
     "./tutor-bridge": "./player/tutor-bridge.js",
     "./interactive-review": "./generator/interactive-review.js",
-    "./interactive-agent": "./generator/interactive-agent.js"
+    "./interactive-agent": "./generator/interactive-agent.js",
+    "./approved-assets": "./generator/approved-assets.js",
+    "./fs-assets": "./generator/fs-object-store.js",
+    "./interactive-service": "./generator/interactive-service.js"
   },
   "files": [
     "generator/",
