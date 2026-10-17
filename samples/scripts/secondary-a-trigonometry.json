@@ -1,0 +1,53 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-trigonometry",
+  "title": "A-Math trigonometry: identities, compound angles and the R-formula",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 7,
+      "questions": [
+        "Why does sin squared plus cos squared always equal one?",
+        "What is tan theta in terms of sin and cos?"
+      ],
+      "say": "Start on the unit circle. The probe sits at angle theta, the horizontal leg is cos theta, the vertical leg is sin theta, and the hypotenuse is always 1. Pythagoras then gives the seed identity at once, and tan is simply sin over cos."
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "questions": [
+        "How do you split 75 degrees for an exact value?",
+        "What four known values do you need?"
+      ],
+      "say": "Now compute sin 75 degrees exactly. Split 75 as 45 plus 30 and expand sin(A + B) as sin A cos B plus cos A sin B. The four familiar values fly in and multiply out to root 6 plus root 2 over 4, about 0.966."
+    },
+    {
+      "cue": "s3",
+      "minutes": 8,
+      "questions": [
+        "For 3 cos x + 4 sin x, what are R and alpha?",
+        "What are the maximum and minimum?"
+      ],
+      "say": "Turn to the R-formula. Two waves, 3 cos x and 4 sin x, merge into one. The 3-4-5 triangle gives R = 5 and alpha = 53.1 degrees, so the sum is 5 cos(x - 53.1 degrees) and the max and min, 5 and -5, are obvious."
+    },
+    {
+      "cue": "s4",
+      "minutes": 7,
+      "questions": [
+        "What is cos 60 degrees, and what is cos 30 plus cos 30?",
+        "Why does the comparison kill the splitting claim?"
+      ],
+      "say": "Spring the trap on purpose. Cos 60 degrees is one half. But cos 30 plus cos 30 is root 3, about 1.73. The wrong bar towers over the true one: always compute the sum of the angles first, then take the cosine."
+    },
+    {
+      "minutes": 9,
+      "questions": [
+        "What is the exact value of sin 75 degrees?",
+        "How do you put 3 cos x + 4 sin x into R-form?"
+      ],
+      "say": "Now work through the worksheet in pairs, checking each answer against the identities and R-formula sections of your student notes. Last, the exit ticket - on your own, no talking - and remember: expand with the compound formulae, never by splitting.",
+      "watchFor": "cos(A + B) = cos A + cos B. Listen for students who split the cosine across the sum. Send them back to the numbers: Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-trigonometry",
+  "title": "A-Math trigonometry: identities, compound angles and the R-formula",
+  "objectives": [
+    "Use the seed identities sin squared plus cos squared equals one and tan equals sin over cos",
+    "Apply the compound angle formulae to find exact values such as sin 75 degrees",
+    "Rewrite a cos x + b sin x in R-form and read off its maximum, minimum and period"
+  ],
+  "definitions": [
+    {
+      "term": "Identity",
+      "meaning": "An equation true for every value of the angle, such as sin squared theta + cos squared theta = 1, which comes from the unit circle with hypotenuse 1."
+    },
+    {
+      "term": "Compound angle",
+      "meaning": "An angle formed by adding or subtracting two angles, such as 75 degrees as 45 + 30, handled with formulae like sin(A + B) = sin A cos B + cos A sin B."
+    },
+    {
+      "term": "R-formula",
+      "meaning": "The rewrite a cos x + b sin x = R cos(x - alpha), where R is the square root of a squared plus b squared and tan alpha = b over a, giving one wave of amplitude R."
+    },
+    {
+      "term": "Unit circle",
+      "meaning": "The circle of radius 1 centred at the origin; a point at angle theta has coordinates (cos theta, sin theta), which is why the seed identity holds."
+    }
+  ],
+  "mechanismSteps": [
+    "The two seed identities, on the unit circle - the legs are cos theta and sin theta with hypotenuse 1, so sin squared plus cos squared equals one and tan is sin over cos.",
+    "Compound angles: computing sin 75 degrees - split 75 as 45 + 30, expand with sin(A + B), and the four known values give (root 6 + root 2) over 4.",
+    "The R-formula: one wobble, not two - 3 cos x + 4 sin x becomes 5 cos(x - 53.1 degrees) from the 3-4-5 triangle, so max is 5 and min is -5.",
+    "Misconception: cos(A + B) does not split - cos 60 is 0.5 while cos 30 + cos 30 is about 1.73, so the cosine of a sum is never the sum of cosines."
+  ],
+  "workedExample": "Work step by step (s2): sin 75 degrees. Step 1: split 75 as 45 + 30. Step 2: expand sin(45 + 30) = sin 45 cos 30 + cos 45 sin 30. Step 3: substitute root 2 over 2 times root 3 over 2 plus root 2 over 2 times 1 over 2. Step 4: simplify to (root 6 + root 2) over 4, about 0.966. The same R-formula idea gives 3 cos x + 4 sin x = 5 cos(x - 53.1 degrees).",
+  "trap": {
+    "misconception": "cos(A + B) = cos A + cos B.",
+    "explanation": "The slip: Cosine looks like it splits across the sum. The fix: Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73."
+  }
+}

@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-trigonometry.json`,
+  `samples/worksheets/secondary-a-trigonometry.json`,
+  `samples/tickets/secondary-a-trigonometry.json`,
+  `samples/notes/secondary-a-trigonometry.json`, and
+  `samples/scripts/secondary-a-trigonometry.json`): hand-authored
+  secondary A-Math further trigonometry gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the quadratic functions golds, keyed to the trigonometry
+  animation scenes s1-s4 and the bank `a-trigonometry` misconception
+  (cos(A + B) = cos A + cos B.),
+  guarded by a dedicated test file `tests/gold-trigonometry-a-pack.test.js` (issue #846).
+
 - Secondary A-Math quadratic functions lesson pack in the pack demo
   (`player/pack-demo.html`): the secondary A-Math quadratic functions
   gold lesson pack now appears on the same demo page as the other packs,
