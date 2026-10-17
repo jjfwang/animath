@@ -40,7 +40,8 @@
     "./script-prompt": "./generator/build_script_prompt.js",
     "./notes": "./generator/pipeline.js",
     "./script": "./generator/pipeline.js",
-    "./lesson-pack": "./generator/pipeline.js"
+    "./lesson-pack": "./generator/pipeline.js",
+    "./interactive": "./player/interactive.js"
   },
   "files": [
     "generator/",

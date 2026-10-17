@@ -20,6 +20,7 @@ const EXPECTED_APIS = {
   './misconceptions': ['MISCONCEPTIONS'],
   './llm-client': ['generateSpec'],
   './player': ['mount'],
+  './interactive': ['validate', 'evaluate', 'createSession', 'svgFor', 'mount'],
   './presenter': ['createPresenter', 'resolveVisual', 'printViews', 'keyAction', 'attachPresenter'],
   './printable': ['renderWorksheet', 'renderWorksheetAnswerKey', 'renderExitTicket', 'renderExitTicketAnswerKey', 'renderNotes', 'renderScript', 'escapeHtml'],
   './export-frames': ['version', 'shapeMarkup', 'sceneShapes', 'renderFrame', 'frameMs', 'sceneFrameCount'],

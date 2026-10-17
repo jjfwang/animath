@@ -1,0 +1,29 @@
+/* Isolated interactive teaching styles — no impact on v0.1 player. */
+.tki { box-sizing:border-box; max-width:960px; margin:0 auto; padding:20px; color:#1c3346; background:#fff; border:1px solid #d7e2e9; border-radius:16px; font-family:system-ui,-apple-system,sans-serif; }
+.tki * { box-sizing:border-box; }
+.tki-title { margin:0 0 12px; font-size:clamp(20px,3vw,28px); }
+.tki-stage { width:100%; overflow:hidden; background:#eaf5fc; border-radius:12px; }
+.tki-stage svg { display:block; width:100%; height:auto; }
+.tki-narration { min-height:3.2em; line-height:1.55; font-size:16px; margin:14px 0; }
+.tki-beats { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 18px; }
+.tki-beat,.tki-answer,.tki-reset { font:inherit; line-height:1.35; border:1px solid #b9cdd8; background:#fff; color:#183a50; padding:9px 13px; border-radius:10px; cursor:pointer; }
+.tki-beat[aria-pressed="true"],.tki-answer[aria-pressed="true"] { background:#1e648c; color:#fff; border-color:#1e648c; }
+.tki button:focus-visible,.tki input:focus-visible { outline:3px solid #f3ae43; outline-offset:2px; }
+.tki-controls { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:14px 0; }
+.tki-control { display:grid; gap:6px; }
+.tki-control label { font-size:14px; font-weight:600; }
+.tki-control input { width:100%; accent-color:#1e648c; cursor:pointer; }
+.tki-control output { font-size:14px; font-variant-numeric:tabular-nums; }
+.tki-activity { padding:12px; border-radius:9px; background:#eaf5fc; font-size:14px; line-height:1.4; }
+.tki-check { border:1px solid #d0dfe7; border-radius:12px; padding:12px; display:flex; flex-wrap:wrap; gap:8px; }
+.tki-check legend { font-weight:650; padding:0 4px; }
+.tki-feedback { width:100%; min-height:1.4em; margin:2px 0; line-height:1.4; }
+.tki-reset { margin:14px 0 0; background:#eaf5fc; }
+.tki-disclaimer { font-size:12px; color:#576b77; line-height:1.5; }
+@media (max-width:660px) { .tki { padding:12px; }.tki-controls { grid-template-columns:1fr; }.tki-title { font-size:22px; }.tki-stage svg { min-width:0; }.tki-check { display:grid; }.tki-answer { text-align:left; } }
+@media (prefers-reduced-motion:reduce) { .tki *, .tki *::before, .tki *::after { transition:none!important; animation:none!important; } }
+
+/* Visual motion belongs to the player, not the model evaluator; motion is optional. */
+.tki-stage .tki-vapour-flow { animation:tki-vapour 2.4s linear infinite; }
+@keyframes tki-vapour { to { stroke-dashoffset:-48; } }
+@media (prefers-reduced-motion:reduce) { .tki-stage .tki-vapour-flow { animation:none; } }

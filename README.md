@@ -668,3 +668,36 @@ MIT — see `LICENSE`.
 
 New here? Start with [CONTRIBUTING.md](CONTRIBUTING.md) — the zero-dependency
 policy, the test gate, sample conventions, and branch/PR rules.
+
+## Interactive teaching pilot (opt-in)
+
+The existing `animath:"0.1"` player and its samples are unchanged. A new
+`interactive:"0.1"` contract pilots a reactive, persistent, **qualitative**
+Secondary Science water-cycle model with controls for solar energy, cooling
+and droplet growth, five semantic tutor beats, a misconception check and
+replayable session events. It is intentionally **not a weather forecast**.
+
+Serve this repo over HTTP (as for the gallery) and open
+[`player/interactive-demo.html`](player/interactive-demo.html). In an
+existing page, include `player/interactive.css` and
+`player/interactive.js`, then load the gold JSON from
+`samples/interactive/secondary-science-water-cycle.json`:
+
+```js
+const { mount, createSession, validate } = require('@jjfwang/teachkit/interactive');
+const problems = validate(interactiveSpec);
+if (problems.length) throw new Error(problems.join('; '));
+const controller = mount(containerElement, interactiveSpec); // browser DOM
+controller.playBeat('condensation', 'tutor');
+controller.setParameter('cooling', 80, 'student');
+const snapshot = controller.getState();
+const events = controller.getHistory(); // caller persists these if needed
+controller.destroy();
+```
+
+`createSession(spec)` runs without the DOM for deterministic simulation and
+tests. The new module uses no LLM at playback time and has no dependencies.
+The library API does not currently store events or authorize live tutor
+commands; the host must provide session storage and access control.
+The complete design and future phases are in
+[`docs/INTERACTIVE_TEACHING_ROADMAP.md`](docs/INTERACTIVE_TEACHING_ROADMAP.md).
