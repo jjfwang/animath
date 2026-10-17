@@ -34,7 +34,7 @@ const script = load('samples/scripts/secondary-a-differentiation.json');
 const BANK_BEAT = MISCONCEPTIONS['a-differentiation'];
 const TITLE = 'A-Math differentiation: gradients, the power rule and stationary points';
 const EXPECTED_KINDS = ['title', 'objective', 'hook', 'concept', 'mechanism',
-  'mechanism', 'mechanism', 'mechanism', 'mechanism', 'mechanism', 'example', 'practice', 'exit-ticket'];
+  'mechanism', 'mechanism', 'mechanism', 'mechanism', 'example', 'practice', 'exit-ticket'];
 const SCENE_IDS = animation.scenes.map((s) => s.id);
 
 /* Envelope + animation grounding */
@@ -77,7 +77,7 @@ test('all five gold materials validate with zero errors', () => {
 
 /* Deck */
 
-test('gold differentiation deck kind sequence is the 13-slide structure', () => {
+test('gold differentiation deck kind sequence is the 12-slide structure', () => {
   assert.deepEqual(deck.slides.map((s) => s.kind), EXPECTED_KINDS);
 });
 
