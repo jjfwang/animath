@@ -23,8 +23,11 @@ const EXPECTED_APIS = {
   './interactive': ['validate', 'evaluate', 'createSession', 'svgFor', 'mount'],
   './simulations': ['models', 'validate', 'calculate', 'createSession', 'svgFor', 'mount'],
   './tutor-bridge': ['createTutorBridge'],
-  './interactive-agent': ['createAgentReviewer']
+  './interactive-agent': ['createAgentReviewer'],
   './interactive-review': ['auditSvg', 'audit', 'reviewerPrompt', 'reviewAsset'],
+  './approved-assets': ['prefix', 'publish', 'read', 'rollback'],
+  './fs-assets': ['createFileStore'],
+  './interactive-service': ['prepareAndPublish', 'loadApproved', 'mountApproved'],
   './presenter': ['createPresenter', 'resolveVisual', 'printViews', 'keyAction', 'attachPresenter'],
   './printable': ['renderWorksheet', 'renderWorksheetAnswerKey', 'renderExitTicket', 'renderExitTicketAnswerKey', 'renderNotes', 'renderScript', 'escapeHtml'],
   './export-frames': ['version', 'shapeMarkup', 'sceneShapes', 'renderFrame', 'frameMs', 'sceneFrameCount'],
