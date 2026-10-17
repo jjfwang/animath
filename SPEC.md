@@ -568,3 +568,23 @@ approval requires agent `approve`, confidence >=0.85, all checks pass and
 zero findings. Provider failure/uncertainty returns `human_required`.
 The host authenticates reviewers; this library never calls an LLM while a
 student manipulates a visualization. See #801.
+
+## Approved artifact storage (experimental)
+
+`generator/approved-assets.js` enforces lowercase path-safe syllabus,
+revision, level, track, subject, topic, locale, objectives hash and
+difficulty components. Required generation context: promptVersion and
+engineVersion. Assets are named .json/.svg/.txt/.md and include an
+`interactive.json` or `animation.json` visual. The pack is SHA-256
+addressed; all objects are immutable and a single `current.json` pointer
+is updated through host-supplied atomic compare-and-swap. The manifest
+records `approvalStatus:approved`, typed reviewer evidence and per-file
+hashes. Reads verify item hashes **and** the complete revision hash. An
+unapproved or malformed report cannot publish. Rollback requires an already
+approved revision and uses CAS. No LLM calls occur at read/playback time.
+
+The Node-only `generator/fs-object-store.js` adapter is suitable for a
+single local/staging host. It uses filesystem locks for CAS. Distributed
+production **must** use its own durable store with strongly consistent CAS,
+object immutability, tenant isolation, backup and auditing. A crashed local
+process can leave a `.lock` directory that an operator must inspect/remove.

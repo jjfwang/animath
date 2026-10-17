@@ -745,3 +745,49 @@ failed reviews are rejected rather than overridden. Host controls LLM access,
 reviewer independence/identity and human authorization. No agent runs in the
 interactive playback loop. The gate does **not** replace pixel screenshot
 validation; those checks require an external browser runner.
+
+### Approved, syllabus-keyed persistent teaching materials
+
+`@jjfwang/teachkit/approved-assets` publishes JSON/SVG/text assets under
+`teaching/{curriculum}/{curriculumRevision}/{level}/{track}/{subject}/{topic}/{locale}/{objectivesHash}/{difficulty}/{assetRevision}`.
+SHA-256 binds content and context into an immutable revision. Each approved
+manifest lists per-file hashes and independent agent/human review evidence.
+Production storage must implement `get`, immutable `put`, and an **atomic
+compareAndSwap** pointer operation; `read` verifies every hash and rejects
+missing/tampered/unapproved content. `rollback` atomically selects a previous
+approved immutable revision. The Node-only `@jjfwang/teachkit/fs-assets`
+adapter supplies durable single-host development/staging storage with
+exclusive-file object writes and filesystem locks. For multi-server/AWS
+production, inject S3/RDS/DynamoDB-backed storage and transactional CAS;
+**the shipped in-memory test adapter is not durable**. All authorization and
+reviewer identity checks must happen on the server. Never use student-identifying
+data in shared content paths.
+
+
+### Pre-generate, approve, store, then replay one interactive lesson
+
+`@jjfwang/teachkit/interactive-service` wires the preparation and live
+interfaces into one safe library boundary:
+
+```js
+const service = require('@jjfwang/teachkit/interactive-service');
+const result = await service.prepareAndPublish({
+  spec, blueprint, context, store: durableAdapter,
+  reviewers: {agent: externalAgentReviewer, human: approvedHumanQueue},
+  materials: {'anchors.json': JSON.stringify(beatAnchors), 'notes.md': notes}
+});
+if (result.status !== 'published') return result; // human_required or rejected
+// Later, before the live session, load ONLY the previously approved revision.
+const {controller, bridge, destroy} = await service.mountApproved({
+  store: durableAdapter, context, container: stageElement
+});
+bridge?.command({sequence:1,type:'play',beatId:'observe'});
+// End of lesson: destroy(); host also persists authorized event records.
+```
+
+`prepareAndPublish` runs review **before publication**. `mountApproved`
+loads and hashes the stored manifest/spec, then mounts a synchronous,
+deterministic simulation and an optional tutor bridge from `anchors.json`.
+It does not require LLM inference or generation while students manipulate
+controls. The host must supply authenticated real reviewers, authorized
+commands, secure object storage and real slide/voice playback.
