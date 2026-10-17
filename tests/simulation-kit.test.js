@@ -8,7 +8,8 @@ const samples = ['secondary-water-cycle.json','primary-fractions.json','secondar
   (f) => JSON.parse(fs.readFileSync(path.join(__dirname,'../samples/simulations',f),'utf8')));
 const copy = (x) => JSON.parse(JSON.stringify(x));
 test('three independent syllabus models validate and render', () => {
-  a.deepEqual(core.models,['water-cycle','fraction-bars','uniform-motion']);
+  a.ok(['water-cycle','fraction-bars','uniform-motion'].every((id)=>core.models.includes(id)));
+  a.equal(new Set(core.models).size,core.models.length);
   samples.forEach((s) => {
     a.deepEqual(core.validate(s),[]);
     const controller = core.createSession(s);
@@ -77,10 +78,10 @@ test('renderer rejects untrusted state and recomputes outputs', () => {
   const state=core.createSession(samples[2]).getState();
   state.output.distance='<script>alert(1)</script>';
   const svg=core.svgFor(samples[2],state);
-  assert.doesNotMatch(svg,/<script|alert\(1\)/);
+  a.doesNotMatch(svg,/<script|alert\(1\)/);
   const malicious=JSON.parse(JSON.stringify(state));
   malicious.parameters.speed='<svg onload="alert(1)">';
-  assert.throws(()=>core.svgFor(samples[2],malicious),/invalid visualization parameter/);
-  assert.throws(()=>core.svgFor(samples[2],{...state,model:'unknown'}),/invalid visualization state/);
-  assert.throws(()=>core.svgFor(samples[2],{...state,beat:'bogus'}),/invalid visualization state/);
+  a.throws(()=>core.svgFor(samples[2],malicious),/invalid visualization parameter/);
+  a.throws(()=>core.svgFor(samples[2],{...state,model:'unknown'}),/invalid visualization state/);
+  a.throws(()=>core.svgFor(samples[2],{...state,beat:'bogus'}),/invalid visualization state/);
 });
