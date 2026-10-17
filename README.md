@@ -153,7 +153,8 @@ and for secondary A-Math integration, and for secondary A-Math binomial theorem,
 and for secondary A-Math kinematics,
 and for secondary A-Math quadratic functions,
 and for secondary A-Math trigonometry,
-and for JC H2 vectors
+and for JC H2 vectors,
+and for JC H2 functions and graphs
 (animation, slides, worksheet, notes, exit ticket, and script), each
 under its own pack manifest header.
 

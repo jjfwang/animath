@@ -24,6 +24,19 @@ version section when the release ships.
   (f(x + 3) shifts the graph 3 units to the right.),
   guarded by a dedicated test file `tests/gold-functions-graphs-pack.test.js` (issue #854).
 
+- JC H2 functions and graphs lesson pack in the pack demo
+  (`player/pack-demo.html`): the JC H2 functions and graphs
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six jc-h2-functions-graphs materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  functions-graphs-manifest header (slug
+  `h2-functions-graphs-jc-math`, level jc, subject
+  math, topic `h2-functions-graphs`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all seventeen packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #856).
+
 - JC H2 vectors lesson pack in the pack demo
   (`player/pack-demo.html`): the JC H2 vectors
   gold lesson pack now appears on the same demo page as the other packs,
