@@ -157,7 +157,7 @@ and for JC H2 vectors,
 and for JC H2 functions and graphs,
 and for JC H2 sequences and series,
 and for JC H2 differentiation,
-and for JC H2 integration
+and for JC H2 integration, and for JC H2 probability
 (animation, slides, worksheet, notes, exit ticket, and script), each
 under its own pack manifest header.
 

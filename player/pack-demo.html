@@ -378,6 +378,24 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="probability-jc-manifest">
+  <h1>Lesson pack: JC H2 probability: distributions, binomial, normal, independence</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>h2-probability-jc-math</code></dd>
+    <dt>Level</dt><dd>jc</dd>
+    <dt>Subject</dt><dd>math</dd>
+    <dt>Topic</dt><dd><code>h2-probability</code></dd>
+  </dl>
+  <p>topic h2-probability · level jc · subject math · deck jc-h2-probability</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -624,6 +642,19 @@
   <h2>JC H2 integration printables</h2>
   <div id="integration-jc-printables-stage"></div>
 </section>
+<section class="pack-section" id="probability-jc-animation">
+  <h2>JC H2 probability animation</h2>
+  <div id="probability-jc-stage"></div>
+  <div id="probability-jc-captions"></div>
+</section>
+<section class="pack-section" id="probability-jc-slides">
+  <h2>JC H2 probability slides</h2>
+  <div id="probability-jc-slides-stage"></div>
+</section>
+<section class="pack-section" id="probability-jc-printables">
+  <h2>JC H2 probability printables</h2>
+  <div id="probability-jc-printables-stage"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -667,8 +698,9 @@
     var sequencesPrintStage = document.querySelector('#sequences-printables-stage .pr-stage') || document.querySelector('#sequences-printables-stage');
     var differentiationJcPrintStage = document.querySelector('#differentiation-jc-printables-stage .pr-stage') || document.querySelector('#differentiation-jc-printables-stage');
     var integrationJcPrintStage = document.querySelector('#integration-jc-printables-stage .pr-stage') || document.querySelector('#integration-jc-printables-stage');
+    var probabilityJcPrintStage = document.querySelector('#probability-jc-printables-stage .pr-stage') || document.querySelector('#probability-jc-printables-stage');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage, differentiationJcPrintStage, integrationJcPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage, differentiationJcPrintStage, integrationJcPrintStage, probabilityJcPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -2089,6 +2121,79 @@
     ].join('');
   }).catch(function (err) {
     showError('JC H2 integration pack failed to load: ' + err.message);
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('probability-jc-slides-stage');
+  var probabilityJcPrint = document.getElementById('probability-jc-printables-stage');
+  var errBox = document.getElementById('err');
+  var probabilityJcAnimUrl = '../samples/jc-h2-probability.json';
+  var probabilityJcDeckUrl = '../samples/decks/jc-h2-probability.json';
+  var probabilityJcWorksheetUrl = '../samples/worksheets/jc-h2-probability.json';
+  var probabilityJcTicketUrl = '../samples/tickets/jc-h2-probability.json';
+  var probabilityJcNotesUrl = '../samples/notes/jc-h2-probability.json';
+  var probabilityJcScriptUrl = '../samples/scripts/jc-h2-probability.json';
+
+  function showError(msg) {
+    errBox.textContent = String(msg);
+  }
+
+  Promise.all([
+    fetch(probabilityJcAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + probabilityJcAnimUrl);
+      return r.json();
+    }),
+    fetch(probabilityJcDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + probabilityJcDeckUrl);
+      return r.json();
+    }),
+    fetch(probabilityJcWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + probabilityJcWorksheetUrl);
+      return r.json();
+    }),
+    fetch(probabilityJcTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + probabilityJcTicketUrl);
+      return r.json();
+    }),
+    fetch(probabilityJcNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + probabilityJcNotesUrl);
+      return r.json();
+    }),
+    fetch(probabilityJcScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + probabilityJcScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('JC H2 probability pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('probability-jc-stage'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    probabilityJcPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    showError('JC H2 probability pack failed to load: ' + err.message);
   });
 })();
 </script>
