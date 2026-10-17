@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Primary-geography erosion lesson pack in the pack demo (`player/pack-demo.html`): the
+  primary geography erosion gold pack now appears on the same
+  demo page as the water-cycle, fractions, waves, complex, trigonometry, thermal and photosynthesis packs, with its own
+  manifest header (slug `erosion-primary-geography`, level
+  primary, subject geography), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all eight packs' print stages (issue #815).
+
 - Gold lesson pack for a primary-geography topic (`samples/decks/primary-geog-erosion.json`,
   `samples/worksheets/primary-geog-erosion.json`,
   `samples/tickets/primary-geog-erosion.json`,

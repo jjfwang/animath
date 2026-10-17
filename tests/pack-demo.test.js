@@ -106,7 +106,7 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('.pr-teacher'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
     assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
   });
 
   test('complex manifest header names the slug, level, subject and six material keys', () => {
@@ -184,7 +184,7 @@ describe('pack demo page', () => {
     assert.ok(trigBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(trigBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -233,7 +233,7 @@ describe('pack demo page', () => {
     assert.ok(thermalBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(thermalBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -281,7 +281,55 @@ describe('pack demo page', () => {
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
+    assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
+  });
+
+  test('erosion manifest header names the slug, level, subject and six material keys', () => {
+    const start = demo.indexOf('id="erosion-manifest"');
+    assert.ok(start > -1);
+    const manifest = demo.slice(start, demo.indexOf('</header>', start));
+    assert.ok(manifest.includes('id="erosion-manifest"'));
+    assert.ok(manifest.includes('<code>erosion-primary-geography</code>'));
+    assert.ok(manifest.includes('level primary'));
+    assert.ok(manifest.includes('subject geography'));
+    assert.ok(manifest.includes('<code>animation</code>'));
+    assert.ok(manifest.includes('<code>slides</code>'));
+    assert.ok(manifest.includes('<code>worksheet</code>'));
+    assert.ok(manifest.includes('<code>exitTicket</code>'));
+    assert.ok(manifest.includes('exit ticket'));
+    assert.ok(manifest.includes('<code>notes</code>'));
+    assert.ok(manifest.includes('student notes'));
+    assert.ok(manifest.includes('<code>script</code>'));
+    assert.ok(manifest.includes('teacher script'));
+  });
+
+  test('erosion pack sections and all six sample paths are present', () => {
+    assert.ok(demo.includes('id="erosion-player"'));
+    assert.ok(demo.includes('id="erosion-presenter"'));
+    assert.ok(demo.includes('id="erosion-print"'));
+    assert.ok(demo.includes('../samples/primary-geog-erosion.json'));
+    assert.ok(demo.includes('../samples/decks/primary-geog-erosion.json'));
+    assert.ok(demo.includes('../samples/worksheets/primary-geog-erosion.json'));
+    assert.ok(demo.includes('../samples/tickets/primary-geog-erosion.json'));
+    assert.ok(demo.includes('../samples/notes/primary-geog-erosion.json'));
+    assert.ok(demo.includes('../samples/scripts/primary-geog-erosion.json'));
+  });
+
+  test('erosion block validates all six materials before rendering and renders both answer keys', () => {
+    const erosionStart = demo.indexOf('erosionAnimUrl');
+    assert.ok(erosionStart > -1);
+    const erosionBlock = demo.slice(erosionStart);
+    assert.ok(erosionBlock.indexOf('AnimathValidate.validateSpec') < erosionBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(erosionBlock.indexOf('AnimathValidate.validateSlides') < erosionBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(erosionBlock.indexOf('AnimathValidate.validateWorksheet') < erosionBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(erosionBlock.indexOf('AnimathValidate.validateExitTicket') < erosionBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(erosionBlock.indexOf('AnimathValidate.validateNotes') < erosionBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(erosionBlock.indexOf('AnimathValidate.validateScript') < erosionBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    assert.ok(erosionBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
+    assert.ok(erosionBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
+    assert.ok(demo.includes("document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print')"));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
