@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- Experimental interactive Secondary Science water-cycle pilot (`player/interactive.js`,
+  `player/interactive-demo.html`, `samples/interactive/secondary-science-water-cycle.json`):
+  validated reactive model, semantic tutor commands, accessible sliders, optional
+  reduced-motion-aware vapour flow, a comprehension check, deterministic event
+  history, TypeScript declarations and regression tests. Existing animath v0.1
+  renderer and samples stay unchanged (issue #797).
+
 - Gold lesson pack for a JC science topic (`samples/decks/jc-h2-thermal.json`,
   `samples/worksheets/jc-h2-thermal.json`,
   `samples/tickets/jc-h2-thermal.json`,
