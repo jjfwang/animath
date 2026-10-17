@@ -59,6 +59,13 @@
   .geom ul { margin: 0; padding-left: 20px; }
   .geom li { margin: 3px 0; }
   .geom .gk { color: #6b6455; font-weight: bold; }
+  /* Lesson-pack manifest (#780): slug/topic/level/subject header plus the
+     six material keys for a generated pack. */
+  .packmanifest { background: #fff; border: 1px solid #e2ddd2; border-radius: 12px;
+            padding: 12px 16px; margin: 12px 0; font-size: 14px; }
+  .packmanifest h3 { font-size: 15px; margin: 0 0 8px; }
+  .packmanifest ul { margin: 0; padding-left: 20px; }
+  .packmanifest li { margin: 3px 0; }
 </style>
 </head>
 <body>
@@ -77,6 +84,10 @@
     <div class="kindrow">
       <label><input type="radio" name="kind" value="concept" checked> Explain a concept</label>
       <label><input type="radio" name="kind" value="problem"> Solve a problem</label>
+    </div>
+    <div class="kindrow" id="packmode">
+      <label><input type="radio" name="mode" value="animation" checked> Animation only</label>
+      <label><input type="radio" name="mode" value="pack"> Lesson pack (animation + slides, worksheet, notes, exit ticket, script)</label>
     </div>
     <div class="field">
       <label for="focus">Describe what you need (optional)</label>
@@ -111,6 +122,15 @@
     <button id="exportbtn" type="button">Export WebM</button>
     <span id="exportstatus" aria-live="polite"></span>
   </div>
+  <div class="packmanifest" id="packmanifest" role="region" aria-label="Lesson pack manifest"
+       style="display:none"></div>
+  <div class="specbtns" id="packdownloads" style="display:none">
+    <button id="packdl-slides" type="button">Download slides JSON</button>
+    <button id="packdl-worksheet" type="button">Download worksheet JSON</button>
+    <button id="packdl-notes" type="button">Download notes JSON</button>
+    <button id="packdl-exitTicket" type="button">Download exit ticket JSON</button>
+    <button id="packdl-script" type="button">Download script JSON</button>
+  </div>
   <div class="rubric" id="rubricscore" role="region" aria-label="Teacher rubric score"
        tabindex="0" style="display:none"></div>
   <div class="geom" id="geomwarn" role="status" aria-label="Geometry audit advisory"
@@ -129,6 +149,16 @@
 <script src="../generator/unpack.js"></script>
 <script src="../generator/build_prompt.js"></script>
 <script src="../generator/llm_client.js"></script>
+<!-- Lesson-pack prompt builders + generator syllabus (#780): pipeline.js
+     captures its siblings at load time, so these tags must precede it.
+     generator/syllabus.js sets AnimathSyllabus and is NOT web/syllabus.js
+     above (which sets ANIMATH_SYLLABUS for the pickers) — both are needed. -->
+<script src="../generator/build_slides_prompt.js"></script>
+<script src="../generator/build_worksheet_prompt.js"></script>
+<script src="../generator/build_exit_ticket_prompt.js"></script>
+<script src="../generator/build_notes_prompt.js"></script>
+<script src="../generator/build_script_prompt.js"></script>
+<script src="../generator/syllabus.js"></script>
 <!-- Generate pipeline (#693): automatic unpack -> author -> repair in the engine -->
 <script src="../generator/pipeline.js"></script>
 <script src="../generator/rubric.js"></script>
@@ -163,6 +193,8 @@
   var specBtns = document.getElementById('specbtns');
   var scoreEl = document.getElementById('rubricscore');
   var geomEl = document.getElementById('geomwarn');
+  var packManifestEl = document.getElementById('packmanifest');
+  var packDownloadsEl = document.getElementById('packdownloads');
 
   // restore saved LLM settings
   try {
@@ -285,6 +317,7 @@
 
   var player = null;
   var lastSpec = null;
+  var lastPack = null;
   var lastSlug = 'animath';
 
   // Export WebM (#506): one clearly-labeled button + status line that records
@@ -316,6 +349,13 @@
     // failed validation leaves getSpec() null (demo.html pattern)
     lastSpec = null;
     lastSlug = 'animath';
+    // lesson-pack state (#780): clear and hide the manifest/download UI at
+    // generation start, alongside lastSpec, so a failed pack run leaves
+    // nothing rendered and no stale downloads
+    lastPack = null;
+    packManifestEl.innerHTML = '';
+    packManifestEl.style.display = 'none';
+    packDownloadsEl.style.display = 'none';
     if (exportUI) exportUI.refresh();
     var key = keyEl.value.trim();
     if (!key) { setStatus('Paste your API key first.', true); return; }
@@ -373,6 +413,100 @@
         ' (advisory — playback continues)</h3>' +
         '<ul>' + items + '</ul>';
       geomEl.style.display = '';
+    }
+
+    // Lesson-pack manifest (#780): name the generated pack — slug, topic,
+    // level, subject and all six material keys — with every value escaped
+    // like renderGeomAdvisory above, and reveal the five download controls.
+    function renderPackManifest(pack) {
+      var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); };
+      var items = pack.manifest.materials.map(function (m) {
+        return '<li>' + esc(m) + '</li>';
+      }).join('');
+      packManifestEl.innerHTML =
+        '<h3>Lesson pack: ' + esc(pack.manifest.slug) + '</h3>' +
+        '<p>Topic: ' + esc(pack.manifest.topic) +
+        ' · Level: ' + esc(pack.manifest.level) +
+        ' · Subject: ' + esc(pack.manifest.subject) + '</p>' +
+        '<ul>' + items + '</ul>';
+      packManifestEl.style.display = '';
+      packDownloadsEl.style.display = 'flex';
+    }
+
+    // Lesson-pack mode (#780): when the pack radio is selected, generate the
+    // whole pack through the pipeline's direct entry (not the syllabus-keyed
+    // one, whose bare-slug resolution can be ambiguous and would override
+    // the pickers) with the same opts and callChat adapter as the animation
+    // path below. The per-material validators are passed explicitly:
+    // pipeline.js loads before player/validate.js on this page, so its
+    // captured validate sibling is undefined in the browser and passing
+    // only validate would fall back to validateSpec for every material.
+    var modeSel = document.querySelector('input[name="mode"]:checked');
+    if (modeSel && modeSel.value === 'pack') {
+      AnimathPipeline.generateLessonPack({
+        level: levelSel.value,
+        subject: tr.subject,
+        topic: topicSel.value,
+        topicLabel: topicOpt.textContent,
+        kind: kind,
+        focus: focusEl.value.trim(),
+        facet: facetField.style.display === 'none' ? null : facetSel.value
+      }, {
+        callChat: function (system, user) {
+          return AnimathLLM.rawChat(system, user, {
+            baseUrl: baseUrlEl.value.trim(),
+            apiKey: key,
+            model: modelEl.value.trim()
+          });
+        },
+        validate: AnimathValidate.validateSpec,
+        validateSlides: AnimathValidate.validateSlides,
+        validateWorksheet: AnimathValidate.validateWorksheet,
+        validateNotes: AnimathValidate.validateNotes,
+        validateExitTicket: AnimathValidate.validateExitTicket,
+        validateScript: AnimathValidate.validateScript,
+        onProgress: function (stage, n, max) {
+          if (stage === 'unpack') setStatus('Unpacking the topic into its state transitions…');
+          else if (stage === 'author') setStatus('Asking the model to author your animation…');
+          else if (stage === 'repair') setStatus('Repairing attempt ' + n + ' of ' + max + '…');
+        }
+      }).then(function (pack) {
+        // the pack's animation mounts and plays exactly like a lone spec;
+        // rubric and geometry stay on the animation
+        lastPack = pack;
+        lastSpec = pack.animation;
+        lastSlug = pack.manifest.slug;
+        specBtns.style.display = 'flex';
+        if (exportUI) exportUI.refresh();
+        if (player) player.destroy();
+        player = AnimathPlayer.mount(stageEl, pack.animation);
+        player.play();
+        if (window.AnimathRubric && window.AnimathRubric.scoreSpec) {
+          renderRubric(window.AnimathRubric.scoreSpec(pack.animation));
+        }
+        if (window.AnimathGeometry && window.AnimathGeometry.auditGeometry &&
+            window.AnimathGeometry.classifyFindings) {
+          renderGeomAdvisory(window.AnimathGeometry.classifyFindings(
+            pack.animation, window.AnimathGeometry.auditGeometry(pack.animation)));
+        }
+        renderPackManifest(pack);
+        setStatus('Playing: ' + pack.animation.title);
+        stageEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }).catch(function (e) {
+        var problems = e.problems || [e.message];
+        // failed pack: keep export disabled and render nothing — getSpec()
+        // returns null and the manifest/download UI stays hidden
+        lastSpec = null;
+        lastPack = null;
+        lastSlug = 'animath';
+        if (exportUI) exportUI.refresh();
+        setStatus('Generation failed: the model could not produce a valid lesson pack (' +
+          problems.length + ' problem(s)).', true);
+        showProblems(problems);
+      }).then(function () {
+        genBtn.disabled = false;
+      });
+      return;
     }
 
     // Automatic generate pipeline (#693): unpack -> author -> repair runs
@@ -451,6 +585,23 @@
     a.download = 'animath-spec.json';
     a.click();
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+  });
+  // Lesson-pack downloads (#780): one button per non-animation material,
+  // mirroring the #dlbtn Blob pattern above — the exact material object
+  // from the generated pack, named <slug>-<key>.json.
+  var PACK_DOWNLOAD_KEYS = ['slides', 'worksheet', 'notes', 'exitTicket', 'script'];
+  PACK_DOWNLOAD_KEYS.forEach(function (key) {
+    var btn = document.getElementById('packdl-' + key);
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (!lastPack || !lastPack[key]) return;
+      var blob = new Blob([JSON.stringify(lastPack[key], null, 2)], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = lastPack.manifest.slug + '-' + key + '.json';
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+    });
   });
 })();
 </script>

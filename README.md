@@ -32,6 +32,12 @@ No build step, no dependencies.
 4. Watch, scrub, replay. **Copy spec** saves the JSON so the animation can be
    replayed or shared without regenerating.
 
+The web app (`web/index.html`) also has a lesson-pack mode: select
+**Lesson pack** before hitting **Generate** and teachkit generates a full
+lesson pack for the picked topic — the animation plus a slide deck,
+worksheet, student notes, exit ticket, and teacher script — shows the pack
+manifest, and offers each material as a JSON download.
+
 No API key handy? Play the hand-authored samples in `player/demo.html` — or
 browse them as cards in `web/gallery.html` (same samples, no key needed). Like
 the player demo, the gallery fetches its JSON over HTTP, so serve the repo
