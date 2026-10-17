@@ -106,7 +106,7 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('.pr-teacher'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
     assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage]'));
   });
 
   test('complex manifest header names the slug, level, subject and six material keys', () => {
@@ -184,7 +184,56 @@ describe('pack demo page', () => {
     assert.ok(trigBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(trigBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage]'));
+    assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
+  });
+
+
+  test('thermal manifest header names the slug, level, subject and six material keys', () => {
+    const start = demo.indexOf('id="thermal-manifest"');
+    assert.ok(start > -1);
+    const manifest = demo.slice(start, demo.indexOf('</header>', start));
+    assert.ok(manifest.includes('id="thermal-manifest"'));
+    assert.ok(manifest.includes('<code>h2-thermal-jc-science</code>'));
+    assert.ok(manifest.includes('level jc'));
+    assert.ok(manifest.includes('subject science'));
+    assert.ok(manifest.includes('<code>animation</code>'));
+    assert.ok(manifest.includes('<code>slides</code>'));
+    assert.ok(manifest.includes('<code>worksheet</code>'));
+    assert.ok(manifest.includes('<code>exitTicket</code>'));
+    assert.ok(manifest.includes('exit ticket'));
+    assert.ok(manifest.includes('<code>notes</code>'));
+    assert.ok(manifest.includes('student notes'));
+    assert.ok(manifest.includes('<code>script</code>'));
+    assert.ok(manifest.includes('teacher script'));
+  });
+
+  test('thermal pack sections and all six sample paths are present', () => {
+    assert.ok(demo.includes('id="thermal-player"'));
+    assert.ok(demo.includes('id="thermal-presenter"'));
+    assert.ok(demo.includes('id="thermal-print"'));
+    assert.ok(demo.includes('../samples/jc-h2-thermal.json'));
+    assert.ok(demo.includes('../samples/decks/jc-h2-thermal.json'));
+    assert.ok(demo.includes('../samples/worksheets/jc-h2-thermal.json'));
+    assert.ok(demo.includes('../samples/tickets/jc-h2-thermal.json'));
+    assert.ok(demo.includes('../samples/notes/jc-h2-thermal.json'));
+    assert.ok(demo.includes('../samples/scripts/jc-h2-thermal.json'));
+  });
+
+  test('thermal block validates all six materials before rendering and renders both answer keys', () => {
+    const thermalStart = demo.indexOf('thermalAnimUrl');
+    assert.ok(thermalStart > -1);
+    const thermalBlock = demo.slice(thermalStart);
+    assert.ok(thermalBlock.indexOf('AnimathValidate.validateSpec') < thermalBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(thermalBlock.indexOf('AnimathValidate.validateSlides') < thermalBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(thermalBlock.indexOf('AnimathValidate.validateWorksheet') < thermalBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(thermalBlock.indexOf('AnimathValidate.validateExitTicket') < thermalBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(thermalBlock.indexOf('AnimathValidate.validateNotes') < thermalBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(thermalBlock.indexOf('AnimathValidate.validateScript') < thermalBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    assert.ok(thermalBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
+    assert.ok(thermalBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
+    assert.ok(demo.includes("document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print')"));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
