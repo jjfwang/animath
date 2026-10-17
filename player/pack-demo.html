@@ -270,6 +270,24 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="trigonometry-a-manifest">
+  <h1>Lesson pack: A-Math trigonometry: identities, compound angles and the R-formula</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>a-trigonometry-secondary-math</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>math</dd>
+    <dt>Topic</dt><dd><code>a-trigonometry</code></dd>
+  </dl>
+  <p>topic a-trigonometry · level secondary · subject math · deck secondary-a-trigonometry</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -438,6 +456,19 @@
   <h2>Quadratic functions printables</h2>
   <div id="quadratic-print"></div>
 </section>
+<section class="pack-section" id="trigonometry-a-animation">
+  <h2>A-Math trigonometry animation</h2>
+  <div id="trigonometry-a-stage"></div>
+  <div id="trigonometry-a-captions"></div>
+</section>
+<section class="pack-section" id="trigonometry-a-slides">
+  <h2>A-Math trigonometry slides</h2>
+  <div id="trigonometry-a-slides-stage"></div>
+</section>
+<section class="pack-section" id="trigonometry-a-printables">
+  <h2>A-Math trigonometry printables</h2>
+  <div id="trigonometry-a-printables-stage"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -475,8 +506,9 @@
     var binomialPrintStage = document.querySelector('#binomial-print .pr-stage') || document.querySelector('#binomial-print');
     var kinematicsPrintStage = document.querySelector('#kinematics-print .pr-stage') || document.querySelector('#kinematics-print');
     var quadraticPrintStage = document.querySelector('#quadratic-print .pr-stage') || document.querySelector('#quadratic-print');
+    var trigonometryAPrintStage = document.querySelector('#trigonometry-a-printables-stage .pr-stage') || document.querySelector('#trigonometry-a-printables-stage');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -1459,6 +1491,79 @@
     ].join('');
   }).catch(function (err) {
     showError('Quadratic functions pack failed to load: ' + err.message);
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('trigonometry-a-slides-stage');
+  var trigonometryAPrint = document.getElementById('trigonometry-a-printables-stage');
+  var errBox = document.getElementById('err');
+  var trigonometryAAnimUrl = '../samples/secondary-a-trigonometry.json';
+  var trigonometryADeckUrl = '../samples/decks/secondary-a-trigonometry.json';
+  var trigonometryAWorksheetUrl = '../samples/worksheets/secondary-a-trigonometry.json';
+  var trigonometryATicketUrl = '../samples/tickets/secondary-a-trigonometry.json';
+  var trigonometryANotesUrl = '../samples/notes/secondary-a-trigonometry.json';
+  var trigonometryAScriptUrl = '../samples/scripts/secondary-a-trigonometry.json';
+
+  function showError(msg) {
+    errBox.textContent = String(msg);
+  }
+
+  Promise.all([
+    fetch(trigonometryAAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigonometryAAnimUrl);
+      return r.json();
+    }),
+    fetch(trigonometryADeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigonometryADeckUrl);
+      return r.json();
+    }),
+    fetch(trigonometryAWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigonometryAWorksheetUrl);
+      return r.json();
+    }),
+    fetch(trigonometryATicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigonometryATicketUrl);
+      return r.json();
+    }),
+    fetch(trigonometryANotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigonometryANotesUrl);
+      return r.json();
+    }),
+    fetch(trigonometryAScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigonometryAScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('A-Math trigonometry pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('trigonometry-a-stage'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    trigonometryAPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    showError('A-Math trigonometry pack failed to load: ' + err.message);
   });
 })();
 </script>
