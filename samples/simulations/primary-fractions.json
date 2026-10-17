@@ -1,0 +1,54 @@
+{
+  "simulation": "0.2",
+  "model": "fraction-bars",
+  "title": "Fractions — equivalent parts of one whole",
+  "level": "primary",
+  "subject": "math",
+  "topic": "fractions",
+  "disclaimer": "Equal-width pieces represent one whole; this diagram illustrates fraction size, not real-world object scale.",
+  "parameters": [
+    {
+      "id": "numerator",
+      "label": "Shaded pieces",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "id": "denominator",
+      "label": "Total equal pieces",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict what fraction will be shaded when you change the number of equal pieces."
+    },
+    {
+      "id": "compare",
+      "label": "Compare",
+      "narration": "Compare 3 out of 4 with 6 out of 8; the same proportion of one whole is shaded."
+    },
+    {
+      "id": "explain",
+      "label": "Explain",
+      "narration": "Numerator counts shaded parts; denominator counts equal parts in the whole."
+    }
+  ],
+  "check": {
+    "question": "Which is equal to 3/4?",
+    "options": [
+      "6/8",
+      "3/8",
+      "4/3"
+    ],
+    "correctIndex": 0,
+    "explanation": "Multiply numerator and denominator by the same non-zero value: 3/4 = 6/8."
+  }
+}

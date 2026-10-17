@@ -515,3 +515,28 @@ model-authored functions into the renderer.
 See `samples/interactive/secondary-science-water-cycle.json`,
 `player/interactive-demo.html`, and
 `docs/INTERACTIVE_TEACHING_ROADMAP.md`.
+
+## Multi-subject simulations v0.2 (experimental)
+
+The additive `simulation:"0.2"` contract in `player/simulation-kit.js` supports only three
+registered models: `water-cycle` (Secondary Science), `fraction-bars` (Primary Math),
+and `uniform-motion` (Secondary Physics). It does not change the legacy
+`animath:"0.1"` spec or the standalone `interactive:"0.1"` water-cycle pilot.
+
+Each JSON spec includes `simulation`, `model`, `title`, `level`,
+`subject`, `topic`, `disclaimer`, bounded `parameters` with
+`id,label,min,max,step,default`, uniquely identified narrated `beats`,
+and an `check` with question, options, answer index and explanation.
+A simulator is selected only by a **hard-coded allowlisted model ID**. The
+spec is never executed as code, and label/title strings are HTML-escaped.
+
+`TeachkitSimulations.createSession(spec)` and `mount(container,spec)`
+share a controller: `setParameter`, `playBeat`, `answer`, `reset`,
+`on`, `getState`, `getHistory`, `destroy`. Commands are synchronous,
+validate all parameter invariants before committing a change, and emit
+ordered copy-protected event snapshots. Fraction numerator must not exceed
+denominator; water-cycle outputs are illustrative non-forecast activity;
+uniform motion assumes constant speed with metres/seconds.
+
+Samples live in `samples/simulations/`; the browser demo is
+`player/simulation-demo.html` (serve via HTTP).

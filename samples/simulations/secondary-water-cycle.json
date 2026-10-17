@@ -1,0 +1,61 @@
+{
+  "simulation": "0.2",
+  "model": "water-cycle",
+  "title": "Water cycle — mechanism and conditions",
+  "level": "secondary",
+  "subject": "science",
+  "topic": "water-cycle",
+  "disclaimer": "Conceptual activity illustration only, not a weather forecast. 0–100 controls are not measured rates.",
+  "parameters": [
+    {
+      "id": "solar",
+      "label": "Solar vapour supply",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 70
+    },
+    {
+      "id": "cooling",
+      "label": "Cooling",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "id": "growth",
+      "label": "Cloud droplet growth",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict how cooling affects condensation and rain."
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "narration": "Adjust cooling. Condensation is limited by available vapour; rainfall needs droplet growth."
+    },
+    {
+      "id": "explain",
+      "label": "Explain",
+      "narration": "Explain why invisible vapour can condense into visible cloud droplets without rain."
+    }
+  ],
+  "check": {
+    "question": "Can a visible cloud exist without rainfall?",
+    "options": [
+      "Yes; droplets may not grow enough to fall.",
+      "No; condensation always leads to rain."
+    ],
+    "correctIndex": 0,
+    "explanation": "Clouds are tiny droplets or ice crystals; precipitation requires further growth and conditions."
+  }
+}

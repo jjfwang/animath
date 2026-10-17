@@ -1,0 +1,54 @@
+{
+  "simulation": "0.2",
+  "model": "uniform-motion",
+  "title": "Motion — speed, time and distance",
+  "level": "secondary",
+  "subject": "physics",
+  "topic": "kinematics",
+  "disclaimer": "This model assumes uniform speed in a straight line, with no acceleration or stopping; graphic position is scaled.",
+  "parameters": [
+    {
+      "id": "speed",
+      "label": "Speed (m/s)",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "id": "time",
+      "label": "Elapsed time (s)",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "default": 12
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict the distance if speed doubles while time remains constant."
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "narration": "Adjust time and speed; distance equals speed multiplied by time."
+    },
+    {
+      "id": "reflect",
+      "label": "Reflect",
+      "narration": "A constant speed gives a linear distance–time relationship."
+    }
+  ],
+  "check": {
+    "question": "A runner moves at 5 m/s for 10 s. What distance?",
+    "options": [
+      "50 m",
+      "2 m",
+      "15 m"
+    ],
+    "correctIndex": 0,
+    "explanation": "Distance equals speed × time = 5 × 10 = 50 metres."
+  }
+}
