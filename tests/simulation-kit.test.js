@@ -72,3 +72,15 @@ test('model assumptions do not become weather predictions', () => {
   a.throws(()=>core.calculate('fraction-bars',{numerator:9,denominator:4}));
   a.throws(()=>core.calculate('other',{a:1}));
 });
+
+test('renderer rejects untrusted state and recomputes outputs', () => {
+  const state=core.createSession(samples[2]).getState();
+  state.output.distance='<script>alert(1)</script>';
+  const svg=core.svgFor(samples[2],state);
+  assert.doesNotMatch(svg,/<script|alert\(1\)/);
+  const malicious=JSON.parse(JSON.stringify(state));
+  malicious.parameters.speed='<svg onload="alert(1)">';
+  assert.throws(()=>core.svgFor(samples[2],malicious),/invalid visualization parameter/);
+  assert.throws(()=>core.svgFor(samples[2],{...state,model:'unknown'}),/invalid visualization state/);
+  assert.throws(()=>core.svgFor(samples[2],{...state,beat:'bogus'}),/invalid visualization state/);
+});
