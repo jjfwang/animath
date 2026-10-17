@@ -728,7 +728,7 @@ describe('pack demo page', () => {
     const functionsGraphsHtml = fs.readFileSync(path.join(ROOT, 'player', 'pack-demo.html'), 'utf8');
     const functionsGraphsStart = functionsGraphsHtml.indexOf('id="functions-graphs-manifest"');
     assert.ok(functionsGraphsStart >= 0);
-    const functionsGraphsPack = functionsGraphsHtml.slice(functionsGraphsStart, functionsGraphsHtml.indexOf('id="sequences-manifest"'));
+    const functionsGraphsPack = functionsGraphsHtml.slice(functionsGraphsStart, functionsGraphsHtml.indexOf('sequencesAnimUrl'));
     assert.ok(functionsGraphsPack.includes('id="functions-graphs-manifest"'));
     assert.ok(functionsGraphsPack.includes('h2-functions-graphs-jc-math'));
     assert.ok(functionsGraphsPack.includes('topic h2-functions-graphs · level jc · subject math · deck jc-h2-functions-graphs'));
@@ -766,7 +766,7 @@ describe('pack demo page', () => {
     const sequencesHtml = fs.readFileSync(path.join(ROOT, 'player', 'pack-demo.html'), 'utf8');
     const sequencesStart = sequencesHtml.indexOf('id="sequences-manifest"');
     assert.ok(sequencesStart >= 0);
-    const sequencesPack = sequencesHtml.slice(sequencesStart, sequencesHtml.indexOf('id="sequences-manifest"'));
+    const sequencesPack = sequencesHtml.slice(sequencesStart);
     assert.ok(sequencesPack.includes('id="sequences-manifest"'));
     assert.ok(sequencesPack.includes('h2-sequences-jc-math'));
     assert.ok(sequencesPack.includes('topic h2-sequences · level jc · subject math · deck jc-h2-sequences'));
@@ -797,7 +797,7 @@ describe('pack demo page', () => {
     assert.equal(sequencesBlock.split('../samples/').length - 1, 6);
     assert.ok(sequencesBlock.includes('showError'));
     assert.ok(sequencesHtml.includes("document.querySelector('#sequences-printables-stage .pr-stage') || document.querySelector('#sequences-printables-stage')"));
-    assert.ok(sequencesHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, sequencesPrintStage, sequencesPrintStage]'));
+    assert.ok(sequencesHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((sequencesHtml.match(/#toggle-teacher/g) || []).length, 1);
   });
 });
