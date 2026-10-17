@@ -106,7 +106,7 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('.pr-teacher'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
     assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
   });
 
   test('complex manifest header names the slug, level, subject and six material keys', () => {
@@ -184,7 +184,7 @@ describe('pack demo page', () => {
     assert.ok(trigBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(trigBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -233,7 +233,7 @@ describe('pack demo page', () => {
     assert.ok(thermalBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(thermalBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -281,7 +281,7 @@ describe('pack demo page', () => {
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -329,7 +329,7 @@ describe('pack demo page', () => {
     assert.ok(erosionBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(erosionBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -377,7 +377,7 @@ describe('pack demo page', () => {
     assert.ok(chemMoleBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(chemMoleBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#chem-mole-print .pr-stage') || document.querySelector('#chem-mole-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -426,7 +426,7 @@ describe('pack demo page', () => {
     assert.ok(differentiationBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(differentiationBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#differentiation-print .pr-stage') || document.querySelector('#differentiation-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -474,7 +474,7 @@ describe('pack demo page', () => {
     assert.ok(integrationBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(integrationBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#integration-print .pr-stage') || document.querySelector('#integration-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -524,7 +524,7 @@ describe('pack demo page', () => {
     assert.equal(binomialBlock.split('../samples/').length - 1, 6);
     assert.ok(binomialBlock.includes('showError'));
     assert.ok(demo.includes("document.querySelector('#binomial-print .pr-stage') || document.querySelector('#binomial-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -575,7 +575,7 @@ describe('pack demo page', () => {
     assert.equal(kinematicsBlock.split('../samples/').length - 1, 6);
     assert.ok(kinematicsBlock.includes('showError'));
     assert.ok(demo.includes("document.querySelector('#kinematics-print .pr-stage') || document.querySelector('#kinematics-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -626,7 +626,7 @@ describe('pack demo page', () => {
     assert.equal(quadraticBlock.split('../samples/').length - 1, 6);
     assert.ok(quadraticBlock.includes('showError'));
     assert.ok(demo.includes("document.querySelector('#quadratic-print .pr-stage') || document.querySelector('#quadratic-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -681,7 +681,7 @@ describe('pack demo page', () => {
     assert.equal(trigABlock.split('../samples/').length - 1, 6);
     assert.ok(trigABlock.includes('showError'));
     assert.ok(trigAHtml.includes("document.querySelector('#trigonometry-a-printables-stage .pr-stage') || document.querySelector('#trigonometry-a-printables-stage')"));
-    assert.ok(trigAHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(trigAHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((trigAHtml.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -720,7 +720,7 @@ describe('pack demo page', () => {
     assert.equal(vectorsBlock.split('../samples/').length - 1, 6);
     assert.ok(vectorsBlock.includes('showError'));
     assert.ok(vectorsHtml.includes("document.querySelector('#vectors-printables-stage .pr-stage') || document.querySelector('#vectors-printables-stage')"));
-    assert.ok(vectorsHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(vectorsHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((vectorsHtml.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -728,7 +728,7 @@ describe('pack demo page', () => {
     const functionsGraphsHtml = fs.readFileSync(path.join(ROOT, 'player', 'pack-demo.html'), 'utf8');
     const functionsGraphsStart = functionsGraphsHtml.indexOf('id="functions-graphs-manifest"');
     assert.ok(functionsGraphsStart >= 0);
-    const functionsGraphsPack = functionsGraphsHtml.slice(functionsGraphsStart);
+    const functionsGraphsPack = functionsGraphsHtml.slice(functionsGraphsStart, functionsGraphsHtml.indexOf('id="sequences-manifest"'));
     assert.ok(functionsGraphsPack.includes('id="functions-graphs-manifest"'));
     assert.ok(functionsGraphsPack.includes('h2-functions-graphs-jc-math'));
     assert.ok(functionsGraphsPack.includes('topic h2-functions-graphs · level jc · subject math · deck jc-h2-functions-graphs'));
@@ -759,7 +759,45 @@ describe('pack demo page', () => {
     assert.equal(functionsGraphsBlock.split('../samples/').length - 1, 6);
     assert.ok(functionsGraphsBlock.includes('showError'));
     assert.ok(functionsGraphsHtml.includes("document.querySelector('#functions-graphs-printables-stage .pr-stage') || document.querySelector('#functions-graphs-printables-stage')"));
-    assert.ok(functionsGraphsHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage]'));
+    assert.ok(functionsGraphsHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, functionsGraphsPrintStage, sequencesPrintStage]'));
     assert.equal((functionsGraphsHtml.match(/#toggle-teacher/g) || []).length, 1);
+  });
+  test('sequences pack is stacked eighteenth with manifest, sections, six paths and validate-before-render', () => {
+    const sequencesHtml = fs.readFileSync(path.join(ROOT, 'player', 'pack-demo.html'), 'utf8');
+    const sequencesStart = sequencesHtml.indexOf('id="sequences-manifest"');
+    assert.ok(sequencesStart >= 0);
+    const sequencesPack = sequencesHtml.slice(sequencesStart, sequencesHtml.indexOf('id="sequences-manifest"'));
+    assert.ok(sequencesPack.includes('id="sequences-manifest"'));
+    assert.ok(sequencesPack.includes('h2-sequences-jc-math'));
+    assert.ok(sequencesPack.includes('topic h2-sequences · level jc · subject math · deck jc-h2-sequences'));
+    assert.ok(sequencesPack.includes('id="sequences-animation"'));
+    assert.ok(sequencesPack.includes('id="sequences-stage"'));
+    assert.ok(sequencesPack.includes('id="sequences-captions"'));
+    assert.ok(sequencesPack.includes('id="sequences-slides"'));
+    assert.ok(sequencesPack.includes('id="sequences-slides-stage"'));
+    assert.ok(sequencesPack.includes('id="sequences-printables"'));
+    assert.ok(sequencesPack.includes('id="sequences-printables-stage"'));
+    assert.ok(sequencesPack.includes('jc-h2-sequences.json'));
+    assert.ok(sequencesPack.includes('decks/jc-h2-sequences.json'));
+    assert.ok(sequencesPack.includes('worksheets/jc-h2-sequences.json'));
+    assert.ok(sequencesPack.includes('tickets/jc-h2-sequences.json'));
+    assert.ok(sequencesPack.includes('notes/jc-h2-sequences.json'));
+    assert.ok(sequencesPack.includes('scripts/jc-h2-sequences.json'));
+    const sequencesBlockStart = sequencesPack.indexOf('sequencesAnimUrl');
+    assert.ok(sequencesBlockStart > -1);
+    const sequencesBlock = sequencesPack.slice(sequencesBlockStart);
+    assert.ok(sequencesBlock.indexOf('AnimathValidate.validateSpec') < sequencesBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(sequencesBlock.indexOf('AnimathValidate.validateSlides') < sequencesBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(sequencesBlock.indexOf('AnimathValidate.validateWorksheet') < sequencesBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(sequencesBlock.indexOf('AnimathValidate.validateExitTicket') < sequencesBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(sequencesBlock.indexOf('AnimathValidate.validateNotes') < sequencesBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(sequencesBlock.indexOf('AnimathValidate.validateScript') < sequencesBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    assert.ok(sequencesBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
+    assert.ok(sequencesBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
+    assert.equal(sequencesBlock.split('../samples/').length - 1, 6);
+    assert.ok(sequencesBlock.includes('showError'));
+    assert.ok(sequencesHtml.includes("document.querySelector('#sequences-printables-stage .pr-stage') || document.querySelector('#sequences-printables-stage')"));
+    assert.ok(sequencesHtml.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage, quadraticPrintStage, trigonometryAPrintStage, vectorsPrintStage, sequencesPrintStage, sequencesPrintStage]'));
+    assert.equal((sequencesHtml.match(/#toggle-teacher/g) || []).length, 1);
   });
 });
