@@ -27,6 +27,12 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('../samples/notes/primary-math-fractions-addition.json'));
     assert.ok(demo.includes('../samples/tickets/primary-math-fractions-addition.json'));
     assert.ok(demo.includes('../samples/scripts/primary-math-fractions-addition.json'));
+    assert.ok(demo.includes('../samples/secondary-physics-waves.json'));
+    assert.ok(demo.includes('../samples/decks/secondary-physics-waves.json'));
+    assert.ok(demo.includes('../samples/worksheets/secondary-physics-waves.json'));
+    assert.ok(demo.includes('../samples/notes/secondary-physics-waves.json'));
+    assert.ok(demo.includes('../samples/tickets/secondary-physics-waves.json'));
+    assert.ok(demo.includes('../samples/scripts/secondary-physics-waves.json'));
     assert.ok(demo.includes('Promise.all'));
   });
 
@@ -59,12 +65,23 @@ describe('pack demo page', () => {
     assert.ok(fractionsBlock.indexOf('AnimathValidate.validateExitTicket') < fractionsBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
     assert.ok(fractionsBlock.indexOf('AnimathValidate.validateNotes') < fractionsBlock.lastIndexOf('AnimathPrintable.renderNotes'));
     assert.ok(fractionsBlock.indexOf('AnimathValidate.validateScript') < fractionsBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    const wavesStart = demo.indexOf('wavesAnimUrl');
+    assert.ok(wavesStart > -1);
+    const wavesBlock = demo.slice(wavesStart);
+    assert.ok(wavesBlock.indexOf('AnimathValidate.validateSpec') < wavesBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(wavesBlock.indexOf('AnimathValidate.validateSlides') < wavesBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(wavesBlock.indexOf('AnimathValidate.validateWorksheet') < wavesBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(wavesBlock.indexOf('AnimathValidate.validateExitTicket') < wavesBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(wavesBlock.indexOf('AnimathValidate.validateNotes') < wavesBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(wavesBlock.indexOf('AnimathValidate.validateScript') < wavesBlock.lastIndexOf('AnimathPrintable.renderScript'));
   });
 
   test('manifest header names the slug, level, subject and six material keys', () => {
     assert.ok(demo.includes('water-cycle-primary-science'));
     assert.ok(demo.includes('fractions-primary-math'));
+    assert.ok(demo.includes('phys-waves-secondary-science'));
     assert.ok(demo.includes('primary'));
+    assert.ok(demo.includes('secondary'));
     assert.ok(demo.includes('science'));
     assert.ok(demo.includes('math'));
     assert.ok(demo.includes('animation'));

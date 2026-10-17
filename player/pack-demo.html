@@ -61,8 +61,24 @@
     <li>script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="waves-manifest">
+  <h1>Lesson pack: Waves: light, sound and the wave equation</h1>
+  <dl>
+    <dt>Slug</dt><dd>phys-waves-secondary-science</dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>science</dd>
+  </dl>
+  <ul class="pack-materials">
+    <li>animation</li>
+    <li>slides</li>
+    <li>worksheet</li>
+    <li>notes</li>
+    <li>exitTicket</li>
+    <li>script</li>
+  </ul>
+</header>
 <div class="demo-bar">
-  <span class="hint">Lesson pack demo: all six gold materials for the water cycle and for fractions addition on one page — for each pack, the animation, the slide deck, and the printable worksheet, exit ticket, student notes, and teacher script. The teacher sections start on a new page when printed.</span>
+  <span class="hint">Lesson pack demo: all six gold materials for the water cycle, for fractions addition, and for waves on one page — for each pack, the animation, the slide deck, and the printable worksheet, exit ticket, student notes, and teacher script. The teacher sections start on a new page when printed.</span>
   <button type="button" id="toggle-teacher" class="pr-screen-only">Hide teacher keys</button>
 </div>
 <section class="pack-section" id="animation-section">
@@ -89,6 +105,18 @@
   <h2>Fractions printables</h2>
   <div id="fractions-print-stage"></div>
 </section>
+<section class="pack-section" id="waves-animation-section">
+  <h2>Waves animation</h2>
+  <div id="waves-anim-stage"></div>
+</section>
+<section class="pack-section" id="waves-slides-section">
+  <h2>Waves slides</h2>
+  <div id="waves-slides-stage"></div>
+</section>
+<section class="pack-section" id="waves-printables-section">
+  <h2>Waves printables</h2>
+  <div id="waves-print-stage"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -114,9 +142,13 @@
 
   toggleBtn.addEventListener('click', function () {
     var fractionsPrintStage = document.getElementById('fractions-print-stage');
+    var wavesPrintStage = document.getElementById('waves-print-stage');
     var keys = Array.prototype.slice.call(printStage.querySelectorAll('.pr-teacher'));
     if (fractionsPrintStage) {
       keys = keys.concat(Array.prototype.slice.call(fractionsPrintStage.querySelectorAll('.pr-teacher')));
+    }
+    if (wavesPrintStage) {
+      keys = keys.concat(Array.prototype.slice.call(wavesPrintStage.querySelectorAll('.pr-teacher')));
     }
     var hide = keys.length && keys[0].style.display !== 'none';
     keys.forEach(function (el) { el.style.display = hide ? 'none' : ''; });
@@ -249,6 +281,80 @@
       AnimathPrintable.renderExitTicketAnswerKey(fractionsTicket) +
       AnimathPrintable.renderNotes(fractionsNotes) +
       AnimathPrintable.renderScript(fractionsScript);
+  }).catch(function (e) {
+    showError(e);
+  });
+})();
+</script>
+<script>
+(function () {
+  var wavesAnimContainer = document.getElementById('waves-anim-stage');
+  var wavesSlidesContainer = document.getElementById('waves-slides-stage');
+  var wavesPrintStage = document.getElementById('waves-print-stage');
+  var wavesErrBox = document.getElementById('err');
+  var wavesAnimUrl = '../samples/secondary-physics-waves.json';
+  var wavesDeckUrl = '../samples/decks/secondary-physics-waves.json';
+  var wavesWorksheetUrl = '../samples/worksheets/secondary-physics-waves.json';
+  var wavesNotesUrl = '../samples/notes/secondary-physics-waves.json';
+  var wavesTicketUrl = '../samples/tickets/secondary-physics-waves.json';
+  var wavesScriptUrl = '../samples/scripts/secondary-physics-waves.json';
+
+  function showError(msg) {
+    wavesErrBox.innerHTML = '<div class="ap-error">' + String(msg).replace(/</g, '&lt;') + '</div>';
+  }
+
+  Promise.all([
+    fetch(wavesAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + wavesAnimUrl);
+      return r.json();
+    }),
+    fetch(wavesDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + wavesDeckUrl);
+      return r.json();
+    }),
+    fetch(wavesWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + wavesWorksheetUrl);
+      return r.json();
+    }),
+    fetch(wavesNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + wavesNotesUrl);
+      return r.json();
+    }),
+    fetch(wavesTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + wavesTicketUrl);
+      return r.json();
+    }),
+    fetch(wavesScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + wavesScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var wavesAnim = pack[0];
+    var wavesDeck = pack[1];
+    var wavesWorksheet = pack[2];
+    var wavesNotes = pack[3];
+    var wavesTicket = pack[4];
+    var wavesScript = pack[5];
+    var problems = AnimathValidate.validateSpec(wavesAnim)
+      .concat(AnimathValidate.validateSlides(wavesDeck))
+      .concat(AnimathValidate.validateWorksheet(wavesWorksheet))
+      .concat(AnimathValidate.validateExitTicket(wavesTicket))
+      .concat(AnimathValidate.validateNotes(wavesNotes))
+      .concat(AnimathValidate.validateScript(wavesScript));
+    if (problems.length) {
+      showError('Lesson pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    var player = AnimathPlayer.mount(wavesAnimContainer, wavesAnim);
+    player.play();
+    AnimathSlidesPresenter.attachPresenter(document, wavesSlidesContainer, wavesDeck, { animSpec: wavesAnim });
+    wavesPrintStage.innerHTML =
+      AnimathPrintable.renderWorksheet(wavesWorksheet) +
+      AnimathPrintable.renderWorksheetAnswerKey(wavesWorksheet) +
+      AnimathPrintable.renderExitTicket(wavesTicket) +
+      AnimathPrintable.renderExitTicketAnswerKey(wavesTicket) +
+      AnimathPrintable.renderNotes(wavesNotes) +
+      AnimathPrintable.renderScript(wavesScript);
   }).catch(function (e) {
     showError(e);
   });
