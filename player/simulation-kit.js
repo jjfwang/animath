@@ -119,7 +119,7 @@
       params={};document.parameters.forEach(function (p) {params[p.id]=p.default;});
       beat=document.beats[0].id;answer=null;return emit('reset',origin,{});
     }
-    return {spec:document, getState:state, getHistory:function(){live();return JSON.parse(JSON.stringify(history));},
+    return {spec:JSON.parse(JSON.stringify(document)), getState:state, getHistory:function(){live();return JSON.parse(JSON.stringify(history));},
       setParameter:setParameter,playBeat:playBeat,answer:submitAnswer,reset:reset,
       on:function(fn){live();if(typeof fn!=='function')throw new Error('listener required');
         observers.push(fn);return function(){observers=observers.filter(function(x){return x!==fn;});};},
