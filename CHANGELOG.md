@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a JC science topic (`samples/decks/jc-h2-thermal.json`,
+  `samples/worksheets/jc-h2-thermal.json`,
+  `samples/tickets/jc-h2-thermal.json`,
+  `samples/notes/jc-h2-thermal.json`, and
+  `samples/scripts/jc-h2-thermal.json`): hand-authored
+  JC H2 thermal physics gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the complex golds, keyed to the thermal
+  animation scenes s1-s5 and the bank `h2-thermal` misconception
+  (In a hotter gas every molecule moves faster.),
+  guarded by a dedicated test file (issue #796).
+
 - Secondary trigonometry lesson pack in the pack demo (`player/pack-demo.html`): the
   secondary E-Math trigonometry gold pack now appears on the same
   demo page as the water-cycle, fractions, waves and complex packs, with its own
