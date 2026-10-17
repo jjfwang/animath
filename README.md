@@ -712,3 +712,21 @@ gold samples and drive the returned controller with tutor commands. See
 [SPEC.md](SPEC.md) for the strict versioned contract. This feature is
 experimental; generic model expressions and arbitrary AI-generated code are
 **not** accepted.
+
+### Tutor beat/slide/speech synchronization adapter
+
+The browser/Node module `@jjfwang/teachkit/tutor-bridge` maps visual
+beat IDs to **specific slide IDs and speech cue IDs** in an immutable
+manifest. `createTutorBridge(session,map,{clock})` accepts ordered commands
+(`play`, `seek`, `pause`, `interrupt`, `resume`, `ask`, `parameter`,
+`end`) and exposes state, student answers, speech progress and snapshots.
+Duplicate/out-of-order commands do not alter the rendering state. Incorrect
+checkpoints are flagged for adaptation after two attempts; there is no
+repetitive automatic question loop. See
+[`player/tutor-demo.html`](player/tutor-demo.html) and
+`samples/simulations/water-cycle-anchor-map.json`.
+
+**Integration boundary:** this module does not synthesize audio, persist
+session history, authorize remote commands, or connect to Aceceed. The host
+performs voice playback and slides presentation using the emitted beat IDs;
+Teachkit controls the low-latency deterministic state contract only.

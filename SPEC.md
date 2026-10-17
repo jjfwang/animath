@@ -540,3 +540,18 @@ uniform motion assumes constant speed with metres/seconds.
 
 Samples live in `samples/simulations/`; the browser demo is
 `player/simulation-demo.html` (serve via HTTP).
+
+## Tutor synchronization adapter (experimental)
+
+For a `simulation:0.2` spec, a tutor map must contain **exactly one**
+`{beatId, slideId, speechCue}` for every visual beat. IDs are bounded
+hierarchical strings and must be unique within the map. The bridge validates
+this mapping before the lesson. Session commands carry positive monotonic
+`sequence` integers. Duplicates are ignored; gaps and unknown beat IDs
+throw without state mutation. Speech progress is local milliseconds from the
+current cue and must be monotonic. Interruptions pause playback and preserve
+position; explicit seek re-aligns the slide, voice cue and visual beat.
+Checkpoints pause the bridge; after two unsuccessful responses the bridge
+reports `needsAdaptation` instead of automatically repeating a question.
+The host authorizes remote commands and drives real audio/slides. This is a
+pure event-state synchronization **contract**, not an audio synthesis service.
