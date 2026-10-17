@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a JC topic (`samples/decks/jc-h2-complex.json`,
+  `samples/worksheets/jc-h2-complex.json`,
+  `samples/tickets/jc-h2-complex.json`,
+  `samples/notes/jc-h2-complex.json`, and
+  `samples/scripts/jc-h2-complex.json`): hand-authored
+  JC H2 complex numbers gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the waves golds, keyed to the complex
+  animation scenes s1-s5 and the bank `h2-complex` misconception
+  (If arg(z) = 100 degrees then arg(z^3) = 300 degrees.),
+  guarded by a dedicated test file (issue #788).
+
 - Waves lesson pack in the pack demo (`player/pack-demo.html`): the
   secondary science waves gold pack now appears on the same
   demo page as the water-cycle and fractions packs, with its own
