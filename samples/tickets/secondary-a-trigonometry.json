@@ -1,0 +1,65 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-trigonometry",
+  "title": "A-Math trigonometry: identities, compound angles and the R-formula Exit Ticket",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "What is cos(30 degrees + 30 degrees)?",
+      "choices": [
+        {
+          "text": "About 1.73, from cos 30 + cos 30"
+        },
+        {
+          "correct": true,
+          "text": "0.5, because it is cos 60 degrees"
+        },
+        {
+          "text": "0, because the angles cancel"
+        },
+        {
+          "text": "1, because cos 30 is about 0.5 each"
+        }
+      ],
+      "misconception": "cos(A + B) = cos A + cos B.",
+      "feedback": "If you split the cosine, that is the trap: cos(A + B) = cos A + cos B. Reteach point: Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73."
+    },
+    {
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "State the exact value of sin 75 degrees and the split you used.",
+      "answer": "(root 6 + root 2) over 4, from sin(45 + 30).",
+      "feedback": "A strong answer splits 75 as 45 + 30 and gives (root 6 + root 2) over 4. The minus version, (root 6 - root 2) over 4, is sin 15 degrees."
+    },
+    {
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "What are the maximum and minimum of 3 cos x + 4 sin x?",
+      "choices": [
+        {
+          "text": "Max 7 and min -7"
+        },
+        {
+          "text": "Max 3 and min -4"
+        },
+        {
+          "correct": true,
+          "text": "Max 5 and min -5, from R = 5"
+        },
+        {
+          "text": "Max 4 and min -3"
+        }
+      ],
+      "feedback": "In R-form the expression is 5 cos(x - 53.1 degrees), so the maximum is R = 5 and the minimum is -5."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "If sin theta = 3/5 and theta is acute, find tan theta using the seed identities.",
+      "answer": "tan theta = 3/4.",
+      "feedback": "From the identity, cos theta = 4/5, and tan is sin over cos, so tan theta = (3/5) divided by (4/5) = 3/4."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-trigonometry",
+  "title": "A-Math trigonometry: identities, compound angles and the R-formula",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "A student writes cos(30 degrees + 30 degrees) = cos 30 degrees + cos 30 degrees. What is wrong?",
+      "choices": [
+        {
+          "text": "Nothing is wrong; cosine splits over a sum"
+        },
+        {
+          "text": "cos 60 degrees is about 1.73"
+        },
+        {
+          "correct": true,
+          "text": "Cosine does not split: cos 60 degrees is 0.5, not about 1.73"
+        },
+        {
+          "text": "cos 30 degrees has no exact value"
+        }
+      ],
+      "misconception": "cos(A + B) = cos A + cos B.",
+      "explanation": "The trap claim is: cos(A + B) = cos A + cos B. In fact Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73."
+    },
+    {
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "What is the exact value of sin 75 degrees?",
+      "choices": [
+        {
+          "text": "(root 6 - root 2) over 4"
+        },
+        {
+          "correct": true,
+          "text": "(root 6 + root 2) over 4"
+        },
+        {
+          "text": "1 over 2"
+        },
+        {
+          "text": "root 3 over 2"
+        }
+      ],
+      "explanation": "sin 75 = sin(45 + 30) = sin 45 cos 30 + cos 45 sin 30 = (root 6 + root 2) over 4, about 0.966."
+    },
+    {
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "Use the identity sin squared theta + cos squared theta = 1 to find cos theta if sin theta = 3/5 and theta is acute.",
+      "answer": "cos theta = 4/5.",
+      "explanation": "cos squared theta = 1 - 9/25 = 16/25, and theta is acute so cos theta is positive: cos theta = 4/5."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "Express 3 cos x + 4 sin x in the form R cos(x - alpha), giving R and alpha.",
+      "answer": "5 cos(x - 53.1 degrees), with R = 5 and alpha = 53.1 degrees.",
+      "explanation": "R is the square root of 3 squared plus 4 squared, which is 5, and tan alpha = 4/3 gives alpha = 53.1 degrees, so the expression is 5 cos(x - 53.1 degrees)."
+    },
+    {
+      "id": "q5",
+      "kind": "multiple-choice",
+      "prompt": "Which expansion is correct for cos(A + B)?",
+      "choices": [
+        {
+          "text": "cos A + cos B"
+        },
+        {
+          "text": "cos A cos B + sin A sin B"
+        },
+        {
+          "correct": true,
+          "text": "cos A cos B - sin A sin B"
+        },
+        {
+          "text": "sin A cos B + cos A sin B"
+        }
+      ],
+      "explanation": "cos(A + B) = cos A cos B - sin A sin B. The plus version belongs to cos(A - B), and sin(A + B) is the last choice."
+    }
+  ]
+}

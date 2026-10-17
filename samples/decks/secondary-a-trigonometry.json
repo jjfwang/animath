@@ -1,0 +1,111 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-trigonometry",
+  "title": "A-Math trigonometry: identities, compound angles and the R-formula",
+  "slides": [
+    {
+      "kind": "title",
+      "heading": "A-Math trigonometry: identities, compound angles and the R-formula",
+      "bullets": [
+        "Identities, compound angles and the R-formula: one coherent trigonometry toolkit"
+      ],
+      "notes": "Welcome everyone in: today we ground the two seed identities on the unit circle, compute sin 75 degrees exactly, merge two waves with the R-formula, and expose the splitting trap."
+    },
+    {
+      "kind": "objective",
+      "heading": "What we will learn",
+      "bullets": [
+        "Use sin squared plus cos squared equals one and tan equals sin over cos",
+        "Compute sin 75 degrees exactly and rewrite 3 cos x + 4 sin x in R-form"
+      ],
+      "notes": "Read the goals aloud: keep these in mind, because the exit ticket will ask you to do exactly these things, including spotting the cosine splitting trap."
+    },
+    {
+      "kind": "hook",
+      "heading": "Can you find sin 75 degrees exactly?",
+      "bullets": [
+        "75 degrees is not on the basic table - but 45 plus 30 is",
+        "And can two separate waves really be one single cosine?"
+      ],
+      "notes": "Ask the class to vote: can sin 75 degrees be found exactly without a calculator? Take answers, then promise the compound angle formula does it in four familiar values."
+    },
+    {
+      "kind": "concept",
+      "heading": "Three tools for A-Math trigonometry",
+      "bullets": [
+        "The seed identities: sin squared plus cos squared equals one, and tan is sin over cos",
+        "Compound angle formulae expand sin(A + B) and cos(A + B) into familiar values",
+        "The R-formula rewrites a cos x + b sin x as one cosine, R cos(x - alpha)"
+      ],
+      "notes": "Say this slowly: identities simplify, compound formulae expand sums of angles, and the R-formula merges two waves into one so max, min and period are obvious."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "The two seed identities, on the unit circle",
+      "visual": "s1",
+      "bullets": [
+        "On the unit circle the legs are cos theta and sin theta with hypotenuse 1",
+        "So sin squared plus cos squared equals one, and tan is sin over cos"
+      ],
+      "notes": "Point at the animation: the probe travels the unit circle, the legs reshape, but the hypotenuse stays 1 - that is why the identity always holds."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "Compound angles: computing sin 75 degrees",
+      "visual": "s2",
+      "bullets": [
+        "sin 75 degrees is sin(45 + 30) = sin 45 cos 30 + cos 45 sin 30",
+        "The four values multiply out to (root 6 + root 2) over 4, about 0.966"
+      ],
+      "notes": "Follow the four familiar values as they fly into their slots: root 2 over 2 times root 3 over 2 plus root 2 over 2 times one half."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "The R-formula: one wobble, not two",
+      "visual": "s3",
+      "bullets": [
+        "For 3 cos x + 4 sin x, R is 5 from the 3-4-5 triangle and alpha is 53.1 degrees",
+        "So 3 cos x + 4 sin x = 5 cos(x - 53.1 degrees), with max 5 and min -5"
+      ],
+      "notes": "Watch the two waves merge into one cosine of amplitude 5: once it is a single wave, the maximum, minimum and period are immediate."
+    },
+    {
+      "kind": "mechanism",
+      "heading": "Misconception: cos(A + B) does not split",
+      "visual": "s4",
+      "bullets": [
+        "cos 60 degrees is 0.5, but cos 30 + cos 30 is about 1.73",
+        "The trap claim is: cos(A + B) = cos A + cos B."
+      ],
+      "notes": "Name the trap out loud: cos(A + B) = cos A + cos B. The fix is: Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73."
+    },
+    {
+      "kind": "example",
+      "heading": "Worked example: sin 75 degrees exactly",
+      "bullets": [
+        "Step 1: write 75 as 45 + 30 and expand sin(45 + 30)",
+        "Step 2: substitute the four known values to get (root 6 + root 2) over 4"
+      ],
+      "notes": "Talk through it slowly: sin 45 cos 30 plus cos 45 sin 30, then root 6 plus root 2 over 4, about 0.966 - check it against a calculator value for sin 75."
+    },
+    {
+      "kind": "practice",
+      "heading": "Your turn: expand, merge, then check the trap",
+      "bullets": [
+        "Compute sin 75 degrees from the compound formula and rewrite 3 cos x + 4 sin x in R-form",
+        "Careful - a classmate claims: cos(A + B) = cos A + cos B. Explain why that fails using cos 60 degrees"
+      ],
+      "notes": "Give pairs three minutes, then cold-call: listen for the trap - cos(A + B) = cos A + cos B. The fix is: Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73."
+    },
+    {
+      "kind": "exit-ticket",
+      "heading": "Exit ticket: prove it before you leave",
+      "bullets": [
+        "On your own: state the exact value of sin 75 degrees",
+        "Watch out for the trap one last time: cos(A + B) = cos A + cos B. Say what cos(A + B) really expands to"
+      ],
+      "notes": "Close by reminding the class of the trap - cos(A + B) = cos A + cos B. - and the fix: Use cos A cos B - sin A sin B: cos 60 is 0.5 but cos 30 + cos 30 is about 1.73. Collect the tickets as they leave."
+    }
+  ]
+}
