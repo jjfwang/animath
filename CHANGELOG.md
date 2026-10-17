@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 vectors lesson pack in the pack demo
+  (`player/pack-demo.html`): the JC H2 vectors
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six jc-h2-vectors materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  vectors-manifest header (slug
+  `h2-vectors-jc-math`, level jc, subject
+  math, topic `h2-vectors`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all sixteen packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #852).
+
 - Gold lesson pack for a JC topic (`samples/decks/jc-h2-vectors.json`,
   `samples/worksheets/jc-h2-vectors.json`,
   `samples/tickets/jc-h2-vectors.json`,
