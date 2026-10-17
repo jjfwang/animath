@@ -12,6 +12,13 @@ version section when the release ships.
 
 ### Added
 
+- In-app lesson-pack rendering in the web app (`web/index.html`): pack
+  mode now renders the generated slide deck in-page via the slide
+  presenter and the worksheet, student notes, exit ticket, and teacher
+  script in-page via the printable renderers, with the teacher answer
+  keys hidden by default behind a Show/Hide teacher keys toggle; the
+  JSON downloads remain (issue #782).
+
 - Lesson-pack generation mode in the web app (`web/index.html`): a
   mode selector next to the Generate button (animation stays the
   default) runs the pipeline's `generateLessonPack` for the picked

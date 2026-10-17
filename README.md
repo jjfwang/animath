@@ -36,7 +36,11 @@ The web app (`web/index.html`) also has a lesson-pack mode: select
 **Lesson pack** before hitting **Generate** and teachkit generates a full
 lesson pack for the picked topic — the animation plus a slide deck,
 worksheet, student notes, exit ticket, and teacher script — shows the pack
-manifest, and offers each material as a JSON download.
+manifest, renders the slide deck in-page with the slide presenter and the
+worksheet, student notes, exit ticket, and teacher script in-page with the
+printable renderers (the teacher answer keys stay hidden behind a
+**Show teacher keys** toggle), and still offers each material as a JSON
+download.
 
 No API key handy? Play the hand-authored samples in `player/demo.html` — or
 browse them as cards in `web/gallery.html` (same samples, no key needed). Like
