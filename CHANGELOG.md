@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Secondary trigonometry lesson pack in the pack demo (`player/pack-demo.html`): the
+  secondary E-Math trigonometry gold pack now appears on the same
+  demo page as the water-cycle, fractions, waves and complex packs, with its own
+  manifest header (slug `e-trigonometry-secondary-math`, level
+  secondary, subject math), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all five packs' print stages (issue #794).
+
 - Gold lesson pack for a secondary-math topic (`samples/decks/secondary-e-trigonometry.json`,
   `samples/worksheets/secondary-e-trigonometry.json`,
   `samples/tickets/secondary-e-trigonometry.json`,

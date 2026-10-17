@@ -146,7 +146,8 @@ render validates the spec first and throws on errors.
 `player/printable-demo.html` shows both gold samples rendered end to end.
 `player/pack-demo.html` shows full lesson packs on one page — all six
 gold materials for the water cycle, for fractions addition, for
-waves, and for JC complex numbers (animation, slides, worksheet, notes, exit ticket, and script), each
+waves, for JC complex numbers, and for secondary trigonometry
+(animation, slides, worksheet, notes, exit ticket, and script), each
 under its own pack manifest header.
 
 The same module renders student notes and a teacher script from their
