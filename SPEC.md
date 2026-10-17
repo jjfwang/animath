@@ -458,3 +458,61 @@ contract:
 Honest limitation: the MediaRecorder wiring itself cannot run on this VM's Node
 build; the testable contract is everything around it. Parent issue #506 stays
 open for end-to-end browser-download acceptance.
+
+
+## Interactive teaching extension (independent of animath v0.1)
+
+`interactive:"0.1"` is an additive, opt-in artifact type implemented by
+`player/interactive.js`. It is **not** a new value for `animath`, and existing
+animation documents remain `animath:"0.1"` with unchanged validation and
+player controls. Consumers must explicitly mount with
+`TeachkitInteractive.mount(container, interactiveSpec)`.
+
+### Pilot scope: secondary science, water cycle
+
+Required fields: `interactive:"0.1"`, `model:"water-cycle"`,
+`title` (nonempty <=100 chars), `level:"secondary"`, `subject:"science"`,
+`topic:"water-cycle"`, `disclaimer` (<=300 chars, explicitly states the
+model is not a forecast/weather prediction), `parameters`, `beats`,
+`check`.
+
+`parameters` must contain exactly three unique entries:
+`solar`, `cooling`, `growth`. Each entry has `id`, `label`,
+`min:0`, `max:100`, `step:10`, and an integer default divisible by 10
+in 0–100. These are **illustrative relative activity controls**; they are
+not physical measurement units. The model illustrates a *single parcel's*
+progression from solar-driven water-vapour supply through cooling and droplet
+growth. `evaluate` returns `evaporation=solar`,
+`condensation=min(evaporation,cooling)`,
+`precipitation=min(condensation,growth)`, `collection=precipitation`.
+This is a qualitative mechanism illustration and must not be marketed as a
+weather, cloud-cover, rainfall or evaporation-rate predictor.
+
+`beats` must contain unique ids `overview`, `evaporation`,
+`condensation`, `precipitation`, `collection`; each has a bounded,
+nonempty `label` and `narration`. The `check` has `question` (text),
+`options` (2–4 text answers), `correctIndex` (valid zero-based integer),
+and `explanation` (text). These are static, vetted content strings;
+interactive specs do not contain executable expressions or HTML.
+
+### Controller and events
+
+`createSession(spec)` is DOM-free. `mount(container,spec)` renders the
+responsive interactive water-cycle view. Both expose `getState()`,
+`getHistory()`, `setParameter(id,value,source?)`,
+`playBeat(id,source?)`, `answer(index,source?)`, `reset(source?)`,
+`on(callback)` and `destroy()`. Sources are `student` (default) or
+`tutor`. Invalid commands throw and must not mutate the state. Events
+have monotonic local `seq`, `type`, `source`, `detail` and a full
+immutable-by-copy state snapshot. Sync and auth are the host's concern;
+events must be persisted by the Aceceed session service if durable replay
+is needed. No network request is made for state changes.
+
+Version `0.1` supports only the built-in water-cycle model. Unknown models
+fail validation; a future spec revision may add a safe declarative graph DSL
+and a registry of proven domain simulators. Do **not** insert arbitrary
+model-authored functions into the renderer.
+
+See `samples/interactive/secondary-science-water-cycle.json`,
+`player/interactive-demo.html`, and
+`docs/INTERACTIVE_TEACHING_ROADMAP.md`.
