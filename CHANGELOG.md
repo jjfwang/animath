@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 sequences and series lesson pack in the pack demo
+  (`player/pack-demo.html`): the JC H2 sequences and series
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six jc-h2-sequences materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  sequences-manifest header (slug
+  `h2-sequences-jc-math`, level jc, subject
+  math, topic `h2-sequences`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all eighteen packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #860).
+
 - Gold lesson pack for a JC topic (`samples/decks/jc-h2-sequences.json`,
   `samples/worksheets/jc-h2-sequences.json`,
   `samples/tickets/jc-h2-sequences.json`,
