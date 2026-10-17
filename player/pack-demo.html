@@ -98,6 +98,23 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="trig-manifest">
+  <h1>Lesson pack: E-Math trigonometry: ratios and the sine rule</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>e-trigonometry-secondary-math</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>math</dd>
+  </dl>
+  <p>level secondary · subject math</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -146,6 +163,18 @@
   <h2>Complex numbers printables</h2>
   <div id="complex-print"></div>
 </section>
+<section class="pack-section" id="trig-animation">
+  <h2>Trigonometry animation</h2>
+  <div id="trig-player"></div>
+</section>
+<section class="pack-section" id="trig-slides">
+  <h2>Trigonometry slides</h2>
+  <div id="trig-presenter"></div>
+</section>
+<section class="pack-section" id="trig-printables">
+  <h2>Trigonometry printables</h2>
+  <div id="trig-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -173,8 +202,9 @@
     var fractionsPrintStage = document.getElementById('fractions-print-stage');
     var wavesPrintStage = document.getElementById('waves-print-stage');
     var complexPrintStage = document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print');
+    var trigPrintStage = document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -455,6 +485,75 @@
     ].join('');
   }).catch(function (err) {
     errBox.textContent = 'Complex pack failed to load: ' + err.message;
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('trig-presenter');
+  var trigPrint = document.getElementById('trig-print');
+  var errBox = document.getElementById('err');
+  var trigAnimUrl = '../samples/secondary-e-trigonometry.json';
+  var trigDeckUrl = '../samples/decks/secondary-e-trigonometry.json';
+  var trigWorksheetUrl = '../samples/worksheets/secondary-e-trigonometry.json';
+  var trigTicketUrl = '../samples/tickets/secondary-e-trigonometry.json';
+  var trigNotesUrl = '../samples/notes/secondary-e-trigonometry.json';
+  var trigScriptUrl = '../samples/scripts/secondary-e-trigonometry.json';
+
+  Promise.all([
+    fetch(trigAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigAnimUrl);
+      return r.json();
+    }),
+    fetch(trigDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigDeckUrl);
+      return r.json();
+    }),
+    fetch(trigWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigWorksheetUrl);
+      return r.json();
+    }),
+    fetch(trigTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigTicketUrl);
+      return r.json();
+    }),
+    fetch(trigNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigNotesUrl);
+      return r.json();
+    }),
+    fetch(trigScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + trigScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      errBox.textContent = 'Trigonometry pack failed validation:\n' + problems.join('\n');
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('trig-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    trigPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    errBox.textContent = 'Trigonometry pack failed to load: ' + err.message;
   });
 })();
 </script>
