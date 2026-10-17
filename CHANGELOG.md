@@ -12,6 +12,14 @@ version section when the release ships.
 
 ### Added
 
+- JC H2 statistics gold lesson pack: five hand-authored gold
+  samples for h2-statistics in
+  samples/decks|worksheets|tickets|notes|scripts/jc-h2-statistics.json,
+  keyed to the jc-h2-statistics animation scenes and built around
+  the misconception that a p-value of 0.03 means there is a 3%
+  chance the null hypothesis is true
+  (issue #875).
+
 - JC H2 probability lesson pack in the pack demo
   (`player/pack-demo.html`): the JC H2 probability
   gold lesson pack now appears on the same demo page as the other packs,
