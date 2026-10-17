@@ -4,7 +4,7 @@
   "title": "Motion — speed, time and distance",
   "level": "secondary",
   "subject": "physics",
-  "topic": "kinematics",
+  "topic": "phys-kinematics",
   "disclaimer": "This model assumes uniform speed in a straight line, with no acceleration or stopping; graphic position is scaled.",
   "parameters": [
     {

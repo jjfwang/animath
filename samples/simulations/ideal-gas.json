@@ -1,0 +1,54 @@
+{
+  "simulation": "0.2",
+  "model": "ideal-gas",
+  "title": "JC H2 Physics — Ideal Gas Law",
+  "level": "jc",
+  "subject": "science",
+  "topic": "h2-thermal",
+  "disclaimer": "Assumes 1 mol of an ideal gas, equilibrium and Kelvin temperature. Real gases deviate at high pressure/low temperature.",
+  "parameters": [
+    {
+      "id": "temperatureK",
+      "label": "Absolute temperature (K)",
+      "min": 200,
+      "max": 500,
+      "step": 10,
+      "default": 300
+    },
+    {
+      "id": "volumeL",
+      "label": "Gas volume (L)",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict the pressure change when volume halves at fixed temperature and amount of gas."
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "narration": "Change Kelvin temperature and gas volume; pressure responds according to the ideal gas law."
+    },
+    {
+      "id": "explain",
+      "label": "Explain",
+      "narration": "With a fixed number of moles, P = nRT/V; temperatures must be measured in kelvins."
+    }
+  ],
+  "check": {
+    "question": "At fixed Kelvin temperature, halving volume does what to ideal gas pressure?",
+    "options": [
+      "Halves it.",
+      "Doubles it.",
+      "Leaves it unchanged."
+    ],
+    "correctIndex": 1,
+    "explanation": "Boyle's law is the fixed-temperature case of PV = nRT."
+  }
+}

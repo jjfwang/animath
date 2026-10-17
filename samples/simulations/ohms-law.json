@@ -1,0 +1,54 @@
+{
+  "simulation": "0.2",
+  "model": "ohms-law",
+  "title": "Secondary Physics — Current in a Simple Circuit",
+  "level": "secondary",
+  "subject": "physics",
+  "topic": "phys-electricity",
+  "disclaimer": "Ideal ohmic resistor with negligible internal resistance and no heating-dependent resistance change.",
+  "parameters": [
+    {
+      "id": "voltage",
+      "label": "Battery potential difference (V)",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "id": "resistance",
+      "label": "Resistance (Ω)",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "beats": [
+    {
+      "id": "predict",
+      "label": "Predict",
+      "narration": "Predict what happens to current when resistance doubles at fixed voltage."
+    },
+    {
+      "id": "observe",
+      "label": "Observe",
+      "narration": "Observe how current changes when voltage or resistance varies."
+    },
+    {
+      "id": "explain",
+      "label": "Explain",
+      "narration": "Ohm's law applies to an ohmic conductor at constant temperature: I = V / R."
+    }
+  ],
+  "check": {
+    "question": "At fixed voltage, what happens if resistance doubles?",
+    "options": [
+      "Current halves.",
+      "Current doubles.",
+      "Current is unchanged."
+    ],
+    "correctIndex": 0,
+    "explanation": "Since I = V/R, doubling resistance halves current for an ohmic resistor."
+  }
+}
