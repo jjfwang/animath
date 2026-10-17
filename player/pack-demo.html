@@ -183,6 +183,23 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="differentiation-manifest">
+  <h1>Lesson pack: A-Math differentiation: gradients, the power rule and stationary points</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>a-differentiation-secondary-math</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>math</dd>
+  </dl>
+  <p>level secondary · subject math</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -291,6 +308,18 @@
   <h2>Chem-mole printables</h2>
   <div id="chem-mole-print"></div>
 </section>
+<section class="pack-section" id="differentiation-animation">
+  <h2>Differentiation animation</h2>
+  <div id="differentiation-player"></div>
+</section>
+<section class="pack-section" id="differentiation-slides">
+  <h2>Differentiation slides</h2>
+  <div id="differentiation-presenter"></div>
+</section>
+<section class="pack-section" id="differentiation-printables">
+  <h2>Differentiation printables</h2>
+  <div id="differentiation-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -323,8 +352,9 @@
     var photosynthesisPrintStage = document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print');
     var erosionPrintStage = document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print');
     var chemMolePrintStage = document.querySelector('#chem-mole-print .pr-stage') || document.querySelector('#chem-mole-print');
+    var differentiationPrintStage = document.querySelector('#differentiation-print .pr-stage') || document.querySelector('#differentiation-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -950,6 +980,75 @@
     ].join('');
   }).catch(function (err) {
     errBox.textContent = 'Chem-mole pack failed to load: ' + err.message;
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('differentiation-presenter');
+  var differentiationPrint = document.getElementById('differentiation-print');
+  var errBox = document.getElementById('err');
+  var differentiationAnimUrl = '../samples/secondary-a-differentiation.json';
+  var differentiationDeckUrl = '../samples/decks/secondary-a-differentiation.json';
+  var differentiationWorksheetUrl = '../samples/worksheets/secondary-a-differentiation.json';
+  var differentiationTicketUrl = '../samples/tickets/secondary-a-differentiation.json';
+  var differentiationNotesUrl = '../samples/notes/secondary-a-differentiation.json';
+  var differentiationScriptUrl = '../samples/scripts/secondary-a-differentiation.json';
+
+  Promise.all([
+    fetch(differentiationAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + differentiationAnimUrl);
+      return r.json();
+    }),
+    fetch(differentiationDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + differentiationDeckUrl);
+      return r.json();
+    }),
+    fetch(differentiationWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + differentiationWorksheetUrl);
+      return r.json();
+    }),
+    fetch(differentiationTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + differentiationTicketUrl);
+      return r.json();
+    }),
+    fetch(differentiationNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + differentiationNotesUrl);
+      return r.json();
+    }),
+    fetch(differentiationScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + differentiationScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      errBox.textContent = 'Differentiation pack failed validation:\n' + problems.join('\n');
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('differentiation-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    differentiationPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    errBox.textContent = 'Differentiation pack failed to load: ' + err.message;
   });
 })();
 </script>

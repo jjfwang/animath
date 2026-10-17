@@ -106,7 +106,7 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('.pr-teacher'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
     assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
   });
 
   test('complex manifest header names the slug, level, subject and six material keys', () => {
@@ -184,7 +184,7 @@ describe('pack demo page', () => {
     assert.ok(trigBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(trigBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -233,7 +233,7 @@ describe('pack demo page', () => {
     assert.ok(thermalBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(thermalBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -281,7 +281,7 @@ describe('pack demo page', () => {
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -329,7 +329,7 @@ describe('pack demo page', () => {
     assert.ok(erosionBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(erosionBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -377,7 +377,56 @@ describe('pack demo page', () => {
     assert.ok(chemMoleBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(chemMoleBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#chem-mole-print .pr-stage') || document.querySelector('#chem-mole-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
+    assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
+  });
+
+
+  test('differentiation manifest header names the slug, level, subject and six material keys', () => {
+    const start = demo.indexOf('id="differentiation-manifest"');
+    assert.ok(start > -1);
+    const manifest = demo.slice(start, demo.indexOf('</header>', start));
+    assert.ok(manifest.includes('id="differentiation-manifest"'));
+    assert.ok(manifest.includes('<code>a-differentiation-secondary-math</code>'));
+    assert.ok(manifest.includes('level secondary'));
+    assert.ok(manifest.includes('subject math'));
+    assert.ok(manifest.includes('<code>animation</code>'));
+    assert.ok(manifest.includes('<code>slides</code>'));
+    assert.ok(manifest.includes('<code>worksheet</code>'));
+    assert.ok(manifest.includes('<code>exitTicket</code>'));
+    assert.ok(manifest.includes('exit ticket'));
+    assert.ok(manifest.includes('<code>notes</code>'));
+    assert.ok(manifest.includes('student notes'));
+    assert.ok(manifest.includes('<code>script</code>'));
+    assert.ok(manifest.includes('teacher script'));
+  });
+
+  test('differentiation pack sections and all six sample paths are present', () => {
+    assert.ok(demo.includes('id="differentiation-player"'));
+    assert.ok(demo.includes('id="differentiation-presenter"'));
+    assert.ok(demo.includes('id="differentiation-print"'));
+    assert.ok(demo.includes('../samples/secondary-a-differentiation.json'));
+    assert.ok(demo.includes('../samples/decks/secondary-a-differentiation.json'));
+    assert.ok(demo.includes('../samples/worksheets/secondary-a-differentiation.json'));
+    assert.ok(demo.includes('../samples/tickets/secondary-a-differentiation.json'));
+    assert.ok(demo.includes('../samples/notes/secondary-a-differentiation.json'));
+    assert.ok(demo.includes('../samples/scripts/secondary-a-differentiation.json'));
+  });
+
+  test('differentiation block validates all six materials before rendering and renders both answer keys', () => {
+    const differentiationStart = demo.indexOf('differentiationAnimUrl');
+    assert.ok(differentiationStart > -1);
+    const differentiationBlock = demo.slice(differentiationStart);
+    assert.ok(differentiationBlock.indexOf('AnimathValidate.validateSpec') < differentiationBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(differentiationBlock.indexOf('AnimathValidate.validateSlides') < differentiationBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(differentiationBlock.indexOf('AnimathValidate.validateWorksheet') < differentiationBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(differentiationBlock.indexOf('AnimathValidate.validateExitTicket') < differentiationBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(differentiationBlock.indexOf('AnimathValidate.validateNotes') < differentiationBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(differentiationBlock.indexOf('AnimathValidate.validateScript') < differentiationBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    assert.ok(differentiationBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
+    assert.ok(differentiationBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
+    assert.ok(demo.includes("document.querySelector('#differentiation-print .pr-stage') || document.querySelector('#differentiation-print')"));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
