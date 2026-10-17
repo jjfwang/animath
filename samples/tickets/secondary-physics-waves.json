@@ -1,0 +1,59 @@
+{
+  "level": "secondary",
+  "questions": [
+    {
+      "choices": [
+        {
+          "text": "The thunder"
+        },
+        {
+          "correct": true,
+          "text": "The lightning flash"
+        },
+        {
+          "text": "Both at the same time"
+        }
+      ],
+      "feedback": "If you picked the thunder, that is the trap: Sound travels faster than light. Reteach point: we see the lightning flash before we hear the thunder because light is far faster than sound - the flash arrives almost instantly and the thunder follows seconds later.",
+      "id": "q1",
+      "kind": "multiple-choice",
+      "misconception": "Sound travels faster than light.",
+      "prompt": "From a distant storm, what do you notice first?"
+    },
+    {
+      "answer": "2 m: wavelength = v / f = 340 / 170 = 2 m.",
+      "feedback": "Rearrange the wave equation before substituting: wavelength = v / f. If you multiplied instead of dividing, your answer came out far larger than the speed - use the check 170 Hz x 2 m = 340 m/s to catch that.",
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "A sound wave travels at 340 m/s with frequency 170 Hz. Calculate its wavelength."
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "text": "Light is transverse; sound is longitudinal"
+        },
+        {
+          "text": "Light is longitudinal; sound is transverse"
+        },
+        {
+          "text": "Both light and sound are longitudinal"
+        }
+      ],
+      "feedback": "Light is the transverse wave: the vibration is across the direction of travel, like the dot bobbing up and down. Sound is longitudinal: the particles bunch and spread along the direction of travel.",
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "Which pair correctly describes light and sound waves?"
+    },
+    {
+      "answer": "Light is far faster than sound, so the flash from the strike arrives almost instantly while the thunder, travelling at only 340 m/s, follows seconds later.",
+      "feedback": "A strong answer compares the two speeds: light at about 300,000,000 m/s against sound at 340 m/s. An answer that only says 'light is fast' without the comparison means the speed gap - the whole reason for the delay - needs reteaching first next lesson.",
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "In one sentence: why do we see lightning before we hear thunder?"
+    }
+  ],
+  "subject": "science",
+  "title": "Waves: light, sound and the wave equation Exit Ticket",
+  "topic": "phys-waves"
+}

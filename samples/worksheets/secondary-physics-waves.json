@@ -1,0 +1,73 @@
+{
+  "level": "secondary",
+  "questions": [
+    {
+      "choices": [
+        {
+          "text": "The thunder, because sound is louder"
+        },
+        {
+          "correct": true,
+          "text": "The lightning flash"
+        },
+        {
+          "text": "The thunder, because it lasts longer"
+        },
+        {
+          "text": "Both arrive at exactly the same time"
+        }
+      ],
+      "explanation": "The flash arrives first and the thunder follows seconds later. The idea that thunder arrives first encodes the misconception: Sound travels faster than light. Light travels at about 300,000,000 m/s, far faster than sound at 340 m/s.",
+      "id": "q1",
+      "kind": "multiple-choice",
+      "misconception": "Sound travels faster than light.",
+      "prompt": "From a distant lightning strike, which reaches you first?"
+    },
+    {
+      "choices": [
+        {
+          "text": "1 m"
+        },
+        {
+          "correct": true,
+          "text": "2 m"
+        },
+        {
+          "text": "170 m"
+        },
+        {
+          "text": "510 m"
+        }
+      ],
+      "explanation": "Rearrange the wave equation: wavelength = v / f = 340 / 170 = 2 m. Check: 170 Hz x 2 m = 340 m/s, the speed we started with.",
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "A sound wave in air travels at 340 m/s and vibrates at 170 Hz. What is its wavelength?"
+    },
+    {
+      "answer": "The particles vibrate back and forth along the direction of travel, bunching together and spreading apart in turn. The particles stay in place overall; the wave carries energy from place to place.",
+      "explanation": "In a longitudinal wave the vibration is along the direction of travel, not across it. The bunching and spreading is the wave moving on; the particles themselves only vibrate in place while the energy travels.",
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "Describe how the particles move in a longitudinal sound wave, and state what the wave itself carries."
+    },
+    {
+      "answer": "v = f x wavelength = 5 x 3 = 15 m/s.",
+      "explanation": "Use the wave equation v = f x wavelength and substitute: 5 Hz x 3 m = 15 m/s. The units work out because hertz is waves per second: waves per second times metres per wave gives metres per second.",
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "A wave has frequency 5 Hz and wavelength 3 m. Calculate its speed and show your working."
+    },
+    {
+      "answer": "The classmate has it backwards: light is far faster than sound. The lightning flash travels at about 300,000,000 m/s and arrives almost instantly, while the thunder travels at only 340 m/s and follows seconds later - which is why we see lightning before we hear thunder.",
+      "explanation": "The classmate holds the misconception: Sound travels faster than light. A thunderclap feels so powerful that it seems to arrive before the flash. Light is far faster: the lightning flash arrives first and the thunder follows.",
+      "id": "q5",
+      "kind": "short-answer",
+      "misconception": "Sound travels faster than light.",
+      "prompt": "A classmate says: 'Sound travels faster than light, because the thunder is so loud.' Explain in two or three sentences why your classmate is wrong."
+    }
+  ],
+  "subject": "science",
+  "title": "Waves: light, sound and the wave equation",
+  "topic": "phys-waves"
+}

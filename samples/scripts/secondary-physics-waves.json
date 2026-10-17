@@ -1,0 +1,57 @@
+{
+  "level": "secondary",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 5,
+      "questions": [
+        "Are light and sound the same kind of wave?",
+        "What moves along when a wave travels - the particles or the energy?"
+      ],
+      "say": "Light and sound are both waves, but watch how differently they travel. In the light wave the dot bobs up and down while the wave races to the right. In the sound wave the particles only bunch and spread. Tell your partner: what is actually travelling in each case?",
+      "watchFor": "Sound travels faster than light. Listen for students who say the thunder must reach us first because it feels so powerful. Do not correct it yet; note who holds it, because the storm segment confronts exactly this beat."
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "questions": [
+        "What does the bracket span - one full wave or half a wave?",
+        "How do we rearrange v = f x wavelength to find the wavelength?"
+      ],
+      "say": "For any wave, speed equals frequency times wavelength: v = f x wavelength. This sound wave travels at 340 metres per second and vibrates 170 times per second, so its wavelength is 340 divided by 170 - 2 metres. Check it backwards: 170 times 2 is 340, so the answer agrees.",
+      "watchFor": "Students who multiply speed by frequency instead of dividing. Send them to the check: if the wavelength were 340 times 170, multiplying back would never land on 340 m/s."
+    },
+    {
+      "cue": "s3",
+      "minutes": 7,
+      "questions": [
+        "Which arrives first from a distant strike, the flash or the thunder?",
+        "How many times faster is light than sound, roughly?"
+      ],
+      "say": "Here is the trap, and we are going to spring it on purpose. The thunder feels so powerful that it seems to arrive first - but look: the light signal reaches the observer almost instantly, while the sound signal crawls across and arrives seconds later. Light travels at about 300,000,000 metres per second; sound manages only 340."
+    },
+    {
+      "cue": "s4",
+      "minutes": 5,
+      "questions": [
+        "What do light and sound waves carry as they travel?",
+        "Which three quantities does the wave equation tie together?"
+      ],
+      "say": "Pull it together: waves carry energy across the stage while the particles only vibrate in place, and speed, frequency and wavelength always obey v = f x wavelength - with light leaving sound far behind. Open your student notes handout at the trap section and read the correct turn aloud with me.",
+      "watchFor": "Students who say the particles travel with the wave. Send them back to the dot in the first scene: it bobbed in place while the energy raced on without it."
+    },
+    {
+      "cue": "worksheet",
+      "minutes": 5,
+      "questions": [
+        "Talk me through question 2: what did you rearrange first?",
+        "How will you correct the sound-faster-than-light claim on the exit ticket?"
+      ],
+      "say": "Work through the worksheet in pairs: name the kind of wave first, then reach for the wave equation. When you finish, swap with another pair and check their working against your student notes. Last, the exit ticket - on your own, no talking - and remember: if you can say why the flash arrives before the thunder, you have cracked today's lesson.",
+      "watchFor": "Pairs who answer the worksheet calculation without writing the rearrangement. The rearrangement is the lesson: require wavelength = v / f in the working before any answer is accepted."
+    }
+  ],
+  "subject": "science",
+  "title": "Waves: light, sound and the wave equation",
+  "topic": "phys-waves"
+}

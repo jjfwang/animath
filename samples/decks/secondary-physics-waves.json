@@ -1,0 +1,111 @@
+{
+  "level": "secondary",
+  "slides": [
+    {
+      "bullets": [
+        "How light and sound travel as waves, and how to use the wave equation"
+      ],
+      "heading": "Waves: light, sound and the wave equation",
+      "kind": "title",
+      "notes": "Welcome everyone in and say: today we are going to compare light and sound as waves, use the wave equation, and by the end you will be able to explain exactly why you see lightning before you hear thunder."
+    },
+    {
+      "bullets": [
+        "Tell transverse light waves apart from longitudinal sound waves",
+        "Use v = f x wavelength to find a wave speed, a frequency or a wavelength"
+      ],
+      "heading": "What we will learn",
+      "kind": "objective",
+      "notes": "Read the two goals aloud slowly and tell the class: keep these in mind, because our exit ticket at the end will ask you to do exactly these two things."
+    },
+    {
+      "bullets": [
+        "On a storm night you see a lightning flash, then hear the thunder seconds later",
+        "Why does the flash arrive first - and what does the gap tell us about the two waves?"
+      ],
+      "heading": "First the flash, then the thunder",
+      "kind": "hook",
+      "notes": "Ask for a show of hands and take two or three guesses without judging them yet; say: hold on to your idea, because the speeds of light and sound are the key to the whole lesson."
+    },
+    {
+      "bullets": [
+        "Light is a transverse wave: the vibration is across the direction of travel",
+        "Sound is a longitudinal wave: the particles bunch and spread along the direction of travel",
+        "Every wave carries energy while its particles only vibrate in place"
+      ],
+      "heading": "Two kinds of wave, one shared idea",
+      "kind": "concept",
+      "notes": "Say this part slowly, because it is the big idea of the whole lesson: the kind of wave is set by how the particles vibrate compared with the direction the energy travels."
+    },
+    {
+      "bullets": [
+        "Light is transverse: the dot bobs up and down as the wave races to the right",
+        "Sound is longitudinal: the particles bunch and spread while the energy moves on"
+      ],
+      "heading": "Light and sound are different kinds of waves",
+      "kind": "mechanism",
+      "notes": "Point at the animation and narrate what is happening: watch the dot on the light wave bob up and down in place, then watch the sound particles bunch and spread - neither particle travels with the wave.",
+      "visual": "s1"
+    },
+    {
+      "bullets": [
+        "Wave speed equals frequency times wavelength: v = f x wavelength",
+        "For sound in air, 340 m/s = 170 Hz x 2 m"
+      ],
+      "heading": "Wave speed equals frequency times wavelength",
+      "kind": "mechanism",
+      "notes": "Tell them to watch one full wave under the bracket: that length is the wavelength, and multiplying it by how many waves pass each second gives the speed.",
+      "visual": "s2"
+    },
+    {
+      "bullets": [
+        "Tempting wrong turn: Sound travels faster than light.",
+        "Light is far faster: the lightning flash arrives first and the thunder follows"
+      ],
+      "heading": "A common mistake: we see lightning before we hear thunder",
+      "kind": "mechanism",
+      "notes": "Name the trap out loud before anyone falls into it: the thunder feels powerful, but the flash reaches you almost instantly while the sound crawls in at 340 metres per second.",
+      "visual": "s3"
+    },
+    {
+      "bullets": [
+        "Waves carry energy while the particles only vibrate in place",
+        "Speed, frequency and wavelength always obey v = f x wavelength, and light leaves sound far behind"
+      ],
+      "heading": "What the wave examples have in common",
+      "kind": "mechanism",
+      "notes": "Pull the threads together: whatever the kind of wave, the energy is what travels, the particles stay put, and the wave equation ties speed, frequency and wavelength together.",
+      "visual": "s4"
+    },
+    {
+      "bullets": [
+        "Step 1: rearrange the wave equation, wavelength = v / f",
+        "Step 2: wavelength = 340 / 170 = 2 m, and check 170 Hz x 2 m = 340 m/s"
+      ],
+      "heading": "Worked example: finding a wavelength",
+      "kind": "example",
+      "notes": "Talk through the two steps slowly and name each one as you write it; say: notice the check multiplies frequency by wavelength and lands back on the speed we started with."
+    },
+    {
+      "bullets": [
+        "Work out the wavelength of a sound wave with v = 340 m/s and f = 170 Hz: rearrange first, then calculate",
+        "Careful - a classmate writes Sound travels faster than light. Explain to them why that is wrong, using lightning and thunder"
+      ],
+      "heading": "Your turn: calculate, then correct",
+      "kind": "practice",
+      "notes": "Give pairs two minutes, then cold-call one pair and press them on the trap: if sound really were faster, which would you notice first in a storm, the flash or the thunder?"
+    },
+    {
+      "bullets": [
+        "Calculate a wavelength from a speed and a frequency, showing the rearrangement",
+        "Explain why this claim is wrong: Sound travels faster than light."
+      ],
+      "heading": "Exit ticket: show what you know",
+      "kind": "exit-ticket",
+      "notes": "Collect these before anyone leaves and say: I am looking for the words light is far faster in your last answer - if you can explain why the flash arrives before the thunder, you have cracked today's lesson."
+    }
+  ],
+  "subject": "science",
+  "title": "Waves: light, sound and the wave equation",
+  "topic": "phys-waves"
+}
