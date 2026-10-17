@@ -12,6 +12,19 @@ version section when the release ships.
 
 ### Added
 
+- Secondary A-Math kinematics lesson pack in the pack demo
+  (`player/pack-demo.html`): the secondary A-Math kinematics
+  gold lesson pack now appears on the same demo page as the other packs,
+  presenting all six secondary-a-kinematics materials (animation,
+  slides, worksheet, exit ticket, student notes, and teacher
+  script) under its own
+  kinematics-manifest header (slug
+  `a-kinematics-secondary-math`, level secondary, subject
+  math, topic `a-kinematics`), stacked animation, slides, and printables sections, all
+  six materials validated before render for that pack, and
+  the shared teacher-keys toggle covering all thirteen packs' print
+  stages, guarded by slice-scoped pack-demo tests (issue #840).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-kinematics.json`,
   `samples/worksheets/secondary-a-kinematics.json`,
   `samples/tickets/secondary-a-kinematics.json`,
