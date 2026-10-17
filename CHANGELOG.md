@@ -24,6 +24,16 @@ version section when the release ships.
   (The integral of 2x is x^2.),
   guarded by a dedicated test file (issue #830).
 
+- Secondary A-Math integration lesson pack in the pack demo
+  (`player/pack-demo.html`): the secondary A-Math integration
+  gold pack now appears on the same demo page as the other packs,
+  with its own manifest header (slug
+  `a-integration-secondary-math`, level secondary, subject
+  math), stacked animation, slides, and printables sections, all
+  six materials validated before any rendering for that pack, and
+  the shared teacher-keys toggle covering all eleven packs' print
+  stages (issue #832).
+
 - Secondary A-Math differentiation lesson pack in the pack demo
   (`player/pack-demo.html`): the secondary A-Math differentiation
   gold pack now appears on the same demo page as the other packs,
