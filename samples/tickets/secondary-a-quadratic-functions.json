@@ -1,0 +1,65 @@
+{
+  "level": "secondary",
+  "subject": "math",
+  "topic": "a-quadratic-functions",
+  "title": "A-Math quadratics: completing the square, discriminant and inequalities Exit Ticket",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "The equation x^2 + 1 = 0 has discriminant D = -4. What are its roots?",
+      "choices": [
+        {
+          "text": "There are no roots and no solution"
+        },
+        {
+          "text": "One repeated root, x = 0"
+        },
+        {
+          "correct": true,
+          "text": "Two complex roots, x = i and x = -i"
+        },
+        {
+          "text": "Two real roots, x = 1 and x = -1"
+        }
+      ],
+      "misconception": "A negative discriminant means the equation has no solution.",
+      "feedback": "If you said there is no solution, that is the trap: A negative discriminant means the equation has no solution. Reteach point: No real roots is not no solution: the equation still has two complex roots. For x^2 + 1 = 0 the roots are x = +/-i."
+    },
+    {
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "In one sentence, explain how to complete the square for x^2 + 6x.",
+      "answer": "Halve the coefficient of x to get 3, then add the missing corner 3^2 = 9, giving x^2 + 6x + 9 = (x+3)^2.",
+      "feedback": "A strong answer halves 6 to get 3 and adds 3^2 = 9. An answer that adds 36 has squared the whole coefficient instead of half of it."
+    },
+    {
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "A quadratic has D = 0. How many real roots does it have?",
+      "choices": [
+        {
+          "text": "Two different real roots"
+        },
+        {
+          "correct": true,
+          "text": "One repeated real root"
+        },
+        {
+          "text": "No real roots"
+        },
+        {
+          "text": "It cannot be decided"
+        }
+      ],
+      "feedback": "D = 0 means the parabola just touches the x-axis, so there is one repeated real root. D > 0 gives two real roots and D < 0 gives no real roots."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "State the solution of x^2 - 4 > 0 and how you found it.",
+      "answer": "x < -2 or x > 2, found by taking the roots -2 and 2 and testing each region of the number line.",
+      "feedback": "The roots -2 and 2 split the line into three regions; testing shows only the two outer regions satisfy x^2 - 4 > 0, so the solution is x < -2 or x > 2."
+    }
+  ]
+}
