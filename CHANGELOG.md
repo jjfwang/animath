@@ -12,6 +12,9 @@ version section when the release ships.
 
 ### Added
 
+- Prepublication interactive teaching review with deterministic checks and an optional
+  OpenAI-compatible independent reviewer adapter, plus human escalation (#801).
+
 - Tutor synchronization adapter for visual beats, presentation slide IDs, speech cues,
   checkpoint interruption/recovery and ordered controller commands (#800).
 
