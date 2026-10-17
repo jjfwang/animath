@@ -149,6 +149,23 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="erosion-manifest">
+  <h1>Lesson pack: Erosion: wind and water wear rock away</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>erosion-primary-geography</code></dd>
+    <dt>Level</dt><dd>primary</dd>
+    <dt>Subject</dt><dd>geography</dd>
+  </dl>
+  <p>level primary · subject geography</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -233,6 +250,18 @@
   <h2>Photosynthesis printables</h2>
   <div id="photosynthesis-print"></div>
 </section>
+<section class="pack-section" id="erosion-animation">
+  <h2>Erosion animation</h2>
+  <div id="erosion-player"></div>
+</section>
+<section class="pack-section" id="erosion-slides">
+  <h2>Erosion slides</h2>
+  <div id="erosion-presenter"></div>
+</section>
+<section class="pack-section" id="erosion-printables">
+  <h2>Erosion printables</h2>
+  <div id="erosion-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -263,8 +292,9 @@
     var trigPrintStage = document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print');
     var thermalPrintStage = document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print');
     var photosynthesisPrintStage = document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print');
+    var erosionPrintStage = document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -752,6 +782,75 @@
     ].join('');
   }).catch(function (err) {
     errBox.textContent = 'Photosynthesis pack failed to load: ' + err.message;
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('erosion-presenter');
+  var erosionPrint = document.getElementById('erosion-print');
+  var errBox = document.getElementById('err');
+  var erosionAnimUrl = '../samples/primary-geog-erosion.json';
+  var erosionDeckUrl = '../samples/decks/primary-geog-erosion.json';
+  var erosionWorksheetUrl = '../samples/worksheets/primary-geog-erosion.json';
+  var erosionTicketUrl = '../samples/tickets/primary-geog-erosion.json';
+  var erosionNotesUrl = '../samples/notes/primary-geog-erosion.json';
+  var erosionScriptUrl = '../samples/scripts/primary-geog-erosion.json';
+
+  Promise.all([
+    fetch(erosionAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + erosionAnimUrl);
+      return r.json();
+    }),
+    fetch(erosionDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + erosionDeckUrl);
+      return r.json();
+    }),
+    fetch(erosionWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + erosionWorksheetUrl);
+      return r.json();
+    }),
+    fetch(erosionTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + erosionTicketUrl);
+      return r.json();
+    }),
+    fetch(erosionNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + erosionNotesUrl);
+      return r.json();
+    }),
+    fetch(erosionScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + erosionScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      errBox.textContent = 'Erosion pack failed validation:\n' + problems.join('\n');
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('erosion-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    erosionPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    errBox.textContent = 'Erosion pack failed to load: ' + err.message;
   });
 })();
 </script>

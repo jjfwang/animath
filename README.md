@@ -147,7 +147,7 @@ render validates the spec first and throws on errors.
 `player/pack-demo.html` shows full lesson packs on one page — all six
 gold materials for the water cycle, for fractions addition, for
 waves, for JC complex numbers, for secondary trigonometry,
-for JC thermal physics, and for secondary photosynthesis
+for JC thermal physics, for secondary photosynthesis, and for primary-geography erosion
 (animation, slides, worksheet, notes, exit ticket, and script), each
 under its own pack manifest header.
 
