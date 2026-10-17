@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- JC thermal physics lesson pack in the pack demo (`player/pack-demo.html`): the
+  JC H2 thermal physics gold pack now appears on the same
+  demo page as the water-cycle, fractions, waves, complex and trigonometry packs, with its own
+  manifest header (slug `h2-thermal-jc-science`, level
+  jc, subject science), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all six packs' print stages (issue #805).
+
 - Gold lesson pack for a JC science topic (`samples/decks/jc-h2-thermal.json`,
   `samples/worksheets/jc-h2-thermal.json`,
   `samples/tickets/jc-h2-thermal.json`,
