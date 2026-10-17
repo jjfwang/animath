@@ -5,7 +5,9 @@
   },
   "scripts": {
     "test": "node --test \"tests/*.test.js\"",
-    "test:coverage": "node --test --experimental-test-coverage \"tests/*.test.js\""
+    "test:coverage": "node --test --experimental-test-coverage \"tests/*.test.js\"",
+    "test:interactive": "node --test tests/interactive.test.js tests/simulation-kit.test.js tests/tutor-bridge.test.js tests/interactive-agent.test.js tests/interactive-review.test.js tests/approved-assets.test.js tests/fs-object-store.test.js tests/interactive-service.test.js tests/simulation-expansion.test.js",
+    "bench:interactive": "node generator/tooling/benchmark-interactive.js"
   },
   "exports": {
     ".": "./generator/build_prompt.js",
