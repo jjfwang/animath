@@ -234,6 +234,24 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="kinematics-manifest">
+  <h1>Lesson pack: A-Math kinematics: reading motion from s–t and v–t graphs</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>a-kinematics-secondary-math</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>math</dd>
+    <dt>Topic</dt><dd><code>a-kinematics</code></dd>
+  </dl>
+  <p>level secondary · subject math</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -378,6 +396,18 @@
   <h2>Binomial theorem printables</h2>
   <div id="binomial-print"></div>
 </section>
+<section class="pack-section" id="kinematics-animation">
+  <h2>Kinematics animation</h2>
+  <div id="kinematics-player"></div>
+</section>
+<section class="pack-section" id="kinematics-slides">
+  <h2>Kinematics slides</h2>
+  <div id="kinematics-presenter"></div>
+</section>
+<section class="pack-section" id="kinematics-printables">
+  <h2>Kinematics printables</h2>
+  <div id="kinematics-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -413,8 +443,9 @@
     var differentiationPrintStage = document.querySelector('#differentiation-print .pr-stage') || document.querySelector('#differentiation-print');
     var integrationPrintStage = document.querySelector('#integration-print .pr-stage') || document.querySelector('#integration-print');
     var binomialPrintStage = document.querySelector('#binomial-print .pr-stage') || document.querySelector('#binomial-print');
+    var kinematicsPrintStage = document.querySelector('#kinematics-print .pr-stage') || document.querySelector('#kinematics-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage, differentiationPrintStage, integrationPrintStage, binomialPrintStage, kinematicsPrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -1251,6 +1282,79 @@
     ].join('');
   }).catch(function (err) {
     showError('Binomial pack failed to load: ' + err.message);
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('kinematics-presenter');
+  var kinematicsPrint = document.getElementById('kinematics-print');
+  var errBox = document.getElementById('err');
+  var kinematicsAnimUrl = '../samples/secondary-a-kinematics.json';
+  var kinematicsDeckUrl = '../samples/decks/secondary-a-kinematics.json';
+  var kinematicsWorksheetUrl = '../samples/worksheets/secondary-a-kinematics.json';
+  var kinematicsTicketUrl = '../samples/tickets/secondary-a-kinematics.json';
+  var kinematicsNotesUrl = '../samples/notes/secondary-a-kinematics.json';
+  var kinematicsScriptUrl = '../samples/scripts/secondary-a-kinematics.json';
+
+  function showError(msg) {
+    errBox.textContent = String(msg);
+  }
+
+  Promise.all([
+    fetch(kinematicsAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + kinematicsAnimUrl);
+      return r.json();
+    }),
+    fetch(kinematicsDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + kinematicsDeckUrl);
+      return r.json();
+    }),
+    fetch(kinematicsWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + kinematicsWorksheetUrl);
+      return r.json();
+    }),
+    fetch(kinematicsTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + kinematicsTicketUrl);
+      return r.json();
+    }),
+    fetch(kinematicsNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + kinematicsNotesUrl);
+      return r.json();
+    }),
+    fetch(kinematicsScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + kinematicsScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      showError('Kinematics pack failed validation:\n' + problems.join('\n'));
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('kinematics-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    kinematicsPrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    showError('Kinematics pack failed to load: ' + err.message);
   });
 })();
 </script>
