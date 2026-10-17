@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a primary-geography topic (`samples/decks/primary-geog-erosion.json`,
+  `samples/worksheets/primary-geog-erosion.json`,
+  `samples/tickets/primary-geog-erosion.json`,
+  `samples/notes/primary-geog-erosion.json`, and
+  `samples/scripts/primary-geog-erosion.json`): hand-authored
+  primary geography erosion gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the photosynthesis golds, keyed to the erosion
+  animation scenes s1-s3 and the bank `erosion` misconception
+  (Rocks crumble on their own, with nothing doing the wearing.),
+  guarded by a dedicated test file (issue #811).
+
 - Secondary photosynthesis lesson pack in the pack demo (`player/pack-demo.html`): the
   secondary science photosynthesis gold pack now appears on the same
   demo page as the water-cycle, fractions, waves, complex, trigonometry and thermal packs, with its own
