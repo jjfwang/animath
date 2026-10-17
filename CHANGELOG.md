@@ -12,6 +12,15 @@ version section when the release ships.
 
 ### Added
 
+- Secondary photosynthesis lesson pack in the pack demo (`player/pack-demo.html`): the
+  secondary science photosynthesis gold pack now appears on the same
+  demo page as the water-cycle, fractions, waves, complex, trigonometry and thermal packs, with its own
+  manifest header (slug `bio-nutrition-secondary-science`, level
+  secondary, subject science), stacked animation, slides, and
+  printables sections, all six materials validated before any
+  rendering for that pack, and the shared teacher-keys toggle
+  covering all seven packs' print stages (issue #809).
+
 - JC thermal physics lesson pack in the pack demo (`player/pack-demo.html`): the
   JC H2 thermal physics gold pack now appears on the same
   demo page as the water-cycle, fractions, waves, complex and trigonometry packs, with its own

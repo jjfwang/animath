@@ -106,7 +106,7 @@ describe('pack demo page', () => {
     assert.ok(demo.includes('.pr-teacher'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
     assert.ok(demo.includes("document.querySelector('#complex-print .pr-stage') || document.querySelector('#complex-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
   });
 
   test('complex manifest header names the slug, level, subject and six material keys', () => {
@@ -184,7 +184,7 @@ describe('pack demo page', () => {
     assert.ok(trigBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(trigBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#trig-print .pr-stage') || document.querySelector('#trig-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
@@ -233,7 +233,55 @@ describe('pack demo page', () => {
     assert.ok(thermalBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
     assert.ok(thermalBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
     assert.ok(demo.includes("document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print')"));
-    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage]'));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
+    assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
+  });
+
+  test('photosynthesis manifest header names the slug, level, subject and six material keys', () => {
+    const start = demo.indexOf('id="photosynthesis-manifest"');
+    assert.ok(start > -1);
+    const manifest = demo.slice(start, demo.indexOf('</header>', start));
+    assert.ok(manifest.includes('id="photosynthesis-manifest"'));
+    assert.ok(manifest.includes('<code>bio-nutrition-secondary-science</code>'));
+    assert.ok(manifest.includes('level secondary'));
+    assert.ok(manifest.includes('subject science'));
+    assert.ok(manifest.includes('<code>animation</code>'));
+    assert.ok(manifest.includes('<code>slides</code>'));
+    assert.ok(manifest.includes('<code>worksheet</code>'));
+    assert.ok(manifest.includes('<code>exitTicket</code>'));
+    assert.ok(manifest.includes('exit ticket'));
+    assert.ok(manifest.includes('<code>notes</code>'));
+    assert.ok(manifest.includes('student notes'));
+    assert.ok(manifest.includes('<code>script</code>'));
+    assert.ok(manifest.includes('teacher script'));
+  });
+
+  test('photosynthesis pack sections and all six sample paths are present', () => {
+    assert.ok(demo.includes('id="photosynthesis-player"'));
+    assert.ok(demo.includes('id="photosynthesis-presenter"'));
+    assert.ok(demo.includes('id="photosynthesis-print"'));
+    assert.ok(demo.includes('../samples/secondary-science-photosynthesis.json'));
+    assert.ok(demo.includes('../samples/decks/secondary-science-photosynthesis.json'));
+    assert.ok(demo.includes('../samples/worksheets/secondary-science-photosynthesis.json'));
+    assert.ok(demo.includes('../samples/tickets/secondary-science-photosynthesis.json'));
+    assert.ok(demo.includes('../samples/notes/secondary-science-photosynthesis.json'));
+    assert.ok(demo.includes('../samples/scripts/secondary-science-photosynthesis.json'));
+  });
+
+  test('photosynthesis block validates all six materials before rendering and renders both answer keys', () => {
+    const photosynthesisStart = demo.indexOf('photosynthesisAnimUrl');
+    assert.ok(photosynthesisStart > -1);
+    const photosynthesisBlock = demo.slice(photosynthesisStart);
+    assert.ok(photosynthesisBlock.indexOf('AnimathValidate.validateSpec') < photosynthesisBlock.lastIndexOf('AnimathPlayer.mount'));
+    assert.ok(photosynthesisBlock.indexOf('AnimathValidate.validateSlides') < photosynthesisBlock.lastIndexOf('AnimathSlidesPresenter.attachPresenter'));
+    assert.ok(photosynthesisBlock.indexOf('AnimathValidate.validateWorksheet') < photosynthesisBlock.lastIndexOf('AnimathPrintable.renderWorksheet'));
+    assert.ok(photosynthesisBlock.indexOf('AnimathValidate.validateExitTicket') < photosynthesisBlock.lastIndexOf('AnimathPrintable.renderExitTicket'));
+    assert.ok(photosynthesisBlock.indexOf('AnimathValidate.validateNotes') < photosynthesisBlock.lastIndexOf('AnimathPrintable.renderNotes'));
+    assert.ok(photosynthesisBlock.indexOf('AnimathValidate.validateScript') < photosynthesisBlock.lastIndexOf('AnimathPrintable.renderScript'));
+    assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderWorksheetAnswerKey'));
+    assert.ok(photosynthesisBlock.includes('AnimathPrintable.renderExitTicketAnswerKey'));
+    assert.ok(demo.includes("document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print')"));
+    assert.ok(demo.includes('[printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage]'));
     assert.equal((demo.match(/#toggle-teacher/g) || []).length, 1);
   });
 
