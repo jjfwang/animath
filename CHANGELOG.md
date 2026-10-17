@@ -12,6 +12,16 @@ version section when the release ships.
 
 ### Added
 
+- Secondary A-Math differentiation lesson pack in the pack demo
+  (`player/pack-demo.html`): the secondary A-Math differentiation
+  gold pack now appears on the same demo page as the other packs,
+  with its own manifest header (slug
+  `a-differentiation-secondary-math`, level secondary, subject
+  math), stacked animation, slides, and printables sections, all
+  six materials validated before any rendering for that pack, and
+  the shared teacher-keys toggle covering all ten packs' print
+  stages (issue #828).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-differentiation.json`,
   `samples/worksheets/secondary-a-differentiation.json`,
   `samples/tickets/secondary-a-differentiation.json`,
