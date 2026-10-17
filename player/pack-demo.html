@@ -166,6 +166,23 @@
     <li><code>script</code> teacher script</li>
   </ul>
 </header>
+<header class="pack-manifest" id="chem-mole-manifest">
+  <h1>Lesson pack: The mole: counting atoms by weighing</h1>
+  <dl>
+    <dt>Slug</dt><dd><code>chem-mole-secondary-science</code></dd>
+    <dt>Level</dt><dd>secondary</dd>
+    <dt>Subject</dt><dd>science</dd>
+  </dl>
+  <p>level secondary · subject science</p>
+  <ul class="pack-materials">
+    <li><code>animation</code></li>
+    <li><code>slides</code></li>
+    <li><code>worksheet</code></li>
+    <li><code>exitTicket</code> exit ticket</li>
+    <li><code>notes</code> student notes</li>
+    <li><code>script</code> teacher script</li>
+  </ul>
+</header>
 <section class="pack-section" id="animation-section">
   <h2>Animation</h2>
   <div id="anim-stage"></div>
@@ -262,6 +279,18 @@
   <h2>Erosion printables</h2>
   <div id="erosion-print"></div>
 </section>
+<section class="pack-section" id="chem-mole-animation">
+  <h2>Chem-mole animation</h2>
+  <div id="chem-mole-player"></div>
+</section>
+<section class="pack-section" id="chem-mole-slides">
+  <h2>Chem-mole slides</h2>
+  <div id="chem-mole-presenter"></div>
+</section>
+<section class="pack-section" id="chem-mole-printables">
+  <h2>Chem-mole printables</h2>
+  <div id="chem-mole-print"></div>
+</section>
 <div id="err"></div>
 <script src="validate.js"></script>
 <script src="player.js"></script>
@@ -293,8 +322,9 @@
     var thermalPrintStage = document.querySelector('#thermal-print .pr-stage') || document.querySelector('#thermal-print');
     var photosynthesisPrintStage = document.querySelector('#photosynthesis-print .pr-stage') || document.querySelector('#photosynthesis-print');
     var erosionPrintStage = document.querySelector('#erosion-print .pr-stage') || document.querySelector('#erosion-print');
+    var chemMolePrintStage = document.querySelector('#chem-mole-print .pr-stage') || document.querySelector('#chem-mole-print');
     var keys = [];
-    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage].forEach(function (stage) {
+    [printStage, fractionsPrintStage, wavesPrintStage, complexPrintStage, trigPrintStage, thermalPrintStage, photosynthesisPrintStage, erosionPrintStage, chemMolePrintStage].forEach(function (stage) {
       if (stage) {
         keys = keys.concat(Array.prototype.slice.call(stage.querySelectorAll('.pr-teacher')));
       }
@@ -851,6 +881,75 @@
     ].join('');
   }).catch(function (err) {
     errBox.textContent = 'Erosion pack failed to load: ' + err.message;
+  });
+})();
+</script>
+<script>
+(function () {
+  var presenter = document.getElementById('chem-mole-presenter');
+  var chemMolePrint = document.getElementById('chem-mole-print');
+  var errBox = document.getElementById('err');
+  var chemMoleAnimUrl = '../samples/secondary-science-chem-mole.json';
+  var chemMoleDeckUrl = '../samples/decks/secondary-science-chem-mole.json';
+  var chemMoleWorksheetUrl = '../samples/worksheets/secondary-science-chem-mole.json';
+  var chemMoleTicketUrl = '../samples/tickets/secondary-science-chem-mole.json';
+  var chemMoleNotesUrl = '../samples/notes/secondary-science-chem-mole.json';
+  var chemMoleScriptUrl = '../samples/scripts/secondary-science-chem-mole.json';
+
+  Promise.all([
+    fetch(chemMoleAnimUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + chemMoleAnimUrl);
+      return r.json();
+    }),
+    fetch(chemMoleDeckUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + chemMoleDeckUrl);
+      return r.json();
+    }),
+    fetch(chemMoleWorksheetUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + chemMoleWorksheetUrl);
+      return r.json();
+    }),
+    fetch(chemMoleTicketUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + chemMoleTicketUrl);
+      return r.json();
+    }),
+    fetch(chemMoleNotesUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + chemMoleNotesUrl);
+      return r.json();
+    }),
+    fetch(chemMoleScriptUrl).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status + ' loading ' + chemMoleScriptUrl);
+      return r.json();
+    })
+  ]).then(function (pack) {
+    var anim = pack[0];
+    var deck = pack[1];
+    var worksheet = pack[2];
+    var ticket = pack[3];
+    var notes = pack[4];
+    var script = pack[5];
+    var problems = AnimathValidate.validateSpec(anim)
+      .concat(AnimathValidate.validateSlides(deck))
+      .concat(AnimathValidate.validateWorksheet(worksheet))
+      .concat(AnimathValidate.validateExitTicket(ticket))
+      .concat(AnimathValidate.validateNotes(notes))
+      .concat(AnimathValidate.validateScript(script));
+    if (problems.length) {
+      errBox.textContent = 'Chem-mole pack failed validation:\n' + problems.join('\n');
+      return;
+    }
+    AnimathPlayer.mount(document.getElementById('chem-mole-player'), anim, { autoplay: false });
+    AnimathSlidesPresenter.attachPresenter(document, presenter, deck, { animSpec: anim });
+    chemMolePrint.innerHTML = [
+      AnimathPrintable.renderWorksheet(worksheet),
+      AnimathPrintable.renderWorksheetAnswerKey(worksheet),
+      AnimathPrintable.renderExitTicket(ticket),
+      AnimathPrintable.renderExitTicketAnswerKey(ticket),
+      AnimathPrintable.renderNotes(notes),
+      AnimathPrintable.renderScript(script)
+    ].join('');
+  }).catch(function (err) {
+    errBox.textContent = 'Chem-mole pack failed to load: ' + err.message;
   });
 })();
 </script>
