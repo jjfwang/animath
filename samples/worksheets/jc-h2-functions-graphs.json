@@ -1,0 +1,86 @@
+{
+  "level": "jc",
+  "subject": "math",
+  "title": "JC H2 functions and graphs: transformations, reciprocal functions, asymptote behaviour",
+  "topic": "h2-functions-graphs",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "The graph of y = f(x) has a root at x = 0. Where is the corresponding root of y = f(x + 3)?",
+      "choices": [
+        {
+          "text": "At x = 3, three units to the right"
+        },
+        {
+          "text": "At x = 0, unchanged"
+        },
+        {
+          "text": "At x = -3, three units to the left",
+          "correct": true
+        },
+        {
+          "text": "At x = -3, three units up"
+        }
+      ],
+      "misconception": "f(x + 3) shifts the graph 3 units to the right.",
+      "explanation": "The trap claim is: f(x + 3) shifts the graph 3 units to the right. In fact f(x + 3) is zero when x + 3 = 0, that is at x = -3, so the graph shifts 3 units to the LEFT: a change inside the brackets moves the graph in the opposite direction to the sign."
+    },
+    {
+      "id": "q2",
+      "kind": "multiple-choice",
+      "prompt": "Which equation is y = f(x) stretched vertically by a factor of 3 and then lifted up by 2?",
+      "choices": [
+        {
+          "text": "y = f(3x) + 2"
+        },
+        {
+          "text": "y = 3f(x + 2)"
+        },
+        {
+          "text": "y = 3f(x) + 2",
+          "correct": true
+        },
+        {
+          "text": "y = f(x) + 5"
+        }
+      ],
+      "explanation": "Both changes act outside f, so both act vertically: multiplying by 3 stretches every height by a factor of 3, and adding 2 at the end lifts the graph by 2. The choice f(3x) squeezes horizontally instead, because the 3 is inside the brackets."
+    },
+    {
+      "id": "q3",
+      "kind": "short-answer",
+      "prompt": "Rewrite f(2x + 6) in the form f(2(x + c)) and state the horizontal translation it shows.",
+      "answer": "f(2x + 6) = f(2(x + 3)): a translation of 3 units to the left, then a horizontal squeeze by a factor of 2.",
+      "explanation": "Factor out the 2 before reading the shift: 2x + 6 = 2(x + 3), so the inside change is x + 3, which shifts the graph left by 3 - reading the 6 directly would give the wrong shift."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "State the equations of the vertical and horizontal asymptotes of y = 1/(x - 2) + 1.",
+      "answer": "Vertical asymptote x = 2; horizontal asymptote y = 1.",
+      "explanation": "The denominator is zero at x = 2, so the curve shoots up the line x = 2 and never touches it. As x grows large, 1/(x - 2) shrinks toward 0, so the curve flattens onto y = 0 + 1 = 1."
+    },
+    {
+      "id": "q5",
+      "kind": "multiple-choice",
+      "prompt": "As x approaches 0 from the positive side, what does the graph of y = 1/x do?",
+      "choices": [
+        {
+          "text": "It flattens onto the line y = 0"
+        },
+        {
+          "text": "It shoots up without bound along the line x = 0",
+          "correct": true
+        },
+        {
+          "text": "It crosses the line x = 0 at a high point"
+        },
+        {
+          "text": "It settles at y = 1"
+        }
+      ],
+      "explanation": "Close to x = 0 the values of 1/x grow without bound, so the branch hugs the vertical asymptote x = 0 and never crosses it. Flattening onto y = 0 is what happens as x grows large, at the horizontal asymptote."
+    }
+  ]
+}

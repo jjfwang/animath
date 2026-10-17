@@ -1,0 +1,45 @@
+{
+  "level": "jc",
+  "subject": "math",
+  "title": "JC H2 functions and graphs: transformations, reciprocal functions, asymptote behaviour",
+  "topic": "h2-functions-graphs",
+  "segments": [
+    {
+      "cue": "s1",
+      "minutes": 6,
+      "say": "Outside f acts vertically. Watch every height of y = f(x) double as we pass to y = 2f(x): that is a stretch by a factor of 2. Now watch the whole curve lift as we add 1: y = 2f(x) + 1, a stretch first and then a translation up. Tell your partner: which change stretched, and which change lifted?",
+      "questions": [
+        "What does the factor a do in y = a·f(x)?",
+        "In y = 2f(x) + 1, which number lifts the graph, and by how much?"
+      ]
+    },
+    {
+      "cue": "s2",
+      "minutes": 8,
+      "say": "Inside f acts horizontally, and it feels backwards. The safe move is to factor: f(bx + c) is f(b(x + c/b)). Watch f(2x + 2) become f(2(x + 1)): a shift left of 1 first, then a squeeze by a factor of 2 toward that new centre. Never read the shift until b is factored out.",
+      "questions": [
+        "Why must b be factored out before the shift can be read?",
+        "Rewrite f(2x + 6) in factored form and state its shift."
+      ]
+    },
+    {
+      "cue": "s3",
+      "minutes": 8,
+      "say": "Reciprocal functions: the asymptotes run the show. For y = 1/x, follow one branch as x grows: it flattens onto the horizontal asymptote y = 0 but never touches it. Now follow it toward x = 0: it shoots up the vertical asymptote x = 0, and across that line the other branch has the opposite sign.",
+      "questions": [
+        "Which asymptote does the curve flatten onto as x grows, and which does it shoot up?",
+        "Why can the curve never cross the vertical asymptote?"
+      ]
+    },
+    {
+      "cue": "s4",
+      "minutes": 7,
+      "say": "Here is the trap, sprung on purpose: plus inside the brackets does not push the graph right. Watch the wrong rightward shift get crossed out, then watch the graph slide left, exactly where the root check puts it. Now work through the worksheet in pairs, checking each answer against the trap section of your student notes. Last, the exit ticket - on your own, no talking - and remember: if you can run the root check, the plus-inside trap can never catch you.",
+      "questions": [
+        "Run the root check aloud: where is f(x + 3) zero, and which side of the original root is that?",
+        "What changes inside the brackets would shift the graph to the right instead?"
+      ],
+      "watchFor": "f(x + 3) shifts the graph 3 units to the right. Listen for students who point right when they see the plus sign. Send them to the root check: f(x + 3) is zero where x = -3, to the left of the original, so the graph shifted left."
+    }
+  ]
+}

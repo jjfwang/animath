@@ -1,0 +1,59 @@
+{
+  "level": "jc",
+  "subject": "math",
+  "title": "JC H2 functions and graphs: transformations, reciprocal functions, asymptote behaviour Exit Ticket",
+  "topic": "h2-functions-graphs",
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "multiple-choice",
+      "prompt": "Which statement about the graph of y = f(x + 3) is correct?",
+      "choices": [
+        {
+          "text": "It is y = f(x) shifted 3 units to the right"
+        },
+        {
+          "text": "It is y = f(x) shifted 3 units to the left",
+          "correct": true
+        },
+        {
+          "text": "It is y = f(x) shifted 3 units up"
+        }
+      ],
+      "misconception": "f(x + 3) shifts the graph 3 units to the right.",
+      "feedback": "If you picked the first option, that is the trap: f(x + 3) shifts the graph 3 units to the right. Reteach point - root check: f(x + 3) = 0 at x = -3, and -3 sits to the left of the original root, so inside the brackets means shift LEFT."
+    },
+    {
+      "id": "q2",
+      "kind": "short-answer",
+      "prompt": "Describe fully the transformation that maps y = f(x) onto y = 2f(x) + 1.",
+      "answer": "A vertical stretch by a factor of 2, followed by a translation of 1 unit up.",
+      "feedback": "Both changes are outside f, so both act vertically: check you named the stretch factor 2 and the lift of 1 separately - if you described a horizontal change, the change you were reading was inside the brackets."
+    },
+    {
+      "id": "q3",
+      "kind": "multiple-choice",
+      "prompt": "What are the asymptotes of y = 1/x?",
+      "choices": [
+        {
+          "text": "x = 1 and y = 1"
+        },
+        {
+          "text": "x = 0 and y = 0",
+          "correct": true
+        },
+        {
+          "text": "There are no asymptotes"
+        }
+      ],
+      "feedback": "The denominator is zero at x = 0, giving the vertical asymptote x = 0, and as x grows the values flatten onto the horizontal asymptote y = 0. The curve approaches both lines but never touches either."
+    },
+    {
+      "id": "q4",
+      "kind": "short-answer",
+      "prompt": "Rewrite f(3x + 3) in the form f(3(x + c)) and give the value of c.",
+      "answer": "f(3x + 3) = f(3(x + 1)), so c = 1.",
+      "feedback": "Factor out the 3 first: 3x + 3 = 3(x + 1). If you answered c = 3 you read the shift before factoring - the squeeze by 3 rescales the shift, which is why the factored form is the safe one to read."
+    }
+  ]
+}

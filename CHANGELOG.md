@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a JC topic (`samples/decks/jc-h2-functions-graphs.json`,
+  `samples/worksheets/jc-h2-functions-graphs.json`,
+  `samples/tickets/jc-h2-functions-graphs.json`,
+  `samples/notes/jc-h2-functions-graphs.json`, and
+  `samples/scripts/jc-h2-functions-graphs.json`): hand-authored
+  JC H2 functions and graphs gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the vectors golds, keyed to the functions and
+  graphs animation scenes s1-s4 and the bank `h2-functions-graphs` misconception
+  (f(x + 3) shifts the graph 3 units to the right.),
+  guarded by a dedicated test file `tests/gold-functions-graphs-pack.test.js` (issue #854).
+
 - JC H2 vectors lesson pack in the pack demo
   (`player/pack-demo.html`): the JC H2 vectors
   gold lesson pack now appears on the same demo page as the other packs,
