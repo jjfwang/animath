@@ -1,0 +1,72 @@
+{
+  "interactive": "0.1",
+  "model": "water-cycle",
+  "title": "Secondary Science: Explore the Water Cycle",
+  "level": "secondary",
+  "subject": "science",
+  "topic": "water-cycle",
+  "disclaimer": "This is a conceptual activity model, not a weather forecast or a quantitative weather prediction. Solar energy, atmospheric cooling and droplet growth are simplified teaching controls. Real weather also depends on humidity, winds, pressure and cloud microphysics.",
+  "parameters": [
+    {
+      "id": "solar",
+      "label": "Solar energy / new vapour supply",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    },
+    {
+      "id": "cooling",
+      "label": "Cooling of moist air",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    },
+    {
+      "id": "growth",
+      "label": "Growth of condensed cloud droplets",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    }
+  ],
+  "beats": [
+    {
+      "id": "overview",
+      "label": "Whole cycle",
+      "narration": "Follow one parcel of water through evaporation, condensation, precipitation and collection. The same water circulates; it does not disappear."
+    },
+    {
+      "id": "evaporation",
+      "label": "Evaporation",
+      "narration": "Solar energy helps liquid water change into water vapour. Water vapour is an invisible gas, not a cloud of visible droplets."
+    },
+    {
+      "id": "condensation",
+      "label": "Condensation",
+      "narration": "Moist air cools and water vapour condenses into tiny liquid droplets. Cooling alone cannot create water where no water vapour is present."
+    },
+    {
+      "id": "precipitation",
+      "label": "Precipitation",
+      "narration": "Cloud droplets can grow through collisions and other processes. When drops become large enough to fall, we see precipitation. A cloud does not always mean rain."
+    },
+    {
+      "id": "collection",
+      "label": "Collection",
+      "narration": "Rainwater collects in rivers, lakes and the sea; some enters the soil or flows as runoff. Evaporation can start the journey again."
+    }
+  ],
+  "check": {
+    "question": "If moist air cools but cloud droplets do not grow enough, does rain necessarily follow?",
+    "options": [
+      "Yes. Every cloud must produce rain.",
+      "No. Cooling can cause condensation without precipitation.",
+      "Yes. Cooling turns water vapour directly into rain."
+    ],
+    "correctIndex": 1,
+    "explanation": "Condensation forms small cloud droplets. Precipitation requires additional growth and suitable conditions; not all clouds produce rain."
+  }
+}

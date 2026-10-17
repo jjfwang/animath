@@ -12,6 +12,10 @@ version section when the release ships.
 
 ### Added
 
+- Experimental interactive Secondary Science water-cycle pilot with a validated
+  reactive model, tutor commands, accessible controls, teaching beats,
+  comprehension checks and deterministic event history (#797).
+
 - Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-differentiation.json`,
   `samples/worksheets/secondary-a-differentiation.json`,
   `samples/tickets/secondary-a-differentiation.json`,
