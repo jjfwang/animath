@@ -12,6 +12,18 @@ version section when the release ships.
 
 ### Added
 
+- Gold lesson pack for a secondary A-Math topic (`samples/decks/secondary-a-differentiation.json`,
+  `samples/worksheets/secondary-a-differentiation.json`,
+  `samples/tickets/secondary-a-differentiation.json`,
+  `samples/notes/secondary-a-differentiation.json`, and
+  `samples/scripts/secondary-a-differentiation.json`): hand-authored
+  secondary A-Math differentiation gold samples for all five materials —
+  slide deck, worksheet, exit ticket, student notes, and teacher
+  script — mirroring the complex golds, keyed to the differentiation
+  animation scenes s1-s5 and the bank `a-differentiation` misconception
+  (dy/dx = 0 means a maximum or minimum.),
+  guarded by a dedicated test file (issue #824).
+
 - Secondary-chemistry chem-mole lesson pack in the pack demo (`player/pack-demo.html`): the
   secondary science chem-mole gold pack now appears on the same
   demo page as the water-cycle, fractions, waves, complex, trigonometry, thermal, photosynthesis and erosion packs, with its own
